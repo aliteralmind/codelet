@@ -1,0 +1,3 @@
+com.github.aliteralmind.templatefeather
+com.github.aliteralmind.templatefeather.examples
+com.github.aliteralmind.templatefeather.test

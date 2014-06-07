@@ -1,0 +1,294 @@
+<BODY>
+   <P><B><U>Codelet</U></B>: Automated insertion of <I>already unit-tested</I> example code (its source code, console output, and input text-files) into JavaDoc, using inline taglets--Codelet makes it possible to have <I>always accurate documentation</I>. As with all <A HREF="http://docs.oracle.com/javase/7/docs/technotes/guides/javadoc/taglet/overview.html#inlineexample">inline taglets</A>, codelets are automatically processed when generating your <A HREF="http://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html">JavaDoc</A>. Customizations include:<OL>
+      <LI>Displaying only a portion of an example's source code (code snippets).</LI>
+      <LI>Making the <I>first appearance</I> of a function, constructor, class, or field names into a clickable JavaDoc link.</LI>
+      <LI>Syntax highlighting with the <A HREF="http://alexgorbatchev.com/SyntaxHighlighter">SyntaxHighlighter</A> JavaScript library (<I>TO-DO</I>).</LI>
+   </OL></P>
+
+   <P><TABLE ALIGN="center" WIDTH="100%" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
+      <TD><B><U>Type</U></B></TD>
+      <TD><B><U>Example</U></B></TD>
+      <TD><B><U>Description</U></B></TD>
+   </TR><TR>
+      <TD>{@link com.github.aliteralmind.codelet.CodeletType#SOURCE_CODE {@.codelet}}</TD>
+      <TD>{@code {@.codelet fully.qualified.examples.ExampleClass}}</TD>
+      <TD>Replaced with all source-code lines from an example code's Java file.</TD>
+   </TR><TR>
+      <TD>{@link com.github.aliteralmind.codelet.CodeletType#CONSOLE_OUT {@.codelet.out}}</TD>
+      <TD>{@code {@.codelet.out fully.qualified.examples.ExampleClass}}
+      <BR> &nbsp; &nbsp; or
+      <BR>{@code {@.codelet.out fully.qualified.examples.ExampleClass("command", -1, "line", true, "params")}}</TD>
+      <TD>Executes the example code, with optional command line parameters, and displays its console output.</TD>
+   </TR><TR>
+      <TD>{@link com.github.aliteralmind.codelet.CodeletType#SOURCE_AND_OUT {@.codelet.and.out}}</TD>
+      <TD>{@code {@.codelet.and.out fully.qualified.examples.ExampleClass}}</TD>
+      <TD>Prints both source-code and its output.</TD>
+   </TR><TR>
+      <TD>{@link com.github.aliteralmind.codelet.CodeletType#FILE_TEXT {@.file.textlet}}</TD>
+      <TD>{@code {@.file.textlet fully\qualified\examples\doc-files\input.txt}}</TD>
+      <TD>Replaced with all lines in a plain-text file, such as for displaying an example code's input.</TD>
+   </TR></TABLE></P>
+
+   <H3>Contents</H3>
+
+   <P><OL>
+      <LI><A HREF="#install">Installation</A> and {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig configuration}</LI>
+      <LI>A first example: &quot;<A HREF="#xmpl_hello">Hello Codelet!</A>&quot;</LI>
+      <LI>Customizers:<OL>
+         <LI><A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#overview">Taglet syntax</A> and <A HREF="#xmpl_links">function</A></LI>
+         <LI>Examples:<OL>
+            <LI>Displaying only a portion of an example's source code: A <A HREF="#xmpl_snippet">code snippet</A></LI>
+            <LI><A HREF="#xmpl_elim_mlcs_pkg"/>Eliminating multiline comments</A> and the package declaration</LI>
+            <LI>Advanced: A <A HREF="#xmpl_links">custom customizer</A>: Making relevant functions into clickable JavaDoc links</LI>
+         </OL></LI>
+      </OL></LI>
+      <LI>{@linkplain com.github.aliteralmind.codelet.CodeletTemplateBase Templates}: Configuring <A HREF="{@docRoot}/com/github/aliteralmind.codelet/CodeletBaseConfig.html#tmpl_defaults">default</A> templates, {@linkplain com.github.aliteralmind.codelet.UserExtraGapGetter custom gaps}, and {@linkplain com.github.aliteralmind.codelet.TemplateOverrides overrides}</LI>
+      <LI>Debugging Codelet:<OL>
+         <LI>Configuring {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#GLOBAL_DEBUG_LEVEL global} and {@linkplain com.github.aliteralmind.codelet.CodeletInstance#DEBUG_LEVEL_PREFIX_PREFIX taglet} debugging levels</LI>
+         <LI>{@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#NAMED_DEBUGGERS_CONFIG_FILE named debuggers}: Extensive and specific control of debugging information, without the need for recompiling code.</LI>
+         <LI>{@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#BLACK_WHITE_LIST_TYPE Blacklisting} codelets, either in a single file or entire package, to focus the problem taglet.</LI>
+      </OL></LI>
+   </OL></P>
+
+   <P>(I use <CODE>com.github.xbn.testdev.{@link com.github.xbn.testdev.VerifyApplicationOutput}</CODE> to unit test applications.)</P>
+
+<a name="xmpl_hello"/><H2>
+
+   <A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Example: <U>Hello Codelet!</U> A basic use</H2>
+
+   <P>To display an example code's source and output, use {@code {@.codelet.and.out}}:</P>
+
+   <P style="font-size: 125%;"><B>{@code {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo}}</B></P>
+
+{@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo}
+
+   <P><I>({@linkplain com.github.aliteralmind.codelet.examples.HelloCodelet View full example}. Click on the left-arrow <IMG SRC="{@docRoot}/resources/left_arrow.gif"/> to return)</I></P>
+
+   <P>The source and output are placed into the {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#DEFAULT_AND_OUT_TMPL_PATH default <CODE>{&#64;.codelet.and.out}</CODE> template}. This template can be edited directly, or a different one can be associated to this taglet, or to all taglets existing in a package or file.</P>
+
+   <P>{@code {@.codelet.and.out}} is equivalent to</P>
+
+<BLOCKQUOTE>{@code {@.codelet}{@.codelet.out}}</BLOCKQUOTE>
+
+   <P>This is now a <A HREF="http://sscce.org">ready to use example</A>, which your users can copy, paste, compile, and run. The next examples demonstrate how to make example code clearer, by removing unwanted lines.</P>
+
+<a name="xmpl_snippet"/>
+
+   <H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Example: <U>Using a pre-made customizer: Displaying only a portion of the source code: A &quot;code snippet&quot;</U></H2>
+
+   <P>When a <A HREF="http://www.sscce.org/">fully-working example</A> is not necessary, an alternative is to display only a portion of the example's source code. This requires a <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#overview">customizer</A>.</P>
+
+   <P>The customizer for displaying a code-snippet is {@link com.github.aliteralmind.codelet.BasicCustomizers#lineRange(CodeletInstance, CodeletType, Integer, Boolean, String, Integer, Boolean, String, String) lineRange}:</P>
+
+   <P style="font-size: 125%;"><B><CODE>{&#64;.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:lineRange(1, false, "Adder adder", 2, false, "println(adder.getSum())", "^ &nbsp; &nbsp; &nbsp;")}</CODE></B></P>
+
+{@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:lineRange(1, false, "Adder adder", 2, false, "println(adder.getSum())", "^      ")}
+
+   <P><I>({@linkplain com.github.aliteralmind.codelet.examples.LineRange Full example})</I></P>
+
+   <P>This starts with the line (containing) {@code "Adder adder"}, and ends with the <I>second</I> occurance of {@code "println(adder.getSum())"}. This also eliminates the extra indentation, which in this case is six spaces.</P>
+
+   <P>The {@code false} parameters indicate that the strings are treated literally. Changing them to {@code true} treats them as <A HREF="http://stackoverflow.com/questions/22937618/reference-what-does-this-regex-mean/22944075#22944075">regular expressions</A>.</P>
+
+   <P>When using a customizer with the {@code {@.codelet.and.out}} taglet, only the source code is altered. To customize the output as well, use</P>
+
+   <P style="font-size: 125%;"><CODE>{&#64;.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo:customizerForSourceCode()}
+   <BR>{&#64;.codelet.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:customizerForOutput()}</CODE></P>
+
+<a name="xmpl_elim_mlcs_pkg"/>
+
+   <H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Example: <U>Using a pre-made customizer: Eliminating multi-line comments and the package declaration</U></H2>
+
+   <P>An alternative to displaying a <A HREF="#xmpl_snippet">code snippet</A> is to {@linkplain com.github.aliteralmind.codelet.BasicCustomizers#eliminateCmtBlocksPkgLineAndPkgReferences(CodeletInstance, CodeletType, Boolean, Boolean, Boolean) eliminate all multi-line comments}:</P>
+
+   <P style="font-size: 125%;"><B><CODE>{&#64;.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:eliminateCmtBlocksPkgLineAndPkgReferences(true, true, false)}</CODE></B></P>
+
+{@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:eliminateCmtBlocksPkgLineAndPkgReferences(true, true, false)}
+
+   <P><I>({@linkplain com.github.aliteralmind.codelet.examples.EliminateCommentBlocksAndPackageDeclaration Full example})</I></P>
+
+   <P>The first {@code true} indicates all multi-line comments should be eliminated, including the license and all JavaDoc blocks. The second {@code true} indicates the <A HREF="http://docs.oracle.com/javase/tutorial/java/package/createpkgs.html">package declaration</A> line should be eliminated. Setting the third parameter to {@code true} would also eliminate any other references to the package that happen to exist elsewhere in the code.</P>
+
+<a name="xmpl_links"/>
+
+   <H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Example: <U>Advanced customization: Making most important functions into clickable JavaDoc links</U></H2>
+
+   <P>The final example displays the same line snippet as in <A HREF="#xmpl_snippet">a previous example</A>. Since it is not possible to know what strings should be made clickable, nor the method (or constructor, class, or field) it represents, this requires a custom <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#overview">customizer function</A>. As a reminder, here is the original code-snippet:</P>
+
+   <P style="font-size: 125%;"><B><CODE>{&#64;.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:lineRange(1, false, "Adder adder", 2, false, "println(adder.getSum())", "^ &nbsp; &nbsp; &nbsp;")}</CODE></B></P>
+
+{@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:lineRange(1, false, "Adder adder", 2, false, "println(adder.getSum())", "^      ")}
+
+   <P>All customizer functions return a {@link com.github.aliteralmind.codelet.CustomizationInstructions} object, which is made up of:<OL>
+      <LI>A {@linkplain com.github.aliteralmind.codelet.CustomizationInstructions#filter(TextLineFilter) filter}: Which lines should be kept?</LI>
+      <LI>An {@linkplain com.github.aliteralmind.codelet.CustomizationInstructions#alterer(AllTextLineAlterer) alterer}: What alterations should be made to the kept lines?</LI>
+      <LI>And a <!-- GENERIC PARAMETERS FAIL IN @link --><A HREF="com/github/aliteralmind/codelet/CustomizationInstructions/html#template(T)">template</A>: The context into which the fully-customized text is placed, and whose rendered output actually replaces the taglet.</LI>
+   </OL></P>
+
+   <P>The same filter and template as in the original example (as used by its customizer function: <CODE>{@link com.github.aliteralmind.codelet.BasicCustomizers}.{@link com.github.aliteralmind.codelet.BasicCustomizers#lineRange(CodeletInstance, CodeletType, Integer, Boolean, String, Integer, Boolean, String, String) lineRange}</CODE>) can also be used here:<OL>
+      <LI>Filter: <CODE>{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor NewLineFilterFor}.{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor#lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable) lineRange}</CODE></LI>
+      <LI>Template: The {@linkplain com.github.aliteralmind.codelet.CustomizationInstructions#defaultOrOverrideTemplate(Appendable) default}</LI>
+   </OL>Replacing strings with links requires a specialized alterer. There are four sub-alterers, which are done in order<OL>
+      <LI>Escape all text for html display:
+      <BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.linefilter.NewTextLineAltererFor}.{@link com.github.aliteralmind.codelet.linefilter.NewTextLineAltererFor#escapeHtml() escapeHtml}()</CODE></LI>
+      <LI>Eliminate the extra indentation, which is six spaces:
+      <BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor}.{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor#eliminateIndentationOrNull(String, Appendable) eliminateIndentationOrNull}("^ &nbsp; &nbsp; &nbsp;", null)</CODE></LI>
+   </OL></P>
+
+   <A NAME="xmpl_links_debug"></A><H4>And (3) replace the {@code Adder} constructor and (4) {@code "getSum()"} function names to JavaDoc links.</H4>
+
+   <P>To replace the {@code Adder} constructor call to a link, use</P>
+
+<BLOCKQUOTE><CODE>{@link com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum}.{@link com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum#constructor(CodeletInstance, int, Class, String, Appendable, Appendable, Appendable, Appendable) constructor}(instance, 1, Adder.class, &quot;(*)&quot;, null, null)</CODE></BLOCKQUOTE>
+
+   <P><OL>
+      <LI>{@code 1} indicates the first occurance of {@code "Adder("} should be linked,</LI>
+      <LI>{@code "(*)"} is the constructor's parameter-list {@linkplain com.github.aliteralmind.codelet.simplesig.ConstructorParamSearchTerm search-term}, in this case meaning <I>one or more of any type</I>,</LI>
+      <LI>{@code Adder.class} is the link-target class, and</LI>
+      <LI>The {@code null} parameters are for optional debugging. Possible values include:<OL>
+         <LI>{@code null}: No debugging is output</LI>
+         <LI>{@code System.out}: Prints to the console.</LI>
+         <LI>{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getDebugApblIfOn(int, CodeletInstance) getDebugApblIfOn}{@code (3, instance)}
+         <BR>outputs only when either the {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#GLOBAL_DEBUG_LEVEL global} or {@linkplain com.github.aliteralmind.codelet.CodeletInstance#getDebugLevel() taglet debugging level} is set to three or greater.</LI>
+         <LI>{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getDebugApblIfOn(CodeletInstance, String) getDebugApblIfOn}{@code (instance, "Adder.constructor.link.replacer")}
+         <BR>outputs only when the {@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#NAMED_DEBUGGERS_CONFIG_FILE named debuggers} called {@code "Adder.constructor.link.replacer"} is active. Making a named debug level active is done by setting it to either zero, or to a number less-than-or-equal to the current debugging level.</LI>
+      </OL></LI>
+   </OL></P>
+
+   <P>Simlarly, here is the {@code getSum()} function link alterer:</P>
+
+<BLOCKQUOTE><CODE>NewJDLinkForWordOccuranceNum.{@link com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum#method(CodeletInstance, int, Class, String, Appendable, Appendable, Appendable, Appendable) method}(instance, 1, Adder.class, "getSum()", null, null)</CODE></BLOCKQUOTE>
+
+   <P>Where {@code "getSum()"} is the function signature {@linkplain com.github.aliteralmind.codelet.simplesig.MethodSigSearchTerm search-term}.</P>
+
+<P>Putting it all together:</P>
+
+<P><B>The taglet:</B></P>
+
+<BLOCKQUOTE>{@code {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:com.github.aliteralmind.codelet.examples.LineRangeWithLinksCompact#adderDemo_lineSnippetWithLinks()}}</BLOCKQUOTE>
+
+<P><B>Its output:</B></P>
+
+{@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:com.github.aliteralmind.codelet.examples.LineRangeWithLinksCompact#adderDemo_lineSnippetWithLinks()}
+
+   <P>(In the {@linkplain com.github.aliteralmind.codelet.examples.LineRangeWithLinksCompact full example}
+   <BR> &nbsp; &nbsp; <CODE>com.github.aliteralmind.codelet.examples.LineRangeWithLinksCompact#adderDemo_lineSnippetWithLinks()</CODE>
+   <BR>is shortened to
+   <BR> &nbsp; &nbsp; <CODE>adderDemo_lineSnippetWithLinks()</CODE>
+   <BR>because the containing class for a customizer function <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#requirements">defaults</A> to the class containing the taglet--if it is indeed a class.)</P>
+
+<P><B>And the customizer function itself (version 1 of 3):</B></P>
+
+{@.codelet com.github.aliteralmind.codelet.examples.LineRangeWithLinksCompact:com.github.aliteralmind.codelet.examples.LineRangeWithLinksCompact#LineRangeWithLinksCompact_adderDemo_lineRangeWithLinks(false)}
+
+   <P>Notes:<OL>
+      <LI>The {@link com.github.aliteralmind.codelet.CodeletInstance} and {@code com.github.aliteralmind.codelet.CodeletType} parameters are <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#requirements">required</A> as the first and in all customizer functions, and are ommitted from all taglet-calls.</LI>
+      <LI>Alterations are made in the the order they appear in the array.</LI>
+      <LI>To link to an external library, its package-list must be {@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#EXTERNAL_DOC_ROOT_URL_FILE configured}.</LI>
+      <LI>Arbitrary alterers may be added to the array, such as {@linkplain com.github.aliteralmind.codelet.linefilter.NewTextLineAltererFor#literalReplacement(String, String, ReplacedInEachInput, Appendable, ValidResultFilter) literal} or {@linkplain com.github.aliteralmind.codelet.linefilter.NewTextLineAltererFor#replacement(Pattern, String, ReplacedInEachInput, Appendable, ValidResultFilter) regular expression} replacements, and {@linkplain com.github.aliteralmind.codelet.linefilter.NewTextLineAltererFor#prependLineNumber(int, String) prepending line numbers}</LI>
+      <LI>When using <A HREF="http://alexgorbatchev.com/SyntaxHighlighter">SyntaxHighlighter</A> with the <A HREF="http://alexgorbatchev.com/SyntaxHighlighter/manual/installation.html">&quot;<CODE>&lt;PRE&gt;</CODE> method&quot;</A>, it is not possible to have any links, due to its limitation that all less-than characters (<CODE>'&lt;'</CODE>) must be html escaped.</LI>
+   </OL></P>
+
+<P><B>The same function</B>, with documentation on the available {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#GLOBAL_DEBUG_LEVEL debugging} parameters (version 2 of 3):</P>
+
+{@.codelet com.github.aliteralmind.codelet.examples.LineRangeWithLinks:com.github.aliteralmind.codelet.examples.LineRangeWithLinksCompact#LineRangeWithLinksCompact_adderDemo_lineRangeWithLinks(true)}
+
+<P><B>And again, this time with automated {@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#NAMED_DEBUGGERS_CONFIG_FILE named debuggers}</B> (version 3 of 3, presented as a <A HREF="http://sscce.org">fully-working, ready-to-use</A> class):</P>
+
+{@.codelet com.github.aliteralmind.codelet.examples.LineRangeWithLinksAndNamedDebugs:com.github.aliteralmind.codelet.examples.zCodeletCustomizers#LineRangeWithLinksAndNamedDebugs_adderDemo_lineRangeWithLinks()}
+
+<P>This requires all the following lines to be added the named-debugger {@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#NAMED_DEBUGGERS_CONFIG_FILE configuration file}:</P>
+
+<BLOCKQUOTE><PRE>LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.allalterer=-1
+LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.elimindent=-1
+LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.filter.blockend.validfilter=-1
+LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.filter.blockend=-1
+LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.filter.blockstart.validfilter=-1
+LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.filter.blockstart=-1
+LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.filter=-1
+LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.link.constructor.searchterm.doesmatch=-1
+LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.link.constructor.searchterm=-1
+LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.link.constructor.validfilter=-1
+LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.link.constructor=-1
+LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.link.getSum.searchterm.doesmatch=-1
+LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.link.getSum.searchterm=-1
+LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.link.getSum.validfilter=-1
+LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.link.getSum=-1
+LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.template=-1</PRE></BLOCKQUOTE>
+
+<P><I>To turn an item off, set it to {@code -1}. To turn it on, set it to zero.</I></P>
+
+<a name="install"/><H2>
+
+   <A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: <U>Installation: Using Codelet</U></H2>
+
+   <P>(For <B>building</B> codelet, see <A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/overview-summary.html#install">XBN-Java's installation</A> instructions.)</P>
+
+   <P><I>Executing</I> Codelet via <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html">{@code javadoc.exe}</A> requires the <A HREF="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">1.7</A> version of the {@code javadoc} tool. The code <I>using</I> Codelet (whose JavaDoc has codelet-taglets in it) has no version restrictions.</P>
+
+   <P>The Codelet library itself requires <A HREF="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">Java 1.7</A>.</P>
+
+   <P><B>Installation instructions for using Codelet</B></P>
+
+   <P>(For <B>building</B>, see XBN-Java's <A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/overview-summary.html#install">installation instructions</A>. The Codelet build process is derived from, and is almost the same as, XBN-Java's build process.)</P>
+
+   <P>There are three steps to installing Codelet:<OL>
+      <LI>Adding the necessary items to your classpath, and</LI>
+      <LI><A HREF="#install_taglets">Configuring {@code javadoc}</A> to recognize Codelet taglets.</LI>
+      <LI>{@linkplain com.github.aliteralmind.codelet.CodeletBootstrap Configuring Codelet} itself.</LI>
+   </OL></P>
+
+   <P><B>Installing required JARs onto your <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html">classpath</A>.</B></P>
+
+   <P>Add the following elements to your classpath:</P>
+
+   <P><UL>
+      <LI>{@code INSTALLATION_DIR\codelet\z_build\jar_dependencies\commons-io-2.4.jar}</LI>
+      <LI>{@code INSTALLATION_DIR\codelet\z_build\jar_dependencies\commons-lang3-3.3.2.jar}</LI>
+      <LI>{@code INSTALLATION_DIR\codelet\z_build\jar_dependencies\commons-collections4-4.0.jar}</LI>
+      <LI>{@code INSTALLATION_DIR\codelet\z_build\jar_dependencies\guava-16.0.1.jar}</LI>
+      <LI>{@code INSTALLATION_DIR\codelet\z_build\jar_dependencies\xbnjava_0p1p0_all.jar}</LI>
+      <LI>{@code INSTALLATION_DIR\codelet\z_build\jar_dependencies\templatefeather_0p1p0_all.jar}</LI>
+      <LI>{@code INSTALLATION_DIR\codelet\z_build\jar_dependencies\codelet_0p1p0_all.jar}</LI>
+   </UL></P>
+
+   <P>Details and alternatives:<OL>
+      <LI>Codelet: Exactly one of the following must be used (The above classpath-string assumes you've chosen {@code "codelet_0p1p0_all.jar"}):<OL>
+         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_all.jar">{@code codelet_0p1p0_all.jar}</A>: Core classes, example code, and unit tests</LI>
+         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_core.jar">{@code codelet_0p1p0_core.jar}</A>: Core classes only</I></LI>
+      </OL></LI>
+      <LI><A HREF="http://codelet.aliteralmind.com">XBN-Java</A>: Exactly one of the following must be used (The above classpath-string assumes {@code "xbnjava_0p1p0_all.jar"}):<OL>
+         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/download/xbnjava_0p1p0_core.jar">{@code xbnjava_0p1p0_core.jar}</A></LI>
+         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/download/xbnjava_0p1p0_all.jar">{@code xbnjava_0p1p0_all.jar}</A></I></LI>
+      </OL>While {@code commons-collections4-4.0.jar} is required by portions of XBN-Java, it may be safe to omit it. See XBN-Java's <A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/overview-summary.html#install">installation instructions</A> for details.</LI>
+      <LI><A HREF="http://templatefeather.aliteralmind.com">Template Featherweight</A>: Exactly one of the following must be used (The above classpath-string assumes {@code "templatefeather_0p1p0_all.jar"}):<OL>
+         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/templatefeather_0p1p0_core.jar">{@code templatefeather_0p1p0_core.jar}</A></LI>
+         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/templatefeather_0p1p0_all.jar">{@code templatefeather_0p1p0_all.jar}</A></I></LI>
+      </OL><I>{@code xbnjava_0p1p0_templatefeather_needed_only.jar} must be eliminated from your classpath, if it's there.</I></LI>
+      <LI><A HREF="https://code.google.com/p/guava-libraries/">Google Guava</A>, version 16.0.1</LI>
+   </OL></P>
+
+   <a name="install_taglets"/><H2><A HREF="#install"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Installation: <U>Custom taglets and the Codelet configuration directory</U></H2>
+
+   <P>Executing <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html">{@code javadoc}</A> in turn executes Codelet. Its four custom taglets must be registered, and the Codelet configuration directory must be passed through as a <A HREF="http://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html">system property</A>.</P>
+
+   <P>Executing Codelet at the <A HREF="http://docs.oracle.com/javase/7/docs/technotes/guides/javadoc/taglet/overview.html#writing">command-line</A>:</P>
+
+<BLOCKQUOTE>{@code javadoc -taglet com.github.aliteralmind.codelet.taglet.SourceCodeTaglet -taglet com.github.aliteralmind.codelet.taglet.SourceAndOutTaglet -taglet com.github.aliteralmind.codelet.taglet.ConsoleOutTaglet -taglet com.github.aliteralmind.codelet.taglet.FileTextTaglet -J-Dcodelet_config_dir=C:\java_code\codelet_0p1p0\doc-files\}</BLOCKQUOTE>
+
+   <P>Information on JavaDoc's <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#J">{@code -J} flag</A>, and <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html">{@code java}</A>'s <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html#CBBIJCHG">{@code -D} flag</A> (for the {@code -D} link, scroll down a bit).</P>
+
+   <P>Executing Codelet with <A HREF="http://ant.apache.org/">Apache Ant</A>:</P>
+
+<BLOCKQUOTE><PRE>&lt;<A HREF="file:///C:/applications/programming/apache-ant-1.9.2/manual/Tasks/javadoc.html">javadoc</A> packagenames="my.package" sourcepath="C:\java_code\" destdir="${dir_build_docs_javadoc}"
+   additionalparam="-J-Dcodelet_config_dir=C:\java_code\codelet_0p1p0\doc-files\"&gt;
+      &lt;taglet name=&quot;com.github.aliteralmind.codelet.taglet.SourceCodeTaglet&quot;&gt;
+      &lt;taglet name=&quot;com.github.aliteralmind.codelet.taglet.SourceAndOutTaglet&quot;&gt;
+      &lt;taglet name=&quot;com.github.aliteralmind.codelet.taglet.ConsoleOutTaglet&quot;&gt;
+      &lt;taglet name=&quot;com.github.aliteralmind.codelet.taglet.FileTextTaglet&quot;/&gt;
+   &lt;/javadoc&gt;</PRE></BLOCKQUOTE>
+
+   <P>This assumes that Codelet is on your Ant-classpath.</P>
+
+
+</BODY>

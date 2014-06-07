@@ -1,0 +1,59 @@
+<project name="codelet_refresh" default="help" basedir=".">
+<!-- Clean targets...START -->
+
+      <target name="delete_build"
+            description="Delete the entire build directory (not ${dir_classes})">
+         <delete dir="${dir_build}" includeemptydirs="true" quiet="true"/>
+      </target>
+         <target name="docclean"
+               description="Delete the entire build documentation directory">
+            <delete dir="${dir_bld_docs}" includeemptydirs="true" quiet="true"/>
+         </target>
+         <target name="delete_build_javadoc"
+               description="Delete the build JavaDoc directory">
+            <delete dir="${dir_build_docs_javadoc}" includeemptydirs="true" quiet="true"/>
+         </target>
+         <target name="delete_classes"
+               description="Delete the xbn.** class files in both build/classes and the sandbox (not ${dir_build})">
+               <!-- Note delete is of CLASSES/xbn, but mkdir below is only of CLASSES (parent) -->
+            <delete quiet="true" includeemptydirs="true" dir="${dir_classes}codelet"/>
+            <delete quiet="true">
+               <fileset dir="${dir_sandbox}">
+                  <include name="**${fs}*.class"/>
+               </fileset>
+            </delete>
+      </target>
+      <target name="delete_working"
+            description="Delete the working directory">
+         <delete dir="${dir_working}" quiet="true"/>
+      </target>
+
+      <target name="clean"
+            description="Calls delete_build, delete_classes and delete_working">
+         <antcall target="delete_build"/>
+         <antcall target="delete_classes"/>
+         <antcall target="delete_working"/>
+      </target>
+<!-- Clean targets...END -->
+
+<!-- Prepare/refresh targets...START -->
+   <target name="prepare"
+         description="Create all directories outside of the sandbox, necessary for building xbn">
+      <mkdir dir="${dir_working}"/>
+
+      <!-- Never deleted! Created here just in case. -->
+      <mkdir dir="${build.class.dir}"/>
+
+      <!-- The delete above is CLASSES/xbn, but mkdir here is only of CLASSES (parent) -->
+      <mkdir dir="${dir_build_download}"/>
+      <mkdir dir="${dir_build_docs_javadoc}"/>
+   </target>
+
+   <target name="refresh" description="Calls clean then prepare">
+      <antcall target="clean"/>
+      <antcall target="prepare"/>
+   </target>
+<!-- Prepare/refresh targets...END -->
+
+</project>
+

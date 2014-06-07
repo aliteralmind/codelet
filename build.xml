@@ -1,0 +1,206 @@
+<project name="codelet" default="help" basedir=".">
+
+   <property environment="ENV"/>
+
+<!-- Global properties...START -->
+
+   <!--
+      Read in the properties file.  For each directory variable in the property file...
+         xbn.dir.whatever=subdir
+      ...copy it into this file, replacing the name's periods with underscores, and its value with the *entire* directory...
+         xbn_dir_whatever=${xbn.dir.parent}\${xbn.dir.whatever}
+   -->
+   <property file="build.properties"/>
+
+   <property name="fs" value="${file.separator}"/>      <!-- Shortcut -->
+
+   <property name="project_name_fs" value="${project.name}${fs}"/>
+   <property name="project_name_for_dir" value="${project.name}_${version.number.for.dir.name}"/>
+
+   <!-- com.github.xbn..., ignoring base directories -->
+   <property name="com_github_alit" value="com${fs}github${fs}aliteralmind${fs}"/>
+      <property name="cg_alit_codelet" value="${com_github_alit}${project.name}${fs}"/>
+         <property name="cga_codelet_examples" value="${cg_alit_codelet}examples${fs}"/>
+         <property name="cga_codelet_test" value="${cg_alit_codelet}test${fs}"/>
+
+   <!-- Using base directories -->
+   <property name="dir_sandbox_parent" value="${sandbox.dir}${fs}"/>
+      <property name="dir_sandbox" value="${dir_sandbox_parent}${project_name_fs}"/>
+         <property name="dir_sandbox_src" value="${dir_sandbox}src${fs}"/>
+         <property name="dir_sandbox_examples" value="${dir_sandbox}examples${fs}"/>
+         <property name="dir_sandbox_test" value="${dir_sandbox}test${fs}"/>
+         <property name="dir_sandbox_bldfiles" value="${dir_sandbox}z_build${fs}"/>
+            <property name="dir_sandbox_jar_dependencies" value="${dir_sandbox_bldfiles}jar_dependencies${fs}"/>
+
+   <property name="dir_build_parent" value="${build.dir}${fs}"/>
+      <property name="dir_classes_parent" value="${build.class.dir}${fs}"/>
+      <property name="dir_classes" value="${dir_classes_parent}${com_github_alit}"/>
+   <property name="dir_build" value="${dir_build_parent}${project_name_for_dir}${fs}"/>
+   <property name="dir_build_download" value="${dir_build}download${fs}"/>
+      <property name="dir_bld_docs" value="${dir_build}documentation${fs}"/>
+         <property name="dir_build_docs_javadoc" value="${dir_bld_docs}javadoc${fs}"/>
+
+      <property name="dir_working" value="${working.dir}${fs}${project_name_fs}"/>
+
+      <property name="ant.regexp.regexpimpl" value="org.apache.tools.ant.util.regexp.JakartaOroRegexp"/>
+
+<!-- Global properties...END -->
+
+   <!-- See: http://stackoverflow.com/questions/5103384/ant-warning-includeantruntime-was-not-set -->
+   <property name="includeantruntime" value="false"/>
+
+<!-- CLASSPATH and custom tasks...START -->
+   <path id="project_classpath">
+      <fileset dir="${dir_sandbox_jar_dependencies}">
+         <include name="commons-collections4-4.0.jar"/>
+         <include name="commons-io-2.4.jar"/>
+         <include name="commons-lang3-3.3.2.jar"/>
+         <include name="junit-4.8.2.jar"/>
+         <include name="xbnjava_0p1p0_all.jar"/>
+         <include name="templatefeather_0p1p0_all.jar"/>
+         <include name="guava-16.0.1.jar"/>
+      </fileset>
+      <pathelement location="${dir_classes}"/>
+   </path>
+
+   <taskdef name="propfromrplc" classname="com.github.xbn.testdev.ant.ATPropFromRplc" classpathref="project_classpath"/>
+   <taskdef name="replaceindent" classname="com.github.xbn.testdev.ant.ATPropFromRplc" classpathref="project_classpath"/>
+
+<!-- CLASSPATH and custom tasks...END -->
+   <target name="help" description="Getting started information">
+      <echo>This is the Ant build file for ${project.name}.  Try
+ant -projecthelp
+
+Installation of the Codelet build process is done in a single step: By changing 'base.dir', in build.properties, to your installation directory.
+
+To do a full build of Codelet:  ant cleanpublish</echo>
+   </target>
+
+   <property name="dir_sandbox_ant_subxml" value="${dir_sandbox_bldfiles}ant_sub_files${fs}"/>
+   <import file="${dir_sandbox_ant_subxml}backup.xml"/>
+   <import file="${dir_sandbox_ant_subxml}compile.xml"/>
+   <import file="${dir_sandbox_ant_subxml}javadoc.xml"/>
+   <import file="${dir_sandbox_ant_subxml}javadoc_replace_headers_in_one_dir.xml"/>
+   <import file="${dir_sandbox_ant_subxml}refresh.xml"/>
+
+   <!-- For Jeff Epstein only. Does not exist in published version: -->
+      <import file="${dir_sandbox_ant_subxml}gitonly_sandbox__execute_from_main_sandbox_only.xml"
+         optional="true"/>
+
+   <target name="copyxbnandtmpljars" description="Duplicates the 'all' jar files from the XBN-Java and Template Feather build directories">
+      <copy file="${xbn_project_jar_in_build}" todir="${dir_sandbox_jar_dependencies}"/>
+      <copy file="${templatefeather_project_jar_in_build}" todir="${dir_sandbox_jar_dependencies}"/>
+   </target>
+   <target name="-autocopyxbnandtmpljars" if="do.auto.copy.xbn.jar">
+      <antcall target="copyxbnandtmpljars"/>
+   </target>
+
+   <target name="cleanpublish" description="refresh, publish">
+      <antcall target="refresh"/>
+      <antcall target="publish"/>
+   </target>
+   <target name="publish" description="Publish Codelet: Compile main code (compileproper, compileproper2), examples (compileexample, compileexample2), tests (compileunit), run units (unit), create jars (jar), JavaDoc (doc), and download zips (zip)">
+      <record name="${dir_build}build_log.txt" action="start"/>
+      <antcall target="-autocopyxbnandtmpljars"/>
+      <antcall target="compileproper"/>
+      <antcall target="compileproper2"/>
+      <antcall target="publish2"/>
+      <record name="${dir_build}build_log.txt" action="stop"/>
+   </target>
+
+   <target name="publish2" description="Publish codelet, starting with compliexmpl.">
+      <antcall target="compileexample"/>
+      <antcall target="compileexample2"/>
+      <antcall target="publish3"/>
+   </target>
+
+   <target name="publish3" description="Publish codelet, starting with compileunit">
+      <antcall target="compileunit"/>
+      <antcall target="unit"/>
+      <antcall target="jar"/>
+      <antcall target="publish4"/>
+   </target>
+
+   <target name="publish4" description="Publish codelet, starting with doc">
+      <antcall target="doc"/>
+      <antcall target="zip"/>
+   </target>
+
+   <target name="unit" description="Executes com.github.xbn.unittests.UnitTestRunner">
+      <java classname="com.github.aliteralmind.codelet.test.UnitTestRunner"/>
+   </target>
+
+      <property name="download_zip_source_name" value="${project_name_for_dir}_source_code.zip"/>
+      <property name="download_zip_source" value="${dir_build_download}${download_zip_source_name}"/>
+      <property name="download_zip_docs_name" value="${project_name_for_dir}_documentation.zip"/>
+      <property name="download_zip_docs" value="${dir_build_download}${download_zip_docs_name}"/>
+   <target name="zip" description="Creates end-user download archives for source-code, documentation, and jars. Also creates placeholder-only build.properties and codelet.properties DIRECTLY INTO THE SANDBOX, with a 'placeholder__' prefix. Both the live and placeholder files are committed.">
+      <copy todir="${dir_build}">
+         <fileset dir="${dir_sandbox}" includes="LICENSE, README.md"/>
+      </copy>
+
+      <echo>xbnjavabuild.CreateTempBuildAndCodeletPropsForPublish</echo>
+      <java classname="xbnjavabuild.CreateTempBuildAndCodeletPropsForPublish">
+         <arg value="${dir_sandbox}"/>
+         <arg value="${codelet.config.dir}${fs}"/>
+         <arg value="subproject"/>
+         <arg value="debugminimal"/>
+      </java>
+
+      <echo>Creating source code download zip.</echo>
+      <property name="download_zip_temp_location" value="${dir_working}${download_zip_source_name}"/>
+      <delete file="${download_zip_source}"/>
+
+      <zip destfile="${download_zip_temp_location}" whenempty="fail">
+         <fileset dir="${dir_sandbox}">
+            <exclude name=".git/**"/>
+<!--
+      BOTH (either) WORK:
+            <exclude name="**/.git/**"/>
+            <exclude name=".git/**"/>
+
+      DOES NOT WORK:
+            <exclude name="**/.git"/>
+            <exclude name=".git"/>
+ -->
+            <exclude name="**/offline_package_lists/*"/>
+            <exclude name="**/offline_package_lists/*"/>
+            <exclude name="build.properties"/>
+            <exclude name="**/codelet.properties"/>
+         </fileset>
+      </zip>
+
+      <copy file="${dir_sandbox}placeholder__build.properties"
+         tofile="${dir_working}build.properties"/>
+      <mkdir dir="${dir_working}${codelet.config.dir}"/>
+      <copy file="${dir_sandbox}${codelet.config.dir}${fs}placeholder__codelet.properties"
+         tofile="${dir_working}${codelet.config.dir}${fs}codelet.properties"/>
+
+      <zip destfile="${download_zip_temp_location}" update="true">
+         <fileset dir="${dir_working}">
+            <include name="build.properties"/>
+            <include name="**/codelet.properties"/>
+         </fileset>
+         <fileset dir="${dir_sandbox}">
+            <include name="**/offline_package_lists/java.txt"/>
+         </fileset>
+      </zip>
+
+      <move file="${download_zip_temp_location}" todir="${dir_build_download}"/>
+
+      <echo>Creating documentation download zip.</echo>
+      <zip destfile="${download_zip_docs}" whenempty="fail"
+         basedir="${dir_build_parent}"
+         includes="${project_name_for_dir}${fs}documentation/**/*"/>
+   </target>
+
+
+   <!-- See http://ant.apache.org/faq.html#propertyvalue-as-name-for-property -->
+   <macrodef name="propertywithdynamicallynamedvalue">
+      <attribute name="propname"/>
+      <attribute name="valuepropname"/>
+      <sequential>
+         <property name="@{propname}" value="${@{valuepropname}}"/>
+      </sequential>
+   </macrodef>
+</project>

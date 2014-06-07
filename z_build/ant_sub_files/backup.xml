@@ -1,0 +1,25 @@
+<project name="codelet_backup" basedir=".">
+   <property name="projectinfo" value="Creates the download zip-archive for XBNPE users, and the documentation directory for FTP-ing to xbnpe.aliteralmind.com. These tasks take a while, consider using the '-verbose' ant-parameter."/>
+
+   <target name=".bkp_time_stamp">
+      <tstamp>
+         <format property="backup_time_now" pattern="yyyyMMdd_kkmm_ss"/>
+      </tstamp>
+   </target>
+
+   <target name="backup" depends=".bkp_time_stamp">
+          <echo>Create backup file with no git-related files.</echo>
+
+      <zip destfile="${dir_sandbox_parent}${project.name}_${backup_time_now}_no_git.zip" duplicate="fail"
+            basedir="${dir_sandbox_parent}"
+            excludes="**\.git*, **\.git*\**"
+            includes="${project_name_fs}\**"/>
+   </target>
+
+   <target name="backupfull" depends=".bkp_time_stamp">
+          <echo>Create backup file including git-related files.</echo>
+      <zip destfile="${dir_sandbox_parent}${project.name}_${backup_time_now}_with_git.zip" duplicate="fail"
+            basedir="${dir_sandbox_parent}"
+            includes="${project_name_fs}\**"/>
+   </target>
+</project>

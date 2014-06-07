@@ -1,0 +1,14 @@
+public class NameClass  {
+   private final String name;
+   public NameClass(String name)  {
+      this.name = name;
+   }
+
+   public String getName()  {
+      return  name;
+   }  //end snippet
+
+   public String getLowerCase()  {
+      return  getName().toLowerCase();
+   }
+}

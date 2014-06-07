@@ -1,0 +1,1 @@
+<BLOCKQUOTE><PRE class="brush: java">%body%</PRE></BLOCKQUOTE>

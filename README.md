@@ -1,0 +1,3 @@
+**Codelet**: Automated insertion of *already unit-tested* example code (its source code, console output, and input text-files) into JavaDoc using inline taglets--Codelet makes it possible to have *always accurate documentation*. As with all inline taglets, codelets are automatically processed when generating your JavaDoc. Customizations include: [-] Displaying only a portion of an example's source code (code snippets), [-] Making the *first appearance* of a class, function, or object names into a clickable JavaDoc link, and [-] Syntax highlighting with the [SyntaxHighlighter](http://alexgorbatchev.com/SyntaxHighlighter) JavaScript library.
+
+Documentation: http://codelet.aliteralmind.com

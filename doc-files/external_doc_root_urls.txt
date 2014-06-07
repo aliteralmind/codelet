@@ -1,0 +1,8 @@
+templatefeather     http://aliteralmind.com/docs/computer/programming/templatefeather/documentation/javadoc/
+xbnjava             http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/
+commons_collections http://commons.apache.org/proper/commons-collections/javadocs/api-release/
+commons_io          http://commons.apache.org/proper/commons-io/javadocs/api-2.4/
+commons_lang        http://commons.apache.org/proper/commons-lang/javadocs/api-release/
+java                http://docs.oracle.com/javase/7/docs/api/
+javadoc             http://docs.oracle.com/javase/7/docs/jdk/api/javadoc/doclet/
+junit               http://junit.sourceforge.net/javadoc/

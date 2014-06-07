@@ -1,0 +1,2 @@
+<H3>File text</H3>
+<BLOCKQUOTE><PRE>%body%</PRE></BLOCKQUOTE>

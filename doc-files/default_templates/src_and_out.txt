@@ -1,0 +1,4 @@
+<H3>Example</H3>
+<BLOCKQUOTE><PRE class="brush: java">%body_source_code%</PRE></BLOCKQUOTE>
+<P><B>Output:</B></P>
+<BLOCKQUOTE><PRE style="background-color:#EEEEEE;">%body_console_output%</PRE></BLOCKQUOTE>

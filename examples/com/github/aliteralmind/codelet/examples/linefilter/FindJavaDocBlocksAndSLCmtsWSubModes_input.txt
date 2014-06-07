@@ -1,0 +1,23 @@
+/*
+   Not a JavaDoc block. The following sub-mode block-start marker is ignored (it's seen as a parent-block single-line), because it's not in a JavaDoc block.
+
+      //sub-mode 1 block...START
+ */
+public class StayClassy  {
+   /**
+      <P>A JavaDoc paragraph (1)</P>
+
+      <P>A JavaDoc paragraph (2)</P>        //sub-mode 1 block...START
+
+      <P>A JavaDoc paragraph (3)</P>
+
+      <P>A JavaDoc paragraph (4)</P>        //sub-mode 1 block...END
+
+      <P>A JavaDoc paragraph (5)</P>
+
+    **/
+   public StayClassy()  {
+      //Do stuff
+   }
+}
+
