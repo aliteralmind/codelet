@@ -1,7 +1,5 @@
 /*license*\
-   Codelet
-
-   Copyright (C) 2014, Jeff Epstein (aliteralmind __DASH__ github __AT__ yahoo __DOT__ com)
+   Codelet: Copyright (C) 2014, Jeff Epstein (aliteralmind __DASH__ github __AT__ yahoo __DOT__ com)
 
    This software is dual-licensed under the:
    - Lesser General Public License (LGPL) version 3.0 or, at your option, any later version;
@@ -43,7 +41,8 @@ package  com.github.aliteralmind.codelet;
 /**
    <P>Pre-made Codelet customizers.</P>
 
-   @author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+   @since  0.1.0
+   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 public class BasicCustomizers  {
    /**
@@ -51,7 +50,7 @@ public class BasicCustomizers  {
 
       <H4>Example</H4>
 
-      <BLOCKQUOTE>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo:lineRange(1, false, "Adder adder", 2, false, "println(adder.getSum())", "^      ")}}</BLOCKQUOTE>
+   <P style="font-size: 125%;"><B>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo:lineRange(1, false, "Adder adder", 2, false, "println(adder.getSum())", "^      ")}}</B></P>
 
 {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo:lineRange(1, false, "Adder adder", 2, false, "println(adder.getSum())", "^      ")}
 
@@ -60,7 +59,7 @@ public class BasicCustomizers  {
       <H4>Automated {@linkplain CodeletBootstrap#CODELET_RQD_NAMED_DBGRS_CONFIG_FILE named debuggers}</H4>
 
       <P>{@code zzBasicCustomizers.lineRange}<UL>
-         <LI>{@code .allalterer}: {@linkplain com.github.xbn.linefilter#AllTextLineAlterer(TextLineAlterer[], Appendable) All alterers}, as a whole.</LI>
+         <LI>{@code .allalterer}: {@linkplain com.github.xbn.linefilter#AllTextLineAlterer(TextLineAlterer[], ExpirableElements, MultiAlterType, Appendable) All alterers}, as a whole.</LI>
          <LI>{@code .elimindent}: <CODE>{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor}.{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor#eliminateIndentationOrNull(String, Appendable) eliminateIndentationOrNull}</CODE></LI>
          <LI>{@code filter}: <CODE>{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor}.{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor#lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable) lineRange}.dbgFilter_ifNonNull</CODE><UL>
             <LI>{@code .endalterer}: <CODE>NewLineFilterFor.lineRange.dbgEnd_ifNonNull</CODE></LI>
@@ -125,7 +124,7 @@ zzBasicCustomizers.lineRange.template</PRE></BLOCKQUOTE>
 
       <H4>Example</H4>
 
-      <BLOCKQUOTE>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemoWithSnippetEndMarker:lineRangeWithReplace(1, true, "(Adder adder)", "$1", "FIRST", 1, true, "; +//End snippet$", ";", "FIRST", "^      ")}}</BLOCKQUOTE>
+   <P style="font-size: 125%;"><B>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemoWithSnippetEndMarker:lineRangeWithReplace(1, true, "(Adder adder)", "$1", "FIRST", 1, true, "; +//End snippet$", ";", "FIRST", "^      ")}}</B></P>
 
 {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemoWithSnippetEndMarker:lineRangeWithReplace(1, true, "(Adder adder)", "$1", "FIRST", 1, true, "; +//End snippet$", ";", "FIRST", "^      ")}
 
@@ -136,7 +135,7 @@ zzBasicCustomizers.lineRange.template</PRE></BLOCKQUOTE>
       <H4>Automated {@linkplain CodeletBootstrap#CODELET_RQD_NAMED_DBGRS_CONFIG_FILE named debuggers}</H4>
 
       <P>{@code zzBasicCustomizers.lineRangeWithReplace}<UL>
-         <LI>{@code allalterer}: {@linkplain com.github.xbn.linefilter#AllTextLineAlterer(TextLineAlterer[], Appendable) All alterers}, as a whole.</LI>
+         <LI>{@code allalterer}: {@linkplain com.github.xbn.linefilter#AllTextLineAlterer(TextLineAlterer[], ExpirableElements, MultiAlterType, Appendable) All alterers}, as a whole.</LI>
          <LI>{@code .elimindent}: <CODE>{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor}.{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor#eliminateIndentationOrNull(String, Appendable) eliminateIndentationOrNull}</CODE></LI>
          <LI>{@code filter}: <CODE>{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor}.{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor#lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable) lineRange}.dbgFilter_ifNonNull</CODE><UL>
             <LI>{@code .endalterer}: <CODE>NewLineFilterFor.lineRange.dbgEnd_ifNonNull</CODE></LI>
@@ -201,13 +200,13 @@ zzBasicCustomizers.lineRangeWithReplace.template</PRE></BLOCKQUOTE>
 
       <H4>Examples</H4>
 
-      <BLOCKQUOTE>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.Adder:eliminateCmtBlocksPkgLineAndPkgReferences(false, true, false)}}</BLOCKQUOTE>
+   <P style="font-size: 125%;"><B>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.Adder:eliminateCmtBlocksPkgLineAndPkgReferences(false, true, false)}}</B></P>
 
 {@.codelet com.github.aliteralmind.codelet.examples.adder.Adder:eliminateCmtBlocksPkgLineAndPkgReferences(false, true, false)}
 
       <P>Prints all lines except the package declaration. <I>{@linkplain examples.EliminatePackageDeclarationLine Full example}</I></P>
 
-      <BLOCKQUOTE>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemoWithFullyQualified:eliminateCmtBlocksPkgLineAndPkgReferences(true, true, false)}}</BLOCKQUOTE>
+   <P style="font-size: 125%;"><B>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemoWithFullyQualified:eliminateCmtBlocksPkgLineAndPkgReferences(true, true, false)}}</B></P>
 
 {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemoWithFullyQualified:eliminateCmtBlocksPkgLineAndPkgReferences(true, true, false)}
 
@@ -216,7 +215,7 @@ zzBasicCustomizers.lineRangeWithReplace.template</PRE></BLOCKQUOTE>
       <H4>Automated {@linkplain CodeletBootstrap#CODELET_RQD_NAMED_DBGRS_CONFIG_FILE named debuggers}</H4>
 
       <P>{@code zzBasicCustomizers.eliminateCmtBlocksPkgLineAndPkgReferences}<UL>
-         <LI>{@code alterers}: {@linkplain com.github.xbn.linefilter#AllTextLineAlterer(TextLineAlterer[], Appendable) All alterers}, as a whole</LI>
+         <LI>{@code alterers}: {@linkplain com.github.xbn.linefilter#AllTextLineAlterer(TextLineAlterer[], ExpirableElements, MultiAlterType, Appendable) All alterers}, as a whole</LI>
          <LI>{@code blockmarks}: <CODE>{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor}.{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor#eliminateAllCmtBlocksAndPackageLine(boolean, Appendable, Appendable, boolean, Appendable, Appendable) lineRange}.dbgBlockMarks_ifNonNull</CODE></LI>
          <LI>{@code filter}: {@code NewLineFilterFor.eliminateAllCmtBlocksAndPackageLine.dbgLnFilter_ifNonNull}</LI>
          <LI>{@code pkglinevalidator}: {@code NewLineFilterFor.eliminateAllCmtBlocksAndPackageLine.dbgPkgLnVldtr_ifNonNull}</LI>

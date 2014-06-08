@@ -46,7 +46,6 @@ com.github.xbn.lang.z
 com.github.xbn.list
 com.github.xbn.list.lister
 com.github.xbn.list.lister.z
-com.github.xbn.neederneedable
 com.github.xbn.number
 com.github.xbn.number.z
 com.github.xbn.regexutil

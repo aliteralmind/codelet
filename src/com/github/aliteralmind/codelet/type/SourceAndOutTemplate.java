@@ -1,7 +1,5 @@
 /*license*\
-   Codelet
-
-   Copyright (C) 2014, Jeff Epstein (aliteralmind __DASH__ github __AT__ yahoo __DOT__ com)
+   Codelet: Copyright (C) 2014, Jeff Epstein (aliteralmind __DASH__ github __AT__ yahoo __DOT__ com)
 
    This software is dual-licensed under the:
    - Lesser General Public License (LGPL) version 3.0 or, at your option, any later version;
@@ -29,7 +27,8 @@ package  com.github.aliteralmind.codelet.type;
 
    <P>In addition to any {@linkplain com.github.aliteralmind.codelet.UserExtraGapGetter#getForCodeletAndOut() user-extra} gaps {@code {@.codelet.and.out}} template provides for the same &quot;default&quot; optional gaps as made available in <I>both</I> {@link com.github.aliteralmind.codelet.type.SourceCodeTemplate} and {@link com.github.aliteralmind.codelet.type.SourceAndOutTemplate}.</P>
 
-   @author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+   @since  0.1.0
+   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 public class SourceAndOutTemplate extends CodeletTemplateBase  {
    /**

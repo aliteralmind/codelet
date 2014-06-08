@@ -1,8 +1,6 @@
 
 /*license*\
-   Codelet
-
-   Copyright (C) 2014, Jeff Epstein (aliteralmind __DASH__ github __AT__ yahoo __DOT__ com)
+   Codelet: Copyright (C) 2014, Jeff Epstein (aliteralmind __DASH__ github __AT__ yahoo __DOT__ com)
 
    This software is dual-licensed under the:
    - Lesser General Public License (LGPL) version 3.0 or, at your option, any later version;
@@ -69,10 +67,10 @@ package  com.github.aliteralmind.codelet;
             <LI><B>Line filter:</B> Generic: {@link com.github.xbn.linefilter.TextLineFilter}, Pre-made: {@link com.github.aliteralmind.codelet.alter.NewLineFilterFor} and {@link com.github.xbn.linefilter.NewTextLineFilterFor}</LI>
             <LI><B>Line alterers:</B> Generic: {@link com.github.xbn.linefilter.TextLineAlterer} and {@link com.github.xbn.linefilter.AllTextLineAlterer}, Pre-made: {@link com.github.aliteralmind.codelet.alter.NewLineAltererFor} and {@link com.github.xbn.linefilter.NewTextLineAltererFor}</LI>
          </UL></LI>
-         <LI>Examples:<UL>
-            <LI>A customizer function that does nothing.</LI>
+         <LI>Examples: A customizer function that<UL>
+            <LI><A HREF="#func_does_nothing">Does nothing</A>.</LI>
+            <LI>Changes a function, constructor, class, or field name to a <A HREF="{@docRoot}/overview-summary.html#xmpl_links">clickable JavaDoc link</A>.</LI>
          </UL></LI>
-         <LI><A HREF="{@docRoot}/overview-summary.html#xmpl_links">Examples</A></LI>
       </UL></LI>
       <LI>Calling a customizer from a codelet. Examples:<UL>
          <LI><A HREF="#xmpl_defaults">Default function name and class location</A></LI>
@@ -93,23 +91,22 @@ package  com.github.aliteralmind.codelet;
 {@.codelet com.github.aliteralmind.codelet.examples.DoNothingCustomizer:lineRangeWithReplace(1, true, "(<SourceCodeTemplate> aCustomizerThatDoesNothing)", "$1", "FIRST", 1, true, "&#125; +//End snippet$", "&#125;", "FIRST", "^   ")}
 
    <P>This do-nothing customizer uses all {@linkplain #defaults(Appendable, Appendable, Appendable) defaults}. It<OL>
-      <LI>filters no lines,</LI>
-      <LI>uses the default template,</LI>
-      <LI>if configured, changes tabs to spaces, and,</LI>
-      <LI>(in all cases) escapes the text for html-display</LI>
+      <LI>{@link #unfiltered(Appendable) Filters no lines},</LI>
+      <LI>{@linkplain com.github.aliteralmind.codelet.alter.DefaultAlterGetter Default alterers} as {@linkplain CodeletBaseConfig#DEFAULT_ALTERERS_CLASS_NAME configured}.</LI>
+      <LI>Uses the {@link #defaultOrOverrideTemplate(Appendable) Default template},</LI>
    </OL></P>
 
    <A NAME="requirements"/><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: <U>Requirements</U></H2>
 
    <P>The customizer function has the following requirements:<UL>
       <LI>Its location (containing class) must be <A HREF="#xmpl_sig">explicitely specified</A> in the taglet, or must exist in one of the following <B><U>default classes</U></B>, which are searched in order:<OL>
-         <LI>{@link BasicCustomizers}</LI>
-         <LI>The {@linkplain CodeletInstance#getEnclosingClass() enclosing class}, if it is indeed a class</LI>
-         <LI>And, if it exists, a class named "{@link TagletOfTypeProcessor#DEFAULT_CUSTOMIZER_CLASS_NAME zCodeletCustomizers}", which exists in the {@linkplain CodeletInstance#getEnclosingPackage() enclosing package}.</LI>
+         <LI>{@link BasicCustomizers},</LI>
+         <LI>The {@linkplain CodeletInstance#getEnclosingClass() enclosing class}, if it is a class,</LI>
+         <LI>And a class named "{@link TagletOfTypeProcessor#DEFAULT_CUSTOMIZER_CLASS_NAME zCodeletCustomizers}", if one exists in the {@linkplain CodeletInstance#getEnclosingPackage() enclosing package}.</LI>
       </OL></LI>
       <LI>It must be {@code static} and</LI>
       <LI>accessible (it is obtained with <CODE>{@link java.lang.Class Class}.{@link java.lang.Class#getDeclaredMethod(String, Class...) getDeclaredMethod}</CODE> and made accessible with <CODE>theLineProcMethod.{@link java.lang.reflect.AccessibleObject#setAccessible(boolean) setAccessible}(true)</CODE>).</LI>
-      <LI>Its first parameter must be a {@link CodeletInstance CodeletInstance} and second must be a {@link CodeletType}. Both of these parameters are ommitted from (customizers used in) all taglets.</LI>
+      <LI>Its first parameter must be a {@link CodeletInstance CodeletInstance} and second must be a {@link CodeletType}. Both of these parameters are ommitted from all taglets.</LI>
       <LI>It may contain zero-or-more <A HREF="#xmpl_params">extra parameters</A>, whose types are either primitives or non-{@code null} strings ({@code null} is not possible), as specified by
       <BR> &nbsp; &nbsp; <CODE>com.github.xbn.util.{@link com.github.xbn.util.SimpleStringSignature SimpleStringSignature}.{@link com.github.xbn.util.SimpleStringSignature#getObjectFromString(String) getObjectFromString} </CODE>
       <BR>If there are any extra types in the customizer function signature, they must be provided in the {@linkplain TagletOfTypeProcessor#getCustomizerPortion() customizer portion} of every taglet using it. <I>The types, amount, and order of extra parameters, in both the taglet and the customizer function signature, must exactly match.</I></LI>
@@ -151,11 +148,11 @@ package  com.github.aliteralmind.codelet;
 
    <P>The customizer function can be in any class, which may explicitely specified:</P>
 
-<BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName:fully.qualified.jdxcprocessors.ExamplePkgProccessors#getSource_ExampleClass(true, "See line 12")}}</BLOCKQUOTE>
+<BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName:fully.qualified.package.MyCodeletCustomizers#getSource_ExampleClass(true, "See line 12")}}</BLOCKQUOTE>
 
-   <P>If using the default function name, it may be omitted, although the hash ({@code '#'}) is required:</P>
+   <P>If using the <A HREF="#xmpl_defaults">default function name</A>, it may be omitted, although the hash ({@code '#'}) is required:</P>
 
-<BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName:fully.qualified.jdxcprocessors.ExamplePkgProccessors#(true, "See line 12")}}</BLOCKQUOTE>
+<BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName:fully.qualified.package.MyCodeletCustomizers#(true, "See line 12")}}</BLOCKQUOTE>
 
    <P>Signature formatting is as specified by
    <BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature SimpleMethodSignature}.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature#newFromStringAndDefaults(Class, Object, String, Class[], Appendable) newFromStringAndDefaults}</CODE>
@@ -171,7 +168,7 @@ package  com.github.aliteralmind.codelet;
 
    <P>refers to this function:</P>
 
-<BLOCKQUOTE>{@code getSourceCode_ExampleClassName(CodeletInstance taglet, boolean do_displayLineNums, String annotation)}</BLOCKQUOTE>
+<BLOCKQUOTE>{@code getSourceCode_ExampleClassName(CodeletInstance taglet, CodeletType needed_defaultAlterType, boolean do_displayLineNums, String annotation)}</BLOCKQUOTE>
 
    <P>which, since there is no fully-qualified class specified after the colon, must be in one of the <A HREF="#requirements">default class-locations</A>.</P>
 
@@ -184,7 +181,8 @@ package  com.github.aliteralmind.codelet;
    <BR> &nbsp; &nbsp; {@code {@.codelet fully.qualified.examples.ExampleClassName:((byte)3, false)}}</P>
 
 
-   @author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+   @since  0.1.0
+   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 public class CustomizationInstructions<T extends CodeletTemplateBase> extends AbstractOneWayLockable  {
    private TextLineFilter     filter        ;
@@ -220,7 +218,7 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
    	<BR> &nbsp; &nbsp; <CODE>{@link #CustomizationInstructions(CodeletInstance, CodeletType) this}(instance, instance.getType())</CODE></P>
 
    	@param  instance  May not be {@code null}.
-   	@param  needed_defaultAlterType  The type of {@linkplain com.github.aliteralmind.codelet.alter.DefaultAlterGetter default alterers} needed when using the {@linkplain #defaults(Appendable, Appendable, Appendable) default template}. May not be {@code null}. If <CODE>instance.{@link CodeletInstance#getType() getType}.{@link CodeletType#SOURCE_AND_OUT SOURCE_AND_OUT}</CODE>, then this must be either {@link CodeletType#SOURCE_CODE SOURCE_CODE} or {@link CodeletType#CONSOLE_OUT CONSOLE_OUT}. If <CODE>instance.{@link CodeletInstance#getType() getType}</CODE> is any other type, then {@code needed_defaultAlterType} must be equal to it.
+   	@param  needed_defaultAlterType  The type of {@linkplain com.github.aliteralmind.codelet.alter.DefaultAlterGetter default alterers} needed when using the {@linkplain #defaultOrOverrideTemplate(Appendable) default template}. May not be {@code null}. If <CODE>instance.{@link CodeletInstance#getType() getType}.{@link CodeletType#SOURCE_AND_OUT SOURCE_AND_OUT}</CODE>, then this must be either {@link CodeletType#SOURCE_CODE SOURCE_CODE} or {@link CodeletType#CONSOLE_OUT CONSOLE_OUT}. If <CODE>instance.{@link CodeletInstance#getType() getType}</CODE> is any other type, then {@code needed_defaultAlterType} must be equal to it.
     **/
    public CustomizationInstructions(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
       try  {
@@ -359,7 +357,7 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
    /**
       <P>Display all lines.</P>
 
-      @return  <CODE>{@link #filter(TextLineFilter) filter}{@link com.github.xbn.linefilter.NewTextLineFilterFor NewTextLineFilterFor}.{@link com.github.xbn.linefilter.NewTextLineFilterFor#unfiltered(Appendable) unfiltered}(dbgDest_ifNonNull)</CODE>
+      @return  <CODE>{@link #filter(TextLineFilter) filter}({@link com.github.xbn.linefilter.NewTextLineFilterFor NewTextLineFilterFor}.{@link com.github.xbn.linefilter.NewTextLineFilterFor#unfiltered(Appendable) unfiltered}(dbgDest_ifNonNull))</CODE>
     **/
    public CustomizationInstructions<T> unfiltered(Appendable dbgDest_ifNonNull)  {
       return  filter(NewTextLineFilterFor.unfiltered(dbgDest_ifNonNull));
@@ -462,7 +460,7 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 
       <P>This logs all alterers that do not make an alteration.</P>
 
-      @exception  AlterationNotMadeException  If at least one alteration is not made, if it is {@linkplain CodeletBaseConfig#ALTERATION_NOT_MADE_CRASH configured} that a crash should occur in addition to the warning.
+      @exception  AlterationNotMadeException  If at least one alteration is not made, and it is {@linkplain CodeletBaseConfig#ALTERATION_NOT_MADE_CRASH configured} that a crash should occur (in addition to the warning).
     **/
    public String getCustomizedBody(CodeletInstance instance, Iterator<String> raw_lineItr)  {
       TextLineIterator textLineItr = getFilter().activeLineIterator(

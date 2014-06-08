@@ -74,7 +74,7 @@ ant -projecthelp
 
 Installation of the Codelet build process is done in a single step: By changing 'base.dir', in build.properties, to your installation directory.
 
-To do a full build of Codelet:  ant cleanpublish</echo>
+To do a full build of Codelet:  ant publish</echo>
    </target>
 
    <property name="dir_sandbox_ant_subxml" value="${dir_sandbox_bldfiles}ant_sub_files${fs}"/>
@@ -124,7 +124,9 @@ To do a full build of Codelet:  ant cleanpublish</echo>
 
    <target name="publish4" description="Publish codelet, starting with doc">
       <antcall target="doc"/>
+      <antcall target="doc2"/>
       <antcall target="zip"/>
+      <antcall target="zip2"/>
    </target>
 
    <target name="unit" description="Executes com.github.xbn.unittests.UnitTestRunner">
@@ -229,6 +231,8 @@ To do a full build of Codelet:  ant cleanpublish</echo>
          <zip destfile="${dir_build_download}${project_name_for_dir}_codelet_usage_install_files.zip" whenempty="fail"
             basedir="${dir_working}"
             includes="codelet_usage_install_files/**,working_usage_install_jar_dir/**"/>
+</target>
+<target name="zip2" description="Generates javadoc documentation.">
    </target>
 
 

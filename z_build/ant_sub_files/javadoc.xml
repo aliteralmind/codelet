@@ -19,8 +19,7 @@
          Replace comma-space first, then comma-no-space
         -->
       <propfromrplc property="codelet.jd_colon.packages.main" string="${codelet.javadoc.packages.main}" what="," with=":"/>
-      <propfromrplc property="codelet.jd_colon.packages.generic" string="${codelet.javadoc.packages.generic}" what="," with=":"/>
-      <propfromrplc property="codelet.jd_colon.packages.generic.examples" string="${codelet.javadoc.packages.generic.examples}" what="," with=":"/>
+      <propfromrplc property="codelet.jd_colon.packages.examples" string="${codelet.javadoc.packages.examples}" what="," with=":"/>
 
       <property name="dir_sandbox_needed_by_javadoc" value="${dir_sandbox_bldfiles}needed_by_javadoc${fs}"/>
       <propertywithdynamicallynamedvalue propname="dir_main_or_gitonly_sandbox"
@@ -34,7 +33,7 @@
       </copy>
 
       <javadoc
-         packagenames="${codelet.javadoc.packages.main},${codelet.javadoc.packages.generic},${codelet.javadoc.packages.generic.examples}"
+         packagenames="${codelet.javadoc.packages.main},${codelet.javadoc.packages.examples}"
          defaultexcludes="yes"
          destdir="${dir_build_docs_javadoc}"
          splitindex="true"
@@ -61,8 +60,7 @@
             <taglet name="com.github.aliteralmind.codelet.taglet.FileTextletTaglet" path="R:\jeffy\programming\build\CLASSES\"/>
 
          <group title="Codelet" packages="${codelet.jd_colon.packages.main}"/>
-         <group title="Generically useful utilities" packages="${codelet.jd_colon.packages.generic}"/>
-         <group title="Generically useful utilities: Examples" packages="${codelet.jd_colon.packages.generic.examples}"/>
+         <group title="Codelet: Examples" packages="${codelet.jd_colon.packages.examples}"/>
 
          <!-- Package lists for external libraries -->
          <link href="http://junit.sourceforge.net/javadoc/"/>
@@ -93,13 +91,15 @@
 </HEAD>]]></replacevalue>
       </replace>
 
-   <!--replaceregexp flags="g" byline="true">
-      <regexp pattern="&lt;([A-Z](?:,[A-Z])?) extends \u003Ca href="/>
-      <substitution expression="<BR> &nbsp; &nbsp; &lt;\1 extends <a href="/>
-      <fileset dir="${dir_build_docs_javadoc}">
-         <include name="**/codelet/package-summary.html"/>
-      </fileset>
-   </replaceregexp-->
+</target>
+<target name="doc2" description="Generates javadoc documentation.">
+
+      <java classname="xbnjavabuild.AddLineBreakBeforeGenericsInJavaDocPackageList" failonerror="true">
+         <arg value="${dir_build_docs_javadoc}"/>
+         <arg value="com.github.aliteralmind."/>
+         <arg value="codelet"/>
+         <arg value="debugminimal"/>
+      </java>
 
       <antcall target="-replace_all_javadoc_headers"/>
 

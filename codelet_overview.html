@@ -45,7 +45,7 @@
       <LI>{@linkplain com.github.aliteralmind.codelet.CodeletTemplateBase Templates}: Configuring <A HREF="{@docRoot}/com/github/aliteralmind.codelet/CodeletBaseConfig.html#tmpl_defaults">default</A> templates, {@linkplain com.github.aliteralmind.codelet.UserExtraGapGetter custom gaps}, and {@linkplain com.github.aliteralmind.codelet.TemplateOverrides overrides}</LI>
       <LI>Debugging Codelet:<OL>
          <LI>Configuring {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#GLOBAL_DEBUG_LEVEL global} and {@linkplain com.github.aliteralmind.codelet.CodeletInstance#DEBUG_LEVEL_PREFIX_PREFIX taglet} debugging levels</LI>
-         <LI>{@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#NAMED_DEBUGGERS_CONFIG_FILE named debuggers}: Extensive and specific control of debugging information, without the need for recompiling code.</LI>
+         <LI>{@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#NAMED_DEBUGGERS_CONFIG_FILE Named debuggers}: Extensive and specific control of debugging information, without the need for recompiling code.</LI>
          <LI>{@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#BLACK_WHITE_LIST_TYPE Blacklisting} codelets, either in a single file or entire package, to focus on the problem taglet.</LI>
       </OL></LI>
    </OL></P>
@@ -70,7 +70,7 @@
 
    <P><I>({@linkplain com.github.aliteralmind.codelet.examples.HelloCodelet View full example}. Click on the left-arrow <IMG SRC="{@docRoot}/resources/left_arrow.gif"/> to return)</I></P>
 
-   <P>The source code and its output are placed into the {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#DEFAULT_AND_OUT_TMPL_PATH default <CODE>{&#64;.codelet.and.out}</CODE> template}. This template can be edited directly, or a {@linkplain com.github.aliteralmind.codelet.TemplateOverrides different one} can be assigned to this taglet, or to all taglets existing in a package or file.</P>
+   <P>The source code and its output are placed into the {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#DEFAULT_AND_OUT_TMPL_PATH default <CODE>{&#64;.codelet.and.out}</CODE> template}. This template can be edited directly, or a {@linkplain com.github.aliteralmind.codelet.TemplateOverrides different one} can be assigned to this taglet, or to all taglets in a package or file.</P>
 
    <P>{@code {@.codelet.and.out}} is equivalent to</P>
 
@@ -82,7 +82,7 @@
 
    <H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Example: <U>Using a pre-made customizer: Displaying only a portion of the source code: A &quot;code snippet&quot;</U></H2>
 
-   <P>When a <A HREF="http://www.sscce.org/">fully-working example</A> is not necessary, an alternative is to display only a portion of the example's source code. This requires a <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#overview">customizer</A>.</P>
+   <P>When a fully-working example is not necessary, an alternative is to display only a portion of the example's source code. This requires a <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#overview">customizer</A>.</P>
 
    <P>The customizer for displaying a code-snippet is {@link com.github.aliteralmind.codelet.BasicCustomizers#lineRange(CodeletInstance, CodeletType, Integer, Boolean, String, Integer, Boolean, String, String) lineRange}:</P>
 
@@ -134,7 +134,7 @@
    <P>The same filter and template as in the original example (as used by its customizer function: <CODE>{@link com.github.aliteralmind.codelet.BasicCustomizers}.{@link com.github.aliteralmind.codelet.BasicCustomizers#lineRange(CodeletInstance, CodeletType, Integer, Boolean, String, Integer, Boolean, String, String) lineRange}</CODE>) can also be used here:<OL>
       <LI>Filter: <CODE>{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor NewLineFilterFor}.{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor#lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable) lineRange}</CODE></LI>
       <LI>Template: The {@linkplain com.github.aliteralmind.codelet.CustomizationInstructions#defaultOrOverrideTemplate(Appendable) default}</LI>
-   </OL>Replacing strings with links requires a specialized alterer. There are four sub-alterers, which are done in order<OL>
+   </OL>JavaDoc links require a specialized alterer. There are four sub-alterers, which are done in order<OL>
       <LI>Escape all text for html display:
       <BR> &nbsp; &nbsp; <CODE>{@link com.github.xbn.linefilter.NewTextLineAltererFor}.{@link com.github.xbn.linefilter.NewTextLineAltererFor#escapeHtml() escapeHtml}()</CODE></LI>
       <LI>Eliminate the extra indentation, which is six spaces:
@@ -224,9 +224,9 @@ LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.template=-1</PRE
 
 <P><I>To turn an item off, set it to {@code -1}. To turn it on, set it to zero.</I></P>
 
-<a name="install"/><H2>
+<a name="install"/>
 
-   <A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: <U>Installation</U></H2>
+   <H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: <U>Installation</U></H2>
 
    <P><I>Using</I> Codelet requires the <A HREF="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">1.7</A> version of the <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html">{@code javadoc.exe}</A> tool. The code whose JavaDoc has codelet-taglets <I>in it</I> has no version restrictions.</P>
 
@@ -240,7 +240,7 @@ LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.template=-1</PRE
       <LI><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_codelet_usage_install_files.zip">Download</A> containing the Codelet jar, all jars it depends on, and the codelet configuration directory.</LI>
       <LI>Add the necessary items to your classpath, and</LI>
       <LI><A HREF="#install_taglets">Configuring {@code javadoc}</A> to recognize Codelet taglets.</LI>
-      <LI>{@linkplain com.github.aliteralmind.codelet.CodeletBootstrap Configure Codelet} itself.</LI>
+      <LI><A HREF="#install_configure">Configure Codelet</A> itself.</LI>
    </OL></P>
 
    <P><B>Installing required JARs onto your <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html">classpath</A>.</B></P>
@@ -295,5 +295,16 @@ LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.template=-1</PRE
 
    <P>This assumes that Codelet is on your Ant-classpath.</P>
 
+
+   <a name="install_configure"/><H2><A HREF="#install"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Installation: <U>Configuring Codelet itself</U></H2>
+
+   <P>At a minimum, the following three values must be set in {@link com.github.aliteralmind.codelet.CodeletBaseConfig codelet.properties}:<UL>
+      <LI>{@link com.github.aliteralmind.codelet.CodeletBaseConfig#BASE_DIR_BASE_DIR base_dir_base_dir}: The root directory on which all other directory values are based on. This is used by other values with {@code ${BASE}}. Example value:
+      <BR> &nbsp; &nbsp; <CODE>C:\java_code\project_name\</CODE></LI>
+      <LI>{@link com.github.aliteralmind.codelet.CodeletBaseConfig#EXAMPLE_CLASS_SRC_BASE_DIR example_class_src_base_dir}: The directory in which the top-most package name of all example code resides. Example value
+      <BR> &nbsp; &nbsp; <CODE>${BASE}examples\\</CODE></LI>
+      <LI>{@link com.github.aliteralmind.codelet.CodeletBaseConfig#ENCLOSING_CLASS_SRC_BASE_DIRS enclosing_class_src_base_dirs}: The directory in which the top-most package name of all codelet-taglet <I>containing</I> classes reside. Example value
+      <BR> &nbsp; &nbsp; <CODE>${BASE}src\\,${BASE}test\\,${BASE}examples\\</CODE></LI>
+   </UL></P>
 
 </BODY>

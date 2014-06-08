@@ -1,7 +1,5 @@
 /*license*\
-   Codelet
-
-   Copyright (C) 2014, Jeff Epstein (aliteralmind __DASH__ github __AT__ yahoo __DOT__ com)
+   Codelet: Copyright (C) 2014, Jeff Epstein (aliteralmind __DASH__ github __AT__ yahoo __DOT__ com)
 
    This software is dual-licensed under the:
    - Lesser General Public License (LGPL) version 3.0 or, at your option, any later version;
@@ -35,7 +33,7 @@ public enum CodeletType  {
 
       <P><CODE>{&#64;.codelet <I>fully.qualified.ClassName</I>[:<A HREF="CustomizerUtil.html#overview">lineProcessorFunction</A>()]}</CODE></P>
 
-      <P>The customizer portion is optional, but when provided, must be preceded by a {@linkplain CodeletInstance#CUSTOMIZER_PREFIX_CHAR colon}. The customizer is available to all types except {@link #SOURCE_AND_OUT {@.codelet.and.out}}.</P>
+      <P>The customizer portion is optional, but when provided, must be preceded by a {@linkplain CodeletInstance#CUSTOMIZER_PREFIX_CHAR colon}.</P>
 
       <P><B>Examples:</B></P>
 
@@ -45,7 +43,7 @@ public enum CodeletType  {
       <BR> &nbsp; &nbsp; {@code fully\qualified\examples\ExampleClassName.java}
       <BR>Where {@code "fully"} is in the {@linkplain CodeletBaseConfig#EXAMPLE_CLASS_SRC_BASE_DIR example-code base directory} as configured.</P>
 
-<BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName:{@link com.github.aliteralmind.codelet.BasicCustomizers#lineRange(CodeletInstance, CodeletType, int, boolean, String, int, boolean, String) lineRange}(1, false, "text in start line", 1, false, "text in end line")}}</BLOCKQUOTE>
+<BLOCKQUOTE><CODE>{&#64;.codelet fully.qualified.examples.ExampleClassName:{@link com.github.aliteralmind.codelet.BasicCustomizers#lineRange(CodeletInstance, CodeletType, int, boolean, String, int, boolean, String) lineRange}(1, false, "text in start line", 1, false, "text in end line")}</CODE></BLOCKQUOTE>
 
       <P>Same as above, but only displays a <A HREF="{@docRoot}/overview-summary.html#xmpl_snippet">portion</A> of the lines, starting and ending with lines that contain specific text (inclusive).</P>
 

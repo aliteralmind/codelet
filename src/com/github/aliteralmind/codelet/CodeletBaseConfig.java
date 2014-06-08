@@ -1,7 +1,5 @@
 /*license*\
-   Codelet
-
-   Copyright (C) 2014, Jeff Epstein (aliteralmind __DASH__ github __AT__ yahoo __DOT__ com)
+   Codelet: Copyright (C) 2014, Jeff Epstein (aliteralmind __DASH__ github __AT__ yahoo __DOT__ com)
 
    This software is dual-licensed under the:
    - Lesser General Public License (LGPL) version 3.0 or, at your option, any later version;
@@ -48,11 +46,13 @@ package  com.github.aliteralmind.codelet;
    import  java.util.regex.Pattern;
    import  static com.github.xbn.lang.XbnConstants.*;
 /**
-   <P>Immutable, static, and non-template related configuration, used throughout Codelet. Loading is executed by {@code com.github.aliteralmind.codelet.CodeletBootstrap}.</P>
+   <P>Immutable, static, and non-template related configuration, used throughout Codelet, as held in a file named {@link CodeletBootstrap#BASE_CONFIG_FILE_NAME codelet.properties}. Loading is executed by {@code com.github.aliteralmind.codelet.CodeletBootstrap}.</P>
 
    <P><I>View <A HREF="{@docRoot}/doc-files/codelet.properties">{@code {@docRoot}/doc-files/codelet.properties}</A>.)</I></P>
 
    <a name="base_dirs_other"/><H2><A HREF="{@docRoot}/overview-summary.html#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; <U>Codelet: Configuration</U></H2>
+
+   <P><I>See <A HREF="{@docRoot}/overview-summary.html#install_configure">getting started</A> in the Codelet installation instructions.</I></P>
 
    <P>There are four categories of Codelet global configuration:<UL>
       <LI><A HREF="#base_dirs_other">Base directories</A> and other</LI>
@@ -215,7 +215,8 @@ package  com.github.aliteralmind.codelet;
       <TD>If a customizer attempts to make an alteration, but cannot (such as when the find-what text is not found in the example code), should a crash occur, in addition to the warning?</TD>
    </TR></TABLE></P>
 
-   @author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+   @since  0.1.0
+   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 public enum CodeletBaseConfig  {
    INSTANCE;

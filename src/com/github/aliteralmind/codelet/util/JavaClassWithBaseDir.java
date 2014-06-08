@@ -1,15 +1,16 @@
 /*license*\
-   Codelet
+   Codelet: Copyright (C) 2014, Jeff Epstein (aliteralmind __DASH__ github __AT__ yahoo __DOT__ com)
 
-   XBN-Java is a collection of generically-useful non-GUI programming utilities, featuring shareable self-returning method chains, regular expression convenience classes, TextLineFilter, highly-configurable output for lists, and automated insertion of example code into documentation.
+   This software is dual-licensed under the:
+   - Lesser General Public License (LGPL) version 3.0 or, at your option, any later version;
+   - Apache Software License (ASL) version 2.0.
 
-   Copyright (C) 2014, Jeff Epstein
+   Either license may be applied at your discretion. More information may be found at
+   - http://en.wikipedia.org/wiki/Multi-licensing.
 
-   This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.
-
-   This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
-
-   You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+   The text of both licenses is available in the root directory of this project, under the names "LICENSE_lgpl-3.0.txt" and "LICENSE_asl-2.0.txt". The latest copies may be downloaded at:
+   - LGPL 3.0: https://www.gnu.org/licenses/lgpl-3.0.txt
+   - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.util;
    import  com.github.xbn.lang.reflect.ReflectRtxUtil;
@@ -18,7 +19,8 @@ package  com.github.aliteralmind.codelet.util;
 /**
    <P>An {@code FQClassNameWithBaseDir} where the fully-qualified class name must represent an actually-existing class, as determined by <CODE>{@link java.lang.Class Class}.{@link java.lang.Class#forName(String) forName}(s)</CODE>.</P>
 
-   @author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+   @since  0.1.0
+   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 public class JavaClassWithBaseDir extends FQClassNameWithBaseDir  {
    private final Class<?> javaCls;
