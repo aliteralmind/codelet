@@ -23,7 +23,7 @@
    </target>
 
    <target name="jar">
-      <jar destfile="${dir_build_download}${project_name_for_dir}_all.jar"
+      <jar destfile="${dir_build_download_codelet_all_jar}"
          basedir="${build.class.dir}"
          includes="${com_github_alit}codelet${fs}**/*.class,${com_github_alit}codelet${fs}**/*.class,${com_github_alit}codelet${fs}**/*.class"
       />
@@ -93,22 +93,6 @@
       <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="util/BlackWhiteListForJavaClasses.java"/>
       <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/BetweenTwoLinesWithReplaceXmpl.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/ExpirableTextLineAlterListXmpl.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/FindJavaDocBlocksAndSLCmtsWSubModesXmpl.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/FindJavaDocBlocksAndSLCmtsXmpl.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/IterateInactiveLinesOnly.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/OutputSourceHighlightSubModeXmpl.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/StringReplacerXmpl.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/StringValidatorReplacerXmpl.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="util/FunctionConstructorJavaDocLink.java"/>
       <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="util/JavaDocUtilGetEllipsisArrayLastParamXmpl.java"/>
@@ -120,68 +104,6 @@
          includes="util/NamedDebuggerFormatException.java"/>
       <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="util/NamedDebuggers.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/LineObject.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/SimpleLineObject.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/TextLine.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/TextLineValidatorAdapter.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/TextLineAlterer.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/TextLineAltererAdapter.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/AdaptRegexReplacerTo.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/AlterLineWhen.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/AlterTextLineWhen.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/NewLineValidatorFor.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/NewTextLineAltererFor.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/z/LineFilter_Fieldable.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/LineObjectIterator.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/TextLineIterator.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/InvalidBlockException.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/LineFilter.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/z/BlockEnd.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/z/ActiveBlockLines.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/z/ActiveSingleLines.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/z/InactiveLines.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/z/LineFilter_CfgForNeeder.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/z/LineFilter_Cfg.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/TextLineFilter.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/z/TextLineFilter_CfgForNeeder.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/z/TextLineFilter_Cfg.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/BlockMarks.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/NewTextLineFilterFor.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/ExpirableLineAlterList.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/ExpirableTextLineAlterList.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/AllTextLineAlterer.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="linefilter/AllTextLineAlterer.java"/>
       <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="simplesig/SimpleMethodSigFormatException.java"/>
       <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
@@ -218,6 +140,8 @@
          includes="util/FilenameBlacklist.java"/>
       <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="util/FilenameWhitelist.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
+         includes="util/VarArgs.java"/>
       <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="util/JavaDocUtil.java"/>
       <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
@@ -273,8 +197,6 @@
 <!-- 5/8/2014: First class requiring com.google.common: -->
       <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="alter/NewLineAltererFor.java"/>
-      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="alter/AlterationNotMadeException.java"/>
       <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="alter/DefaultAlterGetterException.java"/>
       <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"

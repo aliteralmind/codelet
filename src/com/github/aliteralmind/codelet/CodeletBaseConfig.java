@@ -444,19 +444,13 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</PRE></BLOCKQ
 
       @see  <CODE><A HREF="#tmpl_javadoc"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A></A></CODE>
       @see  CodeletBootstrap#EXTERNAL_DOC_ROOT_URL_FILE
+      @see  #PKGLIST_ONLINE_ATTEMPT_COUNT
     **/
    public static final String OFFLINE_PACKAGE_LIST_DIR_NAME = "offline_package_lists";
    /**
       <P>How many attempts should be made to retrieve each online package-list? If zero, offline only--Name is {@code "pkglist_online_attempts_per_url"}.</P>
 
-      <P>Must be an integer zero or greater. If not provided (equal to the empty-string: {@code ""}), thi defaults to {@link #DEFAULT_ONLINE_PKGLST_ATTEMPTS}.</P>
-
-      <P>Related:<UL>
-         <LI>{@link #PKGLIST_ONLINE_ATTEMPT_SLEEP_MILLS pkglist_online_attempt_sleep_mills}: The pause between each attempt.</LI>
-         <LI>{@link #PKGLIST_ONLINE_FAILS_BEHAVIOR pkglist_if_online_retrieval_fails__warn_crash}: The behavior after all attempts fail</LI>
-         <LI>{@link #AUTO_UPDATE_OFFLINE_PACKAGE_LISTS pkglist_auto_refresh_offline__yes_no}: After successfully retrieved, should the packages in its offline counterpart be {@linkplain com.github.aliteralmind.codelet.util.OnlineOfflineDocRoot#refreshOffline(Appendable, Appendable) refreshed}?</LI>
-         <LI>{@link #PKGLIST_OFFLINE_NAME_POSTFIX pkglist_offline_name_postfix}: The postfix added to each offline-name in the {@linkplain CodeletBootstrap#EXTERNAL_DOC_ROOT_URL_FILE configuration file}.</LI>
-      </UL></P>
+      <P>Must be an integer zero or greater. If not provided (equal to the empty-string: {@code ""}), this defaults to {@link #DEFAULT_ONLINE_PKGLST_ATTEMPTS}.</P>
 
       @see  <CODE><A HREF="#tmpl_javadoc"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A></A></CODE>
       @see  #getAllJavaDocRoots()

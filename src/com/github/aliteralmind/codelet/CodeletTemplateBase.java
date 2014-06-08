@@ -140,7 +140,7 @@ public abstract class CodeletTemplateBase extends SimpleDebuggable  {
    /**
       <P>Create the second or subsequent instance.</P>
 
-      <H4>Automated {@linkplain CodeletBootstrap#CODELET_RQD_NAMED_DBGRS_CONFIG_FILE level debugging}</H4>
+      <H4>Automated {@linkplain CodeletBootstrap#CODELET_RQD_NAMED_DBGRS_CONFIG_FILE named debuggers}</H4>
 
       <P>{@code zzCodeletTemplateBase.templateparseandfill}: <CODE>{@link com.github.aliteralmind.templatefeather.FeatherTemplate}.</CODE>{@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#FeatherTemplate(FeatherTemplate, Appendable) constructor}</P>
 
@@ -303,7 +303,7 @@ public abstract class CodeletTemplateBase extends SimpleDebuggable  {
    /**
       <P>Read in and parse a template given its path.</P>
 
-      <H4>Automated {@linkplain CodeletBootstrap#CODELET_RQD_NAMED_DBGRS_CONFIG_FILE level debugging}</H4>
+      <H4>Automated {@linkplain CodeletBootstrap#CODELET_RQD_NAMED_DBGRS_CONFIG_FILE named debuggers}</H4>
 
       <P>{@code zzCodeletTemplateBase.newTemplateFromPath.}<UL>
          <LI>{@code loading}: &quot;Loading template from <I>[path]</I>...&quot;</LI>

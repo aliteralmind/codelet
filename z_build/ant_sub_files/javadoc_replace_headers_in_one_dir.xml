@@ -29,10 +29,6 @@
          <param name="relative_url_to_doc_root" value="../../../../../"/>
       </antcall>
       <antcall target="-javadoc_replace_headers_in_one_dir">
-         <param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}linefilter${fs}"/>
-         <param name="relative_url_to_doc_root" value="../../../../../"/>
-      </antcall>
-      <antcall target="-javadoc_replace_headers_in_one_dir">
          <param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}simplesig${fs}"/>
          <param name="relative_url_to_doc_root" value="../../../../../"/>
       </antcall>

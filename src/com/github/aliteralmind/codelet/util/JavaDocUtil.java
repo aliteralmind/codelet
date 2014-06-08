@@ -15,7 +15,6 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.util;
-   import  com.github.xbn.util.VarArgs;
    import  com.github.xbn.util.JavaRegexes;
    import  com.github.xbn.lang.CrashIfObject;
    import  com.github.xbn.regexutil.NewPatternFor;

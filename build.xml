@@ -37,6 +37,7 @@
       <property name="dir_classes" value="${dir_classes_parent}${com_github_alit}"/>
    <property name="dir_build" value="${dir_build_parent}${project_name_for_dir}${fs}"/>
    <property name="dir_build_download" value="${dir_build}download${fs}"/>
+      <property name="dir_build_download_codelet_all_jar" value="${dir_build_download}${project_name_for_dir}_all.jar"/>
       <property name="dir_bld_docs" value="${dir_build}documentation${fs}"/>
          <property name="dir_build_docs_javadoc" value="${dir_bld_docs}javadoc${fs}"/>
 
@@ -127,7 +128,7 @@ To do a full build of Codelet:  ant cleanpublish</echo>
    </target>
 
    <target name="unit" description="Executes com.github.xbn.unittests.UnitTestRunner">
-      <java classname="com.github.aliteralmind.codelet.test.UnitTestRunner"/>
+      <java classname="com.github.aliteralmind.codelet.test.UnitTestRunner" failonerror="true"/>
    </target>
 
       <property name="download_zip_source_name" value="${project_name_for_dir}_source_code.zip"/>
@@ -140,7 +141,7 @@ To do a full build of Codelet:  ant cleanpublish</echo>
       </copy>
 
       <echo>xbnjavabuild.CreateTempBuildAndCodeletPropsForPublish</echo>
-      <java classname="xbnjavabuild.CreateTempBuildAndCodeletPropsForPublish">
+      <java classname="xbnjavabuild.CreateTempBuildAndCodeletPropsForPublish" failonerror="true">
          <arg value="${dir_sandbox}"/>
          <arg value="${codelet.config.dir}${fs}"/>
          <arg value="subproject"/>
@@ -165,15 +166,16 @@ To do a full build of Codelet:  ant cleanpublish</echo>
  -->
             <exclude name="**/offline_package_lists/*"/>
             <exclude name="**/offline_package_lists/*"/>
-            <exclude name="build.properties"/>
-            <exclude name="**/codelet.properties"/>
+            <exclude name="*build.properties"/>
+            <exclude name="**/*codelet.properties"/>
          </fileset>
       </zip>
 
+      <property name="dir_sandbox_codelet_config" value="${dir_sandbox}${codelet.config.dir}${fs}"/>
       <copy file="${dir_sandbox}placeholder__build.properties"
          tofile="${dir_working}build.properties"/>
       <mkdir dir="${dir_working}${codelet.config.dir}"/>
-      <copy file="${dir_sandbox}${codelet.config.dir}${fs}placeholder__codelet.properties"
+      <copy file="${dir_sandbox_codelet_config}placeholder__codelet.properties"
          tofile="${dir_working}${codelet.config.dir}${fs}codelet.properties"/>
 
       <zip destfile="${download_zip_temp_location}" update="true">
@@ -192,6 +194,41 @@ To do a full build of Codelet:  ant cleanpublish</echo>
       <zip destfile="${download_zip_docs}" whenempty="fail"
          basedir="${dir_build_parent}"
          includes="${project_name_for_dir}${fs}documentation/**/*"/>
+
+      <echo>Creating usage-installation download zip.</echo>
+
+         <property name="working_usage_install_dir" value="${dir_working}codelet_usage_install_files${fs}"/>
+         <property name="working_usage_install_config_dir" value="${working_usage_install_dir}codelet-config${fs}"/>
+         <property name="working_usage_install_jar_dir" value="${working_usage_install_dir}codelet_and_all_dependency_jars${fs}"/>
+
+         <delete dir="${working_usage_install_dir}"/>
+         <mkdir dir="${working_usage_install_dir}"/>
+
+         <copy todir="${working_usage_install_config_dir}">
+            <fileset dir="${dir_sandbox_codelet_config}"
+               excludes="placeholder__*,**/offline_package_lists/*,*external_doc_root_urls.txt,*named_debuggers_config.txt"/>
+         </copy>
+         <copy todir="${working_usage_install_config_dir}offline_package_lists"
+            file="${dir_sandbox_codelet_config}offline_package_lists/java.txt"/>
+         <copy tofile="${working_usage_install_config_dir}external_doc_root_urls.txt"
+            file="${dir_sandbox_codelet_config}zforcodeletuseonlyinstallation__external_doc_root_urls.txt"/>
+         <copy tofile="${working_usage_install_config_dir}named_debuggers_config.txt"
+            file="${dir_sandbox_codelet_config}zforcodeletuseonlyinstallation__named_debuggers_config.txt"/>
+         <copy tofile="${working_usage_install_config_dir}offline_package_lists/codelet.txt"
+            file="${dir_build_docs_javadoc}package-list"/>
+         <copy todir="${working_usage_install_jar_dir}">
+            <fileset dir="${dir_sandbox_jar_dependencies}"/>
+         </copy>
+         <copy file="${dir_build_download_codelet_all_jar}"
+            todir="${working_usage_install_jar_dir}"/>
+
+         <copy overwrite="true"
+            file="${dir_sandbox_codelet_config}placeholder__codelet.properties"
+            tofile="${working_usage_install_config_dir}codelet.properties"/>
+
+         <zip destfile="${dir_build_download}${project_name_for_dir}_codelet_usage_install_files.zip" whenempty="fail"
+            basedir="${dir_working}"
+            includes="codelet_usage_install_files/**,working_usage_install_jar_dir/**"/>
    </target>
 
 

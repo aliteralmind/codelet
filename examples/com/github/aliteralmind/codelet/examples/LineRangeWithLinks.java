@@ -27,9 +27,9 @@ package  com.github.aliteralmind.codelet.examples;
    import  com.github.xbn.analyze.alter.ExpirableElements;
    import  com.github.xbn.analyze.alter.MultiAlterType;
    import  com.github.xbn.array.NullElement;
-   import  com.github.aliteralmind.codelet.linefilter.NewTextLineAltererFor;
-   import  com.github.aliteralmind.codelet.linefilter.TextLineAlterer;
-   import  com.github.aliteralmind.codelet.linefilter.TextLineFilter;
+   import  com.github.xbn.linefilter.NewTextLineAltererFor;
+   import  com.github.xbn.linefilter.TextLineAlterer;
+   import  com.github.xbn.linefilter.TextLineFilter;
 /**
    <P style="font-size: 150%;"><B><A HREF="{@docRoot}/overview-summary.html#xmpl_links"><FONT SIZE="+1"><CODE><IMG SRC="{@docRoot}/resources/left_arrow.gif"/> GO BACK</CODE></FONT></A> &nbsp; &nbsp; Codelet: Example: Advanced customization: Making relevant functions into clickable JavaDoc links</B></P>
 

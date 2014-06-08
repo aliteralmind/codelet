@@ -24,7 +24,7 @@ package  com.github.aliteralmind.codelet.type;
    import  com.github.aliteralmind.codelet.TagletTextUtil;
    import  com.github.aliteralmind.codelet.TemplateOverrides;
    import  com.github.xbn.io.PlainTextFileUtil;
-   import  com.github.aliteralmind.codelet.linefilter.TextLineIterator;
+   import  com.github.xbn.linefilter.TextLineIterator;
    import  com.github.aliteralmind.codelet.util.FQClassNameWithBaseDir;
    import  java.nio.file.AccessDeniedException;
    import  java.nio.file.NoSuchFileException;

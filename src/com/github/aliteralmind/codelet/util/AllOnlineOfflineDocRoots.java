@@ -98,6 +98,8 @@ public class AllOnlineOfflineDocRoots  {
          <LI><CODE>[url]</CODE> is the url to the JavaDoc document root ({@code "{@docRoot}"}) for an external Java library. Must end with a slash ({@code '/'}), and must contain the library's {@code "package-list"} file.</LI>
       </UL>The file-path and url are separated with at least one space or tab.</P>
 
+      <P>(Lines starting with {@code '#'} are ignored. Empty lines are not allowed.)</P>
+
       <H4>Example</H4>
 
       <P>If both {@code offlineName_prefixPath} and {@code offlineName_postfix} are {@code null}:</P>
@@ -136,6 +138,9 @@ public class AllOnlineOfflineDocRoots  {
       try  {
          while(line_itr.hasNext())  {
             String line = line_itr.next();
+            if(line.startsWith("#"))  {
+               continue;
+            }
             String[] nameUrl = oneOrMoreSpcTabPtrn.split(line, 0);
             if(nameUrl.length != 2)  {
                String msg = "[line=" + lineNum + "] Line has " + nameUrl.length + " parts. Must have two: \"" + line + "\"";

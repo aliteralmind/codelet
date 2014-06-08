@@ -1,0 +1,5 @@
+###
+### Documentation: CodeletBootstrap#EXTERNAL_DOC_ROOT_URL_FILE
+###
+codelet   http://aliteralmind.com/docs/computer/programming/codelet/documentation/javadoc/
+java      http://docs.oracle.com/javase/7/docs/api/

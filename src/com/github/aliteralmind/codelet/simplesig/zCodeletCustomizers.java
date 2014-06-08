@@ -20,16 +20,16 @@ package  com.github.aliteralmind.codelet.simplesig;
    import  com.github.aliteralmind.codelet.CustomizationInstructions;
    import  com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum;
    import  com.github.aliteralmind.codelet.alter.NewLineFilterFor;
-   import  com.github.aliteralmind.codelet.linefilter.NewTextLineAltererFor;
-   import  com.github.aliteralmind.codelet.linefilter.TextLineAlterer;
-   import  com.github.aliteralmind.codelet.linefilter.TextLineFilter;
+   import  com.github.xbn.linefilter.NewTextLineAltererFor;
+   import  com.github.xbn.linefilter.TextLineAlterer;
+   import  com.github.xbn.linefilter.TextLineFilter;
    import  com.github.aliteralmind.codelet.type.SourceCodeTemplate;
    import  com.github.xbn.analyze.alter.ExpirableElements;
    import  com.github.xbn.analyze.alter.MultiAlterType;
    import  com.github.xbn.array.NullElement;
    import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 /**
-   <P>Custom <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#overview">customizers</A> used throughout {@code com.github.aliteralmind.codelet.linefilter}.</P>
+   <P>Custom <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#overview">customizers</A> used throughout {@code com.github.xbn.linefilter}.</P>
 
    @author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <CODE><A HREF="http://xbnjava.aliteralmind.com">http://xbnjava.aliteralmind.com</A></CODE>, <CODE><A HREF="https://github.com/aliteralmind/xbnjava">https://github.com/aliteralmind/xbnjava</A></CODE>
  **/

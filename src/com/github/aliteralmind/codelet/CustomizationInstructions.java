@@ -16,15 +16,15 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet;
-   import  com.github.aliteralmind.codelet.alter.AlterationNotMadeException;
+   import  com.github.xbn.analyze.alter.AlterationNotMadeException;
    import  com.github.aliteralmind.codelet.alter.DefaultAlterGetterUtil;
-   import  com.github.aliteralmind.codelet.linefilter.AllTextLineAlterer;
-   import  com.github.aliteralmind.codelet.linefilter.ExpirableTextLineAlterList;
-   import  com.github.aliteralmind.codelet.linefilter.NewTextLineAltererFor;
-   import  com.github.aliteralmind.codelet.linefilter.NewTextLineFilterFor;
-   import  com.github.aliteralmind.codelet.linefilter.TextLineAlterer;
-   import  com.github.aliteralmind.codelet.linefilter.TextLineFilter;
-   import  com.github.aliteralmind.codelet.linefilter.TextLineIterator;
+   import  com.github.xbn.linefilter.AllTextLineAlterer;
+   import  com.github.xbn.linefilter.ExpirableTextLineAlterList;
+   import  com.github.xbn.linefilter.NewTextLineAltererFor;
+   import  com.github.xbn.linefilter.NewTextLineFilterFor;
+   import  com.github.xbn.linefilter.TextLineAlterer;
+   import  com.github.xbn.linefilter.TextLineFilter;
+   import  com.github.xbn.linefilter.TextLineIterator;
    import  com.github.xbn.analyze.alter.ExpirableElements;
    import  com.github.xbn.analyze.alter.MultiAlterType;
    import  com.github.xbn.array.CrashIfArray;
@@ -48,7 +48,7 @@ package  com.github.aliteralmind.codelet;
 
    <P>It is made up of three items:<UL>
       <LI>The {@linkplain #filter(TextLineFilter) line filter}, for eliminating unwanted lines, such as for displaying only a {@linkplain BasicCustomizers#lineRange(CodeletInstance, CodeletType, Integer, Boolean, String, Integer, Boolean, String, String) snippet} of a class.</LI>
-      <LI>The {@linkplain #alterer(AllTextLineAlterer) all-lines alterer}, which contains an array of {@linkplain com.github.aliteralmind.codelet.linefilter.TextLineAlterer line alterers} which, by default, modify every line. Each alterer can be {@linkplain com.github.xbn.analyze.validate.ValidResultFilter filtered} so it does not start until it's needed, and {@linkplain com.github.xbn.lang.Expirable expires} when its job is complete.</LI>
+      <LI>The {@linkplain #alterer(AllTextLineAlterer) all-lines alterer}, which contains an array of {@linkplain com.github.xbn.linefilter.TextLineAlterer line alterers} which, by default, modify every line. Each alterer can be {@linkplain com.github.xbn.analyze.validate.ValidResultFilter filtered} so it does not start until it's needed, and {@linkplain com.github.xbn.lang.Expirable expires} when its job is complete.</LI>
       <LI>The <!-- GENERIC PARAMETERS FAIL IN @link --><A HREF="#template(T)">template</A> in which final output text is placed, and whose {@linkplain CodeletTemplateBase#getRendered(CodeletInstance) rendered} output is what actually replaces the taglet.</LI>
    </UL></P>
 
@@ -66,8 +66,8 @@ package  com.github.aliteralmind.codelet;
          <LI><A HREF="#requirements">Requirements</A></LI>
          <LI>Pre-made customizers: {@link BasicCustomizers}</LI>
          <LI>Pieces for creating customizer functions:<UL>
-            <LI><B>Line filter:</B> Generic: {@link com.github.aliteralmind.codelet.linefilter.TextLineFilter}, Pre-made: {@link com.github.aliteralmind.codelet.alter.NewLineFilterFor} and {@link com.github.aliteralmind.codelet.linefilter.NewTextLineFilterFor}</LI>
-            <LI><B>Line alterers:</B> Generic: {@link com.github.aliteralmind.codelet.linefilter.TextLineAlterer} and {@link com.github.aliteralmind.codelet.linefilter.AllTextLineAlterer}, Pre-made: {@link com.github.aliteralmind.codelet.alter.NewLineAltererFor} and {@link com.github.aliteralmind.codelet.linefilter.NewTextLineAltererFor}</LI>
+            <LI><B>Line filter:</B> Generic: {@link com.github.xbn.linefilter.TextLineFilter}, Pre-made: {@link com.github.aliteralmind.codelet.alter.NewLineFilterFor} and {@link com.github.xbn.linefilter.NewTextLineFilterFor}</LI>
+            <LI><B>Line alterers:</B> Generic: {@link com.github.xbn.linefilter.TextLineAlterer} and {@link com.github.xbn.linefilter.AllTextLineAlterer}, Pre-made: {@link com.github.aliteralmind.codelet.alter.NewLineAltererFor} and {@link com.github.xbn.linefilter.NewTextLineAltererFor}</LI>
          </UL></LI>
          <LI>Examples:<UL>
             <LI>A customizer function that does nothing.</LI>
@@ -359,7 +359,7 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
    /**
       <P>Display all lines.</P>
 
-      @return  <CODE>{@link #filter(TextLineFilter) filter}{@link com.github.aliteralmind.codelet.linefilter.NewTextLineFilterFor NewTextLineFilterFor}.{@link com.github.aliteralmind.codelet.linefilter.NewTextLineFilterFor#unfiltered(Appendable) unfiltered}(dbgDest_ifNonNull)</CODE>
+      @return  <CODE>{@link #filter(TextLineFilter) filter}{@link com.github.xbn.linefilter.NewTextLineFilterFor NewTextLineFilterFor}.{@link com.github.xbn.linefilter.NewTextLineFilterFor#unfiltered(Appendable) unfiltered}(dbgDest_ifNonNull)</CODE>
     **/
    public CustomizationInstructions<T> unfiltered(Appendable dbgDest_ifNonNull)  {
       return  filter(NewTextLineFilterFor.unfiltered(dbgDest_ifNonNull));
@@ -382,7 +382,7 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
       <P>Set an ordered series of line-alterers.</P>
 
       @param  alterers  May not be {@code null} or empty and, if <CODE>null_element.{@link com.github.xbn.array.NullElement#isBad() isBad}()</CODE> is {@code true}, no elements may be {@code null}. Elements <I>should</I> not be duplicate.
-      @return  <CODE>{@link #alterer(AllTextLineAlterer) alterer}(new {@link com.github.aliteralmind.codelet.linefilter.AllTextLineAlterer#AllTextLineAlterer(TextLineAlterer[], ExpirableElements, MultiAlterType, Appendable) AllTextLineAlterer}(alterers, xprbl_elements, multi_type, dbgDest_ifNonNull))</CODE>
+      @return  <CODE>{@link #alterer(AllTextLineAlterer) alterer}(new {@link com.github.xbn.linefilter.AllTextLineAlterer#AllTextLineAlterer(TextLineAlterer[], ExpirableElements, MultiAlterType, Appendable) AllTextLineAlterer}(alterers, xprbl_elements, multi_type, dbgDest_ifNonNull))</CODE>
     **/
    public CustomizationInstructions<T> orderedAlterers(Appendable dbgDest_ifNonNull, NullElement null_element, ExpirableElements xprbl_elements, MultiAlterType multi_type, TextLineAlterer... alterers)  {
       try  {
@@ -474,8 +474,7 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
       getFilter().declareAllLinesAnalyzed();
 
       if(!getAlterer().isComplete())  {
-         String msg = "Alterations attempted but not made:" + LINE_SEP +
-            getAlterer().appendIncompleteInfo((new StringBuilder())).toString();
+         String msg = getAlterer().appendIncompleteInfo((new StringBuilder())).toString();
          if(!isDebugOn(instance, "zzTagletProcessor.codeletfound"))  {
             msg = "(" + instance + ") " + msg;
          }

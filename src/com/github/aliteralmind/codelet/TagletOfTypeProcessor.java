@@ -22,7 +22,7 @@ package  com.github.aliteralmind.codelet;
    import  com.github.xbn.lang.CrashIfObject;
    import  com.github.xbn.text.CrashIfString;
    import  com.github.xbn.text.StringUtil;
-   import  com.github.aliteralmind.codelet.linefilter.TextLineIterator;
+   import  com.github.xbn.linefilter.TextLineIterator;
    import  com.github.xbn.lang.reflect.InvokeMethodWithRtx;
    import  com.github.xbn.lang.reflect.ReflectRtxUtil;
    import  com.github.aliteralmind.codelet.simplesig.SimpleMethodSigFormatException;

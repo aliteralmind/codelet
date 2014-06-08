@@ -28,9 +28,9 @@ package  com.github.aliteralmind.codelet.examples;
    import  com.github.xbn.analyze.alter.MultiAlterType;
    import  com.github.xbn.array.NullElement;
    import  com.github.xbn.regexutil.ReplacedInEachInput;
-   import  com.github.aliteralmind.codelet.linefilter.NewTextLineAltererFor;
-   import  com.github.aliteralmind.codelet.linefilter.TextLineAlterer;
-   import  com.github.aliteralmind.codelet.linefilter.TextLineFilter;
+   import  com.github.xbn.linefilter.NewTextLineAltererFor;
+   import  com.github.xbn.linefilter.TextLineAlterer;
+   import  com.github.xbn.linefilter.TextLineFilter;
    import  java.util.regex.Pattern;
    import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 /**

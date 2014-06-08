@@ -15,8 +15,8 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.alter;
-   import  com.github.aliteralmind.codelet.linefilter.NewTextLineAltererFor;
-   import  com.github.aliteralmind.codelet.linefilter.TextLineAlterer;
+   import  com.github.xbn.linefilter.NewTextLineAltererFor;
+   import  com.github.xbn.linefilter.TextLineAlterer;
    import  java.util.LinkedHashMap;
 /**
    <P>The default {@code DefaultAlterGetter} used, when none is explicitely configured.</P>
@@ -33,7 +33,7 @@ public class DefaultDefaultAlterGetter implements DefaultAlterGetter  {
    public DefaultDefaultAlterGetter()  {
    }
    /**
-      <P>Returns a map with a single entry, whose key is {@code "escape_html"}, and whose value is <CODE>{@link com.github.aliteralmind.codelet.linefilter.NewTextLineAltererFor}.{@link com.github.aliteralmind.codelet.linefilter.NewTextLineAltererFor#escapeHtml() escapeHtml}()</CODE>.</P>
+      <P>Returns a map with a single entry, whose key is {@code "escape_html"}, and whose value is <CODE>{@link com.github.xbn.linefilter.NewTextLineAltererFor}.{@link com.github.xbn.linefilter.NewTextLineAltererFor#escapeHtml() escapeHtml}()</CODE>.</P>
     **/
    public LinkedHashMap<String,TextLineAlterer> getForSourceCodelet()  {
       return  map;

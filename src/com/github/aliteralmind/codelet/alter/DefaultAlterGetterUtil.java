@@ -17,7 +17,7 @@
 package  com.github.aliteralmind.codelet.alter;
    import  com.github.aliteralmind.codelet.CodeletInstance;
    import  com.github.aliteralmind.codelet.CodeletType;
-   import  com.github.aliteralmind.codelet.linefilter.TextLineAlterer;
+   import  com.github.xbn.linefilter.TextLineAlterer;
    import  com.github.xbn.lang.CrashIfObject;
    import  java.util.ArrayList;
    import  java.util.Arrays;

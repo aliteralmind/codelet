@@ -93,6 +93,14 @@
 </HEAD>]]></replacevalue>
       </replace>
 
+   <!--replaceregexp flags="g" byline="true">
+      <regexp pattern="&lt;([A-Z](?:,[A-Z])?) extends \u003Ca href="/>
+      <substitution expression="<BR> &nbsp; &nbsp; &lt;\1 extends <a href="/>
+      <fileset dir="${dir_build_docs_javadoc}">
+         <include name="**/codelet/package-summary.html"/>
+      </fileset>
+   </replaceregexp-->
+
       <antcall target="-replace_all_javadoc_headers"/>
 
       <replace dir="${dir_build_docs_javadoc}" summary="yes">

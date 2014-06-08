@@ -33,7 +33,7 @@ package  com.github.aliteralmind.codelet;
       <LI>Loads the {@linkplain TemplateOverrides template-override} configuration from {@link #TMPL_OVERRIDES_CONFIG_FILE_NAME template_overrides_config}.</LI>
    </OL>This order is required to avoid <A HREF="http://en.wikipedia.org/wiki/Circular_dependency">circular dependencies</A>.</P>
 
-   <H4>Automated {@linkplain CodeletBootstrap#CODELET_RQD_NAMED_DBGRS_CONFIG_FILE level debugging}</H4>
+   <H4>Automated {@linkplain CodeletBootstrap#CODELET_RQD_NAMED_DBGRS_CONFIG_FILE named debuggers}</H4>
 
    <P>{@code zzconfiguration.}<UL>
       <LI>{@code nameddebuglevels.listallafterload}: List all levels after being loaded.</LI>
@@ -45,6 +45,15 @@ package  com.github.aliteralmind.codelet;
          <LI>{@code eachentryasloaded}: List all entries as they are loaded.</LI>
       </UL></LI>
    </UL></P>
+
+   <P><B>Full names:</B></P>
+
+<BLOCKQUOTE><PRE>zzconfiguration.nameddebuglevels.listallafterload
+zzconfiguration.nameddebuglevels.eachquery
+zzconfiguration.allvaluessummary
+zzconfiguration.progress
+zzconfiguration.templateoverrides.allentriespostloaded
+zzconfiguration.templateoverrides.eachentryasloaded</PRE></BLOCKQUOTE>
 
    @author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
@@ -178,9 +187,16 @@ junit               http://junit.sourceforge.net/javadoc/</PRE></BLOCKQUOTE>
 
       <P>This configuration file is loaded by <CODE>{@link com.github.aliteralmind.codelet.util.AllOnlineOfflineDocRoots}.{@link com.github.aliteralmind.codelet.util.AllOnlineOfflineDocRoots#newFromConfigLineIterator(Iterator, String, String, int, long, RefreshOffline, IfError, Appendable, Appendable) newFromConfigLineIterator}</CODE></P>
 
+      <P>Related (all in {@link CodeletBaseConfig}):<UL>
+         <LI>{@link CodeletBaseConfig#PKGLIST_ONLINE_ATTEMPT_SLEEP_MILLS pkglist_online_attempt_sleep_mills}: The pause between each attempt.</LI>
+         <LI>{@link CodeletBaseConfig#PKGLIST_ONLINE_FAILS_BEHAVIOR pkglist_if_online_retrieval_fails__warn_crash}: The behavior after all attempts fail</LI>
+         <LI>{@link CodeletBaseConfig#AUTO_UPDATE_OFFLINE_PACKAGE_LISTS pkglist_auto_refresh_offline__yes_no}: After successfully retrieved, should the packages in its offline counterpart be {@linkplain com.github.aliteralmind.codelet.util.OnlineOfflineDocRoot#refreshOffline(Appendable, Appendable) refreshed}?</LI>
+         <LI>{@link CodeletBaseConfig#PKGLIST_OFFLINE_NAME_POSTFIX pkglist_offline_name_postfix}: The postfix added to each offline-name in the {@linkplain CodeletBootstrap#EXTERNAL_DOC_ROOT_URL_FILE configuration file}.</LI>
+         <LI>{@link CodeletBaseConfig#OFFLINE_PACKAGE_LIST_DIR_NAME}: The name of the sub-directory, existing in the main Codelet configuration directory, in which offline package lists are stored.</LI>
+      </UL></P>
+
       @see  com.github.aliteralmind.codelet.alter.NewJavaDocLinkReplacerFor#getDocRootUrlToTargetClass(CodeletInstance, Class) NewJavaDocLinkReplacerFor#getDocRootUrlToTargetClass
-      @see  CodeletBaseConfig#OFFLINE_PACKAGE_LIST_DIR_NAME
-      @see  CodeletBaseConfig#PKGLIST_ONLINE_ATTEMPT_COUNT
+      @see  com.github.aliteralmind.codelet.util.AllOnlineOfflineDocRoots#newFromConfigLineIterator(Iterator, String, String, int, long, RefreshOffline, IfError, Appendable, Appendable) util.AllOnlineOfflineDocRoots#newFromConfigLineIterator
     **/
    public static final String EXTERNAL_DOC_ROOT_URL_FILE = "external_doc_root_urls.txt";
    /**

@@ -16,18 +16,18 @@
 \*license*/
 package  com.github.aliteralmind.codelet.alter;
    import  com.github.aliteralmind.codelet.CodeletInstance;
-   import  com.github.aliteralmind.codelet.linefilter.BlockMarks;
-   import  com.github.aliteralmind.codelet.linefilter.LineObject;
-   import  com.github.aliteralmind.codelet.linefilter.NewTextLineAltererFor;
-   import  com.github.aliteralmind.codelet.linefilter.NewTextLineFilterFor;
-   import  com.github.aliteralmind.codelet.linefilter.TextLineAlterer;
-   import  com.github.aliteralmind.codelet.linefilter.TextLineFilter;
-   import  com.github.aliteralmind.codelet.linefilter.z.ActiveBlockLines;
-   import  com.github.aliteralmind.codelet.linefilter.z.ActiveSingleLines;
-   import  com.github.aliteralmind.codelet.linefilter.z.BlockEnd;
-   import  com.github.aliteralmind.codelet.linefilter.z.InactiveLines;
-   import  com.github.aliteralmind.codelet.linefilter.z.TextLineFilter_Cfg;
-   import  com.github.aliteralmind.codelet.linefilter.z.TextLineFilter_CfgForNeeder;
+   import  com.github.xbn.linefilter.BlockMarks;
+   import  com.github.xbn.linefilter.LineObject;
+   import  com.github.xbn.linefilter.NewTextLineAltererFor;
+   import  com.github.xbn.linefilter.NewTextLineFilterFor;
+   import  com.github.xbn.linefilter.TextLineAlterer;
+   import  com.github.xbn.linefilter.TextLineFilter;
+   import  com.github.xbn.linefilter.z.ActiveBlockLines;
+   import  com.github.xbn.linefilter.z.ActiveSingleLines;
+   import  com.github.xbn.linefilter.z.BlockEnd;
+   import  com.github.xbn.linefilter.z.InactiveLines;
+   import  com.github.xbn.linefilter.z.TextLineFilter_Cfg;
+   import  com.github.xbn.linefilter.z.TextLineFilter_CfgForNeeder;
    import  com.github.xbn.analyze.alter.ValueAlterer;
    import  com.github.xbn.analyze.validate.NewValidResultFilterFor;
    import  com.github.xbn.analyze.validate.ValidResultFilter;
@@ -42,8 +42,8 @@ package  com.github.aliteralmind.codelet.alter;
 /**
    <P>Convenience functions for creating line filters tailored for codelets.</P>
 
-   @see  com.github.aliteralmind.codelet.linefilter.TextLineFilter
-   @see  com.github.aliteralmind.codelet.linefilter.NewTextLineFilterFor
+   @see  com.github.xbn.linefilter.TextLineFilter
+   @see  com.github.xbn.linefilter.NewTextLineFilterFor
    @author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 public class NewLineFilterFor  {
@@ -65,12 +65,12 @@ public class NewLineFilterFor  {
       @param  blockStart_postSlashStar  The text that must follow the license block's multi-line comment start mark ({@code "/&#42;"}). May not be {@code null} or empty, and <I>should</I> not contain {@code "&#42;/"}. This extra text is required due to a limitation of {@code TextLineFilter}, where it cannot distinguish between multi-line comments.
       @param  blockEnd_preStarSlash  The text that must precede the license block's multi-line comment end mark ({@code "/&#42;"})
       @return
-<BLOCKQUOTE><PRE>new {@link com.github.aliteralmind.codelet.linefilter.z.TextLineFilter_Cfg#TextLineFilter_Cfg() TextLineFilter_Cfg}().
-   {@link com.github.aliteralmind.codelet.linefilter.z.TextLineFilter_CfgForNeeder#start(Pattern, ValidResultFilter, Appendable) start}(NewPatternFor.literal(&quot;/&quot;+&quot;*&quot; + blockStart_postSlashStar), null, debug_licenseStart).
-   {@link com.github.aliteralmind.codelet.linefilter.z.TextLineFilter_CfgForNeeder#end(BlockEnd, Pattern, ValidResultFilter, Appendable) end}(BlockEnd.REQUIRED, NewPatternFor.literal(blockEnd_preStarSlash + &quot;*&quot;+&quot;/&quot;), null, debug_licenseEnd).
-   {@link com.github.aliteralmind.codelet.linefilter.z.TextLineFilter_CfgForNeeder#line(Pattern, ValidResultFilter, Appendable) line}(Pattern.compile(&quot;^[\t ]*@author.*$&quot;), null, debug_authorLine).
-   {@link com.github.aliteralmind.codelet.linefilter.z.LineFilter_CfgForNeeder#ifBlockOrLineOrNotActive(ActiveBlockLines, ActiveSingleLines, InactiveLines) ifBlockOrLineOrNotActive}({@link com.github.aliteralmind.codelet.linefilter.z.ActiveBlockLines ActiveBlockLines}.{@link com.github.aliteralmind.codelet.linefilter.z.ActiveBlockLines#DISCARD DISCARD}, {@link com.github.aliteralmind.codelet.linefilter.z.ActiveSingleLines ActiveSingleLines}.{@link com.github.aliteralmind.codelet.linefilter.z.ActiveSingleLines#DISCARD DISCARD}, {@link com.github.aliteralmind.codelet.linefilter.z.InactiveLines InactiveLines}.{@link com.github.aliteralmind.codelet.linefilter.z.InactiveLines#KEEP KEEP}).
-   {@link com.github.aliteralmind.codelet.linefilter.z.TextLineFilter_CfgForNeeder#debugTo(Appendable) debugTo}(dbgFilter_ifNonNull).{@link com.github.aliteralmind.codelet.linefilter.z.TextLineFilter_CfgForNeeder#build() build}()</PRE></BLOCKQUOTE>
+<BLOCKQUOTE><PRE>new {@link com.github.xbn.linefilter.z.TextLineFilter_Cfg#TextLineFilter_Cfg() TextLineFilter_Cfg}().
+   {@link com.github.xbn.linefilter.z.TextLineFilter_CfgForNeeder#start(Pattern, ValidResultFilter, Appendable) start}(NewPatternFor.literal(&quot;/&quot;+&quot;*&quot; + blockStart_postSlashStar), null, debug_licenseStart).
+   {@link com.github.xbn.linefilter.z.TextLineFilter_CfgForNeeder#end(BlockEnd, Pattern, ValidResultFilter, Appendable) end}(BlockEnd.REQUIRED, NewPatternFor.literal(blockEnd_preStarSlash + &quot;*&quot;+&quot;/&quot;), null, debug_licenseEnd).
+   {@link com.github.xbn.linefilter.z.TextLineFilter_CfgForNeeder#line(Pattern, ValidResultFilter, Appendable) line}(Pattern.compile(&quot;^[\t ]*@author.*$&quot;), null, debug_authorLine).
+   {@link com.github.xbn.linefilter.z.LineFilter_CfgForNeeder#ifBlockOrLineOrNotActive(ActiveBlockLines, ActiveSingleLines, InactiveLines) ifBlockOrLineOrNotActive}({@link com.github.xbn.linefilter.z.ActiveBlockLines ActiveBlockLines}.{@link com.github.xbn.linefilter.z.ActiveBlockLines#DISCARD DISCARD}, {@link com.github.xbn.linefilter.z.ActiveSingleLines ActiveSingleLines}.{@link com.github.xbn.linefilter.z.ActiveSingleLines#DISCARD DISCARD}, {@link com.github.xbn.linefilter.z.InactiveLines InactiveLines}.{@link com.github.xbn.linefilter.z.InactiveLines#KEEP KEEP}).
+   {@link com.github.xbn.linefilter.z.TextLineFilter_CfgForNeeder#debugTo(Appendable) debugTo}(dbgFilter_ifNonNull).{@link com.github.xbn.linefilter.z.TextLineFilter_CfgForNeeder#build() build}()</PRE></BLOCKQUOTE>
       @see  #eliminateLicenseBlockAndAtAuthorLine(Appendable, Appendable, Appendable, Appendable)
     **/
    public static final TextLineFilter eliminateLicenseBlockAndAtAuthorLine(String blockStart_postSlashStar, Appendable debug_licenseStart, String blockEnd_preStarSlash, Appendable debug_licenseEnd, Appendable debug_authorLine, Appendable dbgFilter_ifNonNull)  {
@@ -105,10 +105,10 @@ public class NewLineFilterFor  {
       @param  doElim_multiLineCmts  If {@code true}, all multi-line comments are deleted. If {@code false}, {@code allJavaMultiLineComments} is not called (and {@code dbgJavaMlcs_ifNotNull} is ignored). Warning: This eliminates <I>entire lines</I>, including any text that happens to be outside of the block:
       <BR> &nbsp; &nbsp; <CODE>This text will also be eliminated  /&#42; The start of a comment...</CODE>)
       @return
-<BLOCKQUOTE><PRE>new {@link com.github.aliteralmind.codelet.linefilter.z.TextLineFilter_Cfg#TextLineFilter_Cfg() TextLineFilter_Cfg}().
-   {@link com.github.aliteralmind.codelet.linefilter.z.TextLineFilter_CfgForNeeder#allJavaMultiLineComments(Appendable) allJavaMultiLineComments}(dbgJavaMlcs_ifNotNull).{@link com.github.aliteralmind.codelet.linefilter.z.TextLineFilter_CfgForNeeder#line(ValueAlterer) line}(alterer).
-   {@link com.github.aliteralmind.codelet.linefilter.z.TextLineFilter_CfgForNeeder#ifBlockOrLineOrNotActive(ActiveBlockLines, ActiveSingleLines, InactiveLines) ifBlockOrLineOrNotActive}({@link com.github.aliteralmind.codelet.linefilter.z.ActiveBlockLines ActiveBlockLines}.{@link com.github.aliteralmind.codelet.linefilter.z.ActiveBlockLines#DISCARD DISCARD}, {@link com.github.aliteralmind.codelet.linefilter.z.ActiveSingleLines ActiveSingleLines}.{@link com.github.aliteralmind.codelet.linefilter.z.ActiveSingleLines#DISCARD DISCARD}, {@link com.github.aliteralmind.codelet.linefilter.z.InactiveLines InactiveLines}.{@link com.github.aliteralmind.codelet.linefilter.z.InactiveLines#KEEP KEEP}).
-   {@link com.github.aliteralmind.codelet.linefilter.z.TextLineFilter_CfgForNeeder#debugTo(Appendable) debugTo}(dbgFilter_ifNonNull).{@link com.github.aliteralmind.codelet.linefilter.z.TextLineFilter_CfgForNeeder#build() build}()</PRE></BLOCKQUOTE>
+<BLOCKQUOTE><PRE>new {@link com.github.xbn.linefilter.z.TextLineFilter_Cfg#TextLineFilter_Cfg() TextLineFilter_Cfg}().
+   {@link com.github.xbn.linefilter.z.TextLineFilter_CfgForNeeder#allJavaMultiLineComments(Appendable) allJavaMultiLineComments}(dbgJavaMlcs_ifNotNull).{@link com.github.xbn.linefilter.z.TextLineFilter_CfgForNeeder#line(ValueAlterer) line}(alterer).
+   {@link com.github.xbn.linefilter.z.TextLineFilter_CfgForNeeder#ifBlockOrLineOrNotActive(ActiveBlockLines, ActiveSingleLines, InactiveLines) ifBlockOrLineOrNotActive}({@link com.github.xbn.linefilter.z.ActiveBlockLines ActiveBlockLines}.{@link com.github.xbn.linefilter.z.ActiveBlockLines#DISCARD DISCARD}, {@link com.github.xbn.linefilter.z.ActiveSingleLines ActiveSingleLines}.{@link com.github.xbn.linefilter.z.ActiveSingleLines#DISCARD DISCARD}, {@link com.github.xbn.linefilter.z.InactiveLines InactiveLines}.{@link com.github.xbn.linefilter.z.InactiveLines#KEEP KEEP}).
+   {@link com.github.xbn.linefilter.z.TextLineFilter_CfgForNeeder#debugTo(Appendable) debugTo}(dbgFilter_ifNonNull).{@link com.github.xbn.linefilter.z.TextLineFilter_CfgForNeeder#build() build}()</PRE></BLOCKQUOTE>
    Where {@code alterer} is a
    <BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor NewLineAltererFor}.{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor#eliminatePackageLine(Appendable, Appendable) eliminatePackageLine}(dbgPkgLnValidFilter_ifNonNull, dbgPkgLnVldtr_ifNonNull)</CODE>
    	@see  #eliminateAllCmtBlocksAndPackageLine(CodeletInstance, String, boolean, boolean) eliminateAllCmtBlocksAndPackageLine(CodeletInstance, String, *)
@@ -180,12 +180,12 @@ PREFIX.filter.javamlcs=-1</PRE></BLOCKQUOTE>
       @param  is_endLineRegex  If {@code true} {@code startLine_findWhat} is treated as a regular expression.
       @param  endLine_findWhat  The start-line search term.
       @return
-<BLOCKQUOTE><PRE>{@link com.github.aliteralmind.codelet.linefilter.NewTextLineFilterFor NewTextLineFilterFor}.{@link com.github.aliteralmind.codelet.linefilter.NewTextLineFilterFor#lineRange(BlockMarks, Pattern, ValidResultFilter, Appendable, Pattern, ValidResultFilter, Appendable, Appendable) lineRange}({@link com.github.aliteralmind.codelet.linefilter.BlockMarks}.{@link com.github.aliteralmind.codelet.linefilter.BlockMarks#INCLUSIVE INCLUSIVE},
+<BLOCKQUOTE><PRE>{@link com.github.xbn.linefilter.NewTextLineFilterFor NewTextLineFilterFor}.{@link com.github.xbn.linefilter.NewTextLineFilterFor#lineRange(BlockMarks, Pattern, ValidResultFilter, Appendable, Pattern, ValidResultFilter, Appendable, Appendable) lineRange}({@link com.github.xbn.linefilter.BlockMarks}.{@link com.github.xbn.linefilter.BlockMarks#INCLUSIVE INCLUSIVE},
    <I>[start-pattern]</I>, startFilter, dbgStart_ifNonNull,
    <I>[end-pattern]</I>, endFilter, dbgEnd_ifNonNull,
       dbgFilter_ifNonNull)</PRE></BLOCKQUOTE>
       Where {@code startFilter} is a
-      <BR> &nbsp; &nbsp; <CODE>{@link com.github.xbn.analyze.validate.NewValidResultFilterFor NewValidResultFilterFor}.{@link com.github.xbn.analyze.validate.NewValidResultFilterFor#ifEqualUnchangedOutFalse(int, String, Appendable) ifEqualUnchangedOutFalse}(
+      <BR> &nbsp; &nbsp; <CODE>{@link com.github.xbn.analyze.validate.NewValidResultFilterFor NewValidResultFilterFor}.{@link com.github.xbn.analyze.validate.NewValidResultFilterFor#exactly(int, String, Appendable) exactly}(
          <BR> &nbsp; &nbsp; &nbsp; &nbsp; startAppearance_num, &quot;startAppearance_num&quot;, dbgStartFilter_ifNonNull)</CODE>
       @see  #lineRange(CodeletInstance, String, int, boolean, String, int, boolean, String) lineRange(CodeletInstance, String, *)
       @see  #lineRangeWithReplace(int, boolean, String, String, ReplacedInEachInput, Appendable, Appendable, int, boolean, String, String, ReplacedInEachInput, Appendable, Appendable, Appendable) lineRangeWithReplace
@@ -194,10 +194,10 @@ PREFIX.filter.javamlcs=-1</PRE></BLOCKQUOTE>
       Pattern startPrtn = NewPatternFor.regexIfTrueLiteralIfFalse(is_startLineRegex, startLine_findWhat, "startLine_findWhat");
       Pattern endPrtn = NewPatternFor.regexIfTrueLiteralIfFalse(is_endLineRegex, endLine_findWhat, "endLine_findWhat");
 
-      ValidResultFilter startFilter = NewValidResultFilterFor.ifEqualUnchangedOutFalse(
+      ValidResultFilter startFilter = NewValidResultFilterFor.exactly(
          startAppearance_num, "startAppearance_num",
          dbgStartFilter_ifNonNull);
-      ValidResultFilter endFilter = NewValidResultFilterFor.ifEqualUnchangedOutFalse(
+      ValidResultFilter endFilter = NewValidResultFilterFor.exactly(
          endAppearance_num, "endAppearance_num",
          dbgEndFilter_ifNonNull);
 
@@ -256,7 +256,7 @@ PREFIX.filter.blockend.validfilter=-1</PRE></BLOCKQUOTE>
       @param  endLine_rplcWith  The replacement term for the end-line search term ({@code endLine_findWhat}).
       @param  endRplcs_notMtchNum  In most cases, this should be set to {@code "FIRST"}.
       @return
-<BLOCKQUOTE><PRE>{@link com.github.aliteralmind.codelet.linefilter.NewTextLineFilterFor NewTextLineFilterFor}.{@link com.github.aliteralmind.codelet.linefilter.NewTextLineFilterFor#lineRangeWithReplace(BlockMarks block_marksAre, Pattern start_ptrn, String start_rplcWith, ReplacedInEachInput startRplcWhat_notMatchNums, ValidResultFilter start_filter, Appendable dbgStart_ifNonNull, Pattern end_ptrn, String end_rplcWith, ReplacedInEachInput endRplcWhat_notMatchNums, ValidResultFilter end_filter, Appendable dbgEnd_ifNonNull, Appendable dbgFilter_ifNonNull) lineRangeWithReplace}({@link com.github.aliteralmind.codelet.linefilter.BlockMarks}.{@link com.github.aliteralmind.codelet.linefilter.BlockMarks#INCLUSIVE INCLUSIVE},
+<BLOCKQUOTE><PRE>{@link com.github.xbn.linefilter.NewTextLineFilterFor NewTextLineFilterFor}.{@link com.github.xbn.linefilter.NewTextLineFilterFor#lineRangeWithReplace(BlockMarks block_marksAre, Pattern start_ptrn, String start_rplcWith, ReplacedInEachInput startRplcWhat_notMatchNums, ValidResultFilter start_filter, Appendable dbgStart_ifNonNull, Pattern end_ptrn, String end_rplcWith, ReplacedInEachInput endRplcWhat_notMatchNums, ValidResultFilter end_filter, Appendable dbgEnd_ifNonNull, Appendable dbgFilter_ifNonNull) lineRangeWithReplace}({@link com.github.xbn.linefilter.BlockMarks}.{@link com.github.xbn.linefilter.BlockMarks#INCLUSIVE INCLUSIVE},
    startPrtn, startLine_rplcWith, startRplcs_notMtchNum,
       startFilter, dbgStartRplcr_ifNonNull,
    endPrtn, endLine_rplcWith, endRplcs_notMtchNum,
@@ -268,10 +268,10 @@ PREFIX.filter.blockend.validfilter=-1</PRE></BLOCKQUOTE>
       Pattern startPrtn = NewPatternFor.regexIfTrueLiteralIfFalse(is_startLineRegex, startLine_findWhat, "startLine_findWhat");
       Pattern endPrtn = NewPatternFor.regexIfTrueLiteralIfFalse(is_endLineRegex, endLine_findWhat, "endLine_findWhat");
 
-      ValidResultFilter startFilter = NewValidResultFilterFor.ifEqualUnchangedOutFalse(
+      ValidResultFilter startFilter = NewValidResultFilterFor.exactly(
          startAppearance_num, "startAppearance_num",
          dbgStartFilter_ifNonNull);
-      ValidResultFilter endFilter = NewValidResultFilterFor.ifEqualUnchangedOutFalse(
+      ValidResultFilter endFilter = NewValidResultFilterFor.exactly(
          endAppearance_num, "endAppearance_num",
          dbgEndFilter_ifNonNull);
 

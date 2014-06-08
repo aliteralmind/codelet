@@ -1,0 +1,7 @@
+##1##
+##2## User-created named debuggers.
+##3##
+##4## Documentation: CodeletBootstrap.NAMED_DEBUGGERS_CONFIG_FILE
+##5##
+##6## Level numbers may be changed to -1, 0, 1, 2, 3, 4, or 5
+##7##
