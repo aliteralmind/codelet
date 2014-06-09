@@ -136,7 +136,7 @@ package  com.github.aliteralmind.codelet;
 
    <P>with one exception: When the processor's function name is explicitely specified, <I>but its class is not</I> (which is true in the first two of the three above), the customizer must exist in one of the default classes</P>
 
-   <A NAME="proc_custom_post"/><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet example: <U>Defaults with custom postfix</U></H2>
+   <A NAME="proc_custom_post"/><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet syntax: Example: <U>Defaults with custom postfix</U></H2>
 
 <BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName:_ExtraStuff()}}</BLOCKQUOTE>
 
@@ -144,7 +144,7 @@ package  com.github.aliteralmind.codelet;
 
    <P>This is useful when there are multiple codelets of the same {@linkplain CodeletType type}, for the same example class (or text file).</P>
 
-   <A NAME="xmpl_sig"/><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet example: <U>Specifying the class in which the processor function exists</U></H2>
+   <A NAME="xmpl_sig"/><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet syntax: Example: <U>Specifying the class in which the processor function exists</U></H2>
 
    <P>The customizer function can be in any class, which may explicitely specified:</P>
 
@@ -158,7 +158,7 @@ package  com.github.aliteralmind.codelet;
    <BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature SimpleMethodSignature}.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature#newFromStringAndDefaults(Class, Object, String, Class[], Appendable) newFromStringAndDefaults}</CODE>
    <BR>(Before being provided to {@code newFromStringAndDefaults}, the omitted function name is given its default value [{@code "getSource_ExampleClass"}], as described in this and the <A HREF="#proc_custom_post">previous example</A>. In all cases, {@code SimpleMethodSignature} requires a function name.)</P>
 
-   <A NAME="xmpl_params"/><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet example: <U>Specifying extra processor parameters</U></H2>
+   <A NAME="xmpl_params"/><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet syntax: Example: <U>Specifying extra processor parameters</U></H2>
 
    <P>The default customizer has a single {@link CodeletInstance CodeletInstance} parameter. This is specified in the taglet with either empty parentheses, or no parens at all, as demonstrated in the <A HREF="#xmpl_defaults">default example</A>.</P>
 
