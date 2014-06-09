@@ -72,7 +72,7 @@ package  com.github.aliteralmind.codelet;
             <LI>Changes a function, constructor, class, or field name to a <A HREF="{@docRoot}/overview-summary.html#xmpl_links">clickable JavaDoc link</A>.</LI>
          </UL></LI>
       </UL></LI>
-      <LI>Calling a customizer from a codelet. Examples:<UL>
+      <LI><B>Taglet syntax:</B> Calling a customizer from a codelet. Examples:<UL>
          <LI><A HREF="#xmpl_defaults">Default function name and class location</A></LI>
          <LI>Defaults with a <A HREF="#proc_custom_post">custom postfix</A></LI>
          <LI><A HREF="#xmpl_sig">Specifying the class</A> in which the processor function exists</LI>
