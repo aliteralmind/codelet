@@ -198,9 +198,9 @@ To do a full build of Codelet:  ant publish</echo>
 
       <echo>Creating usage-installation download zip.</echo>
 
-         <property name="working_usage_install_dir" value="${dir_working}codelet_usage_install_files${fs}"/>
+         <property name="working_usage_install_dir" value="${dir_working}codelet_usage_only_install_files${fs}"/>
          <property name="working_usage_install_config_dir" value="${working_usage_install_dir}codelet-config${fs}"/>
-         <property name="working_usage_install_jar_dir" value="${working_usage_install_dir}codelet_and_all_dependency_jars${fs}"/>
+         <property name="working_usage_install_jar_dir" value="${working_usage_install_dir}jars${fs}"/>
 
          <delete dir="${working_usage_install_dir}"/>
          <mkdir dir="${working_usage_install_dir}"/>
@@ -227,9 +227,9 @@ To do a full build of Codelet:  ant publish</echo>
             file="${dir_sandbox_codelet_config}placeholder__codelet.properties"
             tofile="${working_usage_install_config_dir}codelet.properties"/>
 
-         <zip destfile="${dir_build_download}${project_name_for_dir}_codelet_usage_install_files.zip" whenempty="fail"
+         <zip destfile="${dir_build_download}${project_name_for_dir}_usage_only_install_files.zip" whenempty="fail"
             basedir="${dir_working}"
-            includes="codelet_usage_install_files/**,working_usage_install_jar_dir/**"/>
+            includes="codelet_usage_only_install_files/**"/>
 </target>
 <target name="zip2" description="Generates javadoc documentation.">
    </target>

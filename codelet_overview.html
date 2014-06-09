@@ -33,12 +33,12 @@
 
    <P><OL>
       <LI><B><A HREF="#install">Installation</A> instructions</B></LI>
-      <LI><B>Examples:</B><UL>
+      <LI><B>Examples:</B><OL>
          <LI>A first example: &quot;<A HREF="#xmpl_hello">Hello Codelet!</A>&quot;</LI>
          <LI>Displaying only a portion of an example's source code: A <A HREF="#xmpl_snippet">code snippet</A></LI>
          <LI><A HREF="#xmpl_elim_mlcs_pkg"/>Eliminating multiline comments</A> and the package declaration</LI>
          <LI>Advanced: A <A HREF="#xmpl_links">custom customizer</A>: Making relevant functions into clickable JavaDoc links</LI>
-      </UL></LI>
+      </OL></LI>
       <LI>Customizer function: The <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#overview">function itself</A>, and <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#xmpl_defaults">calling it from a taglet</A></LI>
       <LI>{@linkplain com.github.aliteralmind.codelet.CodeletTemplateBase Templates}: Configuring <A HREF="{@docRoot}/com/github/aliteralmind.codelet/CodeletBaseConfig.html#tmpl_defaults">default</A> templates, {@linkplain com.github.aliteralmind.codelet.UserExtraGapGetter custom gaps}, and {@linkplain com.github.aliteralmind.codelet.TemplateOverrides overrides}</LI>
       <LI>Debugging Codelet:<OL>
@@ -237,7 +237,7 @@ LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.template=-1</PRE
    <P>(For <B>building</B>, see XBN-Java's <A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/overview-summary.html#install">installation instructions</A>. The Codelet build process is derived from, and is almost the same as, XBN-Java's build process.)</P>
 
    <P>To install Codelet:<OL>
-      <LI><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_codelet_usage_install_files.zip">Download</A> the zip file containing the Codelet jar, all jars it depends on, and the codelet configuration directory</LI>
+      <LI>Download the zip file containing the Codelet jar, all jars it depends on, and the codelet configuration directory: <A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_usage_only_install_files.zip">{@code codelet_0p1p0_usage_only_install_files.zip}</A></LI>
       <LI>Add the necessary items to your classpath (below)</LI>
       <LI><A HREF="#install_taglets">Configure {@code javadoc}</A> to recognize Codelet taglets</LI>
       <LI><A HREF="#install_configure">Configure Codelet</A></LI>
@@ -247,15 +247,15 @@ LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.template=-1</PRE
 
    <P>Add the following elements to your classpath:</P>
 
-   <P><UL>
-      <LI>{@code INSTALLATION_DIR\codelet\z_build\jar_dependencies\commons-io-2.4.jar}</LI>
-      <LI>{@code INSTALLATION_DIR\codelet\z_build\jar_dependencies\commons-lang3-3.3.2.jar}</LI>
-      <LI>{@code INSTALLATION_DIR\codelet\z_build\jar_dependencies\commons-collections4-4.0.jar}</LI>
-      <LI>{@code INSTALLATION_DIR\codelet\z_build\jar_dependencies\guava-16.0.1.jar}</LI>
-      <LI>{@code INSTALLATION_DIR\codelet\z_build\jar_dependencies\xbnjava_0p1p0_all.jar}</LI>
-      <LI>{@code INSTALLATION_DIR\codelet\z_build\jar_dependencies\templatefeather_0p1p0_all.jar}</LI>
-      <LI>{@code INSTALLATION_DIR\codelet\z_build\jar_dependencies\codelet_0p1p0_all.jar}</LI>
-   </UL></P>
+   <P><OL>
+      <LI>{@code INSTALLATION_DIR\codelet_usage_only_install_files\jars\codelet_0p1p0_all.jar}</LI>
+      <LI>{@code INSTALLATION_DIR\codelet_usage_only_install_files\jars\commons-collections4-4.0.jar}</LI>
+      <LI>{@code INSTALLATION_DIR\codelet_usage_only_install_files\jars\commons-io-2.4.jar}</LI>
+      <LI>{@code INSTALLATION_DIR\codelet_usage_only_install_files\jars\commons-lang3-3.3.2.jar}</LI>
+      <LI>{@code INSTALLATION_DIR\codelet_usage_only_install_files\jars\guava-16.0.1.jar}</LI>
+      <LI>{@code INSTALLATION_DIR\codelet_usage_only_install_files\jars\templatefeather_0p1p0_all.jar}</LI>
+      <LI>{@code INSTALLATION_DIR\codelet_usage_only_install_files\jars\xbnjava_0p1p0_all.jar}</LI>
+   </OL></P>
 
    <P>Details and alternatives:<OL>
       <LI>Codelet: Exactly one of the following must be used (The above classpath-string assumes you've chosen {@code "codelet_0p1p0_all.jar"}):<OL>
@@ -298,13 +298,13 @@ LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.template=-1</PRE
 
    <a name="install_configure"/><H2><A HREF="#install"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Installation: <U>Configuring Codelet itself</U></H2>
 
-   <P>At a minimum, the following three values must be set in {@link com.github.aliteralmind.codelet.CodeletBaseConfig codelet.properties}:<UL>
+   <P>At a minimum, the following three values must be set in {@link com.github.aliteralmind.codelet.CodeletBaseConfig codelet.properties}:<OL>
       <LI>{@link com.github.aliteralmind.codelet.CodeletBaseConfig#BASE_DIR_BASE_DIR base_dir_base_dir}: The root directory on which all other directory values are based on. This is used by other values with {@code ${BASE}}. Example value:
       <BR> &nbsp; &nbsp; <CODE>C:\java_code\project_name\</CODE></LI>
       <LI>{@link com.github.aliteralmind.codelet.CodeletBaseConfig#EXAMPLE_CLASS_SRC_BASE_DIR example_class_src_base_dir}: The directory in which the top-most package name of all example code resides. Example value
       <BR> &nbsp; &nbsp; <CODE>${BASE}examples\\</CODE></LI>
       <LI>{@link com.github.aliteralmind.codelet.CodeletBaseConfig#ENCLOSING_CLASS_SRC_BASE_DIRS enclosing_class_src_base_dirs}: The directory in which the top-most package name of all codelet-taglet <I>containing</I> classes reside. Example value
       <BR> &nbsp; &nbsp; <CODE>${BASE}src\\,${BASE}test\\,${BASE}examples\\</CODE></LI>
-   </UL></P>
+   </OL></P>
 
 </BODY>
