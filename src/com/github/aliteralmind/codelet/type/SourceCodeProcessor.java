@@ -43,6 +43,10 @@ public class SourceCodeProcessor extends TagletOfTypeProcessor<SourceCodeTemplat
    public SourceCodeProcessor(CodeletInstance instance) throws ClassNotFoundException, NoSuchMethodException, NoSuchFileException, AccessDeniedException  {
       super(CodeletType.SOURCE_CODE, instance);
 
+      if(getClassOrFilePortion().contains("("))  {
+         throw  new CodeletFormatException(instance, "Source code taglets cannot contain command-line parameters");
+      }
+
       Iterator<String> srcLineItr = getSourceCodeLineIterator(instance);
 
       CustomizationInstructions<SourceCodeTemplate> instructions =

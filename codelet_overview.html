@@ -98,8 +98,8 @@
 
    <P>When using a customizer with the {@code {@.codelet.and.out}} taglet, only the source code is altered. To customize the output as well, use</P>
 
-   <P style="font-size: 125%;"><CODE>{&#64;.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo:customizerForSourceCode()}
-   <BR>{&#64;.codelet.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:customizerForOutput()}</CODE></P>
+<BLOCKQUOTE><PRE>{&#64;.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo:customizerForSourceCode()}
+{&#64;.codelet.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:customizerForOutput()}</PRE></BLOCKQUOTE>
 
 <a name="xmpl_elim_mlcs_pkg"/>
 
@@ -171,16 +171,18 @@
 
 <P><B>The taglet:</B></P>
 
-<BLOCKQUOTE>{@code {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:com.github.aliteralmind.codelet.examples.LineRangeWithLinksCompact#adderDemo_lineSnippetWithLinks()}}</BLOCKQUOTE>
+<BLOCKQUOTE>{@code {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:adderDemo_lineSnippetWithLinks()}}</BLOCKQUOTE>
 
 <P><B>Its output:</B></P>
 
 {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:com.github.aliteralmind.codelet.examples.LineRangeWithLinksCompact#adderDemo_lineSnippetWithLinks()}
 
-   <P>(In the {@linkplain com.github.aliteralmind.codelet.examples.LineRangeWithLinksCompact full example}
-   <BR> &nbsp; &nbsp; <CODE>com.github.aliteralmind.codelet.examples.LineRangeWithLinksCompact#adderDemo_lineSnippetWithLinks()</CODE>
-   <BR>is shortened to
-   <BR> &nbsp; &nbsp; <CODE>adderDemo_lineSnippetWithLinks()</CODE>
+   <P>(In this {@code overview-summary.html} file,
+   <BR> &nbsp; &nbsp; {@code ":adderDemo_lineSnippetWithLinks()"}
+   <BR>must actually be
+   <BR> &nbsp; &nbsp; {@code ":com.github.aliteralmind.codelet.examples.LineRangeWithLinksCompact#adderDemo_lineSnippetWithLinks()"}
+   <BR>because that is the class in which the customizer function exists. In the {@linkplain com.github.aliteralmind.codelet.examples.LineRangeWithLinksCompact full example} it can be shortened to
+   <BR> &nbsp; &nbsp; {@code ":adderDemo_lineSnippetWithLinks()"}
    <BR>because the containing class for a customizer function <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#requirements">defaults</A> to the class containing the taglet--if it is indeed a class.)</P>
 
 <P><B>The full customizer function (version 1 of 3):</B></P>
@@ -237,7 +239,7 @@ LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.template=-1</PRE
    <P>(For <B>building</B>, see XBN-Java's <A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/overview-summary.html#install">installation instructions</A>. The Codelet build process is derived from, and is almost the same as, XBN-Java's build process.)</P>
 
    <P>Steps to install Codelet:<OL>
-      <LI><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_codelet_usage_install_files.zip">Download</A> containing the Codelet jar, all jars it depends on, and the codelet configuration directory.</LI>
+      <LI><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_codelet_usage_install_files.zip">Download</A> the zip file containing the Codelet jar, all jars it depends on, and the codelet configuration directory.</LI>
       <LI>Add the necessary items to your classpath, and</LI>
       <LI><A HREF="#install_taglets">Configuring {@code javadoc}</A> to recognize Codelet taglets.</LI>
       <LI><A HREF="#install_configure">Configure Codelet</A> itself.</LI>

@@ -44,7 +44,7 @@ package  com.github.aliteralmind.codelet;
 /**
    <P>The instructions returned by a Codelet Customizer, which is used by the taglet-processor to modify its output.</P>
 
-   <P>It is made up of three items:<UL>
+   <A NAME="3_parts"/><P>A {@code CustomizationInstructions} object is made up of three items:<UL>
       <LI>The {@linkplain #filter(TextLineFilter) line filter}, for eliminating unwanted lines, such as for displaying only a {@linkplain BasicCustomizers#lineRange(CodeletInstance, CodeletType, Integer, Boolean, String, Integer, Boolean, String, String) snippet} of a class.</LI>
       <LI>The {@linkplain #alterer(AllTextLineAlterer) all-lines alterer}, which contains an array of {@linkplain com.github.xbn.linefilter.TextLineAlterer line alterers} which, by default, modify every line. Each alterer can be {@linkplain com.github.xbn.analyze.validate.ValidResultFilter filtered} so it does not start until it's needed, and {@linkplain com.github.xbn.lang.Expirable expires} when its job is complete.</LI>
       <LI>The <!-- GENERIC PARAMETERS FAIL IN @link --><A HREF="#template(T)">template</A> in which final output text is placed, and whose {@linkplain CodeletTemplateBase#getRendered(CodeletInstance) rendered} output is what actually replaces the taglet.</LI>

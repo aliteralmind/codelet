@@ -39,6 +39,11 @@ public class FileTextProcessor extends TagletOfTypeProcessor<FileTextTemplate>  
     **/
    public FileTextProcessor(CodeletInstance instance) throws ClassNotFoundException, NoSuchMethodException, NoSuchFileException, AccessDeniedException  {
       super(CodeletType.FILE_TEXT, instance);
+
+      if(getClassOrFilePortion().contains("("))  {
+         throw  new CodeletFormatException(instance, "File-text taglets cannot contain command-line parameters");
+      }
+
       Iterator<String> fileTextLineItr = PlainTextFileUtil.getLineIterator(TagletTextUtil.getFilePath(instance), "TagletTextUtil.getFilePath(instance)");
 
       String strSig = getStringSigForFileText();

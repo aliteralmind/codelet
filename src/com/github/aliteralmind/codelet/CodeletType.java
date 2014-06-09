@@ -43,7 +43,7 @@ public enum CodeletType  {
       <BR> &nbsp; &nbsp; {@code fully\qualified\examples\ExampleClassName.java}
       <BR>Where {@code "fully"} is in the {@linkplain CodeletBaseConfig#EXAMPLE_CLASS_SRC_BASE_DIR example-code base directory} as configured.</P>
 
-<BLOCKQUOTE><CODE>{&#64;.codelet fully.qualified.examples.ExampleClassName:{@link com.github.aliteralmind.codelet.BasicCustomizers#lineRange(CodeletInstance, CodeletType, int, boolean, String, int, boolean, String) lineRange}(1, false, "text in start line", 1, false, "text in end line")}</CODE></BLOCKQUOTE>
+<BLOCKQUOTE><CODE>{&#64;.codelet fully.qualified.examples.ExampleClassName:{@link com.github.aliteralmind.codelet.BasicCustomizers#lineRange(CodeletInstance, CodeletType, Integer, Boolean, String, Integer, Boolean, String, String) lineRange}(1, false, "text in start line", 1, false, "text in end line")}</CODE></BLOCKQUOTE>
 
       <P>Same as above, but only displays a <A HREF="{@docRoot}/overview-summary.html#xmpl_snippet">portion</A> of the lines, starting and ending with lines that contain specific text (inclusive).</P>
 

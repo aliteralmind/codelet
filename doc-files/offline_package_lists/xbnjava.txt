@@ -18,6 +18,7 @@ com.github.xbn.examples.lang.builder.finalv
 com.github.xbn.examples.lang.non_xbn
 com.github.xbn.examples.lang.non_xbn.basic
 com.github.xbn.examples.lang.reflect
+com.github.xbn.examples.linefilter
 com.github.xbn.examples.list.non_xbn
 com.github.xbn.examples.neederneedable
 com.github.xbn.examples.number
@@ -43,9 +44,12 @@ com.github.xbn.keyed
 com.github.xbn.lang
 com.github.xbn.lang.reflect
 com.github.xbn.lang.z
+com.github.xbn.linefilter
+com.github.xbn.linefilter.z
 com.github.xbn.list
 com.github.xbn.list.lister
 com.github.xbn.list.lister.z
+com.github.xbn.neederneedable
 com.github.xbn.number
 com.github.xbn.number.z
 com.github.xbn.regexutil
