@@ -167,7 +167,6 @@ To do a full build of Codelet:  ant publish</echo>
             <exclude name=".git"/>
  -->
             <exclude name="**/offline_package_lists/*"/>
-            <exclude name="**/offline_package_lists/*"/>
             <exclude name="*build.properties"/>
             <exclude name="**/*codelet.properties"/>
          </fileset>
