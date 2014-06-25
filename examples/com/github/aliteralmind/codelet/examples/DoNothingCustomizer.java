@@ -44,9 +44,9 @@ public class DoNothingCustomizer  {
       return  new CustomizationInstructions<SourceCodeTemplate>(instance,
             needed_defaultAlterType).
          defaults(
-            null,      //dbgFilter: on=System.out, off=null
-            null,      //dbgAllAltr
-            null).     //dbgTemplate
+            null, null, //dbgEveryLine and its range
+            null,       //dbgAllAltr: on=System.out, off=null
+            null).      //dbgTemplate
          build();
    }  //End snippet
 }

@@ -80,6 +80,7 @@ public class SourceAndOutProcessor extends TagletOfTypeProcessor<SourceAndOutTem
                   instance, CodeletType.CONSOLE_OUT));
          String outputCustomized = instructions.getCustomizedBody(instance, consoleOutLineItr);
 
+
       String finalOutput = template.
          fillSourceCodeBody(customizedSourceCode).
          fillConsoleOutputBody(outputCustomized).

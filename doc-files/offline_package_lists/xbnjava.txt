@@ -45,7 +45,10 @@ com.github.xbn.lang
 com.github.xbn.lang.reflect
 com.github.xbn.lang.z
 com.github.xbn.linefilter
-com.github.xbn.linefilter.z
+com.github.xbn.linefilter.entity
+com.github.xbn.linefilter.entity.raw
+com.github.xbn.linefilter.entity.raw.z
+com.github.xbn.linefilter.entity.z
 com.github.xbn.list
 com.github.xbn.list.lister
 com.github.xbn.list.lister.z

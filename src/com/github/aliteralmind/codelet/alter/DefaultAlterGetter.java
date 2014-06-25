@@ -13,7 +13,7 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.alter;
-   import  com.github.xbn.linefilter.TextLineAlterer;
+   import  com.github.xbn.linefilter.alter.TextLineAlterer;
    import  java.util.LinkedHashMap;
 /**
    <P>Defines alterers used by all pre-built customizers, which are also accessible in custom customizers. The fully-qualified class name of your implementation is specified in the {@link com.github.aliteralmind.codelet.CodeletBaseConfig#DEFAULT_ALTERERS_CLASS_NAME default_alterers_class_name} configuration variable.</P>
@@ -25,7 +25,7 @@ package  com.github.aliteralmind.codelet.alter;
 
    <P>Alterations are made in the same order as they are returned by the iterator. When used by {@linkplain com.github.aliteralmind.codelet.BasicCustomizers pre-built customizers}, these default alterations take place after all others (they are added to the end of the {@linkplain com.github.aliteralmind.codelet.CustomizationInstructions#orderedAlterers(Appendable, NullElement, ExpirableElements, MultiAlterType, TextLineAlterer...) alter-array}).</P>
 
-   <P>It is strongly recommended that at least the {@linkplain com.github.xbn.linefilter.NewTextLineAltererFor#escapeHtml() escape html alterer} be returned by all {@code getFor} functions. This is in fact the only alterer returned by all functions in {@link DefaultDefaultAlterGetter}.</P>
+   <P>It is strongly recommended that at least the {@linkplain com.github.xbn.linefilter.alter.NewTextLineAltererFor#escapeHtml() escape html alterer} be returned by all {@code getFor} functions. This is in fact the only alterer returned by all functions in {@link DefaultDefaultAlterGetter}.</P>
 
    @since  0.1.0
    @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>

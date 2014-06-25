@@ -19,16 +19,16 @@ package  com.github.aliteralmind.codelet.examples;
    import  com.github.aliteralmind.codelet.alter.DefaultAlterGetterUtil;
    import  com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum;
    import  com.github.aliteralmind.codelet.alter.NewLineAltererFor;
-   import  com.github.aliteralmind.codelet.alter.NewLineFilterFor;
+   import  com.github.aliteralmind.codelet.NewLineFilterFor;
    import  com.github.aliteralmind.codelet.examples.adder.Adder;
    import  com.github.aliteralmind.codelet.type.SourceCodeTemplate;
    import  com.github.xbn.analyze.alter.ExpirableElements;
    import  com.github.xbn.analyze.alter.MultiAlterType;
    import  com.github.xbn.array.NullElement;
    import  com.github.xbn.regexutil.ReplacedInEachInput;
-   import  com.github.xbn.linefilter.NewTextLineAltererFor;
-   import  com.github.xbn.linefilter.TextLineAlterer;
-   import  com.github.xbn.linefilter.TextLineFilter;
+   import  com.github.xbn.linefilter.alter.NewTextLineAltererFor;
+   import  com.github.xbn.linefilter.alter.TextLineAlterer;
+   import  com.github.xbn.linefilter.FilteredLineIterator;
    import  java.util.regex.Pattern;
    import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 /**
@@ -55,9 +55,10 @@ package  com.github.aliteralmind.codelet.examples;
  **/
 public class LineRangeWithLinksCompact  {
    private static final CustomizationInstructions<SourceCodeTemplate> adderDemo_lineSnippetWithLinks(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
-      TextLineFilter filter = NewLineFilterFor.lineRange(
+      FilteredLineIterator filter = NewLineFilterFor.lineRange(
          1, false, "Adder adder", null, null,
-         2, false, "println(adder", null, null, null);
+         2, false, "println(adder", null, null,
+         null, null, null);
 
       TextLineAlterer[] alterers = {
          NewTextLineAltererFor.escapeHtml(),
@@ -78,7 +79,7 @@ public class LineRangeWithLinksCompact  {
 
    private static final CustomizationInstructions<SourceCodeTemplate> LineRangeWithLinksCompact_adderDemo_lineRangeWithLinks(CodeletInstance instance, CodeletType needed_defaultAlterType, Boolean do_highlightDbgOnOff)  {
       String debugPrefix = "LineRangeWithLinksCompact.LineRangeWithLinksCompact_adderDemo_lineRangeWithLinks";
-      TextLineFilter filter = NewLineFilterFor.lineRangeWithReplace(instance,
+      FilteredLineIterator filter = NewLineFilterFor.lineRangeWithReplace(instance,
          debugPrefix,
                    //Chopped in half, so this string isn't mistaken for the match
          1, true, "(<SourceCodeTemplate> ad"+"derDemo_lineSnippetWithLinks)", "$1",

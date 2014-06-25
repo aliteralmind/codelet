@@ -20,7 +20,6 @@ package  com.github.aliteralmind.codelet;
    import  com.github.xbn.lang.CrashIfObject;
    import  com.github.xbn.text.CrashIfString;
    import  com.github.xbn.text.StringUtil;
-   import  com.github.xbn.linefilter.TextLineIterator;
    import  com.github.xbn.lang.reflect.InvokeMethodWithRtx;
    import  com.github.xbn.lang.reflect.ReflectRtxUtil;
    import  com.github.aliteralmind.codelet.simplesig.SimpleMethodSigFormatException;
@@ -492,7 +491,7 @@ public class TagletOfTypeProcessor<T extends CodeletTemplateBase>  {
    public CustomizationInstructions<T> newInstructionsForDefaults(CustomizationInstructions<T> instructions)  {
       String prefix = "zzTagletOfTypeProcessor.newInstructionsForDefaults.";
       return  instructions.defaults(
-            getDebugApblIfOn(getInstance(), prefix + "filter"),
+            getDebugApblIfOn(getInstance(), prefix + "filter.alllines"), null,
             getDebugApblIfOn(getInstance(), prefix + "allalterer"),
             getDebugApblIfOn(getInstance(), prefix + "templateparseandfill")).
          build();

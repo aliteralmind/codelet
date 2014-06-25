@@ -19,15 +19,15 @@ package  com.github.aliteralmind.codelet.examples;
    import  com.github.aliteralmind.codelet.alter.DefaultAlterGetterUtil;
    import  com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum;
    import  com.github.aliteralmind.codelet.alter.NewLineAltererFor;
-   import  com.github.aliteralmind.codelet.alter.NewLineFilterFor;
+   import  com.github.aliteralmind.codelet.NewLineFilterFor;
    import  com.github.aliteralmind.codelet.examples.adder.Adder;
    import  com.github.aliteralmind.codelet.type.SourceCodeTemplate;
    import  com.github.xbn.analyze.alter.ExpirableElements;
    import  com.github.xbn.analyze.alter.MultiAlterType;
    import  com.github.xbn.array.NullElement;
-   import  com.github.xbn.linefilter.NewTextLineAltererFor;
-   import  com.github.xbn.linefilter.TextLineAlterer;
-   import  com.github.xbn.linefilter.TextLineFilter;
+   import  com.github.xbn.linefilter.alter.NewTextLineAltererFor;
+   import  com.github.xbn.linefilter.alter.TextLineAlterer;
+   import  com.github.xbn.linefilter.FilteredLineIterator;
 /**
    <P style="font-size: 150%;"><B><A HREF="{@docRoot}/overview-summary.html#xmpl_links"><FONT SIZE="+1"><CODE><IMG SRC="{@docRoot}/resources/left_arrow.gif"/> GO BACK</CODE></FONT></A> &nbsp; &nbsp; Codelet: Example: Advanced customization: Making relevant functions into clickable JavaDoc links</B></P>
 
@@ -52,14 +52,15 @@ package  com.github.aliteralmind.codelet.examples;
  **/
 public class LineRangeWithLinks  {
    private static final CustomizationInstructions<SourceCodeTemplate> adderDemo_lineSnippetWithLinks(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
-      TextLineFilter filter = NewLineFilterFor.lineRange(
+      FilteredLineIterator filter = NewLineFilterFor.lineRange(
          1, false, "Adder adder",
-            null,       //dbgStartFilter: on=System.out, off=null
+            null,       //debugStartFilter: on=System.out, off=null
             null,       //dbgStart
          2, false, "println(adder",
             null,       //dbgEndFilter
             null,       //dbgEnd
-         null);         //dbgFilter
+         null,          //dbgLineNums
+         null, null);   //dbgAllLines and its range
 
       TextLineAlterer[] alterers = {
          NewTextLineAltererFor.escapeHtml(),

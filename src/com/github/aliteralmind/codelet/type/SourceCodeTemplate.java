@@ -27,13 +27,13 @@ package  com.github.aliteralmind.codelet.type;
 /**
    <P>The text into which {@code {@.codelet}} output (the example-code's source) is placed.</P>
 
-   <A NAME="gaps"/><H2><A HREF="{@docRoot}/overview-summary.html#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: {@code {@.codelet}}: Template: <U>Gap names</U></H2>
+   <A NAME="gaps"><A/><H2><A HREF="{@docRoot}/overview-summary.html#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: {@code {@.codelet}}: Template: <U>Gap names</U></H2>
 
    <P>The only required gap is &quot;{@link com.github.aliteralmind.codelet.type.OnlyOneBodyGapTemplateBase#BODY_GAP_NAME body}&quot;, which is where the fully-processed source-code is placed.</P>
 
    <P>In addition to any {@linkplain com.github.aliteralmind.codelet.UserExtraGapGetter#getForSourceCodelet() user-extra} gaps, the {@code {@.codelet}} template also provides for the following &quot;default&quot; optional gaps:</P>
 
-   <A NAME="gaps"/><P><A HREF="SourceCodeTemplate.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; <B>Url-related:</B></P>
+   <A NAME="gaps"><A/><P><A HREF="SourceCodeTemplate.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; <B>Url-related:</B></P>
 
    <P><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
       <TD><B><U>Name</U></B></TD>
@@ -52,7 +52,7 @@ package  com.github.aliteralmind.codelet.type;
       <TD>The example code's package, with dots ({@code '.'}) replaced by url-slashes ({@code '/'}).</TD>
    </TR></TABLE></P>
 
-   <A NAME="gaps"/><P><A HREF="SourceCodeTemplate.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; <B>Non-url related:</B></P>
+   <A NAME="gaps"><A/><P><A HREF="SourceCodeTemplate.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; <B>Non-url related:</B></P>
 
    <P><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
       <TD><B><U>Name</U></B></TD>

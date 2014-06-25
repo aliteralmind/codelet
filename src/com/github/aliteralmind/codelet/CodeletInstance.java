@@ -73,7 +73,7 @@ public class CodeletInstance  {
       <BR> &nbsp; &nbsp; {@code {@.codelet.out my.package.examples.AnExample((byte)-30, true, "Ribsy"):()}}
       <BR>this parameter must equal
       <BR> &nbsp; &nbsp; <CODE>my.package.examples.AnExample((byte)-30, true, "Ribsy"):()</CODE>
-      <BR>Get with {@link #getText() getText}{@code ()}. Any literal close curlys ({@code '&#125;}) found in string parameters are replaced with actual close-curlys: {@code '&#125;'}. Escaping close curlys is required in order to prevent {@code javadoc.exe} from mistakenly ending the taglet in the middle of a string parameter.
+      <BR>Get with {@link #getText() getText}{@code ()}. Any literal curly braces ({@code '&#123;}' or '{@code '&#125;}') found in string parameters are replaced with actual braces: {@code '&#123;'} and {@code '&#125;'}. Escaping curlys is required in order to prevent {@code javadoc.exe} from incorrectly parsing taglets.
       @param  relUrl_toDocRoot  The relative directory from the containing JavaDoc file to the JavaDoc root directory (the value of {@code {@docRoot}}). Get with {@link #getRelativeUrlToDocRoot() getRelativeUrlToDocRoot}{@code ()}.
     **/
    public CodeletInstance(String taglet_name, String enclosing_package, String enclosing_simpleName, File enclosing_file, int line_num, String tag_text, String relUrl_toDocRoot)  {
@@ -105,7 +105,7 @@ public class CodeletInstance  {
 
       type = CodeletType.newTypeForTagletName(taglet_name, "taglet_name");
 
-      text = tag_text.replace("&#125;", "}");
+      text = tag_text.replace("&#123;", "{").replace("&#125;", "}");
 
       enclosingPackage = enclosing_package;
       enclosingSimpleNm = enclosing_simpleName;

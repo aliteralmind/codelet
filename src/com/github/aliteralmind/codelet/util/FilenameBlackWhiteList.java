@@ -36,7 +36,7 @@ package  com.github.aliteralmind.codelet.util;
 /**
    <P>For black- or white-listing file paths or fully-qualified class names, with overrides. This is based on <CODE>org.apache.commons.io.{@link org.apache.commons.io.FilenameUtils FilenameUtils}.{@link org.apache.commons.io.org.apache.commons.io.FilenameUtils#wildcardMatch(String, String, IOCase) wildcardMatch}(String, String, IOCase)</CODE>, with the exception paths and all wildcard patterns must be non-{@code null} and non-empty.</P>
 
-{@.codelet.and.out com.github.aliteralmind.codelet.examples.util.BlackWhiteListForJavaClasses:eliminateCmtBlocksPkgLineAndPkgReferences(true, true, false)}
+{@.codelet.and.out com.github.aliteralmind.codelet.examples.util.BlackWhiteListForJavaClasses:eliminateCommentBlocksAndPackageDecl()}
 
    @since  0.1.0
    @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>

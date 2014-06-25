@@ -17,10 +17,10 @@ package  com.github.aliteralmind.codelet.simplesig;
    import  com.github.aliteralmind.codelet.CodeletType;
    import  com.github.aliteralmind.codelet.CustomizationInstructions;
    import  com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum;
-   import  com.github.aliteralmind.codelet.alter.NewLineFilterFor;
-   import  com.github.xbn.linefilter.NewTextLineAltererFor;
-   import  com.github.xbn.linefilter.TextLineAlterer;
-   import  com.github.xbn.linefilter.TextLineFilter;
+   import  com.github.aliteralmind.codelet.NewLineFilterFor;
+   import  com.github.xbn.linefilter.alter.NewTextLineAltererFor;
+   import  com.github.xbn.linefilter.alter.TextLineAlterer;
+   import  com.github.xbn.linefilter.FilteredLineIterator;
    import  com.github.aliteralmind.codelet.type.SourceCodeTemplate;
    import  com.github.xbn.analyze.alter.ExpirableElements;
    import  com.github.xbn.analyze.alter.MultiAlterType;
@@ -36,7 +36,7 @@ public class zCodeletCustomizers  {
    private static final CustomizationInstructions<SourceCodeTemplate> getSourceConfig_ConstructorParamSearchTermXmpl(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
       String debugPrefix = "ConstructorParamSearchTermXmpl";
 
-      TextLineFilter filter = NewLineFilterFor.
+      FilteredLineIterator filter = NewLineFilterFor.
          eliminateAllCmtBlocksAndPackageLine(instance, debugPrefix,
             true, true);
 
@@ -64,7 +64,7 @@ public class zCodeletCustomizers  {
    private static final CustomizationInstructions<SourceCodeTemplate> getSourceConfig_MethodSigSearchTermXmpl(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
       String debugPrefix = "MethodSigSearchTermXmpl";
 
-      TextLineFilter filter = NewLineFilterFor.
+      FilteredLineIterator filter = NewLineFilterFor.
          eliminateAllCmtBlocksAndPackageLine(instance, debugPrefix,
             true, true);
 

@@ -4,16 +4,18 @@
 ##4## Documentation: CodeletBootstrap.NAMED_DEBUGGERS_CONFIG_FILE
 ##5##
 ##6## Level numbers may be changed to -1, 0, 1, 2, 3, 4, or 5
-##7##
-##8## If you are BUILDING the Codelet project itself, the below lines must
-##9## remain (you can add your own). If you are USING Codelet in your own
-##A## project, all the below lines can be safely deleted.
-##B##
+##7##                                 -1=always off, 0=always on
+##8##
+##9## If you are BUILDING the Codelet project itself, the below lines must
+##A## remain (you can add your own). If you are USING Codelet in your own
+##B## project, all the below lines can be safely deleted.
+##C##
 ConstructorParamSearchTermXmpl.allalterer=-1
 ConstructorParamSearchTermXmpl.filter.javamlcs=-1
 ConstructorParamSearchTermXmpl.filter.packageline.validfilter=-1
 ConstructorParamSearchTermXmpl.filter.packageline=-1
-ConstructorParamSearchTermXmpl.filter=-1
+ConstructorParamSearchTermXmpl.filter.alllines=-1
+ConstructorParamSearchTermXmpl.filter.linenums=-1
 ConstructorParamSearchTermXmpl.link.constructor.searchterm.doesmatch=-1
 ConstructorParamSearchTermXmpl.link.constructor.searchterm=-1
 ConstructorParamSearchTermXmpl.link.constructor.validfilter=-1
@@ -35,7 +37,8 @@ JavaDocUtil.FunctionConstructorJavaDocLink.allalterer=-1
 JavaDocUtil.FunctionConstructorJavaDocLink.filter.javamlcs=-1
 JavaDocUtil.FunctionConstructorJavaDocLink.filter.packageline.validfilter=-1
 JavaDocUtil.FunctionConstructorJavaDocLink.filter.packageline=-1
-JavaDocUtil.FunctionConstructorJavaDocLink.filter=-1
+JavaDocUtil.FunctionConstructorJavaDocLink.filter.alllines=-1
+JavaDocUtil.FunctionConstructorJavaDocLink.filter.linenums=-1
 JavaDocUtil.FunctionConstructorJavaDocLink.link.getUrlToConstructor.searchterm.doesmatch=-1
 JavaDocUtil.FunctionConstructorJavaDocLink.link.getUrlToConstructor.searchterm=-1
 JavaDocUtil.FunctionConstructorJavaDocLink.link.getUrlToConstructor.validfilter=-1
@@ -53,7 +56,8 @@ JavaDocUtil.GetEllipsisArrayLastParamXmpl.filter.blockstart=-1
 JavaDocUtil.GetEllipsisArrayLastParamXmpl.filter.javamlcs=-1
 JavaDocUtil.GetEllipsisArrayLastParamXmpl.filter.packageline.validfilter=-1
 JavaDocUtil.GetEllipsisArrayLastParamXmpl.filter.packageline=-1
-JavaDocUtil.GetEllipsisArrayLastParamXmpl.filter=-1
+JavaDocUtil.GetEllipsisArrayLastParamXmpl.filter.alllines=-1
+JavaDocUtil.GetEllipsisArrayLastParamXmpl.filter.linenums=-1
 JavaDocUtil.GetEllipsisArrayLastParamXmpl.link.getEllipsisArrayLastParam.searchterm.doesmatch=-1
 JavaDocUtil.GetEllipsisArrayLastParamXmpl.link.getEllipsisArrayLastParam.searchterm=-1
 JavaDocUtil.GetEllipsisArrayLastParamXmpl.link.getEllipsisArrayLastParam.validfilter=-1
@@ -71,7 +75,8 @@ LineRangeWithLinksAndNamedDebugs.LineRangeWithLinksAndNamedDebugs_adderDemo_line
 LineRangeWithLinksAndNamedDebugs.LineRangeWithLinksAndNamedDebugs_adderDemo_lineRangeWithLinks.filter.javamlcs=-1
 LineRangeWithLinksAndNamedDebugs.LineRangeWithLinksAndNamedDebugs_adderDemo_lineRangeWithLinks.filter.packageline.validfilter=-1
 LineRangeWithLinksAndNamedDebugs.LineRangeWithLinksAndNamedDebugs_adderDemo_lineRangeWithLinks.filter.packageline=-1
-LineRangeWithLinksAndNamedDebugs.LineRangeWithLinksAndNamedDebugs_adderDemo_lineRangeWithLinks.filter=-1
+LineRangeWithLinksAndNamedDebugs.LineRangeWithLinksAndNamedDebugs_adderDemo_lineRangeWithLinks.filter.alllines=-1
+LineRangeWithLinksAndNamedDebugs.LineRangeWithLinksAndNamedDebugs_adderDemo_lineRangeWithLinks.filter.linenums=-1
 LineRangeWithLinksAndNamedDebugs.LineRangeWithLinksAndNamedDebugs_adderDemo_lineRangeWithLinks.link.constructor.searchterm.doesmatch=-1
 LineRangeWithLinksAndNamedDebugs.LineRangeWithLinksAndNamedDebugs_adderDemo_lineRangeWithLinks.link.constructor.searchterm=-1
 LineRangeWithLinksAndNamedDebugs.LineRangeWithLinksAndNamedDebugs_adderDemo_lineRangeWithLinks.link.constructor.validfilter=-1
@@ -111,7 +116,8 @@ LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.filter.blockend.
 LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.filter.blockend=-1
 LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.filter.blockstart.validfilter=-1
 LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.filter.blockstart=-1
-LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.filter=-1
+LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.filter.alllines=-1
+LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.filter.linenums=-1
 LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.link.constructor.searchterm.doesmatch=-1
 LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.link.constructor.searchterm=-1
 LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.link.constructor.validfilter=-1
@@ -126,7 +132,8 @@ LineRangeWithLinksCompact.LineRangeWithLinksCompact_adderDemo_lineRangeWithLinks
 LineRangeWithLinksCompact.LineRangeWithLinksCompact_adderDemo_lineRangeWithLinks.filter.blockend=-1
 LineRangeWithLinksCompact.LineRangeWithLinksCompact_adderDemo_lineRangeWithLinks.filter.blockstart.validfilter=-1
 LineRangeWithLinksCompact.LineRangeWithLinksCompact_adderDemo_lineRangeWithLinks.filter.blockstart=-1
-LineRangeWithLinksCompact.LineRangeWithLinksCompact_adderDemo_lineRangeWithLinks.filter=-1
+LineRangeWithLinksCompact.LineRangeWithLinksCompact_adderDemo_lineRangeWithLinks.filter.alllines=-1
+LineRangeWithLinksCompact.LineRangeWithLinksCompact_adderDemo_lineRangeWithLinks.filter.linenums=-1
 LineRangeWithLinksCompact.LineRangeWithLinksCompact_adderDemo_lineRangeWithLinks.highlightonoff.validfilter=-1
 LineRangeWithLinksCompact.LineRangeWithLinksCompact_adderDemo_lineRangeWithLinks.highlightonoff=-1
 LineRangeWithLinksCompact.LineRangeWithLinksCompact_adderDemo_lineRangeWithLinks.link.constructor.searchterm.doesmatch=-1
@@ -162,7 +169,8 @@ MethodSigSearchTermXmpl.allalterer=-1
 MethodSigSearchTermXmpl.filter.javamlcs=-1
 MethodSigSearchTermXmpl.filter.packageline.validfilter=-1
 MethodSigSearchTermXmpl.filter.packageline=-1
-MethodSigSearchTermXmpl.filter=-1
+MethodSigSearchTermXmpl.filter.alllines=-1
+MethodSigSearchTermXmpl.filter.linenums=-1
 MethodSigSearchTermXmpl.link.constructor.searchterm.doesmatch=-1
 MethodSigSearchTermXmpl.link.constructor.searchterm=-1
 MethodSigSearchTermXmpl.link.constructor.validfilter=-1

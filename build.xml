@@ -123,10 +123,15 @@ To do a full build of Codelet:  ant publish</echo>
    </target>
 
    <target name="publish4" description="Publish codelet, starting with doc">
+      <record name="${dir_build}javadoc_and_zip_log.txt" action="start"/>
       <antcall target="doc"/>
       <antcall target="doc2"/>
       <antcall target="zip"/>
       <antcall target="zip2"/>
+      <record name="${dir_build}javadoc_and_zip_log.txt" action="stop"/>
+   </target>
+   <target name="doczip" description="Shortcut for publish4">
+      <antcall target="publish4"/>
    </target>
 
    <target name="unit" description="Executes com.github.xbn.unittests.UnitTestRunner">
@@ -231,7 +236,7 @@ To do a full build of Codelet:  ant publish</echo>
             basedir="${dir_working}"
             includes="codelet_usage_only_install_files/**"/>
 </target>
-<target name="zip2" description="Generates javadoc documentation.">
+<target name="zip2" description="For starting execution somewhere in the middle of the 'zip' task.">
    </target>
 
 

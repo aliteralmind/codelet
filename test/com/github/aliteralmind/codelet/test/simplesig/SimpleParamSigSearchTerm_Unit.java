@@ -1,5 +1,5 @@
 package  com.github.aliteralmind.codelet.test.simplesig;
-   import  com.github.aliteralmind.codelet.alter.NewLineFilterFor;
+   import  com.github.aliteralmind.codelet.NewLineFilterFor;
    import  com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum;
    import  com.github.aliteralmind.codelet.simplesig.MethodSigSearchTerm;
    import  com.github.xbn.lang.reflect.RTNoSuchMethodException;
@@ -71,8 +71,6 @@ public class SimpleParamSigSearchTerm_Unit  {
 
       new MethodSigSearchTerm("lineRange(int, *)", null, null).
          getOnlyMatch(allInClass);
-//lineRange(CodeletInstance, String, int, boolean, String, int, boolean, String)
-//lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable)
    }
    public static final void funcName()  {
    }

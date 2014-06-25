@@ -218,7 +218,6 @@ BasicCustomizers.lineRange.template=2
 CodeletTemplateBase.newTemplateFromPath.templateparseandfill=3
 CodeletTemplateBase.templateparseandfill=3
 ConsoleOutProcessor.consoleoutputfromexamplecodestringsig=1
-CustomizationInstructions.getCustomizedBody.eachlineasfiltered=3
 SourceAndOutProcessor.template=2
 SourceCodeProcessor.progress=1
 TagletOfTypeProcessor.classcustomizersplit=2

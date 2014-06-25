@@ -13,10 +13,12 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.alter;
+   import  java.util.Objects;
    import  com.github.aliteralmind.codelet.CodeletInstance;
    import  com.github.aliteralmind.codelet.CodeletType;
-   import  com.github.xbn.linefilter.TextLineAlterer;
    import  com.github.xbn.lang.CrashIfObject;
+   import  com.github.xbn.linefilter.alter.TextLineAlterer;
+   import  com.github.xbn.list.MapUtil;
    import  java.util.ArrayList;
    import  java.util.Arrays;
    import  java.util.Iterator;
@@ -136,7 +138,7 @@ public class DefaultAlterGetterUtil  {
       <P>Creates a new line-alter array with all default alterers placed after all provided alterers.</P>
 
       @param  needed_defaultAlterType  May not be {@code null}.
-      @param  alter_list  May not be {@code null}.
+      @param  alter_list  May not be {@code null}, but may be empty or contain {@code null} elements.
       @exception  DefaultAlterGetterException  If anything goes wrong when attempting to retrieve the map, its {@linkplain java.util.Map#entrySet() entry} iterator, or an entry.
       @see  #getDefaultAlterArray(CodeletType) getDefaultAlterArray
       @see  #getAlterArrayWithDefaultAlterersAdded(CodeletType, TextLineAlterer) getAlterArrayWithDefaultAlterersAdded
@@ -150,12 +152,12 @@ public class DefaultAlterGetterUtil  {
       }
       try  {
          while(entryItr.hasNext())  {
-            try  {
-               alter_list.add(entryItr.next().getValue());
-            }  catch(RuntimeException rx)  {
-               CrashIfObject.nnull(alter_list, "alter_list", null);
-               throw  new DefaultAlterGetterException("Attempting alter_list.add([getMap(needed_defaultAlterType).entrySet().iterator()].next().getValue()) (\"next().getValue()\" failed). needed_defaultAlterType=" + needed_defaultAlterType, rx);
+            Map.Entry<String,TextLineAlterer> entry = entryItr.next();
+            TextLineAlterer alterer = entry.getValue();
+            if(alterer == null)  {
+               throw  new IllegalArgumentException("getMap(" + needed_defaultAlterType + ").entrySet().iterator() has a null element. All elements: " + MapUtil.toString(getMap(needed_defaultAlterType), null));
             }
+            alter_list.add(alterer);
          }
       }  catch(DefaultAlterGetterException dgx)  {
          throw  dgx;

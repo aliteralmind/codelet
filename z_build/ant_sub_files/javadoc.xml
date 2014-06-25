@@ -12,7 +12,6 @@
    </target>
 
    <target name="doc" description="Generates javadoc documentation.">
-      <record name="${dir_build}javadoc_log.txt" action="start"/>
       <!--
          Packages need to be delimited by both commas and colons.  In build.properties, it's only delimited by commas.  Commas (with or without spaces) are needed by the JavaDoc "packagenames" attribute, and colons (without spaces) are needed by the "group" sub-tags.
 
@@ -113,7 +112,6 @@
 <!-- Required for syntax highlighting (2/2)...END -->
 </body>]]></replacevalue>
       </replace>
-      <record name="${dir_build}javadoc_log.txt" action="stop"/>
    </target>
 </project>
 

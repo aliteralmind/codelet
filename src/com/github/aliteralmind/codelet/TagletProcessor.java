@@ -58,7 +58,7 @@ public class TagletProcessor  {
          <LI>The example class specified in the taglet does not exist (according to <CODE>{@link java.lang.Class Class}.{@link java.lang.Class#forName(String) forName}</CODE>)</LI>
          <LI>The <I>explicitly specified</I> customizer class does not exist.</LI>
       </UL>
-      @exception  NoSuchMethodException  If the customizer function does not exist, either in the explicitly specified or <A HREF="CustomizationInstructions.html#requirements">default classes</A>, or does not meet its requirements.
+      @exception  NoSuchMethodException  If the customizer function does not exist, either in the explicitly specified or <A HREF="CustomizationInstructions.html#specifications">default classes</A>, or does not meet its requirements.
       @exception  NoSuchFileException  If the source-code or plain-text file does not exist.
       @exception  AccessDeniedException  If the file exists, but cannot be read.
     **/

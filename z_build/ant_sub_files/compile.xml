@@ -57,13 +57,9 @@
       <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="DoNothingCustomizerCompact.java"/>
       <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="EliminateCommentBlocksAndPackageDeclaration.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="EliminatePackageDeclarationLine.java"/>
       <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="HelloCodelet.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="LineRange.java"/>
       <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="TrivialAppWithCommandLineParams.java"/>
       <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
@@ -206,7 +202,7 @@
       <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="CustomizationInstructions.java"/>
       <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="alter/NewLineFilterFor.java"/>
+         includes="NewLineFilterFor.java"/>
       <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="BasicCustomizers.java"/>
       <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"

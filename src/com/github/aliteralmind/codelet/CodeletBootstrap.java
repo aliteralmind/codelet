@@ -64,9 +64,9 @@ public enum CodeletBootstrap  {
    private static TemplateOverrides     tmplOverrides;
    private static final String NAMED_DBG_LVL_PREFIX = "named_debuggers_config";
    /**
-      <P>The name of the system property that <A HREF="{@docRoot}/overview-summary.html#install_taglets">passed</A> into the {@code javadoc} application, whose value is the directory in which all Codelet configuration files are stored--Equal to {@code "codelet_config_dir"}. </P>
+      <P>The name of the system property that is <A HREF="{@docRoot}/overview-summary.html#install_taglets">passed</A> into the {@code javadoc} application, whose value is the directory in which all Codelet configuration files are stored--Equal to {@code "codelet_config_dir"}. </P>
 
-      <P>{@link #BASE_CONFIG_FILE_NAME codelet.properties}, {@link #TMPL_OVERRIDES_CONFIG_FILE_NAME template_overrides_config.txt}, and {@link #EXTERNAL_DOC_ROOT_URL_FILE "external_doc_root_urls.txt"} must all be in this directory.</P>
+      <P>{@link #BASE_CONFIG_FILE_NAME codelet.properties}, {@link #TMPL_OVERRIDES_CONFIG_FILE_NAME template_overrides_config.txt}, and &quot;{@link #EXTERNAL_DOC_ROOT_URL_FILE external_doc_root_urls.txt}&quot; must all be in this directory.</P>
 
       @see  CodeletBootstrap
       @see  #getCodeletConfigDir()
@@ -140,7 +140,7 @@ public enum CodeletBootstrap  {
 
       <P>This file contains a list of {@linkplain com.github.aliteralmind.codelet.util.NamedDebuggers#newMapFromConfigFile(Map, Iterator, String, Appendable) names}, each of which is associated to a specific debugging task and {@linkplain CodeletBaseConfig#GLOBAL_DEBUG_LEVEL level}. These are in addition to those in the {@linkplain #NAMED_DEBUGGERS_CONFIG_FILE user-created} configuration file.</P>
 
-      <P>Changing the level numbers in this file allow you to print or suppress very specific aspects of debugging information that is <I>already built into Codelet</I>. <B>Warning:</B> Changing the <I>names</I> of any level in this file will result in errors. All Codelet-required levels are prefixed with {@code "zz"}.</P>
+      <P>Changing the level numbers in this file allows you to print or suppress very specific aspects of debugging information that is <I>already built into Codelet</I>. <B>Warning:</B> Changing the <I>names</I> of any level in this file will result in an error. All Codelet-required levels are prefixed with {@code "zz"}.</P>
 
       <P>An example of a function taking advantage of named debuggers is
       <BR> &nbsp; &nbsp; <CODE>{@link BasicCustomizers}.{@link BasicCustomizers#lineRange(CodeletInstance, CodeletType, Integer, Boolean, String, Integer, Boolean, String, String) lineRange}</CODE>.</P>
@@ -161,7 +161,7 @@ public enum CodeletBootstrap  {
 <BLOCKQUOTE><PRE>[offline_file_name_prefix] [url]</PRE></BLOCKQUOTE>
 
       <P>Where<UL>
-         <LI><CODE>[offline_file_name]</CODE> is the name of the locally-stored file (aside from {@code ".txt"}), which exists in a sub-directory named &quot;{@link CodeletBaseConfig#OFFLINE_PACKAGE_LIST_DIR_NAME offline_package_lists}&quot;. This directory is in the {@linkplain #CODELET_CONFIG_DIR_SYS_PROP_NAME same directory} as this {@code "external_doc_root_urls.txt"} file. Must only contain letters, digits, and underscores ({@code '_'}).</LI>
+         <LI><CODE>[offline_file_name]</CODE> is the name of the locally-stored file (aside from {@code ".txt"}), which exists in a sub-directory named &quot;{@link CodeletBaseConfig#OFFLINE_PACKAGE_LIST_DIR_NAME offline_package_lists}&quot;. This is in the {@linkplain #CODELET_CONFIG_DIR_SYS_PROP_NAME same directory} as this {@code "external_doc_root_urls.txt"} file. Must only contain letters, digits, and underscores ({@code '_'}).</LI>
          <LI><CODE>[url]</CODE> is the url to the JavaDoc document root ({@code "{@docRoot}"}) of an external Java library. Must end with a slash ({@code '/'}), and must contain the library's {@code "package-list"} file.</LI>
       </UL>The file-name and url are separated with at least one space or tab.</P>
 

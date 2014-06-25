@@ -43,6 +43,6 @@ public class DoNothingCustomizerCompact  {
    private static final CustomizationInstructions<SourceCodeTemplate> aCustomizerThatDoesNothing(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
       return  new CustomizationInstructions<SourceCodeTemplate>(instance,
             needed_defaultAlterType).
-         defaults(null, null, null).build();
+         defaults(null, null, null, null).build();
    }  //End snippet
 }

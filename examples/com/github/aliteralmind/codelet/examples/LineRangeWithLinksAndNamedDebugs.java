@@ -19,11 +19,11 @@ package  com.github.aliteralmind.codelet.examples;
    import  com.github.aliteralmind.codelet.alter.DefaultAlterGetterUtil;
    import  com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum;
    import  com.github.aliteralmind.codelet.alter.NewLineAltererFor;
-   import  com.github.aliteralmind.codelet.alter.NewLineFilterFor;
+   import  com.github.aliteralmind.codelet.NewLineFilterFor;
    import  com.github.aliteralmind.codelet.examples.adder.Adder;
-   import  com.github.xbn.linefilter.NewTextLineAltererFor;
-   import  com.github.xbn.linefilter.TextLineAlterer;
-   import  com.github.xbn.linefilter.TextLineFilter;
+   import  com.github.xbn.linefilter.alter.NewTextLineAltererFor;
+   import  com.github.xbn.linefilter.alter.TextLineAlterer;
+   import  com.github.xbn.linefilter.FilteredLineIterator;
    import  com.github.aliteralmind.codelet.type.SourceCodeTemplate;
    import  com.github.xbn.analyze.alter.ExpirableElements;
    import  com.github.xbn.analyze.alter.MultiAlterType;
@@ -56,7 +56,7 @@ public class LineRangeWithLinksAndNamedDebugs  {
    private static final CustomizationInstructions<SourceCodeTemplate> adderDemo_lineSnippetWithLinks(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
       String debugPrefix = "LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks";
 
-      TextLineFilter filter = NewLineFilterFor.lineRange(instance, debugPrefix,
+      FilteredLineIterator filter = NewLineFilterFor.lineRange(instance, debugPrefix,
          1, false, "Adder adder",
          2, false, "println(adder");
 

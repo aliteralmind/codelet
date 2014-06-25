@@ -19,10 +19,10 @@ package  com.github.aliteralmind.codelet.examples;
    import  com.github.aliteralmind.codelet.CustomizationInstructions;
    import  com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum;
    import  com.github.aliteralmind.codelet.alter.NewLineAltererFor;
-   import  com.github.aliteralmind.codelet.alter.NewLineFilterFor;
-   import  com.github.xbn.linefilter.NewTextLineAltererFor;
-   import  com.github.xbn.linefilter.TextLineAlterer;
-   import  com.github.xbn.linefilter.TextLineFilter;
+   import  com.github.aliteralmind.codelet.NewLineFilterFor;
+   import  com.github.xbn.linefilter.alter.NewTextLineAltererFor;
+   import  com.github.xbn.linefilter.alter.TextLineAlterer;
+   import  com.github.xbn.linefilter.FilteredLineIterator;
    import  com.github.aliteralmind.codelet.type.SourceCodeTemplate;
    import  com.github.xbn.analyze.alter.ExpirableElements;
    import  com.github.xbn.analyze.alter.MultiAlterType;
@@ -41,7 +41,7 @@ public class zCodeletCustomizers  {
 
       String debugPrefix = "LineRangeWithLinksAndNamedDebugs.LineRangeWithLinksAndNamedDebugs_adderDemo_lineRangeWithLinks";
 
-      TextLineFilter filter = NewLineFilterFor.eliminateAllCmtBlocksAndPackageLine(instance, debugPrefix, true, true);
+      FilteredLineIterator filter = NewLineFilterFor.eliminateAllCmtBlocksAndPackageLine(instance, debugPrefix, true, true);
 
       TextLineAlterer[] alterers = {
          NewTextLineAltererFor.escapeHtml(),

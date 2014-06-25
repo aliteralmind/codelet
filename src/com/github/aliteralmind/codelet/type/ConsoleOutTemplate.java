@@ -27,7 +27,7 @@ package  com.github.aliteralmind.codelet.type;
 /**
    <P>The text into which {@code {@.codelet}} output (the example-code's source) is placed.</P>
 
-   <A NAME="gaps"/><H2><A HREF="{@docRoot}/overview-summary.html#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: {@code {@.codelet}}: Template: <U>Gap names</U></H2>
+   <A NAME="gaps"><A/><H2><A HREF="{@docRoot}/overview-summary.html#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: {@code {@.codelet}}: Template: <U>Gap names</U></H2>
 
    <P>The only required gap is &quot;{@link #BODY_GAP_NAME body}&quot;, which is where the fully-processed source-code is placed.</P>
 

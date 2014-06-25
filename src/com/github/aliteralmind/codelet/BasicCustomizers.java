@@ -13,15 +13,10 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet;
-   import  com.github.aliteralmind.codelet.alter.NewLineFilterFor;
    import  com.github.aliteralmind.codelet.alter.DefaultAlterGetterUtil;
    import  com.github.aliteralmind.codelet.alter.NewLineAltererFor;
-   import  com.github.aliteralmind.codelet.alter.NewLineFilterFor;
-   import  com.github.xbn.linefilter.BlockMarks;
-   import  com.github.xbn.linefilter.NewTextLineAltererFor;
-   import  com.github.xbn.linefilter.NewTextLineFilterFor;
-   import  com.github.xbn.linefilter.TextLineAlterer;
-   import  com.github.xbn.linefilter.TextLineFilter;
+   import  com.github.xbn.linefilter.alter.TextLineAlterer;
+   import  com.github.xbn.linefilter.FilteredLineIterator;
    import  com.github.xbn.analyze.alter.ExpirableElements;
    import  com.github.xbn.analyze.alter.MultiAlterType;
    import  com.github.xbn.analyze.validate.NewValidResultFilterFor;
@@ -46,7 +41,7 @@ package  com.github.aliteralmind.codelet;
  **/
 public class BasicCustomizers  {
    /**
-      <P><I>Text snippet:</I> Eliminates all lines except those between a specific start and end line, based on text found in those (start and end) lines.</P>
+      <P><I>Text snippet:</I> Eliminates all lines except those between a specific start and end line, based on text found in those (start and end) lines. The start and end lines are also kept.</P>
 
       <H4>Example</H4>
 
@@ -54,14 +49,15 @@ public class BasicCustomizers  {
 
 {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo:lineRange(1, false, "Adder adder", 2, false, "println(adder.getSum())", "^      ")}
 
-      <P>Starts with the line containing {@code "Adder adder"}, and ends with the <I>second</I> line containing {@code "println(adder.getSum())"}. This also deletes the indentation of the kept lines, which is two tabs at <A HREF="http://www.regular-expressions.info/anchors.html">line-start</A>: {@code "^      "}. <I>{@linkplain examples.LineRange View example}</I></P>
+      <P>Starts with the line containing {@code "Adder adder"}, and ends with the <I>second</I> line containing {@code "println(adder.getSum())"}. This also deletes the indentation of the kept lines, which is two tabs at <A HREF="http://www.regular-expressions.info/anchors.html">line-start</A>: {@code "^      "}. <I>(<A HREF="{@docRoot}/overview-summary.html#xmpl_snippet">Intro example</A>)</I></P>
 
       <H4>Automated {@linkplain CodeletBootstrap#CODELET_RQD_NAMED_DBGRS_CONFIG_FILE named debuggers}</H4>
 
       <P>{@code zzBasicCustomizers.lineRange}<UL>
          <LI>{@code .allalterer}: {@linkplain com.github.xbn.linefilter#AllTextLineAlterer(TextLineAlterer[], ExpirableElements, MultiAlterType, Appendable) All alterers}, as a whole.</LI>
          <LI>{@code .elimindent}: <CODE>{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor}.{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor#eliminateIndentationOrNull(String, Appendable) eliminateIndentationOrNull}</CODE></LI>
-         <LI>{@code filter}: <CODE>{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor}.{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor#lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable) lineRange}.dbgFilter_ifNonNull</CODE><UL>
+         <LI>{@code .linenums}: The start and end line numbers of the snippet.</LI>
+         <LI>{@code filter}: <CODE>{@link com.github.aliteralmind.codelet.NewLineFilterFor}.{@link com.github.aliteralmind.codelet.NewLineFilterFor#lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRangeValidator) lineRange}.dbgEveryLine_ifNonNull</CODE><UL>
             <LI>{@code .endalterer}: <CODE>NewLineFilterFor.lineRange.dbgEnd_ifNonNull</CODE></LI>
             <LI>{@code .endvalidfilter}: <CODE>NewLineFilterFor.lineRange.dbgEndFilter_ifNonNull</CODE></LI>
             <LI>{@code .startalterer}: <CODE>NewLineFilterFor.lineRange.dbgStart_ifNonNull</CODE></LI>
@@ -74,6 +70,7 @@ public class BasicCustomizers  {
 
 <BLOCKQUOTE><PRE>zzBasicCustomizers.lineRange.allalterer
 zzBasicCustomizers.lineRange.elimindent
+zzBasicCustomizers.lineRange.linenums
 zzBasicCustomizers.lineRange.filter
 zzBasicCustomizers.lineRange.filter.endalterer
 zzBasicCustomizers.lineRange.filter.endvalidfilter
@@ -91,15 +88,14 @@ zzBasicCustomizers.lineRange.template</PRE></BLOCKQUOTE>
       @param  indentRegexToElim_emptyStrIfNone  The regular expression representing the indentation that should be eliminated from the line-range. Since these lines exist in the middle of a file, they may be {@linkplain com.github.aliteralmind.codelet.alter.NewLineAltererFor#eliminateIndentationOrNull(String, Appendable) extra-indented}.
       @return  <CODE>CustomizationInstructions.&lt;T&gt;newForMaybeElimIndent_tabToSpcEscHtml(instance, filter, indentRegexToElim_emptyStrIfNone)</CODE>
       <BR>Where {@code filter} is created with
-      <BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor NewLineFilterFor}.{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor#lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable) lineRange}</CODE>
+      <BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.NewLineFilterFor NewLineFilterFor}.{@link com.github.aliteralmind.codelet.NewLineFilterFor#lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRangeValidator) lineRange}</CODE>
       @see  #lineRangeWithReplace(CodeletInstance, CodeletType, Integer, Boolean, String, String, String, Integer, Boolean, String, String, String, String) lineRangeWithReplace
     **/
    public static final <T extends CodeletTemplateBase> CustomizationInstructions<T> lineRange(CodeletInstance instance, CodeletType needed_defaultAlterType, Integer startAppearance_num, Boolean is_startLineRegex, String startLine_findWhat, Integer endAppearance_num, Boolean is_endLineRegex, String endLine_findWhat, String indentRegexToElim_emptyStrIfNone) throws PatternSyntaxException  {
       //Named debuggers appendables
          String debugPrefix = "zzBasicCustomizers.lineRange";
 
-      TextLineFilter filter = NewLineFilterFor.lineRange(
-         instance, debugPrefix,
+      FilteredLineIterator filter = NewLineFilterFor.lineRange(instance, debugPrefix,
          startAppearance_num, is_startLineRegex, startLine_findWhat,
          endAppearance_num, is_endLineRegex, endLine_findWhat);
 
@@ -120,7 +116,7 @@ zzBasicCustomizers.lineRange.template</PRE></BLOCKQUOTE>
          build();
    }
    /**
-      <P><I>Text snippet:</I> Eliminates all lines except those between a specific start and end line, based on text found in those (start and end) lines--also makes replacements on the start and end lines only. This is useful when lines must be marked, but those marks should not be seen in the final output.</P>
+      <P><I>Text snippet:</I> Eliminates all lines except those between a specific start and end line, based on text found in those (start and end) lines--also makes replacements on the start and end lines only. The start and end lines are also kept. This function is useful when lines must be marked, but those marks should not be seen in the final output.</P>
 
       <H4>Example</H4>
 
@@ -137,7 +133,7 @@ zzBasicCustomizers.lineRange.template</PRE></BLOCKQUOTE>
       <P>{@code zzBasicCustomizers.lineRangeWithReplace}<UL>
          <LI>{@code allalterer}: {@linkplain com.github.xbn.linefilter#AllTextLineAlterer(TextLineAlterer[], ExpirableElements, MultiAlterType, Appendable) All alterers}, as a whole.</LI>
          <LI>{@code .elimindent}: <CODE>{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor}.{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor#eliminateIndentationOrNull(String, Appendable) eliminateIndentationOrNull}</CODE></LI>
-         <LI>{@code filter}: <CODE>{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor}.{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor#lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable) lineRange}.dbgFilter_ifNonNull</CODE><UL>
+         <LI>{@code filter}: <CODE>{@link com.github.aliteralmind.codelet.NewLineFilterFor}.{@link com.github.aliteralmind.codelet.NewLineFilterFor#lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRangeValidator) lineRange}.dbgEveryLine_ifNonNull</CODE><UL>
             <LI>{@code .endalterer}: <CODE>NewLineFilterFor.lineRange.dbgEnd_ifNonNull</CODE></LI>
             <LI>{@code .endvalidfilter}: <CODE>NewLineFilterFor.lineRange.dbgEndFilter_ifNonNull</CODE></LI>
             <LI>{@code .startalterer}: <CODE>NewLineFilterFor.lineRange.dbgStart_ifNonNull</CODE></LI>
@@ -173,7 +169,7 @@ zzBasicCustomizers.lineRangeWithReplace.template</PRE></BLOCKQUOTE>
       ReplacedInEachInput rplcsStart = EnumUtil.toValueWithNullDefault(startRplcWhat_notMatchNums, "startRplcWhat_notMatchNums", IgnoreCase.NO, DefaultValueFor.NOTHING, ReplacedInEachInput.ALL);
       ReplacedInEachInput rplcsEnd = EnumUtil.toValueWithNullDefault(endRplcWhat_notMatchNums, "startRplcWhat_notMatchNums", IgnoreCase.NO, DefaultValueFor.NOTHING, ReplacedInEachInput.ALL);
 
-      TextLineFilter filter = NewLineFilterFor.lineRangeWithReplace(
+      FilteredLineIterator filter = NewLineFilterFor.lineRangeWithReplace(
          instance, debugPrefix,
          startAppearance_num, is_startLineRegex,
          startLine_findWhat, startLine_rplcWith, rplcsStart,
@@ -189,12 +185,21 @@ zzBasicCustomizers.lineRangeWithReplace.template</PRE></BLOCKQUOTE>
       return  new CustomizationInstructions<T>(instance, needed_defaultAlterType).filter(filter).
          orderedAlterers(
             getDebugApblIfOn(instance, debugPrefix + ".allalterer"),
-            NullElement.BAD, ExpirableElements.OPTIONAL,
+            NullElement.OK, ExpirableElements.OPTIONAL,
             MultiAlterType.CUMULATIVE, alterers).
          defaultOrOverrideTemplate(
             getDebugApblIfOn(instance, debugPrefix + ".template")).
          build();
    }
+   /**
+      <P>Eliminate all multi-line comments and the package declaration line.</P>
+
+      @return  <CODE>eliminateCmtBlocksPkgLineAndPkgReferences(instance, needed_defaultAlterType, {@link java.lang.Boolean}.{@link java.lang.Boolean#TRUE TRUE}, Boolean.TRUE, Boolean.{@link java.lang.Boolean#FALSE FALSE})</CODE>
+    **/
+   public static final <T extends CodeletTemplateBase> CustomizationInstructions<T> eliminateCommentBlocksAndPackageDecl(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
+      return  eliminateCmtBlocksPkgLineAndPkgReferences(instance, needed_defaultAlterType, Boolean.TRUE, Boolean.TRUE, Boolean.FALSE);
+   }
+
    /**
       <P>Eliminate all multi-line comments, the package declaration line, and any references to that package.</P>
 
@@ -206,17 +211,17 @@ zzBasicCustomizers.lineRangeWithReplace.template</PRE></BLOCKQUOTE>
 
       <P>Prints all lines except the package declaration. <I>{@linkplain examples.EliminatePackageDeclarationLine Full example}</I></P>
 
-   <P style="font-size: 125%;"><B>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemoWithFullyQualified:eliminateCmtBlocksPkgLineAndPkgReferences(true, true, false)}}</B></P>
+   <P style="font-size: 125%;"><B>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemoWithFullyQualified:eliminateCommentBlocksAndPackageDecl()}}</B></P>
 
-{@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemoWithFullyQualified:eliminateCmtBlocksPkgLineAndPkgReferences(true, true, false)}
+{@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemoWithFullyQualified:eliminateCommentBlocksAndPackageDecl()}
 
-      <P>Eliminates the package declaration and all multi-line comment blocks (including license and JavaDoc). <I>{@linkplain examples.EliminateCommentBlocksAndPackageDeclaration Full example}</I></P>
+      <P>Eliminates the package declaration and all multi-line comment blocks (including license and JavaDoc). <I>(<A HREF="{@docRoot}/overview-summary.html#xmpl_hello">Intro example</A>)</I></P>
 
       <H4>Automated {@linkplain CodeletBootstrap#CODELET_RQD_NAMED_DBGRS_CONFIG_FILE named debuggers}</H4>
 
       <P>{@code zzBasicCustomizers.eliminateCmtBlocksPkgLineAndPkgReferences}<UL>
          <LI>{@code alterers}: {@linkplain com.github.xbn.linefilter#AllTextLineAlterer(TextLineAlterer[], ExpirableElements, MultiAlterType, Appendable) All alterers}, as a whole</LI>
-         <LI>{@code blockmarks}: <CODE>{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor}.{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor#eliminateAllCmtBlocksAndPackageLine(boolean, Appendable, Appendable, boolean, Appendable, Appendable) lineRange}.dbgBlockMarks_ifNonNull</CODE></LI>
+         <LI>{@code blockmarks}: <CODE>{@link com.github.aliteralmind.codelet.NewLineFilterFor}.{@link com.github.aliteralmind.codelet.NewLineFilterFor#eliminateAllCmtBlocksAndPackageLine(boolean, Appendable, Appendable, boolean, Appendable, Appendable) lineRange}.dbgBlockMarks_ifNonNull</CODE></LI>
          <LI>{@code filter}: {@code NewLineFilterFor.eliminateAllCmtBlocksAndPackageLine.dbgLnFilter_ifNonNull}</LI>
          <LI>{@code pkglinevalidator}: {@code NewLineFilterFor.eliminateAllCmtBlocksAndPackageLine.dbgPkgLnVldtr_ifNonNull}</LI>
          <LI>{@code pkglinevalidfilter}: {@code NewLineFilterFor.eliminateAllCmtBlocksAndPackageLine.dbgValidResultFilter_ifNonNull}</LI>
@@ -235,17 +240,18 @@ zzBasicCustomizers.eliminateCmtBlocksPkgLineAndPkgReferences.template
 zzBasicCustomizers.eliminateCmtBlocksPkgLineAndPkgReferences.elimpkgrefsreplacer</PRE></BLOCKQUOTE>
 
       @return  A non-{@code null} instructions object, using the {@linkplain CustomizationInstructions#defaultOrOverrideTemplate(Appendable) default template}, where the filter is created by
-      <BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor NewLineFilterFor}.{@link com.github.aliteralmind.codelet.alter.NewLineFilterFor#eliminateAllCmtBlocksAndPackageLine(boolean, Appendable, Appendable, boolean, Appendable, Appendable) eliminateAllCmtBlocksAndPackageLine}</CODE>
+      <BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.NewLineFilterFor NewLineFilterFor}.{@link com.github.aliteralmind.codelet.NewLineFilterFor#eliminateAllCmtBlocksAndPackageLine(boolean, Appendable, Appendable, boolean, Appendable, Appendable) eliminateAllCmtBlocksAndPackageLine}</CODE>
       <BR>The {@code dbgLnFilter_ifNonNull} parameter is set to
       <BR> &nbsp; &nbsp; <CODE>{@link CodeletBaseConfig CodeletBaseConfig}.{@link CodeletBaseConfig#getDebugApblIfOn(CodeletInstance) getDebugApblIfOn}(instance)</CODE>
       <BR>All other debugging parameters are set to
       <BR> &nbsp; &nbsp; <CODE>{@link CodeletBaseConfig CodeletBaseConfig}.{@link CodeletBaseConfig#getDebugApblIfOn(3, CodeletInstance) getDebugApblIfTagletVerbose}(instance)</CODE>
       @param  doElim_allPkgRefs  If {@code doElim_packageDecl} is {@code false}, this must also be {@code false}.
+      @see  #eliminateCommentBlocksAndPackageDecl(CodeletInstance, CodeletType) eliminateCommentBlocksAndPackageDecl
     **/
    public static final <T extends CodeletTemplateBase> CustomizationInstructions<T> eliminateCmtBlocksPkgLineAndPkgReferences(CodeletInstance instance, CodeletType needed_defaultAlterType, Boolean doElim_multiLineCmts, Boolean doElim_packageDecl, Boolean doElim_allPkgRefs)  {
       String debugPrefix = "zzBasicCustomizers.eliminateCmtBlocksPkgLineAndPkgReferences";
 
-      TextLineFilter filter = NewLineFilterFor.
+      FilteredLineIterator filter = NewLineFilterFor.
          eliminateAllCmtBlocksAndPackageLine(instance, debugPrefix,
             doElim_packageDecl, doElim_multiLineCmts);
 

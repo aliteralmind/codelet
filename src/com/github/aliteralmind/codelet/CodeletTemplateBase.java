@@ -202,7 +202,7 @@ public abstract class CodeletTemplateBase extends SimpleDebuggable  {
       @param  body_text  May not be {@code null} or empty.
     **/
    public void fillBodyGap(String body_gapName, String body_text)  {
-      CrashIfString.empty(Null.OK, body_text, "body_text", null);
+      CrashIfString.empty(Null.OK, body_text, body_gapName, null);
       getTemplate().fill(body_gapName, body_text);
    }
    /**

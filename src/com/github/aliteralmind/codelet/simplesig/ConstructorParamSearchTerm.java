@@ -20,7 +20,7 @@ package  com.github.aliteralmind.codelet.simplesig;
 /**
    <P>For matching one or more {@code ConstructorSimpleParamSig}.</P>
 
-   <A NAME="xmpl_cnstr"/><H3>{@link com.github.aliteralmind.codelet.simplesig.ConstructorParamSearchTerm}: Example</H3>
+   <A NAME="xmpl_cnstr"><A/><H3>{@link com.github.aliteralmind.codelet.simplesig.ConstructorParamSearchTerm}: Example</H3>
 
 {@.codelet.and.out com.github.aliteralmind.codelet.examples.simplesig.ConstructorParamSearchTermXmpl:()}
 

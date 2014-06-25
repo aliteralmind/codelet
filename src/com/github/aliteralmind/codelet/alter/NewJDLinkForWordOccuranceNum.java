@@ -15,7 +15,7 @@
 package  com.github.aliteralmind.codelet.alter;
    import  com.github.aliteralmind.codelet.CodeletInstance;
    import  com.github.xbn.linefilter.AdaptRegexReplacerTo;
-   import  com.github.xbn.linefilter.TextLineAltererAdapter;
+   import  com.github.xbn.linefilter.alter.TextLineAlterAdapter;
    import  com.github.aliteralmind.codelet.simplesig.AllSimpleParamSignatures;
    import  com.github.aliteralmind.codelet.simplesig.ConstructorParamSearchTerm;
    import  com.github.aliteralmind.codelet.simplesig.MethodSigSearchTerm;
@@ -43,7 +43,7 @@ package  com.github.aliteralmind.codelet.alter;
 
    <P>While it is verified that the link's target exists, it is not known whether the target is made viewable by JavaDoc. For example, if you link to a protected class, but configure JavaDoc to only display <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#public">public classes</A>, the link will be created, but clicking on it will result in going to the class itself (assuming the class is also viewable).</P>
 
-   @see  com.github.xbn.linefilter.NewTextLineAltererFor
+   @see  com.github.xbn.linefilter.alter.NewTextLineAltererFor
    @since  0.1.0
    @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
@@ -64,7 +64,7 @@ public class NewJDLinkForWordOccuranceNum  {
          <LI>{@code filterAllBut} is a &quot;{@linkplain com.github.xbn.analyze.validate.ValidResultFilter result filter}&quot; that only accepts a {@linkplain com.github.xbn.analyze.validate.NewValidResultFilterFor#exactly(int, String, Appendable) single occurance}.</LI>
       </UL>
     **/
-   public static final TextLineAltererAdapter<StringReplacer> constructor(CodeletInstance instance, int lineOccurance_num, Class<?> target_class, String param_shortcut, Appendable dbgRplcr_ifNonNull, Appendable dbgResultFilter_ifNonNull, Appendable dbgSearchTerm_ifNonNull, Appendable dbgSearchTermDoesMatch_ifNonNull)  {
+   public static final TextLineAlterAdapter<StringReplacer> constructor(CodeletInstance instance, int lineOccurance_num, Class<?> target_class, String param_shortcut, Appendable dbgRplcr_ifNonNull, Appendable dbgResultFilter_ifNonNull, Appendable dbgSearchTerm_ifNonNull, Appendable dbgSearchTermDoesMatch_ifNonNull)  {
       Constructor target = ConstructorParamSearchTerm.
          getConstructorFromAllSigsAndSearchTerm(
             getAllParamSigsForLinkTarget(target_class),
@@ -93,7 +93,7 @@ PREFIX.link.DBGPRECNSTRNM_IFNONNULL.searchterm.doesMatch=-1</PRE></BLOCKQUOTE>
       @param  debug_prefix  Prepended to all named debuggers. May not be {@code null} or empty.
       @param  dbgPreCnstrNm_ifNonNull  If non-{@code null}, this is the name of the class used in the debug-level name. If {@code null}, {@code "constructor"} is used.
     **/
-   public static final TextLineAltererAdapter<StringReplacer> constructor(CodeletInstance instance, String debug_prefix, String dbgPreCnstrNm_ifNonNull, int lineOccurance_num, Class<?> target_class, String param_shortcut)  {
+   public static final TextLineAlterAdapter<StringReplacer> constructor(CodeletInstance instance, String debug_prefix, String dbgPreCnstrNm_ifNonNull, int lineOccurance_num, Class<?> target_class, String param_shortcut)  {
       CrashIfString.nullEmpty(debug_prefix, "debug_prefix", null);
       debug_prefix += ".link." + ((dbgPreCnstrNm_ifNonNull != null)
          ?  dbgPreCnstrNm_ifNonNull : "constructor");
@@ -108,12 +108,12 @@ PREFIX.link.DBGPRECNSTRNM_IFNONNULL.searchterm.doesMatch=-1</PRE></BLOCKQUOTE>
 
       return  constructor(instance, lineOccurance_num,
          target_class, param_shortcut,
-            dbgLinkRplcr,         //dbgRplcr_ifNonNull
-            dbgLinkValidFilter,   //dbgResultFilter_ifNonNull
-            dbgLinkSearchTerm,    //dbgSearchTerm_ifNonNull
-            dbgLinkSearchTermDM); //dbgSearchTermDoesMatch_ifNonNull
+            dbgLinkRplcr,
+            dbgLinkValidFilter,
+            dbgLinkSearchTerm,
+            dbgLinkSearchTermDM);
    }
-      private static final TextLineAltererAdapter<StringReplacer> newReplacerAlterer(RegexReplacer replacer, int line_occuranceNum, String occurNum_varName, Appendable dbgResultFilter_ifNonNull, Class<?> target_class, String shortcut)  {
+      private static final TextLineAlterAdapter<StringReplacer> newReplacerAlterer(RegexReplacer replacer, int line_occuranceNum, String occurNum_varName, Appendable dbgResultFilter_ifNonNull, Class<?> target_class, String shortcut)  {
          try  {
             return  AdaptRegexReplacerTo.lineReplacer(replacer,
                NewValidResultFilterFor.exactly(
@@ -138,12 +138,12 @@ PREFIX.link.DBGPRECNSTRNM_IFNONNULL.searchterm.doesMatch=-1</PRE></BLOCKQUOTE>
          <LI>{@code filterAllBut} is a &quot;{@linkplain com.github.xbn.analyze.validate.ValidResultFilter result filter}&quot; that only accepts a {@linkplain com.github.xbn.analyze.validate.NewValidResultFilterFor#exactly(int, String, Appendable) single occurance}.</LI>
       </UL>
     **/
-   public static final TextLineAltererAdapter<StringReplacer> method(CodeletInstance instance, int line_occuranceNum, Class<?> target_class, String name_paramShortcut, Appendable dbgRplcr_ifNonNull, Appendable dbgResultFilter_ifNonNull, Appendable dbgSearchTerm_ifNonNull, Appendable dbgSearchTermDoesMatch_ifNonNull)  {
+   public static final TextLineAlterAdapter<StringReplacer> method(CodeletInstance instance, int line_occuranceNum, Class<?> target_class, String name_paramShortcut, Appendable dbgRplcr_ifNonNull, Appendable dbgResultFilter_ifNonNull, Appendable dbgSearchTerm_ifNonNull, Appendable dbgSearchTermDoesMatch_ifNonNull)  {
       Method target = MethodSigSearchTerm.getMethodFromAllSigsAndSearchTerm(
          getAllParamSigsForLinkTarget(target_class), name_paramShortcut, dbgSearchTerm_ifNonNull, dbgSearchTermDoesMatch_ifNonNull);
       return  method(instance, line_occuranceNum, target, dbgRplcr_ifNonNull, dbgResultFilter_ifNonNull);
    }
-      private static final TextLineAltererAdapter<StringReplacer> method(CodeletInstance instance, int line_occuranceNum, Method target, Appendable dbgRplcr_ifNonNull, Appendable dbgResultFilter_ifNonNull)  {
+      private static final TextLineAlterAdapter<StringReplacer> method(CodeletInstance instance, int line_occuranceNum, Method target, Appendable dbgRplcr_ifNonNull, Appendable dbgResultFilter_ifNonNull)  {
          RegexReplacer rr = NewJavaDocLinkReplacerFor.method(instance, target, dbgRplcr_ifNonNull);
          return  newReplacerAlterer(rr, line_occuranceNum, "line_occuranceNum", dbgResultFilter_ifNonNull, target.getDeclaringClass(), target.getName());
       }
@@ -168,7 +168,7 @@ PREFIX.link.DBGPREMETHODNM_IFNONNULL.searchterm.doesMatch=-1</PRE></BLOCKQUOTE>
       @param  debug_prefix  Prepended to all named debuggers. May not be {@code null} or empty.
       @param  dbgPreMethodNm_ifNonNull  If non-{@code null}, this is the name of the method (with potentially a class-dot prefix) used in the debug-level name. If {@code null}, the method's name is used.
     **/
-   public static final TextLineAltererAdapter<StringReplacer> method(CodeletInstance instance, String debug_prefix, String dbgPreMethodNm_ifNonNull, int line_occuranceNum, Class<?> target_class, String name_paramShortcut)  {
+   public static final TextLineAlterAdapter<StringReplacer> method(CodeletInstance instance, String debug_prefix, String dbgPreMethodNm_ifNonNull, int line_occuranceNum, Class<?> target_class, String name_paramShortcut)  {
       CrashIfString.nullEmpty(debug_prefix, "debug_prefix", null);
       debug_prefix += ".link.";
 
@@ -195,8 +195,8 @@ PREFIX.link.DBGPREMETHODNM_IFNONNULL.searchterm.doesMatch=-1</PRE></BLOCKQUOTE>
          debug_prefix + ".validfilter");
 
       return  method(instance, line_occuranceNum, target,
-         dbgLinkRplcr,         //dbgRplcr_ifNonNull
-         dbgLinkValidFilter);   //dbgResultFilter_ifNonNull
+         dbgLinkRplcr,
+         dbgLinkValidFilter);
    }
    /**
       <P>Replaces a single occurance of a field name (an object contained in another object) with a JavaDoc link.</P>
@@ -207,11 +207,11 @@ PREFIX.link.DBGPREMETHODNM_IFNONNULL.searchterm.doesMatch=-1</PRE></BLOCKQUOTE>
       <BR> &nbsp; &nbsp; <CODE>{@link NewJavaDocLinkReplacerFor NewJavaDocLinkReplacerFor}.{@link NewJavaDocLinkReplacerFor#field(CodeletInstance, Field, Appendable) field}(instance, target, dbgRplcr_ifNonNull)</CODE>
       <BR>and {@code filterAllBut} is a &quot;{@linkplain com.github.xbn.analyze.validate.ValidResultFilter result filter}&quot; that only accepts a {@linkplain com.github.xbn.analyze.validate.NewValidResultFilterFor#exactly(int, String, Appendable) single occurance}.
     **/
-   public static final TextLineAltererAdapter<StringReplacer> field(CodeletInstance instance, int line_occuranceNum, Class<?> containing_class, String field_name, Appendable dbgRplcr_ifNonNull, Appendable dbgResultFilter_ifNonNull)  {
+   public static final TextLineAlterAdapter<StringReplacer> field(CodeletInstance instance, int line_occuranceNum, Class<?> containing_class, String field_name, Appendable dbgRplcr_ifNonNull, Appendable dbgResultFilter_ifNonNull)  {
       Field target = ReflectRtxUtil.getField(containing_class, field_name, Declared.YES, null);
       return  field(instance, line_occuranceNum, target, dbgRplcr_ifNonNull, dbgResultFilter_ifNonNull);
    }
-   public static final TextLineAltererAdapter<StringReplacer> field(CodeletInstance instance, int line_occuranceNum, Field target, Appendable dbgRplcr_ifNonNull, Appendable dbgResultFilter_ifNonNull)  {
+   public static final TextLineAlterAdapter<StringReplacer> field(CodeletInstance instance, int line_occuranceNum, Field target, Appendable dbgRplcr_ifNonNull, Appendable dbgResultFilter_ifNonNull)  {
       RegexReplacer rr = NewJavaDocLinkReplacerFor.field(instance, target,
          dbgRplcr_ifNonNull);
       return  newReplacerAlterer(rr, line_occuranceNum, "line_occuranceNum",
@@ -234,7 +234,7 @@ PREFIX.link.DBGPREFIELDNM_IFNONNULL.validfilter=-1</PRE></BLOCKQUOTE>
       @param  debug_prefix  Prepended to all named debuggers. May not be {@code null} or empty.
       @param  dbgPreFieldNm_ifNonNull  If non-{@code null}, this is the name of the field (with potentially a class-dot prefix) used in the debug-level name. If {@code null}, the field's name is used.
     **/
-   public static final TextLineAltererAdapter<StringReplacer> field(CodeletInstance instance, String debug_prefix, String dbgPreFieldNm_ifNonNull, int line_occuranceNum, Class<?> containing_class, String field_name)  {
+   public static final TextLineAlterAdapter<StringReplacer> field(CodeletInstance instance, String debug_prefix, String dbgPreFieldNm_ifNonNull, int line_occuranceNum, Class<?> containing_class, String field_name)  {
       CrashIfString.nullEmpty(debug_prefix, "debug_prefix", null);
       debug_prefix += ".link.";
 
@@ -250,8 +250,8 @@ PREFIX.link.DBGPREFIELDNM_IFNONNULL.validfilter=-1</PRE></BLOCKQUOTE>
          debug_prefix + ".validfilter");
 
       return  field(instance, line_occuranceNum, target,
-         dbgLinkRplcr,         //dbgRplcr_ifNonNull
-         dbgLinkValidFilter);  //dbgResultFilter_ifNonNull
+         dbgLinkRplcr,
+         dbgLinkValidFilter);
    }
    /**
       <P>Replaces a single occurance of a class name with a JavaDoc link.</P>
@@ -262,7 +262,7 @@ PREFIX.link.DBGPREFIELDNM_IFNONNULL.validfilter=-1</PRE></BLOCKQUOTE>
       <BR> &nbsp; &nbsp; <CODE>{@link NewJavaDocLinkReplacerFor}.{@link NewJavaDocLinkReplacerFor#cclass(CodeletInstance, Class, Appendable) cclass}(urlToExampleClassPkgWSlash_fromTagletFile, class_name, dbgRplcr_ifNonNull)</CODE>
       <BR>and {@code filterAllBut} is a &quot;{@linkplain com.github.xbn.analyze.validate.ValidResultFilter result filter}&quot; that only accepts a {@linkplain com.github.xbn.analyze.validate.NewValidResultFilterFor#exactly(int, String, Appendable) single occurance}.
     **/
-   public static final TextLineAltererAdapter<StringReplacer> cclass(CodeletInstance instance, int line_occuranceNum, Class<?> target, Appendable dbgRplcr_ifNonNull, Appendable dbgResultFilter_ifNonNull)  {
+   public static final TextLineAlterAdapter<StringReplacer> cclass(CodeletInstance instance, int line_occuranceNum, Class<?> target, Appendable dbgRplcr_ifNonNull, Appendable dbgResultFilter_ifNonNull)  {
       RegexReplacer rr = NewJavaDocLinkReplacerFor.cclass(instance, target, dbgRplcr_ifNonNull);
       return  newReplacerAlterer(rr, line_occuranceNum, "line_occuranceNum", dbgResultFilter_ifNonNull, target, null);
    }
@@ -282,7 +282,7 @@ PREFIX.link.DBGPRECLASSNM_IFNONNULL.validfilter=-1</PRE></BLOCKQUOTE>
       @param  debug_prefix  Prepended to all named debuggers. May not be {@code null} or empty.
       @param  dbgPreClassNm_ifNonNull  If non-{@code null}, this is the name of the class used in the debug-level name. If {@code null}, <CODE>target.{@link java.lang.Class#getSimpleName() getSimpleName}()</CODE> is used.
     **/
-   public static final TextLineAltererAdapter<StringReplacer> cclass(CodeletInstance instance, String debug_prefix, String dbgPreClassNm_ifNonNull, int line_occuranceNum, Class<?> target)  {
+   public static final TextLineAlterAdapter<StringReplacer> cclass(CodeletInstance instance, String debug_prefix, String dbgPreClassNm_ifNonNull, int line_occuranceNum, Class<?> target)  {
       CrashIfString.nullEmpty(debug_prefix, "debug_prefix", null);
       debug_prefix += ".link.";
       try  {
@@ -297,8 +297,8 @@ PREFIX.link.DBGPRECLASSNM_IFNONNULL.validfilter=-1</PRE></BLOCKQUOTE>
          debug_prefix + ".validfilter");
 
       return  cclass(instance, line_occuranceNum, target,
-         dbgLinkRplcr,         //dbgRplcr_ifNonNull
-         dbgLinkValidFilter);  //dbgResultFilter_ifNonNull
+         dbgLinkRplcr,
+         dbgLinkValidFilter);
    }
       private static final ValidResultFilter exactly(int line_occuranceNum, Appendable dbgResultFilter_ifNonNull)  {
          return  NewValidResultFilterFor.
