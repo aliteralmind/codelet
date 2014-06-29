@@ -367,24 +367,25 @@ public abstract class SimpleParamSigSearchTerm  {
       while(rqdIdx < requiredParams.size()  &&
              	actlIdx < actualParams.size())  {
 
+/*
          int actlParamsToLeft = actlIdx;
          int actlParamsRemaining = actualParams.size() - actlIdx;
 
          LengthInRange rqdParamIdxRangeToLeft = ((indexOfStar() != -1  &&
                   indexOfStar() < rqdIdx)
-            ?  NewLengthInRangeFor.min(0, null)
+            ?  NewLengthInRangeFor.min(null, 0, null)
             :  new LengthInRange(0, rqdIdx));
-
          int sizeMinusIdx = requiredParams.size() - rqdIdx;
          LengthInRange rqdParamIdxRangeAtAndToRight = ((lastIndexOfStar() != -1  &&
                   rqdIdx <= lastIndexOfStar())
-            ?  NewLengthInRangeFor.min(rqdIdx, null)
+            ?  NewLengthInRangeFor.min(null, rqdIdx, null)
             :  new LengthInRange(rqdIdx, requiredParams.size()));
+ */
 
          if(getDebugAptrDoesMatch().isUseable())  {
-            getDebugAptrDoesMatch().appentln(this + ":       search-term( " + rqdParamIdxRangeToLeft + ", " + rqdParamIdxRangeAtAndToRight + " ): " +
+            getDebugAptrDoesMatch().appentln(this + ":       search-term" +
                ArrayUtil.toStringHighlightElement(rqdParams4DbgOnly, "<<", rqdIdx, ">>"));
-            getDebugAptrDoesMatch().appentln(this + ":          actual(" + actlParamsToLeft + ", " + actlParamsRemaining + "):   " +
+            getDebugAptrDoesMatch().appentln(this + ":       actual:   " +
                ArrayUtil.toStringHighlightElement(actlParams4DbgOnly, "<<", actlIdx, ">>"));
          }
 
@@ -405,12 +406,12 @@ public abstract class SimpleParamSigSearchTerm  {
          LengthInRange paramSpotsRemainingInSearchTermRange = ((lastIndexOfStar() != -1  &&
                   lastIndexOfStar() > rqdIdx)  //Not ">=", because this param
                                                //is definitely not an asterisk
-            ?  NewLengthInRangeFor.min(rqdSizeMinusIdx, null)
-            :  NewLengthInRangeFor.exactly(rqdSizeMinusIdx, null));
+            ?  NewLengthInRangeFor.min(null, rqdSizeMinusIdx, null)
+            :  NewLengthInRangeFor.exactly(null, rqdSizeMinusIdx, null));
 
          int origActlIdx = actlIdx;
          while(actlIdx < actualParams.size()  &&
-               !paramSpotsRemainingInSearchTermRange.isValid(actualParams.size() - actlIdx))  {
+               !paramSpotsRemainingInSearchTermRange.isIn(actualParams.size() - actlIdx))  {
             actlIdx++;
          }
 

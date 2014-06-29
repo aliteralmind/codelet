@@ -45,11 +45,12 @@ public class BasicCustomizers  {
 
       <H4>Example</H4>
 
-   <P style="font-size: 125%;"><B>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo:lineRange(1, false, "Adder adder", 2, false, "println(adder.getSum())", "^      ")}}</B></P>
+      <P style="font-size: 125%;"><B>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo:lineRange(1, false, "Adder adder", 1, false, "println(adder.getSum())", "^      ")}}</B></P>
+
+      <P>Given <A HREF="{@docRoot}/overview-summary.html#xmpl_nocust">this source code</A>, this taglet displays the range of lines beginning with {@code "Adder adder"}, and ending with the <I>second</I> {@code "println(adder.getSum())"}. This also eliminates the indentation of the kept lines, which is two tabs at <A HREF="http://www.regular-expressions.info/anchors.html">line-start</A>: {@code "^      "}.</P>
 
 {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo:lineRange(1, false, "Adder adder", 2, false, "println(adder.getSum())", "^      ")}
 
-      <P>Starts with the line containing {@code "Adder adder"}, and ends with the <I>second</I> line containing {@code "println(adder.getSum())"}. This also deletes the indentation of the kept lines, which is two tabs at <A HREF="http://www.regular-expressions.info/anchors.html">line-start</A>: {@code "^      "}. <I>(<A HREF="{@docRoot}/overview-summary.html#xmpl_snippet">Intro example</A>)</I></P>
 
       <H4>Automated {@linkplain CodeletBootstrap#CODELET_RQD_NAMED_DBGRS_CONFIG_FILE named debuggers}</H4>
 
@@ -57,7 +58,7 @@ public class BasicCustomizers  {
          <LI>{@code .allalterer}: {@linkplain com.github.xbn.linefilter#AllTextLineAlterer(TextLineAlterer[], ExpirableElements, MultiAlterType, Appendable) All alterers}, as a whole.</LI>
          <LI>{@code .elimindent}: <CODE>{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor}.{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor#eliminateIndentationOrNull(String, Appendable) eliminateIndentationOrNull}</CODE></LI>
          <LI>{@code .linenums}: The start and end line numbers of the snippet.</LI>
-         <LI>{@code filter}: <CODE>{@link com.github.aliteralmind.codelet.NewLineFilterFor}.{@link com.github.aliteralmind.codelet.NewLineFilterFor#lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRangeValidator) lineRange}.dbgEveryLine_ifNonNull</CODE><UL>
+         <LI>{@code filter}: <CODE>{@link com.github.aliteralmind.codelet.NewLineFilterFor}.{@link com.github.aliteralmind.codelet.NewLineFilterFor#lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRange) lineRange}.dbgEveryLine_ifNonNull</CODE><UL>
             <LI>{@code .endalterer}: <CODE>NewLineFilterFor.lineRange.dbgEnd_ifNonNull</CODE></LI>
             <LI>{@code .endvalidfilter}: <CODE>NewLineFilterFor.lineRange.dbgEndFilter_ifNonNull</CODE></LI>
             <LI>{@code .startalterer}: <CODE>NewLineFilterFor.lineRange.dbgStart_ifNonNull</CODE></LI>
@@ -88,7 +89,7 @@ zzBasicCustomizers.lineRange.template</PRE></BLOCKQUOTE>
       @param  indentRegexToElim_emptyStrIfNone  The regular expression representing the indentation that should be eliminated from the line-range. Since these lines exist in the middle of a file, they may be {@linkplain com.github.aliteralmind.codelet.alter.NewLineAltererFor#eliminateIndentationOrNull(String, Appendable) extra-indented}.
       @return  <CODE>CustomizationInstructions.&lt;T&gt;newForMaybeElimIndent_tabToSpcEscHtml(instance, filter, indentRegexToElim_emptyStrIfNone)</CODE>
       <BR>Where {@code filter} is created with
-      <BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.NewLineFilterFor NewLineFilterFor}.{@link com.github.aliteralmind.codelet.NewLineFilterFor#lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRangeValidator) lineRange}</CODE>
+      <BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.NewLineFilterFor NewLineFilterFor}.{@link com.github.aliteralmind.codelet.NewLineFilterFor#lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRange) lineRange}</CODE>
       @see  #lineRangeWithReplace(CodeletInstance, CodeletType, Integer, Boolean, String, String, String, Integer, Boolean, String, String, String, String) lineRangeWithReplace
     **/
    public static final <T extends CodeletTemplateBase> CustomizationInstructions<T> lineRange(CodeletInstance instance, CodeletType needed_defaultAlterType, Integer startAppearance_num, Boolean is_startLineRegex, String startLine_findWhat, Integer endAppearance_num, Boolean is_endLineRegex, String endLine_findWhat, String indentRegexToElim_emptyStrIfNone) throws PatternSyntaxException  {
@@ -133,7 +134,7 @@ zzBasicCustomizers.lineRange.template</PRE></BLOCKQUOTE>
       <P>{@code zzBasicCustomizers.lineRangeWithReplace}<UL>
          <LI>{@code allalterer}: {@linkplain com.github.xbn.linefilter#AllTextLineAlterer(TextLineAlterer[], ExpirableElements, MultiAlterType, Appendable) All alterers}, as a whole.</LI>
          <LI>{@code .elimindent}: <CODE>{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor}.{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor#eliminateIndentationOrNull(String, Appendable) eliminateIndentationOrNull}</CODE></LI>
-         <LI>{@code filter}: <CODE>{@link com.github.aliteralmind.codelet.NewLineFilterFor}.{@link com.github.aliteralmind.codelet.NewLineFilterFor#lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRangeValidator) lineRange}.dbgEveryLine_ifNonNull</CODE><UL>
+         <LI>{@code filter}: <CODE>{@link com.github.aliteralmind.codelet.NewLineFilterFor}.{@link com.github.aliteralmind.codelet.NewLineFilterFor#lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRange) lineRange}.dbgEveryLine_ifNonNull</CODE><UL>
             <LI>{@code .endalterer}: <CODE>NewLineFilterFor.lineRange.dbgEnd_ifNonNull</CODE></LI>
             <LI>{@code .endvalidfilter}: <CODE>NewLineFilterFor.lineRange.dbgEndFilter_ifNonNull</CODE></LI>
             <LI>{@code .startalterer}: <CODE>NewLineFilterFor.lineRange.dbgStart_ifNonNull</CODE></LI>

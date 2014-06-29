@@ -16,7 +16,6 @@ package  com.github.aliteralmind.codelet.alter;
    import  com.github.aliteralmind.codelet.CodeletInstance;
    import  com.github.aliteralmind.codelet.util.JavaDocUtil;
    import  com.github.xbn.lang.CrashIfObject;
-   import  com.github.xbn.number.NewLengthInRangeFor;
    import  com.github.xbn.regexutil.RegexReplacer;
    import  com.github.xbn.regexutil.z.RegexReplacer_Cfg;
    import  java.lang.reflect.Constructor;
@@ -86,15 +85,6 @@ public class NewJavaDocLinkReplacerFor  {
    }
    /**
       <P>Changes a constructor name to a JavaDoc link.</P>
-
-      @return  <CODE>new {@link com.github.xbn.regexutil.z.RegexReplacer_Cfg#RegexReplacer_Cfg() RegexReplacer_Cfg}().
-      <BR> &nbsp; &nbsp; com.github.xbn.regexutil.z.RegexReplacer_CfgForNeeder#direct(String, Object)({@link java.util.regex.Pattern}.{@link java.util.regex.Pattern#compile(String) compile}(&quot;\\b&quot; + className + &quot;\\b&quot;), link).
-      <BR> &nbsp; &nbsp; {@link com.github.xbn.regexutil.z.RegexReplacer_CfgForNeeder#debugTo(Appendable) debugTo}(dbgDest_ifNonNull).
-      <BR> &nbsp; &nbsp; {@link com.github.xbn.regexutil.z.RegexReplacer_CfgForNeeder#matchRange(LengthInRange) matchRange}({@link com.github.xbn.number.NewLengthInRangeFor}.{@link com.github.xbn.number.NewLengthInRangeFor#exactly(int, String) exactly}(occuranceWithinTheLine_num, ...)).
-      <BR> &nbsp; &nbsp; {@link com.github.xbn.regexutil.z.RegexReplacer_CfgForNeeder#build() build}()</CODE>
-      <BR>Where the {@code link}'s url is
-      <BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.util.JavaDocUtil JavaDocUtil}.{@link com.github.aliteralmind.codelet.util.JavaDocUtil#getUrlToField(String, Field) getUrlToField}(instance.{@link CodeletInstance#getRelativeUrlToDocRoot() getRelativeUrlToDocRoot}(), target)</CODE>
-      <BR>and display is the field's name.
     **/
    public static final RegexReplacer constructor(CodeletInstance instance, Constructor target, Appendable dbgDest_ifNonNull)  {
       String className = null;

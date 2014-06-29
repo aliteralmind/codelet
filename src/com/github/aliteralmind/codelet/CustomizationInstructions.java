@@ -14,7 +14,7 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet;
-   import  com.github.xbn.number.LengthInRangeValidator;
+   import  com.github.xbn.number.LengthInRange;
    import  com.github.xbn.analyze.alter.AlterationNotMadeException;
    import  com.github.aliteralmind.codelet.alter.DefaultAlterGetterUtil;
    import  com.github.xbn.linefilter.alter.AllTextLineAlterer;
@@ -110,8 +110,8 @@ package  com.github.aliteralmind.codelet;
 
 {@.codelet com.github.aliteralmind.codelet.examples.DoNothingCustomizer:lineRangeWithReplace(1, true, "(<SourceCodeTemplate> aCustomizerThatDoesNothing)", "$1", "FIRST", 1, true, "&#125; +//End snippet$", "&#125;", "FIRST", "^   ")}
 
-   <P>This do-nothing customizer uses all {@linkplain #defaults(Appendable, LengthInRangeValidator, Appendable, Appendable) defaults}. It<OL>
-      <LI>{@link #unfiltered(Appendable, LengthInRangeValidator) Filters no lines},</LI>
+   <P>This do-nothing customizer uses all {@linkplain #defaults(Appendable, LengthInRange, Appendable, Appendable) defaults}. It<OL>
+      <LI>{@link #unfiltered(Appendable, LengthInRange) Filters no lines},</LI>
       <LI>{@linkplain com.github.aliteralmind.codelet.alter.DefaultAlterGetter Default alterers} as {@linkplain CodeletBaseConfig#DEFAULT_ALTERERS_CLASS_NAME configured}.</LI>
       <LI>Uses the {@link #defaultOrOverrideTemplate(Appendable) Default template},</LI>
    </OL></P>
@@ -266,7 +266,7 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
       <P>Make no customizations.</P>
 
       <P>This calls<OL>
-         <LI>{@link #unfiltered(Appendable, LengthInRangeValidator) unfiltered}{@code (dbgDest_ifNonNull)}</LI>
+         <LI>{@link #unfiltered(Appendable, LengthInRange) unfiltered}{@code (dbgDest_ifNonNull)}</LI>
          <LI><CODE>{@link #orderedAlterers(Appendable, NullElement, ExpirableElements, MultiAlterType, TextLineAlterer...) orderedAlterers}(dbgAllAltr_ifNonNull, {@link com.github.xbn.array.NullElement NullElement}.{@link com.github.xbn.array.NullElement#BAD BAD}
          <BR> &nbsp; &nbsp; {@link com.github.xbn.analyze.alter.ExpirableElements}.{@link com.github.xbn.analyze.alter.ExpirableElements#OPTIONAL OPTIONAL}, {@link com.github.xbn.analyze.alter.MultiAlterType}.{@link com.github.xbn.analyze.alter.MultiAlterType#CUMULATIVE CUMULATIVE}
             <BR> &nbsp; &nbsp; {@link com.github.aliteralmind.codelet.alter.DefaultAlterGetterUtil}.{@link com.github.aliteralmind.codelet.alter.DefaultAlterGetterUtil#getDefaultAlterArray(CodeletType) getDefaultAlterArray}({@link #getNeededAlterArrayType() getNeededAlterArrayType}()))</CODE></LI>
@@ -275,7 +275,7 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 
       @return  <I>{@code this}</I>
     **/
-   public CustomizationInstructions<T> defaults(Appendable dbgEveryLine_ifNonNull, LengthInRangeValidator rangeForEveryLineDebug_ifNonNull, Appendable dbgAllAltr_ifNonNull, Appendable dbgTemplate_ifNonNull)  {
+   public CustomizationInstructions<T> defaults(Appendable dbgEveryLine_ifNonNull, LengthInRange rangeForEveryLineDebug_ifNonNull, Appendable dbgAllAltr_ifNonNull, Appendable dbgTemplate_ifNonNull)  {
       unfiltered(dbgEveryLine_ifNonNull, rangeForEveryLineDebug_ifNonNull);
       orderedAlterers(dbgAllAltr_ifNonNull, NullElement.BAD,
          ExpirableElements.OPTIONAL, MultiAlterType.CUMULATIVE,
@@ -287,7 +287,7 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 
       @return  A non-{@code null} type representing the kind of template needed.
       @see  #CustomizationInstructions(CodeletInstance, CodeletType) constructor
-      @see  #defaults(Appendable, LengthInRangeValidator, Appendable, Appendable) defaults
+      @see  #defaults(Appendable, LengthInRange, Appendable, Appendable) defaults
     */
    public CodeletType getNeededAlterArrayType()  {
       return  defaultAltersType;
@@ -377,9 +377,9 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
    /**
       <P>Display all lines.</P>
 
-      @return  <CODE>{@link #filter(FilteredLineIterator) filter}({@link com.github.xbn.linefilter.NewFilteredLineIteratorFor NewFilteredLineIteratorFor}.{@link com.github.xbn.linefilter.NewFilteredLineIteratorFor#keepAllLinesUnchanged(Iterator, Appendable, LengthInRangeValidator) keepAllLinesUnchanged}(null, dbgEveryLine_ifNonNull, rangeForEveryLineDebug_ifNonNull))</CODE>
+      @return  <CODE>{@link #filter(FilteredLineIterator) filter}({@link com.github.xbn.linefilter.NewFilteredLineIteratorFor NewFilteredLineIteratorFor}.{@link com.github.xbn.linefilter.NewFilteredLineIteratorFor#keepAllLinesUnchanged(Iterator, Appendable, LengthInRange) keepAllLinesUnchanged}(null, dbgEveryLine_ifNonNull, rangeForEveryLineDebug_ifNonNull))</CODE>
     **/
-   public CustomizationInstructions<T> unfiltered(Appendable dbgEveryLine_ifNonNull, LengthInRangeValidator rangeForEveryLineDebug_ifNonNull)  {
+   public CustomizationInstructions<T> unfiltered(Appendable dbgEveryLine_ifNonNull, LengthInRange rangeForEveryLineDebug_ifNonNull)  {
       return  filter(NewFilteredLineIteratorFor.keepAllLinesUnchanged(null, dbgEveryLine_ifNonNull, rangeForEveryLineDebug_ifNonNull));
    }
    /**
@@ -392,7 +392,7 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 
       @param  filter  May not be {@code null}. Get with {@link #getFilter() getFilter}{@code ()}.
       @return  <I>{@code this}</I>
-      @see  #unfiltered(Appendable, LengthInRangeValidator)
+      @see  #unfiltered(Appendable, LengthInRange)
       @exception  LockException  If {@link #build() build}{@code ()} was already called.
     **/
    public CustomizationInstructions<T> filter(FilteredLineIterator filter)  {
@@ -493,9 +493,6 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
    public String getCustomizedBody(CodeletInstance instance, Iterator<String> raw_lineItr)  {
       getFilter().setAllIterator(raw_lineItr);
       String body = getAlterer().getAlteredFromLineObjects(1, getFilter(), LINE_SEP);
-
-      //Necessary when the block-end line is not found before end-of-input.
-      //getFilter().declareEndOfInput();
 
       if(!getAlterer().isComplete())  {
          String msg = getAlterer().appendIncompleteInfo((new StringBuilder())).toString();

@@ -13,6 +13,10 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet;
+   import  com.github.xbn.linefilter.entity.OutOfRangeResponseWhen;
+   import  com.github.xbn.linefilter.entity.OnOffAbort;
+   import  com.github.xbn.number.NewLengthInRangeFor;
+   import  com.github.xbn.linefilter.entity.PostFilterSelfActiveInOutRange;
    import  com.github.aliteralmind.codelet.CodeletInstance;
    import  com.github.xbn.analyze.validate.NewValidResultFilterFor;
    import  com.github.xbn.analyze.validate.ValidResultFilter;
@@ -21,14 +25,14 @@ package  com.github.aliteralmind.codelet;
    import  com.github.xbn.linefilter.KeepUnmatched;
    import  com.github.xbn.linefilter.Returns;
    import  com.github.xbn.linefilter.entity.BlockEntity;
-   import  com.github.xbn.linefilter.entity.IncludeJavaDoc;
+   import  com.github.xbn.util.IncludeJavaDoc;
    import  com.github.xbn.linefilter.entity.KeepMatched;
    import  com.github.xbn.linefilter.entity.NewBlockEntityFor;
    import  com.github.xbn.linefilter.entity.NewSingleLineEntityFor;
    import  com.github.xbn.linefilter.entity.SingleLineEntity;
    import  com.github.xbn.linefilter.entity.TextChildEntity;
    import  com.github.xbn.neederneedable.DummyForNoNeeder;
-   import  com.github.xbn.number.LengthInRangeValidator;
+   import  com.github.xbn.number.LengthInRange;
    import  com.github.xbn.regexutil.NewPatternFor;
    import  com.github.xbn.regexutil.ReplacedInEachInput;
    import  com.github.xbn.text.CrashIfString;
@@ -92,19 +96,23 @@ public class NewLineFilterFor  {
          SingleLineEntity pkgDeclLineEntity = NewSingleLineEntityFor.match(
             "pkgdecl", KeepMatched.NO,
             Pattern.compile(JavaRegexes.PACKAGE_DECL_ONE_LINE_NO_CMTS),
-            NewValidResultFilterFor.exactlyOne(
-               null),  //debug (on:System.out, off:null)
-            null,      //dbgAlter
+            null,      //dbgAlter (on:System.out, off:null)
+            new PostFilterSelfActiveInOutRange(
+               NewLengthInRangeFor.maxInclusive(null, 0, null),
+               OnOffAbort.ON, OnOffAbort.OFF,
+               OutOfRangeResponseWhen.IMMEDIATE,
+               null),  //debug
             null);     //dbgLineNums
          childList.add(pkgDeclLineEntity);
       }
 
       if(doElim_multiLineCmts)  {
          BlockEntity javaMlcBlock = NewBlockEntityFor.javaComment_Cfg_startEndDebug(
-            "comment", IncludeJavaDoc.YES, null,
+            "comment", IncludeJavaDoc.YES,
             null,      //dbgStart
             null,      //dbgEnd
-            null).  //dbgLineNums
+            null,      //on-off filter
+            null).     //dbgLineNums
                keepNone().build();
          childList.add(javaMlcBlock);
       }
@@ -165,13 +173,13 @@ PREFIX.filter.javamlcs=-1</PRE></BLOCKQUOTE>
       @param  is_endLineRegex  If {@code true} {@code startLine_findWhat} is treated as a regular expression.
       @param  endLine_findWhat  The start-line search term.
       @return
-<BLOCKQUOTE><PRE>new {@link com.github.xbn.linefilter.FilteredLineIterator#FilteredLineIterator(Iterator, Returns, KeepUnmatched, Appendable, LengthInRangeValidator, TextChildEntity...) FilteredLineIterator}(
+<BLOCKQUOTE><PRE>new {@link com.github.xbn.linefilter.FilteredLineIterator#FilteredLineIterator(Iterator, Returns, KeepUnmatched, Appendable, LengthInRange, TextChildEntity...) FilteredLineIterator}(
    null, {@link com.github.xbn.linefilter.Returns}.{@link com.github.xbn.linefilter.Returns#KEPT KEPT}, {@link com.github.xbn.linefilter.KeepUnmatched}.{@link com.github.xbn.linefilter.KeepUnmatched#NO NO},
    dbgAllLines_ifNonNull, rangeForEveryLineDebug_ifNonNull,
    snippetBlock)</PRE></BLOCKQUOTE>
       Where {@code snippetBlock} is a
 <BLOCKQUOTE><PRE>
-{@link com.github.xbn.linefilter.entity.NewBlockEntityFor}.{@link com.github.xbn.linefilter.entity.NewBlockEntityFor#lineRange(String, KeepMatched, Pattern, ValidResultFilter, Appendable, Pattern, ValidResultFilter, Appendable, Appendable) lineRange}(&quot;lineRange&quot;,
+{@link com.github.xbn.linefilter.entity.NewBlockEntityFor}.{@link com.github.xbn.linefilter.entity.NewBlockEntityFor#lineRange(String, KeepMatched, Pattern, ValidResultFilter, Appendable, Pattern, ValidResultFilter, Appendable, RawEntityOnOffFilter, Appendable) lineRange}(&quot;lineRange&quot;,
    {@link com.github.xbn.linefilter.entity.KeepMatched}.{@link com.github.xbn.linefilter.entity.KeepMatched#YES YES},
    startLinePattern, startAppearanceFilter, dbgStart_ifNonNull,
    endLinePattern, endAppearanceFilter, dbgEnd_ifNonNull,
@@ -180,9 +188,9 @@ PREFIX.filter.javamlcs=-1</PRE></BLOCKQUOTE>
 <BLOCKQUOTE><PRE>{@link com.github.xbn.analyze.validate.NewValidResultFilterFor}.{@link com.github.xbn.analyze.validate.NewValidResultFilterFor#exactly(int, String, Appendable) exactly}(
    startAppearance_num, ..., dbgStartFilter_ifNonNull)</PRE></BLOCKQUOTE>
       @see  #lineRange(CodeletInstance, String, int, boolean, String, int, boolean, String) lineRange(CodeletInstance, ...)
-      @see  #lineRangeWithReplace(int, boolean, String, String, ReplacedInEachInput, Appendable, Appendable, int, boolean, String, String, ReplacedInEachInput, Appendable, Appendable, Appendable, Appendable, LengthInRangeValidator) lineRangeWithReplace
+      @see  #lineRangeWithReplace(int, boolean, String, String, ReplacedInEachInput, Appendable, Appendable, int, boolean, String, String, ReplacedInEachInput, Appendable, Appendable, Appendable, Appendable, LengthInRange) lineRangeWithReplace
     **/
-   public static final FilteredLineIterator lineRange(int startAppearance_num, boolean is_startLineRegex, String startLine_findWhat, Appendable dbgStartFilter_ifNonNull, Appendable dbgStart_ifNonNull, int endAppearance_num, boolean is_endLineRegex, String endLine_findWhat, Appendable dbgEndFilter_ifNonNull, Appendable dbgEnd_ifNonNull, Appendable dbgLineNums_ifNonNull, Appendable dbgAllLines_ifNonNull, LengthInRangeValidator rangeForEveryLineDebug_ifNonNull) throws PatternSyntaxException  {
+   public static final FilteredLineIterator lineRange(int startAppearance_num, boolean is_startLineRegex, String startLine_findWhat, Appendable dbgStartFilter_ifNonNull, Appendable dbgStart_ifNonNull, int endAppearance_num, boolean is_endLineRegex, String endLine_findWhat, Appendable dbgEndFilter_ifNonNull, Appendable dbgEnd_ifNonNull, Appendable dbgLineNums_ifNonNull, Appendable dbgAllLines_ifNonNull, LengthInRange rangeForEveryLineDebug_ifNonNull) throws PatternSyntaxException  {
       Pattern startLinePattern = NewPatternFor.regexIfTrueLiteralIfFalse(is_startLineRegex, startLine_findWhat, "startLine_findWhat");
       Pattern endLinePattern = NewPatternFor.regexIfTrueLiteralIfFalse(is_endLineRegex, endLine_findWhat, "endLine_findWhat");
 
@@ -197,7 +205,7 @@ PREFIX.filter.javamlcs=-1</PRE></BLOCKQUOTE>
          KeepMatched.YES,
          startLinePattern, startAppearanceFilter, dbgStart_ifNonNull,
          endLinePattern, endAppearanceFilter, dbgEnd_ifNonNull,
-         dbgLineNums_ifNonNull);
+         null, dbgLineNums_ifNonNull);
 
       return  new FilteredLineIterator(
          null, Returns.KEPT, KeepUnmatched.NO,
@@ -207,7 +215,7 @@ PREFIX.filter.javamlcs=-1</PRE></BLOCKQUOTE>
    /**
       <P>Create a new line-range filter with named debuggers.</P>
 
-      <P>{@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#NAMED_DEBUGGERS_CONFIG_FILE Named debuggers} provided to the following {@link #lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRangeValidator) lineRange} parameters:<UL>
+      <P>{@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#NAMED_DEBUGGERS_CONFIG_FILE Named debuggers} provided to the following {@link #lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRange) lineRange} parameters:<UL>
          <LI><CODE><I>[named_debugPrefix]</I>.filter</CODE><UL>
             <LI>{@code .blockstart}: {@code dbgStart_ifNonNull}</LI>
             <LI>{@code .blockstart.validfilter}: {@code dbgStartFilter_ifNonNull}</LI>
@@ -253,14 +261,14 @@ PREFIX.filter.linenums=-1</PRE></BLOCKQUOTE>
    /**
       <P>Keeps all lines in a specific range, based on the text existing in the first and last lines, making a replacement on the first and last lines only. This is useful when lines must be marked, but those marks should not be seen in the final output.</P>
 
-      <P>For documentation on all other parameters, see {@link #lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRangeValidator) lineRange}.</P>
+      <P>For documentation on all other parameters, see {@link #lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRange) lineRange}.</P>
 
       @param  startLine_rplcWith  The replacement term for the start-line search term ({@code startLine_findWhat}). May not be {@code null} or empty.
       @param  startRplcs_notMtchNum  In most cases, this should be set to {@code "FIRST"}. See <CODE>com.github.xbn.regexutil.{@link com.github.xbn.regexutil.ReplacedInEachInput}</CODE>.
       @param  endLine_rplcWith  The replacement term for the end-line search term ({@code endLine_findWhat}).
       @param  endRplcs_notMtchNum  In most cases, this should be set to {@code "FIRST"}.
       @return  The same as {@link #lineRange(CodeletInstance, String, int, boolean, String, int, boolean, String) lineRange}, with this alternative block entity:
-<BLOCKQUOTE><PRE>{@link com.github.xbn.linefilter.entity.NewBlockEntityFor}.{@link com.github.xbn.linefilter.entity.NewBlockEntityFor#lineRangeWithReplace(String, KeepStartLine, KeepMidLines, KeepEndLine, Pattern, String, ReplacedInEachInput, ValidResultFilter, Appendable, ValueAlterer, Pattern, String, ReplacedInEachInput, ValidResultFilter, Appendable, Appendable) lineRangeWithReplace}(
+<BLOCKQUOTE><PRE>{@link com.github.xbn.linefilter.entity.NewBlockEntityFor}.{@link com.github.xbn.linefilter.entity.NewBlockEntityFor#lineRangeWithReplace(String, KeepStartLine, KeepMidLines, KeepEndLine, Pattern, String, ReplacedInEachInput, ValidResultFilter, Appendable, ValueAlterer, Pattern, String, ReplacedInEachInput, ValidResultFilter, Appendable, RawEntityOnOffFilter, Appendable) lineRangeWithReplace}(
    &quot;lineRangeWithReplace&quot;, {@link com.github.xbn.linefilter.KeepMatched}.{@link com.github.xbn.linefilter.KeepMatched#YES YES},
    startLinePattern, startLine_rplcWith, startRplcs_notMtchNum, startAppearanceFilter,
       dbgStartRplcr_ifNonNull,
@@ -269,7 +277,7 @@ PREFIX.filter.linenums=-1</PRE></BLOCKQUOTE>
       dbgEndRplcr_ifNonNull,
    dbgLineNums_ifNonNull)</PRE></BLOCKQUOTE>
     **/
-   public static final FilteredLineIterator lineRangeWithReplace(int startAppearance_num, boolean is_startLineRegex, String startLine_findWhat, String startLine_rplcWith, ReplacedInEachInput startRplcs_notMtchNum, Appendable dbgStartFilter_ifNonNull, Appendable dbgStartRplcr_ifNonNull, int endAppearance_num, boolean is_endLineRegex, String endLine_findWhat, String endLine_rplcWith, ReplacedInEachInput endRplcs_notMtchNum, Appendable dbgEndFilter_ifNonNull, Appendable dbgEndRplcr_ifNonNull, Appendable dbgLineNums_ifNonNull, Appendable dbgAllLines_ifNonNull, LengthInRangeValidator rangeForEveryLineDebug_ifNonNull) throws PatternSyntaxException  {
+   public static final FilteredLineIterator lineRangeWithReplace(int startAppearance_num, boolean is_startLineRegex, String startLine_findWhat, String startLine_rplcWith, ReplacedInEachInput startRplcs_notMtchNum, Appendable dbgStartFilter_ifNonNull, Appendable dbgStartRplcr_ifNonNull, int endAppearance_num, boolean is_endLineRegex, String endLine_findWhat, String endLine_rplcWith, ReplacedInEachInput endRplcs_notMtchNum, Appendable dbgEndFilter_ifNonNull, Appendable dbgEndRplcr_ifNonNull, Appendable dbgLineNums_ifNonNull, Appendable dbgAllLines_ifNonNull, LengthInRange rangeForEveryLineDebug_ifNonNull) throws PatternSyntaxException  {
       Pattern startLinePattern = NewPatternFor.regexIfTrueLiteralIfFalse(is_startLineRegex, startLine_findWhat, "startLine_findWhat");
       Pattern endLinePattern = NewPatternFor.regexIfTrueLiteralIfFalse(is_endLineRegex, endLine_findWhat, "endLine_findWhat");
 
@@ -287,7 +295,7 @@ PREFIX.filter.linenums=-1</PRE></BLOCKQUOTE>
          null,         //No mid alterer
          endLinePattern, endLine_rplcWith, endRplcs_notMtchNum, endAppearanceFilter,
             dbgEndRplcr_ifNonNull,
-         dbgLineNums_ifNonNull);
+         null, dbgLineNums_ifNonNull);
 
       return  new FilteredLineIterator(
          null, Returns.KEPT, KeepUnmatched.NO,
@@ -298,7 +306,7 @@ PREFIX.filter.linenums=-1</PRE></BLOCKQUOTE>
    /**
       <P>Create a new line-range filter with named debuggers.</P>
 
-      <P>{@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#NAMED_DEBUGGERS_CONFIG_FILE Named debuggers} provided to the following {@link #lineRangeWithReplace(int, boolean, String, String, ReplacedInEachInput, Appendable, Appendable, int, boolean, String, String, ReplacedInEachInput, Appendable, Appendable, Appendable, Appendable, LengthInRangeValidator) lineRangeWithReplace} parameters:<UL>
+      <P>{@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#NAMED_DEBUGGERS_CONFIG_FILE Named debuggers} provided to the following {@link #lineRangeWithReplace(int, boolean, String, String, ReplacedInEachInput, Appendable, Appendable, int, boolean, String, String, ReplacedInEachInput, Appendable, Appendable, Appendable, Appendable, LengthInRange) lineRangeWithReplace} parameters:<UL>
          <LI><CODE><I>[named_debugPrefix]</I>.filter</CODE><UL>
             <LI>{@code .blockstart}: {@code dbgStartRplcr_ifNonNull}</LI>
             <LI>{@code .blockstart.validfilter}: {@code dbgStartFilter_ifNonNull}</LI>
