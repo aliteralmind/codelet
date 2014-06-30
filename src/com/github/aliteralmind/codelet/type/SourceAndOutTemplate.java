@@ -21,7 +21,7 @@ package  com.github.aliteralmind.codelet.type;
 /**
    <P>The text into which {@code {@.codelet.and.out}} output (the example-code's console output) is placed.</P>
 
-   <A NAME="gaps"><A/><H2><A HREF="{@docRoot}/com/github/aliteralmind.codelet/CodeletTemplateBase.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: {@code {@.codelet.and.out}}: Template: <U>Gap names</U></H2>
+   <A NAME="gaps"></A><H2><A HREF="{@docRoot}/com/github/aliteralmind.codelet/CodeletTemplateBase.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: {@code {@.codelet.and.out}}: Template: <U>Gap names</U></H2>
 
    <P>The only required gaps are &quot;{@link #GAP_BODY_SOURCE_CODE body_source_code}&quot; and &quot;{@link #GAP_BODY_CONSOLE_OUTPUT body_console_output}&quot;, which are where the fully-processed source and output are placed.</P>
 

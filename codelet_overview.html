@@ -56,7 +56,8 @@
       <LI>I use <CODE>com.github.xbn.testdev.{@link com.github.xbn.testdev.VerifyApplicationOutput}</CODE> to unit test applications.</LI>
    </OL></P>
 
-<A NAME="xmpl_hello"><A/>
+<A NAME="xmpl_hello"></A>
+<!-- README.md...start -->
 
    <H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Example: <U>Hello Codelet!</U> A basic use</H2>
 
@@ -91,7 +92,7 @@
 
    <P>Take a look at the <A HREF="#xmpl_nocust">same example with no customizer</A>.</P>
 
-<A NAME="xmpl_snippet"><A/>
+<A NAME="xmpl_snippet"></A>
 
    <H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Example: <U>Displaying a &quot;code snippet&quot;</U></H2>
 
@@ -111,7 +112,7 @@
 
    <P>The {@code false} parameters indicate the strings are literal. {@code true} treats them as <A HREF="http://stackoverflow.com/questions/22937618/reference-what-does-this-regex-mean/22944075#22944075">regular expressions</A>.</P>
 
-<A NAME="xmpl_links"><A/>
+<A NAME="xmpl_links"></A>
 
    <H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Example: <U>Custom Customizer: Making function/constructor/class/field names into clickable JavaDoc links</U></H2>
 
@@ -173,7 +174,7 @@
 
    <P>Where {@code "getSum()"} is the function signature's {@linkplain com.github.aliteralmind.codelet.simplesig.MethodSigSearchTerm search-term}.</P>
 
-<A NAME="xmpl_links_piat"><A/><P><A HREF="#xmpl_links"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> Putting it all together:</P>
+<A NAME="xmpl_links_piat"></A><P><A HREF="#xmpl_links"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> Putting it all together:</P>
 
 <P><B>The taglet:</B></P>
 
@@ -191,7 +192,7 @@
    <BR> &nbsp; &nbsp; {@code ":adderDemo_lineSnippetWithLinks()"}
    <BR>because one of the <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#specifications">default</A> customizer classes is the one containing the taglet--if it is indeed a class.)</P>
 
-<A NAME="xmpl_links_full1"><A/><P><B><A HREF="#xmpl_links"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> The full customizer function (version 1 of 3):</B></P>
+<A NAME="xmpl_links_full1"></A><P><B><A HREF="#xmpl_links"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> The full customizer function (version 1 of 3):</B></P>
 
 {@.codelet com.github.aliteralmind.codelet.examples.LineRangeWithLinksCompact:com.github.aliteralmind.codelet.examples.LineRangeWithLinksCompact#LineRangeWithLinksCompact_adderDemo_lineRangeWithLinks(false)}
 
@@ -203,11 +204,11 @@
       <LI>When using <A HREF="http://alexgorbatchev.com/SyntaxHighlighter">SyntaxHighlighter</A> with the <A HREF="http://alexgorbatchev.com/SyntaxHighlighter/manual/installation.html">&quot;<CODE>&lt;PRE&gt;</CODE> method&quot;</A>, it is not possible to have any links, due to its limitation that all less-than characters (<CODE>'&lt;'</CODE>) must be html escaped.</LI>
    </OL></P>
 
-<A NAME="xmpl_links_full2"><A/><P><A HREF="#xmpl_links"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> <B>The same function</B>, with documentation on the available {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#GLOBAL_DEBUG_LEVEL debugging} parameters (version 2 of 3):</P>
+<A NAME="xmpl_links_full2"></A><P><A HREF="#xmpl_links"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> <B>The same function</B>, with documentation on the available {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#GLOBAL_DEBUG_LEVEL debugging} parameters (version 2 of 3):</P>
 
 {@.codelet com.github.aliteralmind.codelet.examples.LineRangeWithLinks:com.github.aliteralmind.codelet.examples.LineRangeWithLinksCompact#LineRangeWithLinksCompact_adderDemo_lineRangeWithLinks(true)}
 
-<A NAME="xmpl_links_full3"><A/><P><A HREF="#xmpl_links"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A>  <B>And again, this time with automated {@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#NAMED_DEBUGGERS_CONFIG_FILE named debuggers}</B> (version 3 of 3, presented as a <A HREF="http://sscce.org">fully-working, ready-to-use</A> class):</P>
+<A NAME="xmpl_links_full3"></A><P><A HREF="#xmpl_links"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A>  <B>And again, this time with automated {@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#NAMED_DEBUGGERS_CONFIG_FILE named debuggers}</B> (version 3 of 3, presented as a <A HREF="http://sscce.org">fully-working, ready-to-use</A> class):</P>
 
 {@.codelet com.github.aliteralmind.codelet.examples.LineRangeWithLinksAndNamedDebugs:com.github.aliteralmind.codelet.examples.zCodeletCustomizers#LineRangeWithLinksAndNamedDebugs_adderDemo_lineRangeWithLinks()}
 
@@ -233,7 +234,7 @@ LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.link.getSum.vali
 LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.link.getSum=-1
 LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.template=-1</PRE></BLOCKQUOTE>
 
-<A NAME="xmpl_nocust"><A/>
+<A NAME="xmpl_nocust"></A>
 
    <H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Example: <U>No customizer</U></H2>
 
@@ -247,9 +248,13 @@ LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.template=-1</PRE
 
 <HR/>
 {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo}
+
+
+<!-- README.md...end -->
+
 <HR/>
 
-<A NAME="install"><A/>
+<A NAME="install"></A>
 
    <H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: <U>Installation</U></H2>
 
@@ -300,7 +305,7 @@ LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.template=-1</PRE
       <LI><A HREF="https://code.google.com/p/guava-libraries/">Google Guava</A>, version 16.0.1</LI>
    </OL></P>
 
-   <A NAME="install_taglets"><A/><H2><A HREF="#install"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Installation: <U>Custom taglets and the Codelet configuration directory</U></H2>
+   <A NAME="install_taglets"></A><H2><A HREF="#install"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Installation: <U>Custom taglets and the Codelet configuration directory</U></H2>
 
    <P>Executing <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html">{@code javadoc}</A> in turn executes Codelet. Its four custom taglets must be registered, and the Codelet configuration directory must be passed through as a <A HREF="http://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html">system property</A>.</P>
 
@@ -323,7 +328,7 @@ LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.template=-1</PRE
    <P>This assumes that Codelet is on your Ant-classpath.</P>
 
 
-   <A NAME="install_configure"><A/><H2><A HREF="#install"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Installation: <U>Configuring Codelet itself</U></H2>
+   <A NAME="install_configure"></A><H2><A HREF="#install"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Installation: <U>Configuring Codelet itself</U></H2>
 
    <P>At a minimum, the following three values must be set in {@link com.github.aliteralmind.codelet.CodeletBaseConfig codelet.properties}:<OL>
       <LI>{@link com.github.aliteralmind.codelet.CodeletBaseConfig#BASE_DIR_BASE_DIR base_dir_base_dir}: The root directory on which all other directory values are based on. This is used by other values with {@code ${BASE}}. Example value:

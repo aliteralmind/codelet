@@ -74,7 +74,7 @@ package  com.github.aliteralmind.codelet;
       <LI>Raw objects: {@linkplain CodeletTemplateBase template} (set with <!-- GENERIC PARAMETERS FAIL IN @link --><A HREF="#template(T)"><CODE>template</CODE></A>) which, at its heart, is a {@code com.github.aliteralmind.templatefeather.FeatherTemplate}</LI>
    </UL></P>
 
-   <A NAME="overview"><A/><H2><A HREF="{@docRoot}/overview-summary.html#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: <U>Overview</U></H2>
+   <A NAME="overview"></A><H2><A HREF="{@docRoot}/overview-summary.html#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: <U>Overview</U></H2>
 
    <P>A &quot;Codelet Customizer&quot; is a function that returns the <I><A HREF="#skip-navbar_top">instructions</A></I> for tailoring an example code's output. As stated in the <A HREF="{@docRoot}/overview-summary.html#overview_description">overview</A>, common customizations include<UL>
       <LI>Displaying only a portion of an example's source code: A <A HREF="{@docRoot}/overview-summary.html#xmpl_snippet">code snippet</A>.</LI>
@@ -100,7 +100,7 @@ package  com.github.aliteralmind.codelet;
       </UL></LI>
    </UL></P>
 
-   <A NAME="func_does_nothing"><A/><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer function: <U>Example: A customizer that does nothing</U></H2>
+   <A NAME="func_does_nothing"></A><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer function: <U>Example: A customizer that does nothing</U></H2>
 
    <P>A customizer function that makes (almost) no changes:</P>
 
@@ -116,7 +116,7 @@ package  com.github.aliteralmind.codelet;
       <LI>Uses the {@link #defaultOrOverrideTemplate(Appendable) Default template},</LI>
    </OL></P>
 
-   <A NAME="specifications"><A/><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: <U>Requirements</U></H2>
+   <A NAME="specifications"></A><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: <U>Requirements</U></H2>
 
    <P>The customizer function has the following requirements:<UL>
       <LI>Its location (containing class) must be <A HREF="#xmpl_sig">explicitely specified</A> in the taglet, or must exist in one of the following <B><U>default classes</U></B>, which are searched in order:<OL>
@@ -134,7 +134,7 @@ package  com.github.aliteralmind.codelet;
 
    <P>When taglets are used in a class (as opposed to <A HREF="http://stackoverflow.com/questions/3644726/javadoc-package-html-or-package-info-java">{@code package-info.java}</A> or your project's <A HREF="http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html#sourcefiles">overview summary</A>), it is encouraged that its customizer functions be in the class, and that these functions are {@code private}. (In the Codelet and <A HREF="http://codelet.aliteralmind.com">XBN-Java</A> projects, this is not possible, as doing so would create <A HREF="http://en.wikipedia.org/wiki/Circular_dependency">circular-dependency</A> nightmare--this is the primary reason for the {@code zCodeletCustomizers} default class.)</P>
 
-   <A NAME="xmpl_defaults"><A/><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet syntax: Example: <U>Default function name and class location</U></H2>
+   <A NAME="xmpl_defaults"></A><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet syntax: Example: <U>Default function name and class location</U></H2>
 
 <BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName:()}}</BLOCKQUOTE>
 
@@ -156,7 +156,7 @@ package  com.github.aliteralmind.codelet;
 
    <P>with one exception: When the processor's function name is explicitely specified, <I>but its class is not</I> (which is true in the first two of the three above), the customizer must exist in one of the default classes</P>
 
-   <A NAME="proc_custom_post"><A/><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet syntax: Example: <U>Defaults with custom postfix</U></H2>
+   <A NAME="proc_custom_post"></A><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet syntax: Example: <U>Defaults with custom postfix</U></H2>
 
 <BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName:_ExtraStuff()}}</BLOCKQUOTE>
 
@@ -164,7 +164,7 @@ package  com.github.aliteralmind.codelet;
 
    <P>This is useful when there are multiple codelets of the same {@linkplain CodeletType type}, for the same example class (or text file).</P>
 
-   <A NAME="xmpl_sig"><A/><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet syntax: Example: <U>Specifying the class in which the processor function exists</U></H2>
+   <A NAME="xmpl_sig"></A><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet syntax: Example: <U>Specifying the class in which the processor function exists</U></H2>
 
    <P>The customizer function can be in any class, which may explicitely specified:</P>
 
@@ -178,7 +178,7 @@ package  com.github.aliteralmind.codelet;
    <BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature SimpleMethodSignature}.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature#newFromStringAndDefaults(Class, Object, String, Class[], Appendable) newFromStringAndDefaults}</CODE>
    <BR>(Before being provided to {@code newFromStringAndDefaults}, the omitted function name is given its default value [{@code "getSource_ExampleClass"}], as described in this and the <A HREF="#proc_custom_post">previous example</A>. In all cases, {@code SimpleMethodSignature} requires a function name.)</P>
 
-   <A NAME="xmpl_params"><A/><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet syntax: Example: <U>Specifying extra processor parameters</U></H2>
+   <A NAME="xmpl_params"></A><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet syntax: Example: <U>Specifying extra processor parameters</U></H2>
 
    <P>The default customizer has a single {@link CodeletInstance CodeletInstance} parameter. This is specified in the taglet with either empty parentheses, or no parens at all, as demonstrated in the <A HREF="#xmpl_defaults">default example</A>.</P>
 

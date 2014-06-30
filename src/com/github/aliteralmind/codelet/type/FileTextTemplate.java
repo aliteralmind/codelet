@@ -27,13 +27,13 @@ package  com.github.aliteralmind.codelet.type;
 /**
    <P>The text into which {@code {@.file.textlet}} output (the example-code's console output) is placed.</P>
 
-   <A NAME="gaps"><A/><H2><A HREF="{@docRoot}/com/github/aliteralmind.codelet/CodeletTemplateBase.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: {@code {@.file.textlet}}: Template: <U>Gap names</U></H2>
+   <A NAME="gaps"></A><H2><A HREF="{@docRoot}/com/github/aliteralmind.codelet/CodeletTemplateBase.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: {@code {@.file.textlet}}: Template: <U>Gap names</U></H2>
 
    <P>The only required gap is &quot;{@link com.github.aliteralmind.codelet.type.OnlyOneBodyGapTemplateBase#BODY_GAP_NAME body}&quot;, which is where the fully-processed source-code is placed.</P>
 
    <P>In addition to any {@linkplain com.github.aliteralmind.codelet.UserExtraGapGetter#getForFileTextlet() user-extra} gaps, the {@code {@.codelet}} template also provides for the following &quot;default&quot; optional gaps:</P>
 
-   <A NAME="gaps"><A/><P><A HREF="SourceCodeTemplate.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; <B>Url-related:</B></P>
+   <A NAME="gaps"></A><P><A HREF="SourceCodeTemplate.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; <B>Url-related:</B></P>
 
    <P><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
       <TD><B><U>Name</U></B></TD>
@@ -49,7 +49,7 @@ package  com.github.aliteralmind.codelet.type;
       <TD>The example code's relative_dir, with file-separators replaced by url-slashes ({@code '/'}).</TD>
    </TR></TABLE></P>
 
-   <A NAME="gaps"><A/><P><A HREF="SourceCodeTemplate.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; <B>Non-url related:</B></P>
+   <A NAME="gaps"></A><P><A HREF="SourceCodeTemplate.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; <B>Non-url related:</B></P>
 
    <P><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
       <TD><B><U>Name</U></B></TD>

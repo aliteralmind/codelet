@@ -50,7 +50,7 @@ package  com.github.aliteralmind.codelet;
 
    <P><I>View <A HREF="{@docRoot}/doc-files/codelet.properties">{@code {@docRoot}/doc-files/codelet.properties}</A>.)</I></P>
 
-   <A NAME="base_dirs_other"><A/><H2><A HREF="{@docRoot}/overview-summary.html#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; <U>Codelet: Configuration</U></H2>
+   <A NAME="base_dirs_other"></A><H2><A HREF="{@docRoot}/overview-summary.html#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; <U>Codelet: Configuration</U></H2>
 
    <P><I>See <A HREF="{@docRoot}/overview-summary.html#install_configure">getting started</A> in the Codelet installation instructions.</I></P>
 
@@ -61,7 +61,7 @@ package  com.github.aliteralmind.codelet;
       <LI><A HREF="#debugging">Debugging and diagnostics</A></LI>
    </UL></P>
 
-   <A NAME="base_dirs_other"><A/><H2><A HREF="CodeletBaseConfig.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Configuration: <U>Base directories and urls, and other</U></H2>
+   <A NAME="base_dirs_other"></A><H2><A HREF="CodeletBaseConfig.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Configuration: <U>Base directories and urls, and other</U></H2>
 
    <P><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
       <TD>&nbsp;</TD>
@@ -85,7 +85,7 @@ package  com.github.aliteralmind.codelet;
       <TD>Fully-qualified name of the class that defines alterers used by all pre-built customizers, and are accessible in custom customizers.</TD>
    </TR></TABLE></P>
 
-   <A NAME="tmpl_javadoc"><A/><H2><A HREF="CodeletBaseConfig.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Configuration: <U>JavaDoc related</U></H2>
+   <A NAME="tmpl_javadoc"></A><H2><A HREF="CodeletBaseConfig.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Configuration: <U>JavaDoc related</U></H2>
 
    <P><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
       <TD><B><U>Func</U></B></TD>
@@ -117,7 +117,7 @@ package  com.github.aliteralmind.codelet;
       <TD>Filename postfix, plus optional dot-extension that follows each offline name.</TD>
    </TR></TABLE></P>
 
-   <A NAME="tmpl_defaults"><A/><H2><A HREF="CodeletBaseConfig.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Configuration: <U>Default template files</U></H2>
+   <A NAME="tmpl_defaults"></A><H2><A HREF="CodeletBaseConfig.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Configuration: <U>Default template files</U></H2>
 
    <P><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
       <TD><B><U>Func</U></B></TD>
@@ -149,7 +149,7 @@ package  com.github.aliteralmind.codelet;
       <TD>Directory in which any custom (user-created) templates are stored.</TD>
    </TR></TABLE></P>
 
-   <A NAME="tmpl_gaps"><A/><H2><A HREF="CodeletBaseConfig.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Configuration: <U>Template gaps</U></H2>
+   <A NAME="tmpl_gaps"></A><H2><A HREF="CodeletBaseConfig.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Configuration: <U>Template gaps</U></H2>
 
    <P><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
       <TD><B><U>Func</U></B></TD>
@@ -179,7 +179,7 @@ package  com.github.aliteralmind.codelet;
 
 
 
-   <A NAME="debugging"><A/><H2><A HREF="CodeletBaseConfig.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Configuration: <U>Debugging and diagnostics</U></H2>
+   <A NAME="debugging"></A><H2><A HREF="CodeletBaseConfig.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Configuration: <U>Debugging and diagnostics</U></H2>
 
    <P><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
       <TD><B><U>Func</U></B></TD>

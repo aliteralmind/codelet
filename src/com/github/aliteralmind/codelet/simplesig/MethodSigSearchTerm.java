@@ -19,7 +19,7 @@ package  com.github.aliteralmind.codelet.simplesig;
    import  java.util.List;
 /**
    <P>Search term for methods.</P>
-   <A NAME="xmpl_method"><A/><H3>{@link com.github.aliteralmind.codelet.simplesig.MethodSigSearchTerm}: Example</H3>
+   <A NAME="xmpl_method"></A><H3>{@link com.github.aliteralmind.codelet.simplesig.MethodSigSearchTerm}: Example</H3>
 
 {@.codelet.and.out com.github.aliteralmind.codelet.examples.simplesig.MethodSigSearchTermXmpl:()}
 

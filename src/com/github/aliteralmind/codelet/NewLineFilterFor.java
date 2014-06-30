@@ -13,6 +13,7 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet;
+   import  com.github.xbn.linefilter.entity.EntityRequired;
    import  com.github.xbn.linefilter.entity.OutOfRangeResponseWhen;
    import  com.github.xbn.linefilter.entity.OnOffAbort;
    import  com.github.xbn.number.NewLengthInRangeFor;
@@ -93,25 +94,27 @@ public class NewLineFilterFor  {
       List<TextChildEntity> childList = new ArrayList<TextChildEntity>(3);
 
       if(doDelete_pkgDecl)  {
+         PostFilterSelfActiveInOutRange onOffFilter = new PostFilterSelfActiveInOutRange(
+            NewLengthInRangeFor.maxInclusive(null, 0, null),
+            OnOffAbort.ON, OnOffAbort.OFF,
+            OutOfRangeResponseWhen.IMMEDIATE,
+            null);     //debug
+
          SingleLineEntity pkgDeclLineEntity = NewSingleLineEntityFor.match(
             "pkgdecl", KeepMatched.NO,
             Pattern.compile(JavaRegexes.PACKAGE_DECL_ONE_LINE_NO_CMTS),
             null,      //dbgAlter (on:System.out, off:null)
-            new PostFilterSelfActiveInOutRange(
-               NewLengthInRangeFor.maxInclusive(null, 0, null),
-               OnOffAbort.ON, OnOffAbort.OFF,
-               OutOfRangeResponseWhen.IMMEDIATE,
-               null),  //debug
+            EntityRequired.YES, onOffFilter,
             null);     //dbgLineNums
          childList.add(pkgDeclLineEntity);
       }
 
       if(doElim_multiLineCmts)  {
-         BlockEntity javaMlcBlock = NewBlockEntityFor.javaComment_Cfg_startEndDebug(
+         BlockEntity javaMlcBlock = NewBlockEntityFor.javaComment_Cfg(
             "comment", IncludeJavaDoc.YES,
             null,      //dbgStart
             null,      //dbgEnd
-            null,      //on-off filter
+            EntityRequired.YES, null,
             null).     //dbgLineNums
                keepNone().build();
          childList.add(javaMlcBlock);
@@ -163,7 +166,7 @@ PREFIX.filter.javamlcs=-1</PRE></BLOCKQUOTE>
             dbgMlcBlkStartEnd,        //dbgJavaMlcs_ifNotNull
             dbgFilter);               //dbgAllLines_ifNonNull
    }
-      /**
+   /**
       <P><I>A code snippet:</I> Keeps all lines in a specific range, based on the text existing in the first and last lines.</P>
 
       @param  startAppearance_num  If the start-line search term is found on multiple lines, this is the desired occurance (if two, the second line the term is found on).
@@ -179,11 +182,11 @@ PREFIX.filter.javamlcs=-1</PRE></BLOCKQUOTE>
    snippetBlock)</PRE></BLOCKQUOTE>
       Where {@code snippetBlock} is a
 <BLOCKQUOTE><PRE>
-{@link com.github.xbn.linefilter.entity.NewBlockEntityFor}.{@link com.github.xbn.linefilter.entity.NewBlockEntityFor#lineRange(String, KeepMatched, Pattern, ValidResultFilter, Appendable, Pattern, ValidResultFilter, Appendable, RawOnOffEntityFilter, Appendable) lineRange}(&quot;lineRange&quot;,
+{@link com.github.xbn.linefilter.entity.NewBlockEntityFor}.{@link com.github.xbn.linefilter.entity.NewBlockEntityFor#lineRange(String, KeepMatched, Pattern, ValidResultFilter, Appendable, Pattern, ValidResultFilter, Appendable, EntityRequired, RawOnOffEntityFilter, Appendable) lineRange}(&quot;lineRange&quot;,
    {@link com.github.xbn.linefilter.entity.KeepMatched}.{@link com.github.xbn.linefilter.entity.KeepMatched#YES YES},
    startLinePattern, startAppearanceFilter, dbgStart_ifNonNull,
    endLinePattern, endAppearanceFilter, dbgEnd_ifNonNull,
-   dbgLineNums_ifNonNull)</PRE></BLOCKQUOTE>
+   {@link com.github.xbn.linefilter.entity.EntityRequired}.{@link com.github.xbn.linefilter.entity.EntityRequired#YES YES}, null, dbgLineNums_ifNonNull)</PRE></BLOCKQUOTE>
       and {@code startAppearanceFilter} is a
 <BLOCKQUOTE><PRE>{@link com.github.xbn.analyze.validate.NewValidResultFilterFor}.{@link com.github.xbn.analyze.validate.NewValidResultFilterFor#exactly(int, String, Appendable) exactly}(
    startAppearance_num, ..., dbgStartFilter_ifNonNull)</PRE></BLOCKQUOTE>
@@ -205,7 +208,7 @@ PREFIX.filter.javamlcs=-1</PRE></BLOCKQUOTE>
          KeepMatched.YES,
          startLinePattern, startAppearanceFilter, dbgStart_ifNonNull,
          endLinePattern, endAppearanceFilter, dbgEnd_ifNonNull,
-         null, dbgLineNums_ifNonNull);
+         EntityRequired.YES, null, dbgLineNums_ifNonNull);
 
       return  new FilteredLineIterator(
          null, Returns.KEPT, KeepUnmatched.NO,
@@ -268,14 +271,14 @@ PREFIX.filter.linenums=-1</PRE></BLOCKQUOTE>
       @param  endLine_rplcWith  The replacement term for the end-line search term ({@code endLine_findWhat}).
       @param  endRplcs_notMtchNum  In most cases, this should be set to {@code "FIRST"}.
       @return  The same as {@link #lineRange(CodeletInstance, String, int, boolean, String, int, boolean, String) lineRange}, with this alternative block entity:
-<BLOCKQUOTE><PRE>{@link com.github.xbn.linefilter.entity.NewBlockEntityFor}.{@link com.github.xbn.linefilter.entity.NewBlockEntityFor#lineRangeWithReplace(String, KeepStartLine, KeepMidLines, KeepEndLine, Pattern, String, ReplacedInEachInput, ValidResultFilter, Appendable, ValueAlterer, Pattern, String, ReplacedInEachInput, ValidResultFilter, Appendable, RawOnOffEntityFilter, Appendable) lineRangeWithReplace}(
+<BLOCKQUOTE><PRE>{@link com.github.xbn.linefilter.entity.NewBlockEntityFor}.{@link com.github.xbn.linefilter.entity.NewBlockEntityFor#lineRangeWithReplace(String, KeepStartLine, KeepMidLines, KeepEndLine, Pattern, String, ReplacedInEachInput, ValidResultFilter, Appendable, ValueAlterer, Pattern, String, ReplacedInEachInput, ValidResultFilter, Appendable, EntityRequired, RawOnOffEntityFilter, Appendable) lineRangeWithReplace}(
    &quot;lineRangeWithReplace&quot;, {@link com.github.xbn.linefilter.KeepMatched}.{@link com.github.xbn.linefilter.KeepMatched#YES YES},
    startLinePattern, startLine_rplcWith, startRplcs_notMtchNum, startAppearanceFilter,
       dbgStartRplcr_ifNonNull,
    null,         //No mid alterer
    endLinePattern, endLine_rplcWith, endRplcs_notMtchNum, endAppearanceFilter,
       dbgEndRplcr_ifNonNull,
-   dbgLineNums_ifNonNull)</PRE></BLOCKQUOTE>
+   {@link com.github.xbn.linefilter.entity.EntityRequired}.{@link com.github.xbn.linefilter.entity.EntityRequired#YES YES}, null, dbgLineNums_ifNonNull)</PRE></BLOCKQUOTE>
     **/
    public static final FilteredLineIterator lineRangeWithReplace(int startAppearance_num, boolean is_startLineRegex, String startLine_findWhat, String startLine_rplcWith, ReplacedInEachInput startRplcs_notMtchNum, Appendable dbgStartFilter_ifNonNull, Appendable dbgStartRplcr_ifNonNull, int endAppearance_num, boolean is_endLineRegex, String endLine_findWhat, String endLine_rplcWith, ReplacedInEachInput endRplcs_notMtchNum, Appendable dbgEndFilter_ifNonNull, Appendable dbgEndRplcr_ifNonNull, Appendable dbgLineNums_ifNonNull, Appendable dbgAllLines_ifNonNull, LengthInRange rangeForEveryLineDebug_ifNonNull) throws PatternSyntaxException  {
       Pattern startLinePattern = NewPatternFor.regexIfTrueLiteralIfFalse(is_startLineRegex, startLine_findWhat, "startLine_findWhat");
@@ -295,7 +298,7 @@ PREFIX.filter.linenums=-1</PRE></BLOCKQUOTE>
          null,         //No mid alterer
          endLinePattern, endLine_rplcWith, endRplcs_notMtchNum, endAppearanceFilter,
             dbgEndRplcr_ifNonNull,
-         null, dbgLineNums_ifNonNull);
+         EntityRequired.YES, null, dbgLineNums_ifNonNull);
 
       return  new FilteredLineIterator(
          null, Returns.KEPT, KeepUnmatched.NO,
