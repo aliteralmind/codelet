@@ -173,7 +173,7 @@ public class FileTextTemplate extends OnlyOneBodyGapTemplateBase  {
 
       <P>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</P>
 
-      <P><CODE>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getRelativeFilePath(CodeletInstance) getRelativeFilePath}(<I>[the-instance]</I>)</CODE></P>
+      <P><CODE>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getFilePath(CodeletInstance) getFilePath}(<I>[the-instance]</I>)</CODE></P>
 
       @see  #GAP_PATH
       @see  #GAP_REL_DIR_AS_URL
@@ -184,7 +184,7 @@ public class FileTextTemplate extends OnlyOneBodyGapTemplateBase  {
 
       <P>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</P>
 
-      <P><CODE>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getRelativeFilePath(CodeletInstance) getRelativeFilePath}(<I>[the-instance]</I>).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, &quot;/&quot;)</CODE></P>
+      <P><CODE>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getFilePath(CodeletInstance) getFilePath}(<I>[the-instance]</I>).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, &quot;/&quot;)</CODE></P>
 
       @see  #GAP_RELATIVE_DIR
     **/
@@ -318,7 +318,7 @@ class RelDirGap extends CodeletGap  {
       super("relative_dir");
    }
    public String getFillText(CodeletInstance instance)  {
-      return  TagletTextUtil.getRelativeFilePath(instance);
+      return  TagletTextUtil.getFilePath(instance);
    }
 }
 class RelDirAsUrlGap extends CodeletGap  {
@@ -326,6 +326,6 @@ class RelDirAsUrlGap extends CodeletGap  {
       super("relative_dir_as_url");
    }
    public String getFillText(CodeletInstance instance)  {
-      return  TagletTextUtil.getRelativeFilePath(instance).replace(".", "/");
+      return  TagletTextUtil.getFilePath(instance).replace(".", "/");
    }
 }

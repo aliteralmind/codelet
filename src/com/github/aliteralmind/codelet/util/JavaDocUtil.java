@@ -99,7 +99,7 @@ public class JavaDocUtil  {
 
       <H4>Example</H4>
 
-{@.codelet.and.out com.github.aliteralmind.codelet.examples.util.FunctionConstructorJavaDocLink:_JavaDocUtil()}
+{@.codelet.and.out com.github.aliteralmind.codelet.examples.util.FunctionConstructorJavaDocLink%_JavaDocUtil()}
 
 
       @param  to_appendTo  May not be {@code null}.
@@ -174,8 +174,7 @@ public class JavaDocUtil  {
 
       <H4>Example</H4>
 
-{@.codelet.and.out com.github.aliteralmind.codelet.examples.util.JavaDocUtilGetEllipsisArrayLastParamXmpl:()}
-
+{@.codelet.and.out com.github.aliteralmind.codelet.examples.util.JavaDocUtilGetEllipsisArrayLastParamXmpl%()}
 
       @param  cls  May not be {@code null}.
       @return  The {@linkplain java.lang.Class#getCanonicalName() canonical class name}, where the final array indicator ({@code "[]"}) is replaced with an ellipsis ({@code "..."}).

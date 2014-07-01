@@ -18,7 +18,7 @@ package  com.github.aliteralmind.codelet.examples;
 
    <H3><U>Taglet:</U></H3>
 
-   <P style="font-size: 125%;"><B>{@code {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:eliminateCmtBlocksPkgLineAndPkgReferences(false, true, false)}}</B></P>
+   <P style="font-size: 125%;"><B>{@code {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%eliminateCmtBlocksPkgLineAndPkgReferences(false, true, false)}}</B></P>
 
    <H3><U>Replaced with:</U></H3>
 
@@ -26,7 +26,7 @@ package  com.github.aliteralmind.codelet.examples;
 
    <HR/>
 
-{@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:eliminateCmtBlocksPkgLineAndPkgReferences(false, true, false)}
+{@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%eliminateCmtBlocksPkgLineAndPkgReferences(false, true, false)}
 
    <HR/>
 

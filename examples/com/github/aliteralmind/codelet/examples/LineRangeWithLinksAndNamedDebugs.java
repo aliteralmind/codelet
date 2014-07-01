@@ -34,14 +34,14 @@ package  com.github.aliteralmind.codelet.examples;
 
    <H3><U>Taglet:</U></H3>
 
-   <P style="font-size: 125%;"><B>{@code {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:adderDemo_lineSnippetWithLinks()}}</B></P>
+   <P style="font-size: 125%;"><B>{@code {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%adderDemo_lineSnippetWithLinks()}}</B></P>
 
    <H3><U>Replaced with:</U></H3>
 
    <P><I>(Output begins and ends between the horizontal lines.)</I></P>
 
    <HR/>
-{@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:adderDemo_lineSnippetWithLinks()}
+{@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%adderDemo_lineSnippetWithLinks()}
    <HR/>
 
    <H3><U>Original source code:</U></H3>

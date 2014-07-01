@@ -18,10 +18,10 @@ package  com.github.aliteralmind.codelet.examples;
 /**
    <P>For testing {@code {@.codelet.out}}</P>
 
-   <P style="font-size: 125%;"><B>{@code {@.codelet com.github.aliteralmind.codelet.examples.TrivialAppWithCommandLineParams:eliminateCommentBlocksAndPackageDecl()}}
+   <P style="font-size: 125%;"><B>{@code {@.codelet com.github.aliteralmind.codelet.examples.TrivialAppWithCommandLineParams%eliminateCommentBlocksAndPackageDecl()}}
    <BR>{@code {@.codelet.out com.github.aliteralmind.codelet.examples.TrivialAppWithCommandLineParams("string one", "string two")}}</B></P>
 
-{@.codelet com.github.aliteralmind.codelet.examples.TrivialAppWithCommandLineParams:eliminateCommentBlocksAndPackageDecl()}
+{@.codelet com.github.aliteralmind.codelet.examples.TrivialAppWithCommandLineParams%eliminateCommentBlocksAndPackageDecl()}
 {@.codelet.out com.github.aliteralmind.codelet.examples.TrivialAppWithCommandLineParams("string one", "string two")}
 
    @author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <CODE><A HREF="http://xbnjava.aliteralmind.com">http://xbnjava.aliteralmind.com</A></CODE>, <CODE><A HREF="https://github.com/aliteralmind/xbnjava">https://github.com/aliteralmind/xbnjava</A></CODE>

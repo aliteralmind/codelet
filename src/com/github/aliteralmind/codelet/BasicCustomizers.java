@@ -45,11 +45,11 @@ public class BasicCustomizers  {
 
       <H4>Example</H4>
 
-      <P style="font-size: 125%;"><B>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo:lineRange(1, false, "Adder adder", 1, false, "println(adder.getSum())", "^      ")}}</B></P>
+      <P style="font-size: 125%;"><B>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo%lineRange(1, false, "Adder adder", 1, false, "println(adder.getSum())", "^      ")}}</B></P>
 
       <P>Given <A HREF="{@docRoot}/overview-summary.html#xmpl_nocust">this source code</A>, this taglet displays the range of lines beginning with {@code "Adder adder"}, and ending with the <I>second</I> {@code "println(adder.getSum())"}. This also eliminates the indentation of the kept lines, which is two tabs at <A HREF="http://www.regular-expressions.info/anchors.html">line-start</A>: {@code "^      "}.</P>
 
-{@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo:lineRange(1, false, "Adder adder", 2, false, "println(adder.getSum())", "^      ")}
+{@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo%lineRange(1, false, "Adder adder", 2, false, "println(adder.getSum())", "^      ")}
 
 
       <H4>Automated {@linkplain CodeletBootstrap#CODELET_RQD_NAMED_DBGRS_CONFIG_FILE named debuggers}</H4>
@@ -121,9 +121,9 @@ zzBasicCustomizers.lineRange.template</PRE></BLOCKQUOTE>
 
       <H4>Example</H4>
 
-   <P style="font-size: 125%;"><B>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemoWithSnippetEndMarker:lineRangeWithReplace(1, true, "(Adder adder)", "$1", "FIRST", 1, true, "; +//End snippet$", ";", "FIRST", "^      ")}}</B></P>
+   <P style="font-size: 125%;"><B>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemoWithSnippetEndMarker%lineRangeWithReplace(1, true, "(Adder adder)", "$1", "FIRST", 1, true, "; +//End snippet$", ";", "FIRST", "^      ")}}</B></P>
 
-{@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemoWithSnippetEndMarker:lineRangeWithReplace(1, true, "(Adder adder)", "$1", "FIRST", 1, true, "; +//End snippet$", ";", "FIRST", "^      ")}
+{@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemoWithSnippetEndMarker%lineRangeWithReplace(1, true, "(Adder adder)", "$1", "FIRST", 1, true, "; +//End snippet$", ";", "FIRST", "^      ")}
 
       <P>Snippet starts with the line containing {@code "Adder adder"}, which is replaced with itself: {@code "$1"}. The last line in the range ends the regular expression {@code "; +//End snippet$"} which is replaced with a semi-colon. This also deletes the indentation of the kept lines, which is two tabs at <A HREF="http://www.regular-expressions.info/anchors.html">line-start</A>: {@code "^      "}. <I>{@linkplain examples.LineRangeWithReplace View example}</I></P>
 
@@ -206,15 +206,15 @@ zzBasicCustomizers.lineRangeWithReplace.template</PRE></BLOCKQUOTE>
 
       <H4>Examples</H4>
 
-   <P style="font-size: 125%;"><B>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.Adder:eliminateCmtBlocksPkgLineAndPkgReferences(false, true, false)}}</B></P>
+   <P style="font-size: 125%;"><B>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.Adder%eliminateCmtBlocksPkgLineAndPkgReferences(false, true, false)}}</B></P>
 
-{@.codelet com.github.aliteralmind.codelet.examples.adder.Adder:eliminateCmtBlocksPkgLineAndPkgReferences(false, true, false)}
+{@.codelet com.github.aliteralmind.codelet.examples.adder.Adder%eliminateCmtBlocksPkgLineAndPkgReferences(false, true, false)}
 
       <P>Prints all lines except the package declaration. <I>{@linkplain examples.EliminatePackageDeclarationLine Full example}</I></P>
 
-   <P style="font-size: 125%;"><B>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemoWithFullyQualified:eliminateCommentBlocksAndPackageDecl()}}</B></P>
+   <P style="font-size: 125%;"><B>{@code {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemoWithFullyQualified%eliminateCommentBlocksAndPackageDecl()}}</B></P>
 
-{@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemoWithFullyQualified:eliminateCommentBlocksAndPackageDecl()}
+{@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemoWithFullyQualified%eliminateCommentBlocksAndPackageDecl()}
 
       <P>Eliminates the package declaration and all multi-line comment blocks (including license and JavaDoc). <I>(<A HREF="{@docRoot}/overview-summary.html#xmpl_hello">Intro example</A>)</I></P>
 

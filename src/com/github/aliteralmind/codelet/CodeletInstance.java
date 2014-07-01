@@ -48,18 +48,20 @@ public class CodeletInstance  {
     **/
    public static final String DEBUG_LEVEL_PREFIX_PREFIX = "[DEBUG_LEVEL_";
    /**
-      <P>The character that divides the fully-qualified class-name or plain-text file-path, and its optional <A HREF="CustomizerUtil.html#overview">Codelet-customizer</A>--Equal to {@code ':'}.</P>
+      <P>The character that divides the fully-qualified class-name or plain-text file-path, and its optional <A HREF="CustomizerUtil.html#overview">Codelet-customizer</A>--Equal to {@code '%'}.</P>
 
       <P>If there is no customizer, this character must not exist in the taglet's text. For literally-displaying this character (in a string-value parameter, for either the processor or the example code's {@code main} function), use {@link #ESCAPED_CUSTOMIZER_PREFIX_CHAR}.</P>
+
+      <P><I>This cannot be a colon, because it conflicts with absolute Windows paths (such as {@code C:\java_code\}).</I></P>
     **/
-   public static final char CUSTOMIZER_PREFIX_CHAR = ':';
+   public static final char CUSTOMIZER_PREFIX_CHAR = '%';
    /**
-      <P>When the customizer prefix-char needs to be literally displayed in a string-value parameter--Equal to {@code "&amp;#58;"}.</P>
+      <P>When the customizer prefix-char needs to be literally displayed in a string-value parameter--Equal to {@code "&amp;#37;"}.</P>
 
       @see  #CUSTOMIZER_PREFIX_CHAR
       @see  com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature#getObjectFromString(String)
     **/
-   public static final String ESCAPED_CUSTOMIZER_PREFIX_CHAR = "&#58;";
+   public static final String ESCAPED_CUSTOMIZER_PREFIX_CHAR = "&#37;";
    /**
       <P>Create a new Codelet from its taglet elements.</P>
 
@@ -70,7 +72,7 @@ public class CodeletInstance  {
       @param  enclosing_file  The enclosing file's {@code File} object, which contains the full path to its source code.
       @param  line_num  The line number in the enclosing classes source code, at which this taglet exists. May not be less than one. Get with {@link #getLineNumber() getLineNumber}{@code ()}.
       @param  tag_text  The original text following the taglet's name. For example, if the taglet is
-      <BR> &nbsp; &nbsp; {@code {@.codelet.out my.package.examples.AnExample((byte)-30, true, "Ribsy"):()}}
+      <BR> &nbsp; &nbsp; {@code {@.codelet.out my.package.examples.AnExample((byte)-30, true, "Ribsy")%()}}
       <BR>this parameter must equal
       <BR> &nbsp; &nbsp; <CODE>my.package.examples.AnExample((byte)-30, true, "Ribsy"):()</CODE>
       <BR>Get with {@link #getText() getText}{@code ()}. Any literal curly braces ({@code '&#123;}' or '{@code '&#125;}') found in string parameters are replaced with actual braces: {@code '&#123;'} and {@code '&#125;'}. Escaping curlys is required in order to prevent {@code javadoc.exe} from incorrectly parsing taglets.

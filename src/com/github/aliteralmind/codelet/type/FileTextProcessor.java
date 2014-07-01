@@ -13,6 +13,10 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.type;
+   import  java.nio.file.InvalidPathException;
+   import  java.nio.file.Path;
+   import  java.nio.file.Paths;
+   import  com.github.xbn.io.PathMustBe;
    import  com.github.aliteralmind.codelet.CodeletFormatException;
    import  com.github.aliteralmind.codelet.CodeletInstance;
    import  com.github.aliteralmind.codelet.CodeletType;
@@ -25,6 +29,7 @@ package  com.github.aliteralmind.codelet.type;
    import  java.nio.file.NoSuchFileException;
    import  java.util.Iterator;
    import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
+   import  static com.github.xbn.lang.XbnConstants.*;
 /**
    <P>Reads a {@link com.github.aliteralmind.codelet.CodeletType#FILE_TEXT {@.file.textlet}} taglet and outputs its replacement text.</P>
 
@@ -44,7 +49,7 @@ public class FileTextProcessor extends TagletOfTypeProcessor<FileTextTemplate>  
          throw  new CodeletFormatException(instance, "File-text taglets cannot contain command-line parameters");
       }
 
-      Iterator<String> fileTextLineItr = PlainTextFileUtil.getLineIterator(TagletTextUtil.getFilePath(instance), "TagletTextUtil.getFilePath(instance)");
+      Iterator<String> fileTextLineItr = getLineIteratorFromCodeletPath(instance);
 
       String strSig = getStringSigForFileText();
 //		SimpleMethodSignature sig = getCustomizerSigFromString(strSig);
@@ -65,6 +70,57 @@ public class FileTextProcessor extends TagletOfTypeProcessor<FileTextTemplate>  
       String finalOutput = template.fillBody(fileTextCustomized).getRendered(instance);
       setFullyProcessedOutput(finalOutput);
    }
+      private final Iterator<String> getLineIteratorFromCodeletPath(CodeletInstance instance)  {
+
+         boolean doDebug = isDebugOn(instance, "zzFileTextProcessor.obtainingfile");
+
+         //See CodeletInstance.FILE_TEXT
+
+         if(doDebug)  {
+            debugln("Obtaining line iterator to {@.file.textlet} file (expected file-separator is '" + FILE_SEP + "')...");
+            debugln("   - Raw file path from {@.file.textlet}:  " + getClassOrFilePortion());
+            debugln("   - TagletTextUtil.getFilePath(instance): " + TagletTextUtil.getFilePath(instance));
+         }
+
+         Path path = Paths.get(TagletTextUtil.getFilePath(instance));
+
+         PathMustBe pmb = new PathMustBe().existing().readable();
+         String namePost = "TagletTextUtil.getFilePath(instance)]";
+
+         //First assume absolute. This also works if the path is relative to
+         //the directory in which javadoc.exe was invoked.
+
+         if(pmb.isGood(path))  {
+            if(doDebug)  {
+               debugln("   SUCCESS: Path is either absolute, or relative to the directory in which javadoc.exe was invoked.");
+            }
+
+            return  PlainTextFileUtil.getLineIterator(path.toString(), "[path to file]");
+         }
+
+         //It's not absolute or relative to the invoking directory.
+         //It must be relative to the enclosing file, or die.
+
+         String parentPath = instance.getEnclosingFile().getParent();
+
+         if(!parentPath.endsWith(FILE_SEP))  {
+            parentPath += FILE_SEP;
+         }
+
+         if(doDebug)  {
+            debugln("   Path to file is not absolute, and not relative to the javadoc.exe-invoking directory. It MUST be relative to the directory of its enclosing file:");
+            debugln("    - File:   " + instance.getEnclosingFile());
+            debugln("    - Parent: " + parentPath);
+         }
+
+         try  {
+            path = Paths.get(parentPath, path.toString());
+         }  catch(InvalidPathException ipx)  {
+            throw  new InvalidPathException(parentPath + path.toString(), "{@.file.textlet} path is invalid. Not absolute, not relative to javadoc.exe invoking directory, and not relative to enclosing file");
+         }
+
+         return  PlainTextFileUtil.getLineIterator(path.toString(), "[path to {@.file.textlet} file]");
+      }
    /**
       <P>Get the string signature for a {@code {@.file.textlet}} taglets only. Except where noted, this does not validate the taglet text or the returned signature.</P>
 

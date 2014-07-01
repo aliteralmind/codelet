@@ -104,11 +104,11 @@ package  com.github.aliteralmind.codelet;
 
    <P>A customizer function that makes (almost) no changes:</P>
 
-{@.codelet com.github.aliteralmind.codelet.examples.DoNothingCustomizerCompact:lineRangeWithReplace(1, true, "(<SourceCodeTemplate> aCustomizerThatDoesNothing)", "$1", "FIRST", 1, true, "&#125; +//End snippet$", "&#125;", "FIRST", "^   ")}
+{@.codelet com.github.aliteralmind.codelet.examples.DoNothingCustomizerCompact%lineRangeWithReplace(1, true, "(<SourceCodeTemplate> aCustomizerThatDoesNothing)", "$1", "FIRST", 1, true, "&#125; +//End snippet$", "&#125;", "FIRST", "^   ")}
 
    <P>Here is the same function, with documentation on the available {@linkplain CodeletBaseConfig#GLOBAL_DEBUG_LEVEL debugging} parameters:</P>
 
-{@.codelet com.github.aliteralmind.codelet.examples.DoNothingCustomizer:lineRangeWithReplace(1, true, "(<SourceCodeTemplate> aCustomizerThatDoesNothing)", "$1", "FIRST", 1, true, "&#125; +//End snippet$", "&#125;", "FIRST", "^   ")}
+{@.codelet com.github.aliteralmind.codelet.examples.DoNothingCustomizer%lineRangeWithReplace(1, true, "(<SourceCodeTemplate> aCustomizerThatDoesNothing)", "$1", "FIRST", 1, true, "&#125; +//End snippet$", "&#125;", "FIRST", "^   ")}
 
    <P>This do-nothing customizer uses all {@linkplain #defaults(Appendable, LengthInRange, Appendable, Appendable) defaults}. It<OL>
       <LI>{@link #unfiltered(Appendable, LengthInRange) Filters no lines},</LI>
@@ -136,7 +136,7 @@ package  com.github.aliteralmind.codelet;
 
    <A NAME="xmpl_defaults"></A><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet syntax: Example: <U>Default function name and class location</U></H2>
 
-<BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName:()}}</BLOCKQUOTE>
+<BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName%()}}</BLOCKQUOTE>
 
    <P>This {@code ":()"} shortcut indicates a customizer function with the standard name and class location should be used. In particular:<UL>
       <LI>Its name is {@code "getSourceCode_ExampleClassName"},</LI>
@@ -144,7 +144,7 @@ package  com.github.aliteralmind.codelet;
       <LI>Must exist in one of the <A HREF="#specifications">default classes</A></LI>
    </UL></P>
 
-   <P>{@code {@.codelet fully.qualified.examples.ExampleClassName:()}}</P>
+   <P>{@code {@.codelet fully.qualified.examples.ExampleClassName%()}}</P>
 
    <P>is equivalent to both</P>
 
@@ -158,7 +158,7 @@ package  com.github.aliteralmind.codelet;
 
    <A NAME="proc_custom_post"></A><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet syntax: Example: <U>Defaults with custom postfix</U></H2>
 
-<BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName:_ExtraStuff()}}</BLOCKQUOTE>
+<BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName%_ExtraStuff()}}</BLOCKQUOTE>
 
    <P>Same as the <A HREF="#xmpl_defaults">default example</A>, except the underscore-first-character indicates that this is not the customizer's entire function name, rather its <I>postfix</I>.</P>
 
@@ -190,7 +190,7 @@ package  com.github.aliteralmind.codelet;
 
 <BLOCKQUOTE>{@code getSourceCode_ExampleClassName(CodeletInstance taglet, CodeletType needed_defaultAlterType, boolean do_displayLineNums, String annotation)}</BLOCKQUOTE>
 
-   <P>which, since there is no fully-qualified class specified after the colon, must be in one of the <A HREF="#specifications">default class-locations</A>.</P>
+   <P>which, since there is no fully-qualified class specified after the {@linkplain CodeletInstance#CUSTOMIZER_PREFIX_CHAR percent sign}, must be in one of the <A HREF="#specifications">default class-locations</A>.</P>
 
    <P>Parameter formatting is specified by
    <BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature}.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature#newFromStringAndDefaults(Class, Object, String, Class[], Appendable) newFromStringAndDefaults}</CODE></P>

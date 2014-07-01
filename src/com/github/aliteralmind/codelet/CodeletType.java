@@ -31,9 +31,9 @@ public enum CodeletType  {
 
       <H3>{@code {@.codelet}}: Format</H3>
 
-      <P><CODE>{&#64;.codelet <I>fully.qualified.ClassName</I>[:<A HREF="CustomizerUtil.html#overview">lineProcessorFunction</A>()]}</CODE></P>
+      <P><CODE>{&#64;.codelet <I>fully.qualified.ClassName</I>[:<A HREF="CustomizationInstructions.html#overview">lineProcessorFunction</A>()]}</CODE></P>
 
-      <P>The customizer portion is optional, but when provided, must be preceded by a {@linkplain CodeletInstance#CUSTOMIZER_PREFIX_CHAR colon}.</P>
+      <P>The customizer portion is optional, but when provided, must be preceded by a {@linkplain CodeletInstance#CUSTOMIZER_PREFIX_CHAR percent sign} ({@code '%'}).</P>
 
       <P><B>Examples:</B></P>
 
@@ -68,7 +68,7 @@ public enum CodeletType  {
 
       <H3>{@code {@.codelet.out}}: Format</H3>
 
-      <P><CODE>{&#64;.codelet.out <I>fully.qualified.ClassName</I>[(&quot;Command line params&quot;, false, -1)][:<A HREF="CustomizerUtil.html#overview">lineProcessorFunction</A>()]}</CODE></P>
+      <P><CODE>{&#64;.codelet.out <I>fully.qualified.ClassName</I>[(&quot;Command line params&quot;, false, -1)][:<A HREF="CustomizationInstructions.html#overview">lineProcessorFunction</A>()]}</CODE></P>
 
       <P><UL>
          <LI>The command-line parameters are optional. When not provided, an empty string array is passed to the example-code's <A HREF="http://docs.oracle.com/javase/tutorial/getStarted/application/index.html#MAIN">{@code main} function</A>. When provided, it must be formatted as specified by
@@ -115,8 +115,8 @@ public enum CodeletType  {
 
       <P>A customizer in a {@code {@.codelet.and.out}} taglet is only applied to the source code. To also customize the output, use</P>
 
-   <P style="font-size: 125%;"><B><CODE>{&#64;.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo:customizerForSourceCode()}
-   <BR>{&#64;.codelet.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:customizerForOutput()}</CODE></B></P>
+   <P style="font-size: 125%;"><B><CODE>{&#64;.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo%customizerForSourceCode()}
+   <BR>{&#64;.codelet.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%customizerForOutput()}</CODE></B></P>
 
       @see  #SOURCE_CODE
       @see  #isSourceAndOut()
@@ -137,9 +137,13 @@ public enum CodeletType  {
 
       <H3>{@code {@.file.textlet}}: Format</H3>
 
-      <P><CODE>{&#64;.file.textlet <I>path\to\file.txt</I>[:<A HREF="CustomizerUtil.html#overview">lineProcessorFunction</A>()]}</CODE></P>
+      <P><CODE>{&#64;.file.textlet <I>path\to\file.txt</I>[:<A HREF="CustomizationInstructions.html#overview">lineProcessorFunction</A>()]}</CODE></P>
 
-      <P>Replaced with all lines in a plain-text file, such as for displaying an example code's input. The path may be absolute, relative to where the Java Virtual Machine is invoked, or, if a file-name only, in the {@code doc-files} directory off of the containing classes source file-directory (or is a file in the same directory in which the JVM was invoked).</P>
+      <P>Replaced with all lines in a plain-text file, such as for displaying an example code's input. The path may be<UL>
+         <LI><A HREF="http://docs.oracle.com/javase/tutorial/essential/io/path.html#relative">absolute</A>,</LI>
+         <LI>relative to the directory in which {@code javadoc.exe} was invoked, or,</LI>
+         <LI>relative to the directory of the taglet's {@linkplain CodeletInstance#getEnclosingFile() enclosing file}.</LI>
+      </UL>This list also represents the order in which the search occurs.</P>
 
       <P>The customizer portion is optional.</P>
 

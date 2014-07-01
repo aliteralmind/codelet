@@ -18,7 +18,7 @@ package  com.github.aliteralmind.codelet.examples;
 
    <H3><U>Taglets:</U></H3>
 
-   <P style="font-size: 125%;"><B>{@code {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemoWithSnippetEndMarker:lineRangeWithReplace(1, true, "(Adder adder)", "$1", "FIRST", 1, true, "; +//End snippet$", ";", "FIRST", "^      ")}}</B></P>
+   <P style="font-size: 125%;"><B>{@code {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemoWithSnippetEndMarker%lineRangeWithReplace(1, true, "(Adder adder)", "$1", "FIRST", 1, true, "; +//End snippet$", ";", "FIRST", "^      ")}}</B></P>
 
    <H3><U>Replaced with:</U></H3>
 
@@ -26,7 +26,7 @@ package  com.github.aliteralmind.codelet.examples;
 
    <HR/>
 
-{@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemoWithSnippetEndMarker:lineRangeWithReplace(1, true, "(Adder adder)", "$1", "FIRST", 1, true, "; +//End snippet$", ";", "FIRST", "^      ")}
+{@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemoWithSnippetEndMarker%lineRangeWithReplace(1, true, "(Adder adder)", "$1", "FIRST", 1, true, "; +//End snippet$", ";", "FIRST", "^      ")}
 
    <HR/>
 

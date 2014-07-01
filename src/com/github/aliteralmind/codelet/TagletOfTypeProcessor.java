@@ -413,7 +413,7 @@ public class TagletOfTypeProcessor<T extends CodeletTemplateBase>  {
     **/
    public String getStringSignature()  {
       String sig = getCustomizerPortion();
-      String xmplFqName = TagletTextUtil.getExampleClassFQName(getInstance());
+//		String xmplFqName = TagletTextUtil.getExampleClassFQName(getInstance());
 
       boolean doDebug = isDebugOn(getInstance(),
          "zzTagletOfTypeProcessor.getCustomizerSigFromString");
@@ -439,7 +439,11 @@ public class TagletOfTypeProcessor<T extends CodeletTemplateBase>  {
          return  strSig;
       }
 
-      String strSig = getSig2PrnsApnddForNameOrPostfix(TagletTextUtil.getExampleSimpleClassName(getInstance()) + "_", sig,  doDebug);
+      String fileOrClsSimpleName = ((getInstance().getType().isFileText())
+         ?  TagletTextUtil.getFileNameWithExtension(getInstance())
+         :  TagletTextUtil.getExampleSimpleClassName(getInstance()));
+
+      String strSig = getSig2PrnsApnddForNameOrPostfix(fileOrClsSimpleName + "_", sig,  doDebug);
 
       if(doDebug)  {
          debugln("   Customizer string-sig: " + strSig);

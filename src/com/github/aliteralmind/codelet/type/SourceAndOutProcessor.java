@@ -42,19 +42,6 @@ public class SourceAndOutProcessor extends TagletOfTypeProcessor<SourceAndOutTem
    public SourceAndOutProcessor(CodeletInstance instance) throws ClassNotFoundException, NoSuchMethodException, NoSuchFileException, AccessDeniedException  {
       super(CodeletType.SOURCE_AND_OUT, instance);
 
-/*
-      if(getCustomizerPortion() != null)  {
-         throw  new CodeletFormatException(instance, "{@" + CodeletType.SOURCE_AND_OUT.getName() + "} taglets do not accept customizers: " + getCustomizerPortion());
-      }
-
-      //Source code
-         Iterator<String> srcLineItr = PlainTextFileUtil.getLineIterator(TagletTextUtil.getJavaSourceFilePath(instance), "TagletTextUtil.getJavaSourceFilePath(instance)");
-
-         CustomizationInstructions<SourceAndOutTemplate> instructions = new CustomizationInstructions<SourceAndOutTemplate>(instance, CodeletType.SOURCE_CODE);
-         instructions = newInstructionsForDefaults(instructions);
-         String sourceCustomized = instructions.getCustomizedBody(instance, srcLineItr);
- */
-
       Iterator<String> srcLineItr = getSourceCodeLineIterator(instance);
       CustomizationInstructions<SourceAndOutTemplate> instructions =
          getCustomizationInstructions(CodeletType.SOURCE_CODE);

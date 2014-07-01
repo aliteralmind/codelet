@@ -92,19 +92,11 @@ public class TagletTextUtil  {
    /**
       <P>The full path to the plain-text file.</P>
 
-      @return  <CODE>{@link com.github.aliteralmind.codelet.CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getExampleSourceBaseDir() getExampleSourceBaseDir}() + {@link #getRelativeFilePath(CodeletInstance) getRelativeFilePath}(instance)</CODE>
+      @return  <CODE>{@link #getExampleClassOrFilePortionFromTagletText(CodeletInstance instance) getExampleClassOrFilePortionFromTagletText}(instance)</CODE>
       @see  #getFileNameWithExtension(CodeletInstance)
       @see  #getFileNameWithoutExtension(CodeletInstance)
     **/
    public static final String getFilePath(CodeletInstance instance)  {
-      return  getExampleSourceBaseDir() + getRelativeFilePath(instance);
-   }
-   /**
-      <P>The relative path to the plain-text file, as it exists in the {@linkplain CodeletBaseConfig#getExampleSourceBaseDir() source-code base directory}.</P>
-
-      @see  #getFilePath(CodeletInstance)
-    **/
-   public static final String getRelativeFilePath(CodeletInstance instance)  {
       return  getExampleClassOrFilePortionFromTagletText(instance);
    }
    /**

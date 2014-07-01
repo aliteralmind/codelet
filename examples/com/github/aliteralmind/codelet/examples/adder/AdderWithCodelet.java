@@ -2,7 +2,7 @@ package  com.github.aliteralmind.codelet.examples.adder;
 /**
    <P>Adds zero or more integers.</P>
 
-{@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo:lineRange(1, false, "Adder adder", 2, false, "println(adder.getSum())", "^      ")}
+{@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%lineRange(1, false, "Adder adder", 2, false, "println(adder.getSum())", "^      ")}
  **/
 public class AdderWithCodelet  {
    private final int sum;
