@@ -53,7 +53,7 @@ This first example demonstrates a codelet with no customizer, displaying all lin
 
 **The taglet:**
 
-    {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo}
+   `{@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo}`
 
 **Output (between the horizontal rules):**
 
@@ -107,7 +107,7 @@ This displays the above example class, but eliminates its package-declaration li
 
 **The taglet:**
 
-    {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%eliminateCommentBlocksAndPackageDecl()}
+   `{@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%eliminateCommentBlocksAndPackageDecl()}`
 
 **Output (between the horizontal rules):**
 
@@ -167,7 +167,7 @@ An alternative to a fully-working example is to display only a portion of the ex
 
 **The taglet:**
 
-    {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%lineRange(1, false, "Adder adder", 2, false, "println(adder.getSum())", "^ &nbsp; &nbsp; &nbsp;")}
+   `{@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%lineRange(1, false, "Adder adder", 2, false, "println(adder.getSum())", "^ &nbsp; &nbsp; &nbsp;")}`
 
 **Output (between the horizontal rules):**
 
