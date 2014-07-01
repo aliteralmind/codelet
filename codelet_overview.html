@@ -34,9 +34,9 @@
    <P><OL>
       <LI><B><A HREF="#install">Installation</A> instructions</B></LI>
       <LI><B>Examples:</B><OL>
+         <LI><A HREF="#xmpl_nocust">No customizer</A>: A codelet with no customizations. This is also the full source code of the example class used in all below examples.</LI>
          <LI>A first example: &quot;<A HREF="#xmpl_hello">Hello Codelet!</A>&quot;</LI>
          <LI><A HREF="#xmpl_snippet">Code snippet</A></LI>
-         <LI><A HREF="#xmpl_nocust">No customizer</A>: Intended as a contrast to the other examples</LI>
          <LI><A HREF="#xmpl_links">Custom customizer</A>: Making function/constructor/class/field names into clickable JavaDoc links</LI>
       </OL></LI>
       <LI>Customizer function: The <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#overview">function itself</A>, <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#xmpl_defaults">calling it from a taglet</A>, and the object it returns: A {@link com.github.aliteralmind.codelet.CustomizationInstructions} object (<A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#3_parts_filter">line filter</A>, <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#3_parts_alterer">alterer</A>, <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#3_parts_template">template</A>)</LI>
@@ -57,21 +57,39 @@
       <LI>Major to-dos: Test and confirm template overrides auto-gaps. Figure out how to implement syntax highlighting with the <A HREF="http://alexgorbatchev.com/SyntaxHighlighter">SyntaxHighlighter</A> JavaScript library.</LI>
    </OL></P>
 
+<A NAME="xmpl_nocust"></A>
+
+   <H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; <!--Delete from README.md-->
+Codelet: Example: <U>No customizer</U></H2>
+
+   <P>This first example demonstrates a codelet with <I>no customizer</I>, displaying all lines, without change, followed by its output.</P>
+
+   <P><I>(This is the example class used throughout this documentation.)</I></P>
+
+   <P><B><U>The taglet:</U></B></P>
+
+   <P style="font-size: 125%;"><B><CODE>{&#64;.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo}</CODE></B></P>
+
+   <P><B>Output (between the horizontal rules):</B></P>
+
+<HR/>
+{@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo}
+<HR/>
 
 <A NAME="xmpl_hello"></A>
 <!--
    The following (README.md) section is transformed from HTML to markdown by
       codeletbuildonly.CreateReadmeMdFromJDOverviewSummary...START
 
-   Lines to delete are marked with <!--Delete from README.md-->
+   Lines to delete are marked with < !--Delete from README.md-- >
  -->
 
 <!-- README.md...start -->
 
    <H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; <!--Delete from README.md-->
-Codelet: Example: <U>Hello Codelet!</U> A basic use</H2>
+Codelet: Example: <U>Hello Codelet!</U>: A basic use</H2>
 
-   <P>This basic use displays an example classes source code, followed by its output.</P>
+   <P>This displays the <A HREF="#xmpl_nocust">above example class</A>, but eliminates its package-declaration line and all multi-line comment blocks.</P>
 
    <P><B><U>The taglet:</U></B></P>
 
@@ -87,9 +105,9 @@ Codelet: Example: <U>Hello Codelet!</U> A basic use</H2>
 
    <P>The <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#overview">customizer</A> portion, which follows the {@linkplain com.github.aliteralmind.codelet.CodeletInstance#CUSTOMIZER_PREFIX_CHAR percent sign} ({@code '%'})</P>
 
-<PRE>     {@link com.github.aliteralmind.codelet.BasicCustomizers#eliminateCommentBlocksAndPackageDecl(CodeletInstance, CodeletType) eliminateCommentBlocksAndPackageDecl}()</PRE>
+<PRE>     eliminateCommentBlocksAndPackageDecl()</PRE>
 
-   <P>eliminates all multi-line comments, including the license block and all JavaDoc blocks, and the package declaration line.</P>
+   <P>{@linkplain com.github.aliteralmind.codelet.BasicCustomizers#eliminateCommentBlocksAndPackageDecl(CodeletInstance, CodeletType) eliminates} all multi-line comments, including the license block and all JavaDoc blocks, and the package declaration line.</P>
 
    <P>(This uses the {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#DEFAULT_AND_OUT_TMPL_PATH default template}, which can be edited directly. A different template can be assigned to <!-- GENERIC PARAMETERS FAIL IN @link --><A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#template(T)">a single taglet</A> by creating a <A HREF="#xmpl_links">custom customizer</A>. The {@linkplain com.github.aliteralmind.codelet.TemplateOverrides template overrides} configuration file allows a different template to assigned to all taglets in a single file or entire package.)</P>
 
@@ -112,8 +130,6 @@ Codelet: Example: <U>Hello Codelet!</U> A basic use</H2>
 <PRE>     {&#64;.file.textlet C:\java_code\my_library\examples\com\github\aliteralmind\codelet\examples\adder\AdderDemo.java%eliminateCommentBlocksAndPackageDecl()}
      {&#64;.codelet.out com.github.aliteralmind.codelet.examples.adder.AdderDemo}</PRE>
 
-   <P>Take a look at the <A HREF="#xmpl_nocust">same example with no customizer</A>.</P><!--Delete from README.md-->
-
 <A NAME="xmpl_snippet"></A><!--Delete from README.md-->
 
    <H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; <!--Delete from README.md-->
@@ -134,23 +150,6 @@ Codelet: Example: <U>Displaying a &quot;code snippet&quot;</U></H2>
    <P>It starts with (the line containing) {@code "Adder adder"}, and ends with the <I>second</I> {@code "println(adder.getSum())"}. This also eliminates the extra indentation, which in this case is six spaces.</P>
 
    <P>The {@code false} parameters indicate the strings are literal. {@code true} treats them as <A HREF="http://stackoverflow.com/questions/22937618/reference-what-does-this-regex-mean/22944075#22944075">regular expressions</A>.</P>
-
-<A NAME="xmpl_nocust"></A>
-
-   <H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; <!--Delete from README.md-->
-Codelet: Example: <U>No customizer</U></H2>
-
-   <P>Here is the same taglet as in the <A HREF="#xmpl_hello">first example</A>, but with no customizer. All lines in the source code are displayed, and without change.</P>
-
-   <P><B><U>The taglet:</U></B></P>
-
-   <P style="font-size: 125%;"><B><CODE>{&#64;.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo}</CODE></B></P>
-
-   <P><B>Output (between the horizontal rules):</B></P>
-
-<HR/>
-{@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo}
-<HR/>
 
 <!-- README.md...end -->
 <!--
