@@ -15,14 +15,14 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.simplesig;
-   import  com.github.xbn.array.NullContainer;
-   import  com.github.xbn.lang.reflect.InvokeMethodWithRtx;
-   import  com.github.xbn.lang.reflect.ReflectRtxUtil;
    import  com.github.xbn.array.ArrayUtil;
+   import  com.github.xbn.array.NullContainer;
    import  com.github.xbn.io.NewTextAppenterFor;
    import  com.github.xbn.io.TextAppenter;
    import  com.github.xbn.lang.CrashIfObject;
    import  com.github.xbn.lang.IllegalArgumentStateException;
+   import  com.github.xbn.lang.reflect.InvokeMethodWithRtx;
+   import  com.github.xbn.lang.reflect.ReflectRtxUtil;
    import  com.github.xbn.regexutil.RegexUtil;
    import  com.github.xbn.util.JavaRegexes;
    import  java.lang.reflect.Method;
@@ -47,6 +47,18 @@ package  com.github.aliteralmind.codelet.simplesig;
    <P><CODE>&quot;functionName(\&quot;all\&quot;, true, \&quot;parameters\&quot;, (byte)-112)&quot;</CODE></P>
 
    <P>In the two alternative signatures, default package or class values must be specified. If there are no parameters following the function name, it defaults to {@code "()"}.</P>
+
+   <H3>Example: No defaults</H3>
+
+   <P>A string signature where everything (the package, class, and function name) is provided.</P>
+
+{@.codelet.and.out com.github.aliteralmind.codelet.examples.simplesig.SimpleMethodSigNoDefaults%eliminateCommentBlocksAndPackageDecl()}
+
+   <H3>Example: Default classes</H3>
+
+   <P>This demonstrates a string signature in which the (package and) class name is not specified. The <I>potential</I> classes, one in which the function <I>must</I> exist, are provided directly.</P>
+
+{@.codelet.and.out com.github.aliteralmind.codelet.examples.simplesig.SimpleMethodSigWithClassDefaults%eliminateCommentBlocksAndPackageDecl()}
 
    @since  0.1.0
    @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
@@ -317,7 +329,7 @@ public class SimpleMethodSignature  {
       <P>A function that exists in a specific class, with a particular set of {@linkplain #getParamValueObjectList() parameters}.</P>
 
       @param  class_funcParamStringSignature  The string-signature. May not be null or empty, and must be formatted as specified above. Specifically, it must be matched by {@link #STRING_SIGNATURE_REGEX}.
-      @param  default_package  The default package to use when the string-signature specifies a class-name but no package. When the string-signature does not contain a package, and no default class is specified, this must be non-{@code null} and non-empty, must end with a dot ({@code '.'}), and must be the package in which the specified class <I>as specified in the string-signature</I> exists ({@code default_classesInOrder} must be {@code null}). <I>The class must exist in a package</I>.
+      @param  default_package  The default package to use when the string-signature <I>specifies a class-name but does not specify a package</I>. When the string-signature does not contain a package, and no default class is specified, this must be non-{@code null} and non-empty, must end with a dot ({@code '.'}), and must be the package in which the specified class <I>as specified in the string-signature</I> exists ({@code default_classesInOrder} must be {@code null}). <I>The class must exist in a package</I>.
       @param  default_classesInOrder  The ordered set of classes to use when no class is specified in the string-signature. The function must exist in one of these classes. The search order is left-to-right (starting with element zero). When the class is specified in the string-signature, {@code default_classesInOrder} must be {@code null}. Otherwise, must be non-{@code null}, non-empty, and elements may not be {@code null}, and <I>should</I>  be unique. When non-{@code null}, {@code default_package} must be {@code null}.
       @return  A non-{@code null} {@code SimpleMethodSigFormatException}.
       @exception  ClassNotFoundException  If the class name, but not its package, is in the string-signature, and the class does not exist in the default package.
@@ -373,6 +385,10 @@ public class SimpleMethodSignature  {
          }
 
          defaultClasses = default_classesInOrder;
+
+         if(default_package != null)  {
+            throw  new IllegalArgumentStateException("Both default_package and default_classesInOrder are non-null. " + getParamDbg(class_funcParamStringSignature, default_package, default_classesInOrder));
+         }
 
       }  else if(default_classesInOrder != null)  {
          throw  new IllegalArgumentStateException("The function's containing class provided in both string-signature and default_classesInOrder. " + getParamDbg(class_funcParamStringSignature, default_package, default_classesInOrder));

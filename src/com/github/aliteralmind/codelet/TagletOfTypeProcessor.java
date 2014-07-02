@@ -383,10 +383,10 @@ public class TagletOfTypeProcessor<T extends CodeletTemplateBase>  {
          }
       }
 
-      String pkg = getInstance().getEnclosingPackage();
-      pkg = ((pkg == "") ? null : pkg);
+//		String pkg = getInstance().getEnclosingPackage();
+//		pkg = ((pkg == "") ? null : pkg);
       SimpleMethodSignature sig = SimpleMethodSignature.newFromStringAndDefaults(
-         CustomizationInstructions.class, customizer_strSig, pkg, allPossibleClasses,
+         CustomizationInstructions.class, customizer_strSig, null, allPossibleClasses,
          getDebugApblIfOn(getInstance(),
          "zzTagletOfTypeProcessor.getCustomizerSigFromString"));
 

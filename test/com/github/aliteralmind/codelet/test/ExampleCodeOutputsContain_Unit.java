@@ -9,6 +9,8 @@ public class ExampleCodeOutputsContain_Unit  {
       ExampleCodeOutputsContain_Unit unit = new ExampleCodeOutputsContain_Unit();
    	test.simplesig_ConstructorParamSearchTermXmpl();
    	test.simplesig_MethodSigSearchTermXmpl();
+   	test.simplesig_SimpleMethodSigNoDefaults();
+   	test.simplesig_SimpleMethodSigWithClassDefaults();
    	test.linefilter_ExpirableAlterListXmpl();
    	test.linefilter_StringReplacerXmpl();
    	test.linefilter_StringValidatorReplacerXmpl();
@@ -33,6 +35,20 @@ public class ExampleCodeOutputsContain_Unit  {
          "for: \"()\"", "Not found",
          "for: \"(*)\"", "First match: (boolean)", "All", "(boolean)", "(int)",
          "for: \"(boolean)\"", "First match: (boolean)", "All", "(boolean)");
+   }
+   @Test
+   public void simplesig_SimpleMethodSigNoDefaults()  {
+      VerifyApplicationOutput.assertWithNoParameters(DisplayOutputToConsole.NO,
+         new String[]{" - "},
+         com.github.aliteralmind.codelet.examples.simplesig.SimpleMethodSigNoDefaults.class,
+         "b=false, i=3");
+   }
+   @Test
+   public void simplesig_SimpleMethodSigWithClassDefaults()  {
+      VerifyApplicationOutput.assertWithNoParameters(DisplayOutputToConsole.NO,
+         new String[]{" - "},
+         com.github.aliteralmind.codelet.examples.simplesig.SimpleMethodSigWithClassDefaults.class,
+         "b=false, i=3");
    }
    @Test
    public void simplesig_MethodSigSearchTermXmpl()  {

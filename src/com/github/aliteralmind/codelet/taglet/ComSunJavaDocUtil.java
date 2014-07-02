@@ -30,28 +30,26 @@ package  com.github.aliteralmind.codelet.taglet;
    @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 public class ComSunJavaDocUtil  {
-//Propietary:
    /**
-      <P>Get the relative url whose value is equivalent to {@code {@docRoot}}</P>
+      <P>Get the relative url whose value is equivalent to {@code {@docRoot}}.</P>
 
       @return  <CODE>{@link com.github.aliteralmind.codelet.util.JavaDocUtil JavaDocUtil}.{@link com.github.aliteralmind.codelet.util.JavaDocUtil#getRelativeUrlToDocRoot(String) getRelativeUrlToDocRoot}({@link #getEnclosingPackageName(Tag) getEnclosingPackageName}(tag))</CODE>
+    **/
    public static final String getRelativeUrlToDocRoot(Tag tag)  {
       return  JavaDocUtil.getRelativeUrlToDocRoot(getEnclosingPackageName(tag));
    }
-    **/
-//Generic:
+   /*
    private static final Matcher packageElementMtchr = Pattern.compile("[\\p{L}_\\p{Sc}][\\p{L}\\p{N}_\\p{Sc}]*\\.?").matcher("");
-   /**
-      <P>Get the relative url whose value is equivalent to {@code {@docRoot}}</P>
+      <P>Get the relative url whose value is equivalent to {@code {@docRoot}}. This is a generic (self-contained) version of {@link #getRelativeUrlToDocRoot(Tag) getRelativeUrlToDocRoot}--they both do the same thing.</P>
 
       @return  <CODE>packageElementMtchr.reset({@link #getEnclosingPackageName(Tag) getEnclosingPackageName}(tag)).{@link java.util.regex.Matcher#replaceAll(String) replaceAll}(&quot;../&quot;)</CODE>
       <BR>Where {@code packageElementMtchr} is initialized to
       <BR> &nbsp; &nbsp; <CODE>Pattern.{@link java.util.regex.Pattern#compile(String) compile}(&quot;[\\p{L}_\\p{Sc}][\\p{L}\\p{N}_\\p{Sc}]*\\.?&quot;).{@link java.util.regex.Pattern#matcher(CharSequence) matcher}(&quot;&quot;)</CODE>
       @see  <CODE><A HREF="http://stackoverflow.com/questions/4079268/custom-taglet-with-reference-to-docroot">http://stackoverflow.com/questions/4079268/custom-taglet-with-reference-to-docroot</A></CODE>
-    **/
-   public static final String getRelativeUrlToDocRoot(Tag tag)  {
+   public static final String getRelativeUrlToDocRootGeneric(Tag tag)  {
       return  packageElementMtchr.reset(getEnclosingPackageName(tag)).replaceAll("../");
    }
+    */
    /**
       <P>Get the package of the tag-containing JavaDoc page.</P>
 

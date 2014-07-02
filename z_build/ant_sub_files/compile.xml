@@ -89,7 +89,13 @@
       <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="simplesig/ConstructorParamSearchTermXmpl.java"/>
       <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
+         includes="simplesig/SimpleMethodSigExample.java"/>
+      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
+         includes="simplesig/SimpleMethodSigNoDefaults.java"/>
+      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="simplesig/MethodSigSearchTermXmpl.java"/>
+      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
+         includes="simplesig/SimpleMethodSigWithClassDefaults.java"/>
       <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="util/BlackWhiteListForJavaClasses.java"/>
       <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
