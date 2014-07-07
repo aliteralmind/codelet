@@ -239,7 +239,6 @@ To do a full build of Codelet:  ant publish</echo>
 <target name="zip2" description="For starting execution somewhere in the middle of the 'zip' task.">
    </target>
 
-
    <!-- See http://ant.apache.org/faq.html#propertyvalue-as-name-for-property -->
    <macrodef name="propertywithdynamicallynamedvalue">
       <attribute name="propname"/>

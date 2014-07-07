@@ -13,6 +13,8 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.taglet;
+   import  com.sun.tools.doclets.Taglet;
+   import  java.util.Map;
    import  com.github.xbn.lang.CrashIfObject;
    import  com.github.aliteralmind.codelet.util.JavaDocUtil;
    import  com.github.xbn.util.JavaRegexes;
@@ -30,6 +32,38 @@ package  com.github.aliteralmind.codelet.taglet;
    @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 public class ComSunJavaDocUtil  {
+   /**
+      <P>Register a Taglet as required by JavaDoc.</P>
+
+      <H3><I>Why is the map parameter type-erased? What generics does it need?</I></H3>
+
+      @param  taglet  The taglet to register. May not be {@code null}.
+      @param taglet_map  The map to register this tag to. May not be {@code null}.
+      @since 0.1.1
+    */
+   @SuppressWarnings({"unchecked", "rawtypes"})
+   public static void registerNewTagletInstance(Taglet taglet, Map map)  {
+      try  {
+         final String name = taglet.getName();
+         final Taglet alreadyRegisteredTaglet = (Taglet)map.get(name);
+         if (alreadyRegisteredTaglet != null) {
+            map.remove(name);
+         }
+         map.put(name, taglet);
+      }  catch(RuntimeException rx)  {
+         CrashIfObject.nnull(taglet, "taglet", null);
+         throw  CrashIfObject.nullOrReturnCause(map, "map", null, rx);
+      }
+/*
+      FileTextletTaglet tag = new FileTextletTaglet();
+      Taglet t = (Taglet) map.get(tag.getName());
+      if (t != null) {
+         map.remove(tag.getName());
+      }
+      map.put(tag.getName(), tag);
+ */
+   }
+
    /**
       <P>Get the relative url whose value is equivalent to {@code {@docRoot}}.</P>
 

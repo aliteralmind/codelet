@@ -13,6 +13,7 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.taglet;
+   import  com.github.aliteralmind.codelet.CodeletBootstrap;
    import  com.github.aliteralmind.codelet.CodeletType;
    import  com.sun.javadoc.Tag;
    import  com.sun.tools.doclets.Taglet;
@@ -32,7 +33,7 @@ public class CodeletAndOutTaglet implements Taglet {
    /*
       To avoid configuration from being loaded repeatedly.
     */
-   private static final CodletComSunJavadocTagProcessor PROC = CodletComSunJavadocTagProcessor.INSTANCE;
+   private static final CodeletBootstrap BOOTSTRAP = CodeletBootstrap.INSTANCE;
    /**
       <P>The name of this taglet, which appears immediately after the <CODE>&#123;&#64;</CODE>--Equal to
       <BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.CodeletType CodeletType}.{@link com.github.aliteralmind.codelet.CodeletType#SOURCE_AND_OUT SOURCE_AND_OUT}.{@link com.github.aliteralmind.codelet.CodeletType#getName() getName}()</CODE></P>
@@ -103,23 +104,16 @@ public class CodeletAndOutTaglet implements Taglet {
     public boolean isInlineTag() {
         return true;
     }
+   /**
+      <P>Register this Taglet.</P>
 
-    /**
-     * Register this Taglet.
-
-     	<H3><I>Why is the map parameter type-erased? What generics does it need?</I></H3>
-
-     * @param tagletMap  the map to register this tag to.
-     */
-    public static void register(Map tagletMap) {
-       CodeletAndOutTaglet tag = new CodeletAndOutTaglet();
-       Taglet t = (Taglet) tagletMap.get(tag.getName());
-       if (t != null) {
-           tagletMap.remove(tag.getName());
-       }
-       tagletMap.put(tag.getName(), tag);
-    }
-
+      <P>Equal to
+      <BR> &nbsp; &nbsp; <CODE>{@link ComSunJavaDocUtil}.{@link ComSunJavaDocUtil#registerNewTagletInstance(Taglet, Map) registerNewTagletInstance}(new {@link #CodeletAndOutTaglet() CodeletAndOutTaglet}(), taglet_map)</CODE></P>
+    */
+   @SuppressWarnings({"unchecked", "rawtypes"})
+   public static void register(Map taglet_map) {
+      ComSunJavaDocUtil.registerNewTagletInstance(new CodeletAndOutTaglet(), taglet_map);
+   }
     /**
      * Given the <code>Tag</code> representation of this custom
      * tag, return its string representation.

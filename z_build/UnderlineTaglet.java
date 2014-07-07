@@ -82,6 +82,7 @@ public class UnderlineTaglet implements Taglet {
      * Register this Taglet.
      * @param tagletMap  the map to register this tag to.
      */
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public static void register(Map tagletMap) {
        UnderlineTaglet tag = new UnderlineTaglet();
        Taglet t = (Taglet) tagletMap.get(tag.getName());

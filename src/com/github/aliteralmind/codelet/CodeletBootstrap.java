@@ -13,6 +13,7 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet;
+   import  com.github.xbn.lang.ExceptionUtil;
    import  com.github.xbn.io.PlainTextFileUtil;
    import  com.github.xbn.util.PropertiesUtil;
    import  java.io.IOException;
@@ -58,9 +59,17 @@ zzconfiguration.templateoverrides.eachentryasloaded</PRE></BLOCKQUOTE>
  **/
 public enum CodeletBootstrap  {
    INSTANCE;
-   private static String                configDir;
-   private static CodeletBaseConfig     baseConfig;
-   private static CodeletTemplateConfig tmplConfig;
+   static  {
+      try  {
+         CodeletBootstrap.loadConfiguration();
+      }  catch(Exception x)  {
+         throw  new ExceptionInInitializerError(
+            new IllegalStateException("Attempting to load Codelet configuration.", x));
+      }
+   }
+   private static String                configDir    ;
+   private static CodeletBaseConfig     baseConfig   ;
+   private static CodeletTemplateConfig tmplConfig   ;
    private static TemplateOverrides     tmplOverrides;
    private static final String NAMED_DBG_LVL_PREFIX = "named_debuggers_config";
    /**
@@ -205,7 +214,12 @@ junit               http://junit.sourceforge.net/javadoc/</PRE></BLOCKQUOTE>
       @see  com.github.aliteralmind.codelet.TemplateOverrides
     **/
    public static final String TMPL_OVERRIDES_CONFIG_FILE_NAME = "template_overrides_config.txt";
-   static final CodeletBootstrap loadConfigGetInstance() throws ClassNotFoundException, NoSuchFileException, AccessDeniedException, MalformedURLException, IOException, InterruptedException  {
+//	static final CodeletBootstrap loadConfigGetInstance() throws ClassNotFoundException, NoSuchFileException, AccessDeniedException, MalformedURLException, IOException, InterruptedException  {
+   private static final void loadConfiguration() throws ClassNotFoundException, NoSuchFileException, AccessDeniedException, MalformedURLException, IOException, InterruptedException  {
+      if(wasLoaded())  {
+         throw  new IllegalStateException("Configuration already loaded. wasLoaded()=true");
+      }
+
       configDir = System.getProperty(CODELET_CONFIG_DIR_SYS_PROP_NAME, null);
 
       String configDirEquals = CODELET_CONFIG_DIR_SYS_PROP_NAME + "=" + configDir;
@@ -232,16 +246,14 @@ junit               http://junit.sourceforge.net/javadoc/</PRE></BLOCKQUOTE>
       Iterator<String> overridesItr = PlainTextFileUtil.
          getLineIterator(configDir + TMPL_OVERRIDES_CONFIG_FILE_NAME, configDirEquals);
       tmplOverrides = TemplateOverrides.loadConfigGetInstance(overridesItr);
-
-      return  INSTANCE;
    }
    /**
       <P>Was all Codelet configuration properly loaded?.</P>
 
-      @return  {@code true}  All configuration was succesful. Codelet is ready for use.
+      @return  <CODE>{@link TemplateOverrides}.{@link TemplateOverrides#wasLoaded() wasLoaded}()</CODE>
     **/
    public static final boolean wasLoaded()  {
-      return  tmplOverrides.wasLoaded();
+      return  TemplateOverrides.wasLoaded();
    }
    /**
       <P>The directory in which all Codelet configuration files exist, as passed in via the {@code javadoc.exe} system property named {@code "codelet_config_dir"}.</P>

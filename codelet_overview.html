@@ -54,8 +54,14 @@
       <LI>Other downloads: <A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_documentation.zip">JavaDoc</A>, <A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_source_code.zip">source code</A> (including build-files)</LI>
       <LI>I use <CODE>com.github.xbn.testdev.{@link com.github.xbn.testdev.VerifyApplicationOutput}</CODE> to unit test applications.</LI>
       <LI><B>Thanks</B> go to <A HREF="http://stackoverflow.com/users/1093528/fge">fge</A> and <A HREF="http://stackoverflow.com/users/13379/michael">Michael</A> for the technical comments and suggestions (fge came with <I>lowercase</I> &quot;codelet&quot;), to Gregg Stebben for the support, and especially to Sherrie.</LI>
-      <LI>Major to-dos: Test and confirm template overrides auto-gaps. Figure out how to implement syntax highlighting with the <A HREF="http://alexgorbatchev.com/SyntaxHighlighter">SyntaxHighlighter</A> JavaScript library.</LI>
    </OL></P>
+
+   <H3>Known issues, and major to-dos<OL>
+      <LI>Test and confirm {@linkplain com.github.aliteralmind.codelet.TemplateOverrides template overrides}</LI>
+      <LI>Test and confirm auto-gaps (such as <A HREF="{@docRoot}/com.github.aliteralmind.codelet.type.SourceCodeTemplate"><CODE>SourceCodeTemplate</CODE></A>). </LI>
+      <LI>Figure out how to implement syntax highlighting with the <A HREF="http://alexgorbatchev.com/SyntaxHighlighter">SyntaxHighlighter</A> JavaScript library.</LI>
+      <LI><A HREF="http://stackoverflow.com/questions/23914909/how-to-prevent-configuration-file-from-repeatedly-reloading-holding-it-statical">Configuration is loaded repeatedly</A> in each run of {@code javadoc.exe}, although this does not affect reliability. It is likely an issue that won't go away.</LI>
+   </OL></H3>
 
 <A NAME="xmpl_nocust"></A>
 
@@ -284,19 +290,26 @@ LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.template=-1</PRE
 
    <H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: <U>Installation</U></H2>
 
-   <P>Pre-requisites</P>
-
-   <P><I>Using</I> Codelet requires the <A HREF="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">1.7</A> version of the <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html">{@code javadoc.exe}</A> tool. The code whose JavaDoc has codelet-taglets <I>in it</I> has no version restrictions.</P>
-
-   <P>The Codelet library itself requires <A HREF="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">Java 1.7</A>.</P>
+   <P>Codelet requires the <A HREF="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">1.7</A> version of the <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html">{@code javadoc.exe}</A> tool. The code whose JavaDoc has codelet-taglets <I>in it</I> has no version restrictions.</P>
 
    <P>(For <B>building</B>, see XBN-Java's <A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/overview-summary.html#install">installation instructions</A>. The Codelet build process is derived from XBN-Java's.)</P>
+
+   <H3>Downloads</H3>
+
+   <P><OL>
+      <LI>XBN-Java JAR (choose exactly one):<OL>
+         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_all.jar">{@code codelet_0p1p0_all.jar}</A>: Core classes, example code, and unit tests, with no dependencies.</LI>
+         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_core.jar">{@code codelet_0p1p0_core.jar}</A>: Core classes only, with no dependencies. Excludes unit tests and example code.</LI>
+      </OL></LI>
+      <LI><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_usage_only_install_files.zip">{@code codelet_0p1p0_usage_only_install_files.zip}</A>: Includes the &quot;all&quot; Codelet jar, all of the jars Codelet depends on (JUnit and Ant jars are needed only for building Codelet), and the entire codelet configuration directory ({@code "codelet_config"})</LI>
+      <LI><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_source_code.jar">{@code codelet_0p1p0_source_code.jar}</A>: All source code, including proper, examples, unit tests, and all build files.</LI>
+      <LI><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_documentation.jar">{@code codelet_0p1p0_documentation.jar}</A>: JavaDoc documentation for local installation.</LI>
+   </OL></P>
 
    <H4>Steps</H4>
 
    <P><OL>
-      <LI>Download the zip file containing the Codelet jar, all jars it depends on, and the codelet configuration directory: <A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_usage_only_install_files.zip">{@code codelet_0p1p0_usage_only_install_files.zip}</A></LI>
-      <LI>Add the necessary items to your classpath (below)</LI>
+      <LI>Add the necessary items from {@code codelet_0p1p0_usage_only_install_files.zip} (download link above) to your classpath (see below)</LI>
       <LI><A HREF="#install_taglets">Configure {@code javadoc}</A> to recognize Codelet taglets</LI>
       <LI><A HREF="#install_configure">Configure Codelet</A></LI>
    </OL></P>
@@ -333,7 +346,10 @@ LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.template=-1</PRE
 
    <A NAME="install_taglets"></A><H2><A HREF="#install"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Installation: <U>Custom taglets and the Codelet configuration directory</U></H2>
 
-   <P>Executing <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html">{@code javadoc}</A> in turn executes Codelet. Its four custom taglets must be registered, and the Codelet configuration directory must be passed through as a <A HREF="http://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html">system property</A>.</P>
+   <P>Executing <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html">{@code javadoc}</A> in turn executes Codelet. Its four custom taglets must be registered, and the Codelet <A HREF="http://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html">system properties</A> must be passed to {@code javadoc.exe}:<OL>
+      <LI>{@link CodeletBootstrap#CODELET_CONFIG_DIR_SYS_PROP_NAME codelet_config_dir}: Required. The path to the directory in which all Codelet configuaration files exist. Must end with a file-separator (the value returned by <CODE>System.getProperty(&quot;file.separator&quot;, &quot;\\&quot;)</CODE>).</LI>
+      <LI>{@link CodeletTagletWithStaticBootstrap#DO_USE_LEGACYTAGLET_SYS_PROP_NAME do_use_legacytaglet}: A second, optional variable used for optimization only.</LI>
+   </OL>.</P>
 
    <P>Executing Codelet at the <A HREF="http://docs.oracle.com/javase/7/docs/technotes/guides/javadoc/taglet/overview.html#writing">command-line</A>:</P>
 

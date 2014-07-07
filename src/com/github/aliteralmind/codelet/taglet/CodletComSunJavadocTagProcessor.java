@@ -31,8 +31,8 @@ public enum CodletComSunJavadocTagProcessor  {
    INSTANCE;
    /*
       To avoid configuration from being loaded repeatedly.
-    */
    private static TagletProcessor FIRST_TAGLET_PROC_INSTANCE;
+    */
    /**
       <P>Passes all taglet information to the codelet processor (without any references to {@code com.sun.javadoc}) and returns the text that replaces the taglet in the JavaDoc.</P>
 
@@ -64,12 +64,12 @@ public enum CodletComSunJavadocTagProcessor  {
 
       try  {
          TagletProcessor tproc = (new TagletProcessor(instance));
-         if(FIRST_TAGLET_PROC_INSTANCE == null)  {
             /*
+         if(FIRST_TAGLET_PROC_INSTANCE == null)  {
                To avoid configuration from being loaded repeatedly. This block is not synchronized, because it doesn't matter which instance is held--just that *an* instance is held.
-             */
             FIRST_TAGLET_PROC_INSTANCE = tproc;
          }
+             */
          return  tproc.get();
       }  catch(CodeletFormatException | ClassNotFoundException |
                   NoSuchMethodException | NoSuchFileException |

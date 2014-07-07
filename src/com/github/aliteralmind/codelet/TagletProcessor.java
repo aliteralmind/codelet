@@ -28,15 +28,7 @@ package  com.github.aliteralmind.codelet;
    @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 public class TagletProcessor  {
-   private static final CodeletBootstrap bootstrap = TagletProcessor.initCodelet();
-      private static final CodeletBootstrap initCodelet()  {
-         try  {
-            return  CodeletBootstrap.loadConfigGetInstance();
-         }  catch(Exception x)  {
-            throw  new IllegalStateException("Attempting to load Codelet configuration.", x);
-         }
-      }
-
+   private static final CodeletBootstrap BOOTSTRAP = CodeletBootstrap.INSTANCE;
    private final String fullyProcessed;
    /**
       <P>Create a new instance. Once constructed, the taglet's output may be obtained with {@link #get() get}{@code ()}.</P>
@@ -64,7 +56,7 @@ public class TagletProcessor  {
     **/
    public TagletProcessor(CodeletInstance instance) throws ClassNotFoundException, NoSuchMethodException, NoSuchFileException, AccessDeniedException, InterruptedException  {
 
-      if(!bootstrap.wasLoaded())  {
+      if(!CodeletBootstrap.wasLoaded())  {
          throw  new IllegalStateException("CodeletBootstrap.wasLoaded() is false.");
       }
 
