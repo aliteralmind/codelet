@@ -21,7 +21,6 @@ package  com.github.aliteralmind.codelet.alter;
    import  java.lang.reflect.Constructor;
    import  java.lang.reflect.Field;
    import  java.lang.reflect.Method;
-   import  java.util.Objects;
    import  java.util.regex.Pattern;
    import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 /**
@@ -86,7 +85,7 @@ public class NewJavaDocLinkReplacerFor  {
    /**
       <P>Changes a constructor name to a JavaDoc link.</P>
     **/
-   public static final RegexReplacer constructor(CodeletInstance instance, Constructor target, Appendable dbgDest_ifNonNull)  {
+   public static final RegexReplacer constructor(CodeletInstance instance, Constructor<?> target, Appendable dbgDest_ifNonNull)  {
       String className = null;
       String link = null;
       try  {

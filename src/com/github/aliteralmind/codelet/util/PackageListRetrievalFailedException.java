@@ -21,6 +21,10 @@ package  com.github.aliteralmind.codelet.util;
 
  **/
 public class PackageListRetrievalFailedException extends IllegalArgumentException  {
+   /**
+    * 
+    */
+   private static final long serialVersionUID = 6156396236649806205L;
    public PackageListRetrievalFailedException(String message)  {
       super(message);
    }

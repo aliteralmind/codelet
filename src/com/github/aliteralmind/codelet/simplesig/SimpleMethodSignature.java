@@ -80,7 +80,8 @@ public class SimpleMethodSignature  {
     **/
    public static final String STRING_SIGNATURE_REGEX = "^" +      //Line start
          "(?:(?:" +                                               //CrashIfZero or one of the following:
-            "(?<package>" + JavaRegexes.PACKAGE_NAME + ")" +      //  package-name followed by
+            "(?<package>" + JavaRegexes.PACKAGE_NAME + "\\.)" +   //  package-name followed by
+                    //@since 0.1.2: FIXED: SimpleMethodSignature.STRING_SIGNATURE_REGEX incorrectly ommitted the literal dot between the package and class names.
                "(?<className1>" + JavaRegexes.IDENTIFIER + ")" +  //  class-name
          "|" +                                                    //OR
             "(?<className2>" + JavaRegexes.IDENTIFIER + "))#)?" + //  class-name (requires default_package)
@@ -158,7 +159,7 @@ public class SimpleMethodSignature  {
     **/
    public String invokeGetMainOutputNoExtraParams(String app_descriptionNotClassName)  {
       List<Object> paramValueList = getParamValueObjectList();
-      Class<?>[] paramTypes = ReflectRtxUtil.getClassArrayFromObjects(paramValueList.toArray());
+//		Class<?>[] paramTypes = ReflectRtxUtil.getClassArrayFromObjects(paramValueList.toArray());
 
       String[] stringParams = ArrayUtil.getStringArrayOrNull(paramValueList.toArray(), NullContainer.BAD, "getParamValueObjectList()");
       return  InvokeMethodWithRtx.getApplicationOutput(getMayContainFuncClass(0),
@@ -342,7 +343,6 @@ public class SimpleMethodSignature  {
     **/
    public static final SimpleMethodSignature newFromStringAndDefaults(Class<?> return_typeCls, Object class_funcParamStringSignature, String default_package, Class<?>[] default_classesInOrder, Appendable debugDest_ifNonNull) throws ClassNotFoundException  {
       TextAppenter dbgAptr = NewTextAppenterFor.appendableSuppressIfNull(debugDest_ifNonNull);
-
       if(dbgAptr != null)  {
          dbgAptr.appentln("SimpleMethodSignature.newFromStringAndDefaults:");
          dbgAptr.appentln(" - return_typeCls: " + return_typeCls.getName());
@@ -395,13 +395,13 @@ public class SimpleMethodSignature  {
       }
 
       if(clsNm != null  &&  pkgNm == null)  {
-         if(default_package == null)  {
-            throw  new IllegalArgumentStateException("No package provided. " + getParamDbg(class_funcParamStringSignature, default_package, default_classesInOrder));
+         if(default_package == null  ||  default_package.length()  == 0)  {
+            throw  new IllegalArgumentStateException("No package provided (or is the empty-string). " + getParamDbg(class_funcParamStringSignature, default_package, default_classesInOrder));
          }
          pkgNm = default_package;
 
       }  else if(pkgNm != null  &&  default_package != null)  {
-         throw  new IllegalArgumentStateException("Package provided in both string-signature and default_package. " + getParamDbg(class_funcParamStringSignature, default_package, default_classesInOrder));
+         throw  new IllegalArgumentStateException("Package provided in both string-signature and default_package. (Package name found in sig: \"" + pkgNm + "\"). " + getParamDbg(class_funcParamStringSignature, default_package, default_classesInOrder));
       }
 
       if(pkgNm != null)  {
@@ -409,7 +409,7 @@ public class SimpleMethodSignature  {
          try  {
             defaultClasses = new Class[] {Class.forName(pkgNm + clsNm)};
          }  catch(ClassNotFoundException cnfx)  {
-            throw  new ClassNotFoundException("Attempting Class.forName(" + pkgNm + clsNm + "). " + getParamDbg(class_funcParamStringSignature, default_package, default_classesInOrder));
+            throw  new ClassNotFoundException("Attempting Class.forName(\"" + pkgNm + clsNm + "\"). " + getParamDbg(class_funcParamStringSignature, default_package, default_classesInOrder));
          }
       }
 
@@ -580,10 +580,11 @@ public class SimpleMethodSignature  {
             throw  new IllegalArgumentException("var_asString=\"" + var_asString + "\". Starts with '\"', but is not properly formatted for a string.");
          }
          var_asString = var_asString.substring(1, (var_asString.length() - 1));
-         if(var_asString.indexOf("\"") != -1  ||  var_asString.indexOf(",") != -1  ||
-               var_asString.indexOf("&") != -1)  {
+         if(var_asString.indexOf("\"") != -1  ||  var_asString.indexOf(",") != -1)  {
+            //@since  0.1.2
+            //||  var_asString.indexOf("&") != -1)  {
 
-            throw  new IllegalArgumentException("var_asString=\"" + var_asString + "\" contains a literal comma (','), double-quote ('\"'), or ampersand ('&'). Escape with \"&#44;\", \"&quot\", and \"&amp;\".");
+            throw  new IllegalArgumentException("var_asString=\"" + var_asString + "\" contains a literal comma (','), double-quote ('\"'), or ampersand ('&'). Escape it with \"&#44;\", \"&quot\", or \"&amp;\".");
          }
          return  var_asString.replace("&#44;", ",").replace("&quot;", "\"").replace("&amp;", "&");
       }

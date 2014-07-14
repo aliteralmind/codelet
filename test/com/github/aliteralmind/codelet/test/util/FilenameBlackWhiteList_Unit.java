@@ -213,7 +213,7 @@ public class FilenameBlackWhiteList_Unit  {
          assertTrue(true);
       }
 
-      FilenameBlackWhiteList bwlist2 = null;
+      FilenameBlackWhiteList bwlist2;
       try  {
          bwlist2 = new FilenameBlackWhiteList(null, BlackOrWhite.BLACK, IOCase.INSENSITIVE, null);
          assertFalse(true);

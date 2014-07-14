@@ -13,6 +13,7 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.alter;
+   import  com.github.xbn.analyze.alter.AlterationRequired;
    import  com.github.aliteralmind.codelet.CodeletInstance;
    import  com.github.aliteralmind.codelet.TagletTextUtil;
    import  com.github.xbn.linefilter.alter.NewTextLineAltererFor;
@@ -22,11 +23,8 @@ package  com.github.aliteralmind.codelet.alter;
    import  com.github.xbn.regexutil.NewPatternFor;
    import  com.github.xbn.regexutil.ReplacedInEachInput;
    import  com.github.xbn.util.JavaRegexes;
-   import  java.util.Arrays;
-   import  java.util.LinkedHashMap;
    import  java.util.regex.Matcher;
    import  java.util.regex.Pattern;
-   import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 /**
    <P>Convenience functions for creating line alterers tailored for codelets.</P>
 
@@ -41,14 +39,14 @@ public class NewLineAltererFor  {
 
       @return
 
-<BLOCKQUOTE><PRE>{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor NewTextLineAltererFor}.{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor#replacement(Pattern, String, ReplacedInEachInput, Appendable, ValidResultFilter) replacement}(
+<BLOCKQUOTE><PRE>{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor NewTextLineAltererFor}.{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor#replacement(AlterationRequired, Pattern, String, ReplacedInEachInput, Appendable, ValidResultFilter) replacement}({@link com.github.xbn.analyze.alter.AlterationRequired}.{@link com.github.xbn.analyze.alter.AlterationRequired#YES YES},
    {@link com.github.xbn.regexutil.NewPatternFor NewPatternFor}.{@link com.github.xbn.regexutil.NewPatternFor#literal(String) literal}({@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getExamplePackageName(CodeletInstance) getExamplePackageName}(instance) + &quot;.&quot;),
    &quot;&quot;, {@link com.github.xbn.regexutil.ReplacedInEachInput ReplacedInEachInput}.{@link com.github.xbn.regexutil.ReplacedInEachInput#ALL ALL},
    dbgRplcr_ifNonNull,
    null)</PRE></BLOCKQUOTE>
     **/
    public static final TextLineAlterer elimPackageReferences(CodeletInstance instance, Appendable dbgRplcr_ifNonNull)  {
-      return  NewTextLineAltererFor.replacement(
+      return  NewTextLineAltererFor.replacement(AlterationRequired.YES,
          NewPatternFor.literal(TagletTextUtil.getExamplePackageName(instance) + "."),
          "", ReplacedInEachInput.ALL,
          dbgRplcr_ifNonNull,
@@ -71,7 +69,7 @@ public class NewLineAltererFor  {
       ValidResultFilter firstOccuranceFilter = NewValidResultFilterFor.
          inUnchangedOutFalse(1, 1, null, null, dbgEveryLine_ifNonNull);
 
-      return  NewTextLineAltererFor.text(packageLinePtrn, firstOccuranceFilter,
+      return  NewTextLineAltererFor.textValidateOnly(packageLinePtrn, firstOccuranceFilter,
          dbgPkgLnVldtr_ifNonNull);
    }
    private static final Matcher INDENT_MTCHR = Pattern.compile("\\^[ \\\\t]+").matcher("");
@@ -82,8 +80,9 @@ public class NewLineAltererFor  {
       @return  If {@code indentRegexToElim_emptyStrIfNone.length()} is<UL>
          <LI>{@code 0}: {@code null}.</LI>
          <LI>One or greater:
-         <BR> &nbsp; &nbsp; <CODE>{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor NewTextLineAltererFor}.{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor#replacement(Pattern, String, ReplacedInEachInput, Appendable, ValidResultFilter) replacement}({@link java.util.regex.Pattern Pattern}.{@link java.util.regex.Pattern#compile(String) compile}(indentRegexToElim_emptyStrIfNone), &quot;&quot;,
-         <BR> &nbsp; &nbsp; {@link com.github.xbn.regexutil.ReplacedInEachInput ReplacedInEachInput}.{@link com.github.xbn.regexutil.ReplacedInEachInput#FIRST FIRST}, debugDest_ifNonNull, null)</CODE></LI>
+<BLOCKQUOTE><PRE>{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor NewTextLineAltererFor}.{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor#replacement(AlterationRequired, Pattern, String, ReplacedInEachInput, Appendable, ValidResultFilter) replacement}({@link com.github.xbn.analyze.alter.AlterationRequired}.{@link com.github.xbn.analyze.alter.AlterationRequired#YES YES},
+   {@link java.util.regex.Pattern Pattern}.{@link java.util.regex.Pattern#compile(String) compile}(indentRegexToElim_emptyStrIfNone), &quot;&quot;,
+   {@link com.github.xbn.regexutil.ReplacedInEachInput ReplacedInEachInput}.{@link com.github.xbn.regexutil.ReplacedInEachInput#FIRST FIRST}, debugDest_ifNonNull, null)</PRE></BLOCKQUOTE></LI>
       </UL>
     **/
    public static final TextLineAlterer eliminateIndentationOrNull(String indentRegexToElim_emptyStrIfNone, Appendable debugDest_ifNonNull)  {
@@ -95,40 +94,10 @@ public class NewLineAltererFor  {
          throw  new IllegalArgumentException("Invalid indentation regex: indentRegexToElim_emptyStrIfNone=\"" + indentRegexToElim_emptyStrIfNone + "\"");
       }
 
-      return  NewTextLineAltererFor.replacement(Pattern.compile(indentRegexToElim_emptyStrIfNone), "",
+      return  NewTextLineAltererFor.replacement(AlterationRequired.YES,
+         Pattern.compile(indentRegexToElim_emptyStrIfNone), "",
          ReplacedInEachInput.FIRST, debugDest_ifNonNull, null);
    }
-   /*
-      <P>Change all tabs to spaces, as (and if) configured.</P>
-
-      @return  <CODE>{@link #newForTabToSpacesOrNull(int, Appendable) newForTabToSpacesOrNull}({@link com.github.aliteralmind.codelet.CodeletBaseConfig CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getTabToHowManySpaces() getTabToHowManySpaces}(), debugDest_ifNonNull)</CODE>
-      @see  com.github.aliteralmind.codelet.CodeletBaseConfig#TAB_TO_HOW_MANY_SPACES CodeletBaseConfig#TAB_TO_HOW_MANY_SPACES
-   public static final TextLineAlterer newForTabToSpacesOrNull(Appendable debugDest_ifNonNull)  {
-      return  newForTabToSpacesOrNull(getTabToHowManySpaces(), debugDest_ifNonNull);
-   }
-    */
-   /*
-      <P>Change all tabs to spaces, or {@code null} if the number of spaces is -1.</P>
-
-      @param  space_count  The number of spaces to replace each tab with. May not be zero or less than {@code -1}.
-      @return  If {@code space_count} is<UL>
-         <LI>{@code -1}: {@code null}</LI>
-         <LI>One or greater:
-         <BR> &nbsp; &nbsp; <CODE>{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor NewTextLineAltererFor}.{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor#replaceTabToSpaces(String, Appendable, String) replaceTabToSpaces}(
-         <BR> &nbsp; &nbsp; &nbsp; &nbsp; space_count, debugDest_ifNonNull, "space_count")</CODE></LI>
-      </UL>
-      @see  #newForTabToSpacesOrNull(Appendable)
-      @see  com.github.aliteralmind.codelet.alter.NewLineAltererFor#eliminateIndentation(String, Appendable)
-      @see  com.github.aliteralmind.codelet.CustomizationInstructions#newForMaybeElimIndent_tabToSpcEscHtml(CodeletInstance, FilteredLineIterator, String) CustomizationInstructions#newForMaybeElimIndent_tabToSpcEscHtml
-   public static final TextLineAlterer newForTabToSpacesOrNull(int space_count, Appendable debugDest_ifNonNull)  {
-      if(space_count == 0)  {
-         throw  new IllegalArgumentException("space_count is zero.");
-      }
-      return  ((space_count == -1) ? null
-         :  NewTextLineAltererFor.replaceTabToSpaces(
-               space_count, debugDest_ifNonNull, "space_count"));
-   }
-    */
    private NewLineAltererFor()  {
       throw  new IllegalStateException("Do not instantiate");
    }

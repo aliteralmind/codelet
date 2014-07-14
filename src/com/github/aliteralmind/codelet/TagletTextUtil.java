@@ -13,11 +13,8 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet;
-   import  com.github.xbn.io.PlainTextFileUtil;
    import  com.github.xbn.lang.CrashIfObject;
    import  com.github.xbn.lang.reflect.ReflectRtxUtil;
-   import  java.util.Iterator;
-   import  java.util.Arrays;
    import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
    import  static com.github.xbn.lang.XbnConstants.*;
 /**

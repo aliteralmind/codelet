@@ -22,6 +22,10 @@ package  com.github.aliteralmind.codelet.util;
  **/
 public class NamedDebuggerFormatException extends IllegalArgumentException  {
    /**
+    * 
+    */
+   private static final long serialVersionUID = 4617394249689798008L;
+   /**
       <P>Create an NamedDebuggerFormatException with no error message.</P>
     **/
    public NamedDebuggerFormatException()  {

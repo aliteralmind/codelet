@@ -22,6 +22,10 @@ package  com.github.aliteralmind.codelet;
 
  **/
 public class CodeletFormatException extends IllegalArgumentException  {
+   /**
+    * 
+    */
+   private static final long serialVersionUID = -2937513367419555471L;
    private final CodeletInstance instance;
    public CodeletFormatException(CodeletInstance instance, String message)  {
       super(CodeletFormatException.getErrorMessage(instance, message));

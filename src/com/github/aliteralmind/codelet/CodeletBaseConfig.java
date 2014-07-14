@@ -48,7 +48,7 @@ package  com.github.aliteralmind.codelet;
 /**
    <P>Immutable, static, and non-template related configuration, used throughout Codelet, as held in a file named {@link CodeletBootstrap#BASE_CONFIG_FILE_NAME codelet.properties}. Loading is executed by {@link com.github.aliteralmind.codelet.CodeletBootstrap}.</P>
 
-   <P><I>View <A HREF="{@docRoot}/doc-files/codelet.properties">{@code {@docRoot}/doc-files/codelet.properties}</A>.)</I></P>
+   <P><I>View <A HREF="{@docRoot}/${jd_project_codelet_config_dir}/codelet.properties">{@code {@docRoot}/${jd_project_codelet_config_dir}/codelet.properties}</A>.)</I></P>
 
    <A NAME="base_dirs_other"></A><H2><A HREF="{@docRoot}/overview-summary.html#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; <U>Codelet: Configuration</U></H2>
 
@@ -562,11 +562,11 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</PRE></BLOCKQ
       </OL>
 
       <P>View the locally installed templates:<UL>
-         <LI><A HREF="{@docRoot}/doc-files/default_templates/source_code.txt">{@code {@.codelet}}</A></LI>
-         <LI><A HREF="{@docRoot}/doc-files/default_templates/console_out.txt">{@code {@.codelet.out}}</A></LI>
-         <LI><A HREF="{@docRoot}/doc-files/default_templates/src_and_out.txt">{@code {@.codelet.and.out}}</A></LI>
-         <LI><A HREF="{@docRoot}/doc-files/default_templates/file_text.txt">{@code {@.file.textlet}}</A></LI>
-      </UL>These links assume the default template directory is &quot;{@code {@docRoot}/doc-files/default_templates/}&quot;</P>
+         <LI><A HREF="{@docRoot}/${jd_project_codelet_config_dir}/default_templates/source_code.txt">{@code {@.codelet}}</A></LI>
+         <LI><A HREF="{@docRoot}/${jd_project_codelet_config_dir}/default_templates/console_out.txt">{@code {@.codelet.out}}</A></LI>
+         <LI><A HREF="{@docRoot}/${jd_project_codelet_config_dir}/default_templates/src_and_out.txt">{@code {@.codelet.and.out}}</A></LI>
+         <LI><A HREF="{@docRoot}/${jd_project_codelet_config_dir}/default_templates/file_text.txt">{@code {@.file.textlet}}</A></LI>
+      </UL>These links assume the default template directory is &quot;{@code {@docRoot}/${jd_project_codelet_config_dir}/default_templates/}&quot;</P>
 
       @see  <CODE><A HREF="#tmpl_defaults"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A></CODE>
       @see  #DEFAULT_SRC_CODE_TMPL_PATH

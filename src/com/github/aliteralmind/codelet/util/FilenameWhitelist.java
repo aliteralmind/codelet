@@ -13,15 +13,6 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.util;
-   import  com.github.xbn.array.CrashIfArray;
-   import  com.github.xbn.array.NullContainer;
-   import  com.github.xbn.array.NullElement;
-   import  com.github.xbn.lang.CrashIfObject;
-   import  java.util.Arrays;
-   import  java.util.Collections;
-   import  java.util.List;
-   import  java.util.Objects;
-   import  org.apache.commons.io.FilenameUtils;
    import  org.apache.commons.io.IOCase;
 /**
    <P>For white-listing file paths or fully-qualified class names.</P>

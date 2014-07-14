@@ -13,7 +13,6 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.examples.util;
-   import  com.github.aliteralmind.codelet.util.BlackOrWhite;
    import  com.github.aliteralmind.codelet.util.FilenameBlacklist;
    import  com.github.aliteralmind.codelet.util.FilenameWhitelist;
    import  org.apache.commons.io.IOCase;

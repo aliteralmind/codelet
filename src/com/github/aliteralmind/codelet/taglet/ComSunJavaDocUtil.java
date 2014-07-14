@@ -26,7 +26,7 @@ package  com.github.aliteralmind.codelet.taglet;
    import  java.util.regex.Matcher;
    import  java.util.regex.Pattern;
 /**
-   <P>Utilities related to {@code com.sun.javadoc}.</P>
+   <P>Generically-useful utilities related to {@code com.sun.javadoc}.</P>
 
    @since  0.1.0
    @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
@@ -35,10 +35,15 @@ public class ComSunJavaDocUtil  {
    /**
       <P>Register a Taglet as required by JavaDoc.</P>
 
-      <H3><I>Why is the map parameter type-erased? What generics does it need?</I></H3>
+      <H3><I>(Why is the map parameter type-erased? What generics does it need?)</I></H3>
+
+      <P>Steps<OL>
+         <LI>If a taglet with the name equal to <CODE>taglet.{@link com.sun.javadoc.Taglet#getName() getName}()</CODE> already exists in the map, remove it.</LI>
+         <LI>{@code taglet} is <A HREF="http://docs.oracle.com/javase/7/docs/api/java/util/Map#put(K,">V) added</A> to the map, with its name as the key.</LI>
+      </OL></P>
 
       @param  taglet  The taglet to register. May not be {@code null}.
-      @param taglet_map  The map to register this tag to. May not be {@code null}.
+      @param map  The map to register this tag to. May not be {@code null}.
       @since 0.1.1
     */
    @SuppressWarnings({"unchecked", "rawtypes"})

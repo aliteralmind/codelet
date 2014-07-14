@@ -31,7 +31,7 @@ package  com.github.aliteralmind.codelet;
 /**
    <P>For optional overriding of default templates, for a single JavaDoc page or an entire package. For overriding a template in a single taglet, a customizer must be used.</P>
 
-   <P>Configuration is in a text file named {@linkplain CodeletBootstrap#TMPL_OVERRIDES_CONFIG_FILE_NAME template_overrides_config.txt}, which is located in the same directory as {@link com.github.aliteralmind.codelet.CodeletBaseConfig codelet.properties} (view <A HREF="{@docRoot}/doc-files/template_overrides_config.txt">{@code {@docRoot}/doc-files/template_overrides_config.txt}</A>). Loading is executed by {@link com.github.aliteralmind.codelet.CodeletBootstrap}.</P>
+   <P>Configuration is in a text file named {@linkplain CodeletBootstrap#TMPL_OVERRIDES_CONFIG_FILE_NAME template_overrides_config.txt}, which is located in the same directory as {@link com.github.aliteralmind.codelet.CodeletBaseConfig codelet.properties} (view <A HREF="{@docRoot}/${jd_project_codelet_config_dir}/template_overrides_config.txt">{@code {@docRoot}/${jd_project_codelet_config_dir}/template_overrides_config.txt}</A>). Loading is executed by {@link com.github.aliteralmind.codelet.CodeletBootstrap}.</P>
 
    <P>If {@code template_overrides_config.txt} is empty (or contains only comments), then default templates are always used.</P>
 

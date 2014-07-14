@@ -13,6 +13,7 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.alter;
+   import  com.github.xbn.analyze.alter.AlterationRequired;
    import  com.github.aliteralmind.codelet.CodeletInstance;
    import  com.github.xbn.linefilter.AdaptRegexReplacerTo;
    import  com.github.xbn.linefilter.alter.TextLineAlterAdapter;
@@ -23,8 +24,6 @@ package  com.github.aliteralmind.codelet.alter;
    import  com.github.xbn.analyze.validate.ValidResultFilter;
    import  com.github.xbn.lang.CrashIfObject;
    import  com.github.xbn.lang.reflect.Declared;
-   import  com.github.xbn.lang.reflect.RTNoSuchFieldException;
-   import  com.github.xbn.lang.reflect.RTNoSuchMethodException;
    import  com.github.xbn.lang.reflect.ReflectRtxUtil;
    import  com.github.xbn.regexutil.RegexReplacer;
    import  com.github.xbn.regexutil.StringReplacer;
@@ -33,7 +32,6 @@ package  com.github.aliteralmind.codelet.alter;
    import  java.lang.reflect.Field;
    import  java.lang.reflect.Method;
    import  java.util.HashMap;
-   import  java.util.List;
    import  java.util.Map;
    import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 /**
@@ -52,7 +50,7 @@ public class NewJDLinkForWordOccuranceNum  {
       <P>Replaces a single occurance of a constructor name with a JavaDoc link.</P>
 
       @param  lineOccurance_num  Which &quot;line&quot; occurance should be linked? This is the <I>n-th line</I> in which the function name is found in the source code. If it exists in three lines (regardless how many occurances exist within those lines), and you want the second to have the link, set this to two. When there are multiple occurances of a constructor call in a line, the first is always the one linked. Must be one or greater.
-      @return  <CODE>{@link com.github.xbn.linefilter.AdaptRegexReplacerTo AdaptRegexReplacerTo}.{@link com.github.xbn.linefilter.AdaptRegexReplacerTo#lineReplacer(RegexReplacer, ValidResultFilter) lineReplacer}(rr, filterAllBut)</CODE>
+      @return  <CODE>{@link com.github.xbn.linefilter.AdaptRegexReplacerTo AdaptRegexReplacerTo}.{@link com.github.xbn.linefilter.AdaptRegexReplacerTo#lineReplacer(AlterationRequired, RegexReplacer, ValidResultFilter) lineReplacer}({@link com.github.xbn.analyze.alter.AlterationRequired}.{@link com.github.xbn.analyze.alter.AlterationRequired#YES YES}, rr, filterAllBut)</CODE>
       <BR>Where<UL>
          <LI>{@code rr} is a
          <BR> &nbsp; &nbsp; <CODE>{@link NewJavaDocLinkReplacerFor NewJavaDocLinkReplacerFor}.{@link NewJavaDocLinkReplacerFor#constructor(CodeletInstance, Constructor, Appendable) constructor}(instance, target, dbgRplcr_ifNonNull)</CODE></LI>
@@ -65,7 +63,7 @@ public class NewJDLinkForWordOccuranceNum  {
       </UL>
     **/
    public static final TextLineAlterAdapter<StringReplacer> constructor(CodeletInstance instance, int lineOccurance_num, Class<?> target_class, String param_shortcut, Appendable dbgRplcr_ifNonNull, Appendable dbgResultFilter_ifNonNull, Appendable dbgSearchTerm_ifNonNull, Appendable dbgSearchTermDoesMatch_ifNonNull)  {
-      Constructor target = ConstructorParamSearchTerm.
+      Constructor<?> target = ConstructorParamSearchTerm.
          getConstructorFromAllSigsAndSearchTerm(
             getAllParamSigsForLinkTarget(target_class),
             param_shortcut, dbgSearchTerm_ifNonNull, dbgSearchTermDoesMatch_ifNonNull);
@@ -115,8 +113,8 @@ PREFIX.link.DBGPRECNSTRNM_IFNONNULL.searchterm.doesMatch=-1</PRE></BLOCKQUOTE>
    }
       private static final TextLineAlterAdapter<StringReplacer> newReplacerAlterer(RegexReplacer replacer, int line_occuranceNum, String occurNum_varName, Appendable dbgResultFilter_ifNonNull, Class<?> target_class, String shortcut)  {
          try  {
-            return  AdaptRegexReplacerTo.lineReplacer(replacer,
-               NewValidResultFilterFor.exactly(
+            return  AdaptRegexReplacerTo.lineReplacer(AlterationRequired.YES,
+               replacer, NewValidResultFilterFor.exactly(
                   line_occuranceNum, occurNum_varName, dbgResultFilter_ifNonNull));
          }  catch(RuntimeException rx)  {
             throw  new RuntimeException("Attempting to create JavaDoc link replacer for target_class=" + target_class.getName() + ", shortcut/field-name=" + shortcut, rx);
@@ -126,7 +124,7 @@ PREFIX.link.DBGPRECNSTRNM_IFNONNULL.searchterm.doesMatch=-1</PRE></BLOCKQUOTE>
       <P>Replaces a single occurance of a function name with a JavaDoc link.</P>
 
       @param  line_occuranceNum  Which occurance should be linked? This is the <I>n-th <B>line</B></I> in which the function name is found in the source code. If it exists in three lines (regardless how many occurances exist within those lines), and you want the second to have the link, set this to two. When there are multiple occurances of a function call in that line, the first is always the one linked. Must be one or greater.
-      @return  <CODE>{@link com.github.xbn.linefilter.AdaptRegexReplacerTo AdaptRegexReplacerTo}.{@link com.github.xbn.linefilter.AdaptRegexReplacerTo#lineReplacer(RegexReplacer, ValidResultFilter) lineReplacer}(rr, filterAllBut)</CODE>
+      @return  <CODE>{@link com.github.xbn.linefilter.AdaptRegexReplacerTo AdaptRegexReplacerTo}.{@link com.github.xbn.linefilter.AdaptRegexReplacerTo#lineReplacer(AlterationRequired, RegexReplacer, ValidResultFilter) lineReplacer}({@link com.github.xbn.analyze.alter.AlterationRequired}.{@link com.github.xbn.analyze.alter.AlterationRequired#YES YES}, rr, filterAllBut)</CODE>
       <BR>Where<UL>
          <LI>{@code rr} is a
          <BR> &nbsp; &nbsp; <CODE>{@link NewJavaDocLinkReplacerFor NewJavaDocLinkReplacerFor}.{@link NewJavaDocLinkReplacerFor#method(CodeletInstance, Method, Appendable) method}(instance, target, dbgRplcr_ifNonNull)</CODE></LI>
@@ -202,7 +200,7 @@ PREFIX.link.DBGPREMETHODNM_IFNONNULL.searchterm.doesMatch=-1</PRE></BLOCKQUOTE>
       <P>Replaces a single occurance of a field name (an object contained in another object) with a JavaDoc link.</P>
 
       @param  line_occuranceNum  Which occurance should be linked?  This is the <I>n-th <B>line</B></I> in which the obect name is found in the source code. If it exists in three lines (regardless how many occurances exist within those lines), and you want the second to have the link, set this to two. When there are multiple occurances of a field name in a line, the first is always the one linked. Must be one or greater.
-      @return  <CODE>{@link com.github.xbn.linefilter.AdaptRegexReplacerTo AdaptRegexReplacerTo}.{@link com.github.xbn.linefilter.AdaptRegexReplacerTo#lineReplacer(RegexReplacer, ValidResultFilter) lineReplacer}(rr, filterAllBut)</CODE>
+      @return  <CODE>{@link com.github.xbn.linefilter.AdaptRegexReplacerTo AdaptRegexReplacerTo}.{@link com.github.xbn.linefilter.AdaptRegexReplacerTo#lineReplacer(AlterationRequired, RegexReplacer, ValidResultFilter) lineReplacer}({@link com.github.xbn.analyze.alter.AlterationRequired}.{@link com.github.xbn.analyze.alter.AlterationRequired#YES YES}, rr, filterAllBut)</CODE>
       <BR>Where {@code rr} is a
       <BR> &nbsp; &nbsp; <CODE>{@link NewJavaDocLinkReplacerFor NewJavaDocLinkReplacerFor}.{@link NewJavaDocLinkReplacerFor#field(CodeletInstance, Field, Appendable) field}(instance, target, dbgRplcr_ifNonNull)</CODE>
       <BR>and {@code filterAllBut} is a &quot;{@linkplain com.github.xbn.analyze.validate.ValidResultFilter result filter}&quot; that only accepts a {@linkplain com.github.xbn.analyze.validate.NewValidResultFilterFor#exactly(int, String, Appendable) single occurance}.
@@ -257,7 +255,7 @@ PREFIX.link.DBGPREFIELDNM_IFNONNULL.validfilter=-1</PRE></BLOCKQUOTE>
       <P>Replaces a single occurance of a class name with a JavaDoc link.</P>
 
       @param  line_occuranceNum  Which occurance should be linked?  This is the <I>n-th <B>line</B></I> in which the class name is found in the source code. If it exists in three lines (regardless how many occurances exist within those lines), and you want the second to have the link, set this to two. When there are multiple occurances of a class name in a line, the first is always the one linked. Must be one or greater.
-      @return  <CODE>{@link com.github.xbn.linefilter.AdaptRegexReplacerTo AdaptRegexReplacerTo}.{@link com.github.xbn.linefilter.AdaptRegexReplacerTo#lineReplacer(RegexReplacer, ValidResultFilter) lineReplacer}(rr, filterAllBut)</CODE>
+      @return  <CODE>{@link com.github.xbn.linefilter.AdaptRegexReplacerTo AdaptRegexReplacerTo}.{@link com.github.xbn.linefilter.AdaptRegexReplacerTo#lineReplacer(AlterationRequired, RegexReplacer, ValidResultFilter) lineReplacer}({@link com.github.xbn.analyze.alter.AlterationRequired}.{@link com.github.xbn.analyze.alter.AlterationRequired#YES YES}, rr, filterAllBut)</CODE>
       <BR>Where {@code rr} is a
       <BR> &nbsp; &nbsp; <CODE>{@link NewJavaDocLinkReplacerFor}.{@link NewJavaDocLinkReplacerFor#cclass(CodeletInstance, Class, Appendable) cclass}(urlToExampleClassPkgWSlash_fromTagletFile, class_name, dbgRplcr_ifNonNull)</CODE>
       <BR>and {@code filterAllBut} is a &quot;{@linkplain com.github.xbn.analyze.validate.ValidResultFilter result filter}&quot; that only accepts a {@linkplain com.github.xbn.analyze.validate.NewValidResultFilterFor#exactly(int, String, Appendable) single occurance}.

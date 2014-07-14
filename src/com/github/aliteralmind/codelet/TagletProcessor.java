@@ -19,7 +19,6 @@ package  com.github.aliteralmind.codelet;
    import  com.github.aliteralmind.codelet.type.SourceCodeProcessor;
    import  java.nio.file.AccessDeniedException;
    import  java.nio.file.NoSuchFileException;
-   import  com.github.xbn.lang.CrashIfObject;
    import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 /**
    <P>Generates the output for a single Codelet of any type. This class--and this entire package--knows nothing of {@code com.sun}. This is the middleman between {@code com.sun} and {@link com.github.aliteralmind.codelet.TagletOfTypeProcessor}.</P>
@@ -28,7 +27,7 @@ package  com.github.aliteralmind.codelet;
    @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 public class TagletProcessor  {
-   private static final CodeletBootstrap BOOTSTRAP = CodeletBootstrap.INSTANCE;
+//	private static final CodeletBootstrap BOOTSTRAP = CodeletBootstrap.INSTANCE;
    private final String fullyProcessed;
    /**
       <P>Create a new instance. Once constructed, the taglet's output may be obtained with {@link #get() get}{@code ()}.</P>
@@ -72,7 +71,7 @@ public class TagletProcessor  {
          return;
       }
 
-      TagletOfTypeProcessor processor = null;
+      TagletOfTypeProcessor<?> processor = null;
       try  {
          if(instance.getType().isSourceCode())  {
             processor = new SourceCodeProcessor(instance);

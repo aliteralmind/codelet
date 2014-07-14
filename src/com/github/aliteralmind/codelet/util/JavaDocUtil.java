@@ -21,7 +21,6 @@ package  com.github.aliteralmind.codelet.util;
    import  java.lang.reflect.Method;
    import  java.util.regex.Matcher;
    import  java.util.regex.Pattern;
-   import  static com.github.xbn.lang.XbnConstants.*;
 /**
    <P>Get urls to function, class, and object targets.</P>
 
@@ -76,7 +75,7 @@ public class JavaDocUtil  {
       @see  #appendUrlToClass(StringBuilder, String, Class) appendUrlToClass
       @see  #appendClassNameForParams(StringBuilder, Class[], VarArgs) appendClassNameForParams
     **/
-   public static final StringBuilder appendUrlToConstructor(StringBuilder to_appendTo, String url_toDocRoot, Constructor target)  {
+   public static final StringBuilder appendUrlToConstructor(StringBuilder to_appendTo, String url_toDocRoot, Constructor<?> target)  {
       try  {
          appendUrlToClass(to_appendTo, url_toDocRoot, target.getDeclaringClass());
          to_appendTo.append("#").append(target.getDeclaringClass().getSimpleName()).append("(");

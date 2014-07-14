@@ -156,8 +156,8 @@ public class AllSimpleParamSignatures  {
 
       to_appendTo.append(LINE_SEP).append("All methods:").append(LINE_SEP);
 
-      int i = 0;
-      int sizeMinus1 = getMethodMap().size() - 1;
+//		int i = 0;
+//		int sizeMinus1 = getMethodMap().size() - 1;
       for (Map.Entry<String,List<MethodSimpleParamSig>> entry : methodMap.entrySet())  {
          List<MethodSimpleParamSig> value = entry.getValue();
          if(value.size() == 1)  {
@@ -247,7 +247,7 @@ public class AllSimpleParamSignatures  {
       @param  sort  If {@link com.github.xbn.list.SortListValues#ORIGINAL ORIGINAL} or {@link com.github.xbn.list.SortListValues#DUPLICATE DUPLICATE}, then the returned list is sorted.
     **/
    public static final List<ConstructorSimpleParamSig> newConstructorList(Class<?> containing_cls, Declared declared, Sorted sort)  {
-      Constructor[] cnstrs = null;
+      Constructor<?>[] cnstrs = null;
       try  {
          cnstrs = (declared.isYes() ? containing_cls.getDeclaredConstructors()
             :  containing_cls.getConstructors());
@@ -256,7 +256,7 @@ public class AllSimpleParamSignatures  {
          throw  CrashIfObject.nullOrReturnCause(declared, "declared", null, rx);
       }
       List<ConstructorSimpleParamSig> list = new ArrayList<ConstructorSimpleParamSig>(cnstrs.length);
-      for(Constructor cnstr : cnstrs)  {
+      for(Constructor<?> cnstr : cnstrs)  {
          list.add(new ConstructorSimpleParamSig(cnstr));
       }
 

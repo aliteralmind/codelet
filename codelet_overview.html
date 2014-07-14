@@ -51,7 +51,7 @@
    <P>Other:<OL>
       <LI>Codelet is hosted by GitHib: <A HREF="http://github.com/aliteralmind/codelet">Project page</A>, <A HREF="https://github.com/aliteralmind/codelet/issues">issue tracker</A>, <A HREF="https://github.com/aliteralmind/codelet/wiki">Wiki</A></LI>
       <LI>Generation reports: <A HREF="../../build_log.txt">Full build</A>, <A HREF="../../javadoc_log.txt">JavaDoc only</A></LI>
-      <LI>Other downloads: <A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_documentation.zip">JavaDoc</A>, <A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_source_code.zip">source code</A> (including build-files)</LI>
+      <LI>Other downloads: <A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_${jd_project_version_number}_documentation.zip">JavaDoc</A>, <A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_${jd_project_version_number}_source_code.zip">source code</A> (including build-files)</LI>
       <LI>I use <CODE>com.github.xbn.testdev.{@link com.github.xbn.testdev.VerifyApplicationOutput}</CODE> to unit test applications.</LI>
       <LI><B>Thanks</B> go to <A HREF="http://stackoverflow.com/users/1093528/fge">fge</A> and <A HREF="http://stackoverflow.com/users/13379/michael">Michael</A> for the technical comments and suggestions (fge came with <I>lowercase</I> &quot;codelet&quot;), to Gregg Stebben for the support, and especially to Sherrie.</LI>
    </OL></P>
@@ -251,7 +251,7 @@ Codelet: Example: <U>Displaying a &quot;code snippet&quot;</U></H2>
       <LI>The {@link com.github.aliteralmind.codelet.CodeletInstance} and {@code com.github.aliteralmind.codelet.CodeletType} are <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#specifications">required</A> as the first and second parameters in all customizer functions. Both are ommitted from all taglet-calls.</LI>
       <LI>Alterations are made in the the order they appear in the array.</LI>
       <LI>To link to an external library, its package-list must be {@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#EXTERNAL_DOC_ROOT_URL_FILE configured}.</LI>
-      <LI>Arbitrary alterers may be added to the array, such as {@linkplain com.github.xbn.linefilter.alter.NewTextLineAltererFor#literalReplacement(String, String, ReplacedInEachInput, Appendable, ValidResultFilter) literal} or {@linkplain com.github.xbn.linefilter.alter.NewTextLineAltererFor#replacement(Pattern, String, ReplacedInEachInput, Appendable, ValidResultFilter) regular expression} replacements, or {@linkplain com.github.xbn.linefilter.alter.NewTextLineAltererFor#prependLineNumber(int, String) prepending line numbers}</LI>
+      <LI>Arbitrary alterers may be added to the array, such as {@linkplain com.github.xbn.linefilter.alter.NewTextLineAltererFor#literalReplacement(AlterationRequired, String, String, ReplacedInEachInput, Appendable, ValidResultFilter) literal} or {@linkplain com.github.xbn.linefilter.alter.NewTextLineAltererFor#replacement(AlterationRequired, Pattern, String, ReplacedInEachInput, Appendable, ValidResultFilter) regular expression} replacements, or {@linkplain com.github.xbn.linefilter.alter.NewTextLineAltererFor#prependLineNumber(int, String) prepending line numbers}</LI>
       <LI>When using <A HREF="http://alexgorbatchev.com/SyntaxHighlighter">SyntaxHighlighter</A> with the <A HREF="http://alexgorbatchev.com/SyntaxHighlighter/manual/installation.html">&quot;<CODE>&lt;PRE&gt;</CODE> method&quot;</A>, it is not possible to have any links, due to its limitation that all less-than characters (<CODE>'&lt;'</CODE>) must be html escaped.</LI>
    </OL></P>
 
@@ -294,73 +294,46 @@ LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.template=-1</PRE
 
    <P>(For <B>building</B>, see XBN-Java's <A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/overview-summary.html#install">installation instructions</A>. The Codelet build process is derived from XBN-Java's.)</P>
 
-   <H3>Downloads</H3>
+   <H3>Downloads for latest version: ${jd_project_version_number}</H3>
+
+   <P><I>View <A HREF="prev_versions.html">Release notes</A> (includes downloads and release notes for all previous versions)</I></P>
 
    <P><OL>
-      <LI>XBN-Java JAR (choose exactly one):<OL>
-         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_all.jar">{@code codelet_0p1p0_all.jar}</A>: Core classes, example code, and unit tests, with no dependencies.</LI>
-         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_core.jar">{@code codelet_0p1p0_core.jar}</A>: Core classes only, with no dependencies. Excludes unit tests and example code.</LI>
+      <LI>The Codelet jar, with no external dependencies (choose exactly one):<OL>
+         <LI><A HREF="../../download/codelet_${jd_project_version_number}_all.jar">{@code x}</A><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_${jd_project_version_number}_all.jar">{@code odelet_${jd_project_version_number}_all.jar}</A>: Core classes, example code, and unit tests.</LI>
+         <LI><A HREF="../../download/codelet_${jd_project_version_number}_core.jar">{@code c}</A><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_${jd_project_version_number}_core.jar">{@code odelet_${jd_project_version_number}_core.jar}</A>: Core classes only.</LI>
       </OL></LI>
-      <LI><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_usage_only_install_files.zip">{@code codelet_0p1p0_usage_only_install_files.zip}</A>: Includes the &quot;all&quot; Codelet jar, all of the jars Codelet depends on (JUnit and Ant jars are needed only for building Codelet), and the entire codelet configuration directory ({@code "codelet_config"})</LI>
-      <LI><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_source_code.jar">{@code codelet_0p1p0_source_code.jar}</A>: All source code, including proper, examples, unit tests, and all build files.</LI>
-      <LI><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_documentation.jar">{@code codelet_0p1p0_documentation.jar}</A>: JavaDoc documentation for local installation.</LI>
-   </OL></P>
+      <LI><A HREF="../../download/codelet_${jd_project_version_number}_config_and_dependency_jars.zip">{@code c}</A><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_${jd_project_version_number}_config_and_dependency_jars.zip">{@code odelet_${jd_project_version_number}_config_and_dependency_jars.jar}</A>: All external jars required to <I>use</I> Codelet.</LI>
+      <LI><A HREF="../../download/codelet_${jd_project_version_number}-sources.jar">{@code c}</A><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_${jd_project_version_number}-sources.jar">{@code odelet_${jd_project_version_number}-sources.jar}</A>: Source code, including all files necessary for building Codelet.</LI>
+      <LI><A HREF="../../download/codelet_${jd_project_version_number}-javadoc.jar">{@code c}</A><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_${jd_project_version_number}-javadoc.jar">{@code odelet_${jd_project_version_number}-javadoc.jar}</A>: JavaDoc documentation for local installation.</LI>
 
    <H4>Steps</H4>
 
    <P><OL>
-      <LI>Add the necessary items from {@code codelet_0p1p0_usage_only_install_files.zip} (download link above) to your classpath (see below)</LI>
+      <LI>Add the necessary items from {@code codelet_${jd_project_version_number}_config_and_dependency_jars.zip} (download link above) to your <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html">classpath</A>:
+
+<BLOCKQUOTE><PRE>INSTALLATION_DIR\codelet_${jd_project_version_number}_config_and_dependency_jars\dependency_jars\*
+INSTALLATION_DIR\codelet_${jd_project_version_number}_all.jar &nbsp; &nbsp; <I>(or {@code "_core.jar"})</PRE></BLOCKQUOTE></LI>
       <LI><A HREF="#install_taglets">Configure {@code javadoc}</A> to recognize Codelet taglets</LI>
       <LI><A HREF="#install_configure">Configure Codelet</A></LI>
    </OL></P>
 
-   <P><B>Installing required JARs onto your <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html">classpath</A>.</B></P>
-
-   <P>Add the following elements to your classpath:</P>
-
-   <P><OL>
-      <LI>{@code INSTALLATION_DIR\codelet_usage_only_install_files\jars\codelet_0p1p0_all.jar}</LI>
-      <LI>{@code INSTALLATION_DIR\codelet_usage_only_install_files\jars\commons-collections4-4.0.jar}</LI>
-      <LI>{@code INSTALLATION_DIR\codelet_usage_only_install_files\jars\commons-io-2.4.jar}</LI>
-      <LI>{@code INSTALLATION_DIR\codelet_usage_only_install_files\jars\commons-lang3-3.3.2.jar}</LI>
-      <LI>{@code INSTALLATION_DIR\codelet_usage_only_install_files\jars\guava-16.0.1.jar}</LI>
-      <LI>{@code INSTALLATION_DIR\codelet_usage_only_install_files\jars\templatefeather_0p1p0_all.jar}</LI>
-      <LI>{@code INSTALLATION_DIR\codelet_usage_only_install_files\jars\xbnjava_0p1p0_all.jar}</LI>
-   </OL></P>
-
-   <P>Details and alternatives:<OL>
-      <LI>Codelet: Exactly one of the following must be used (The above classpath-string assumes you've chosen {@code "codelet_0p1p0_all.jar"}):<OL>
-         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_all.jar">{@code codelet_0p1p0_all.jar}</A>: Core classes, example code, and unit tests</LI>
-         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_0p1p0_core.jar">{@code codelet_0p1p0_core.jar}</A>: Core classes only</I></LI>
-      </OL></LI>
-      <LI><A HREF="http://xbnjava.aliteralmind.com">XBN-Java</A>: Exactly one of the following must be used (The above classpath-string assumes {@code "xbnjava_0p1p0_all.jar"}):<OL>
-         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/download/xbnjava_0p1p0_core.jar">{@code xbnjava_0p1p0_core.jar}</A></LI>
-         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/download/xbnjava_0p1p0_all.jar">{@code xbnjava_0p1p0_all.jar}</A></I></LI>
-      </OL>While {@code commons-collections4-4.0.jar} is required by portions of XBN-Java, it may be safe to omit it. See XBN-Java's <A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/overview-summary.html#install">installation instructions</A> for details.</LI>
-      <LI><A HREF="http://templatefeather.aliteralmind.com">Template Featherweight</A>: Exactly one of the following must be used (The above classpath-string assumes {@code "templatefeather_0p1p0_all.jar"}):<OL>
-         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/templatefeather_0p1p0_core.jar">{@code templatefeather_0p1p0_core.jar}</A></LI>
-         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/templatefeather_0p1p0_all.jar">{@code templatefeather_0p1p0_all.jar}</A></I></LI>
-      </OL><I>{@code xbnjava_0p1p0_templatefeather_needed_only.jar} must be eliminated from your classpath, if it's there.</I></LI>
-      <LI><A HREF="https://code.google.com/p/guava-libraries/">Google Guava</A>, version 16.0.1</LI>
-   </OL></P>
-
    <A NAME="install_taglets"></A><H2><A HREF="#install"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Installation: <U>Custom taglets and the Codelet configuration directory</U></H2>
 
-   <P>Executing <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html">{@code javadoc}</A> in turn executes Codelet. Its four custom taglets must be registered, and the Codelet <A HREF="http://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html">system properties</A> must be passed to {@code javadoc.exe}:<OL>
-      <LI>{@link CodeletBootstrap#CODELET_CONFIG_DIR_SYS_PROP_NAME codelet_config_dir}: Required. The path to the directory in which all Codelet configuaration files exist. Must end with a file-separator (the value returned by <CODE>System.getProperty(&quot;file.separator&quot;, &quot;\\&quot;)</CODE>).</LI>
-      <LI>{@link CodeletTagletWithStaticBootstrap#DO_USE_LEGACYTAGLET_SYS_PROP_NAME do_use_legacytaglet}: A second, optional variable used for optimization only.</LI>
+   <P>Executing <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html">{@code javadoc}</A> in turn executes Codelet. Its four custom taglets must be registered, and the required Codelet <A HREF="http://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html">system property</A> must be passed to {@code javadoc.exe}:<OL>
+      <LI>{@link com.github.aliteralmind.codelet.CodeletBootstrap#CODELET_CONFIG_DIR_SYS_PROP_NAME codelet_config_dir}: The path to the directory in which all Codelet configuaration files exist. Must end with a file-separator (the value returned by <CODE>System.getProperty(&quot;file.separator&quot;, &quot;\\&quot;)</CODE>).</LI>
    </OL>.</P>
 
    <P>Executing Codelet at the <A HREF="http://docs.oracle.com/javase/7/docs/technotes/guides/javadoc/taglet/overview.html#writing">command-line</A>:</P>
 
-<BLOCKQUOTE>{@code javadoc -taglet com.github.aliteralmind.codelet.taglet.SourceCodeTaglet -taglet com.github.aliteralmind.codelet.taglet.SourceAndOutTaglet -taglet com.github.aliteralmind.codelet.taglet.ConsoleOutTaglet -taglet com.github.aliteralmind.codelet.taglet.FileTextTaglet -J-Dcodelet_config_dir=C:\java_code\codelet_0p1p0\doc-files\}</BLOCKQUOTE>
+<BLOCKQUOTE>{@code javadoc -taglet com.github.aliteralmind.codelet.taglet.SourceCodeTaglet -taglet com.github.aliteralmind.codelet.taglet.SourceAndOutTaglet -taglet com.github.aliteralmind.codelet.taglet.ConsoleOutTaglet -taglet com.github.aliteralmind.codelet.taglet.FileTextTaglet -J-Dcodelet_config_dir=C:\java_code\codelet_${jd_project_version_number}\${jd_project_codelet_config_dir}\}</BLOCKQUOTE>
 
    <P>Information on JavaDoc's <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#J">{@code -J} flag</A>, and <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html">{@code java}</A>'s <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html#CBBIJCHG">{@code -D} flag</A> (for the {@code -D} link, scroll down a bit).</P>
 
    <P>Executing Codelet with <A HREF="http://ant.apache.org/">Apache Ant</A>:</P>
 
 <BLOCKQUOTE><PRE>&lt;<A HREF="file:///C:/applications/programming/apache-ant-1.9.2/manual/Tasks/javadoc.html">javadoc</A> packagenames="my.package" sourcepath="C:\java_code\" destdir="${dir_build_docs_javadoc}"
-   additionalparam="-J-Dcodelet_config_dir=C:\java_code\codelet_0p1p0\doc-files\"&gt;
+   additionalparam="-J-Dcodelet_config_dir=C:\java_code\codelet_${jd_project_version_number}\${jd_project_codelet_config_dir}\"&gt;
       &lt;taglet name=&quot;com.github.aliteralmind.codelet.taglet.SourceCodeTaglet&quot;&gt;
       &lt;taglet name=&quot;com.github.aliteralmind.codelet.taglet.SourceAndOutTaglet&quot;&gt;
       &lt;taglet name=&quot;com.github.aliteralmind.codelet.taglet.ConsoleOutTaglet&quot;&gt;

@@ -110,7 +110,7 @@ public class ConstructorParamSearchTerm extends SimpleParamSigSearchTerm  {
       @return  <CODE>(new {@link ConstructorParamSearchTerm#ConstructorParamSearchTerm(String, Appendable, Appendable) ConstructorParamSearchTerm}(param_searchTerm, debugBasics_ifNonNull, dbgDoesMatch_ifNonNull)).
       <BR> &nbsp; &nbsp; {@link ConstructorParamSearchTerm#getOnlyMatch(List) getOnlyMatch}(all_sigs.{@link AllSimpleParamSignatures#getConstructorList() getConstructorList}).{@link ConstructorSimpleParamSig#getConstructor() getConstructor}()</CODE>
     **/
-   public static final Constructor getConstructorFromAllSigsAndSearchTerm(AllSimpleParamSignatures all_sigs, String param_searchTerm, Appendable debugBasics_ifNonNull, Appendable dbgDoesMatch_ifNonNull)  {
+   public static final Constructor<?> getConstructorFromAllSigsAndSearchTerm(AllSimpleParamSignatures all_sigs, String param_searchTerm, Appendable debugBasics_ifNonNull, Appendable dbgDoesMatch_ifNonNull)  {
       try  {
          return  (new ConstructorParamSearchTerm(param_searchTerm, debugBasics_ifNonNull, dbgDoesMatch_ifNonNull)).
             getOnlyMatch(all_sigs.getConstructorList()).getConstructor();

@@ -16,19 +16,19 @@ package  com.github.aliteralmind.codelet.examples;
    import  com.github.aliteralmind.codelet.CodeletInstance;
    import  com.github.aliteralmind.codelet.CodeletType;
    import  com.github.aliteralmind.codelet.CustomizationInstructions;
-   import  com.github.aliteralmind.codelet.alter.DefaultAlterGetterUtil;
+   import  com.github.aliteralmind.codelet.NewLineFilterFor;
    import  com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum;
    import  com.github.aliteralmind.codelet.alter.NewLineAltererFor;
-   import  com.github.aliteralmind.codelet.NewLineFilterFor;
    import  com.github.aliteralmind.codelet.examples.adder.Adder;
    import  com.github.aliteralmind.codelet.type.SourceCodeTemplate;
+   import  com.github.xbn.analyze.alter.AlterationRequired;
    import  com.github.xbn.analyze.alter.ExpirableElements;
    import  com.github.xbn.analyze.alter.MultiAlterType;
    import  com.github.xbn.array.NullElement;
-   import  com.github.xbn.regexutil.ReplacedInEachInput;
+   import  com.github.xbn.linefilter.FilteredLineIterator;
    import  com.github.xbn.linefilter.alter.NewTextLineAltererFor;
    import  com.github.xbn.linefilter.alter.TextLineAlterer;
-   import  com.github.xbn.linefilter.FilteredLineIterator;
+   import  com.github.xbn.regexutil.ReplacedInEachInput;
    import  java.util.regex.Pattern;
    import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 /**
@@ -104,7 +104,7 @@ public class LineRangeWithLinksCompact  {
          NewJDLinkForWordOccuranceNum.method(instance, debugPrefix, null,
             1, CustomizationInstructions.class, "defaultOrOverrideTemplate(*)"),
          ((!do_highlightDbgOnOff) ? null
-            :  NewTextLineAltererFor.replacement(
+            :  NewTextLineAltererFor.replacement(AlterationRequired.YES,
                   Pattern.compile("(on=System.out, off=null)"), "<span style=\"background-color: #FFFF00\">$1</span>",
                   ReplacedInEachInput.FIRST,
                   getDebugApblIfOn(instance, debugPrefix + ".highlightonoff"),

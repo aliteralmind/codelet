@@ -30,7 +30,7 @@ public class ConstructorSimpleParamSig extends SimpleParamNameSignature  {
 
       @param  cnstr  May not be {@code null}.
     **/
-   public ConstructorSimpleParamSig(Constructor cnstr)  {
+   public ConstructorSimpleParamSig(Constructor<?> cnstr)  {
       super(cnstr, ObjectOrCrashIfNull.<Constructor>get(cnstr, "cnstr").getParameterTypes());
    }
    /**
@@ -40,8 +40,8 @@ public class ConstructorSimpleParamSig extends SimpleParamNameSignature  {
 
       @see  #ConstructorSimpleParamSig(Constructor)
     **/
-   public Constructor getConstructor()  {
-      return  (Constructor)getMember();
+   public Constructor<?> getConstructor()  {
+      return  (Constructor<?>)getMember();
    }
    /**
       @return  {@code ""}

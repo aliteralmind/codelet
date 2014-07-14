@@ -16,7 +16,6 @@ package  com.github.aliteralmind.codelet.examples;
    import  com.github.aliteralmind.codelet.CodeletInstance;
    import  com.github.aliteralmind.codelet.CodeletType;
    import  com.github.aliteralmind.codelet.CustomizationInstructions;
-   import  com.github.aliteralmind.codelet.alter.DefaultAlterGetterUtil;
    import  com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum;
    import  com.github.aliteralmind.codelet.alter.NewLineAltererFor;
    import  com.github.aliteralmind.codelet.NewLineFilterFor;

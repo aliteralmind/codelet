@@ -14,13 +14,9 @@
 \*license*/
 package  com.github.aliteralmind.codelet;
    import  com.github.xbn.io.DebugLevel;
-   import  com.github.xbn.lang.CrashIfObject;
    import  com.github.xbn.lang.reflect.ReflectRtxUtil;
-   import  com.github.xbn.text.CrashIfString;
-   import  com.github.xbn.text.StringWithNullDefault;
    import  java.io.File;
    import  java.util.Objects;
-   import  static com.github.xbn.lang.XbnConstants.*;
 /**
    <P>Represents a single codelet-taglet, as found by {@code javadoc.exe}. Contains its basic elements that compose a single codelet: Its name, text, and enclosing class. Also contains the relative url to the JavaDoc root directory ({@code "{@docRoot}"}), and utility functions.</P>
 

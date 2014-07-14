@@ -16,16 +16,12 @@ package  com.github.aliteralmind.codelet;
    import  com.github.xbn.text.StringWithNullDefault;
    import  com.github.xbn.io.PlainTextFileUtil;
    import  org.apache.commons.io.FilenameUtils;
-   import  com.github.xbn.text.StringWithNullDefault;
    import  com.github.xbn.lang.CrashIfObject;
    import  com.github.xbn.text.CrashIfString;
-   import  com.github.xbn.text.StringUtil;
    import  com.github.xbn.lang.reflect.InvokeMethodWithRtx;
    import  com.github.xbn.lang.reflect.ReflectRtxUtil;
-   import  com.github.aliteralmind.codelet.simplesig.SimpleMethodSigFormatException;
    import  com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature;
    import  java.lang.reflect.Method;
-   import  java.lang.reflect.Modifier;
    import  java.nio.file.AccessDeniedException;
    import  java.nio.file.NoSuchFileException;
    import  java.util.Iterator;
@@ -163,7 +159,7 @@ public class TagletOfTypeProcessor<T extends CodeletTemplateBase>  {
          t.setDebug(instructions.getDefaultTemplateDebug(),
             (instructions.getDefaultTemplateDebug() != null));
       }  else  {
-         t = TemplateOverrides.INSTANCE.<T>get(getInstance(),
+         t = TemplateOverrides.<T>get(getInstance(),
             instructions.getDefaultTemplateDebug());
       }
       return  t;

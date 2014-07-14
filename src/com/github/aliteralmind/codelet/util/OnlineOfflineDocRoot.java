@@ -29,16 +29,13 @@ package  com.github.aliteralmind.codelet.util;
    import  com.github.xbn.text.StringUtil;
    import  com.github.xbn.util.IfError;
    import  com.github.xbn.util.JavaRegexes;
-   import  java.io.IOException;
    import  java.io.PrintWriter;
    import  java.util.ArrayList;
-   import  java.util.Arrays;
    import  java.util.Collections;
    import  java.util.Iterator;
    import  java.util.List;
    import  java.util.regex.Matcher;
    import  java.util.regex.Pattern;
-   import  static com.github.xbn.lang.XbnConstants.*;
 /**
    <P>Represents the <A HREF="http://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html#linkpackagelist">{@code package-list}</A> for a single external Java library, including a duplicate offline file that is automatically updated from it.</P>
 

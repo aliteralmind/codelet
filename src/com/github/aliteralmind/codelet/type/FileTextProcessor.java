@@ -24,7 +24,6 @@ package  com.github.aliteralmind.codelet.type;
    import  com.github.aliteralmind.codelet.TagletOfTypeProcessor;
    import  com.github.aliteralmind.codelet.TagletTextUtil;
    import  com.github.xbn.io.PlainTextFileUtil;
-   import  com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature;
    import  java.nio.file.AccessDeniedException;
    import  java.nio.file.NoSuchFileException;
    import  java.util.Iterator;
@@ -51,7 +50,7 @@ public class FileTextProcessor extends TagletOfTypeProcessor<FileTextTemplate>  
 
       Iterator<String> fileTextLineItr = getLineIteratorFromCodeletPath(instance);
 
-      String strSig = getStringSigForFileText();
+//		String strSig = getStringSigForFileText();
 //		SimpleMethodSignature sig = getCustomizerSigFromString(strSig);
 
       CustomizationInstructions<FileTextTemplate> instructions =
@@ -85,7 +84,7 @@ public class FileTextProcessor extends TagletOfTypeProcessor<FileTextTemplate>  
          Path path = Paths.get(TagletTextUtil.getFilePath(instance));
 
          PathMustBe pmb = new PathMustBe().existing().readable();
-         String namePost = "TagletTextUtil.getFilePath(instance)]";
+//			String namePost = "TagletTextUtil.getFilePath(instance)]";
 
          //First assume absolute. This also works if the path is relative to
          //the directory in which javadoc.exe was invoked.

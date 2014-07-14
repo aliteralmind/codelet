@@ -19,18 +19,13 @@ package  com.github.aliteralmind.codelet;
    import  com.github.xbn.linefilter.FilteredLineIterator;
    import  com.github.xbn.analyze.alter.ExpirableElements;
    import  com.github.xbn.analyze.alter.MultiAlterType;
-   import  com.github.xbn.analyze.validate.NewValidResultFilterFor;
-   import  com.github.xbn.analyze.validate.ValidResultFilter;
    import  com.github.xbn.array.NullElement;
-   import  com.github.xbn.lang.CrashIfObject;
    import  com.github.xbn.lang.IllegalArgumentStateException;
    import  com.github.xbn.regexutil.IgnoreCase;
-   import  com.github.xbn.regexutil.NewPatternFor;
    import  com.github.xbn.regexutil.ReplacedInEachInput;
    import  com.github.xbn.util.DefaultValueFor;
    import  com.github.xbn.util.EnumUtil;
    import  java.util.List;
-   import  java.util.regex.Pattern;
    import  java.util.regex.PatternSyntaxException;
    import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 /**

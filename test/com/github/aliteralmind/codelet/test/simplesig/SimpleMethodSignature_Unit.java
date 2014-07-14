@@ -23,7 +23,7 @@ public class SimpleMethodSignature_Unit  {
          SimpleMethodSignature.newFromStringAndDefaults(null, null, null, null, null);
          assertTrue(false);
       }  catch(ClassNotFoundException x)  {
-         assertEquals(null, x);
+         assertNull(x);
       }  catch(NullPointerException x)  {
          //sig null
          assertNotNull(x);
@@ -32,7 +32,7 @@ public class SimpleMethodSignature_Unit  {
          SimpleMethodSignature.newFromStringAndDefaults(String.class, "", null, null, null);
          assertTrue(false);
       }  catch(ClassNotFoundException x)  {
-         assertEquals(null, x);
+         assertNull(x);
       }  catch(IllegalArgumentException x)  {
          //invalid sig
          assertNotNull(x);
@@ -41,7 +41,7 @@ public class SimpleMethodSignature_Unit  {
          SimpleMethodSignature.newFromStringAndDefaults(String.class, "functionName", null, null, null);
          assertTrue(false);
       }  catch(ClassNotFoundException x)  {
-         assertEquals(null, x);
+         assertNull(x);
       }  catch(IllegalArgumentException x)  {
          //invalid sig
          assertNotNull(x);
@@ -50,7 +50,7 @@ public class SimpleMethodSignature_Unit  {
          SimpleMethodSignature.newFromStringAndDefaults(String.class, "functionName(", null, null, null);
          assertTrue(false);
       }  catch(ClassNotFoundException x)  {
-         assertEquals(null, x);
+         assertNull(x);
       }  catch(IllegalArgumentException x)  {
          //invalid sig
          assertNotNull(x);
@@ -59,7 +59,7 @@ public class SimpleMethodSignature_Unit  {
          SimpleMethodSignature.newFromStringAndDefaults(String.class, "functionName()", null, null, null);
          assertTrue(false);
       }  catch(ClassNotFoundException x)  {
-         assertEquals(null, x);
+         assertNull(x);
       }  catch(IllegalArgumentException x)  {
          //no class provided
          assertNotNull(x);
@@ -68,7 +68,7 @@ public class SimpleMethodSignature_Unit  {
          SimpleMethodSignature.newFromStringAndDefaults(String.class, "ClassName#functionName()", null, null, null);
          assertTrue(false);
       }  catch(ClassNotFoundException x)  {
-         assertEquals(null, x);
+         assertNull(x);
       }  catch(IllegalArgumentException x)  {
          //no package provided
          assertNotNull(x);
@@ -77,6 +77,8 @@ public class SimpleMethodSignature_Unit  {
          SimpleMethodSignature.newFromStringAndDefaults(String.class, "ClassName#functionName()", "", null, null);
          assertTrue(false);
       }  catch(ClassNotFoundException x)  {
+         assertNull(x);
+      }  catch(IllegalArgumentException x)  {
          //empty package
          assertNotNull(x);
       }
@@ -86,6 +88,8 @@ public class SimpleMethodSignature_Unit  {
       }  catch(ClassNotFoundException x)  {
          //invalid package
          assertNotNull(x);
+      }  catch(IllegalArgumentException x)  {
+         assertNull(x);
       }
       try  {
          SimpleMethodSignature.newFromStringAndDefaults(String.class, "ClassName#functionName()", "a", null, null);
@@ -112,7 +116,7 @@ public class SimpleMethodSignature_Unit  {
          simpleSig = SimpleMethodSignature.newFromStringAndDefaults(String.class, sig, null, new Class[]{SimpleMethodSignature_Unit.class}, null);
          assertTrue(true);
       }  catch(ClassNotFoundException x)  {
-         assertEquals(null, x);
+         assertNull(x);
       }
          assertEquals(SimpleMethodSignature_Unit.class, simpleSig.getMayContainFuncClass(0));
          assertEquals("functionName", simpleSig.getFunctionName());
@@ -122,7 +126,7 @@ public class SimpleMethodSignature_Unit  {
       try  {
          simpleSig = SimpleMethodSignature.newFromStringAndDefaults(String.class, sig, "com.github.aliteralmind.codelet.test.simplesig.", null, null);
       }  catch(ClassNotFoundException x)  {
-         assertEquals(null, x);
+         assertNull(x);
       }
          assertEquals(SimpleMethodSignature_Unit.class, simpleSig.getMayContainFuncClass(0));
          assertEquals("functionName", simpleSig.getFunctionName());
@@ -132,7 +136,7 @@ public class SimpleMethodSignature_Unit  {
       try  {
          simpleSig = SimpleMethodSignature.newFromStringAndDefaults(String.class, sig, null, null, null);
       }  catch(ClassNotFoundException x)  {
-         assertEquals(null, x);
+         assertNull(x);
       }
          assertEquals(SimpleMethodSignature_Unit.class, simpleSig.getMayContainFuncClass(0));
          assertEquals("functionName", simpleSig.getFunctionName());
@@ -142,7 +146,7 @@ public class SimpleMethodSignature_Unit  {
       try  {
          simpleSig = SimpleMethodSignature.newFromStringAndDefaults(String.class, sig, null, null, null);
       }  catch(ClassNotFoundException x)  {
-         assertEquals(null, x);
+         assertNull(x);
       }
          assertEquals(SimpleMethodSignature_Unit.class, simpleSig.getMayContainFuncClass(0));
          assertEquals("functionName", simpleSig.getFunctionName());
@@ -173,7 +177,7 @@ public class SimpleMethodSignature_Unit  {
       assertEquals(String.class, SimpleMethodSignature.getObjectFromString("\"hello\"").getClass());
       Object stringAsObj = SimpleMethodSignature.getObjectFromString("\"&quot;...&#44;...&amp;\"");
       assertEquals(String.class, stringAsObj.getClass());
-      assertEquals("\"...,", stringAsObj);
+      assertEquals("\"...,...&", stringAsObj);
 
       //Negative
          assertEquals(Byte.class, SimpleMethodSignature.getObjectFromString("(byte)-1").getClass());

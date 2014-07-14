@@ -27,8 +27,6 @@ package  com.github.aliteralmind.codelet.examples;
    import  com.github.xbn.analyze.alter.ExpirableElements;
    import  com.github.xbn.analyze.alter.MultiAlterType;
    import  com.github.xbn.array.NullElement;
-   import  com.github.xbn.regexutil.ReplacedInEachInput;
-   import  java.util.regex.Pattern;
    import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 /**
    <P>Custom <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#overview">customizers</A> used throughout {@code com.github.aliteralmind.codelet.examples}.</P>

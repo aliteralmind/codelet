@@ -4,7 +4,6 @@ package  com.github.aliteralmind.codelet.test.simplesig;
    import  com.github.aliteralmind.codelet.simplesig.MethodSigSearchTerm;
    import  com.github.xbn.lang.reflect.RTNoSuchMethodException;
    import  com.github.aliteralmind.codelet.simplesig.AllSimpleParamSignatures;
-   import  com.github.aliteralmind.codelet.simplesig.SimpleParamSigSearchTerm;
    import  com.github.xbn.lang.reflect.Declared;
    import  org.junit.Test;
    import  static org.junit.Assert.*;

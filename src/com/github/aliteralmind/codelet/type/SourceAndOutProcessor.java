@@ -15,13 +15,9 @@
 package  com.github.aliteralmind.codelet.type;
    import  com.github.xbn.text.StringUtil;
    import  com.github.aliteralmind.codelet.CustomizationInstructions;
-   import  com.github.aliteralmind.codelet.CodeletBaseConfig;
-   import  com.github.aliteralmind.codelet.CodeletFormatException;
    import  com.github.aliteralmind.codelet.CodeletInstance;
    import  com.github.aliteralmind.codelet.CodeletType;
    import  com.github.aliteralmind.codelet.TagletOfTypeProcessor;
-   import  com.github.aliteralmind.codelet.TagletTextUtil;
-   import  com.github.xbn.io.PlainTextFileUtil;
    import  com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature;
    import  java.nio.file.AccessDeniedException;
    import  java.nio.file.NoSuchFileException;

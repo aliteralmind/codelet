@@ -12,6 +12,8 @@
    </target>
 
    <target name="doc" description="Generates javadoc documentation.">
+      <copy file="${dir_sandbox}prev_versions.html" todir="${dir_build_docs_javadoc}"/>
+
       <!--
          Packages need to be delimited by both commas and colons.  In build.properties, it's only delimited by commas.  Commas (with or without spaces) are needed by the JavaDoc "packagenames" attribute, and colons (without spaces) are needed by the "group" sub-tags.
 
@@ -24,8 +26,8 @@
       <propertywithdynamicallynamedvalue propname="dir_main_or_gitonly_sandbox"
          valuepropname="dir_${main_or_gitonly}_sandbox"/>
 
-      <copy todir="${dir_build_docs_javadoc}doc-files">
-         <fileset dir="${dir_sandbox}doc-files"/>
+      <copy todir="${dir_build_docs_javadoc}">
+         <fileset dir="${dir_sandbox}${codelet.config.dir}"/>
       </copy>
       <copy todir="${dir_build_docs_javadoc}resources">
          <fileset dir="${dir_sandbox_needed_by_javadoc}" excludes="javadoc_stylesheet.css"/>
@@ -76,6 +78,10 @@
          <BOTTOM><![CDATA[<P><HR><CODE><B>Copyright 2014, Jeff Epstein</B>, All Rights Reserved.  See top of source code files for copyright notice.</CODE></P><P>&nbsp;</P><P><A HREF=\"https://github.com/aliteralmind/${project.name}\"><B><CODE>https://github.com/aliteralmind/${project.name}</CODE></B></A></P><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE>]]></BOTTOM>
       </javadoc>
 
+      <replace dir="${dir_build_docs_javadoc}" summary="yes"
+      	token="${jd_project_version_number}" value="${version.number}"/>
+      <replace dir="${dir_build_docs_javadoc}" summary="yes"
+      	token="${jd_project_codelet_config_dir}" value="${codelet.config.dir}"/>
 
       <replace dir="${dir_build_docs_javadoc}">
         <include name="**/*.html"/>
@@ -93,7 +99,7 @@
 </target>
 <target name="doc2" description="Generates javadoc documentation.">
 
-      <java classname="xbnjavabuild.AddLineBreakBeforeGenericsInJavaDocPackageList" failonerror="true">
+      <java classname="xbnjavabuild.AddLineBreakBeforeGenericsInJavaDocPackageList" failonerror="true" classpathref="project_classpath">
          <arg value="${dir_build_docs_javadoc}"/>
          <arg value="com.github.aliteralmind."/>
          <arg value="codelet"/>

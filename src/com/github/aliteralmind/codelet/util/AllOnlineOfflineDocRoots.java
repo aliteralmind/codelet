@@ -13,11 +13,9 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.util;
-   import  com.github.xbn.array.Duplicates;
    import  com.github.xbn.io.NewTextAppenterFor;
    import  com.github.xbn.lang.BadDuplicateException;
    import  com.github.xbn.lang.CrashIfObject;
-   import  com.github.xbn.list.MapUtil;
    import  com.github.xbn.util.IfError;
    import  java.util.Collections;
    import  java.util.Iterator;

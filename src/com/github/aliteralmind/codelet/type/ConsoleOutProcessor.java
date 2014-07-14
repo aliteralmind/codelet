@@ -15,7 +15,6 @@
 package  com.github.aliteralmind.codelet.type;
    import  com.github.xbn.text.StringUtil;
    import  com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature;
-   import  com.github.aliteralmind.codelet.CodeletFormatException;
    import  com.github.aliteralmind.codelet.CodeletInstance;
    import  com.github.aliteralmind.codelet.CodeletType;
    import  com.github.aliteralmind.codelet.CustomizationInstructions;

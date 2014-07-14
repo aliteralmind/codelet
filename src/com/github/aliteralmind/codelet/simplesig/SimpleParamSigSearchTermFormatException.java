@@ -23,6 +23,10 @@ package  com.github.aliteralmind.codelet.simplesig;
 
  **/
 public class SimpleParamSigSearchTermFormatException extends IllegalArgumentException  {
+   /**
+    * 
+    */
+   private static final long serialVersionUID = -1949647132297559513L;
    private final String strSig;
    public SimpleParamSigSearchTermFormatException(String search_term, String message)  {
       super(message +

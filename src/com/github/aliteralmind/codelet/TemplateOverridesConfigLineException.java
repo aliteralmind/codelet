@@ -22,6 +22,10 @@ package  com.github.aliteralmind.codelet;
 
  **/
 public class TemplateOverridesConfigLineException extends IllegalArgumentException  {
+   /**
+    * 
+    */
+   private static final long serialVersionUID = -1657372670112147061L;
    private final int lineNum;
    private final String line;
    public TemplateOverridesConfigLineException(int line_num, String line, String message)  {

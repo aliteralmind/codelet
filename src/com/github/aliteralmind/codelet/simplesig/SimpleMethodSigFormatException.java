@@ -23,6 +23,10 @@ package  com.github.aliteralmind.codelet.simplesig;
 
  **/
 public class SimpleMethodSigFormatException extends IllegalArgumentException  {
+   /**
+    * 
+    */
+   private static final long serialVersionUID = -7187385529111942307L;
    private final String strSig;
    public SimpleMethodSigFormatException(Object string_signature, String message)  {
       super(message +

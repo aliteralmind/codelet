@@ -91,7 +91,7 @@ public enum CodeletBootstrap  {
    /**
       <P>The name of the configuration file containing user-created named-debugging-levels--Equal to {@code "named_debuggers_config.txt"}.</P>
 
-      <P><I>(View <A HREF="{@docRoot}/doc-files/named_debuggers_config.txt">{@code {@docRoot}/doc-files/named_debuggers_config.txt}</A>.)</I></P>
+      <P><I>(View <A HREF="{@docRoot}/${jd_project_codelet_config_dir}/named_debuggers_config.txt">{@code {@docRoot}/${jd_project_codelet_config_dir}/named_debuggers_config.txt}</A>.)</I></P>
 
       <P>This file contains a list of zero or more {@linkplain com.github.aliteralmind.codelet.util.NamedDebuggers#newMapFromConfigFile(Map, Iterator, String, Appendable) names}, each of which is associated to a specific debugging task and {@linkplain CodeletBaseConfig#GLOBAL_DEBUG_LEVEL level}. These are in addition to those in the {@linkplain #CODELET_RQD_NAMED_DBGRS_CONFIG_FILE Codelet-required} configuration file.</P>
 
@@ -145,7 +145,7 @@ public enum CodeletBootstrap  {
    /**
       <P>The name of the configuration file containing  Codelet-required named debuggers--Equal to {@code "named_debuggers_CODELET_RQD.txt"}.</P>
 
-      <P><I>(View <A HREF="{@docRoot}/doc-files/named_debuggers_CODELET_RQD.txt">{@code {@docRoot}/doc-files/named_debuggers_CODELET_RQD.txt}</A>.)</I></P>
+      <P><I>(View <A HREF="{@docRoot}/${jd_project_codelet_config_dir}/named_debuggers_CODELET_RQD.txt">{@code {@docRoot}/${jd_project_codelet_config_dir}/named_debuggers_CODELET_RQD.txt}</A>.)</I></P>
 
       <P>This file contains a list of {@linkplain com.github.aliteralmind.codelet.util.NamedDebuggers#newMapFromConfigFile(Map, Iterator, String, Appendable) names}, each of which is associated to a specific debugging task and {@linkplain CodeletBaseConfig#GLOBAL_DEBUG_LEVEL level}. These are in addition to those in the {@linkplain #NAMED_DEBUGGERS_CONFIG_FILE user-created} configuration file.</P>
 
@@ -191,7 +191,7 @@ junit               http://junit.sourceforge.net/javadoc/</PRE></BLOCKQUOTE>
       <BR> &nbsp; &nbsp; <CODE>C:\java_code\my_package\codelet_config\offline_package_lists\commons_io.txt</CODE>
       <BR>The {@code ".txt"} postfix is {@linkplain CodeletBaseConfig#PKGLIST_OFFLINE_NAME_POSTFIX customizable}.</P>
 
-      <P><I>(View <A HREF="{@docRoot}/doc-files/external_doc_root_urls.txt">{@code {@docRoot}/doc-files/external_doc_root_urls.txt}</A>.)</I></P>
+      <P><I>(View <A HREF="{@docRoot}/${jd_project_codelet_config_dir}/external_doc_root_urls.txt">{@code {@docRoot}/${jd_project_codelet_config_dir}/external_doc_root_urls.txt}</A>.)</I></P>
 
       <P>This configuration file is loaded by <CODE>{@link com.github.aliteralmind.codelet.util.AllOnlineOfflineDocRoots}.{@link com.github.aliteralmind.codelet.util.AllOnlineOfflineDocRoots#newFromConfigLineIterator(Iterator, String, String, int, long, RefreshOffline, IfError, Appendable, Appendable) newFromConfigLineIterator}</CODE></P>
 

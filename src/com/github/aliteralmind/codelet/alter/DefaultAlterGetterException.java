@@ -13,7 +13,6 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.alter;
-   import  com.github.xbn.lang.CrashIfObject;
 /**
    <P>Indicates an unexpected error when working with the {@code DefaultAlterGetter}.</P>
 
@@ -23,6 +22,10 @@ package  com.github.aliteralmind.codelet.alter;
 
  **/
 public class DefaultAlterGetterException extends IllegalArgumentException  {
+   /**
+    * 
+    */
+   private static final long serialVersionUID = -4762503409940616023L;
    public DefaultAlterGetterException()  {
    }
    public DefaultAlterGetterException(String message)  {
