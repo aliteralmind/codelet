@@ -6,15 +6,17 @@
 
    <target name="jar" description="Creates the Codelet 'all' and 'core' jars.">
       <delete file="${dir_build_download_codelet_all_jar}"/>
-      <delete file="${dir_build_download}${project_name_for_dir}_core.jar"/>
+      <delete file="${dir_build_download}${project_name_for_dir}.jar"/>
       <jar destfile="${dir_build_download_codelet_all_jar}"
          basedir="${build.class.dir}"
          includes="${com_github_alit}codelet${fs}**/*.class,${com_github_alit}codelet${fs}**/*.class,${com_github_alit}codelet${fs}**/*.class"
       />
-      <jar destfile="${dir_build_download}${project_name_for_dir}_core.jar"
+      <jar destfile="${dir_build_download}${project_name_for_dir}.jar"
          basedir="${build.class.dir}"
-         includes="${com_github_alit}codelet${fs}**/*.class"
-         excludes="examples${fs}**/*.class,test${fs}**/*.class"
+         includes="${cg_alit_codelet}**/*.class"
+         excludes="${cg_alit_codelet}examples/**/*.class,${cg_alit_codelet}test/**/*.class"
       />
+<!--
+ -->
    </target>
 </project>

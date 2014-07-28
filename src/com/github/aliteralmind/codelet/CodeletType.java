@@ -31,7 +31,7 @@ public enum CodeletType  {
 
       <H3>{@code {@.codelet}}: Format</H3>
 
-      <P><CODE>{&#64;.codelet <I>fully.qualified.ClassName</I>[:<A HREF="CustomizationInstructions.html#overview">lineProcessorFunction</A>()]}</CODE></P>
+      <P><CODE>{&#64;.codelet <I>fully.qualified.ClassName</I>[:<A HREF="CustomizationInstructions.html#overview">customizerFunction</A>()]}</CODE></P>
 
       <P>The customizer portion is optional, but when provided, must be preceded by a {@linkplain CodeletInstance#CUSTOMIZER_PREFIX_CHAR percent sign} ({@code '%'}).</P>
 
@@ -68,7 +68,7 @@ public enum CodeletType  {
 
       <H3>{@code {@.codelet.out}}: Format</H3>
 
-      <P><CODE>{&#64;.codelet.out <I>fully.qualified.ClassName</I>[(&quot;Command line params&quot;, false, -1)][:<A HREF="CustomizationInstructions.html#overview">lineProcessorFunction</A>()]}</CODE></P>
+      <P><CODE>{&#64;.codelet.out <I>fully.qualified.ClassName</I>[(&quot;Command line params&quot;, false, -1)][:<A HREF="CustomizationInstructions.html#overview">customizerFunction</A>()]}</CODE></P>
 
       <P><UL>
          <LI>The command-line parameters are optional. When not provided, an empty string array is passed to the example-code's <A HREF="http://docs.oracle.com/javase/tutorial/getStarted/application/index.html#MAIN">{@code main} function</A>. When provided, it must be formatted as specified by
@@ -137,15 +137,33 @@ public enum CodeletType  {
 
       <H3>{@code {@.file.textlet}}: Format</H3>
 
-      <P><CODE>{&#64;.file.textlet <I>path\to\file.txt</I>[:<A HREF="CustomizationInstructions.html#overview">lineProcessorFunction</A>()]}</CODE></P>
+      <P><CODE>{&#64;.file.textlet <I>path\to\file.txt</I>[:<A HREF="CustomizationInstructions.html#overview">customizerFunction</A>()]}</CODE></P>
 
-      <P>Replaced with all lines in a plain-text file, such as for displaying an example code's input. The path may be<UL>
+      <P>Replaced with all lines in a plain-text file, such as for displaying an example code's input. The <B>customizer function</B> is optional. The <B>path</B> may be<UL>
          <LI><A HREF="http://docs.oracle.com/javase/tutorial/essential/io/path.html#relative">absolute</A>,</LI>
          <LI>relative to the directory in which {@code javadoc.exe} was invoked, or,</LI>
          <LI>relative to the directory of the taglet's {@linkplain CodeletInstance#getEnclosingFile() enclosing file}.</LI>
       </UL>This list also represents the order in which the search occurs.</P>
 
-      <P>The customizer portion is optional.</P>
+      <P><I>(New for version {@code 0.1.3}):</I> Absolute paths must contain the <A HREF="http://en.wikipedia.org/wiki/Path_(computing)#Representations_of_paths_by_operating_system_and_shell">file separators exactly as required by your system</A> (such as {@code "C:\directory\subdir\file.txt"}). Otherwise all <I>single</I> url-slashes ({@code '/'}) used as file separators are changed to</P>
+
+<BLOCKQUOTE><PRE>{@link java.lang.System}.{@link java.lang.System#getProperty(String) getProperty}("file.separator", &quot;\\&quot;)</PRE></BLOCKQUOTE>
+
+      <P>For example, on Microsoft Windows, {@code "java_code/input.txt"} is changed to {@code "java_code\input.txt"}.</P>
+
+      <P><I>(New for version {@code 0.1.3}):</I> A single environment variable may be used to prefix the path. For example:</P>
+
+<BLOCKQUOTE><PRE>$&lt;base_directory&gt;/filelets/input.txt</PRE></BLOCKQUOTE>
+
+      <P>When used, it is required that the first two characters in the path are <CODE>&quot;$&lt;&quot;</CODE>, followed by the environment variable, followed by a close curly (<CODE>'&gt;'</CODE>). This environment variable, as returned by <I>either</I></P>
+
+<BLOCKQUOTE><PRE>{@link java.lang.System}.{@link java.lang.System#getProperty(String) getProperty}(&quot;base_directory&quot;)</PRE></BLOCKQUOTE>
+
+or
+
+<BLOCKQUOTE><PRE>System.{@link java.lang.System#getenv(String) getenv}(&quot;base_directory&quot;)</PRE></BLOCKQUOTE>
+
+      <P>The value must be a non-null, non-empty value, and must either a system property or environment variable--not both.</P>
 
       @see  #SOURCE_CODE
       @see  #isFileText()

@@ -46,6 +46,7 @@
          version="true"
          windowtitle="Codelet"
          nodeprecatedlist="yes"
+         classpathref="project_classpath"
          additionalparam="-J-Dcodelet_config_dir=${dir_sandbox}${codelet.config.dir}${fs}"
       >
          <sourcepath>
@@ -79,7 +80,7 @@
       </javadoc>
 
       <replace dir="${dir_build_docs_javadoc}" summary="yes"
-      	token="${jd_project_version_number}" value="${version.number}"/>
+      	token="${project_version_for_jd}" value="${version.number}"/>
       <replace dir="${dir_build_docs_javadoc}" summary="yes"
       	token="${jd_project_codelet_config_dir}" value="${codelet.config.dir}"/>
 

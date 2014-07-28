@@ -76,29 +76,54 @@ public class FileTextProcessor extends TagletOfTypeProcessor<FileTextTemplate>  
          //See CodeletInstance.FILE_TEXT
 
          if(doDebug)  {
-            debugln("Obtaining line iterator to {@.file.textlet} file (expected file-separator is '" + FILE_SEP + "')...");
+            debugln("Obtaining line iterator to {@.file.textlet} file...");
             debugln("   - Raw file path from {@.file.textlet}:  " + getClassOrFilePortion());
             debugln("   - TagletTextUtil.getFilePath(instance): " + TagletTextUtil.getFilePath(instance));
          }
 
-         Path path = Paths.get(TagletTextUtil.getFilePath(instance));
+         String pathStr = getPathStrWithEnvVarPrefix(instance, doDebug);
 
          PathMustBe pmb = new PathMustBe().existing().readable();
-//			String namePost = "TagletTextUtil.getFilePath(instance)]";
 
-         //First assume absolute. This also works if the path is relative to
-         //the directory in which javadoc.exe was invoked.
-
+         /*
+            First assume absolute. This also works if the path is relative to the directory in which javadoc.exe was invoked (and the file separators happen to be correct for the OS).
+          */
+         Path path = Paths.get(pathStr);
          if(pmb.isGood(path))  {
             if(doDebug)  {
-               debugln("   SUCCESS: Path is either absolute, or relative to the directory in which javadoc.exe was invoked.");
+               debugln("   SUCCESS: Path is either absolute, or relative to the directory in which javadoc.exe was invoked (note: file-separators not yet changed).");
             }
 
             return  PlainTextFileUtil.getLineIterator(path.toString(), "[path to file]");
          }
 
-         //It's not absolute or relative to the invoking directory.
-         //It must be relative to the enclosing file, or die.
+
+         if(doDebug)  {
+            debugln("   Replacing all '/' file separators with \"" + FILE_SEP + "\"...");
+         }
+         if(!FILE_SEP.equals("/"))  {
+            if(doDebug)  {
+               debugln("   This system's file separator is already '/'. Nothing to change.");
+            }
+         }  else  {
+            pathStr.replace("/", FILE_SEP);
+         }
+
+         //It's not absolute.
+         /*
+            It's also not relative to the javadoc.exe-invoking directory (the current working directory: cwd) WITH THE ORIGINAL FILE-SEPARATORS. Let's try again now with the new file separators.
+          */
+         path = Paths.get(pathStr);
+         if(pmb.isGood(path))  {
+            if(doDebug)  {
+               debugln("   SUCCESS: Path is relative to the directory in which javadoc.exe was invoked.");
+            }
+
+            return  PlainTextFileUtil.getLineIterator(path.toString(), "[path to file]");
+         }
+
+         //It's not relative to the cwd. It must be relative to the enclosing
+         //file. If it's not, die.
 
          String parentPath = instance.getEnclosingFile().getParent();
 
@@ -119,6 +144,57 @@ public class FileTextProcessor extends TagletOfTypeProcessor<FileTextTemplate>  
          }
 
          return  PlainTextFileUtil.getLineIterator(path.toString(), "[path to {@.file.textlet} file]");
+      }
+      private final String getPathStrWithEnvVarPrefix(CodeletInstance instance, boolean do_debug)  {
+
+         //See com.github.aliteralmind.codelet.CodeletType#FILE_TEXT
+
+         String rawPath = TagletTextUtil.getFilePath(instance);
+
+         if(!rawPath.startsWith("$<"))  {
+            return  rawPath;
+         }
+
+         int idxCloseCurly = rawPath.indexOf('>');
+
+         String envVarName = null;
+         try  {
+            envVarName = rawPath.substring("$<".length(), idxCloseCurly);
+         }    catch(StringIndexOutOfBoundsException sbx)  {
+            throw  new CodeletFormatException(instance, "File path begins \"$<\", but close sharp ('>') not found.", sbx);
+         }
+         String envVar = System.getenv(envVarName);
+         String sysProp = System.getProperty(envVarName);
+
+         boolean isEnvVar = (envVar != null  &&  envVar.length() > 0);
+         boolean isSysProp = (sysProp != null  &&  sysProp.length() > 0);
+
+         if(isEnvVar)  {
+            if(isSysProp)  {
+               throw  new CodeletFormatException(instance, "File path begins with \"$<" + envVarName + ">\". \"" + envVarName + "\" is both an environment variable and a system property. It must be one or the other." + LINE_SEP +
+                  "System.getenv(\"" + envVarName + "\")=\"" + envVar + "\"" + LINE_SEP +
+                  "System.getProperty(\"" + envVarName + "\")=\"" + sysProp + "\"");
+            }
+
+         }  else if(isSysProp)  {
+            envVar = sysProp;
+         }  else  {
+            throw  new CodeletFormatException(instance, "File path begins with \"$<" + envVarName + ">\". The value of both System.getenv(\"" + envVarName + "\") (" +
+               ((envVar == null) ? "null" : "\"\"") +
+               ") and System.getProperty(\"" + envVarName + "\"), (" +
+               ((sysProp == null) ? "null" : "\"\"") +
+               ") are null/empty-string.");
+         }
+
+         if(do_debug)  {
+            debugln("   " +
+               (isSysProp ? "System property" : "Environment variable") +
+               " found: Name=" + envVarName + ", value=" + envVar + "");
+            debugln("   - Raw file path from {@.file.textlet}:  " + getClassOrFilePortion());
+            debugln("   - TagletTextUtil.getFilePath(instance): " + TagletTextUtil.getFilePath(instance));
+         }
+
+         return  envVar + rawPath.substring(idxCloseCurly + 1);
       }
    /**
       <P>Get the string signature for a {@code {@.file.textlet}} taglets only. Except where noted, this does not validate the taglet text or the returned signature.</P>

@@ -15,7 +15,7 @@
    <property name="fs" value="${file.separator}"/>      <!-- Shortcut -->
 
    <property name="project_name_fs" value="${project.name}${fs}"/>
-   <property name="project_name_for_dir" value="${project.name}_${version.number}"/>
+   <property name="project_name_for_dir" value="${project.name}-${version.number}"/>
 
    <!-- com.github.xbn..., ignoring base directories -->
    <property name="com_github_alit" value="com${fs}github${fs}aliteralmind${fs}"/>
@@ -38,7 +38,7 @@
       <property name="dir_classes" value="${dir_classes_parent}${com_github_alit}"/>
    <property name="dir_build" value="${dir_build_parent}${project_name_for_dir}${fs}"/>
    <property name="dir_build_download" value="${dir_build}download${fs}"/>
-      <property name="dir_build_download_codelet_all_jar" value="${dir_build_download}${project_name_for_dir}_all.jar"/>
+      <property name="dir_build_download_codelet_all_jar" value="${dir_build_download}${project_name_for_dir}-all.jar"/>
       <property name="dir_bld_docs" value="${dir_build}documentation${fs}"/>
          <property name="dir_build_docs_javadoc" value="${dir_bld_docs}javadoc${fs}"/>
 
@@ -61,8 +61,8 @@
          <include name="commons-io-2.4.jar"/>
          <include name="commons-lang3-3.3.2.jar"/>
          <include name="junit-4.8.2.jar"/>
-         <include name="xbnjava_0p1p0_all.jar"/>
-         <include name="templatefeather_0p1p0_all.jar"/>
+         <include name="xbnjava_0p1p0-all.jar"/>
+         <include name="templatefeather_0p1p0-all.jar"/>
          <include name="guava-16.0.1.jar"/>
       </fileset>
  -->
@@ -97,8 +97,12 @@ To do a full build of Codelet:  ant publish</echo>
          optional="true"/>
 
    <target name="copyxbnandtmpljars" description="Duplicates the 'core' jars files from the XBN-Java and Template Featherweight build directories.">
-      <copy file="${base.dir}\\build\\${xbnjava_project_name_and_version}\\download\\${xbnjava_project_name_and_version}_all.jar" todir="${dir_sandbox_jar_dependencies}"/>
-      <copy file="${base.dir}\\build\\${templatefeather_project_name_and_version}\\download\\${templatefeather_project_name_and_version}_all.jar" todir="${dir_sandbox_jar_dependencies}"/>
+      <property name="xbnjava_project_name_and_version" value="xbnjava-${xbnjava_project_version}"/>
+<echo>xbnjava_project_name_and_version=${xbnjava_project_name_and_version}</echo>
+      <copy file="${base.dir}\\build\\${xbnjava_project_name_and_version}\\download\\${xbnjava_project_name_and_version}-all.jar" todir="${dir_sandbox_jar_dependencies}"/>
+
+      <property name="templatefeather_project_name_and_version" value="templatefeather-${templatefeather_project_version}"/>
+      <copy file="${base.dir}\\build\\${templatefeather_project_name_and_version}\\download\\${templatefeather_project_name_and_version}-all.jar" todir="${dir_sandbox_jar_dependencies}"/>
    </target>
    <target name="-autocopyxbnandtmpljars" if="do.auto.copy.xbn.jars">
       <antcall target="copyxbnandtmpljars"/>
@@ -124,11 +128,12 @@ To do a full build of Codelet:  ant publish</echo>
       <antcall target="publish3"/>
    </target>
 
-   <target name="publish3" description="compiletests, unit, jar, doczip">
+   <target name="publish3" description="compiletests, unit, jar, doczip, preppom">
       <antcall target="compiletests"/>
       <antcall target="unit"/>
       <antcall target="jar"/>
       <antcall target="doczip"/>
+      <antcall target="preppom"/>
    </target>
 
    <target name="unit" description="Executes com.github.xbn.unittests.UnitTestRunner">
@@ -145,6 +150,21 @@ To do a full build of Codelet:  ant publish</echo>
       <antcall target="zip"/>
       <antcall target="zip2"/>
       <record name="${dir_build}javadoc_and_zip_log.txt" action="stop"/>
+   </target>
+
+   <target name="pp" description="Shortcut for preppom.">
+      <antcall target="preppom"/>
+   </target>
+   <target name="preppom" description="Moves z_build/pom_source_file.xml to pom.xml, and sets the proper version number.">
+      <property name="pom_xml_dest" value="${dir_sandbox}pom.xml"/>
+      <delete file="${pom_xml_dest}"/><!-- Originates in task preppom. Needed by task clean -->
+      <copy file="${dir_sandbox_bldfiles}pom_source_file.xml" tofile="${pom_xml_dest}"/>
+      <replace file="${pom_xml_dest}" summary="yes"
+         token="^{project_version_number}" value="${version.number}"/>
+      <replace file="${pom_xml_dest}" summary="yes"
+         token="^{project_build_dir}" value="${dir_build_parent}"/>
+      <replace file="${pom_xml_dest}" summary="yes"
+         token="^{templatefeather_project_version}" value="${templatefeather_project_version}"/>
    </target>
 
    <!-- See http://ant.apache.org/faq.html#propertyvalue-as-name-for-property -->

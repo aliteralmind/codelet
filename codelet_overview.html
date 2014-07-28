@@ -3,7 +3,7 @@
       <LI>Displaying only a portion of an example's source code (code snippets).</LI>
       <LI>Making the <I>first appearance</I> of a function, constructor, class, or field name into a clickable JavaDoc link.</LI>
       <LI>Syntax highlighting with the <A HREF="http://alexgorbatchev.com/SyntaxHighlighter">SyntaxHighlighter</A> JavaScript library (<I>TO-DO</I>).</LI>
-   </OL></P>
+   </OL>Codelet is built in the spirit of Python's <A HREF="https://docs.python.org/2/library/doctest.html">{@code doctest}</A> module (along with <A HREF="http://docutils.sourceforge.net/rst.html">reStructuredText</A> and <A HREF="http://sphinx-doc.org/">Sphinx</A>), </P>
 
    <P><TABLE ALIGN="center" WIDTH="100%" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
       <TD><B><U>Type</U></B></TD>
@@ -25,7 +25,7 @@
       <TD>Prints both source-code and its output.</TD>
    </TR><TR>
       <TD>{@link com.github.aliteralmind.codelet.CodeletType#FILE_TEXT {@.file.textlet}}</TD>
-      <TD>{@code {@.file.textlet fully\qualified\examples\doc-files\input.txt}}</TD>
+      <TD>{@code {@.file.textlet fully/qualified/examples/doc-files/input.txt}}</TD>
       <TD>Replaced with all lines in a plain-text file, such as for displaying an example code's input.</TD>
    </TR></TABLE></P>
 
@@ -49,9 +49,9 @@
    </OL></P>
 
    <P>Other:<OL>
-      <LI>Codelet is hosted by GitHib: <A HREF="http://github.com/aliteralmind/codelet">Project page</A>, <A HREF="https://github.com/aliteralmind/codelet/issues">issue tracker</A>, <A HREF="https://github.com/aliteralmind/codelet/wiki">Wiki</A></LI>
+      <LI>Codelet is hosted by GitHub: <A HREF="http://github.com/aliteralmind/codelet">Project page</A>, <A HREF="https://github.com/aliteralmind/codelet/issues">issue tracker</A>, <A HREF="https://github.com/aliteralmind/codelet/wiki">Wiki</A></LI>
       <LI>Generation reports: <A HREF="../../build_log.txt">Full build</A>, <A HREF="../../javadoc_log.txt">JavaDoc only</A></LI>
-      <LI>Other downloads: <A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_${jd_project_version_number}_documentation.zip">JavaDoc</A>, <A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_${jd_project_version_number}_source_code.zip">source code</A> (including build-files)</LI>
+      <LI>Other downloads: <A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet-${project_version_for_jd}_documentation.zip">JavaDoc</A>, <A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet-${project_version_for_jd}_source_code.zip">source code</A> (including build-files)</LI>
       <LI>I use <CODE>com.github.xbn.testdev.{@link com.github.xbn.testdev.VerifyApplicationOutput}</CODE> to unit test applications.</LI>
       <LI><B>Thanks</B> go to <A HREF="http://stackoverflow.com/users/1093528/fge">fge</A> and <A HREF="http://stackoverflow.com/users/13379/michael">Michael</A> for the technical comments and suggestions (fge came with <I>lowercase</I> &quot;codelet&quot;), to Gregg Stebben for the support, and especially to Sherrie.</LI>
    </OL></P>
@@ -126,7 +126,7 @@ Codelet: Example: <U>Hello Codelet!</U>: A basic use</H2>
 
    <P>and</P>
 
-<PRE>     {&#64;.file.textlet examples\com\github\aliteralmind\codelet\examples\adder\AdderDemo.java%eliminateCommentBlocksAndPackageDecl()}
+<PRE>     {&#64;.file.textlet examples/com/github/aliteralmind/codelet/examples/adder/AdderDemo.java%eliminateCommentBlocksAndPackageDecl()}
      {&#64;.codelet.out com.github.aliteralmind.codelet.examples.adder.AdderDemo}</PRE>
 
 <P><I>({@linkplain com.github.aliteralmind.codelet.examples.TrivialTestClassForFileTextletWithCustomizer View the  above.})</I></P>
@@ -294,26 +294,34 @@ LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.template=-1</PRE
 
    <P>(For <B>building</B>, see XBN-Java's <A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/overview-summary.html#install">installation instructions</A>. The Codelet build process is derived from XBN-Java's.)</P>
 
-   <H3>Downloads for latest version: ${jd_project_version_number}</H3>
+   <H3>Apache Maven</H3>
+
+<BLOCKQUOTE><PRE>&lt;dependency&gt;
+   &lt;groupId&gt;com.github.aliteralmind&lt;/groupId&gt;
+   &lt;artifactId&gt;codelet&lt;/artifactId&gt;
+   &lt;version&gt;${project_version_for_jd}&lt;/version&gt;
+&lt;/dependency&gt;</PRE></BLOCKQUOTE>
+
+   <H3>Downloads for latest version: ${project_version_for_jd}</H3>
 
    <P><I>View <A HREF="prev_versions.html">Release notes</A> (includes downloads and release notes for all previous versions)</I></P>
 
    <P><OL>
       <LI>The Codelet jar, with no external dependencies (choose exactly one):<OL>
-         <LI><A HREF="../../download/codelet_${jd_project_version_number}_all.jar">{@code x}</A><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_${jd_project_version_number}_all.jar">{@code odelet_${jd_project_version_number}_all.jar}</A>: Core classes, example code, and unit tests.</LI>
-         <LI><A HREF="../../download/codelet_${jd_project_version_number}_core.jar">{@code c}</A><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_${jd_project_version_number}_core.jar">{@code odelet_${jd_project_version_number}_core.jar}</A>: Core classes only.</LI>
+         <LI><A HREF="../../download/codelet-${project_version_for_jd}-all.jar">{@code c}</A><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet-${project_version_for_jd}-all.jar">{@code odelet_${project_version_for_jd}-all.jar}</A>: Core classes, example code, and unit tests.</LI>
+         <LI><A HREF="../../download/codelet-${project_version_for_jd}.jar">{@code c}</A><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet-${project_version_for_jd}.jar">{@code odelet_${project_version_for_jd}.jar}</A>: Core classes only.</LI>
       </OL></LI>
-      <LI><A HREF="../../download/codelet_${jd_project_version_number}_config_and_dependency_jars.zip">{@code c}</A><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_${jd_project_version_number}_config_and_dependency_jars.zip">{@code odelet_${jd_project_version_number}_config_and_dependency_jars.jar}</A>: All external jars required to <I>use</I> Codelet.</LI>
-      <LI><A HREF="../../download/codelet_${jd_project_version_number}-sources.jar">{@code c}</A><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_${jd_project_version_number}-sources.jar">{@code odelet_${jd_project_version_number}-sources.jar}</A>: Source code, including all files necessary for building Codelet.</LI>
-      <LI><A HREF="../../download/codelet_${jd_project_version_number}-javadoc.jar">{@code c}</A><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet_${jd_project_version_number}-javadoc.jar">{@code odelet_${jd_project_version_number}-javadoc.jar}</A>: JavaDoc documentation for local installation.</LI>
+      <LI><A HREF="../../download/codelet-${project_version_for_jd}_config_and_dependency_jars.zip">{@code c}</A><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet-${project_version_for_jd}_config_and_dependency_jars.zip">{@code odelet_${project_version_for_jd}_config_and_dependency_jars.jar}</A>: All external jars required to <I>use</I> Codelet, including {@code tools.jar} from the JDK 1.7_51, which contains {@code com.sun.javadoc} and {@code com.sun.tools.doclets}.</LI>
+      <LI><A HREF="../../download/codelet-${project_version_for_jd}-sources.jar">{@code c}</A><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet-${project_version_for_jd}-sources.jar">{@code odelet_${project_version_for_jd}-sources.jar}</A>: Source code, including all files necessary for building Codelet.</LI>
+      <LI><A HREF="../../download/codelet-${project_version_for_jd}-javadoc.jar">{@code c}</A><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/codelet-${project_version_for_jd}-javadoc.jar">{@code odelet_${project_version_for_jd}-javadoc.jar}</A>: JavaDoc documentation for local installation.</LI>
 
    <H4>Steps</H4>
 
    <P><OL>
-      <LI>Add the necessary items from {@code codelet_${jd_project_version_number}_config_and_dependency_jars.zip} (download link above) to your <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html">classpath</A>:
+      <LI>Add the necessary items from {@code codelet_${project_version_for_jd}_config_and_dependency_jars.zip} (download link above) to your <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html">classpath</A>:
 
-<BLOCKQUOTE><PRE>INSTALLATION_DIR\codelet_${jd_project_version_number}_config_and_dependency_jars\dependency_jars\*
-INSTALLATION_DIR\codelet_${jd_project_version_number}_all.jar &nbsp; &nbsp; <I>(or {@code "_core.jar"})</PRE></BLOCKQUOTE></LI>
+<BLOCKQUOTE><PRE>INSTALLATION_DIR\codelet_${project_version_for_jd}_config_and_dependency_jars\dependency_jars\*
+INSTALLATION_DIR\codelet_${project_version_for_jd}-all.jar &nbsp; &nbsp; <I>(or {@code ".jar"})</PRE></BLOCKQUOTE></LI>
       <LI><A HREF="#install_taglets">Configure {@code javadoc}</A> to recognize Codelet taglets</LI>
       <LI><A HREF="#install_configure">Configure Codelet</A></LI>
    </OL></P>
@@ -326,14 +334,14 @@ INSTALLATION_DIR\codelet_${jd_project_version_number}_all.jar &nbsp; &nbsp; <I>(
 
    <P>Executing Codelet at the <A HREF="http://docs.oracle.com/javase/7/docs/technotes/guides/javadoc/taglet/overview.html#writing">command-line</A>:</P>
 
-<BLOCKQUOTE>{@code javadoc -taglet com.github.aliteralmind.codelet.taglet.SourceCodeTaglet -taglet com.github.aliteralmind.codelet.taglet.SourceAndOutTaglet -taglet com.github.aliteralmind.codelet.taglet.ConsoleOutTaglet -taglet com.github.aliteralmind.codelet.taglet.FileTextTaglet -J-Dcodelet_config_dir=C:\java_code\codelet_${jd_project_version_number}\${jd_project_codelet_config_dir}\}</BLOCKQUOTE>
+<BLOCKQUOTE>{@code javadoc -taglet com.github.aliteralmind.codelet.taglet.SourceCodeTaglet -taglet com.github.aliteralmind.codelet.taglet.SourceAndOutTaglet -taglet com.github.aliteralmind.codelet.taglet.ConsoleOutTaglet -taglet com.github.aliteralmind.codelet.taglet.FileTextTaglet -J-Dcodelet_config_dir=C:\java_code\codelet_${project_version_for_jd}\${jd_project_codelet_config_dir}\}</BLOCKQUOTE>
 
    <P>Information on JavaDoc's <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#J">{@code -J} flag</A>, and <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html">{@code java}</A>'s <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html#CBBIJCHG">{@code -D} flag</A> (for the {@code -D} link, scroll down a bit).</P>
 
    <P>Executing Codelet with <A HREF="http://ant.apache.org/">Apache Ant</A>:</P>
 
 <BLOCKQUOTE><PRE>&lt;<A HREF="file:///C:/applications/programming/apache-ant-1.9.2/manual/Tasks/javadoc.html">javadoc</A> packagenames="my.package" sourcepath="C:\java_code\" destdir="${dir_build_docs_javadoc}"
-   additionalparam="-J-Dcodelet_config_dir=C:\java_code\codelet_${jd_project_version_number}\${jd_project_codelet_config_dir}\"&gt;
+   additionalparam="-J-Dcodelet_config_dir=C:\java_code\codelet_${project_version_for_jd}\${jd_project_codelet_config_dir}\"&gt;
       &lt;taglet name=&quot;com.github.aliteralmind.codelet.taglet.SourceCodeTaglet&quot;&gt;
       &lt;taglet name=&quot;com.github.aliteralmind.codelet.taglet.SourceAndOutTaglet&quot;&gt;
       &lt;taglet name=&quot;com.github.aliteralmind.codelet.taglet.ConsoleOutTaglet&quot;&gt;

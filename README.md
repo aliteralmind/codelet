@@ -32,7 +32,7 @@ Prints both source-code and its output.
 
 Replaced with all lines in a plain-text file, such as for displaying an example code's input.
 
-**Example:** `{@.file.textlet fully\qualified\examples\doc-files\input.txt}`
+**Example:** `{@.file.textlet fully/qualified/examples/doc-files/input.txt}`
 
 ---
 
@@ -151,7 +151,7 @@ The [customizer](./com/github/aliteralmind/codelet/CustomizationInstructions.htm
 
    and
 
-     {@.file.textlet examples\com\github\aliteralmind\codelet\examples\adder\AdderDemo.java%eliminateCommentBlocksAndPackageDecl()}
+     {@.file.textlet examples/com/github/aliteralmind/codelet/examples/adder/AdderDemo.java%eliminateCommentBlocksAndPackageDecl()}
      {@.codelet.out com.github.aliteralmind.codelet.examples.adder.AdderDemo}</PRE>
 
 *([View the  above.](http://aliteralmind.com/docs/computer/programming/codelet/documentation/javadoc/com/github/aliteralmind/codelet/examples/TrivialTestClassForFileTextletWithCustomizer.html))*

@@ -19,7 +19,7 @@ package  com.github.aliteralmind.codelet.examples;
    <P style="font-size: 125%;"><B><CODE>{&#64;.file.textlet examples\com\github\aliteralmind\codelet\examples\adder\AdderDemo.java%eliminateCommentBlocksAndPackageDecl()}</CODE></B></P>
 
 <HR/>
-{@.file.textlet examples\com\github\aliteralmind\codelet\examples\adder\AdderDemo.java%eliminateCommentBlocksAndPackageDecl()}
+{@.file.textlet examples/com/github/aliteralmind/codelet/examples/adder/AdderDemo.java%eliminateCommentBlocksAndPackageDecl()}
 <HR/>
 
    @since 0.1.0

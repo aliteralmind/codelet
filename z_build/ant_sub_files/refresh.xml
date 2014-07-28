@@ -28,11 +28,18 @@
          <delete dir="${dir_working}" quiet="true"/>
       </target>
 
+      <target name="cleansandbox"
+            description="Deletes temporary files from the sandbox">
+         <delete file="${pom_xml_dest}"/><!-- Originates in task preppom. Needed by task clean -->
+         <delete file="${dir_sandbox}temp.txt"/>
+      </target>
+
       <target name="clean"
             description="Calls delete_build, delete_classes and delete_working">
          <antcall target="delete_build"/>
          <antcall target="delete_classes"/>
          <antcall target="delete_working"/>
+         <antcall target="cleansandbox"/>
       </target>
 <!-- Clean targets...END -->
 
