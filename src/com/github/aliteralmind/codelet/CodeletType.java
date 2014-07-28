@@ -155,7 +155,7 @@ public enum CodeletType  {
 
 <BLOCKQUOTE><PRE>$&lt;base_directory&gt;/filelets/input.txt</PRE></BLOCKQUOTE>
 
-      <P>When used, it is required that the first two characters in the path are <CODE>&quot;$&lt;&quot;</CODE>, followed by the environment variable, followed by a close curly (<CODE>'&gt;'</CODE>). This environment variable, as returned by <I>either</I></P>
+      <P>When used, it is required that the first two characters in the path are <CODE>&quot;$&lt;&quot;</CODE>, followed by the environment variable name, followed by a close curly (<CODE>'&gt;'</CODE>). This environment variable, as returned by <I>either</I></P>
 
 <BLOCKQUOTE><PRE>{@link java.lang.System}.{@link java.lang.System#getProperty(String) getProperty}(&quot;base_directory&quot;)</PRE></BLOCKQUOTE>
 
