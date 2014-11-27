@@ -14,51 +14,51 @@
 \*license*/
 package  com.github.aliteralmind.codelet.simplesig;
 /**
-   <P>Should the construtor list be sorted?.</P>
+	<P>Should the construtor list be sorted?.</P>
 
-   @see  AllSimpleParamSignatures#newConstructorList(Class, Declared, Sorted) AllSimpleParamSignatures#newConstructorList
-   @author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <CODE><A HREF="http://codelet.jeffyepstein.com">http://codelet.jeffyepstein.com</A></CODE>, <CODE><A HREF="https://github.com/aliteramind/codelet">https://github.com/aliteramind/codelet</A></CODE>
+	@see  AllSimpleParamSignatures#newConstructorList(Class, Declared, Sorted) AllSimpleParamSignatures#newConstructorList
+	@author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <CODE><A HREF="http://codelet.jeffyepstein.com">http://codelet.jeffyepstein.com</A></CODE>, <CODE><A HREF="https://github.com/aliteramind/codelet">https://github.com/aliteramind/codelet</A></CODE>
  **/
 public enum Sorted  {
-   /**
-      <P>YYY.</P>
+	/**
+		<P>YYY.</P>
 
-      @see  #NO
-      @see  #isYes()
-    **/
-   YES,
-   /**
-      <P>YYY.</P>
+		@see  #NO
+		@see  #isYes()
+	 **/
+	YES,
+	/**
+		<P>YYY.</P>
 
-      @see  #YES
-      @see  #isNo()
-    **/
-   NO;
-   /**
-      <P>Is this {@code Sorted} equal to {@code YES}?.</P>
+		@see  #YES
+		@see  #isNo()
+	 **/
+	NO;
+	/**
+		<P>Is this {@code Sorted} equal to {@code YES}?.</P>
 
-      @return  <CODE>this == {@link #YES}</CODE>
+		@return  <CODE>this == {@link #YES}</CODE>
 
-      @see  #isNo()
-    **/
-   public final boolean isYes()  {
-      return  this == YES;
-   }
-   /**
-      <P>Is this {@code Sorted} equal to {@code NO}?.</P>
+		@see  #isNo()
+	 **/
+	public final boolean isYes()  {
+		return  this == YES;
+	}
+	/**
+		<P>Is this {@code Sorted} equal to {@code NO}?.</P>
 
-      @return  <CODE>this == {@link #NO}</CODE>
-      @see  #isYes()
-    **/
-   public final boolean isNo()  {
-      return  this == NO;
-   }
-   /**
-      <P>Return {@code Sorted.YES} if the flag is {@code true}, or {@code NO} if {@code false}.</P>
+		@return  <CODE>this == {@link #NO}</CODE>
+		@see  #isYes()
+	 **/
+	public final boolean isNo()  {
+		return  this == NO;
+	}
+	/**
+		<P>Return {@code Sorted.YES} if the flag is {@code true}, or {@code NO} if {@code false}.</P>
 
-      @return  <CODE>(flag ? {@link #YES} : {@link #NO})</CODE>
-    **/
-   public static final Sorted getForBoolean(boolean flag)  {
-      return  (flag ? YES : NO);
-   }
+		@return  <CODE>(flag ? {@link #YES} : {@link #NO})</CODE>
+	 **/
+	public static final Sorted getForBoolean(boolean flag)  {
+		return  (flag ? YES : NO);
+	}
 };

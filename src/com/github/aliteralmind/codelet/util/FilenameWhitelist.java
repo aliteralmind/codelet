@@ -13,34 +13,34 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.util;
-   import  org.apache.commons.io.IOCase;
+	import  org.apache.commons.io.IOCase;
 /**
-   <P>For white-listing file paths or fully-qualified class names.</P>
+	<P>For white-listing file paths or fully-qualified class names.</P>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@since  0.1.0
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 public class FilenameWhitelist extends FilenameBlackWhiteList  {
-   /**
-      <P>Create a new instance.</P>
+	/**
+		<P>Create a new instance.</P>
 
-      <P>Equal to
-      <BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.util.FilenameBlackWhiteList#FilenameBlackWhiteList(BlackOrWhite, IOCase, String[], String[], Appendable) super}({@link com.github.aliteralmind.codelet.util.BlackOrWhite BlackOrWhite}.{@link com.github.aliteralmind.codelet.util.BlackOrWhite#WHITE WHITE}, case_sensitivity, proper_items, override_items, dbgAccept_ifNonNull)</CODE></P>
+		<P>Equal to
+		<BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.util.FilenameBlackWhiteList#FilenameBlackWhiteList(BlackOrWhite, IOCase, String[], String[], Appendable) super}({@link com.github.aliteralmind.codelet.util.BlackOrWhite BlackOrWhite}.{@link com.github.aliteralmind.codelet.util.BlackOrWhite#WHITE WHITE}, case_sensitivity, proper_items, override_items, dbgAccept_ifNonNull)</CODE></P>
 
-      @see  #FilenameWhitelist(FilenameBlackWhiteList, IOCase, Appendable)
-    **/
-   public FilenameWhitelist(IOCase case_sensitivity, String[] proper_items, String[] override_items, Appendable dbgAccept_ifNonNull)  {
-      super(BlackOrWhite.WHITE, case_sensitivity, proper_items, override_items, dbgAccept_ifNonNull);
-   }
-   /**
-      <P>Create a new instance from an existing white or black-list.</P>
+		@see  #FilenameWhitelist(FilenameBlackWhiteList, IOCase, Appendable)
+	 **/
+	public FilenameWhitelist(IOCase case_sensitivity, String[] proper_items, String[] override_items, Appendable dbgAccept_ifNonNull)  {
+		super(BlackOrWhite.WHITE, case_sensitivity, proper_items, override_items, dbgAccept_ifNonNull);
+	}
+	/**
+		<P>Create a new instance from an existing white or black-list.</P>
 
-      <P>Equal to
-      <BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.util.FilenameBlackWhiteList#FilenameBlackWhiteList(FilenameBlackWhiteList, BlackOrWhite, IOCase, Appendable) super}(to_copyListsFrom, {@link com.github.aliteralmind.codelet.util.BlackOrWhite BlackOrWhite}.{@link com.github.aliteralmind.codelet.util.BlackOrWhite#WHITE WHITE}, case_sensitivity, dbgAccept_ifNonNull)</CODE></P>
+		<P>Equal to
+		<BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.util.FilenameBlackWhiteList#FilenameBlackWhiteList(FilenameBlackWhiteList, BlackOrWhite, IOCase, Appendable) super}(to_copyListsFrom, {@link com.github.aliteralmind.codelet.util.BlackOrWhite BlackOrWhite}.{@link com.github.aliteralmind.codelet.util.BlackOrWhite#WHITE WHITE}, case_sensitivity, dbgAccept_ifNonNull)</CODE></P>
 
-      @see  #FilenameWhitelist(IOCase, String[], String[], Appendable)
-    **/
-   public FilenameWhitelist(FilenameBlackWhiteList to_copyListsFrom, IOCase case_sensitivity, Appendable dbgAccept_ifNonNull)  {
-      super(to_copyListsFrom, BlackOrWhite.WHITE, case_sensitivity, dbgAccept_ifNonNull);
-   }
+		@see  #FilenameWhitelist(IOCase, String[], String[], Appendable)
+	 **/
+	public FilenameWhitelist(FilenameBlackWhiteList to_copyListsFrom, IOCase case_sensitivity, Appendable dbgAccept_ifNonNull)  {
+		super(to_copyListsFrom, BlackOrWhite.WHITE, case_sensitivity, dbgAccept_ifNonNull);
+	}
 }

@@ -13,216 +13,216 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.type;
-   import  java.nio.file.InvalidPathException;
-   import  java.nio.file.Path;
-   import  java.nio.file.Paths;
-   import  com.github.xbn.io.PathMustBe;
-   import  com.github.aliteralmind.codelet.CodeletFormatException;
-   import  com.github.aliteralmind.codelet.CodeletInstance;
-   import  com.github.aliteralmind.codelet.CodeletType;
-   import  com.github.aliteralmind.codelet.CustomizationInstructions;
-   import  com.github.aliteralmind.codelet.TagletOfTypeProcessor;
-   import  com.github.aliteralmind.codelet.TagletTextUtil;
-   import  com.github.xbn.io.PlainTextFileUtil;
-   import  java.nio.file.AccessDeniedException;
-   import  java.nio.file.NoSuchFileException;
-   import  java.util.Iterator;
-   import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
-   import  static com.github.xbn.lang.XbnConstants.*;
+	import  java.nio.file.InvalidPathException;
+	import  java.nio.file.Path;
+	import  java.nio.file.Paths;
+	import  com.github.xbn.io.PathMustBe;
+	import  com.github.aliteralmind.codelet.CodeletFormatException;
+	import  com.github.aliteralmind.codelet.CodeletInstance;
+	import  com.github.aliteralmind.codelet.CodeletType;
+	import  com.github.aliteralmind.codelet.CustomizationInstructions;
+	import  com.github.aliteralmind.codelet.TagletOfTypeProcessor;
+	import  com.github.aliteralmind.codelet.TagletTextUtil;
+	import  com.github.xbn.io.PlainTextFileUtil;
+	import  java.nio.file.AccessDeniedException;
+	import  java.nio.file.NoSuchFileException;
+	import  java.util.Iterator;
+	import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
+	import  static com.github.xbn.lang.XbnConstants.*;
 /**
    <P>Reads a {@link com.github.aliteralmind.codelet.CodeletType#FILE_TEXT {@.file.textlet}} taglet and outputs its replacement text.</P>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@since  0.1.0
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 public class FileTextProcessor extends TagletOfTypeProcessor<FileTextTemplate>  {
-   /**
-      <P>Create a new instance from an {@code CodeletInstance}.</P>
+	/**
+		<P>Create a new instance from an {@code CodeletInstance}.</P>
 
-      <P>Equal to <CODE>{@link com.github.aliteralmind.codelet.TagletOfTypeProcessor#TagletOfTypeProcessor(CodeletType, CodeletInstance) super}(CodeletType.FILE_TEXT, instance)</CODE>
-    **/
-   public FileTextProcessor(CodeletInstance instance) throws ClassNotFoundException, NoSuchMethodException, NoSuchFileException, AccessDeniedException  {
-      super(CodeletType.FILE_TEXT, instance);
+		<P>Equal to <CODE>{@link com.github.aliteralmind.codelet.TagletOfTypeProcessor#TagletOfTypeProcessor(CodeletType, CodeletInstance) super}(CodeletType.FILE_TEXT, instance)</CODE>
+	 **/
+	public FileTextProcessor(CodeletInstance instance) throws ClassNotFoundException, NoSuchMethodException, NoSuchFileException, AccessDeniedException  {
+		super(CodeletType.FILE_TEXT, instance);
 
-      if(getClassOrFilePortion().contains("("))  {
-         throw  new CodeletFormatException(instance, "File-text taglets cannot contain command-line parameters");
-      }
+		if(getClassOrFilePortion().contains("("))  {
+			throw  new CodeletFormatException(instance, "File-text taglets cannot contain command-line parameters");
+		}
 
-      Iterator<String> fileTextLineItr = getLineIteratorFromCodeletPath(instance);
+		Iterator<String> fileTextLineItr = getLineIteratorFromCodeletPath(instance);
 
 //		String strSig = getStringSigForFileText();
 //		SimpleMethodSignature sig = getCustomizerSigFromString(strSig);
 
-      CustomizationInstructions<FileTextTemplate> instructions =
-         ((getCustomizerPortion() != null)
-            ?  getCustomCustomizationInstructions(CodeletType.FILE_TEXT)
-            :  newInstructionsForDefaults(
-                  new CustomizationInstructions<FileTextTemplate>(instance, CodeletType.FILE_TEXT)));
+		CustomizationInstructions<FileTextTemplate> instructions =
+			((getCustomizerPortion() != null)
+				?  getCustomCustomizationInstructions(CodeletType.FILE_TEXT)
+				:  newInstructionsForDefaults(
+						new CustomizationInstructions<FileTextTemplate>(instance, CodeletType.FILE_TEXT)));
 
-      crashIfClassOrFileCannotUseCustomizer(instructions);
+		crashIfClassOrFileCannotUseCustomizer(instructions);
 
-      String fileTextCustomized = instructions.getCustomizedBody(instance, fileTextLineItr);
+		String fileTextCustomized = instructions.getCustomizedBody(instance, fileTextLineItr);
 
-      FileTextTemplate template = getTemplateFromInstructionsOverrideOrDefault(
-         instructions);
+		FileTextTemplate template = getTemplateFromInstructionsOverrideOrDefault(
+			instructions);
 
-      String finalOutput = template.fillBody(fileTextCustomized).getRendered(instance);
-      setFullyProcessedOutput(finalOutput);
-   }
-      private final Iterator<String> getLineIteratorFromCodeletPath(CodeletInstance instance)  {
+		String finalOutput = template.fillBody(fileTextCustomized).getRendered(instance);
+		setFullyProcessedOutput(finalOutput);
+	}
+		private final Iterator<String> getLineIteratorFromCodeletPath(CodeletInstance instance)  {
 
-         boolean doDebug = isDebugOn(instance, "zzFileTextProcessor.obtainingfile");
+			boolean doDebug = isDebugOn(instance, "zzFileTextProcessor.obtainingfile");
 
-         //See CodeletInstance.FILE_TEXT
+			//See CodeletInstance.FILE_TEXT
 
-         if(doDebug)  {
-            debugln("Obtaining line iterator to {@.file.textlet} file...");
-            debugln("   - Raw file path from {@.file.textlet}:  " + getClassOrFilePortion());
-            debugln("   - TagletTextUtil.getFilePath(instance): " + TagletTextUtil.getFilePath(instance));
-         }
+			if(doDebug)  {
+				debugln("Obtaining line iterator to {@.file.textlet} file...");
+				debugln("   - Raw file path from {@.file.textlet}:  " + getClassOrFilePortion());
+				debugln("   - TagletTextUtil.getFilePath(instance): " + TagletTextUtil.getFilePath(instance));
+			}
 
-         String pathStr = getPathStrWithEnvVarPrefix(instance, doDebug);
+			String pathStr = getPathStrWithEnvVarPrefix(instance, doDebug);
 
-         PathMustBe pmb = new PathMustBe().existing().readable();
+			PathMustBe pmb = new PathMustBe().existing().readable();
 
-         /*
-            First assume absolute. This also works if the path is relative to the directory in which javadoc.exe was invoked (and the file separators happen to be correct for the OS).
-          */
-         Path path = Paths.get(pathStr);
-         if(pmb.isGood(path))  {
-            if(doDebug)  {
-               debugln("   SUCCESS: Path is either absolute, or relative to the directory in which javadoc.exe was invoked (note: file-separators not yet changed).");
-            }
+			/*
+				First assume absolute. This also works if the path is relative to the directory in which javadoc.exe was invoked (and the file separators happen to be correct for the OS).
+			 */
+			Path path = Paths.get(pathStr);
+			if(pmb.isGood(path))  {
+				if(doDebug)  {
+					debugln("   SUCCESS: Path is either absolute, or relative to the directory in which javadoc.exe was invoked (note: file-separators not yet changed).");
+				}
 
-            return  PlainTextFileUtil.getLineIterator(path.toString(), "[path to file]");
-         }
+				return  PlainTextFileUtil.getLineIterator(path.toString(), "[path to file]");
+			}
 
 
-         if(doDebug)  {
-            debugln("   Replacing all '/' file separators with \"" + FILE_SEP + "\"...");
-         }
-         if(!FILE_SEP.equals("/"))  {
-            if(doDebug)  {
-               debugln("   This system's file separator is already '/'. Nothing to change.");
-            }
-         }  else  {
-            pathStr.replace("/", FILE_SEP);
-         }
+			if(doDebug)  {
+				debugln("   Replacing all '/' file separators with \"" + FILE_SEP + "\"...");
+			}
+			if(!FILE_SEP.equals("/"))  {
+				if(doDebug)  {
+					debugln("   This system's file separator is already '/'. Nothing to change.");
+				}
+			}  else  {
+				pathStr.replace("/", FILE_SEP);
+			}
 
-         //It's not absolute.
-         /*
-            It's also not relative to the javadoc.exe-invoking directory (the current working directory: cwd) WITH THE ORIGINAL FILE-SEPARATORS. Let's try again now with the new file separators.
-          */
-         path = Paths.get(pathStr);
-         if(pmb.isGood(path))  {
-            if(doDebug)  {
-               debugln("   SUCCESS: Path is relative to the directory in which javadoc.exe was invoked.");
-            }
+			//It's not absolute.
+			/*
+				It's also not relative to the javadoc.exe-invoking directory (the current working directory: cwd) WITH THE ORIGINAL FILE-SEPARATORS. Let's try again now with the new file separators.
+			 */
+			path = Paths.get(pathStr);
+			if(pmb.isGood(path))  {
+				if(doDebug)  {
+					debugln("   SUCCESS: Path is relative to the directory in which javadoc.exe was invoked.");
+				}
 
-            return  PlainTextFileUtil.getLineIterator(path.toString(), "[path to file]");
-         }
+				return  PlainTextFileUtil.getLineIterator(path.toString(), "[path to file]");
+			}
 
-         //It's not relative to the cwd. It must be relative to the enclosing
-         //file. If it's not, die.
+			//It's not relative to the cwd. It must be relative to the enclosing
+			//file. If it's not, die.
 
-         String parentPath = instance.getEnclosingFile().getParent();
+			String parentPath = instance.getEnclosingFile().getParent();
 
-         if(!parentPath.endsWith(FILE_SEP))  {
-            parentPath += FILE_SEP;
-         }
+			if(!parentPath.endsWith(FILE_SEP))  {
+				parentPath += FILE_SEP;
+			}
 
-         if(doDebug)  {
-            debugln("   Path to file is not absolute, and not relative to the javadoc.exe-invoking directory. It MUST be relative to the directory of its enclosing file:");
-            debugln("    - File:   " + instance.getEnclosingFile());
-            debugln("    - Parent: " + parentPath);
-         }
+			if(doDebug)  {
+				debugln("   Path to file is not absolute, and not relative to the javadoc.exe-invoking directory. It MUST be relative to the directory of its enclosing file:");
+				debugln("    - File:   " + instance.getEnclosingFile());
+				debugln("    - Parent: " + parentPath);
+			}
 
-         try  {
-            path = Paths.get(parentPath, path.toString());
-         }  catch(InvalidPathException ipx)  {
-            throw  new InvalidPathException(parentPath + path.toString(), "{@.file.textlet} path is invalid. Not absolute, not relative to javadoc.exe invoking directory, and not relative to enclosing file");
-         }
+			try  {
+				path = Paths.get(parentPath, path.toString());
+			}  catch(InvalidPathException ipx)  {
+				throw  new InvalidPathException(parentPath + path.toString(), "{@.file.textlet} path is invalid. Not absolute, not relative to javadoc.exe invoking directory, and not relative to enclosing file");
+			}
 
-         return  PlainTextFileUtil.getLineIterator(path.toString(), "[path to {@.file.textlet} file]");
-      }
-      private final String getPathStrWithEnvVarPrefix(CodeletInstance instance, boolean do_debug)  {
+			return  PlainTextFileUtil.getLineIterator(path.toString(), "[path to {@.file.textlet} file]");
+		}
+		private final String getPathStrWithEnvVarPrefix(CodeletInstance instance, boolean do_debug)  {
 
-         //See com.github.aliteralmind.codelet.CodeletType#FILE_TEXT
+			//See com.github.aliteralmind.codelet.CodeletType#FILE_TEXT
 
-         String rawPath = TagletTextUtil.getFilePath(instance);
+			String rawPath = TagletTextUtil.getFilePath(instance);
 
-         if(!rawPath.startsWith("$<"))  {
-            return  rawPath;
-         }
+			if(!rawPath.startsWith("$<"))  {
+				return  rawPath;
+			}
 
-         int idxCloseCurly = rawPath.indexOf('>');
+			int idxCloseCurly = rawPath.indexOf('>');
 
-         String envVarName = null;
-         try  {
-            envVarName = rawPath.substring("$<".length(), idxCloseCurly);
-         }    catch(StringIndexOutOfBoundsException sbx)  {
-            throw  new CodeletFormatException(instance, "File path begins \"$<\", but close sharp ('>') not found.", sbx);
-         }
-         String envVar = System.getenv(envVarName);
-         String sysProp = System.getProperty(envVarName);
+			String envVarName = null;
+			try  {
+				envVarName = rawPath.substring("$<".length(), idxCloseCurly);
+			}    catch(StringIndexOutOfBoundsException sbx)  {
+				throw  new CodeletFormatException(instance, "File path begins \"$<\", but close sharp ('>') not found.", sbx);
+			}
+			String envVar = System.getenv(envVarName);
+			String sysProp = System.getProperty(envVarName);
 
-         boolean isEnvVar = (envVar != null  &&  envVar.length() > 0);
-         boolean isSysProp = (sysProp != null  &&  sysProp.length() > 0);
+			boolean isEnvVar = (envVar != null  &&  envVar.length() > 0);
+			boolean isSysProp = (sysProp != null  &&  sysProp.length() > 0);
 
-         if(isEnvVar)  {
-            if(isSysProp)  {
-               throw  new CodeletFormatException(instance, "File path begins with \"$<" + envVarName + ">\". \"" + envVarName + "\" is both an environment variable and a system property. It must be one or the other." + LINE_SEP +
-                  "System.getenv(\"" + envVarName + "\")=\"" + envVar + "\"" + LINE_SEP +
-                  "System.getProperty(\"" + envVarName + "\")=\"" + sysProp + "\"");
-            }
+			if(isEnvVar)  {
+				if(isSysProp)  {
+					throw  new CodeletFormatException(instance, "File path begins with \"$<" + envVarName + ">\". \"" + envVarName + "\" is both an environment variable and a system property. It must be one or the other." + LINE_SEP +
+						"System.getenv(\"" + envVarName + "\")=\"" + envVar + "\"" + LINE_SEP +
+						"System.getProperty(\"" + envVarName + "\")=\"" + sysProp + "\"");
+				}
 
-         }  else if(isSysProp)  {
-            envVar = sysProp;
-         }  else  {
-            throw  new CodeletFormatException(instance, "File path begins with \"$<" + envVarName + ">\". The value of both System.getenv(\"" + envVarName + "\") (" +
-               ((envVar == null) ? "null" : "\"\"") +
-               ") and System.getProperty(\"" + envVarName + "\"), (" +
-               ((sysProp == null) ? "null" : "\"\"") +
-               ") are null/empty-string.");
-         }
+			}  else if(isSysProp)  {
+				envVar = sysProp;
+			}  else  {
+				throw  new CodeletFormatException(instance, "File path begins with \"$<" + envVarName + ">\". The value of both System.getenv(\"" + envVarName + "\") (" +
+					((envVar == null) ? "null" : "\"\"") +
+					") and System.getProperty(\"" + envVarName + "\"), (" +
+					((sysProp == null) ? "null" : "\"\"") +
+					") are null/empty-string");
+			}
 
-         if(do_debug)  {
-            debugln("   " +
-               (isSysProp ? "System property" : "Environment variable") +
-               " found: Name=" + envVarName + ", value=" + envVar + "");
-            debugln("   - Raw file path from {@.file.textlet}:  " + getClassOrFilePortion());
-            debugln("   - TagletTextUtil.getFilePath(instance): " + TagletTextUtil.getFilePath(instance));
-         }
+			if(do_debug)  {
+				debugln("   " +
+					(isSysProp ? "System property" : "Environment variable") +
+					" found: Name=" + envVarName + ", value=" + envVar + "");
+				debugln("   - Raw file path from {@.file.textlet}:  " + getClassOrFilePortion());
+				debugln("   - TagletTextUtil.getFilePath(instance): " + TagletTextUtil.getFilePath(instance));
+			}
 
-         return  envVar + rawPath.substring(idxCloseCurly + 1);
-      }
-   /**
-      <P>Get the string signature for a {@code {@.file.textlet}} taglets only. Except where noted, this does not validate the taglet text or the returned signature.</P>
+			return  envVar + rawPath.substring(idxCloseCurly + 1);
+		}
+	/**
+		<P>Get the string signature for a {@code {@.file.textlet}} taglets only. Except where noted, this does not validate the taglet text or the returned signature.</P>
 
-      <P>This follows the same steps as {@link com.github.aliteralmind.codelet.TagletOfTypeProcessor#getStringSignature() getStringSignature}, except<UL>
-         <LI>The customizer portion of the taglet, when provided, must contain either an underscore ({@code '_'}) postfix or the processor's full function name.</LI>
-         <LI>The {@linkplain com.github.aliteralmind.codelet.CodeletType#getDefaultLineProcNamePrefix() default function name prefix} is {@code "getFileTextConfig_"}</LI>
-      </UL></P>
+		<P>This follows the same steps as {@link com.github.aliteralmind.codelet.TagletOfTypeProcessor#getStringSignature() getStringSignature}, except<UL>
+			<LI>The customizer portion of the taglet, when provided, must contain either an underscore ({@code '_'}) postfix or the processor's full function name.</LI>
+			<LI>The {@linkplain com.github.aliteralmind.codelet.CodeletType#getDefaultLineProcNamePrefix() default function name prefix} is {@code "getFileTextConfig_"}</LI>
+		</UL></P>
 
-      @exception  CodeletFormatException  If no function name or underscore-postfix is provided.
-    **/
-   public String getStringSigForFileText()  {
-      String sig = getCustomizerPortion();
+		@exception  CodeletFormatException  If no function name or underscore-postfix is provided.
+	 **/
+	public String getStringSigForFileText()  {
+		String sig = getCustomizerPortion();
 
-      boolean doDebug = isDebugOn(getInstance(),
-         "zzTagletOfTypeProcessor.getCustomizerSigFromString");
+		boolean doDebug = isDebugOn(getInstance(),
+			"zzTagletOfTypeProcessor.getCustomizerSigFromString");
 
-      if(sig == null)  {
-         if(doDebug)  {
-            debugln("   No Customizer");
-         }
-         return  null;
-      }
+		if(sig == null)  {
+			if(doDebug)  {
+				debugln("   No Customizer");
+			}
+			return  null;
+		}
 
-      if(sig.equals("()"))  {
-         throw  new CodeletFormatException(getInstance(), "Customizer portion for a " + CodeletType.FILE_TEXT.getName() + " taglet is equal to \"()\". The processor's function name or underscore-postfix must be specified.");
-      }
+		if(sig.equals("()"))  {
+			throw  new CodeletFormatException(getInstance(), "Customizer portion for a " + CodeletType.FILE_TEXT.getName() + " taglet is equal to \"()\". The processor's function name or underscore-postfix must be specified.");
+		}
 
-      return  getSig2PrnsApnddForNameOrPostfix("", sig, doDebug);
-   }
+		return  getSig2PrnsApnddForNameOrPostfix("", sig, doDebug);
+	}
 }

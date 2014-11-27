@@ -13,62 +13,62 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.examples.simplesig;
-   import  com.github.aliteralmind.codelet.simplesig.AllSimpleParamSignatures;
-   import  com.github.aliteralmind.codelet.simplesig.MethodSigSearchTerm;
-   import  com.github.aliteralmind.codelet.simplesig.MethodSimpleParamSig;
-   import  com.github.aliteralmind.codelet.simplesig.CrashIfMoreThanOne;
-   import  com.github.aliteralmind.codelet.simplesig.CrashIfZero;
-   import  com.github.xbn.lang.reflect.Declared;
-   import  java.util.List;
+	import  com.github.aliteralmind.codelet.simplesig.AllSimpleParamSignatures;
+	import  com.github.aliteralmind.codelet.simplesig.MethodSigSearchTerm;
+	import  com.github.aliteralmind.codelet.simplesig.MethodSimpleParamSig;
+	import  com.github.aliteralmind.codelet.simplesig.CrashIfMoreThanOne;
+	import  com.github.aliteralmind.codelet.simplesig.CrashIfZero;
+	import  com.github.xbn.lang.reflect.Declared;
+	import  java.util.List;
 /**
-   <P>Demonstration of {@link com.github.aliteralmind.codelet.simplesig.MethodSigSearchTerm}.</P>
+	<P>Demonstration of {@link com.github.aliteralmind.codelet.simplesig.MethodSigSearchTerm}.</P>
 
-   <P>{@code java com.github.aliteralmind.codelet.examples.simplesig.MethodSigSearchTermXmpl}</P>
+	<P>{@code java com.github.aliteralmind.codelet.examples.simplesig.MethodSigSearchTermXmpl}</P>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@since  0.1.0
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 
 public class MethodSigSearchTermXmpl  {
-   public static final String LINE_SEP = System.getProperty("line.separator", "\r\n");
-   public static final void main(String[] ignored)  {
+	public static final String LINE_SEP = System.getProperty("line.separator", "\r\n");
+	public static final void main(String[] ignored)  {
 
-      AllSimpleParamSignatures allInClass = new AllSimpleParamSignatures(
-         MethodSigSearchTermXmpl.class, Declared.NO);
+		AllSimpleParamSignatures allInClass = new AllSimpleParamSignatures(
+			MethodSigSearchTermXmpl.class, Declared.NO);
 
-      test(allInClass, "nonExisting()");
-      test(allInClass, "doSomething()");
-      test(allInClass, "doSomething(*)");
-      test(allInClass, "doSomething(*,byte,*)");
-   }
-   private static void test(AllSimpleParamSignatures all_inClass, String param_searchTerm)  {
+		test(allInClass, "nonExisting()");
+		test(allInClass, "doSomething()");
+		test(allInClass, "doSomething(*)");
+		test(allInClass, "doSomething(*,byte,*)");
+	}
+	private static void test(AllSimpleParamSignatures all_inClass, String param_searchTerm)  {
 
-      MethodSigSearchTerm searchTerm = new MethodSigSearchTerm(param_searchTerm, null, null);
+		MethodSigSearchTerm searchTerm = new MethodSigSearchTerm(param_searchTerm, null, null);
 
-      System.out.println("Searching for: \"" + param_searchTerm + "\"");
+		System.out.println("Searching for: \"" + param_searchTerm + "\"");
 
-      if(!searchTerm.doesMatchAny(all_inClass))  {
-         System.out.println("   Not found.");
-         System.out.println();
-         return;
-      }
+		if(!searchTerm.doesMatchAny(all_inClass))  {
+			System.out.println("   Not found.");
+			System.out.println();
+			return;
+		}
 
-      MethodSimpleParamSig first = searchTerm.getFirstMatch(
-         all_inClass, CrashIfZero.NO, CrashIfMoreThanOne.NO);
+		MethodSimpleParamSig first = searchTerm.getFirstMatch(
+			all_inClass, CrashIfZero.NO, CrashIfMoreThanOne.NO);
 
-      List<MethodSimpleParamSig> allMatches = searchTerm.getAllMatches(
-         all_inClass, CrashIfZero.NO);
+		List<MethodSimpleParamSig> allMatches = searchTerm.getAllMatches(
+			all_inClass, CrashIfZero.NO);
 
-      System.out.println("   - First match: " + first);
-      System.out.println("   - All matches:" + LINE_SEP +
-         AllSimpleParamSignatures.toStringForAllListsInList("      - ", allMatches, LINE_SEP));
+		System.out.println("   - First match: " + first);
+		System.out.println("   - All matches:" + LINE_SEP +
+			AllSimpleParamSignatures.toStringForAllListsInList("      - ", allMatches, LINE_SEP));
 
-      System.out.println();
-   }
-   public String doSomething(String s, boolean b, int i, Object o)  {
-      return  null;
-   }
-   public String doSomething(String s, boolean b, int[] i, byte y, Object o)  {
-      return  null;
-   }
+		System.out.println();
+	}
+	public String doSomething(String s, boolean b, int i, Object o)  {
+		return  null;
+	}
+	public String doSomething(String s, boolean b, int[] i, byte y, Object o)  {
+		return  null;
+	}
 }

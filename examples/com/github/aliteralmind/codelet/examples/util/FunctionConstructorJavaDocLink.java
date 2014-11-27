@@ -13,47 +13,47 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.examples.util;
-   import  com.github.aliteralmind.codelet.util.JavaDocUtil;
-   import  java.lang.reflect.Method;
-   import  java.lang.reflect.Constructor;
-   import  com.github.xbn.lang.reflect.Declared;
-   import  com.github.xbn.lang.reflect.ReflectRtxUtil;
+	import  com.github.aliteralmind.codelet.util.JavaDocUtil;
+	import  java.lang.reflect.Method;
+	import  java.lang.reflect.Constructor;
+	import  com.github.xbn.lang.reflect.Declared;
+	import  com.github.xbn.lang.reflect.ReflectRtxUtil;
 /**
-   <P>Demonstration of <CODE>{@link com.github.aliteralmind.codelet.util.JavaDocUtil}.{@link com.github.aliteralmind.codelet.util.JavaDocUtil#getUrlToConstructor(String, Constructor) getUrlToConstructor}</CODE> and {@link com.github.aliteralmind.codelet.util.JavaDocUtil#getUrlToMethod(String, Method) getUrlToMethod}</P>
+	<P>Demonstration of <CODE>{@link com.github.aliteralmind.codelet.util.JavaDocUtil}.{@link com.github.aliteralmind.codelet.util.JavaDocUtil#getUrlToConstructor(String, Constructor) getUrlToConstructor}</CODE> and {@link com.github.aliteralmind.codelet.util.JavaDocUtil#getUrlToMethod(String, Method) getUrlToMethod}</P>
 
-   <P>{@code java com.github.xbn.examples.util.FunctionConstructorJavaDocLink}</P>
+	<P>{@code java com.github.xbn.examples.util.FunctionConstructorJavaDocLink}</P>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@since  0.1.0
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 
 public class FunctionConstructorJavaDocLink  {
-   public static final void main(String[] ignored)  {
-      testConstructor();
-      testConstructor(String.class, int[].class, int[].class);
-      testMethod(int.class);
-      testMethod(String.class, int[].class);
-   }
+	public static final void main(String[] ignored)  {
+		testConstructor();
+		testConstructor(String.class, int[].class, int[].class);
+		testMethod(int.class);
+		testMethod(String.class, int[].class);
+	}
 
-   private static final void testConstructor(Class<?>... param_types)  {
-      Constructor c = ReflectRtxUtil.getConstructor(
-         FunctionConstructorJavaDocLink.class, Declared.NO, null,
-         (Class<?>[])param_types);
-      System.out.println(JavaDocUtil.getUrlToConstructor("../", c));
-   }
+	private static final void testConstructor(Class<?>... param_types)  {
+		Constructor c = ReflectRtxUtil.getConstructor(
+			FunctionConstructorJavaDocLink.class, Declared.NO, null,
+			(Class<?>[])param_types);
+		System.out.println(JavaDocUtil.getUrlToConstructor("../", c));
+	}
 
-   private static final void testMethod(Class<?>... param_types)  {
-      Method m = ReflectRtxUtil.getMethod(FunctionConstructorJavaDocLink.class,
-         "doSomething", Declared.NO, null, (Class<?>[])param_types);
-      System.out.println(JavaDocUtil.getUrlToMethod("../../", m));
-   }
+	private static final void testMethod(Class<?>... param_types)  {
+		Method m = ReflectRtxUtil.getMethod(FunctionConstructorJavaDocLink.class,
+			"doSomething", Declared.NO, null, (Class<?>[])param_types);
+		System.out.println(JavaDocUtil.getUrlToMethod("../../", m));
+	}
 
-   public FunctionConstructorJavaDocLink()  {
-   }
-   public FunctionConstructorJavaDocLink(String s, int[] ai, int... ai2)  {
-   }
-   public void doSomething(int i)  {
-   }
-   public void doSomething(String s, int[] ai)  {
-   }
+	public FunctionConstructorJavaDocLink()  {
+	}
+	public FunctionConstructorJavaDocLink(String s, int[] ai, int... ai2)  {
+	}
+	public void doSomething(int i)  {
+	}
+	public void doSomething(String s, int[] ai)  {
+	}
 }

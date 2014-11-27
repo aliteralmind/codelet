@@ -14,16 +14,16 @@
 \*license*/
 package  com.github.aliteralmind.codelet.examples;
 /**
-   <P>A trivial class that exists only to test a {@code {@.file.textlet}} with a customizer.</P>
+	<P>A trivial class that exists only to test a {@code {@.file.textlet}} with a customizer.</P>
 
-   <P style="font-size: 125%;"><B><CODE>{&#64;.file.textlet examples\com\github\aliteralmind\codelet\examples\adder\AdderDemo.java%eliminateCommentBlocksAndPackageDecl()}</CODE></B></P>
+	<P style="font-size: 125%;"><B><CODE>{&#64;.file.textlet examples\com\github\aliteralmind\codelet\examples\adder\AdderDemo.java%eliminateCommentBlocksAndPackageDecl()}</CODE></B></P>
 
 <HR/>
 {@.file.textlet examples/com/github/aliteralmind/codelet/examples/adder/AdderDemo.java%eliminateCommentBlocksAndPackageDecl()}
 <HR/>
 
-   @since 0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://xbnjava.aliteralmind.com">{@code http://xbnjava.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/xbnjava">{@code https://github.com/aliteralmind/xbnjava}</A>
+	@since 0.1.0
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://xbnjava.aliteralmind.com">{@code http://xbnjava.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/xbnjava">{@code https://github.com/aliteralmind/xbnjava}</A>
  **/
 public class TrivialTestClassForFileTextletWithCustomizer  {
 }

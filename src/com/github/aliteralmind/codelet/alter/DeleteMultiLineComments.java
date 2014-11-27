@@ -14,51 +14,51 @@
 \*license*/
 package  com.github.aliteralmind.codelet.alter;
 /**
-   <P>Should {@linkplain com.github.aliteralmind.codelet.BasicCustomizers#eliminateCmtBlocksPkgLineAndPkgReferences(CodeletInstance, CodeletType, Boolean, Boolean, Boolean) multi-line comments be deleted} from the displayed source code?.</P>
+	<P>Should {@linkplain com.github.aliteralmind.codelet.BasicCustomizers#eliminateCmtBlocksPkgLineAndPkgReferences(CodeletInstance, CodeletType, Boolean, Boolean, Boolean) multi-line comments be deleted} from the displayed source code?.</P>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@since  0.1.0
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 public enum DeleteMultiLineComments  {
-   /**
-      <P>YYY.</P>
+	/**
+		<P>YYY.</P>
 
-      @see  #NO
-      @see  #isYes()
-    **/
-   YES,
-   /**
-      <P>YYY.</P>
+		@see  #NO
+		@see  #isYes()
+	 **/
+	YES,
+	/**
+		<P>YYY.</P>
 
-      @see  #YES
-      @see  #isNo()
-    **/
-   NO;
-   /**
-      <P>Is this {@code DeleteMultiLineComments} equal to {@code YES}?.</P>
+		@see  #YES
+		@see  #isNo()
+	 **/
+	NO;
+	/**
+		<P>Is this {@code DeleteMultiLineComments} equal to {@code YES}?.</P>
 
-      @return  <CODE>this == {@link #YES}</CODE>
+		@return  <CODE>this == {@link #YES}</CODE>
 
-      @see  #isNo()
-    **/
-   public final boolean isYes()  {
-      return  this == YES;
-   }
-   /**
-      <P>Is this {@code DeleteMultiLineComments} equal to {@code NO}?.</P>
+		@see  #isNo()
+	 **/
+	public final boolean isYes()  {
+		return  this == YES;
+	}
+	/**
+		<P>Is this {@code DeleteMultiLineComments} equal to {@code NO}?.</P>
 
-      @return  <CODE>this == {@link #NO}</CODE>
-      @see  #isYes()
-    **/
-   public final boolean isNo()  {
-      return  this == NO;
-   }
-   /**
-      <P>Return {@code DeleteMultiLineComments.YES} if the flag is {@code true}, or {@code NO} if {@code false}.</P>
+		@return  <CODE>this == {@link #NO}</CODE>
+		@see  #isYes()
+	 **/
+	public final boolean isNo()  {
+		return  this == NO;
+	}
+	/**
+		<P>Return {@code DeleteMultiLineComments.YES} if the flag is {@code true}, or {@code NO} if {@code false}.</P>
 
-      @return  <CODE>(flag ? {@link #YES} : {@link #NO})</CODE>
-    **/
-   public static final DeleteMultiLineComments getForBoolean(boolean flag)  {
-      return  (flag ? YES : NO);
-   }
+		@return  <CODE>(flag ? {@link #YES} : {@link #NO})</CODE>
+	 **/
+	public static final DeleteMultiLineComments getForBoolean(boolean flag)  {
+		return  (flag ? YES : NO);
+	}
 };

@@ -14,28 +14,28 @@
 \*license*/
 package  com.github.aliteralmind.codelet.examples;
 /**
-   <P>Demonstration of the <CODE>com.github.aliteralmind.codelet.{@link com.github.aliteralmind.codelet.BasicCustomizers#lineRangeWithReplace(CodeletInstance, CodeletType, Integer, Boolean, String, String, String, Integer, Boolean, String, String, String, String) lineRangeWithReplace}</CODE>.</P>
+	<P>Demonstration of the <CODE>com.github.aliteralmind.codelet.{@link com.github.aliteralmind.codelet.BasicCustomizers#lineRangeWithReplace(CodeletInstance, CodeletType, Integer, Boolean, String, String, String, Integer, Boolean, String, String, String, String) lineRangeWithReplace}</CODE>.</P>
 
-   <H3><U>Taglets:</U></H3>
+	<H3><U>Taglets:</U></H3>
 
-   <P style="font-size: 125%;"><B>{@code {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemoWithSnippetEndMarker%lineRangeWithReplace(1, true, "(Adder adder)", "$1", "FIRST", 1, true, "; +//End snippet$", ";", "FIRST", "^      ")}}</B></P>
+	<P style="font-size: 125%;"><B>{@code {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemoWithSnippetEndMarker%lineRangeWithReplace(1, true, "(Adder adder)", "$1", "FIRST", 1, true, "; +//End snippet$", ";", "FIRST", "^      ")}}</B></P>
 
-   <H3><U>Replaced with:</U></H3>
+	<H3><U>Replaced with:</U></H3>
 
-   <P><I>(Output begins and ends between the horizontal lines.)</I></P>
+	<P><I>(Output begins and ends between the horizontal lines.)</I></P>
 
-   <HR/>
+	<HR/>
 
 {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemoWithSnippetEndMarker%lineRangeWithReplace(1, true, "(Adder adder)", "$1", "FIRST", 1, true, "; +//End snippet$", ";", "FIRST", "^      ")}
 
-   <HR/>
+	<HR/>
 
-   <H3><U>Original source code:</U></H3>
+	<H3><U>Original source code:</U></H3>
 
 {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemoWithSnippetEndMarker}
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@since  0.1.0
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 public class LineRangeWithReplace  {
 }

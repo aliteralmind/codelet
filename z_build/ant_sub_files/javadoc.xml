@@ -1,125 +1,135 @@
 <project name="codelet_javadoc" default="help" basedir=".">
-   <target name="doccl" description="Check (non @link/@see) links">
+	<target name="doccl" description="Check (non @link/@see) links">
 <echo>TODO: Need to set os="Windows..." into exec call</echo>
 <echo>TODO: Need to set os="Windows..." into exec call</echo>
 <echo>TODO: Need to set os="Windows..." into exec call</echo>
 
-         <exec executable="linkchecker" output="${dir_sandbox}broken_link_report.txt">
-           <arg value="${dir_build_docs_javadoc}${com_github_alit}codelet${fs}package-summary.html"/>
-           <arg value="--no-follow-url=http"/>
-           <arg value="--ignore-url=http"/>
-         </exec>
-   </target>
+			<exec executable="linkchecker" output="${dir_sandbox}broken_link_report.txt">
+			  <arg value="${dir_build_docs_javadoc}${com_github_alit}codelet${fs}package-summary.html"/>
+			  <arg value="--no-follow-url=http"/>
+			  <arg value="--ignore-url=http"/>
+			</exec>
+	</target>
 
-   <target name="doc" description="Generates javadoc documentation.">
-      <copy file="${dir_sandbox}prev_versions.html" todir="${dir_build_docs_javadoc}"/>
+	<target name="doc" description="Generates javadoc documentation.">
+		<copy file="${dir_sandbox}prev_versions.html" todir="${dir_build_docs_javadoc}"/>
 
-      <!--
-         Packages need to be delimited by both commas and colons.  In build.properties, it's only delimited by commas.  Commas (with or without spaces) are needed by the JavaDoc "packagenames" attribute, and colons (without spaces) are needed by the "group" sub-tags.
+		<!--
+			Packages need to be delimited by both commas and colons.  In build.properties, it's only delimited by commas.  Commas (with or without spaces) are needed by the JavaDoc "packagenames" attribute, and colons (without spaces) are needed by the "group" sub-tags.
 
-         Replace comma-space first, then comma-no-space
-        -->
-      <propfromrplc property="codelet.jd_colon.packages.main" string="${codelet.javadoc.packages.main}" what="," with=":"/>
-      <propfromrplc property="codelet.jd_colon.packages.examples" string="${codelet.javadoc.packages.examples}" what="," with=":"/>
+			Replace comma-space first, then comma-no-space
+		  -->
+		<propfromrplc property="codelet.jd_colon.packages.main" string="${codelet.javadoc.packages.main}" what="," with=":"/>
+		<propfromrplc property="codelet.jd_colon.packages.examples" string="${codelet.javadoc.packages.examples}" what="," with=":"/>
 
-      <property name="dir_sandbox_needed_by_javadoc" value="${dir_sandbox_bldfiles}needed_by_javadoc${fs}"/>
-      <propertywithdynamicallynamedvalue propname="dir_main_or_gitonly_sandbox"
-         valuepropname="dir_${main_or_gitonly}_sandbox"/>
+		<property name="dir_sandbox_needed_by_javadoc" value="${dir_sandbox_bldfiles}needed_by_javadoc${fs}"/>
+		<propertywithdynamicallynamedvalue propname="dir_main_or_gitonly_sandbox"
+			valuepropname="dir_${main_or_gitonly}_sandbox"/>
 
-      <copy todir="${dir_build_docs_javadoc}">
-         <fileset dir="${dir_sandbox}${codelet.config.dir}"/>
-      </copy>
-      <copy todir="${dir_build_docs_javadoc}resources">
-         <fileset dir="${dir_sandbox_needed_by_javadoc}" excludes="javadoc_stylesheet.css"/>
-      </copy>
+		<copy todir="${dir_build_docs_javadoc}">
+			<fileset dir="${dir_sandbox}${codelet.config.dir}"/>
+		</copy>
+		<copy todir="${dir_build_docs_javadoc}resources">
+			<fileset dir="${dir_sandbox_needed_by_javadoc}" excludes="javadoc_stylesheet.css"/>
+		</copy>
+<!--
 
-      <javadoc
-         packagenames="${codelet.javadoc.packages.main},${codelet.javadoc.packages.examples}"
-         defaultexcludes="yes"
-         destdir="${dir_build_docs_javadoc}"
-         splitindex="true"
-         stylesheetfile="${dir_sandbox_needed_by_javadoc}javadoc_stylesheet.css"
-         author="true"
-         overview="${dir_sandbox}${project.name}_overview.html"
-         access="protected"
-         linksource="yes"
-         version="true"
-         windowtitle="Codelet"
-         nodeprecatedlist="yes"
-         classpathref="project_classpath"
-         additionalparam="-J-Dcodelet_config_dir=${dir_sandbox}${codelet.config.dir}${fs}"
-      >
-         <sourcepath>
-            <pathelement path="${dir_sandbox_src}"/>
-            <pathelement path="${dir_sandbox_examples}"/>
-            <pathelement path="${dir_sandbox_test}"/>
-         </sourcepath>
-      	<!-- Custom taglets
-            	<taglet name="com.github.aliteralmind.codelet.taglet.UnderlineTaglet" path="R:\jeffy\programming\build\CLASSES\"/>-->
-            <taglet name="com.github.aliteralmind.codelet.taglet.CodeletTaglet" path="R:\jeffy\programming\build\CLASSES\"/>
-            <taglet name="com.github.aliteralmind.codelet.taglet.CodeletDotOutTaglet" path="R:\jeffy\programming\build\CLASSES\"/>
-            <taglet name="com.github.aliteralmind.codelet.taglet.CodeletAndOutTaglet" path="R:\jeffy\programming\build\CLASSES\"/>
-            <taglet name="com.github.aliteralmind.codelet.taglet.FileTextletTaglet" path="R:\jeffy\programming\build\CLASSES\"/>
 
-         <group title="Codelet" packages="${codelet.jd_colon.packages.main}"/>
-         <group title="Codelet: Examples" packages="${codelet.jd_colon.packages.examples}"/>
+			classpathref="project_classpath_id"
+ -->
+ 		<javadoc
+			packagenames="${codelet.javadoc.packages.main},${codelet.javadoc.packages.examples}"
+			defaultexcludes="yes"
+			destdir="${dir_build_docs_javadoc}"
+			splitindex="true"
+			stylesheetfile="${dir_sandbox_needed_by_javadoc}javadoc_stylesheet.css"
+			author="true"
+			overview="${dir_sandbox}${project.name}_overview.html"
+			access="protected"
+			linksource="yes"
+			version="true"
+			windowtitle="Codelet"
+			nodeprecatedlist="yes"
+			additionalparam="-J-Dcodelet_config_dir=${dir_sandbox}${codelet.config.dir}${fs}"
+			classpathref="project_classpath_id"
+		>
+			<sourcepath>
+				<pathelement path="${dir_sandbox_src}"/>
+				<pathelement path="${dir_sandbox_examples}"/>
+				<pathelement path="${dir_sandbox_test}"/>
+			</sourcepath>
+			<!-- Custom taglets
+				http://stackoverflow.com/questions/27137850/ant-javadoc-task-throwing-noclassdeffounderror-from-within-a-custom-taglet-ev
+			  -->
+ 				<taglet name="com.github.aliteralmind.codelet.taglet.CodeletTaglet"
+ 					path="${project_classpath_str}"/>
+ 				<taglet name="com.github.aliteralmind.codelet.taglet.CodeletDotOutTaglet"
+ 					path="${project_classpath_str}"/>
+ 				<taglet name="com.github.aliteralmind.codelet.taglet.CodeletAndOutTaglet"
+ 					path="${project_classpath_str}"/>
+ 				<taglet name="com.github.aliteralmind.codelet.taglet.FileTextletTaglet"
+ 					path="${project_classpath_str}"/>
+				<!-- <taglet name="com.github.aliteralmind.codelet.taglet.UnderlineTaglet" path="${build.class.dir}"/> -->
 
-         <!-- Package lists for external libraries -->
-         <link href="http://junit.sourceforge.net/javadoc/"/>
-         <link href="http://docs.oracle.com/javase/7/docs/jdk/api/javadoc/doclet/"/>
-         <link href="http://aliteralmind.com/docs/computer/programming/templatefeather/documentation/javadoc/"/>
-         <link href="http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/"/>
-         <link href="http://docs.oracle.com/javase/7/docs/api/"/>
-         <link href="http://commons.apache.org/proper/commons-collections/javadocs/api-release/"/>
-         <link href="http://commons.apache.org/proper/commons-lang/javadocs/api-release"/>
-         <link href="http://commons.apache.org/proper/commons-io/javadocs/api-2.4/"/>
+			<group title="Codelet" packages="${codelet.jd_colon.packages.main}"/>
+			<group title="Codelet: Examples" packages="${codelet.jd_colon.packages.examples}"/>
 
-         <DOCTITLE><![CDATA[Codelet<BR><font size=\"4\"><CODE><A HREF=\"https://github.com/aliteralmind/${project.name}\">https://github.com/aliteralmind/${project.name}</A></CODE></FONT>]]></DOCTITLE>
+			<!-- Package lists for external libraries -->
+			<link href="http://junit.sourceforge.net/javadoc/"/>
+			<link href="http://docs.oracle.com/javase/7/docs/jdk/api/javadoc/doclet/"/>
+			<link href="http://aliteralmind.com/docs/computer/programming/templatefeather/documentation/javadoc/"/>
+			<link href="http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/"/>
+			<link href="http://docs.oracle.com/javase/7/docs/api/"/>
+			<link href="http://commons.apache.org/proper/commons-collections/javadocs/api-release/"/>
+			<link href="http://commons.apache.org/proper/commons-lang/javadocs/api-release"/>
+			<link href="http://commons.apache.org/proper/commons-io/javadocs/api-2.4/"/>
 
-         <BOTTOM><![CDATA[<P><HR><CODE><B>Copyright 2014, Jeff Epstein</B>, All Rights Reserved.  See top of source code files for copyright notice.</CODE></P><P>&nbsp;</P><P><A HREF=\"https://github.com/aliteralmind/${project.name}\"><B><CODE>https://github.com/aliteralmind/${project.name}</CODE></B></A></P><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE>]]></BOTTOM>
-      </javadoc>
+			<DOCTITLE><![CDATA[Codelet<BR><font size=\"4\"><CODE><A HREF=\"https://github.com/aliteralmind/${project.name}\">https://github.com/aliteralmind/${project.name}</A></CODE></FONT>]]></DOCTITLE>
 
-      <replace dir="${dir_build_docs_javadoc}" summary="yes"
-      	token="${project_version_for_jd}" value="${version.number}"/>
-      <replace dir="${dir_build_docs_javadoc}" summary="yes"
-      	token="${jd_project_codelet_config_dir}" value="${codelet.config.dir}"/>
+			<BOTTOM><![CDATA[<P><HR><CODE><B>Copyright 2014, Jeff Epstein</B>, All Rights Reserved.  See top of source code files for copyright notice.</CODE></P><P>&nbsp;</P><P><A HREF=\"https://github.com/aliteralmind/${project.name}\"><B><CODE>https://github.com/aliteralmind/${project.name}</CODE></B></A></P><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE>]]></BOTTOM>
+		</javadoc>
 
-      <replace dir="${dir_build_docs_javadoc}">
-        <include name="**/*.html"/>
-        <replacetoken><![CDATA[</head>]]></replacetoken>
-        <replacevalue><![CDATA[<meta name="viewport" content="width=device-width"/>
+		<replace dir="${dir_build_docs_javadoc}" summary="yes"
+			token="${project_version_for_jd}" value="${version.number}"/>
+		<replace dir="${dir_build_docs_javadoc}" summary="yes"
+			token="${jd_project_codelet_config_dir}" value="${codelet.config.dir}"/>
+
+		<replace dir="${dir_build_docs_javadoc}">
+		  <include name="**/*.html"/>
+		  <replacetoken><![CDATA[</head>]]></replacetoken>
+		  <replacevalue><![CDATA[<meta name="viewport" content="width=device-width"/>
 <!-- Required for syntax highlighting (1/2)...START -->
-   <script type="text/javascript" src="@__relative_url_to_doc_root__@resources/shCore.js"></script>
-   <link href="@__relative_url_to_doc_root__@resources/shCore.css" rel="stylesheet" type="text/css"/>
-   <link href="@__relative_url_to_doc_root__@resources/shThemeDefault.css" rel="stylesheet" type="text/css"/>
-   <script type="text/javascript" src="@__relative_url_to_doc_root__@resources/shBrushJava.js"></script>
+	<script type="text/javascript" src="@__relative_url_to_doc_root__@resources/shCore.js"></script>
+	<link href="@__relative_url_to_doc_root__@resources/shCore.css" rel="stylesheet" type="text/css"/>
+	<link href="@__relative_url_to_doc_root__@resources/shThemeDefault.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript" src="@__relative_url_to_doc_root__@resources/shBrushJava.js"></script>
 <!-- Required for syntax highlighting (1/2)...END -->
 </HEAD>]]></replacevalue>
-      </replace>
+		</replace>
 
 </target>
 <target name="doc2" description="Generates javadoc documentation.">
 
-      <java classname="xbnjavabuild.AddLineBreakBeforeGenericsInJavaDocPackageList" failonerror="true" classpathref="project_classpath">
-         <arg value="${dir_build_docs_javadoc}"/>
-         <arg value="com.github.aliteralmind."/>
-         <arg value="codelet"/>
-         <arg value="debugminimal"/>
-      </java>
+		<java classname="xbnjavabuild.AddLineBreakBeforeGenericsInJavaDocPackageList" failonerror="true" classpathref="project_classpath_id">
+			<arg value="${dir_build_docs_javadoc}"/>
+			<arg value="com.github.aliteralmind."/>
+			<arg value="codelet"/>
+			<arg value="debugminimal"/>
+		</java>
 
-      <antcall target="-replace_all_javadoc_headers"/>
+		<antcall target="-replace_all_javadoc_headers"/>
 
-      <replace dir="${dir_build_docs_javadoc}" summary="yes">
-         <include name="**/*.html"/>
-         <replacetoken><![CDATA[</body>]]></replacetoken>
-         <replacevalue><![CDATA[<!-- Required for syntax highlighting (2/2)...START -->
+		<replace dir="${dir_build_docs_javadoc}" summary="yes">
+			<include name="**/*.html"/>
+			<replacetoken><![CDATA[</body>]]></replacetoken>
+			<replacevalue><![CDATA[<!-- Required for syntax highlighting (2/2)...START -->
 <script type="text/javascript">
-     SyntaxHighlighter.all();
+	  SyntaxHighlighter.all();
 </script>
 <!-- Required for syntax highlighting (2/2)...END -->
 </body>]]></replacevalue>
-      </replace>
-   </target>
+		</replace>
+	</target>
 </project>
 
 

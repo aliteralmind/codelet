@@ -13,47 +13,47 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.examples.simplesig;
-   import  com.github.xbn.lang.reflect.InvokeMethodWithRtx;
-   import  java.lang.reflect.Method;
-   import  com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature;
+	import  com.github.xbn.lang.reflect.InvokeMethodWithRtx;
+	import  java.lang.reflect.Method;
+	import  com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature;
 /**
-   <P>Demonstration of <CODE>com.github.aliteralmind.codelet.simplesig.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature}</CODE>, using no defaults (the signature explicitely specifies all elements).</P>
+	<P>Demonstration of <CODE>com.github.aliteralmind.codelet.simplesig.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature}</CODE>, using no defaults (the signature explicitely specifies all elements).</P>
 
-   <P>{@code java com.github.aliteralmind.codelet.examples.simplesig.SimpleMethodSigNoDefaults}</P>
+	<P>{@code java com.github.aliteralmind.codelet.examples.simplesig.SimpleMethodSigNoDefaults}</P>
 
-   @since 0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://xbnjava.aliteralmind.com">{@code http://xbnjava.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/xbnjava">{@code https://github.com/aliteralmind/xbnjava}</A>
+	@since 0.1.0
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://xbnjava.aliteralmind.com">{@code http://xbnjava.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/xbnjava">{@code https://github.com/aliteralmind/xbnjava}</A>
  **/
 public class SimpleMethodSigNoDefaults  {
-   public static final void main(String[] ignored)  {
+	public static final void main(String[] ignored)  {
 
-      String strSig = "com.github.aliteralmind.codelet.examples.simplesig." +
-         "SimpleMethodSigNoDefaults#getStringForBoolInt(false, 3)";
+		String strSig = "com.github.aliteralmind.codelet.examples.simplesig." +
+			"SimpleMethodSigNoDefaults#getStringForBoolInt(false, 3)";
 
-      SimpleMethodSignature simpleSig = null;
-      try  {
-         simpleSig = SimpleMethodSignature.newFromStringAndDefaults(
-            String.class, strSig, null, null,
-            null);         //debug (on=System.out, off=null)
-      }  catch(ClassNotFoundException cnfx)  {
-         throw  new RuntimeException(cnfx);
-      }
+		SimpleMethodSignature simpleSig = null;
+		try  {
+			simpleSig = SimpleMethodSignature.newFromStringAndDefaults(
+				String.class, strSig, null, null,
+				null);         //debug (on=System.out, off=null)
+		}  catch(ClassNotFoundException cnfx)  {
+			throw  new RuntimeException(cnfx);
+		}
 
-      Method m = null;
-      try  {
-         m = simpleSig.getMethod();
-      }  catch(NoSuchMethodException nsmx)  {
-         throw  new RuntimeException(nsmx);
-      }
+		Method m = null;
+		try  {
+			m = simpleSig.getMethod();
+		}  catch(NoSuchMethodException nsmx)  {
+			throw  new RuntimeException(nsmx);
+		}
 
-      m.setAccessible(true);
+		m.setAccessible(true);
 
-      Object returnValue = new InvokeMethodWithRtx(m).sstatic().
-         parameters(simpleSig.getParamValueObjectList().toArray()).invokeGetReturnValue();
+		Object returnValue = new InvokeMethodWithRtx(m).sstatic().
+			parameters(simpleSig.getParamValueObjectList().toArray()).invokeGetReturnValue();
 
-      System.out.println(returnValue);
-   }
-   public static final String getStringForBoolInt(Boolean b, Integer i)  {
-      return  "b=" + b + ", i=" + i;
-   }
+		System.out.println(returnValue);
+	}
+	public static final String getStringForBoolInt(Boolean b, Integer i)  {
+		return  "b=" + b + ", i=" + i;
+	}
 }

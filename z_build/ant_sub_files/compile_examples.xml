@@ -1,79 +1,79 @@
 <project name="compile_examples" basedir=".">
-   <property name="dir_src_examples" value="${dir_sandbox_examples}${cga_codelet_examples}"/>
+	<property name="dir_src_examples" value="${dir_sandbox_examples}${cga_codelet_examples}"/>
 
-   <target name="compileexamples">
-      <antcall target="-compileexamplesasawhole"/>
-      <antcall target="-compileexamples1by1"/>
-   </target>
-   <target name="-compileexamplesasawhole" if="compile.as.a.whole">
-      <antcall target="compileexamplesasawhole"/>
-   </target>
-   <target name="-compileexamples1by1" unless="compile.as.a.whole">
-      <antcall target="compileexamples1by1"/>
-      <antcall target="compileexamples1by1b"/>
-   </target>
-   <target name="compileexamplesasawhole" description="Compiles all Codelet example code in a single javac call.">
-      <javac srcdir="${dir_sandbox_examples}" classpathref="project_classpath" listfiles="false" includeantruntime="true" createMissingPackageInfoClass="false"
-         destdir="${build.class.dir}"
-         includes="**/*.java"/>
-   </target>
+	<target name="compileexamples">
+		<antcall target="-compileexamplesasawhole"/>
+		<antcall target="-compileexamples1by1"/>
+	</target>
+	<target name="-compileexamplesasawhole" if="compile.as.a.whole">
+		<antcall target="compileexamplesasawhole"/>
+	</target>
+	<target name="-compileexamples1by1" unless="compile.as.a.whole">
+		<antcall target="compileexamples1by1"/>
+		<antcall target="compileexamples1by1b"/>
+	</target>
+	<target name="compileexamplesasawhole" description="Compiles all Codelet example code in a single javac call.">
+		<javac srcdir="${dir_sandbox_examples}" classpathref="project_classpath_id" listfiles="false" includeantruntime="true" createMissingPackageInfoClass="false"
+			destdir="${build.class.dir}"
+			includes="**/*.java"/>
+	</target>
 
-   <target name="compileexamples1by1">
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="DoNothingCustomizer.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="DoNothingCustomizerCompact.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="EliminatePackageDeclarationLine.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="HelloCodelet.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="TrivialAppWithCommandLineParams.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="for_testing_only/TestingFileSysPropSuccess.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="for_testing_only/TestingFileSysProp_FAILURE_IS_EXPECTED.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="for_testing_only/TrivialTestClassForFileTextletWithCustomizer.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="adder/Adder.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="LineRangeWithLinksCompact.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="LineRangeWithLinks.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="LineRangeWithLinksAndNamedDebugs.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="LineRangeWithReplace.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="zCodeletCustomizers.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="adder/AdderDemo.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="adder/AdderDemoWithFullyQualified.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="adder/AdderDemoWithSnippetEndMarker.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="adder/AdderWithCodelet.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="non_xbn/PrintJDBlocksStartStopLineNumsXmpl.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="simplesig/ConstructorParamSearchTermXmpl.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="simplesig/SimpleMethodSigExample.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="simplesig/SimpleMethodSigNoDefaults.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="simplesig/MethodSigSearchTermXmpl.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="simplesig/SimpleMethodSigWithClassDefaults.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="util/BlackWhiteListForJavaClasses.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="util/FunctionConstructorJavaDocLink.java"/>
-      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="util/JavaDocUtilGetEllipsisArrayLastParamXmpl.java"/>
+	<target name="compileexamples1by1">
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="DoNothingCustomizer.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="DoNothingCustomizerCompact.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="EliminatePackageDeclarationLine.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="HelloCodelet.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="TrivialAppWithCommandLineParams.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="for_testing_only/TestingFileSysPropSuccess.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="for_testing_only/TestingFileSysProp_FAILURE_IS_EXPECTED.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="for_testing_only/TrivialTestClassForFileTextletWithCustomizer.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="adder/Adder.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="LineRangeWithLinksCompact.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="LineRangeWithLinks.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="LineRangeWithLinksAndNamedDebugs.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="LineRangeWithReplace.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="zCodeletCustomizers.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="adder/AdderDemo.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="adder/AdderDemoWithFullyQualified.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="adder/AdderDemoWithSnippetEndMarker.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="adder/AdderWithCodelet.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="non_xbn/PrintJDBlocksStartStopLineNumsXmpl.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="simplesig/ConstructorParamSearchTermXmpl.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="simplesig/SimpleMethodSigExample.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="simplesig/SimpleMethodSigNoDefaults.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="simplesig/MethodSigSearchTermXmpl.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="simplesig/SimpleMethodSigWithClassDefaults.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="util/BlackWhiteListForJavaClasses.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="util/FunctionConstructorJavaDocLink.java"/>
+		<javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="util/JavaDocUtilGetEllipsisArrayLastParamXmpl.java"/>
 </target>
 <target name="compileexamples1by1b">
-   </target>
+	</target>
 </project>

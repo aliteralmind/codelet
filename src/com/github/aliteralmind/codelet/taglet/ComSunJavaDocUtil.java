@@ -13,197 +13,197 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.taglet;
-   import  com.sun.tools.doclets.Taglet;
-   import  java.util.Map;
-   import  com.github.xbn.lang.CrashIfObject;
-   import  com.github.aliteralmind.codelet.util.JavaDocUtil;
-   import  com.github.xbn.util.JavaRegexes;
-   import  com.sun.javadoc.ClassDoc;
-   import  com.sun.javadoc.Doc;
-   import  com.sun.javadoc.PackageDoc;
-   import  com.sun.javadoc.ProgramElementDoc;
-   import  com.sun.javadoc.Tag;
-   import  java.util.regex.Matcher;
-   import  java.util.regex.Pattern;
+	import  com.sun.tools.doclets.Taglet;
+	import  java.util.Map;
+	import  com.github.xbn.lang.CrashIfObject;
+	import  com.github.aliteralmind.codelet.util.JavaDocUtil;
+	import  com.github.xbn.util.JavaRegexes;
+	import  com.sun.javadoc.ClassDoc;
+	import  com.sun.javadoc.Doc;
+	import  com.sun.javadoc.PackageDoc;
+	import  com.sun.javadoc.ProgramElementDoc;
+	import  com.sun.javadoc.Tag;
+	import  java.util.regex.Matcher;
+	import  java.util.regex.Pattern;
 /**
-   <P>Generically-useful utilities related to {@code com.sun.javadoc}.</P>
+	<P>Generically-useful utilities related to {@code com.sun.javadoc}.</P>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@since  0.1.0
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 public class ComSunJavaDocUtil  {
-   /**
-      <P>Register a Taglet as required by JavaDoc.</P>
+	/**
+		<P>Register a Taglet as required by JavaDoc.</P>
 
-      <H3><I>(Why is the map parameter type-erased? What generics does it need?)</I></H3>
+		<H3><I>(Why is the map parameter type-erased? What generics does it need?)</I></H3>
 
-      <P>Steps<OL>
-         <LI>If a taglet with the name equal to <CODE>taglet.{@link com.sun.javadoc.Taglet#getName() getName}()</CODE> already exists in the map, remove it.</LI>
-         <LI>{@code taglet} is <A HREF="http://docs.oracle.com/javase/7/docs/api/java/util/Map#put(K,">V) added</A> to the map, with its name as the key.</LI>
-      </OL></P>
+		<P>Steps<OL>
+			<LI>If a taglet with the name equal to <CODE>taglet.{@link com.sun.javadoc.Taglet#getName() getName}()</CODE> already exists in the map, remove it.</LI>
+			<LI>{@code taglet} is <A HREF="http://docs.oracle.com/javase/7/docs/api/java/util/Map#put(K,">V) added</A> to the map, with its name as the key.</LI>
+		</OL></P>
 
-      @param  taglet  The taglet to register. May not be {@code null}.
-      @param map  The map to register this tag to. May not be {@code null}.
-      @since 0.1.1
-    */
-   @SuppressWarnings({"unchecked", "rawtypes"})
-   public static void registerNewTagletInstance(Taglet taglet, Map map)  {
-      try  {
-         final String name = taglet.getName();
-         final Taglet alreadyRegisteredTaglet = (Taglet)map.get(name);
-         if (alreadyRegisteredTaglet != null) {
-            map.remove(name);
-         }
-         map.put(name, taglet);
-      }  catch(RuntimeException rx)  {
-         CrashIfObject.nnull(taglet, "taglet", null);
-         throw  CrashIfObject.nullOrReturnCause(map, "map", null, rx);
-      }
+		@param  taglet  The taglet to register. May not be {@code null}.
+		@param map  The map to register this tag to. May not be {@code null}.
+		@since 0.1.1
+	 */
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	public static void registerNewTagletInstance(Taglet taglet, Map map)  {
+		try  {
+			final String name = taglet.getName();
+			final Taglet alreadyRegisteredTaglet = (Taglet)map.get(name);
+			if (alreadyRegisteredTaglet != null) {
+				map.remove(name);
+			}
+			map.put(name, taglet);
+		}  catch(RuntimeException rx)  {
+			CrashIfObject.nnull(taglet, "taglet", null);
+			throw  CrashIfObject.nullOrReturnCause(map, "map", null, rx);
+		}
 /*
-      FileTextletTaglet tag = new FileTextletTaglet();
-      Taglet t = (Taglet) map.get(tag.getName());
-      if (t != null) {
-         map.remove(tag.getName());
-      }
-      map.put(tag.getName(), tag);
+		FileTextletTaglet tag = new FileTextletTaglet();
+		Taglet t = (Taglet) map.get(tag.getName());
+		if (t != null) {
+			map.remove(tag.getName());
+		}
+		map.put(tag.getName(), tag);
  */
-   }
+	}
 
-   /**
-      <P>Get the relative url whose value is equivalent to {@code {@docRoot}}.</P>
+	/**
+		<P>Get the relative url whose value is equivalent to {@code {@docRoot}}.</P>
 
-      @return  <CODE>{@link com.github.aliteralmind.codelet.util.JavaDocUtil JavaDocUtil}.{@link com.github.aliteralmind.codelet.util.JavaDocUtil#getRelativeUrlToDocRoot(String) getRelativeUrlToDocRoot}({@link #getEnclosingPackageName(Tag) getEnclosingPackageName}(tag))</CODE>
-    **/
-   public static final String getRelativeUrlToDocRoot(Tag tag)  {
-      return  JavaDocUtil.getRelativeUrlToDocRoot(getEnclosingPackageName(tag));
-   }
-   /*
-   private static final Matcher packageElementMtchr = Pattern.compile("[\\p{L}_\\p{Sc}][\\p{L}\\p{N}_\\p{Sc}]*\\.?").matcher("");
-      <P>Get the relative url whose value is equivalent to {@code {@docRoot}}. This is a generic (self-contained) version of {@link #getRelativeUrlToDocRoot(Tag) getRelativeUrlToDocRoot}--they both do the same thing.</P>
+		@return  <CODE>{@link com.github.aliteralmind.codelet.util.JavaDocUtil JavaDocUtil}.{@link com.github.aliteralmind.codelet.util.JavaDocUtil#getRelativeUrlToDocRoot(String) getRelativeUrlToDocRoot}({@link #getEnclosingPackageName(Tag) getEnclosingPackageName}(tag))</CODE>
+	 **/
+	public static final String getRelativeUrlToDocRoot(Tag tag)  {
+		return  JavaDocUtil.getRelativeUrlToDocRoot(getEnclosingPackageName(tag));
+	}
+	/*
+	private static final Matcher packageElementMtchr = Pattern.compile("[\\p{L}_\\p{Sc}][\\p{L}\\p{N}_\\p{Sc}]*\\.?").matcher("");
+		<P>Get the relative url whose value is equivalent to {@code {@docRoot}}. This is a generic (self-contained) version of {@link #getRelativeUrlToDocRoot(Tag) getRelativeUrlToDocRoot}--they both do the same thing.</P>
 
-      @return  <CODE>packageElementMtchr.reset({@link #getEnclosingPackageName(Tag) getEnclosingPackageName}(tag)).{@link java.util.regex.Matcher#replaceAll(String) replaceAll}(&quot;../&quot;)</CODE>
-      <BR>Where {@code packageElementMtchr} is initialized to
-      <BR> &nbsp; &nbsp; <CODE>Pattern.{@link java.util.regex.Pattern#compile(String) compile}(&quot;[\\p{L}_\\p{Sc}][\\p{L}\\p{N}_\\p{Sc}]*\\.?&quot;).{@link java.util.regex.Pattern#matcher(CharSequence) matcher}(&quot;&quot;)</CODE>
-      @see  <CODE><A HREF="http://stackoverflow.com/questions/4079268/custom-taglet-with-reference-to-docroot">http://stackoverflow.com/questions/4079268/custom-taglet-with-reference-to-docroot</A></CODE>
-   public static final String getRelativeUrlToDocRootGeneric(Tag tag)  {
-      return  packageElementMtchr.reset(getEnclosingPackageName(tag)).replaceAll("../");
-   }
-    */
-   /**
-      <P>Get the package of the tag-containing JavaDoc page.</P>
+		@return  <CODE>packageElementMtchr.reset({@link #getEnclosingPackageName(Tag) getEnclosingPackageName}(tag)).{@link java.util.regex.Matcher#replaceAll(String) replaceAll}(&quot;../&quot;)</CODE>
+		<BR>Where {@code packageElementMtchr} is initialized to
+		<BR> &nbsp; &nbsp; <CODE>Pattern.{@link java.util.regex.Pattern#compile(String) compile}(&quot;[\\p{L}_\\p{Sc}][\\p{L}\\p{N}_\\p{Sc}]*\\.?&quot;).{@link java.util.regex.Pattern#matcher(CharSequence) matcher}(&quot;&quot;)</CODE>
+		@see  <CODE><A HREF="http://stackoverflow.com/questions/4079268/custom-taglet-with-reference-to-docroot">http://stackoverflow.com/questions/4079268/custom-taglet-with-reference-to-docroot</A></CODE>
+	public static final String getRelativeUrlToDocRootGeneric(Tag tag)  {
+		return  packageElementMtchr.reset(getEnclosingPackageName(tag)).replaceAll("../");
+	}
+	 */
+	/**
+		<P>Get the package of the tag-containing JavaDoc page.</P>
 
-      @return  If {@link #getPackageDoc(Tag) getPackageDoc}{@code (tag)} is<UL>
-         <LI>{@code null}: {@code ""}</LI>
-         <LI>non-{@code null}: Its {@linkplain com.sun.javadoc.PackageDoc#name() name}.</LI>
-      </UL>
-    **/
-   public static final String getEnclosingPackageName(Tag tag)  {
-      PackageDoc pkgDoc = getPackageDoc(tag);
-      return  ((pkgDoc == null) ? "" : pkgDoc.name());
-   }
-   /**
-      <P>Get the tag-containing JavaDoc page's post-package name.</P>
+		@return  If {@link #getPackageDoc(Tag) getPackageDoc}{@code (tag)} is<UL>
+			<LI>{@code null}: {@code ""}</LI>
+			<LI>non-{@code null}: Its {@linkplain com.sun.javadoc.PackageDoc#name() name}.</LI>
+		</UL>
+	 **/
+	public static final String getEnclosingPackageName(Tag tag)  {
+		PackageDoc pkgDoc = getPackageDoc(tag);
+		return  ((pkgDoc == null) ? "" : pkgDoc.name());
+	}
+	/**
+		<P>Get the tag-containing JavaDoc page's post-package name.</P>
 
-      @param  tag  May not be {@code null}.
-      @param  include_postClassName  If the taglet is in the class JavaDoc-block, The classes generics, if any, are included in its simple name. If the taglet is in a function's JavaDoc-block, its name and parameters are included. If this parameter is {@link IncludePostClassName#YES YES}, the generics or function name, if any, are included in the returned value. If {@link IncludePostClassName#NO NO}, they are excluded. This parameter may not be {@code null}.
-      @return  If the tag's {@linkplain #getEnclosingPackageName(Tag) enclosing package name}<UL>
-         <LI>Has no characters: {@code "OVERVIEW_SUMMARY"}</LI>
-         <LI>Non empty and its name<UL>
-            <LI>Has no characters: {@code "PACKAGE_SUMMARY"}</LI>
-            <LI>Non-empty: The name</LI>
-         </UL></LI>
-      </UL>
-    **/
-   public static final String getEnclosingSimpleName(Tag tag, IncludePostClassName include_postClassName)  {
-      String pkg = getEnclosingPackageName(tag);
-      if(pkg.length() == 0)  {
+		@param  tag  May not be {@code null}.
+		@param  include_postClassName  If the taglet is in the class JavaDoc-block, The classes generics, if any, are included in its simple name. If the taglet is in a function's JavaDoc-block, its name and parameters are included. If this parameter is {@link IncludePostClassName#YES YES}, the generics or function name, if any, are included in the returned value. If {@link IncludePostClassName#NO NO}, they are excluded. This parameter may not be {@code null}.
+		@return  If the tag's {@linkplain #getEnclosingPackageName(Tag) enclosing package name}<UL>
+			<LI>Has no characters: {@code "OVERVIEW_SUMMARY"}</LI>
+			<LI>Non empty and its name<UL>
+				<LI>Has no characters: {@code "PACKAGE_SUMMARY"}</LI>
+				<LI>Non-empty: The name</LI>
+			</UL></LI>
+		</UL>
+	 **/
+	public static final String getEnclosingSimpleName(Tag tag, IncludePostClassName include_postClassName)  {
+		String pkg = getEnclosingPackageName(tag);
+		if(pkg.length() == 0)  {
 //System.out.println("getEnclosingSimpleName.1 OVERVIEW_SUMMARY");
-         return  "OVERVIEW_SUMMARY";
-      }
+			return  "OVERVIEW_SUMMARY";
+		}
 
-      String name = tag.holder().toString().substring(pkg.length());
+		String name = tag.holder().toString().substring(pkg.length());
 //System.out.println("getEnclosingSimpleName.1a tag.holder()=\"" + tag.holder() + "\"\n   - without package=\"" + name+ "\"");
 
 
-      if(name.length() == 0)  {
+		if(name.length() == 0)  {
 //System.out.println("getEnclosingSimpleName.2 PACKAGE_SUMMARY");
-         return  "PACKAGE_SUMMARY";
-      }
+			return  "PACKAGE_SUMMARY";
+		}
 
-      if(name.charAt(0) == '.')  {
-         name = name.substring(1);
-      }
+		if(name.charAt(0) == '.')  {
+			name = name.substring(1);
+		}
 
-      try  {
-         if(include_postClassName.isYes())  {
+		try  {
+			if(include_postClassName.isYes())  {
 //System.out.println("getEnclosingSimpleName.2a " + name);
-            return  name;
-         }
-      }  catch(RuntimeException rx)  {
-         throw  CrashIfObject.nullOrReturnCause(include_postClassName, "include_postClassName", null, rx);
-      }
+				return  name;
+			}
+		}  catch(RuntimeException rx)  {
+			throw  CrashIfObject.nullOrReturnCause(include_postClassName, "include_postClassName", null, rx);
+		}
 
-      //include_postClassName.NO
+		//include_postClassName.NO
 
-      name = oneOrMoreWordCharsAtInputStartMtchr.reset(name).replaceFirst("$1");
+		name = oneOrMoreWordCharsAtInputStartMtchr.reset(name).replaceFirst("$1");
 
 //System.out.println("getEnclosingSimpleName.3 " + name);
-      return  name;
+		return  name;
 
 /*
-      try  {
-         if(include_postClassName.isYes())  {
+		try  {
+			if(include_postClassName.isYes())  {
 System.out.println("getEnclosingSimpleName.3 " + name);
-            return  name;
-         }
-      }  catch(RuntimeException rx)  {
-         throw  CrashIfObject.nullOrReturnCause(include_postClassName, "include_postClassName", null, rx);
-      }
+				return  name;
+			}
+		}  catch(RuntimeException rx)  {
+			throw  CrashIfObject.nullOrReturnCause(include_postClassName, "include_postClassName", null, rx);
+		}
 
-      int idxGreaterThan = name.indexOf('<');
-      int idxOpenParen = name.indexOf('(');
+		int idxGreaterThan = name.indexOf('<');
+		int idxOpenParen = name.indexOf('(');
 
-      //Must check for parens first, because it is possible for generics to be
-      //inside parameters!
-      if(idxOpenParen == -1)  {
-         if(idxGreaterThan == -1)  {
+		//Must check for parens first, because it is possible for generics to be
+		//inside parameters!
+		if(idxOpenParen == -1)  {
+			if(idxGreaterThan == -1)  {
 System.out.println("getEnclosingSimpleName.4 " + name);
-            return  name;
-         }
-         name = name.substring(0, idxGreaterThan);
+				return  name;
+			}
+			name = name.substring(0, idxGreaterThan);
 System.out.println("getEnclosingSimpleName.5 " + name);
-         return  name;
+			return  name;
 
-      }
-      //Return name up-through-but-not-including the dot-func-signature
+		}
+		//Return name up-through-but-not-including the dot-func-signature
 
-      name = name.substring(0, name.lastIndexOf('.', idxOpenParen));
+		name = name.substring(0, name.lastIndexOf('.', idxOpenParen));
 System.out.println("getEnclosingSimpleName.6 " + name);
-      return  name;
+		return  name;
  */
 
-   }
-      private static final Matcher oneOrMoreWordCharsAtInputStartMtchr = Pattern.compile("^(\\w+).*$").matcher("");
-   /**
-      <P>Get the object containing the &quot;package&quot; of the tag-containing JavaDoc page.</P>
+	}
+		private static final Matcher oneOrMoreWordCharsAtInputStartMtchr = Pattern.compile("^(\\w+).*$").matcher("");
+	/**
+		<P>Get the object containing the &quot;package&quot; of the tag-containing JavaDoc page.</P>
 
-      <P>This function was written by <A HREF="http://stackoverflow.com">Stack Overflow</A> user <A HREF="http://stackoverflow.com/users/547546/chad-retz">Chad Retz</A>.</P>-
+		<P>This function was written by <A HREF="http://stackoverflow.com">Stack Overflow</A> user <A HREF="http://stackoverflow.com/users/547546/chad-retz">Chad Retz</A>.</P>-
 
-      @return  If the tag's {@linkplain com.sun.javadoc.Tag#holder() holder }<UL>
-         <LI>is a {@link com.sun.javadoc.ProgramElementDoc}: Its {@linkplain com.sun.javadoc.ProgramElementDoc#containingPackage() containing package}.</LI>
-         <LI>is a {@link com.sun.javadoc.PackageDoc}: {@code tag}.</LI>
-         <LI>Otherwise: {@code null}</LI>
-      </UL>
-      @see  <CODE><A HREF="http://chadretz.wordpress.com/2010/12/19/mathml-inside-javadoc-using-mathjax-and-a-custom-taglet/">http://chadretz.wordpress.com/2010/12/19/mathml-inside-javadoc-using-mathjax-and-a-custom-taglet/</A></CODE>
-    **/
-   public static final PackageDoc getPackageDoc(Tag tag) {
-      Doc holder = tag.holder();
-      if (holder instanceof ProgramElementDoc) {
-         return ((ProgramElementDoc) holder).containingPackage();
-      } else if (holder instanceof PackageDoc) {
-         return (PackageDoc) holder;
-      } else {
-         return  null;
-      }
-   }
+		@return  If the tag's {@linkplain com.sun.javadoc.Tag#holder() holder }<UL>
+			<LI>is a {@link com.sun.javadoc.ProgramElementDoc}: Its {@linkplain com.sun.javadoc.ProgramElementDoc#containingPackage() containing package}.</LI>
+			<LI>is a {@link com.sun.javadoc.PackageDoc}: {@code tag}.</LI>
+			<LI>Otherwise: {@code null}</LI>
+		</UL>
+		@see  <CODE><A HREF="http://chadretz.wordpress.com/2010/12/19/mathml-inside-javadoc-using-mathjax-and-a-custom-taglet/">http://chadretz.wordpress.com/2010/12/19/mathml-inside-javadoc-using-mathjax-and-a-custom-taglet/</A></CODE>
+	 **/
+	public static final PackageDoc getPackageDoc(Tag tag) {
+		Doc holder = tag.holder();
+		if (holder instanceof ProgramElementDoc) {
+			return ((ProgramElementDoc) holder).containingPackage();
+		} else if (holder instanceof PackageDoc) {
+			return (PackageDoc) holder;
+		} else {
+			return  null;
+		}
+	}
 }

@@ -13,44 +13,44 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet;
-   import  com.github.xbn.lang.CrashIfObject;
+	import  com.github.xbn.lang.CrashIfObject;
 /**
-   <P>Indicates the {@linkplain CodeletInstance#getText() text} in a codelet is invalid.</P>
+	<P>Indicates the {@linkplain CodeletInstance#getText() text} in a codelet is invalid.</P>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@since  0.1.0
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
 
  **/
 public class CodeletFormatException extends IllegalArgumentException  {
-   /**
-    * 
-    */
-   private static final long serialVersionUID = -2937513367419555471L;
-   private final CodeletInstance instance;
-   public CodeletFormatException(CodeletInstance instance, String message)  {
-      super(CodeletFormatException.getErrorMessage(instance, message));
-      this.instance = instance;
-   }
-   public CodeletFormatException(CodeletInstance instance)  {
-      super((instance == null) ? null : instance.toString());
-      this.instance = instance;
-   }
-   public CodeletFormatException(CodeletInstance instance, String message, Throwable cause)  {
-      super(CodeletFormatException.getErrorMessage(instance, message), cause);
-      this.instance = instance;
-   }
-   public CodeletFormatException(CodeletInstance instance, Throwable cause)  {
-      super((instance == null) ? null : instance.toString(), cause);
-      this.instance = instance;
-   }
-   public CodeletInstance getInstance()  {
-      return  instance;
-   }
-   public static final String getErrorMessage(CodeletInstance instance, String message)  {
-      try  {
-         return  message + ". " + instance.toString();
-      }  catch(RuntimeException rx)  {
-         throw  CrashIfObject.nullOrReturnCause(instance, "instance", null, rx);
-      }
-   }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2937513367419555471L;
+	private final CodeletInstance instance;
+	public CodeletFormatException(CodeletInstance instance, String message)  {
+		super(CodeletFormatException.getErrorMessage(instance, message));
+		this.instance = instance;
+	}
+	public CodeletFormatException(CodeletInstance instance)  {
+		super((instance == null) ? null : instance.toString());
+		this.instance = instance;
+	}
+	public CodeletFormatException(CodeletInstance instance, String message, Throwable cause)  {
+		super(CodeletFormatException.getErrorMessage(instance, message), cause);
+		this.instance = instance;
+	}
+	public CodeletFormatException(CodeletInstance instance, Throwable cause)  {
+		super((instance == null) ? null : instance.toString(), cause);
+		this.instance = instance;
+	}
+	public CodeletInstance getInstance()  {
+		return  instance;
+	}
+	public static final String getErrorMessage(CodeletInstance instance, String message)  {
+		try  {
+			return  message + ". " + instance.toString();
+		}  catch(RuntimeException rx)  {
+			throw  CrashIfObject.nullOrReturnCause(instance, "instance", null, rx);
+		}
+	}
 }

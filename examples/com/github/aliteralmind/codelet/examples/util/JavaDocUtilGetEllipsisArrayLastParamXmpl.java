@@ -13,26 +13,26 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.examples.util;
-   import  com.github.aliteralmind.codelet.util.JavaDocUtil;
+	import  com.github.aliteralmind.codelet.util.JavaDocUtil;
 /**
-   <P>Demonstration of <CODE>{@link com.github.aliteralmind.codelet.util.JavaDocUtil}.{@link com.github.aliteralmind.codelet.util.JavaDocUtil#getEllipsisArrayLastParam(Class) getEllipsisArrayLastParam}</CODE>.</P>
+	<P>Demonstration of <CODE>{@link com.github.aliteralmind.codelet.util.JavaDocUtil}.{@link com.github.aliteralmind.codelet.util.JavaDocUtil#getEllipsisArrayLastParam(Class) getEllipsisArrayLastParam}</CODE>.</P>
 
-   <P>{@code java com.github.xbn.examples.util.JavaDocUtilGetEllipsisArrayLastParamXmpl}</P>
+	<P>{@code java com.github.xbn.examples.util.JavaDocUtilGetEllipsisArrayLastParamXmpl}</P>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@since  0.1.0
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 public class JavaDocUtilGetEllipsisArrayLastParamXmpl  {
-   public static final void main(String[] ignored)  {
-      try  {
-         System.out.print("int: ");
-         JavaDocUtil.getEllipsisArrayLastParam(int.class);
-      }  catch(IllegalArgumentException iax)  {
-         System.out.println(iax);
-      }
-      System.out.println("int[]: " + JavaDocUtil.getEllipsisArrayLastParam(int[].class));
-      System.out.println("int[][]: " + JavaDocUtil.getEllipsisArrayLastParam(int[][].class));
-      System.out.println("String[]: " + JavaDocUtil.getEllipsisArrayLastParam(String[].class));
-      System.out.println("String[][]: " + JavaDocUtil.getEllipsisArrayLastParam(String[][].class));
-   }
+	public static final void main(String[] ignored)  {
+		try  {
+			System.out.print("int: ");
+			JavaDocUtil.getEllipsisArrayLastParam(int.class);
+		}  catch(IllegalArgumentException iax)  {
+			System.out.println(iax);
+		}
+		System.out.println("int[]: " + JavaDocUtil.getEllipsisArrayLastParam(int[].class));
+		System.out.println("int[][]: " + JavaDocUtil.getEllipsisArrayLastParam(int[][].class));
+		System.out.println("String[]: " + JavaDocUtil.getEllipsisArrayLastParam(String[].class));
+		System.out.println("String[][]: " + JavaDocUtil.getEllipsisArrayLastParam(String[][].class));
+	}
 }

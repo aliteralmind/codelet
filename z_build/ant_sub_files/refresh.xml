@@ -2,8 +2,8 @@
 <!-- Clean targets...START -->
 
       <target name="delete_build"
-            description="Delete the entire build directory (not ${dir_classes})">
-         <delete dir="${dir_build}" includeemptydirs="true" quiet="true"/>
+            description="Delete the entire build directory (not ${dir_classes_alit})">
+         <delete dir="${dir_build}" includeemptydirs="true" quiet="false"/>
       </target>
          <target name="docclean"
                description="Delete the entire build documentation directory">
@@ -15,14 +15,26 @@
          </target>
          <target name="delete_classes"
                description="Delete the xbn.** class files in both build/classes and the sandbox (not ${dir_build})">
-               <!-- Note delete is of CLASSES/xbn, but mkdir below is only of CLASSES (parent) -->
-            <delete quiet="true" includeemptydirs="true" dir="${dir_classes}codelet"/>
+            <delete quiet="true" includeemptydirs="true" dir="${dir_classes_alit}codelet"/>
+            <delete quiet="true" includeemptydirs="true">
+               <fileset dir="${build.class.dir}" excludes="xbnjavabuild/*.class"/>
+            </delete>
+            <!-- Delete any class files in the sandbox, except in the bin (or root) directory. -->
             <delete quiet="true">
-               <fileset dir="${dir_sandbox}">
+               <fileset dir="${dir_sandbox_src}">
+                  <include name="**${fs}*.class"/>
+               </fileset>
+               <fileset dir="${dir_sandbox_examples}">
+                  <include name="**${fs}*.class"/>
+               </fileset>
+               <fileset dir="${dir_sandbox_test}">
+                  <include name="**${fs}*.class"/>
+               </fileset>
+               <fileset dir="${dir_sandbox_bldfiles}">
                   <include name="**${fs}*.class"/>
                </fileset>
             </delete>
-      </target>
+		</target>
       <target name="delete_working"
             description="Delete the working directory">
          <delete dir="${dir_working}" quiet="true"/>
@@ -30,16 +42,25 @@
 
       <target name="cleansandbox"
             description="Deletes temporary files from the sandbox">
-         <delete file="${pom_xml_dest}"/><!-- Originates in task preppom. Needed by task clean -->
-         <delete file="${dir_sandbox}temp.txt"/>
+			<delete file="${pom_xml_dest}"/><!-- Originates in task preppom. Needed by task clean -->
+			<delete file="${dir_sandbox}temp.txt"/>
       </target>
 
       <target name="clean"
-            description="Calls delete_build, delete_classes and delete_working">
+            description="Shortcut for delete_build, delete_classes, delete_working, cleansandbox">
          <antcall target="delete_build"/>
          <antcall target="delete_classes"/>
          <antcall target="delete_working"/>
          <antcall target="cleansandbox"/>
+      </target>
+      <target name="cleanjars"
+            description="Deletes build/download/codelet-*.jar">
+         <delete quiet="true">
+               <fileset dir="${dir_build_download}">
+                  <include name="${project_name_dash_version}-*.jar"/>
+               </fileset>
+            </delete>
+
       </target>
 <!-- Clean targets...END -->
 
@@ -48,8 +69,8 @@
          description="Create all directories outside of the sandbox, necessary for building xbn">
       <mkdir dir="${dir_working}"/>
 
-      <!-- Never deleted! Created here just in case. -->
-      <mkdir dir="${build.class.dir}"/>
+		<!-- Never deleted! Created here just in case. -->
+      <mkdir dir="${build.class.dir}/xbnjavabuild"/>
 
       <!-- The delete above is CLASSES/xbn, but mkdir here is only of CLASSES (parent) -->
       <mkdir dir="${dir_build_download}"/>

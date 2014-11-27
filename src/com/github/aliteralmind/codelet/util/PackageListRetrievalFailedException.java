@@ -14,26 +14,26 @@
 \*license*/
 package  com.github.aliteralmind.codelet.util;
 /**
-   <P>Indicates the {@code package-list} could not be retrieved, or contains invalid data.</P>
+	<P>Indicates the {@code package-list} could not be retrieved, or contains invalid data.</P>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@since  0.1.0
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
 
  **/
 public class PackageListRetrievalFailedException extends IllegalArgumentException  {
-   /**
-    * 
-    */
-   private static final long serialVersionUID = 6156396236649806205L;
-   public PackageListRetrievalFailedException(String message)  {
-      super(message);
-   }
-   public PackageListRetrievalFailedException()  {
-   }
-   public PackageListRetrievalFailedException(String message, Throwable cause)  {
-      super(message, cause);
-   }
-   public PackageListRetrievalFailedException(Throwable cause)  {
-      super(cause);
-   }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6156396236649806205L;
+	public PackageListRetrievalFailedException(String message)  {
+		super(message);
+	}
+	public PackageListRetrievalFailedException()  {
+	}
+	public PackageListRetrievalFailedException(String message, Throwable cause)  {
+		super(message, cause);
+	}
+	public PackageListRetrievalFailedException(Throwable cause)  {
+		super(cause);
+	}
 }

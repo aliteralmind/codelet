@@ -1,10 +1,10 @@
 package  com.github.aliteralmind.codelet.taglet;
-   import  com.sun.javadoc.Tag;
-   import  com.sun.tools.doclets.Taglet;
-   import  java.util.Map;
+	import  com.sun.javadoc.Tag;
+	import  com.sun.tools.doclets.Taglet;
+	import  java.util.Map;
 
 /**
-   <P>Demo inline JavaDoc taglet from Sun's <A HREF="http://docs.oracle.com/javase/7/docs/technotes/guides/javadoc/taglet/overview.html#inlineexample">Doclet overview</A>. This is used as a template for all {@code com.github.aliteralmind.codelet.taglet} ttaglets.</P>
+	<P>Demo inline JavaDoc taglet from Sun's <A HREF="http://docs.oracle.com/javase/7/docs/technotes/guides/javadoc/taglet/overview.html#inlineexample">Doclet overview</A>. This is used as a template for all {@code com.github.aliteralmind.codelet.taglet} ttaglets.</P>
 
  	<P>A sample Inline Taglet representing {@code {@underline}}. This tag can be used in any kind of {@link com.sun.javadoc.Doc}. The text is underlined. For example, {@code {@underline UNDERLINE ME}} would be shown as: {@code <u>UNDERLINE ME</u>}.</P>
  *
@@ -96,10 +96,10 @@ public class UnderlineTaglet implements Taglet {
      * Given the <code>Tag</code> representation of this custom
      * tag, return its string representation.
      * @param tag he <code>Tag</code> representation of this custom tag.
-      @return  <CODE>{@link com.github.aliteralmind.codelet.taglet.CodletComSunJavadocTagProcessor CodletComSunJavadocTagProcessor}.{@link com.github.aliteralmind.codelet.taglet.CodletComSunJavadocTagProcessor#get(Tag) get}(tag)</CODE>
+		@return  <CODE>{@link com.github.aliteralmind.codelet.taglet.CodletComSunJavadocTagProcessor CodletComSunJavadocTagProcessor}.{@link com.github.aliteralmind.codelet.taglet.CodletComSunJavadocTagProcessor#get(Tag) get}(tag)</CODE>
      */
     public String toString(Tag tag) {
-       return  "x=" + System.getProperty("x", ":(");
+		 return  "x=" + System.getProperty("x", ":(");
     }
 
     /**

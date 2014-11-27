@@ -13,40 +13,40 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.examples;
-   import  com.github.aliteralmind.codelet.CodeletInstance;
-   import  com.github.aliteralmind.codelet.CodeletType;
-   import  com.github.aliteralmind.codelet.type.SourceCodeTemplate;
-   import  com.github.aliteralmind.codelet.CustomizationInstructions;
+	import  com.github.aliteralmind.codelet.CodeletInstance;
+	import  com.github.aliteralmind.codelet.CodeletType;
+	import  com.github.aliteralmind.codelet.type.SourceCodeTemplate;
+	import  com.github.aliteralmind.codelet.CustomizationInstructions;
 /**
-   <P style="font-size: 150%;"><B><A HREF="{@docRoot}/overview-summary.html#xmpl_hello"><FONT SIZE="+1"><CODE><IMG SRC="{@docRoot}/resources/left_arrow.gif"/> GO BACK</CODE></FONT></A> &nbsp; &nbsp; Codelet: Example: A specialized customizer that <I>does nothing</I></B></P>
+	<P style="font-size: 150%;"><B><A HREF="{@docRoot}/overview-summary.html#xmpl_hello"><FONT SIZE="+1"><CODE><IMG SRC="{@docRoot}/resources/left_arrow.gif"/> GO BACK</CODE></FONT></A> &nbsp; &nbsp; Codelet: Example: A specialized customizer that <I>does nothing</I></B></P>
 
-   <H3><U>Taglet:</U></H3>
+	<H3><U>Taglet:</U></H3>
 
-   <P style="font-size: 125%;"><B>{@code {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%aCustomizerThatDoesNothing()}}</B></P>
+	<P style="font-size: 125%;"><B>{@code {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%aCustomizerThatDoesNothing()}}</B></P>
 
-   <H3><U>Replaced with:</U></H3>
+	<H3><U>Replaced with:</U></H3>
 
-   <P><I>(Output begins and ends between the horizontal lines.)</I></P>
+	<P><I>(Output begins and ends between the horizontal lines.)</I></P>
 
-   <HR/>
+	<HR/>
 {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%aCustomizerThatDoesNothing()}
-   <HR/>
+	<HR/>
 
-   <H3><U>Original source code:</U></H3>
+	<H3><U>Original source code:</U></H3>
 
 {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo}
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@since  0.1.0
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 public class DoNothingCustomizer  {
-   private static final CustomizationInstructions<SourceCodeTemplate> aCustomizerThatDoesNothing(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
-      return  new CustomizationInstructions<SourceCodeTemplate>(instance,
-            needed_defaultAlterType).
-         defaults(
-            null, null, //dbgEveryLine and its range
-            null,       //dbgAllAltr: on=System.out, off=null
-            null).      //dbgTemplate
-         build();
-   }  //End snippet
+	private static final CustomizationInstructions<SourceCodeTemplate> aCustomizerThatDoesNothing(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
+		return  new CustomizationInstructions<SourceCodeTemplate>(instance,
+				needed_defaultAlterType).
+			defaults(
+				null, null, //dbgEveryLine and its range
+				null,       //dbgAllAltr: on=System.out, off=null
+				null).      //dbgTemplate
+			build();
+	}  //End snippet
 }

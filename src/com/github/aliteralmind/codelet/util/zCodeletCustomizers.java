@@ -13,75 +13,75 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.util;
-   import  com.github.aliteralmind.codelet.CodeletInstance;
-   import  com.github.aliteralmind.codelet.CodeletType;
-   import  com.github.aliteralmind.codelet.CustomizationInstructions;
-   import  com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum;
-   import  com.github.aliteralmind.codelet.NewLineFilterFor;
-   import  com.github.xbn.linefilter.alter.NewTextLineAltererFor;
-   import  com.github.xbn.linefilter.alter.TextLineAlterer;
-   import  com.github.xbn.linefilter.FilteredLineIterator;
-   import  com.github.aliteralmind.codelet.type.SourceCodeTemplate;
-   import  com.github.xbn.analyze.alter.ExpirableElements;
-   import  com.github.xbn.analyze.alter.MultiAlterType;
-   import  com.github.xbn.array.NullElement;
-   import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
+	import  com.github.aliteralmind.codelet.CodeletInstance;
+	import  com.github.aliteralmind.codelet.CodeletType;
+	import  com.github.aliteralmind.codelet.CustomizationInstructions;
+	import  com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum;
+	import  com.github.aliteralmind.codelet.NewLineFilterFor;
+	import  com.github.xbn.linefilter.alter.NewTextLineAltererFor;
+	import  com.github.xbn.linefilter.alter.TextLineAlterer;
+	import  com.github.xbn.linefilter.FilteredLineIterator;
+	import  com.github.aliteralmind.codelet.type.SourceCodeTemplate;
+	import  com.github.xbn.analyze.alter.ExpirableElements;
+	import  com.github.xbn.analyze.alter.MultiAlterType;
+	import  com.github.xbn.array.NullElement;
+	import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 /**
-   <P>Custom <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#overview">customizers</A> used throughout {@code com.github.aliteralmind.codelet.util}.</P>
+	<P>Custom <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#overview">customizers</A> used throughout {@code com.github.aliteralmind.codelet.util}.</P>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@since  0.1.0
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 public class zCodeletCustomizers  {
-   private static final CustomizationInstructions<SourceCodeTemplate> getSourceConfig_FunctionConstructorJavaDocLink_JavaDocUtil(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
-      String debugPrefix = "JavaDocUtil.FunctionConstructorJavaDocLink";
+	private static final CustomizationInstructions<SourceCodeTemplate> getSourceConfig_FunctionConstructorJavaDocLink_JavaDocUtil(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
+		String debugPrefix = "JavaDocUtil.FunctionConstructorJavaDocLink";
 
-      FilteredLineIterator filter = NewLineFilterFor.
-         eliminateAllCmtBlocksAndPackageLine(
-            instance, debugPrefix, true, true);
+		FilteredLineIterator filter = NewLineFilterFor.
+			eliminateAllCmtBlocksAndPackageLine(
+				instance, debugPrefix, true, true);
 
-      TextLineAlterer[] alterers = {
-         NewTextLineAltererFor.escapeHtml(),
-         NewJDLinkForWordOccuranceNum.method(instance, debugPrefix, null,
-            1, JavaDocUtil.class, "getUrlToConstructor(*)"),
-         NewJDLinkForWordOccuranceNum.method(instance, debugPrefix, null,
-            1, JavaDocUtil.class, "getUrlToMethod(*)")};
+		TextLineAlterer[] alterers = {
+			NewTextLineAltererFor.escapeHtml(),
+			NewJDLinkForWordOccuranceNum.method(instance, debugPrefix, null,
+				1, JavaDocUtil.class, "getUrlToConstructor(*)"),
+			NewJDLinkForWordOccuranceNum.method(instance, debugPrefix, null,
+				1, JavaDocUtil.class, "getUrlToMethod(*)")};
 
-      return  new CustomizationInstructions<SourceCodeTemplate>(instance,
-            needed_defaultAlterType).
-         filter(filter).
-         orderedAlterers(
-            getDebugApblIfOn(instance, debugPrefix + ".allalterer"),
-            NullElement.OK, ExpirableElements.OPTIONAL,
-            MultiAlterType.CUMULATIVE, alterers).
-         defaultOrOverrideTemplate(
-            getDebugApblIfOn(instance, debugPrefix + ".template")).
-         build();
-   }
-   private static final CustomizationInstructions<SourceCodeTemplate> getSourceConfig_JavaDocUtilGetEllipsisArrayLastParamXmpl(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
-      String debugPrefix = "JavaDocUtil.GetEllipsisArrayLastParamXmpl";
+		return  new CustomizationInstructions<SourceCodeTemplate>(instance,
+				needed_defaultAlterType).
+			filter(filter).
+			orderedAlterers(
+				getDebugApblIfOn(instance, debugPrefix + ".allalterer"),
+				NullElement.OK, ExpirableElements.OPTIONAL,
+				MultiAlterType.CUMULATIVE, alterers).
+			defaultOrOverrideTemplate(
+				getDebugApblIfOn(instance, debugPrefix + ".template")).
+			build();
+	}
+	private static final CustomizationInstructions<SourceCodeTemplate> getSourceConfig_JavaDocUtilGetEllipsisArrayLastParamXmpl(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
+		String debugPrefix = "JavaDocUtil.GetEllipsisArrayLastParamXmpl";
 
-      FilteredLineIterator filter = NewLineFilterFor.
-         eliminateAllCmtBlocksAndPackageLine(
-            instance, debugPrefix, true, true);
+		FilteredLineIterator filter = NewLineFilterFor.
+			eliminateAllCmtBlocksAndPackageLine(
+				instance, debugPrefix, true, true);
 
-      TextLineAlterer[] alterers = {
-         NewTextLineAltererFor.escapeHtml(),
-         NewJDLinkForWordOccuranceNum.method(instance, debugPrefix, null,
-            1, JavaDocUtil.class, "getEllipsisArrayLastParam(*)")};
+		TextLineAlterer[] alterers = {
+			NewTextLineAltererFor.escapeHtml(),
+			NewJDLinkForWordOccuranceNum.method(instance, debugPrefix, null,
+				1, JavaDocUtil.class, "getEllipsisArrayLastParam(*)")};
 
-      return  new CustomizationInstructions<SourceCodeTemplate>(instance,
-            needed_defaultAlterType).
-         filter(filter).
-         orderedAlterers(
-            getDebugApblIfOn(instance, debugPrefix + ".allalterer"),
-            NullElement.OK, ExpirableElements.OPTIONAL,
-            MultiAlterType.CUMULATIVE, alterers).
-         defaultOrOverrideTemplate(
-            getDebugApblIfOn(instance, debugPrefix + ".template")).
-         build();
-   }
-   private zCodeletCustomizers()  {
-      throw  new IllegalStateException("Do not instantiate.");
-   }
+		return  new CustomizationInstructions<SourceCodeTemplate>(instance,
+				needed_defaultAlterType).
+			filter(filter).
+			orderedAlterers(
+				getDebugApblIfOn(instance, debugPrefix + ".allalterer"),
+				NullElement.OK, ExpirableElements.OPTIONAL,
+				MultiAlterType.CUMULATIVE, alterers).
+			defaultOrOverrideTemplate(
+				getDebugApblIfOn(instance, debugPrefix + ".template")).
+			build();
+	}
+	private zCodeletCustomizers()  {
+		throw  new IllegalStateException("Do not instantiate.");
+	}
 }

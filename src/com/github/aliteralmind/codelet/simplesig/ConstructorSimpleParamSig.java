@@ -13,40 +13,40 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.simplesig;
-   import  com.github.xbn.lang.ObjectOrCrashIfNull;
-   import  java.lang.reflect.Constructor;
+	import  com.github.xbn.lang.ObjectOrCrashIfNull;
+	import  java.lang.reflect.Constructor;
 /**
-   <P>Simple-parameter-name signature for a constructor.</P>
+	<P>Simple-parameter-name signature for a constructor.</P>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@since  0.1.0
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
  **/
 public class ConstructorSimpleParamSig extends SimpleParamNameSignature  {
-   /**
-      <P>Create a new instance from a constructor.</P>
+	/**
+		<P>Create a new instance from a constructor.</P>
 
-      <P>Equal to
-      <BR> &nbsp; &nbsp; <CODE>{@link SimpleParamNameSignature#SimpleParamNameSignature(Member, Class[]) super}(cnstr, cnstr.{@link java.lang.reflect.Method#getParameterTypes() getParameterTypes}())</CODE></P>
+		<P>Equal to
+		<BR> &nbsp; &nbsp; <CODE>{@link SimpleParamNameSignature#SimpleParamNameSignature(Member, Class[]) super}(cnstr, cnstr.{@link java.lang.reflect.Method#getParameterTypes() getParameterTypes}())</CODE></P>
 
-      @param  cnstr  May not be {@code null}.
-    **/
-   public ConstructorSimpleParamSig(Constructor<?> cnstr)  {
-      super(cnstr, ObjectOrCrashIfNull.<Constructor>get(cnstr, "cnstr").getParameterTypes());
-   }
-   /**
-      <P>The constructor object.</P>
+		@param  cnstr  May not be {@code null}.
+	 **/
+	public ConstructorSimpleParamSig(Constructor<?> cnstr)  {
+		super(cnstr, ObjectOrCrashIfNull.<Constructor>get(cnstr, "cnstr").getParameterTypes());
+	}
+	/**
+		<P>The constructor object.</P>
 
-      @return  <CODE>(Constructor){@link SimpleParamNameSignature#getMember() getMember}()*</CODE>
+		@return  <CODE>(Constructor){@link SimpleParamNameSignature#getMember() getMember}()*</CODE>
 
-      @see  #ConstructorSimpleParamSig(Constructor)
-    **/
-   public Constructor<?> getConstructor()  {
-      return  (Constructor<?>)getMember();
-   }
-   /**
-      @return  {@code ""}
-    **/
-   public String getMethodName()  {
-      return  "";
-   }
+		@see  #ConstructorSimpleParamSig(Constructor)
+	 **/
+	public Constructor<?> getConstructor()  {
+		return  (Constructor<?>)getMember();
+	}
+	/**
+		@return  {@code ""}
+	 **/
+	public String getMethodName()  {
+		return  "";
+	}
 }
