@@ -7,7 +7,7 @@
 	<target name="jar" description="Creates the Codelet 'all' and 'core' jars.">
 		<jar destfile="${dir_build_download_codelet_all_jar}"
 			basedir="${build.class.dir}"
-			includes="${com_github_alit}codelet${fs}**/*.class,${com_github_alit}codelet${fs}**/*.class,${com_github_alit}codelet${fs}**/*.class"
+			includes="${com_github_alit}codelet/**/*.class,${com_github_alit}codelet/**/*.class,${com_github_alit}codelet/**/*.class"
 		/>
 		<jar destfile="${dir_build_download}${project_name_with_version}.jar"
 			basedir="${build.class.dir}"

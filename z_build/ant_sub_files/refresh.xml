@@ -22,16 +22,16 @@
             <!-- Delete any class files in the sandbox, except in the bin (or root) directory. -->
             <delete quiet="true">
                <fileset dir="${dir_sandbox_src}">
-                  <include name="**${fs}*.class"/>
+                  <include name="**/*.class"/>
                </fileset>
                <fileset dir="${dir_sandbox_examples}">
-                  <include name="**${fs}*.class"/>
+                  <include name="**/*.class"/>
                </fileset>
                <fileset dir="${dir_sandbox_test}">
-                  <include name="**${fs}*.class"/>
+                  <include name="**/*.class"/>
                </fileset>
                <fileset dir="${dir_sandbox_bldfiles}">
-                  <include name="**${fs}*.class"/>
+                  <include name="**/*.class"/>
                </fileset>
             </delete>
 		</target>
@@ -56,10 +56,10 @@
       <target name="cleanjars"
             description="Deletes build/download/codelet-*.jar">
          <delete quiet="true">
-               <fileset dir="${dir_build_download}">
-                  <include name="${project_name_with_version}-*.jar"/>
-               </fileset>
-            </delete>
+            <fileset dir="${dir_build_download}">
+               <include name="${project_name_with_version}-*.jar"/>
+            </fileset>
+         </delete>
 
       </target>
 <!-- Clean targets...END -->

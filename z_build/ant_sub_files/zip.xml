@@ -12,7 +12,7 @@
 		<echo>xbnjavabuild.CreateTempBuildAndCodeletPropsForPublish</echo>
 		<java classname="xbnjavabuild.CreateTempBuildAndCodeletPropsForPublish" failonerror="true" classpathref="project_classpath_id">
 			<arg value="${dir_sandbox}"/>
-			<arg value="${codelet.config.dir}${fs}"/>
+			<arg value="${codelet.config.dir}/"/>
 			<arg value="subproject"/>
 			<arg value="debugminimal"/>
 		</java>
@@ -39,12 +39,12 @@
 			</fileset>
 		</zip>
 
-		<property name="dir_sandbox_codelet_config" value="${dir_sandbox}${codelet.config.dir}${fs}"/>
+		<property name="dir_sandbox_codelet_config" value="${dir_sandbox}${codelet.config.dir}/"/>
 		<copy file="${dir_sandbox}placeholder__build.properties"
 			tofile="${dir_working}build.properties"/>
 		<mkdir dir="${dir_working}${codelet.config.dir}"/>
 		<copy file="${dir_sandbox_codelet_config}placeholder__codelet.properties"
-			tofile="${dir_working}${codelet.config.dir}${fs}codelet.properties"/>
+			tofile="${dir_working}${codelet.config.dir}/codelet.properties"/>
 
 		<zip destfile="${download_sources_zip_temp_location}" update="true">
 			<fileset dir="${dir_working}">
@@ -64,7 +64,7 @@
 		<echo>Creating documentation download zip.</echo>
 		<zip destfile="${download_zip_docs}" whenempty="fail"
 			basedir="${dir_build_parent}"
-			includes="${project_name_with_version}${fs}documentation/**/*"/>
+			includes="${project_name_with_version}/documentation/**/*"/>
 
 		<echo>Creating usage-installation download zip.</echo>
 
@@ -80,7 +80,7 @@
 					excludes="placeholder__*,**/offline_package_lists/*,*external_doc_root_urls.txt,*named_debuggers_config.txt"/>
 			</copy>
 
-			<copy file="${dir_working}${codelet.config.dir}${fs}codelet.properties" todir="${usage_cfg_working_dir}" overwrite="true"/>
+			<copy file="${dir_working}${codelet.config.dir}/codelet.properties" todir="${usage_cfg_working_dir}" overwrite="true"/>
 
 			<copy todir="${usage_cfg_offline_working_dir}">
 				<fileset dir="${dir_sandbox_codelet_config}offline_package_lists/"

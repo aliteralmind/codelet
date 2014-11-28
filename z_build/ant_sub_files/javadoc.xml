@@ -5,7 +5,7 @@
 <echo>TODO: Need to set os="Windows..." into exec call</echo>
 
 			<exec executable="linkchecker" output="${dir_sandbox}broken_link_report.txt">
-			  <arg value="${dir_build_docs_javadoc}${com_github_alit}codelet${fs}package-summary.html"/>
+			  <arg value="${dir_build_docs_javadoc}${com_github_alit}codelet/package-summary.html"/>
 			  <arg value="--no-follow-url=http"/>
 			  <arg value="--ignore-url=http"/>
 			</exec>
@@ -22,7 +22,7 @@
 		<propfromrplc property="codelet.jd_colon.packages.main" string="${codelet.javadoc.packages.main}" what="," with=":"/>
 		<propfromrplc property="codelet.jd_colon.packages.examples" string="${codelet.javadoc.packages.examples}" what="," with=":"/>
 
-		<property name="dir_sandbox_needed_by_javadoc" value="${dir_sandbox_bldfiles}needed_by_javadoc${fs}"/>
+		<property name="dir_sandbox_needed_by_javadoc" value="${dir_sandbox_bldfiles}needed_by_javadoc/"/>
 		<propertywithdynamicallynamedvalue propname="dir_main_or_gitonly_sandbox"
 			valuepropname="dir_${main_or_gitonly}_sandbox"/>
 
@@ -32,11 +32,14 @@
 		<copy todir="${dir_build_docs_javadoc}resources">
 			<fileset dir="${dir_sandbox_needed_by_javadoc}" excludes="javadoc_stylesheet.css"/>
 		</copy>
-<!--
 
+		<echo>
 
-			classpathref="project_classpath_id"
- -->
+WARNING: There is a single exception thrown in the about-to-be-run JavaDoc command. This is okay.
+
+		</echo>
+		<sleep seconds="2"/>
+
  		<javadoc
 			packagenames="${codelet.javadoc.packages.main},${codelet.javadoc.packages.examples}"
 			defaultexcludes="yes"
@@ -50,7 +53,7 @@
 			version="true"
 			windowtitle="Codelet"
 			nodeprecatedlist="yes"
-			additionalparam="-J-Dcodelet_config_dir=${dir_sandbox}${codelet.config.dir}${fs}"
+			additionalparam="-J-Dcodelet_config_dir=${dir_sandbox}${codelet.config.dir}/"
 			classpathref="project_classpath_id"
 		>
 			<sourcepath>

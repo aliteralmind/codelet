@@ -13,23 +13,23 @@
 			<param name="relative_url_to_doc_root" value="../../../../"/>
 		</antcall>
 		<antcall target="-javadoc_replace_headers_in_one_dir">
-			<param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}type${fs}"/>
+			<param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}type/"/>
 			<param name="relative_url_to_doc_root" value="../../../../../"/>
 		</antcall>
 		<antcall target="-javadoc_replace_headers_in_one_dir">
-			<param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}taglet${fs}"/>
+			<param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}taglet/"/>
 			<param name="relative_url_to_doc_root" value="../../../../../"/>
 		</antcall>
 		<antcall target="-javadoc_replace_headers_in_one_dir">
-			<param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}examples${fs}"/>
+			<param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}examples/"/>
 			<param name="relative_url_to_doc_root" value="../../../../../"/>
 		</antcall>
 		<antcall target="-javadoc_replace_headers_in_one_dir">
-			<param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}util${fs}"/>
+			<param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}util/"/>
 			<param name="relative_url_to_doc_root" value="../../../../../"/>
 		</antcall>
 		<antcall target="-javadoc_replace_headers_in_one_dir">
-			<param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}simplesig${fs}"/>
+			<param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}simplesig/"/>
 			<param name="relative_url_to_doc_root" value="../../../../../"/>
 		</antcall>
 	</target>

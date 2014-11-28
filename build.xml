@@ -12,41 +12,41 @@
 	-->
 	<property file="build.properties"/>
 
-	<property name="fs" value="${file.separator}"/>      <!-- Shortcut -->
-
-	<property name="project_name_fs" value="${project.name}${fs}"/>
+	<property name="project_name_fs" value="${project.name}/"/>
 	<property name="project_name_with_version" value="${project.name}-${version.number}"/>
 
 	<!-- com.github.xbn..., ignoring base directories -->
-	<property name="com_github_alit" value="com${fs}github${fs}aliteralmind${fs}"/>
-		<property name="cg_alit_codelet" value="${com_github_alit}${project.name}${fs}"/>
-			<property name="cga_codelet_examples" value="${cg_alit_codelet}examples${fs}"/>
-			<property name="cga_codelet_test" value="${cg_alit_codelet}test${fs}"/>
+	<property name="com_github_alit" value="com/github/aliteralmind/"/>
+		<property name="cg_alit_codelet" value="${com_github_alit}${project.name}/"/>
+			<property name="cga_codelet_examples" value="${cg_alit_codelet}examples/"/>
+			<property name="cga_codelet_test" value="${cg_alit_codelet}test/"/>
 
 	<!-- Using base directories -->
-	<property name="dir_sandbox_parent" value="${sandbox.dir}${fs}"/>
+	<property name="dir_sandbox_parent" value="${sandbox.dir}/"/>
 		<property name="dir_sandbox" value="${dir_sandbox_parent}${project_name_fs}"/>
-			<property name="dir_sandbox_src" value="${dir_sandbox}src${fs}"/>
+			<property name="dir_sandbox_src" value="${dir_sandbox}src/"/>
 				<property name="dir_src_codelet" value="${dir_sandbox_src}${cg_alit_codelet}"/>
-			<property name="dir_sandbox_examples" value="${dir_sandbox}examples${fs}"/>
-			<property name="dir_sandbox_test" value="${dir_sandbox}test${fs}"/>
-			<property name="dir_sandbox_bldfiles" value="${dir_sandbox}z_build${fs}"/>
-				<property name="dir_sandbox_jar_dependencies" value="${dir_sandbox_bldfiles}jar_dependencies${fs}"/>
+			<property name="dir_sandbox_examples" value="${dir_sandbox}examples/"/>
+			<property name="dir_sandbox_test" value="${dir_sandbox}test/"/>
+			<property name="dir_sandbox_bldfiles" value="${dir_sandbox}z_build/"/>
+				<property name="dir_sandbox_jar_dependencies" value="${dir_sandbox_bldfiles}jar_dependencies/"/>
 
-		<property name="dir_classes_parent" value="${build.class.dir}${fs}"/>
-		<property name="dir_classes_alit" value="${build.class.dir}${fs}${com_github_alit}"/>
+		<property name="dir_classes_parent" value="${build.class.dir}/"/>
+		<property name="dir_classes_alit" value="${build.class.dir}/${com_github_alit}"/>
 
-	<property name="dir_build_grandparent" value="${build.dir}${fs}"/>
-		<property name="dir_build_parent" value="${dir_build_grandparent}${project_name_with_version}${fs}"/>
-			<property name="dir_build" value="${dir_build_parent}${project_name_with_version}${fs}"/>
-			<property name="dir_build_logs" value="${dir_build}logs${fs}"/>
-				<property name="dir_build_download" value="${dir_build}download${fs}"/>
+	<property name="dir_build_grandparent" value="${build.dir}/"/>
+		<property name="dir_build_parent" value="${dir_build_grandparent}${project_name_with_version}/"/>
+			<property name="dir_build" value="${dir_build_parent}${project_name_with_version}/"/>
+			<property name="dir_build_logs" value="${dir_build}logs/"/>
+				<property name="dir_build_download" value="${dir_build}download/"/>
 					<property name="dir_build_download_codelet_all_jar" value="${dir_build_download}${project_name_with_version}-all.jar"/>
 					<property name="dir_build_download_codelet_core_jar" value="${dir_build_download}${project_name_with_version}.jar"/>
-					<property name="dir_bld_docs" value="${dir_build}documentation${fs}"/>
-						<property name="dir_build_docs_javadoc" value="${dir_bld_docs}javadoc${fs}"/>
+					<property name="dir_bld_docs" value="${dir_build}documentation/"/>
+						<property name="dir_build_docs_javadoc" value="${dir_bld_docs}javadoc/"/>
+			<property name="curr_redir_dir" value="${dir_build_parent}/redir_file_for_QcurrentQ_directory/"/>
+				<property name="curr_redir_file" value="${curr_redir_dir}index.html"/>
 
-		<property name="dir_working" value="${working.dir}${fs}${project_name_fs}"/>
+		<property name="dir_working" value="${working.dir}/${project_name_fs}"/>
 
 		<property name="ant.regexp.regexpimpl" value="org.apache.tools.ant.util.regexp.JakartaOroRegexp"/>
 
@@ -96,7 +96,7 @@ Installation of the Codelet build process is done in a single step: By changing 
 To do a full build of Codelet:  ant publish</echo>
 	</target>
 
-	<property name="dir_sandbox_ant_subxml" value="${dir_sandbox_bldfiles}ant_sub_files${fs}"/>
+	<property name="dir_sandbox_ant_subxml" value="${dir_sandbox_bldfiles}ant_sub_files/"/>
 	<import file="${dir_sandbox_ant_subxml}backup.xml"/>
 	<import file="${dir_sandbox_ant_subxml}compile_examples.xml"/>
 	<import file="${dir_sandbox_ant_subxml}compile_main.xml"/>
@@ -106,10 +106,6 @@ To do a full build of Codelet:  ant publish</echo>
 	<import file="${dir_sandbox_ant_subxml}javadoc_replace_headers_in_one_dir.xml"/>
 	<import file="${dir_sandbox_ant_subxml}refresh.xml"/>
 	<import file="${dir_sandbox_ant_subxml}zip.xml"/>
-
-	<!-- For Jeff Epstein only. This file does not exist in published version: -->
-		<import file="${dir_sandbox_ant_subxml}for_jeff_epstein_only.xml"
-			optional="true"/>
 
 <!-- 	<target name="copyxbnandtmpljars" description="Duplicates the 'core' jars files from the XBN-Java and Template Featherweight build directories.">
 		<property name="xbnjava_project_name_and_version" value="xbnjava-${xbnjava_project_version}"/>
@@ -155,9 +151,6 @@ To do a full build of Codelet:  ant publish</echo>
 
 	<target name="currversionredirfile"
 			description="Copies the 'current' directory redirect page to build, and updates its version number to the current.">
-		<property name="curr_redir_dir" value="${dir_build_parent}/redir_file_for_QcurrentQ_directory/"/>
-		<property name="curr_redir_file" value="${curr_redir_dir}index.html"/>
-
 		<delete quiet="true" dir="${curr_redir_dir}"/>
 		<mkdir dir="${curr_redir_dir}"/>
 
@@ -195,32 +188,8 @@ To do a full build of Codelet:  ant publish</echo>
 		<replace file="${pom_xml_dest}" summary="yes"
 			token="^{templatefeather_project_version}" value="${templatefeather_project_version}"/>
 	</target>
-
- 	<target name="cpj" description="For Jeff Epstein only. Shortcut for cleanpublish, copyjartoxbnandtmplfeather.">
- 		<antcall target="cleanpublish"/>
- 		<antcall target="copyjartoxbnandtmplfeather"/>
-    </target>
  	<target name="jxt" description="Shortcut for copyjartoxbnandtmplfeather">
 		<antcall target="copyjartoxbnandtmplfeather"/>
- 	</target>
- 	<target name="copyjartoxbnandtmplfeather" description="For Jeff Epstein only: Copies the Codelet 'core' jar to the TemplateFeather and XBN-Java sandbox directories. Old jars are deleted.">
- 		<property name="xbnjava_jar_dependencies_dir" value="${sandbox.dir}/xbnjava/z_build/jar_dependencies/"/>
- 		<delete quiet="true">
- 		   <fileset dir="${xbnjava_jar_dependencies_dir}">
- 		      <include name="${project.name}-*.jar"/>
- 		   </fileset>
- 		</delete>
- 		<copy file="${dir_build_download_codelet_core_jar}"
- 			todir="${xbnjava_jar_dependencies_dir}"/>
-
- 		<property name="tmplfeather_jar_dependencies_dir" value="${sandbox.dir}/templatefeather/z_build/jar_dependencies/"/>
- 		<delete quiet="true">
- 		   <fileset dir="${tmplfeather_jar_dependencies_dir}">
- 		      <include name="${project.name}-*.jar"/>
- 		   </fileset>
- 		</delete>
- 		<copy file="${dir_build_download_codelet_core_jar}"
- 			todir="${tmplfeather_jar_dependencies_dir}"/>
  	</target>
 
 	<!-- See http://ant.apache.org/faq.html#propertyvalue-as-name-for-property -->
@@ -231,4 +200,55 @@ To do a full build of Codelet:  ant publish</echo>
 			<property name="@{propname}" value="${@{valuepropname}}"/>
 		</sequential>
 	</macrodef>
+
+	<!-- FOR JEFF EPSTEIN'S USE ONLY...start -->
+		<import file="${dir_sandbox_ant_subxml}for_jeff_epstein_only.xml"
+			optional="true"/>
+
+	 	<target name="cpj" description="FOR JEFF EPSTEIN'S USE ONLY. Shortcut for cleanpublish, copyjartoxbnandtmplfeather.">
+	 		<antcall target="cleanpublish"/>
+	 		<antcall target="copyjartoxbnandtmplfeather"/>
+	    </target>
+	 	<target name="copyjartoxbnandtmplfeather" description="FOR JEFF EPSTEIN'S USE ONLY: Copies the Codelet 'core' jar to the TemplateFeather and XBN-Java sandbox directories. Old jars are deleted.">
+	 		<property name="xbnjava_jar_dependencies_dir" value="${sandbox.dir}/xbnjava/z_build/jar_dependencies/"/>
+	 		<delete quiet="true">
+	 		   <fileset dir="${xbnjava_jar_dependencies_dir}">
+	 		      <include name="${project.name}-*.jar"/>
+	 		   </fileset>
+	 		</delete>
+	 		<copy file="${dir_build_download_codelet_core_jar}"
+	 			todir="${xbnjava_jar_dependencies_dir}"/>
+
+	 		<property name="tmplfeather_jar_dependencies_dir" value="${sandbox.dir}/templatefeather/z_build/jar_dependencies/"/>
+	 		<delete quiet="true">
+	 		   <fileset dir="${tmplfeather_jar_dependencies_dir}">
+	 		      <include name="${project.name}-*.jar"/>
+	 		   </fileset>
+	 		</delete>
+	 		<copy file="${dir_build_download_codelet_core_jar}"
+	 			todir="${tmplfeather_jar_dependencies_dir}"/>
+	 	</target>
+		<property name="alit_dir" value="C:\data_jeffy\jeffyepstein_com\jeffyepstein_com\docs\computer\programming\${project.name}\"/>
+		<property name="alit_QcurrentQ_dir" value="${alit_dir}current\"/>
+		<property name="alit_curr_version_dir" value="${alit_dir}${project_name_with_version}\"/>
+
+		<target name="pocj"
+					description="FOR JEFF EPSTEIN'S USE ONLY. Shortcut for pubpostcodelet, dupbuildtoalit">
+			<antcall target="pubpostcodelet"/>
+			<antcall target="dupbuildtoalit"/>
+		</target>
+		<target name="dupbuildtoalit"
+					description="FOR JEFF EPSTEIN'S USE ONLY. Copy all files to local aliteralmind.com directory">
+			<echo>Copying current-version redirect</echo>
+			<copy file="${curr_redir_file}" todir="${alit_QcurrentQ_dir}"
+				overwrite="true"/>
+
+			<echo>Copying entire build directory</echo>
+			<delete quiet="true" dir="${alit_curr_version_dir}"/>
+			<copy todir="${alit_dir}">
+				<fileset dir="${dir_build_parent}"
+					includes="${project_name_with_version}/**"/>
+			</copy>
+		</target>
+	<!-- FOR JEFF EPSTEIN'S USE ONLY...end -->
 </project>
