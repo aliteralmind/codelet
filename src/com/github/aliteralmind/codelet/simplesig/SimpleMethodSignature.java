@@ -81,7 +81,7 @@ public class SimpleMethodSignature  {
 	public static final String STRING_SIGNATURE_REGEX = "^" +      //Line start
 			"(?:(?:" +                                               //CrashIfZero or one of the following:
 				"(?<package>" + JavaRegexes.PACKAGE_NAME + "\\.)" +   //  package-name followed by
-				        //@since 0.1.2: FIXED: SimpleMethodSignature.STRING_SIGNATURE_REGEX incorrectly ommitted the literal dot between the package and class names.
+				        //@since  0.1.2: FIXED: SimpleMethodSignature.STRING_SIGNATURE_REGEX incorrectly ommitted the literal dot between the package and class names.
 					"(?<className1>" + JavaRegexes.IDENTIFIER + ")" +  //  class-name
 			"|" +                                                    //OR
 				"(?<className2>" + JavaRegexes.IDENTIFIER + "))#)?" + //  class-name (requires default_package)

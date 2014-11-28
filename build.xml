@@ -15,7 +15,7 @@
 	<property name="fs" value="${file.separator}"/>      <!-- Shortcut -->
 
 	<property name="project_name_fs" value="${project.name}${fs}"/>
-	<property name="project_name_dash_version" value="${project.name}-${version.number}"/>
+	<property name="project_name_with_version" value="${project.name}-${version.number}"/>
 
 	<!-- com.github.xbn..., ignoring base directories -->
 	<property name="com_github_alit" value="com${fs}github${fs}aliteralmind${fs}"/>
@@ -33,15 +33,18 @@
 			<property name="dir_sandbox_bldfiles" value="${dir_sandbox}z_build${fs}"/>
 				<property name="dir_sandbox_jar_dependencies" value="${dir_sandbox_bldfiles}jar_dependencies${fs}"/>
 
-	<property name="dir_build_parent" value="${build.dir}${fs}"/>
 		<property name="dir_classes_parent" value="${build.class.dir}${fs}"/>
 		<property name="dir_classes_alit" value="${build.class.dir}${fs}${com_github_alit}"/>
-	<property name="dir_build" value="${dir_build_parent}${project_name_dash_version}${fs}"/>
-	<property name="dir_build_download" value="${dir_build}download${fs}"/>
-		<property name="dir_build_download_codelet_all_jar" value="${dir_build_download}${project_name_dash_version}-all.jar"/>
-		<property name="dir_build_download_codelet_core_jar" value="${dir_build_download}${project_name_dash_version}.jar"/>
-		<property name="dir_bld_docs" value="${dir_build}documentation${fs}"/>
-			<property name="dir_build_docs_javadoc" value="${dir_bld_docs}javadoc${fs}"/>
+
+	<property name="dir_build_grandparent" value="${build.dir}${fs}"/>
+		<property name="dir_build_parent" value="${dir_build_grandparent}${project_name_with_version}${fs}"/>
+			<property name="dir_build" value="${dir_build_parent}${project_name_with_version}${fs}"/>
+			<property name="dir_build_logs" value="${dir_build}logs${fs}"/>
+				<property name="dir_build_download" value="${dir_build}download${fs}"/>
+					<property name="dir_build_download_codelet_all_jar" value="${dir_build_download}${project_name_with_version}-all.jar"/>
+					<property name="dir_build_download_codelet_core_jar" value="${dir_build_download}${project_name_with_version}.jar"/>
+					<property name="dir_bld_docs" value="${dir_build}documentation${fs}"/>
+						<property name="dir_build_docs_javadoc" value="${dir_bld_docs}javadoc${fs}"/>
 
 		<property name="dir_working" value="${working.dir}${fs}${project_name_fs}"/>
 
@@ -128,11 +131,11 @@ To do a full build of Codelet:  ant publish</echo>
 		<antcall target="publish"/>
 	</target>
 	<target name="publish" description="Publish Codelet: compileproper, publish2">
-		<record name="${dir_build}build_log.txt" action="start"/>
+		<record name="${dir_build_logs}build_log.txt" action="start"/>
 		<!-- <antcall target="-autocopyxbnandtmpljars"/> -->
 		<antcall target="compileproper"/>
 		<antcall target="publish2"/>
-		<record name="${dir_build}build_log.txt" action="stop"/>
+		<record name="${dir_build_logs}build_log.txt" action="stop"/>
 	</target>
 
 	<target name="publish2" description="compileexamples, publish3">
@@ -146,7 +149,21 @@ To do a full build of Codelet:  ant publish</echo>
 		<antcall target="jar"/>
 		<antcall target="delete_classes"/>
 		<antcall target="doczip"/>
+		<antcall target="currversionredirfile"/>
 		<antcall target="preppom"/>
+	</target>
+
+	<target name="currversionredirfile"
+			description="Copies the 'current' directory redirect page to build, and updates its version number to the current.">
+		<property name="curr_redir_dir" value="${dir_build_parent}/redir_file_for_QcurrentQ_directory/"/>
+		<property name="curr_redir_file" value="${curr_redir_dir}index.html"/>
+
+		<delete quiet="true" dir="${curr_redir_dir}"/>
+		<mkdir dir="${curr_redir_dir}"/>
+
+		<copy file="${dir_sandbox_bldfiles}other/redir_for_QcurrentQ_directory_on_aliteralmind_com.html" tofile="${curr_redir_file}"/>
+		<replace file="${curr_redir_file}" summary="yes"
+			token="^{current_project_version}" value="${version.number}"/>
 	</target>
 
 	<target name="unit" description="Executes com.github.xbn.unittests.UnitTestRunner">
@@ -157,12 +174,12 @@ To do a full build of Codelet:  ant publish</echo>
 		<antcall target="doczip"/>
    </target>
 	<target name="doczip" description="doc, doc2, zip, zip2">
-		<record name="${dir_build}javadoc_and_zip_log.txt" action="start"/>
+		<record name="${dir_build_logs}javadoc_and_zip_log.txt" action="start"/>
 		<antcall target="doc"/>
 		<antcall target="doc2"/>
 		<antcall target="zip"/>
 		<antcall target="zip2"/>
-		<record name="${dir_build}javadoc_and_zip_log.txt" action="stop"/>
+		<record name="${dir_build_logs}javadoc_and_zip_log.txt" action="stop"/>
 	</target>
 
 	<target name="pp" description="Shortcut for preppom.">

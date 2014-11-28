@@ -1,8 +1,8 @@
 <project name="zip" default="help" basedir=".">
 
-		<property name="download_sources_zip_name" value="${project_name_dash_version}-sources.jar"/>
+		<property name="download_sources_zip_name" value="${project_name_with_version}-sources.jar"/>
 		<property name="download_zip_source" value="${dir_build_download}${download_sources_zip_name}"/>
-		<property name="download_zip_docs_name" value="${project_name_dash_version}-javadoc.jar"/>
+		<property name="download_zip_docs_name" value="${project_name_with_version}-javadoc.jar"/>
 		<property name="download_zip_docs" value="${dir_build_download}${download_zip_docs_name}"/>
 	<target name="zip" description="Creates end-user download archives for source-code, documentation, and jars. Also creates placeholder-only build.properties and codelet.properties DIRECTLY INTO THE SANDBOX, with a 'placeholder__' prefix. Both the live and placeholder files are committed.">
 		<copy todir="${dir_build}">
@@ -64,7 +64,7 @@
 		<echo>Creating documentation download zip.</echo>
 		<zip destfile="${download_zip_docs}" whenempty="fail"
 			basedir="${dir_build_parent}"
-			includes="${project_name_dash_version}${fs}documentation/**/*"/>
+			includes="${project_name_with_version}${fs}documentation/**/*"/>
 
 		<echo>Creating usage-installation download zip.</echo>
 
@@ -98,11 +98,11 @@
 				file="${dir_sandbox_codelet_config}placeholder__codelet.properties"
 				tofile="${usage_cfg_working_dir}codelet.properties"/>
 
-			<zip destfile="${dir_build_download}${project_name_dash_version}_config_and_dependency_jars.zip" whenempty="fail"
-				basedir="${dir_sandbox_bldfiles}"
-				includes="jar_dependencies/commons-io-*.jar, jar_dependencies/commons-lang3-*.jar, jar_dependencies/guava-*.jar, jar_dependencies/templatefeather_*-all.jar, , jar_dependencies/jdk_*__tools__contains_com_sun.jar, jar_dependencies/xbnjava_*-all.jar"/>
+			<zip destfile="${dir_build_download}${project_name_with_version}_config_and_dependency_jars.zip" whenempty="fail"
+				basedir="${dir_sandbox_jar_dependencies}"
+				includes="commons-io-*.jar, commons-lang3-*.jar, guava-*.jar, jdk_*__tools__contains_com_sun.jar, xbnjava-*.jar, templatefeather_*.jar"/>
 
-			<zip destfile="${dir_build_download}${project_name_dash_version}_config_and_dependency_jars.zip" whenempty="fail" update="true"
+			<zip destfile="${dir_build_download}${project_name_with_version}_config_and_dependency_jars.zip" whenempty="fail" update="true"
 				basedir="${usage_base_working_dir}"
 				includes="${codelet.config.dir}/**"/>
 </target>

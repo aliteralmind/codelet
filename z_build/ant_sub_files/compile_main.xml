@@ -9,7 +9,7 @@
 			basedir="${build.class.dir}"
 			includes="${com_github_alit}codelet${fs}**/*.class,${com_github_alit}codelet${fs}**/*.class,${com_github_alit}codelet${fs}**/*.class"
 		/>
-		<jar destfile="${dir_build_download}${project_name_dash_version}.jar"
+		<jar destfile="${dir_build_download}${project_name_with_version}.jar"
 			basedir="${build.class.dir}"
 			includes="${cg_alit_codelet}**/*.class"
 			excludes="${cg_alit_codelet}examples/**/*.class,${cg_alit_codelet}test/**/*.class"

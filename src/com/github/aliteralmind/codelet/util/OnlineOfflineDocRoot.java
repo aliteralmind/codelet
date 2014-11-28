@@ -269,7 +269,7 @@ public class OnlineOfflineDocRoot extends SimpleNamed  {
 					return  newPkgListFromLineItr(StringUtil.getLineIterator(text));
 				}
 			}  catch(Exception x2)  {
-				errorMsg = "Failure loading package list from url: \"" + url_toDocRoot + "\"";
+				errorMsg = "Error loading Codelet config: Failure loading package list from url: \"" + url_toDocRoot + "\"";
 				x = x2;
 				dbgErrAptr.appentln(errorMsg + ": " + x2);
 			}

@@ -3,7 +3,7 @@
 
       <target name="delete_build"
             description="Delete the entire build directory (not ${dir_classes_alit})">
-         <delete dir="${dir_build}" includeemptydirs="true" quiet="false"/>
+         <delete dir="${dir_build_parent}" includeemptydirs="true" quiet="false"/>
       </target>
          <target name="docclean"
                description="Delete the entire build documentation directory">
@@ -14,7 +14,7 @@
             <delete dir="${dir_build_docs_javadoc}" includeemptydirs="true" quiet="true"/>
          </target>
          <target name="delete_classes"
-               description="Delete the xbn.** class files in both build/classes and the sandbox (not ${dir_build})">
+               description="Delete the xbn.** class files in both build/classes and the sandbox (not ${dir_build_parent})">
             <delete quiet="true" includeemptydirs="true" dir="${dir_classes_alit}codelet"/>
             <delete quiet="true" includeemptydirs="true">
                <fileset dir="${build.class.dir}" excludes="xbnjavabuild/*.class"/>
@@ -57,7 +57,7 @@
             description="Deletes build/download/codelet-*.jar">
          <delete quiet="true">
                <fileset dir="${dir_build_download}">
-                  <include name="${project_name_dash_version}-*.jar"/>
+                  <include name="${project_name_with_version}-*.jar"/>
                </fileset>
             </delete>
 
@@ -74,6 +74,7 @@
 
       <!-- The delete above is CLASSES/xbn, but mkdir here is only of CLASSES (parent) -->
       <mkdir dir="${dir_build_download}"/>
+      <mkdir dir="${dir_build_logs}"/>
       <mkdir dir="${dir_build_docs_javadoc}"/>
    </target>
 

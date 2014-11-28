@@ -12,7 +12,7 @@
 	</target>
 
 	<target name="doc" description="Generates javadoc documentation.">
-		<copy file="${dir_sandbox}prev_versions.html" todir="${dir_build_docs_javadoc}"/>
+		<copy file="${dir_sandbox}release_notes.html" todir="${dir_build_docs_javadoc}"/>
 
 		<!--
 			Packages need to be delimited by both commas and colons.  In build.properties, it's only delimited by commas.  Commas (with or without spaces) are needed by the JavaDoc "packagenames" attribute, and colons (without spaces) are needed by the "group" sub-tags.
@@ -77,8 +77,8 @@
 			<!-- Package lists for external libraries -->
 			<link href="http://junit.sourceforge.net/javadoc/"/>
 			<link href="http://docs.oracle.com/javase/7/docs/jdk/api/javadoc/doclet/"/>
-			<link href="http://aliteralmind.com/docs/computer/programming/templatefeather/documentation/javadoc/"/>
-			<link href="http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/"/>
+			<link href="http://aliteralmind.com/docs/computer/programming/templatefeather/templatefeather-${templatefeather_project_version}/documentation/javadoc/"/>
+			<link href="http://aliteralmind.com/docs/computer/programming/xbnjava/xbnjava-${xbnjava_project_version}/documentation/javadoc/"/>
 			<link href="http://docs.oracle.com/javase/7/docs/api/"/>
 			<link href="http://commons.apache.org/proper/commons-collections/javadocs/api-release/"/>
 			<link href="http://commons.apache.org/proper/commons-lang/javadocs/api-release"/>

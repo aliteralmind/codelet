@@ -44,7 +44,7 @@ public class ComSunJavaDocUtil  {
 
 		@param  taglet  The taglet to register. May not be {@code null}.
 		@param map  The map to register this tag to. May not be {@code null}.
-		@since 0.1.1
+		@since  0.1.1
 	 */
 	@SuppressWarnings({"unchecked", "rawtypes"})
 	public static void registerNewTagletInstance(Taglet taglet, Map map)  {

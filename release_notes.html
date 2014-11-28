@@ -5,26 +5,14 @@
 
 <BODY BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#0000FF"><a name="top"/>
 
-<H2>Codelet: Release notes for all versions, and downloads for for previous versions</H2>
+<H2>Codelet: Release notes</H2>
 
-<P>[<A HREF="overview-summary.html#install">BACK</A>]</CODE> to current-version downloads and installation instructions</P>
-
-<!--
-<H3>Previous release: Version XXX</H3>
-
-<P><B>Downloads</B> <I>(see <A HREF="overview-summary.html#install">current version</A> for details)</I>: Jars: <A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/archive/XXX/codelet_XXX-all.jar">codelet-all</A>, <A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/archive/XXX/codelet_XXX.jar">codelet-core</A>, <A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/archive/XXX/codelet_XXX_dependency_jars.zip">dependencies</A>. Other: <A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/archive/XXX/codelet_XXX-sources.jar">source-code</A>, <A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/archive/XXX/codelet_XXX-javadoc.jar">documentation</A></P>
-
-<P><B>Notes:</B> <UL>
-	<LI>XXX</LI>
-</UL></P>
- -->
-
-<H3>Current release: Version ${project_version_for_jd}</H3>
+<H3><a href="overview-summary.html#install">Current release</a>: Version ${project_version_for_jd}</H3>
 
 <P><B>Notes:</B> <UL>
 	<LI><B>-DOCS:</B><UL>
 		<LI>- Added release-notes link (to this page) in the main table of contents.</LI>
-		<LI>- Changed <CODE>http://aliteralmind.com/docs/computer/programming/codelet/z_download_prev_versions/<I>[version_number]</I>/</CODE> to <CODE><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/archive/">http://aliteralmind.com/docs/computer/programming/codelet/download/archive/</A><I>[version_number]</I></CODE></LI>
+		<LI>- Changed <CODE>http://aliteralmind.com/docs/computer/programming/codelet/z_download_release_notes/<I>[version_number]</I>/</CODE> to <CODE><A HREF="http://aliteralmind.com/docs/computer/programming/codelet/download/archive/">http://aliteralmind.com/docs/computer/programming/codelet/download/archive/</A><I>[version_number]</I></CODE></LI>
 	</UL></LI>
 	<LI><B>-CODE:</B><UL>
 		<LI>- Added clearer error message when system property <CODE>codelet_config_dir</CODE> is not provided (is <CODE>null</CODE> or empty) via <CODE>javadoc.exe</CODE> <I>(see <CODE><A HREF="com/github/aliteralmind/codelet/CodeletBootstrap.html#CODELET_CONFIG_DIR_SYS_PROP_NAME">CodeletBootstrap#CODELET_CONFIG_DIR_SYS_PROP_NAME</A></CODE>)</I></LI>
@@ -41,7 +29,7 @@
 	<LI>- Changed <CODE>codelet-*-core.jar</CODE> to <CODE>codelet-*.jar</CODE></LI>
 	<LI>- Now has a POM for both deploying jars to Maven Central, and so other projects can use Codelet via Maven Central.</LI>
 	<LI>- <CODE>{@.file.textlet}</CODE> (see <CODE><A HREF="com/github/aliteralmind/codelet/CodeletType.html#FILE_TEXT">com/github/aliteralmind/codelet/CodeletType.html#FILE_TEXT</A></CODE>):<UL>
-		<LI>- ADDED: Ability to prefix path with an environment variable or system property. Example: <CODE>&quot;$<base_path>/subdir/input.txt&quot;</CODE>. (Idea from Stack Overflow user <A HREF="http://stackoverflow.com/users/3622940/unihedron">Unihedron</A>.)</LI>
+		<LI>- ADDED: Ability to prefix path with an environment variable or system property. Example: <CODE>&quot;$&lt;base_path&gt;/subdir/input.txt&quot;</CODE>. (Idea from Stack Overflow user <A HREF="http://stackoverflow.com/users/3622940/unihedron">Unihedron</A>.)</LI>
 		<LI>- ADDED/CHANGED: Relative paths containing single url slashes (<CODE>'/'</CODE>) as its file separator, are automatically changed to the appropriate separator for the underlying OS. Absolute paths are unaltered.</LI>
 	</UL></LI>
 </UL></P>
