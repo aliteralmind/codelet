@@ -108,7 +108,7 @@ To do a full build of Codelet:  ant publish</echo>
 	<import file="${dir_sandbox_ant_subxml}zip.xml"/>
 
 	<!-- For Jeff Epstein only. This file does not exist in published version: -->
-		<import file="${dir_sandbox_ant_subxml}gitonly_sandbox__execute_from_main_sandbox_only.xml"
+		<import file="${dir_sandbox_ant_subxml}for_jeff_epstein_only.xml"
 			optional="true"/>
 
 <!-- 	<target name="copyxbnandtmpljars" description="Duplicates the 'core' jars files from the XBN-Java and Template Featherweight build directories.">
