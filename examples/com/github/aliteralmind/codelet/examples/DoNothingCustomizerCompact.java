@@ -18,26 +18,26 @@ package  com.github.aliteralmind.codelet.examples;
 	import  com.github.aliteralmind.codelet.type.SourceCodeTemplate;
 	import  com.github.aliteralmind.codelet.CustomizationInstructions;
 /**
-	<P style="font-size: 150%;"><B><A HREF="{@docRoot}/overview-summary.html#xmpl_hello"><FONT SIZE="+1"><CODE><IMG SRC="{@docRoot}/resources/left_arrow.gif"/> GO BACK</CODE></FONT></A> &nbsp; &nbsp; Codelet: Example: A specialized customizer that <I>does nothing</I></B></P>
+	<P style="font-size: 150%;"><b><a href="{@docRoot}/overview-summary.html#xmpl_hello"><FONT SIZE="+1"><code><IMG SRC="{@docRoot}/resources/left_arrow.gif"/> GO BACK</code></FONT></a> &nbsp; &nbsp; Codelet: Example: A specialized customizer that <i>does nothing</i></b></p>
 
-	<H3><U>Taglet:</U></H3>
+	<h3><u>Taglet:</u></h3>
 
-	<P style="font-size: 125%;"><B>{@code {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%aCustomizerThatDoesNothing()}}</B></P>
+	<P style="font-size: 125%;"><b>{@code {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%aCustomizerThatDoesNothing()}}</b></p>
 
-	<H3><U>Replaced with:</U></H3>
+	<h3><u>Replaced with:</u></h3>
 
-	<P><I>(Output begins and ends between the horizontal lines.)</I></P>
+	<p><i>(Output begins and ends between the horizontal lines.)</i></p>
 
 	<HR/>
 {@.codelet.and.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%aCustomizerThatDoesNothing()}
 	<HR/>
 
-	<H3><U>Original source code:</U></H3>
+	<h3><u>Original source code:</u></h3>
 
 {@.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo}
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class DoNothingCustomizerCompact  {
 	private static final CustomizationInstructions<SourceCodeTemplate> aCustomizerThatDoesNothing(CodeletInstance instance, CodeletType needed_defaultAlterType)  {

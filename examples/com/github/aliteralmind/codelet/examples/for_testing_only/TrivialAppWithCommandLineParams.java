@@ -16,15 +16,15 @@
 \*license*/
 package  com.github.aliteralmind.codelet.examples.for_testing_only;
 /**
-	<P>For testing {@code {@.codelet.out}}</P>
+	<p>For testing {@code {@.codelet.out}}</p>
 
-	<P style="font-size: 125%;"><B>{@code {@.codelet com.github.aliteralmind.codelet.examples.TrivialAppWithCommandLineParams%eliminateCommentBlocksAndPackageDecl()}}
-	<BR>{@code {@.codelet.out com.github.aliteralmind.codelet.examples.for_testing_only.TrivialAppWithCommandLineParams("string one", "string two")}}</B></P>
+	<P style="font-size: 125%;"><b>{@code {@.codelet com.github.aliteralmind.codelet.examples.TrivialAppWithCommandLineParams%eliminateCommentBlocksAndPackageDecl()}}
+	<br/>{@code {@.codelet.out com.github.aliteralmind.codelet.examples.for_testing_only.TrivialAppWithCommandLineParams("string one", "string two")}}</b></p>
 
 {@.codelet com.github.aliteralmind.codelet.examples.for_testing_only.TrivialAppWithCommandLineParams%eliminateCommentBlocksAndPackageDecl()}
 {@.codelet.out com.github.aliteralmind.codelet.examples.for_testing_only.TrivialAppWithCommandLineParams("string one", "string two")}
 
-	@author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <CODE><A HREF="http://xbnjava.aliteralmind.com">http://xbnjava.aliteralmind.com</A></CODE>, <CODE><A HREF="https://github.com/aliteralmind/xbnjava">https://github.com/aliteralmind/xbnjava</A></CODE>
+	@author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <code><a href="http://xbnjava.aliteralmind.com">http://xbnjava.aliteralmind.com</a></code>, <code><a href="https://github.com/aliteralmind/xbnjava">https://github.com/aliteralmind/xbnjava</a></code>
  **/
 public class TrivialAppWithCommandLineParams  {
 	public static final void main(String[] command_lineParameters)  {

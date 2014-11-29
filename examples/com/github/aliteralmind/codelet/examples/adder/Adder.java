@@ -1,6 +1,6 @@
 package  com.github.aliteralmind.codelet.examples.adder;
 /**
-	<P>Adds zero or more integers.</P>
+	<p>Adds zero or more integers.</p>
  **/
 public class Adder  {
 	private final int sum;

@@ -29,38 +29,38 @@ package  com.github.aliteralmind.codelet;
 	import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 	import  static com.github.xbn.lang.XbnConstants.*;
 /**
-   <P>For optional overriding of default templates, for a single JavaDoc page or an entire package. For overriding a template in a single taglet, a customizer must be used.</P>
+   <p>For optional overriding of default templates, for a single JavaDoc page or an entire package. For overriding a template in a single taglet, a customizer must be used.</p>
 
-   <P>Configuration is in a text file named {@linkplain CodeletBootstrap#TMPL_OVERRIDES_CONFIG_FILE_NAME template_overrides_config.txt}, which is located in the same directory as {@link com.github.aliteralmind.codelet.CodeletBaseConfig codelet.properties} (view <A HREF="{@docRoot}/${jd_project_codelet_config_dir}/template_overrides_config.txt">{@code {@docRoot}/${jd_project_codelet_config_dir}/template_overrides_config.txt}</A>). Loading is executed by {@link com.github.aliteralmind.codelet.CodeletBootstrap}.</P>
+   <p>Configuration is in a text file named {@linkplain CodeletBootstrap#TMPL_OVERRIDES_CONFIG_FILE_NAME template_overrides_config.txt}, which is located in the same directory as {@link com.github.aliteralmind.codelet.CodeletBaseConfig codelet.properties} (view <a href="{@docRoot}/${jd_project_codelet_config_dir}/template_overrides_config.txt">{@code {@docRoot}/${jd_project_codelet_config_dir}/template_overrides_config.txt}</a>). Loading is executed by {@link com.github.aliteralmind.codelet.CodeletBootstrap}.</p>
 
-   <P>If {@code template_overrides_config.txt} is empty (or contains only comments), then default templates are always used.</P>
+   <p>If {@code template_overrides_config.txt} is empty (or contains only comments), then default templates are always used.</p>
 
-	<P>Each line is an override for either a specific JavaDoc file, or an entire package. It's format:</P>
+	<p>Each line is an override for either a specific JavaDoc file, or an entire package. It's format:</p>
 
-<BLOCKQUOTE><PRE><I>[fully-qualified-JavaDoc-file-name]     [codelet-type]     [relative-path-of-template-file]</I></PRE></BLOCKQUOTE>
+<blockquote><pre><i>[fully-qualified-JavaDoc-file-name]     [codelet-type]     [relative-path-of-template-file]</i></pre></blockquote>
 
-	<P><B>Examples:</B></P>
+	<p><b>Examples:</b></p>
 
-<BLOCKQUOTE><PRE>com.github.smith.overview-summary.html    SOURCE_CODE    overview_codelet_tmpl.txt
+<blockquote><pre>com.github.smith.overview-summary.html    SOURCE_CODE    overview_codelet_tmpl.txt
 com.github.smith.overview-summary.html    SOURCE_AND_OUT   overview_codelet_and_out.txt
 com.github.smith.sub.package              SOURCE_CODE    sub_packages\smith_pkg_codelet_tmpl.txt
 com.github.smith.sub.package.AClass.java  CONSOLE_OUT   sub_packages\com_github_smith_overview_codelet_dot_out_tmpl.txt
-com.github.smith.sub.package.AClass.java  FILE_TEXT      sub_packages\com_github_smith_overview_file_textlet_tmpl.txt</PRE></BLOCKQUOTE>
+com.github.smith.sub.package.AClass.java  FILE_TEXT      sub_packages\com_github_smith_overview_file_textlet_tmpl.txt</pre></blockquote>
 
-	<P>There are three columns, {@linkplain #SPLIT_PATTERN separated by} one-or-more tabs, or two-or-more spaces:<OL>
-		<LI><B>{@code [fully-qualified-JavaDoc-file-name]}:</B> The file or package to override.</LI>
-		<LI><B>{@code [codelet-type]}:</B> The {@linkplain CodeletType type} of codelet to override. Must equal &quot;{@link com.github.aliteralmind.codelet.CodeletType#SOURCE_CODE SOURCE_CODE}&quot;, &quot;{@link com.github.aliteralmind.codelet.CodeletType#CONSOLE_OUT CONSOLE_OUT}&quot;, &quot;{@link com.github.aliteralmind.codelet.CodeletType#SOURCE_AND_OUT SOURCE_AND_OUT}&quot;, or &quot;{@link com.github.aliteralmind.codelet.CodeletType#FILE_TEXT FILE_TEXT}&quot;.</LI>
-		<LI><B>{@code [relative-path-of-template-file]}:</B> The relative directory to the template file, as it exists in the user-template {@linkplain CodeletBaseConfig#USER_TEMPLATE_BASE_DIR base directory}.</LI>
-	</OL></P>
+	<p>There are three columns, {@linkplain #SPLIT_PATTERN separated by} one-or-more tabs, or two-or-more spaces:<ol>
+		<li><b>{@code [fully-qualified-JavaDoc-file-name]}:</b> The file or package to override.</li>
+		<li><b>{@code [codelet-type]}:</b> The {@linkplain CodeletType type} of codelet to override. Must equal &quot;{@link com.github.aliteralmind.codelet.CodeletType#SOURCE_CODE SOURCE_CODE}&quot;, &quot;{@link com.github.aliteralmind.codelet.CodeletType#CONSOLE_OUT CONSOLE_OUT}&quot;, &quot;{@link com.github.aliteralmind.codelet.CodeletType#SOURCE_AND_OUT SOURCE_AND_OUT}&quot;, or &quot;{@link com.github.aliteralmind.codelet.CodeletType#FILE_TEXT FILE_TEXT}&quot;.</li>
+		<li><b>{@code [relative-path-of-template-file]}:</b> The relative directory to the template file, as it exists in the user-template {@linkplain CodeletBaseConfig#USER_TEMPLATE_BASE_DIR base directory}.</li>
+	</ol></p>
 
-	<P>Lines may be indented, and any lines starting with a hash ({@code '#'}) are ignored. Empty lines are also ignored.</P>
+	<p>Lines may be indented, and any lines starting with a hash ({@code '#'}) are ignored. Empty lines are also ignored.</p>
 
-	<P><B>Column one:</B> <U><I>{@code [fully-qualified-JavaDoc-file-name]}</I></U></P>
+	<p><b>Column one:</b> <u><i>{@code [fully-qualified-JavaDoc-file-name]}</i></u></p>
 
-	<P><TABLE ALIGN="center" WIDTH="100%" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
-		<TD><U><B>Item type</B></U></TD>
-		<TD><B><U>Example</U></B></TD>
-		<TD><B><U>Description</U></B></TD>
+	<p><TABLE ALIGN="center" WIDTH="100%" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
+		<TD><u><b>Item type</b></u></TD>
+		<TD><b><u>Example</u></b></TD>
+		<TD><b><u>Description</u></b></TD>
 	</TR><TR>
 		<TD>An individual class</TD>
 		<TD>{@code fully.qualified.AClass.java}</TD>
@@ -68,22 +68,22 @@ com.github.smith.sub.package.AClass.java  FILE_TEXT      sub_packages\com_github
 	</TR><TR>
 		<TD>The package summary page</TD>
 		<TD>{@code fully.qualified.package-info.java}
-		<BR>{@code fully.qualified.package-summary.html}</TD>
-		<TD>It's fully-qualified name, including postfix, as it is <I>read by</I> the {@code javadoc} application (use the name of its <I>source</I>-file).</TD>
+		<br/>{@code fully.qualified.package-summary.html}</TD>
+		<TD>It's fully-qualified name, including postfix, as it is <i>read by</i> the {@code javadoc} application (use the name of its <i>source</i>-file).</TD>
 	</TR><TR>
 		<TD>The overview summary page</TD>
 		<TD>{@code overview-summary.html}</TD>
-		<TD>The relative path of overview file, as it is configured into the <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#overview">{@code -overview} option</A>.</TD>
+		<TD>The relative path of overview file, as it is configured into the <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#overview">{@code -overview} option</a>.</TD>
 	</TR><TR>
 		<TD>An entire package</TD>
 		<TD>{@code fully.qualified}</TD>
 		<TD>The fully qualified package name. This only overrides classes directly in this package. No sub-packages are affected.</TD>
-	</TR></TABLE></P>
+	</TR></TABLE></p>
 
-	<P>If both a file and its package are overridden, the individual file's override always takes precedence.</P>
+	<p>If both a file and its package are overridden, the individual file's override always takes precedence.</p>
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public enum TemplateOverrides  {
 	INSTANCE;
@@ -91,15 +91,15 @@ public enum TemplateOverrides  {
 	private static Map<String,TemplateMapForItem> pkgMap              ;
 	private static Map<String,TemplateMapForItem> fileMap             ;
 	/**
-		<P>The pattern to split each line on (after it's trimmed)--Equal to <CODE>{@link java.util.regex.Pattern Pattern}.{@link java.util.regex.Pattern#compile(String) compile}(&quot;(?:\\t|[ \\t]{2,})&quot;)</CODE></P>
+		<p>The pattern to split each line on (after it's trimmed)--Equal to <code>{@link java.util.regex.Pattern Pattern}.{@link java.util.regex.Pattern#compile(String) compile}(&quot;(?:\\t|[ \\t]{2,})&quot;)</code></p>
 	 **/
 	public static final Pattern SPLIT_PATTERN = Pattern.compile("(?:\\t|[ \\t]{2,})");
    /**
-   	<P>YYY</P>
+   	<p>YYY</p>
 
 		@exception  IllegalStateException  If
-		<BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.CodeletTemplateConfig CodeletTemplateConfig}.{@link com.github.aliteralmind.codelet.CodeletTemplateConfig#wasLoaded() wasLoaded}</CODE>
-		<BR>is {@code false}, or {@link #wasLoaded() wasLoaded}{@code ()} is {@code true}.
+		<br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.CodeletTemplateConfig CodeletTemplateConfig}.{@link com.github.aliteralmind.codelet.CodeletTemplateConfig#wasLoaded() wasLoaded}</code>
+		<br/>is {@code false}, or {@link #wasLoaded() wasLoaded}{@code ()} is {@code true}.
     **/
    static final TemplateOverrides loadConfigGetInstance(Iterator<String> configFile_lineItr)  {
 		if(!CodeletTemplateConfig.wasLoaded())  {
@@ -135,7 +135,7 @@ public enum TemplateOverrides  {
 		return  INSTANCE;
 	}
 	/**
-		<P>Was configuration loaded?.</P>
+		<p>Was configuration loaded?.</p>
 
 		@return  {@code true} If all values loaded successfully.
 	 **/
@@ -193,12 +193,12 @@ public enum TemplateOverrides  {
 			}
 		}
 	/**
-		<P>Get the template.</P>
+		<p>Get the template.</p>
 
-		@return   If this taglet's<OL>
-			<LI>{@linkplain CodeletInstance#getEnclosingFile() enclosing file} has a template-override: The template as {@linkplain TemplateOverrides configured}</LI>
-			<LI>{@linkplain CodeletInstance#getEnclosingPackage() enclosing package} has a template-override: The template as configured.</LI>
-		</OL>Otherwise, the default template for the taglet's {@linkplain CodeletType type}. <I>In all cases, because JavaDoc is multi-threaded, the returned template object is duplicated.</I>
+		@return   If this taglet's<ol>
+			<li>{@linkplain CodeletInstance#getEnclosingFile() enclosing file} has a template-override: The template as {@linkplain TemplateOverrides configured}</li>
+			<li>{@linkplain CodeletInstance#getEnclosingPackage() enclosing package} has a template-override: The template as configured.</li>
+		</ol>Otherwise, the default template for the taglet's {@linkplain CodeletType type}. <i>In all cases, because JavaDoc is multi-threaded, the returned template object is duplicated.</i>
 		@exception  IllegalArgumentStateException  If the enclosing file's path does not start with the enclosing class {@linkplain CodeletBaseConfig#ENCLOSING_CLASS_SRC_BASE_DIRS base directory}.
 	 **/
 	public static final <T extends CodeletTemplateBase> T get(CodeletInstance instance, Appendable debugDest_ifNonNull)  {

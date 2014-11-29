@@ -14,11 +14,11 @@
 \*license*/
 package  com.github.aliteralmind.codelet.alter;
 /**
-	<P>Indicates an unexpected error when working with the {@code DefaultAlterGetter}.</P>
+	<p>Indicates an unexpected error when working with the {@code DefaultAlterGetter}.</p>
 
 	@see  com.github.aliteralmind.codelet.CodeletBaseConfig#ALTERATION_NOT_MADE_CRASH
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
 
  **/
 public class DefaultAlterGetterException extends IllegalArgumentException  {

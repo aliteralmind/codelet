@@ -19,25 +19,25 @@ package  com.github.aliteralmind.codelet.type;
 	import  com.github.aliteralmind.codelet.CodeletGap;
 	import  com.github.aliteralmind.codelet.CodeletTemplateBase;
 /**
-	<P>For all templates but {@code {@.codelet.and.out}}.</P>
+	<p>For all templates but {@code {@.codelet.and.out}}.</p>
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public abstract class OnlyOneBodyGapTemplateBase extends CodeletTemplateBase  {
 	/**
-		<P>The gap name for the fully processed source-code, which is the <I>only</I> gap required to exist in the template--equal to {@code "body"}.</P>
+		<p>The gap name for the fully processed source-code, which is the <i>only</i> gap required to exist in the template--equal to {@code "body"}.</p>
 
-		@see  <A HREF="SourceCodeTemplate.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A>
+		@see  <a href="SourceCodeTemplate.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
 		@see  #fillBodyGap(String, String)
 	 **/
 	public static final String BODY_GAP_NAME = "body";
 	/**
-		<P>Create the first instance.</P>
+		<p>Create the first instance.</p>
 
-		<P>Equal to</P>
+		<p>Equal to</p>
 
-<BLOCKQUOTE><PRE>{@link com.github.aliteralmind.codelet.CodeletTemplateBase#CodeletTemplateBase(CodeletType, FeatherTemplate, String, String[], CodeletGap[], UserExtraGapGetter) super}(type, template, tmpl_path, new String[]{{@link #BODY_GAP_NAME}}, optional_defaultGaps, userExtra_getter)</PRE></BLOCKQUOTE>
+<blockquote><pre>{@link com.github.aliteralmind.codelet.CodeletTemplateBase#CodeletTemplateBase(CodeletType, FeatherTemplate, String, String[], CodeletGap[], UserExtraGapGetter) super}(type, template, tmpl_path, new String[]{{@link #BODY_GAP_NAME}}, optional_defaultGaps, userExtra_getter)</pre></blockquote>
 
 		@see  #OnlyOneBodyGapTemplateBase(OnlyOneBodyGapTemplateBase, FeatherTemplate, String)
 	 **/
@@ -45,11 +45,11 @@ public abstract class OnlyOneBodyGapTemplateBase extends CodeletTemplateBase  {
 		super(type, template, tmpl_path, new String[]{BODY_GAP_NAME}, optional_defaultGaps, userExtra_getter);
 	}
 	/**
-		<P>Create the second or subsequent instance.</P>
+		<p>Create the second or subsequent instance.</p>
 
-		<P>Equal to</P>
+		<p>Equal to</p>
 
-<BLOCKQUOTE><PRE>{@link com.github.aliteralmind.codelet.CodeletTemplateBase#CodeletTemplateBase(CodeletTemplateBase, FeatherTemplate, String) super}(to_copy, template, tmpl_path)</PRE></BLOCKQUOTE>
+<blockquote><pre>{@link com.github.aliteralmind.codelet.CodeletTemplateBase#CodeletTemplateBase(CodeletTemplateBase, FeatherTemplate, String) super}(to_copy, template, tmpl_path)</pre></blockquote>
 
 		@see  #OnlyOneBodyGapTemplateBase(CodeletType, FeatherTemplate, String, CodeletGap[], UserExtraGapGetter)
 	 **/
@@ -60,11 +60,11 @@ public abstract class OnlyOneBodyGapTemplateBase extends CodeletTemplateBase  {
 		super(to_copy, debugDest_ifNonNull);
 	}
 	/**
-		<P>Fill the fully-processed text into the body gap.</P>
+		<p>Fill the fully-processed text into the body gap.</p>
 
-		<P>Equal to</P>
+		<p>Equal to</p>
 
-<BLOCKQUOTE><PRE>{@link com.github.aliteralmind.codelet.CodeletTemplateBase#fillBodyGap(String, String) fillBodyGap}*({@link #BODY_GAP_NAME}, body_text)</PRE></BLOCKQUOTE>
+<blockquote><pre>{@link com.github.aliteralmind.codelet.CodeletTemplateBase#fillBodyGap(String, String) fillBodyGap}*({@link #BODY_GAP_NAME}, body_text)</pre></blockquote>
 	 **/
 	public final void fillBodyGap(String body_text)  {
 		fillBodyGap(BODY_GAP_NAME, body_text);

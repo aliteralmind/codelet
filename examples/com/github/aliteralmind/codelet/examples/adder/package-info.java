@@ -1,4 +1,4 @@
 /**
-	<P>Trivial classes used in Codelet examples.</P>
+	<p>Trivial classes used in Codelet examples.</p>
  **/
 package  com.github.aliteralmind.codelet.examples.adder;

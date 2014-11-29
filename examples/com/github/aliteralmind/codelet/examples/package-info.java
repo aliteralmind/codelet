@@ -1,7 +1,7 @@
 /**
-	<P>Full examples used throughout Codelet.</P>
+	<p>Full examples used throughout Codelet.</p>
 
-	<P style="font-size: 125%;"><B>{@code {@.file.textlet examples/com/github/aliteralmind/codelet/examples/package-info.java}}</B></P>
+	<P style="font-size: 125%;"><b>{@code {@.file.textlet examples/com/github/aliteralmind/codelet/examples/package-info.java}}</b></p>
 
 {@.file.textlet examples/com/github/aliteralmind/codelet/examples/package-info.java}
  **/

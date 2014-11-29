@@ -29,20 +29,20 @@ package  com.github.aliteralmind.codelet.util;
 	import  java.util.regex.Matcher;
 	import  java.util.regex.Pattern;
 /**
-	<P>Collection of names referring to specific debugging tasks, each associated to an arbitrary numeric level.</P>
+	<p>Collection of names referring to specific debugging tasks, each associated to an arbitrary numeric level.</p>
 
-	@author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <CODE><A HREF="http://codelet.aliteralmind.com">http://codelet.aliteralmind.com</A></CODE>, <CODE><A HREF="https://github.com/aliteralmind/codelet">https://github.com/aliteralmind/codelet</A></CODE>
+	@author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <code><a href="http://codelet.aliteralmind.com">http://codelet.aliteralmind.com</a></code>, <code><a href="https://github.com/aliteralmind/codelet">https://github.com/aliteralmind/codelet</a></code>
  **/
 public class NamedDebuggers  {
 	private final Map<String,DebugLevel> nameLvlMap;
 	private TextAppenter dbgAptrAllQueries;
 	/**
-		<P>Create a new instance from the path of a configuration file.</P>
+		<p>Create a new instance from the path of a configuration file.</p>
 
-		<P>This sets {@link #getMap() getMap}{@code ()} to an {@linkplain java.util.Collections#unmodifiableMap(Map) immutable version} of</P>
+		<p>This sets {@link #getMap() getMap}{@code ()} to an {@linkplain java.util.Collections#unmodifiableMap(Map) immutable version} of</p>
 
-<BLOCKQUOTE>NamedDebuggers.{@link #newMapFromConfigFile(Map, String, String, Appendable) newMapFromConfigFile}(map_toAddToIfNonNull, configFile_path, path_varName,
-<BR> &nbsp; &nbsp; debugAll_ifNonNull)</BLOCKQUOTE>
+<blockquote>NamedDebuggers.{@link #newMapFromConfigFile(Map, String, String, Appendable) newMapFromConfigFile}(map_toAddToIfNonNull, configFile_path, path_varName,
+<br/> &nbsp; &nbsp; debugAll_ifNonNull)</blockquote>
 
    	@see  #NamedDebuggers(Map, Iterator, String, Appendable)
 	 **/
@@ -54,12 +54,12 @@ public class NamedDebuggers  {
 		setAllQueriesDebug(null);
 	}
 	/**
-		<P>Create a new instance from a configuration file's line iterator.</P>
+		<p>Create a new instance from a configuration file's line iterator.</p>
 
-		<P>This sets {@link #getMap() getMap}{@code ()} to an {@linkplain java.util.Collections#unmodifiableMap(Map) immutable version} of</P>
+		<p>This sets {@link #getMap() getMap}{@code ()} to an {@linkplain java.util.Collections#unmodifiableMap(Map) immutable version} of</p>
 
-<BLOCKQUOTE>NamedDebuggers.{@link #newMapFromConfigFile(Map, Iterator, String, Appendable) newMapFromConfigFile}(map_toAddToIfNonNull, configFile_path, path_varName,
-<BR> &nbsp; &nbsp; debugAll_ifNonNull)</BLOCKQUOTE>
+<blockquote>NamedDebuggers.{@link #newMapFromConfigFile(Map, Iterator, String, Appendable) newMapFromConfigFile}(map_toAddToIfNonNull, configFile_path, path_varName,
+<br/> &nbsp; &nbsp; debugAll_ifNonNull)</blockquote>
 
    	@see  #NamedDebuggers(Map, String, String, Appendable)
 	 **/
@@ -69,13 +69,13 @@ public class NamedDebuggers  {
 		setAllQueriesDebug(null);
 	}
 	/**
-		<P>Unmodifiable name-to-level map.</P>
+		<p>Unmodifiable name-to-level map.</p>
 	 **/
 	public Map<String,DebugLevel> getMap()  {
 		return  nameLvlMap;
 	}
 	/**
-		<P>Set debugging for outputting all {@code isActive} queries. This is useful for determining levels that may be unused.</P>
+		<p>Set debugging for outputting all {@code isActive} queries. This is useful for determining levels that may be unused.</p>
 
 		@param  debugEachQuery_ifNonNull  Get with {@link #getAllQueriesDebugAptr() getAllQueriesDebugAptr}{@code ()}.
 		@see  #isActive(String, DebugLevel, DebugLevel...) isActive
@@ -84,7 +84,7 @@ public class NamedDebuggers  {
 		dbgAptrAllQueries = NewTextAppenterFor.appendableUnusableIfNull(debugEachQuery_ifNonNull);
 	}
 	/**
-		<P>Get the text appenter for debugging each query.</P>
+		<p>Get the text appenter for debugging each query.</p>
 
 		@return  A non-{@code null} appenter.
 		@see  #setAllQueriesDebug(Appendable)
@@ -93,21 +93,21 @@ public class NamedDebuggers  {
 		return  dbgAptrAllQueries;
 	}
 	/**
-		<P>Is a named level active?.</P>
+		<p>Is a named level active?.</p>
 
-		<P>If {@linkplain #getAllQueriesDebugAptr() each-query debugging} is on, this outputs {@code name}, regardless the value returned by this function.</P>
+		<p>If {@linkplain #getAllQueriesDebugAptr() each-query debugging} is on, this outputs {@code name}, regardless the value returned by this function.</p>
 
 		@param  name  Must be an existing name.
 		@param  actual_level1  The actual debugging level is the highest level in this or any of the elements in {@code actualLevels_2AndUp}. May not be {@code null}.
 		@param  actualLevels_2AndUp  If multiple levels make up &quot;the level&quot; (the {@linkplain com.github.xbn.io.DebugLevel#getHighestLevel(DebugLevel...) highest one} between all of them), these are those additional level elements.
-		@return  If <CODE>{@link #getMap() getMap}().{@link java.util.Map#get(Object) get}(name)</CODE> is<UL>
-			<LI>{@code null}: {@code false}</LI>
-			<LI><CODE>{@link com.github.xbn.io.DebugLevel#OFF OFF}</CODE>: {@code true}</LI>
-		</UL>Otherwise:
-		<BR> &nbsp; &nbsp; <CODE>(getMap}().get(name).<!-- GENERIC PARAMETERS FAIL IN @link --><A HREF="http://docs.oracle.com/javase/7/docs/apijava/lang/Comparable.html#compareTo(T)">compareTo</A>(actualLevel) &lt;= 0)</CODE>
-		<BR>Where {@code actualLevel} is equal to
-		<BR> &nbsp; &nbsp; <CODE>actual_level1.{@link com.github.xbn.io.DebugLevel#getHighestLevel(DebugLevel...) getHighestLevel}(actualLevels_2AndUp)</CODE>
-		@exception  NoSuchElementException  If <CODE>{@link #getMap() getMap}().{@link java.util.Map#containsKey(Object)}(name)</CODE> is {@code false}.
+		@return  If <code>{@link #getMap() getMap}().{@link java.util.Map#get(Object) get}(name)</code> is<ul>
+			<li>{@code null}: {@code false}</li>
+			<li><code>{@link com.github.xbn.io.DebugLevel#OFF OFF}</code>: {@code true}</li>
+		</ul>Otherwise:
+		<br/> &nbsp; &nbsp; <code>(getMap}().get(name).<!-- GENERIC PARAMETERS FAIL IN @link --><a href="http://docs.oracle.com/javase/7/docs/apijava/lang/Comparable.html#compareTo(T)">compareTo</a>(actualLevel) &lt;= 0)</code>
+		<br/>Where {@code actualLevel} is equal to
+		<br/> &nbsp; &nbsp; <code>actual_level1.{@link com.github.xbn.io.DebugLevel#getHighestLevel(DebugLevel...) getHighestLevel}(actualLevels_2AndUp)</code>
+		@exception  NoSuchElementException  If <code>{@link #getMap() getMap}().{@link java.util.Map#containsKey(Object)}(name)</code> is {@code false}.
 	 **/
 	public boolean isActive(String name, DebugLevel actual_level1, DebugLevel... actualLevels_2AndUp)  {
 		if(!getMap().containsKey(name))  {
@@ -130,10 +130,10 @@ public class NamedDebuggers  {
 		return  (nameLevel.compareTo(actualLevel) <= 0);  //nameLevel <= actualLevel
 	}
 	/**
-		<P>If a named-level is active, get an appenter for it.</P>
+		<p>If a named-level is active, get an appenter for it.</p>
 
-		@return  <CODE>({@link #isActive(String, DebugLevel, DebugLevel...) isActive}(name, actual_level1, actualLevels_2AndUp)
-		<BR> &nbsp; &nbsp; ? &nbsp;debug_aptr : null)</CODE>
+		@return  <code>({@link #isActive(String, DebugLevel, DebugLevel...) isActive}(name, actual_level1, actualLevels_2AndUp)
+		<br/> &nbsp; &nbsp; ? &nbsp;debug_aptr : null)</code>
 		@see  #getAppendableIfActive(String, TextAppenter, DebugLevel, DebugLevel...)
 	 **/
 	public TextAppenter getAppenterIfActive(String name, TextAppenter debug_aptr, DebugLevel actual_level1, DebugLevel... actualLevels_2AndUp)  {
@@ -141,10 +141,10 @@ public class NamedDebuggers  {
 			?  debug_aptr : null);
 	}
 	/**
-		<P>If a named-level is active, get an appendable for it.</P>
+		<p>If a named-level is active, get an appendable for it.</p>
 
-		@return  <CODE>({@link #isActive(String, DebugLevel, DebugLevel...) isActive}(name, actual_level1, actualLevels_2AndUp)
-		<BR> &nbsp; &nbsp; ? &nbsp;debug_aptr.{@link TextAppenter#getAppendable() getAppendable}() : null)</CODE>
+		@return  <code>({@link #isActive(String, DebugLevel, DebugLevel...) isActive}(name, actual_level1, actualLevels_2AndUp)
+		<br/> &nbsp; &nbsp; ? &nbsp;debug_aptr.{@link TextAppenter#getAppendable() getAppendable}() : null)</code>
 		@see  #getAppendableIfActive(String, TextAppenter, DebugLevel, DebugLevel...)
 	 **/
 	public Appendable getAppendableIfActive(String name, TextAppenter debug_aptr, DebugLevel actual_level1, DebugLevel... actualLevels_2AndUp)  {
@@ -152,11 +152,11 @@ public class NamedDebuggers  {
 			?  debug_aptr.getAppendable() : null);
 	}
 	/**
-		<P>Creates a new map associated level names to level numbers, as read in from a configuration text file.</P>
+		<p>Creates a new map associated level names to level numbers, as read in from a configuration text file.</p>
 
-		@return  <CODE>{@link #newMapFromConfigFile(Map, Iterator, String, Appendable) newMapFromConfigFile}(map_toAddToIfNonNull,
-			<BR> &nbsp; &nbsp; {@link PlainTextFileUtil}.{@link PlainTextFileUtil#getLineIterator(String, String) getLineIterator}(configFile_path, path_varName),
-			<BR> &nbsp; &nbsp; path_varName, debugAll_ifNonNull)</CODE>
+		@return  <code>{@link #newMapFromConfigFile(Map, Iterator, String, Appendable) newMapFromConfigFile}(map_toAddToIfNonNull,
+			<br/> &nbsp; &nbsp; {@link PlainTextFileUtil}.{@link PlainTextFileUtil#getLineIterator(String, String) getLineIterator}(configFile_path, path_varName),
+			<br/> &nbsp; &nbsp; path_varName, debugAll_ifNonNull)</code>
 	 **/
 	public static final Map<String,DebugLevel> newMapFromConfigFile(Map<String,DebugLevel> map_toAddToIfNonNull, String configFile_path, String path_varName, Appendable debugAll_ifNonNull)  {
 		return  newMapFromConfigFile(map_toAddToIfNonNull,
@@ -164,25 +164,25 @@ public class NamedDebuggers  {
 			path_varName, debugAll_ifNonNull);
 	}
 	/**
-		<P>Creates a new map associated level names to level numbers, as read in from a configuration text file.</P>
+		<p>Creates a new map associated level names to level numbers, as read in from a configuration text file.</p>
 
-		<H4>Configuration file format</H4>
+		<h4>Configuration file format</h4>
 
-		<P>Overall:<UL>
-			<LI>Whitespace at the ends of lines is permissible.</LI>
-			<LI>Lines (after trimming) that start with a hash ({@code '#'}) are ignored.</LI>
-			<LI>Empty lines are permissible.</LI>
-		</UL></P>
+		<p>Overall:<ul>
+			<li>Whitespace at the ends of lines is permissible.</li>
+			<li>Lines (after trimming) that start with a hash ({@code '#'}) are ignored.</li>
+			<li>Empty lines are permissible.</li>
+		</ul></p>
 
-		<P>Each line is in the format</P>
+		<p>Each line is in the format</p>
 
-<BLOCKQUOTE><PRE><I>[level-name]</I>=<I>[level-number]</I></PRE></BLOCKQUOTE>
+<blockquote><pre><i>[level-name]</i>=<i>[level-number]</i></pre></blockquote>
 
-		<P><UL>
-			<LI><I>[level-name]</I> is the descriptive name of the level. Must be non-{@code null}, and must be in the same format as a valid Java package name--that is, it must match
-			<BR> &nbsp; &nbsp; <CODE>{@link com.github.xbn.util.JavaRegexes}.{@link com.github.xbn.util.JavaRegexes#PACKAGE_NAME PACKAGE_NAME}</CODE>
-			<BR>Names must be unique.</LI>
-			<LI><I>[level-number]</I> is a number between {@code -1} and {@code 5}, inclusive.<UL>
+		<p><ul>
+			<li><i>[level-name]</i> is the descriptive name of the level. Must be non-{@code null}, and must be in the same format as a valid Java package name--that is, it must match
+			<br/> &nbsp; &nbsp; <code>{@link com.github.xbn.util.JavaRegexes}.{@link com.github.xbn.util.JavaRegexes#PACKAGE_NAME PACKAGE_NAME}</code>
+			<br/>Names must be unique.</li>
+			<li><i>[level-number]</i> is a number between {@code -1} and {@code 5}, inclusive.<ul>
 <!--
 	Originates in
 		com.github.aliteralmind.codelet.util.NamedDebuggers
@@ -190,13 +190,13 @@ public class NamedDebuggers  {
 		com.github.aliteralmind.codelet.CodeletBootstrap
 	...START
 	-->
-				<LI><B>{@code -1}</B>: Never output.</LI>
-				<LI><B>{@code 0}</B>: Always output (even if {@link com.github.xbn.io.DebugLevel#OFF OFF}).</LI>
-				<LI><B>{@code 1}</B>: Output only when the actual level {@linkplain com.github.xbn.io.DebugLevel#isOn() on}--equal to or greater than {@link com.github.xbn.io.DebugLevel#ONE ONE}.</LI>
-				<LI><B>{@code 2}</B>: Output when the actual level is {@link com.github.xbn.io.DebugLevel#TWO TWO} or greater.</LI>
-				<LI><B>{@code 3}</B>: Output when the actual level is {@link com.github.xbn.io.DebugLevel#THREE THREE} or greater.</LI>
-				<LI><B>{@code 4}</B>: Output when the actual level is {@link com.github.xbn.io.DebugLevel#FOUR FOUR} or {@link com.github.xbn.io.DebugLevel#FIVE FIVE}.</LI>
-				<LI><B>{@code 5}</B>: Output only when the actual level is {@code FIVE}.</LI>
+				<li><b>{@code -1}</b>: Never output.</li>
+				<li><b>{@code 0}</b>: Always output (even if {@link com.github.xbn.io.DebugLevel#OFF OFF}).</li>
+				<li><b>{@code 1}</b>: Output only when the actual level {@linkplain com.github.xbn.io.DebugLevel#isOn() on}--equal to or greater than {@link com.github.xbn.io.DebugLevel#ONE ONE}.</li>
+				<li><b>{@code 2}</b>: Output when the actual level is {@link com.github.xbn.io.DebugLevel#TWO TWO} or greater.</li>
+				<li><b>{@code 3}</b>: Output when the actual level is {@link com.github.xbn.io.DebugLevel#THREE THREE} or greater.</li>
+				<li><b>{@code 4}</b>: Output when the actual level is {@link com.github.xbn.io.DebugLevel#FOUR FOUR} or {@link com.github.xbn.io.DebugLevel#FIVE FIVE}.</li>
+				<li><b>{@code 5}</b>: Output only when the actual level is {@code FIVE}.</li>
 <!--
 	Originates in
 		com.github.aliteralmind.codelet.util.NamedDebuggers
@@ -204,12 +204,12 @@ public class NamedDebuggers  {
 		com.github.aliteralmind.codelet.CodeletBootstrap
 	...END
 	-->
-			</UL>When a named level is output, it is &quot;{@linkplain #isActive(String, DebugLevel, DebugLevel...) active}&quot;.</LI>
-		</UL></P>
+			</ul>When a named level is output, it is &quot;{@linkplain #isActive(String, DebugLevel, DebugLevel...) active}&quot;.</li>
+		</ul></p>
 
-		<H4>Example config file</H4>
+		<h4>Example config file</h4>
 
-<BLOCKQUOTE><PRE>### Possible values are -1, 0, 1, 2, 3, 4, 5
+<blockquote><pre>### Possible values are -1, 0, 1, 2, 3, 4, 5
 BasicCustomizers.eliminateCmtBlocksPkgLineAndPkgReferences.alterers=3
 BasicCustomizers.lineRange.alterers.eliminateIndentationOrNull=5
 BasicCustomizers.lineRange.alterers=3
@@ -227,11 +227,11 @@ TagletOfTypeProcessor.newInstructionsForDefaults.templateparseandfill=3
 TagletProcessor.codeletfound=0
 configuration.allvaluessummary=1
 configuration.progress=0
-configuration.templateoverrides.allentriespostloaded=3</PRE></BLOCKQUOTE>
+configuration.templateoverrides.allentriespostloaded=3</pre></blockquote>
 
-		@param  map_toAddToIfNonNull  If non-{@code null}, the lines read in from the configuration file are added to this map. Must allow <!-- GENERIC PARAMETERS FAIL IN @link --><A HREF="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html#put(K, V)">{@code put}</A>, and may not contain any names in the configuration file.
+		@param  map_toAddToIfNonNull  If non-{@code null}, the lines read in from the configuration file are added to this map. Must allow <!-- GENERIC PARAMETERS FAIL IN @link --><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html#put(K, V)">{@code put}</a>, and may not contain any names in the configuration file.
 		@param  configFile_lineItr  May not be {@code null}, and must refer to a validly-formatted configuration file.
-		@param  itr_VarName  Descriptive name of {@code configFile_lineItr}. <I>Should</I> not be {@code null} or empty.
+		@param  itr_VarName  Descriptive name of {@code configFile_lineItr}. <i>Should</i> not be {@code null} or empty.
 		@param  debugAll_ifNonNull  If non-{@code null}, each line is output via this, before being added to the map. The current size of the map is also output.
 		@exception  NamedDebuggerFormatException  If a line is badly formatted or contains illegal values.
 		@exception  BadDuplicateException  If two lines contain the same name.

@@ -4,7 +4,7 @@ package  com.github.aliteralmind.codelet.test;
 
 import  org.junit.Test;
 /**
-   <P>{@code java com.github.xbn.unittests.ExampleCodeOutputsContain_Unit}</P>
+   <p>{@code java com.github.xbn.unittests.ExampleCodeOutputsContain_Unit}</p>
  **/
 public class ExampleCodeOutputsContain_Unit  {
    public static final void main(String[] ignored)  {

@@ -16,18 +16,18 @@ package  com.github.aliteralmind.codelet.simplesig;
 	import  com.github.xbn.lang.ObjectOrCrashIfNull;
 	import  java.lang.reflect.Method;
 /**
-	<P>Simple-parameter-name signature for a function.</P>
+	<p>Simple-parameter-name signature for a function.</p>
 
-	@see  <A HREF="package-summary.html#xmpl_method">Example</A>
+	@see  <a href="package-summary.html#xmpl_method">Example</a>
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class MethodSimpleParamSig extends SimpleParamNameSignature  {
 	/**
-		<P>Create a new instance from a method.</P>
+		<p>Create a new instance from a method.</p>
 
-		<P>Equal to
-		<BR> &nbsp; &nbsp; <CODE>{@link SimpleParamNameSignature#SimpleParamNameSignature(Member, Class[]) super}(method, method.{@link java.lang.reflect.Method#getParameterTypes() getParameterTypes}())</CODE></P>
+		<p>Equal to
+		<br/> &nbsp; &nbsp; <code>{@link SimpleParamNameSignature#SimpleParamNameSignature(Member, Class[]) super}(method, method.{@link java.lang.reflect.Method#getParameterTypes() getParameterTypes}())</code></p>
 
 		@param  method  May not be {@code null}.
 	 **/
@@ -35,9 +35,9 @@ public class MethodSimpleParamSig extends SimpleParamNameSignature  {
 		super(method, ObjectOrCrashIfNull.<Method>get(method, "method").getParameterTypes());
 	}
 	/**
-		<P>The method object.</P>
+		<p>The method object.</p>
 
-		@return  <CODE>(Method){@link SimpleParamNameSignature#getMember() getMember}()*</CODE>
+		@return  <code>(Method){@link SimpleParamNameSignature#getMember() getMember}()*</code>
 
 		@see  #MethodSimpleParamSig(Method)
 	 **/
@@ -45,13 +45,13 @@ public class MethodSimpleParamSig extends SimpleParamNameSignature  {
 		return  (Method)getMember();
 	}
 	/**
-		@return  <CODE>{@link #getMethodName() getMethodName}() + {@link SimpleParamNameSignature#getWithParens() getWithParens}()*</CODE>
+		@return  <code>{@link #getMethodName() getMethodName}() + {@link SimpleParamNameSignature#getWithParens() getWithParens}()*</code>
 	 **/
 	public String toString()  {
 		return  getMethodName() + getWithParens();
 	}
 	/**
-		@return  <CODE>{@link #getMethod() getMethod}().{@link java.lang.reflect.Method#getName() getName}()</CODE>
+		@return  <code>{@link #getMethod() getMethod}().{@link java.lang.reflect.Method#getName() getName}()</code>
 	 **/
 	public String getMethodName()  {
 		return  getMethod().getName();

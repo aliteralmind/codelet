@@ -14,44 +14,44 @@
 \*license*/
 package  com.github.aliteralmind.codelet;
 /**
-   <P>Defines &quot;user-created extra&quot; gaps that may be added to Codelet templates. The fully-qualified class name of your implementation is specified in the {@link com.github.aliteralmind.codelet.CodeletBaseConfig#USER_EXTRA_GAPS_CLASS_NAME user_extra_gaps_class} configuration variable.</P>
+   <p>Defines &quot;user-created extra&quot; gaps that may be added to Codelet templates. The fully-qualified class name of your implementation is specified in the {@link com.github.aliteralmind.codelet.CodeletBaseConfig#USER_EXTRA_GAPS_CLASS_NAME user_extra_gaps_class} configuration variable.</p>
 
-   <P><B>Implementation requirements:</B><UL>
-   	<LI>All functions must return a non-{@code null} array, where no element is {@code null}, and every {@linkplain com.github.xbn.keyed.Named#getName() name} is unique and not equal to any of the required or &quot;optional-default&quot; gaps for its Codelet type.</LI>
-   	<LI>There must be a no-parameter constructor.</LI>
-   </UL>
+   <p><b>Implementation requirements:</b><ul>
+   	<li>All functions must return a non-{@code null} array, where no element is {@code null}, and every {@linkplain com.github.xbn.keyed.Named#getName() name} is unique and not equal to any of the required or &quot;optional-default&quot; gaps for its Codelet type.</li>
+   	<li>There must be a no-parameter constructor.</li>
+   </ul>
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public interface UserExtraGapGetter  {
    /**
-   	<P>Extra gap-filler objects for (source-code) {@link com.github.aliteralmind.codelet.CodeletType#SOURCE_CODE {@.codelet}} taglets, when {@linkplain UserExtraGapGetter configured}.</P>
+   	<p>Extra gap-filler objects for (source-code) {@link com.github.aliteralmind.codelet.CodeletType#SOURCE_CODE {@.codelet}} taglets, when {@linkplain UserExtraGapGetter configured}.</p>
 
-   	@return  A non-{@code null} array, where no element is {@code null}, and every {@linkplain com.github.xbn.keyed.Named#getName() name} is unique and not equal to any of the <A HREF="{@docRoot}/com/github/aliteralmind.codelet/type/SourceCodeTemplate.html">required or &quot;optional-default&quot; gaps</A> for this Codelet type.
+   	@return  A non-{@code null} array, where no element is {@code null}, and every {@linkplain com.github.xbn.keyed.Named#getName() name} is unique and not equal to any of the <a href="{@docRoot}/com/github/aliteralmind.codelet/type/SourceCodeTemplate.html">required or &quot;optional-default&quot; gaps</a> for this Codelet type.
    	@see  #getForCodeletDotOut()
    	@see  #getForCodeletAndOut()
    	@see  #getForFileTextlet()
     **/
    CodeletGap[] getForSourceCodelet();
    /**
-   	<P>Extra gap-filler objects for {@link com.github.aliteralmind.codelet.CodeletType#CONSOLE_OUT {@.codelet.out}} taglets, when {@linkplain UserExtraGapGetter configured}.</P>
+   	<p>Extra gap-filler objects for {@link com.github.aliteralmind.codelet.CodeletType#CONSOLE_OUT {@.codelet.out}} taglets, when {@linkplain UserExtraGapGetter configured}.</p>
 
-   	@return  A non-{@code null} array, where no element is {@code null}, and every {@linkplain com.github.xbn.keyed.Named#getName() name} is unique and not equal to any of the <A HREF="{@docRoot}/com/github/aliteralmind.codelet/type/ConsoleOutTemplate.html">required or &quot;optional-default&quot; gaps</A> for this Codelet type.
+   	@return  A non-{@code null} array, where no element is {@code null}, and every {@linkplain com.github.xbn.keyed.Named#getName() name} is unique and not equal to any of the <a href="{@docRoot}/com/github/aliteralmind.codelet/type/ConsoleOutTemplate.html">required or &quot;optional-default&quot; gaps</a> for this Codelet type.
    	@see  #getForSourceCodelet()
     **/
    CodeletGap[] getForCodeletDotOut();
    /**
-   	<P>Extra gap-filler objects for {@link com.github.aliteralmind.codelet.CodeletType#SOURCE_AND_OUT {@.codelet.and.out}} taglets, when {@linkplain UserExtraGapGetter configured}.</P>
+   	<p>Extra gap-filler objects for {@link com.github.aliteralmind.codelet.CodeletType#SOURCE_AND_OUT {@.codelet.and.out}} taglets, when {@linkplain UserExtraGapGetter configured}.</p>
 
-   	@return  A non-{@code null} array, where no element is {@code null}, and every {@linkplain com.github.xbn.keyed.Named#getName() name} is unique and not equal to any of the <A HREF="{@docRoot}/com/github/aliteralmind.codelet/type/SourceAndOutTemplate.html">required or &quot;optional-default&quot; gaps</A> for this Codelet type.
+   	@return  A non-{@code null} array, where no element is {@code null}, and every {@linkplain com.github.xbn.keyed.Named#getName() name} is unique and not equal to any of the <a href="{@docRoot}/com/github/aliteralmind.codelet/type/SourceAndOutTemplate.html">required or &quot;optional-default&quot; gaps</a> for this Codelet type.
    	@see  #getForSourceCodelet()
     **/
    CodeletGap[] getForCodeletAndOut();
    /**
-   	<P>Extra gap-filler objects for {@link com.github.aliteralmind.codelet.CodeletType#FILE_TEXT {@.file.textlet}} taglets, when {@linkplain UserExtraGapGetter configured}.</P>
+   	<p>Extra gap-filler objects for {@link com.github.aliteralmind.codelet.CodeletType#FILE_TEXT {@.file.textlet}} taglets, when {@linkplain UserExtraGapGetter configured}.</p>
 
-   	@return  A non-{@code null} array, where no element is {@code null}, and every {@linkplain com.github.xbn.keyed.Named#getName() name} is unique and not equal to any of the <A HREF="{@docRoot}/com/github/aliteralmind.codelet/type/FileTextTemplate.html">required or &quot;optional-default&quot; gaps</A> for this Codelet type.
+   	@return  A non-{@code null} array, where no element is {@code null}, and every {@linkplain com.github.xbn.keyed.Named#getName() name} is unique and not equal to any of the <a href="{@docRoot}/com/github/aliteralmind.codelet/type/FileTextTemplate.html">required or &quot;optional-default&quot; gaps</a> for this Codelet type.
    	@see  #getForSourceCodelet()
     **/
    CodeletGap[] getForFileTextlet();

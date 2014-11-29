@@ -22,20 +22,20 @@ package  com.github.aliteralmind.codelet.examples.non_xbn;
 	import  java.util.regex.Pattern;
 	import  org.apache.commons.io.FileUtils;
 /**
-	<P>Prints the start and end line-numbers for all JavaDoc blocks in a Java source-code file. The one and only parameter is the path to the file. This assumes that the JavaDoc open-comment (slash-asterisk-asterisk) is the first non-whitespace on its line. The end comment (asterisk-slash) may be anywhere on the line.</P>
+	<p>Prints the start and end line-numbers for all JavaDoc blocks in a Java source-code file. The one and only parameter is the path to the file. This assumes that the JavaDoc open-comment (slash-asterisk-asterisk) is the first non-whitespace on its line. The end comment (asterisk-slash) may be anywhere on the line.</p>
 
-	<P><CODE>java com.github.codelet.examples.non_xbn.PrintJDBlocksStartStopLineNumsXmpl xbnjava\xbn\examples\<!--escape-u is illegal-->util\PrintJDBlocksStartStopLineNumsXmpl.java</CODE></P>
+	<p><code>java com.github.codelet.examples.non_xbn.PrintJDBlocksStartStopLineNumsXmpl xbnjava\xbn\examples\<!--escape-u is illegal-->util\PrintJDBlocksStartStopLineNumsXmpl.java</code></p>
 
-	<P>Self-answered question on stackoverflow.com
-	<BR> &nbsp; &nbsp; <CODE><A HREF="http://stackoverflow.com/questions/21312336/how-to-detect-each-javadoc-block-start-and-end-line-in-a-source-code-file-self">http://stackoverflow.com/questions/21312336/how-to-detect-each-javadoc-block-start-and-end-line-in-a-source-code-file-self</A></CODE></P>
+	<p>Self-answered question on stackoverflow.com
+	<br/> &nbsp; &nbsp; <code><a href="http://stackoverflow.com/questions/21312336/how-to-detect-each-javadoc-block-start-and-end-line-in-a-source-code-file-self">http://stackoverflow.com/questions/21312336/how-to-detect-each-javadoc-block-start-and-end-line-in-a-source-code-file-self</a></code></p>
 
 	@see  com.github.xbn.examples.text.line.FindJavaDocBlocksAndSLCmtsXmpl
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class PrintJDBlocksStartStopLineNumsXmpl  {
 	/**
-		<P>The main function.</P>
+		<p>The main function.</p>
 	 **/
 	public static final void main(String[] as_1RqdJavaSourcePath)  {
 
@@ -78,7 +78,7 @@ public class PrintJDBlocksStartStopLineNumsXmpl  {
 		}
 	}
 	/**
-		<P>Another one</P>
+		<p>Another one</p>
 	 **/
 	private static final void oneMoreForGoodMeasure()  {
 	}

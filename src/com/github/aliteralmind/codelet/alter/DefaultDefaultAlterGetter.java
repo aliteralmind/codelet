@@ -17,10 +17,10 @@ package  com.github.aliteralmind.codelet.alter;
 	import  com.github.xbn.linefilter.alter.TextLineAlterer;
 	import  java.util.LinkedHashMap;
 /**
-	<P>The default {@code DefaultAlterGetter} used, when none is explicitely configured.</P>
+	<p>The default {@code DefaultAlterGetter} used, when none is explicitely configured.</p>
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class DefaultDefaultAlterGetter implements DefaultAlterGetter  {
 	private static final LinkedHashMap<String,TextLineAlterer> map = newMap();
@@ -32,13 +32,13 @@ public class DefaultDefaultAlterGetter implements DefaultAlterGetter  {
 	public DefaultDefaultAlterGetter()  {
 	}
 	/**
-		<P>Returns a map with a single entry, whose key is {@code "escape_html"}, and whose value is <CODE>{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor}.{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor#escapeHtml() escapeHtml}()</CODE>.</P>
+		<p>Returns a map with a single entry, whose key is {@code "escape_html"}, and whose value is <code>{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor}.{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor#escapeHtml() escapeHtml}()</code>.</p>
 	 **/
 	public LinkedHashMap<String,TextLineAlterer> getForSourceCodelet()  {
 		return  map;
 	}
 	/**
-		<P>Returns a map with a single entry, whose key is {@code "escape_html"}, and whose value is <CODE>NewTextLineAltererFor.escapeHtml()</CODE>.</P>
+		<p>Returns a map with a single entry, whose key is {@code "escape_html"}, and whose value is <code>NewTextLineAltererFor.escapeHtml()</code>.</p>
 
 		@return  {@link #getForSourceCodelet()}
 	 **/
@@ -46,7 +46,7 @@ public class DefaultDefaultAlterGetter implements DefaultAlterGetter  {
 		return  getForSourceCodelet();
 	}
 	/*
-		<P>Returns a map with a single entry, whose key is {@code "escape_html"}, and whose value is <CODE>NewTextLineAltererFor.escapeHtml()</CODE>.</P>
+		<p>Returns a map with a single entry, whose key is {@code "escape_html"}, and whose value is <code>NewTextLineAltererFor.escapeHtml()</code>.</p>
 
 		@return  {@link #getForSourceCodelet()}
 	public LinkedHashMap<String,TextLineAlterer> getForCodeletAndOut()  {
@@ -54,7 +54,7 @@ public class DefaultDefaultAlterGetter implements DefaultAlterGetter  {
 	}
 	 */
 	/**
-		<P>Returns a map with a single entry, whose key is {@code "escape_html"}, and whose value is <CODE>NewTextLineAltererFor.escapeHtml()</CODE>.</P>
+		<p>Returns a map with a single entry, whose key is {@code "escape_html"}, and whose value is <code>NewTextLineAltererFor.escapeHtml()</code>.</p>
 
 		@return  {@link #getForSourceCodelet()}
 	 **/

@@ -14,11 +14,11 @@
 \*license*/
 package  com.github.aliteralmind.codelet.util;
 /**
-	<P>Indicates a badly formatted {@code NamedDebuggers} configuration file.</P>
+	<p>Indicates a badly formatted {@code NamedDebuggers} configuration file.</p>
 
 	@see  NamedDebuggers#newMapFromConfigFile(Map, Iterator, String, Appendable)
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class NamedDebuggerFormatException extends IllegalArgumentException  {
 	/**
@@ -26,24 +26,24 @@ public class NamedDebuggerFormatException extends IllegalArgumentException  {
 	 */
 	private static final long serialVersionUID = 4617394249689798008L;
 	/**
-		<P>Create an NamedDebuggerFormatException with no error message.</P>
+		<p>Create an NamedDebuggerFormatException with no error message.</p>
 	 **/
 	public NamedDebuggerFormatException()  {
 	}
 	/**
-		<P>Create an NamedDebuggerFormatException.</P>
+		<p>Create an NamedDebuggerFormatException.</p>
 	 **/
 	public NamedDebuggerFormatException(String message)  {
 		super(message);
 	}
 	/**
-		<P>Create an NamedDebuggerFormatException with no error message.</P>
+		<p>Create an NamedDebuggerFormatException with no error message.</p>
 	 **/
 	public NamedDebuggerFormatException(Throwable cause)  {
 		super(cause);
 	}
 	/**
-		<P>Create an NamedDebuggerFormatException.</P>
+		<p>Create an NamedDebuggerFormatException.</p>
 	 **/
 	public NamedDebuggerFormatException(String message, Throwable cause)  {
 		super(message, cause);

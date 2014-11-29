@@ -16,36 +16,36 @@ package  com.github.aliteralmind.codelet;
 	import  com.github.xbn.lang.CrashIfObject;
 	import  com.github.xbn.util.EnumUtil;
 /**
-	<P>The type of a single JavaDoc codelet instance.</P>
+	<p>The type of a single JavaDoc codelet instance.</p>
 
-	@author  Copyright (C) 2014, Jeff Epstein, released under the LPGL 2.1. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein, released under the LPGL 2.1. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public enum CodeletType  {
 	/**
-		<P>{@code {@.codelet}}: A taglet that displays the example code's source code.</P>
+		<p>{@code {@.codelet}}: A taglet that displays the example code's source code.</p>
 
-		<P>This sets<OL>
-			<LI>{@link #getName() getName}{@code ()} to {@code ".codelet"}</LI>
-			<LI>{@link #getDefaultLineProcNamePrefix() getDefaultLineProcNamePrefix}{@code ()} to {@code "getSourceConfig_"}</LI>
-		</OL></P>
+		<p>This sets<ol>
+			<li>{@link #getName() getName}{@code ()} to {@code ".codelet"}</li>
+			<li>{@link #getDefaultLineProcNamePrefix() getDefaultLineProcNamePrefix}{@code ()} to {@code "getSourceConfig_"}</li>
+		</ol></p>
 
-		<H3>{@code {@.codelet}}: Format</H3>
+		<h3>{@code {@.codelet}}: Format</h3>
 
-		<P><CODE>{&#64;.codelet <I>fully.qualified.ClassName</I>[:<A HREF="CustomizationInstructions.html#overview">customizerFunction</A>()]}</CODE></P>
+		<p><code>{&#64;.codelet <i>fully.qualified.ClassName</i>[:<a href="CustomizationInstructions.html#overview">customizerFunction</a>()]}</code></p>
 
-		<P>The customizer portion is optional, but when provided, must be preceded by a {@linkplain CodeletInstance#CUSTOMIZER_PREFIX_CHAR percent sign} ({@code '%'}).</P>
+		<p>The customizer portion is optional, but when provided, must be preceded by a {@linkplain CodeletInstance#CUSTOMIZER_PREFIX_CHAR percent sign} ({@code '%'}).</p>
 
-		<P><B>Examples:</B></P>
+		<p><b>Examples:</b></p>
 
-<BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName}}</BLOCKQUOTE>
+<blockquote>{@code {@.codelet fully.qualified.examples.ExampleClassName}}</blockquote>
 
-		<P>Prints out all lines in (assuming Windows)
-		<BR> &nbsp; &nbsp; {@code fully\qualified\examples\ExampleClassName.java}
-		<BR>Where {@code "fully"} is in the {@linkplain CodeletBaseConfig#EXAMPLE_CLASS_SRC_BASE_DIR example-code base directory} as configured.</P>
+		<p>Prints out all lines in (assuming Windows)
+		<br/> &nbsp; &nbsp; {@code fully\qualified\examples\ExampleClassName.java}
+		<br/>Where {@code "fully"} is in the {@linkplain CodeletBaseConfig#EXAMPLE_CLASS_SRC_BASE_DIR example-code base directory} as configured.</p>
 
-<BLOCKQUOTE><CODE>{&#64;.codelet fully.qualified.examples.ExampleClassName:{@link com.github.aliteralmind.codelet.BasicCustomizers#lineRange(CodeletInstance, CodeletType, Integer, Boolean, String, Integer, Boolean, String, String) lineRange}(1, false, "text in start line", 1, false, "text in end line")}</CODE></BLOCKQUOTE>
+<blockquote><code>{&#64;.codelet fully.qualified.examples.ExampleClassName:{@link com.github.aliteralmind.codelet.BasicCustomizers#lineRange(CodeletInstance, CodeletType, Integer, Boolean, String, Integer, Boolean, String, String) lineRange}(1, false, "text in start line", 1, false, "text in end line")}</code></blockquote>
 
-		<P>Same as above, but only displays a <A HREF="{@docRoot}/overview-summary.html#xmpl_snippet">portion</A> of the lines, starting and ending with lines that contain specific text (inclusive).</P>
+		<p>Same as above, but only displays a <a href="{@docRoot}/overview-summary.html#xmpl_snippet">portion</a> of the lines, starting and ending with lines that contain specific text (inclusive).</p>
 
 		@see  #CONSOLE_OUT
 		@see  #SOURCE_AND_OUT
@@ -59,32 +59,32 @@ public enum CodeletType  {
 				//The value of the second parameter ("getSourceConfig_") must be the
 				//same for both SOURCE_CODE and SOURCE_AND_OUT
 	/**
-		<P>{@code {@.codelet.out}}: A taglet that displays the example code's console output (via <CODE>java.lang.{@link java.lang.System System}.{@link java.lang.System#out out}</CODE>).</P>
+		<p>{@code {@.codelet.out}}: A taglet that displays the example code's console output (via <code>java.lang.{@link java.lang.System System}.{@link java.lang.System#out out}</code>).</p>
 
-		<P>This sets<OL>
-			<LI>{@link #getName() getName}{@code ()} to {@code ".codelet.out"}</LI>
-			<LI>{@link #getDefaultLineProcNamePrefix() getDefaultLineProcNamePrefix}{@code ()} to {@code "getConsoleOutConfig_"}</LI>
-		</OL></P>
+		<p>This sets<ol>
+			<li>{@link #getName() getName}{@code ()} to {@code ".codelet.out"}</li>
+			<li>{@link #getDefaultLineProcNamePrefix() getDefaultLineProcNamePrefix}{@code ()} to {@code "getConsoleOutConfig_"}</li>
+		</ol></p>
 
-		<H3>{@code {@.codelet.out}}: Format</H3>
+		<h3>{@code {@.codelet.out}}: Format</h3>
 
-		<P><CODE>{&#64;.codelet.out <I>fully.qualified.ClassName</I>[(&quot;Command line params&quot;, false, -1)][:<A HREF="CustomizationInstructions.html#overview">customizerFunction</A>()]}</CODE></P>
+		<p><code>{&#64;.codelet.out <i>fully.qualified.ClassName</i>[(&quot;Command line params&quot;, false, -1)][:<a href="CustomizationInstructions.html#overview">customizerFunction</a>()]}</code></p>
 
-		<P><UL>
-			<LI>The command-line parameters are optional. When not provided, an empty string array is passed to the example-code's <A HREF="http://docs.oracle.com/javase/tutorial/getStarted/application/index.html#MAIN">{@code main} function</A>. When provided, it must be formatted as specified by
-			<BR> &nbsp; &nbsp; <CODE>com.github.xbn.util.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature SimpleMethodSignature}.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature#newFromStringAndDefaults(Class, Object, String, Class[], Appendable) newFromStringAndDefaults}</CODE>
-			<LI>The customizer portion is optional.</LI>
-		</UL></P>
+		<p><ul>
+			<li>The command-line parameters are optional. When not provided, an empty string array is passed to the example-code's <a href="http://docs.oracle.com/javase/tutorial/getStarted/application/index.html#MAIN">{@code main} function</a>. When provided, it must be formatted as specified by
+			<br/> &nbsp; &nbsp; <code>com.github.xbn.util.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature SimpleMethodSignature}.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature#newFromStringAndDefaults(Class, Object, String, Class[], Appendable) newFromStringAndDefaults}</code>
+			<li>The customizer portion is optional.</li>
+		</ul></p>
 
-		<P><B>Examples:</B></P>
+		<p><b>Examples:</b></p>
 
-<BLOCKQUOTE>{@code {@.codelet.out fully.qualified.examples.ExampleClassName}}</BLOCKQUOTE>
+<blockquote>{@code {@.codelet.out fully.qualified.examples.ExampleClassName}}</blockquote>
 
-		<P>ReplacedInEachInput the taglet with the entire console output.</P>
+		<p>ReplacedInEachInput the taglet with the entire console output.</p>
 
-<BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName("command", -1, "line", true, "params")}}</BLOCKQUOTE>
+<blockquote>{@code {@.codelet fully.qualified.examples.ExampleClassName("command", -1, "line", true, "params")}}</blockquote>
 
-		<P>Same as above, but passes a five-element string array to the main function.</P>
+		<p>Same as above, but passes a five-element string array to the main function.</p>
 
 		@see  #SOURCE_CODE
 		@see  #isConsoleOut()
@@ -94,29 +94,29 @@ public enum CodeletType  {
 	 **/
 	CONSOLE_OUT(".codelet.out", "getConsoleOutConfig_"),
 	/**
-		<P>{@code {@.codelet.and.out}}: A taglet that displays the example code's source code and console output.</P>
+		<p>{@code {@.codelet.and.out}}: A taglet that displays the example code's source code and console output.</p>
 
-		<P>This sets<OL>
-			<LI>{@link #getName() getName}{@code ()} to {@code ".codelet.and.out"}</LI>
-			<LI>{@link #getDefaultLineProcNamePrefix() getDefaultLineProcNamePrefix}{@code ()} to {@code "getSourceConfig_"}</LI>
-		</OL></P>
+		<p>This sets<ol>
+			<li>{@link #getName() getName}{@code ()} to {@code ".codelet.and.out"}</li>
+			<li>{@link #getDefaultLineProcNamePrefix() getDefaultLineProcNamePrefix}{@code ()} to {@code "getSourceConfig_"}</li>
+		</ol></p>
 
-		<H3>{@code {@.codelet.and.out}}: Format</H3>
+		<h3>{@code {@.codelet.and.out}}: Format</h3>
 
-		<P><CODE>{&#64;.codelet.and.out <I>fully.qualified.ClassName</I>[(&quot;Command line params&quot;, false, -1)][:customizerFunction()]}</CODE></P>
+		<p><code>{&#64;.codelet.and.out <i>fully.qualified.ClassName</i>[(&quot;Command line params&quot;, false, -1)][:customizerFunction()]}</code></p>
 
-		<P>See the format requirements for both {@link #SOURCE_CODE {@.codelet}} and {@link #CONSOLE_OUT {@.codelet.out}} for examples.</P>
+		<p>See the format requirements for both {@link #SOURCE_CODE {@.codelet}} and {@link #CONSOLE_OUT {@.codelet.out}} for examples.</p>
 
-<BLOCKQUOTE>{@code {@.codelet.and.out fully.qualified.examples.ExampleClassName("command", -1, "line", true, "params"):customizerFunction()}}</BLOCKQUOTE></P>
+<blockquote>{@code {@.codelet.and.out fully.qualified.examples.ExampleClassName("command", -1, "line", true, "params"):customizerFunction()}}</blockquote></p>
 
-		<P>is essentially equal to</P>
+		<p>is essentially equal to</p>
 
-<BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName:customizerFunction()}{@.codelet.out fully.qualified.examples.ExampleClassName("command", -1, "line", true, "params")}}</BLOCKQUOTE></P>
+<blockquote>{@code {@.codelet fully.qualified.examples.ExampleClassName:customizerFunction()}{@.codelet.out fully.qualified.examples.ExampleClassName("command", -1, "line", true, "params")}}</blockquote></p>
 
-		<P>A customizer in a {@code {@.codelet.and.out}} taglet is only applied to the source code. To also customize the output, use</P>
+		<p>A customizer in a {@code {@.codelet.and.out}} taglet is only applied to the source code. To also customize the output, use</p>
 
-	<P style="font-size: 125%;"><B><CODE>{&#64;.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo%customizerForSourceCode()}
-	<BR>{&#64;.codelet.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%customizerForOutput()}</CODE></B></P>
+	<P style="font-size: 125%;"><b><code>{&#64;.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo%customizerForSourceCode()}
+	<br/>{&#64;.codelet.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%customizerForOutput()}</code></b></p>
 
 		@see  #SOURCE_CODE
 		@see  #isSourceAndOut()
@@ -128,42 +128,42 @@ public enum CodeletType  {
 				//The value of the second parameter ("getSourceConfig_") must be the
 				//same for both SOURCE_CODE and SOURCE_AND_OUT
 	/**
-		<P>{@code {@.file.textlet}}: A taglet that displays the contents of a plain text file.</P>
+		<p>{@code {@.file.textlet}}: A taglet that displays the contents of a plain text file.</p>
 
-		<P>This sets<OL>
-			<LI>{@link #getName() getName}{@code ()} to {@code ".file.textlet"}</LI>
-			<LI>{@link #getDefaultLineProcNamePrefix() getDefaultLineProcNamePrefix}{@code ()} to {@code "getFileTextConfig_"}</LI>
-		</OL></P>
+		<p>This sets<ol>
+			<li>{@link #getName() getName}{@code ()} to {@code ".file.textlet"}</li>
+			<li>{@link #getDefaultLineProcNamePrefix() getDefaultLineProcNamePrefix}{@code ()} to {@code "getFileTextConfig_"}</li>
+		</ol></p>
 
-		<H3>{@code {@.file.textlet}}: Format</H3>
+		<h3>{@code {@.file.textlet}}: Format</h3>
 
-		<P><CODE>{&#64;.file.textlet <I>path\to\file.txt</I>[:<A HREF="CustomizationInstructions.html#overview">customizerFunction</A>()]}</CODE></P>
+		<p><code>{&#64;.file.textlet <i>path\to\file.txt</i>[:<a href="CustomizationInstructions.html#overview">customizerFunction</a>()]}</code></p>
 
-		<P>Replaced with all lines in a plain-text file, such as for displaying an example code's input. The <B>customizer function</B> is optional. The <B>path</B> may be<UL>
-			<LI><A HREF="http://docs.oracle.com/javase/tutorial/essential/io/path.html#relative">absolute</A>,</LI>
-			<LI>relative to the directory in which {@code javadoc.exe} was invoked, or,</LI>
-			<LI>relative to the directory of the taglet's {@linkplain CodeletInstance#getEnclosingFile() enclosing file}.</LI>
-		</UL>This list also represents the order in which the search occurs.</P>
+		<p>Replaced with all lines in a plain-text file, such as for displaying an example code's input. The <b>customizer function</b> is optional. The <b>path</b> may be<ul>
+			<li><a href="http://docs.oracle.com/javase/tutorial/essential/io/path.html#relative">absolute</a>,</li>
+			<li>relative to the directory in which {@code javadoc.exe} was invoked, or,</li>
+			<li>relative to the directory of the taglet's {@linkplain CodeletInstance#getEnclosingFile() enclosing file}.</li>
+		</ul>This list also represents the order in which the search occurs.</p>
 
-		<P><I>(New for version {@code 0.1.3}):</I> Absolute paths must contain the <A HREF="http://en.wikipedia.org/wiki/Path_(computing)#Representations_of_paths_by_operating_system_and_shell">file separators exactly as required by your system</A> (such as {@code "C:\directory\subdir\file.txt"}). Otherwise all <I>single</I> url-slashes ({@code '/'}) used as file separators are changed to</P>
+		<p><i>(New for version {@code 0.1.3}):</i> Absolute paths must contain the <a href="http://en.wikipedia.org/wiki/Path_(computing)#Representations_of_paths_by_operating_system_and_shell">file separators exactly as required by your system</a> (such as {@code "C:\directory\subdir\file.txt"}). Otherwise all <i>single</i> url-slashes ({@code '/'}) used as file separators are changed to</p>
 
-<BLOCKQUOTE><PRE>{@link java.lang.System}.{@link java.lang.System#getProperty(String) getProperty}("file.separator", &quot;\\&quot;)</PRE></BLOCKQUOTE>
+<blockquote><pre>{@link java.lang.System}.{@link java.lang.System#getProperty(String) getProperty}("file.separator", &quot;\\&quot;)</pre></blockquote>
 
-		<P>For example, on Microsoft Windows, {@code "java_code/input.txt"} is changed to {@code "java_code\input.txt"}.</P>
+		<p>For example, on Microsoft Windows, {@code "java_code/input.txt"} is changed to {@code "java_code\input.txt"}.</p>
 
-		<P>A single environment variable may be used to prefix the path. For example:</P>
+		<p>A single environment variable may be used to prefix the path. For example:</p>
 
-<BLOCKQUOTE><PRE>$&lt;base_directory&gt;/filelets/input.txt</PRE></BLOCKQUOTE>
+<blockquote><pre>$&lt;base_directory&gt;/filelets/input.txt</pre></blockquote>
 
-		<P>When used, it is required that the first two characters in the path are <CODE>&quot;$&lt;&quot;</CODE>, followed by the environment variable name, followed by a close sharp (<CODE>'&gt;'</CODE>). This environment variable, as returned by <I>either</I></P>
+		<p>When used, it is required that the first two characters in the path are <code>&quot;$&lt;&quot;</code>, followed by the environment variable name, followed by a close sharp (<code>'&gt;'</code>). This environment variable, as returned by <i>either</i></p>
 
-<BLOCKQUOTE><PRE>{@link java.lang.System}.{@link java.lang.System#getProperty(String) getProperty}(&quot;base_directory&quot;)</PRE></BLOCKQUOTE>
+<blockquote><pre>{@link java.lang.System}.{@link java.lang.System#getProperty(String) getProperty}(&quot;base_directory&quot;)</pre></blockquote>
 
 or
 
-<BLOCKQUOTE><PRE>System.{@link java.lang.System#getenv(String) getenv}(&quot;base_directory&quot;)</PRE></BLOCKQUOTE>
+<blockquote><pre>System.{@link java.lang.System#getenv(String) getenv}(&quot;base_directory&quot;)</pre></blockquote>
 
-		<P>must be a non-null, non-empty value, and be either a system property or environment variable--not both. <I>(New for version {@code 0.1.3}, the idea from Stack Overflow user <A HREF="http://stackoverflow.com/users/3622940/unihedron">Unihedron</A>.)</I></P>
+		<p>must be a non-null, non-empty value, and be either a system property or environment variable--not both. <i>(New for version {@code 0.1.3}, the idea from Stack Overflow user <a href="http://stackoverflow.com/users/3622940/unihedron">Unihedron</a>.)</i></p>
 
 		@see  #SOURCE_CODE
 		@see  #isFileText()
@@ -176,10 +176,10 @@ or
 	private final String tagName;
 	private final String defaultLineProcNamePrefix;
 	/**
-		<P>Construct an {@code CodeletType}.</P>
+		<p>Construct an {@code CodeletType}.</p>
 
-		@param  tag_name  The name of the codelet. <I>Should</I> not be {@code null} or empty. Get with {@link #getName() getName}{@code ()}
-		@param  default_lineProcNamePrefix  The default prefix for Customizers of this type. <I>Should</I> not be {@code null} or empty, and should end with an underscore ({@code '_'}). Get with {@link #getDefaultLineProcNamePrefix() getDefaultLineProcNamePrefix}{@code ()}.
+		@param  tag_name  The name of the codelet. <i>Should</i> not be {@code null} or empty. Get with {@link #getName() getName}{@code ()}
+		@param  default_lineProcNamePrefix  The default prefix for Customizers of this type. <i>Should</i> not be {@code null} or empty, and should end with an underscore ({@code '_'}). Get with {@link #getDefaultLineProcNamePrefix() getDefaultLineProcNamePrefix}{@code ()}.
 		@see  #SOURCE_CODE
 	 **/
 	CodeletType(String tag_name, String default_lineProcNamePrefix)  {
@@ -187,11 +187,11 @@ or
 		defaultLineProcNamePrefix = default_lineProcNamePrefix;
 	}
 	/**
-		<P>The {@linkplain com.sun.javadoc.Tag#name() name} of this taglet, as used in JavaDoc.</P>
+		<p>The {@linkplain com.sun.javadoc.Tag#name() name} of this taglet, as used in JavaDoc.</p>
 
 		@return  For example, if the taglet is
-		<BR> &nbsp; &nbsp; {@code {@.codelet.out my.package.examples.AnExample}}
-		<BR>this returns {@code ".codelet.out"}</P>
+		<br/> &nbsp; &nbsp; {@code {@.codelet.out my.package.examples.AnExample}}
+		<br/>this returns {@code ".codelet.out"}</p>
 		@see  #CodeletType(String, String) CodeletType(s,s)
 		@see  #newTypeForTagletName(String, String) newTypeForTagletName(s,s)
 	 **/
@@ -199,18 +199,18 @@ or
 		return  tagName;
 	}
 	/**
-		<P>The default prefix for Customizers of this type.</P>
+		<p>The default prefix for Customizers of this type.</p>
 
-		<P>This is intended to be followed by either the example classes {@linkplain java.lang.Class#getSimpleName() simple name}, or the <I>explicitely-provided</I> function-name-postfix for the plain-text file being displayed.</P>
+		<p>This is intended to be followed by either the example classes {@linkplain java.lang.Class#getSimpleName() simple name}, or the <i>explicitely-provided</i> function-name-postfix for the plain-text file being displayed.</p>
 		@see  #CodeletType(String, String)
 	 **/
 	public String getDefaultLineProcNamePrefix()  {
 		return  defaultLineProcNamePrefix;
 	}
 	/**
-		<P>Is this {@code CodeletType} equal to {@code SOURCE_CODE}?.</P>
+		<p>Is this {@code CodeletType} equal to {@code SOURCE_CODE}?.</p>
 
-		@return  <CODE>this == {@link #SOURCE_CODE}</CODE>
+		@return  <code>this == {@link #SOURCE_CODE}</code>
 
 		@see  #isConsoleOut()
 		@see  #isFileText()
@@ -220,27 +220,27 @@ or
 		return  this == SOURCE_CODE;
 	}
 	/**
-		<P>Is this {@code CodeletType} equal to {@code CONSOLE_OUT}?.</P>
+		<p>Is this {@code CodeletType} equal to {@code CONSOLE_OUT}?.</p>
 
-		@return  <CODE>this == {@link #CONSOLE_OUT}</CODE>
+		@return  <code>this == {@link #CONSOLE_OUT}</code>
 		@see  #isSourceCode()
 	 **/
 	public final boolean isConsoleOut()  {
 		return  this == CONSOLE_OUT;
 	}
 	/**
-		<P>Is this {@code CodeletType} equal to {@code FILE_TEXT}?.</P>
+		<p>Is this {@code CodeletType} equal to {@code FILE_TEXT}?.</p>
 
-		@return  <CODE>this == {@link #FILE_TEXT}</CODE>
+		@return  <code>this == {@link #FILE_TEXT}</code>
 		@see  #isSourceCode()
 	 **/
 	public final boolean isFileText()  {
 		return  this == FILE_TEXT;
 	}
 	/**
-		<P>Is this {@code CodeletType} equal to {@code SOURCE_AND_OUT}?.</P>
+		<p>Is this {@code CodeletType} equal to {@code SOURCE_AND_OUT}?.</p>
 
-		@return  <CODE>this == {@link #SOURCE_AND_OUT}</CODE>
+		@return  <code>this == {@link #SOURCE_AND_OUT}</code>
 		@see  #isSourceCode()
 	 **/
 	public final boolean isSourceAndOut()  {
@@ -248,30 +248,30 @@ or
 	}
 
 	/**
-		<P>If an <CODE>CodeletType</CODE> is not a required value, crash.</P>
+		<p>If an <code>CodeletType</code> is not a required value, crash.</p>
 
-		<P>Equal to
-		<BR> &nbsp; &nbsp; <CODE>{@link com.github.xbn.util.EnumUtil EnumUtil}.{@link com.github.xbn.util.EnumUtil#crashIfNotRequiredValue(Enum, Enum, String, Object) crashIfNotRequiredValue}(this, e_rqd, s_thisEnumsVarNm, o_xtraInfo)</CODE></P>
+		<p>Equal to
+		<br/> &nbsp; &nbsp; <code>{@link com.github.xbn.util.EnumUtil EnumUtil}.{@link com.github.xbn.util.EnumUtil#crashIfNotRequiredValue(Enum, Enum, String, Object) crashIfNotRequiredValue}(this, e_rqd, s_thisEnumsVarNm, o_xtraInfo)</code></p>
 		@see  #crashIfForbiddenValue(CodeletType, String, Object) crashIfForbiddenValue(ert,s,o)
 	 **/
 	public void crashIfNotRequiredValue(CodeletType e_rqd, String s_thisEnumsVarNm, Object o_xtraInfo)  {
 		EnumUtil.crashIfNotRequiredValue(this, e_rqd, s_thisEnumsVarNm, o_xtraInfo);
 	}
 	/**
-		<P>If an <CODE>CodeletType</CODE> is a forbidden value, crash.</P>
+		<p>If an <code>CodeletType</code> is a forbidden value, crash.</p>
 
-		<P>Equal to
-		<BR> &nbsp; &nbsp; <CODE>{@link com.github.xbn.util.EnumUtil EnumUtil}.{@link com.github.xbn.util.EnumUtil#crashIfForbiddenValue(Enum, Enum, String, Object) crashIfForbiddenValue}(this, e_rqd, s_thisEnumsVarNm, o_xtraInfo)</CODE></P>
+		<p>Equal to
+		<br/> &nbsp; &nbsp; <code>{@link com.github.xbn.util.EnumUtil EnumUtil}.{@link com.github.xbn.util.EnumUtil#crashIfForbiddenValue(Enum, Enum, String, Object) crashIfForbiddenValue}(this, e_rqd, s_thisEnumsVarNm, o_xtraInfo)</code></p>
 		@see  #crashIfNotRequiredValue(CodeletType, String, Object) crashIfNotRequiredValue(ert,s,o)
 	 **/
 	public void crashIfForbiddenValue(CodeletType e_rqd, String s_thisEnumsVarNm, Object o_xtraInfo)  {
 		EnumUtil.crashIfForbiddenValue(this, e_rqd, s_thisEnumsVarNm, o_xtraInfo);
 	}
 	/**
-		<P>Is a string equal to <I>this</I> taglet type's name?.</P>
+		<p>Is a string equal to <i>this</i> taglet type's name?.</p>
 
 		@param  name  May not be {@code null}.
-		@return  <CODE>name.equals({@link #getName() getName}())</CODE>
+		@return  <code>name.equals({@link #getName() getName}())</code>
 	 **/
 	public boolean isNameEqualTo(String name)  {
 		return  isNameEqualTo(name, "name");
@@ -284,10 +284,10 @@ or
 			}
 		}
 	/**
-		<P>Get a new {@code CodeletType} whose name is equal to a string value.</P>
+		<p>Get a new {@code CodeletType} whose name is equal to a string value.</p>
 
 		@param  name  The name, which must be non-{@code null}, and equal to a type's {@link #getName() getName}{@code ()}.
-		@param  name_varName  Descriptive name of the {@code name} parameter, for the potential error message. <I>Should</I> not be {@code null} or empty.
+		@param  name_varName  Descriptive name of the {@code name} parameter, for the potential error message. <i>Should</i> not be {@code null} or empty.
 		@exception  IllegalArgumentException  If {@code name} is not equal to a known codelet type.
 	 **/
 	public static final CodeletType newTypeForTagletName(String name, String name_varName)  {

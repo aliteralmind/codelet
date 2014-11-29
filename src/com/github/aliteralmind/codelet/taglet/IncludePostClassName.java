@@ -14,31 +14,31 @@
 \*license*/
 package  com.github.aliteralmind.codelet.taglet;
 /**
-	<P>Should the class-generics or the function-name-and-parameters be included in the enclosing classes simple name?.</P>
+	<p>Should the class-generics or the function-name-and-parameters be included in the enclosing classes simple name?.</p>
 
 	@see  ComSunJavaDocUtil#getEnclosingSimpleName(Tag, IncludePostClassName)
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public enum IncludePostClassName  {
 	/**
-		<P>YYY.</P>
+		<p>YYY.</p>
 
 		@see  #NO
 		@see  #isYes()
 	 **/
 	YES,
 	/**
-		<P>YYY.</P>
+		<p>YYY.</p>
 
 		@see  #YES
 		@see  #isNo()
 	 **/
 	NO;
 	/**
-		<P>Is this {@code IncludePostClassName} equal to {@code YES}?.</P>
+		<p>Is this {@code IncludePostClassName} equal to {@code YES}?.</p>
 
-		@return  <CODE>this == {@link #YES}</CODE>
+		@return  <code>this == {@link #YES}</code>
 
 		@see  #isNo()
 	 **/
@@ -46,18 +46,18 @@ public enum IncludePostClassName  {
 		return  this == YES;
 	}
 	/**
-		<P>Is this {@code IncludePostClassName} equal to {@code NO}?.</P>
+		<p>Is this {@code IncludePostClassName} equal to {@code NO}?.</p>
 
-		@return  <CODE>this == {@link #NO}</CODE>
+		@return  <code>this == {@link #NO}</code>
 		@see  #isYes()
 	 **/
 	public final boolean isNo()  {
 		return  this == NO;
 	}
 	/**
-		<P>Return {@code IncludePostClassName.YES} if the flag is {@code true}, or {@code NO} if {@code false}.</P>
+		<p>Return {@code IncludePostClassName.YES} if the flag is {@code true}, or {@code NO} if {@code false}.</p>
 
-		@return  <CODE>(flag ? {@link #YES} : {@link #NO})</CODE>
+		@return  <code>(flag ? {@link #YES} : {@link #NO})</code>
 	 **/
 	public static final IncludePostClassName getForBoolean(boolean flag)  {
 		return  (flag ? YES : NO);

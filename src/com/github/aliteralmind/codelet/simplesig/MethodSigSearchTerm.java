@@ -18,38 +18,38 @@ package  com.github.aliteralmind.codelet.simplesig;
 	import  com.github.xbn.lang.CrashIfObject;
 	import  java.util.List;
 /**
-	<P>Search term for methods.</P>
-	<A NAME="xmpl_method"></A><H3>{@link com.github.aliteralmind.codelet.simplesig.MethodSigSearchTerm}: Example</H3>
+	<p>Search term for methods.</p>
+	<A NAME="xmpl_method"></a><h3>{@link com.github.aliteralmind.codelet.simplesig.MethodSigSearchTerm}: Example</h3>
 
 {@.codelet.and.out com.github.aliteralmind.codelet.examples.simplesig.MethodSigSearchTermXmpl%()}
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class MethodSigSearchTerm extends SimpleParamSigSearchTerm  {
 	/**
-		<P>Create a new instance.</P>
+		<p>Create a new instance.</p>
 
-		<H4>Examples</H4>
+		<h4>Examples</h4>
 
-<BLOCKQUOTE><PRE>doSomething()</PRE></BLOCKQUOTE>
+<blockquote><pre>doSomething()</pre></blockquote>
 
-		<P>A function named {@code "doSomething"} with exactly zero parameters.</P>
+		<p>A function named {@code "doSomething"} with exactly zero parameters.</p>
 
-<BLOCKQUOTE><PRE>doSomething(*)</PRE></BLOCKQUOTE>
+<blockquote><pre>doSomething(*)</pre></blockquote>
 
-		<P>One or more parameters of any type.</P>
+		<p>One or more parameters of any type.</p>
 
-<BLOCKQUOTE><PRE>doSomething(String, *)</PRE></BLOCKQUOTE>
+<blockquote><pre>doSomething(String, *)</pre></blockquote>
 
-		<P>A {@code java.lang.String}, followed by one or more parameters of any type.</P>
+		<p>A {@code java.lang.String}, followed by one or more parameters of any type.</p>
 
-<BLOCKQUOTE><PRE>doSomething(String, *, int...)</PRE></BLOCKQUOTE>
+<blockquote><pre>doSomething(String, *, int...)</pre></blockquote>
 
-		<P>A {@code java.lang.String} and {@code int}-ellipsis, with one or more parameters of any type between.</P>
+		<p>A {@code java.lang.String} and {@code int}-ellipsis, with one or more parameters of any type between.</p>
 
-		<P>This first calls
-		<BR> &nbsp; &nbsp; <CODE>{@link SimpleParamSigSearchTerm#SimpleParamSigSearchTerm(String, Appendable, Appendable) super}(search_termSig)</CODE></P>
+		<p>This first calls
+		<br/> &nbsp; &nbsp; <code>{@link SimpleParamSigSearchTerm#SimpleParamSigSearchTerm(String, Appendable, Appendable) super}(search_termSig)</code></p>
 
 		@param  search_termSig  The function name may not be empty.
 	 **/
@@ -60,12 +60,12 @@ public class MethodSigSearchTerm extends SimpleParamSigSearchTerm  {
 		}
 	}
 	/**
-		<P>Does any match?.</P>
+		<p>Does any match?.</p>
 
 		@param  all_methods  May not be {@code null}.
 		@return  If
-		<BR> &nbsp; &nbsp; <CODE>all_methods.{@link AllSimpleParamSignatures#getMethodMap() getMethodMap}().get({@link SimpleParamSigSearchTerm#getMethodName() getMethodName}())</CODE>
-		<BR>returns a non-null list, this returns <CODE>{@link SimpleParamSigSearchTerm#doesMatchAnyProt(List) doesMatchAnyProt}(<I>[the-list]</I>)*</CODE>
+		<br/> &nbsp; &nbsp; <code>all_methods.{@link AllSimpleParamSignatures#getMethodMap() getMethodMap}().get({@link SimpleParamSigSearchTerm#getMethodName() getMethodName}())</code>
+		<br/>returns a non-null list, this returns <code>{@link SimpleParamSigSearchTerm#doesMatchAnyProt(List) doesMatchAnyProt}(<i>[the-list]</i>)*</code>
 		@see  #doesMatchOnlyOne(AllSimpleParamSignatures) doesMatchOnlyOne
 	 **/
 	public boolean doesMatchAny(AllSimpleParamSignatures all_methods)  {
@@ -81,12 +81,12 @@ public class MethodSigSearchTerm extends SimpleParamSigSearchTerm  {
 		}
 	}
 	/**
-		<P>Does exactly one match?.</P>
+		<p>Does exactly one match?.</p>
 
 		@param  all_methods  May not be {@code null}.
 		@return  If
-		<BR> &nbsp; &nbsp; <CODE>all_methods.{@link AllSimpleParamSignatures#getMethodMap() getMethodMap}().get({@link SimpleParamSigSearchTerm#getMethodName() getMethodName}())</CODE>
-		<BR>returns a non-null list, this returns <CODE>{@link SimpleParamSigSearchTerm#doesMatchOnlyOneProt(List) doesMatchOnlyOneProt}(<I>[the-list]</I>)*</CODE>
+		<br/> &nbsp; &nbsp; <code>all_methods.{@link AllSimpleParamSignatures#getMethodMap() getMethodMap}().get({@link SimpleParamSigSearchTerm#getMethodName() getMethodName}())</code>
+		<br/>returns a non-null list, this returns <code>{@link SimpleParamSigSearchTerm#doesMatchOnlyOneProt(List) doesMatchOnlyOneProt}(<i>[the-list]</i>)*</code>
 		@see  #doesMatchAny(AllSimpleParamSignatures) doesMatchAny
 	 **/
 	public boolean doesMatchOnlyOne(AllSimpleParamSignatures all_methods)  {
@@ -102,7 +102,7 @@ public class MethodSigSearchTerm extends SimpleParamSigSearchTerm  {
 		}
 	}
 	/**
-		<P>Get a new list of all matches.</P>
+		<p>Get a new list of all matches.</p>
 
 		@param  all_methods  May not be {@code null}.
 		@param  crashIf_zero  If {@code com.github.xbn.lang.reflect.CrashIfZero#YES YES}, then zero matches is unacceptable. May not be {@code null}.
@@ -129,9 +129,9 @@ public class MethodSigSearchTerm extends SimpleParamSigSearchTerm  {
 		}
 	}
 	/**
-		<P>Get the first and only match.</P>
+		<p>Get the first and only match.</p>
 
-		@return  <CODE>{@link #getFirstMatch(AllSimpleParamSignatures, CrashIfZero, CrashIfMoreThanOne) getFirstMatch}(all_methods, {@link CrashIfZero}.{@link CrashIfZero#YES YES}, {@link CrashIfMoreThanOne CrashIfMoreThanOne}.{@link CrashIfMoreThanOne#YES YES})</CODE>
+		@return  <code>{@link #getFirstMatch(AllSimpleParamSignatures, CrashIfZero, CrashIfMoreThanOne) getFirstMatch}(all_methods, {@link CrashIfZero}.{@link CrashIfZero#YES YES}, {@link CrashIfMoreThanOne CrashIfMoreThanOne}.{@link CrashIfMoreThanOne#YES YES})</code>
 		@see  #doesMatchOnlyOne(AllSimpleParamSignatures) doesMatchOnlyOne
 		@see  #getFirstMatch(AllSimpleParamSignatures, CrashIfZero, CrashIfMoreThanOne) getFirstMatch
 		@see  #getAllMatches(AllSimpleParamSignatures, CrashIfZero) getOnlyMatch
@@ -140,7 +140,7 @@ public class MethodSigSearchTerm extends SimpleParamSigSearchTerm  {
 		return  getFirstMatch(all_methods, CrashIfZero.YES, CrashIfMoreThanOne.YES);
 	}
 	/**
-		<P>Get the first match.</P>
+		<p>Get the first match.</p>
 
 		@param  all_methods  May not be {@code null}.
 		@param  crashIf_zero  If {@code com.github.xbn.lang.reflect.CrashIfZero#YES YES}, then zero matches is unacceptable. May not be {@code null}.
@@ -165,10 +165,10 @@ public class MethodSigSearchTerm extends SimpleParamSigSearchTerm  {
 		}
 	}
 	/**
-		<P>Get the single matching method from an all-signature object.</P>
+		<p>Get the single matching method from an all-signature object.</p>
 
-		@return  <CODE>(new {@link #MethodSigSearchTerm(String, Appendable, Appendable) MethodSigSearchTerm}(sig_searchTerm, debugBasics_ifNonNull, dbgDoesMatch_ifNonNull)).
-		<BR> &nbsp; &nbsp; {@link MethodSigSearchTerm#getOnlyMatch(AllSimpleParamSignatures) getOnlyMatch}(all_sigs).{@link MethodSimpleParamSig#getMethod() getMethod}()</CODE>
+		@return  <code>(new {@link #MethodSigSearchTerm(String, Appendable, Appendable) MethodSigSearchTerm}(sig_searchTerm, debugBasics_ifNonNull, dbgDoesMatch_ifNonNull)).
+		<br/> &nbsp; &nbsp; {@link MethodSigSearchTerm#getOnlyMatch(AllSimpleParamSignatures) getOnlyMatch}(all_sigs).{@link MethodSimpleParamSig#getMethod() getMethod}()</code>
 	 **/
 	public static final Method getMethodFromAllSigsAndSearchTerm(AllSimpleParamSignatures all_sigs, String sig_searchTerm, Appendable debugBasics_ifNonNull, Appendable dbgDoesMatch_ifNonNull)  {
 		try  {

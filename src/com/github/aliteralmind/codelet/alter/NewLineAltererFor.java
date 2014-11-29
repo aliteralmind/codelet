@@ -26,24 +26,24 @@ package  com.github.aliteralmind.codelet.alter;
 	import  java.util.regex.Matcher;
 	import  java.util.regex.Pattern;
 /**
-   <P>Convenience functions for creating line alterers tailored for codelets.</P>
+   <p>Convenience functions for creating line alterers tailored for codelets.</p>
 
    @see  com.github.xbn.linefilter.alter.TextLineAlterer
    @see  com.github.xbn.linefilter.alter.NewTextLineAltererFor
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class NewLineAltererFor  {
 	/**
-		<P>Eliminates all references to a package. Use in conjunction with {@link #eliminatePackageLine(Appendable, Appendable) eliminatePackageLine}.</P>
+		<p>Eliminates all references to a package. Use in conjunction with {@link #eliminatePackageLine(Appendable, Appendable) eliminatePackageLine}.</p>
 
 		@return
 
-<BLOCKQUOTE><PRE>{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor NewTextLineAltererFor}.{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor#replacement(AlterationRequired, Pattern, String, ReplacedInEachInput, Appendable, ValidResultFilter) replacement}({@link com.github.xbn.analyze.alter.AlterationRequired}.{@link com.github.xbn.analyze.alter.AlterationRequired#YES YES},
+<blockquote><pre>{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor NewTextLineAltererFor}.{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor#replacement(AlterationRequired, Pattern, String, ReplacedInEachInput, Appendable, ValidResultFilter) replacement}({@link com.github.xbn.analyze.alter.AlterationRequired}.{@link com.github.xbn.analyze.alter.AlterationRequired#YES YES},
    {@link com.github.xbn.regexutil.NewPatternFor NewPatternFor}.{@link com.github.xbn.regexutil.NewPatternFor#literal(String) literal}({@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getExamplePackageName(CodeletInstance) getExamplePackageName}(instance) + &quot;.&quot;),
    &quot;&quot;, {@link com.github.xbn.regexutil.ReplacedInEachInput ReplacedInEachInput}.{@link com.github.xbn.regexutil.ReplacedInEachInput#ALL ALL},
    dbgRplcr_ifNonNull,
-   null)</PRE></BLOCKQUOTE>
+   null)</pre></blockquote>
 	 **/
 	public static final TextLineAlterer elimPackageReferences(CodeletInstance instance, Appendable dbgRplcr_ifNonNull)  {
 		return  NewTextLineAltererFor.replacement(AlterationRequired.YES,
@@ -53,15 +53,15 @@ public class NewLineAltererFor  {
 			null);
 	}
 	/**
-		<P>Eliminates the package declaration line.</P>
+		<p>Eliminates the package declaration line.</p>
 
 		@return
-<BLOCKQUOTE><PRE>{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor NewTextLineAltererFor}.{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor#text(Pattern, ValidResultFilter, Appendable) text}(packageLinePtrn, firstOccuranceFilter,
-   dbgPkgLnVldtr_ifNonNull)</PRE></BLOCKQUOTE>
+<blockquote><pre>{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor NewTextLineAltererFor}.{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor#text(Pattern, ValidResultFilter, Appendable) text}(packageLinePtrn, firstOccuranceFilter,
+   dbgPkgLnVldtr_ifNonNull)</pre></blockquote>
    	Where {@code packageLinePtrn} is
-   	<BR> &nbsp; &nbsp; <CODE>{@link java.util.regex.Pattern Pattern}.{@link java.util.regex.Pattern#compile(String) compile}({@link com.github.xbn.util.JavaRegexes JavaRegexes}.{@link com.github.xbn.util.JavaRegexes#PACKAGE_DECL_ONE_LINE_NO_CMTS PACKAGE_DECL_ONE_LINE_NO_CMTS})</CODE>
-   	<BR>and {@code firstOccuranceFilter} is a
-   	<BR> &nbsp; &nbsp; <CODE>{@link com.github.xbn.analyze.validate.NewValidResultFilterFor NewValidResultFilterFor}.{@link com.github.xbn.analyze.validate.NewValidResultFilterFor#inUnchangedOutFalse(int, int, String, String, Appendable) inUnchangedOutFalse}(1, 1, null, null, dbgEveryLine_ifNonNull);</CODE>
+   	<br/> &nbsp; &nbsp; <code>{@link java.util.regex.Pattern Pattern}.{@link java.util.regex.Pattern#compile(String) compile}({@link com.github.xbn.util.JavaRegexes JavaRegexes}.{@link com.github.xbn.util.JavaRegexes#PACKAGE_DECL_ONE_LINE_NO_CMTS PACKAGE_DECL_ONE_LINE_NO_CMTS})</code>
+   	<br/>and {@code firstOccuranceFilter} is a
+   	<br/> &nbsp; &nbsp; <code>{@link com.github.xbn.analyze.validate.NewValidResultFilterFor NewValidResultFilterFor}.{@link com.github.xbn.analyze.validate.NewValidResultFilterFor#inUnchangedOutFalse(int, int, String, String, Appendable) inUnchangedOutFalse}(1, 1, null, null, dbgEveryLine_ifNonNull);</code>
 		@see  #elimPackageReferences(CodeletInstance, Appendable) elimPackageReferences
 	 **/
 	public static final TextLineAlterer eliminatePackageLine(Appendable dbgEveryLine_ifNonNull, Appendable dbgPkgLnVldtr_ifNonNull)  {
@@ -74,16 +74,16 @@ public class NewLineAltererFor  {
 	}
 	private static final Matcher INDENT_MTCHR = Pattern.compile("\\^[ \\\\t]+").matcher("");
 	/**
-		<P>Eliminates indentation from every line, if desired.</P>
+		<p>Eliminates indentation from every line, if desired.</p>
 
 		@param  indentRegexToElim_emptyStrIfNone  The regular expression representing the indentation to eliminate. May not be {@code null}. Must begin with a line-start anchor {@code '^'} and otherwise contain only spaces ({@code ' '}) and tabs {@code '\t'}.
-		@return  If {@code indentRegexToElim_emptyStrIfNone.length()} is<UL>
-			<LI>{@code 0}: {@code null}.</LI>
-			<LI>One or greater:
-<BLOCKQUOTE><PRE>{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor NewTextLineAltererFor}.{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor#replacement(AlterationRequired, Pattern, String, ReplacedInEachInput, Appendable, ValidResultFilter) replacement}({@link com.github.xbn.analyze.alter.AlterationRequired}.{@link com.github.xbn.analyze.alter.AlterationRequired#YES YES},
+		@return  If {@code indentRegexToElim_emptyStrIfNone.length()} is<ul>
+			<li>{@code 0}: {@code null}.</li>
+			<li>One or greater:
+<blockquote><pre>{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor NewTextLineAltererFor}.{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor#replacement(AlterationRequired, Pattern, String, ReplacedInEachInput, Appendable, ValidResultFilter) replacement}({@link com.github.xbn.analyze.alter.AlterationRequired}.{@link com.github.xbn.analyze.alter.AlterationRequired#YES YES},
 	{@link java.util.regex.Pattern Pattern}.{@link java.util.regex.Pattern#compile(String) compile}(indentRegexToElim_emptyStrIfNone), &quot;&quot;,
-	{@link com.github.xbn.regexutil.ReplacedInEachInput ReplacedInEachInput}.{@link com.github.xbn.regexutil.ReplacedInEachInput#FIRST FIRST}, debugDest_ifNonNull, null)</PRE></BLOCKQUOTE></LI>
-		</UL>
+	{@link com.github.xbn.regexutil.ReplacedInEachInput ReplacedInEachInput}.{@link com.github.xbn.regexutil.ReplacedInEachInput#FIRST FIRST}, debugDest_ifNonNull, null)</pre></blockquote></li>
+		</ul>
 	 **/
 	public static final TextLineAlterer eliminateIndentationOrNull(String indentRegexToElim_emptyStrIfNone, Appendable debugDest_ifNonNull)  {
 		if(indentRegexToElim_emptyStrIfNone.length() == 0)  {

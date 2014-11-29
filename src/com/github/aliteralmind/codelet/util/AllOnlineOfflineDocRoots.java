@@ -24,19 +24,19 @@ package  com.github.aliteralmind.codelet.util;
 	import  java.util.regex.Pattern;
 	import  static com.github.xbn.lang.XbnConstants.*;
 /**
-	<P>Collection of {@code package-list}s from all external Java libraries used by a project, for mapping a package name to its JavaDoc document root url--even if that online {@code package-list} is inaccessible. This information is the equivalent of {@code javadoc.exe}'s <A HREF="http://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html#link">{@code -link}</A> and {@code -linkoffline} options.</P>
+	<p>Collection of {@code package-list}s from all external Java libraries used by a project, for mapping a package name to its JavaDoc document root url--even if that online {@code package-list} is inaccessible. This information is the equivalent of {@code javadoc.exe}'s <a href="http://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html#link">{@code -link}</a> and {@code -linkoffline} options.</p>
 
-	<P><I>While it may be possible to read in the values of {@code -link} and {@code -linkoffline}, as passed into {@code javadoc.exe}, doing so would make Codelet more dependant on {@code com.sun.javadoc}, which is against its goal of <A HREF="http://stackoverflow.com/questions/23138806/how-to-make-inline-taglets-which-require-com-sun-more-cross-platform-is-there">minimizing dependencies</A> on this non-standard package.</I></P>
+	<p><i>While it may be possible to read in the values of {@code -link} and {@code -linkoffline}, as passed into {@code javadoc.exe}, doing so would make Codelet more dependant on {@code com.sun.javadoc}, which is against its goal of <a href="http://stackoverflow.com/questions/23138806/how-to-make-inline-taglets-which-require-com-sun-more-cross-platform-is-there">minimizing dependencies</a> on this non-standard package.</i></p>
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class AllOnlineOfflineDocRoots  {
 	private final Map<String,OnlineOfflineDocRoot> nameToRootMap;
 	private final Map<String,OnlineOfflineDocRoot> urlToRootMap ;
 	private final Map<String,String>               pkgToUrlMap  ;
 	/**
-		<P>An immutable map whose key is the doc-root's {@linkplain OnlineOfflineDocRoot#getName() name}, and value is its {@code OnlineOfflineDocRoot}.</P>
+		<p>An immutable map whose key is the doc-root's {@linkplain OnlineOfflineDocRoot#getName() name}, and value is its {@code OnlineOfflineDocRoot}.</p>
 
 		@see  #getPkgToUrlMap()
 	 **/
@@ -44,7 +44,7 @@ public class AllOnlineOfflineDocRoots  {
 		return  nameToRootMap;
 	}
 	/**
-		<P>An immutable map whose key is the doc-root's {@linkplain OnlineOfflineDocRoot#getUrlDir() url}, and value is its {@code OnlineOfflineDocRoot}.</P>
+		<p>An immutable map whose key is the doc-root's {@linkplain OnlineOfflineDocRoot#getUrlDir() url}, and value is its {@code OnlineOfflineDocRoot}.</p>
 
 		@see  #getPkgToUrlMap()
 	 **/
@@ -52,7 +52,7 @@ public class AllOnlineOfflineDocRoots  {
 		return  urlToRootMap;
 	}
 	/**
-		<P>An immutable map whose key is a {@linkplain OnlineOfflineDocRoot#getPackageList() package}, and value is its document root url.</P>
+		<p>An immutable map whose key is a {@linkplain OnlineOfflineDocRoot#getPackageList() package}, and value is its document root url.</p>
 
 		@see  #getUrlToRootMap()
 		@see  #getNameToRootMap()
@@ -61,7 +61,7 @@ public class AllOnlineOfflineDocRoots  {
 		return  pkgToUrlMap;
 	}
 	/**
-		@return  <CODE>{@link #appendToString(StringBuilder) appendToString}(new StringBuilder()).toString()</CODE>
+		@return  <code>{@link #appendToString(StringBuilder) appendToString}(new StringBuilder()).toString()</code>
 	 **/
 	public String toString()  {
 		return  appendToString(new StringBuilder()).toString();
@@ -84,42 +84,42 @@ public class AllOnlineOfflineDocRoots  {
 		return  to_appendTo;
 	}
 	/**
-		<P>Create a new {@code AllOnlineOfflineDocRoots} from a configuration file, where each line contains two items: the doc-root's offline file path and online document-root url.</P>
+		<p>Create a new {@code AllOnlineOfflineDocRoots} from a configuration file, where each line contains two items: the doc-root's offline file path and online document-root url.</p>
 
-		<P>Each line in a configuration file is in the format</P>
+		<p>Each line in a configuration file is in the format</p>
 
-<BLOCKQUOTE><PRE>[offline_file_path] [url]</PRE></BLOCKQUOTE>
+<blockquote><pre>[offline_file_path] [url]</pre></blockquote>
 
-		<P>Where<UL>
-			<LI><CODE>[offline_file_path]</CODE> is the full path of the locally-stored file. This must exist, and be both readable and writable.</LI>
-			<LI><CODE>[url]</CODE> is the url to the JavaDoc document root ({@code "{@docRoot}"}) for an external Java library. Must end with a slash ({@code '/'}), and must contain the library's {@code "package-list"} file.</LI>
-		</UL>The file-path and url are separated with at least one space or tab.</P>
+		<p>Where<ul>
+			<li><code>[offline_file_path]</code> is the full path of the locally-stored file. This must exist, and be both readable and writable.</li>
+			<li><code>[url]</code> is the url to the JavaDoc document root ({@code "{@docRoot}"}) for an external Java library. Must end with a slash ({@code '/'}), and must contain the library's {@code "package-list"} file.</li>
+		</ul>The file-path and url are separated with at least one space or tab.</p>
 
-		<P>(Lines starting with {@code '#'} are ignored. Empty lines are not allowed.)</P>
+		<p>(Lines starting with {@code '#'} are ignored. Empty lines are not allowed.)</p>
 
-		<H4>Example</H4>
+		<h4>Example</h4>
 
-		<P>If both {@code offlineName_prefixPath} and {@code offlineName_postfix} are {@code null}:</P>
+		<p>If both {@code offlineName_prefixPath} and {@code offlineName_postfix} are {@code null}:</p>
 
-<BLOCKQUOTE>{@code C:\java_code\config\javadoc_offline_package_lists\java.txt   http://docs.oracle.com/javase/7/docs/api/}</BLOCKQUOTE>
+<blockquote>{@code C:\java_code\config\javadoc_offline_package_lists\java.txt   http://docs.oracle.com/javase/7/docs/api/}</blockquote>
 
-		<P>An equivalent is to set<UL>
-			<LI>{@code offlineName_prefixPath} to {@code "C:\java_code\config\javadoc_offline_package_lists\"}</LI>
-			<LI>and {@code offlineName_postfix} to {@code ".txt"}</LI>
-		</UL>and then the config line can be</P>
+		<p>An equivalent is to set<ul>
+			<li>{@code offlineName_prefixPath} to {@code "C:\java_code\config\javadoc_offline_package_lists\"}</li>
+			<li>and {@code offlineName_postfix} to {@code ".txt"}</li>
+		</ul>and then the config line can be</p>
 
-<BLOCKQUOTE>{@code java   http://docs.oracle.com/javase/7/docs/api/}</BLOCKQUOTE>
+<blockquote>{@code java   http://docs.oracle.com/javase/7/docs/api/}</blockquote>
 
-		<P>Steps for each line in {@code line_itr}:<OL>
-			<LI>If {@code online_attemptCount} is<UL>
-				<LI>Greater than zero: This creates the {@code OnlineOfflineDocRoot} with
-				<BR> &nbsp; &nbsp; <CODE>{@link OnlineOfflineDocRoot}.{@link OnlineOfflineDocRoot#newFromOnline(String, String, String, int, long, IfError, RefreshOffline, Appendable, Appendable) newFromOnline}(name, url, path, online_attemptCount, online_sleepMills, if_error, refresh_offline, debug_ifNonNull, dbgError_ifNonNull)</CODE></LI>
-				<LI>Equal to zero (<I>or if retrieving from online fails, and {@code if_error.}{@link com.github.xbn.util.IfError#WARN WARN}</I>): This creates the {@code OnlineOfflineDocRoot} with
-				<BR> &nbsp; &nbsp; <CODE>OnlineOfflineDocRoot.{@link OnlineOfflineDocRoot#newFromOffline(String, String, String, Appendable, Appendable) newFromOffline}(name, url, path, debug_ifNonNull, dbgError_ifNonNull)</CODE></LI>
-			</UL></LI>
-		</OL></P>
+		<p>Steps for each line in {@code line_itr}:<ol>
+			<li>If {@code online_attemptCount} is<ul>
+				<li>Greater than zero: This creates the {@code OnlineOfflineDocRoot} with
+				<br/> &nbsp; &nbsp; <code>{@link OnlineOfflineDocRoot}.{@link OnlineOfflineDocRoot#newFromOnline(String, String, String, int, long, IfError, RefreshOffline, Appendable, Appendable) newFromOnline}(name, url, path, online_attemptCount, online_sleepMills, if_error, refresh_offline, debug_ifNonNull, dbgError_ifNonNull)</code></li>
+				<li>Equal to zero (<i>or if retrieving from online fails, and {@code if_error.}{@link com.github.xbn.util.IfError#WARN WARN}</i>): This creates the {@code OnlineOfflineDocRoot} with
+				<br/> &nbsp; &nbsp; <code>OnlineOfflineDocRoot.{@link OnlineOfflineDocRoot#newFromOffline(String, String, String, Appendable, Appendable) newFromOffline}(name, url, path, debug_ifNonNull, dbgError_ifNonNull)</code></li>
+			</ul></li>
+		</ol></p>
 
-		@param  line_itr  May not be {@code null}, and <I>should</I> have at least one item. All offline paths must be unique, and all urls must be unique.
+		@param  line_itr  May not be {@code null}, and <i>should</i> have at least one item. All offline paths must be unique, and all urls must be unique.
 		@param  offlineName_prefixPath  If non-{@code null}, this is the base directory appended to each offline name, as described above. Setting this to {@code null} is the same as the empty string ({@code ""}).
 		@param  offlineName_postfix  If non-{@code null}, this is the postfix appended to each offline name.
 		@param  refresh_offline  When {@code online_attemptCount} is greater than zero, should the offline {@code package-list} be refreshed from the online version? If {@code online_attemptCount} is zero, this parameter is ignored.

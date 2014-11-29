@@ -24,11 +24,11 @@ package  com.github.aliteralmind.codelet.simplesig;
 	import  java.util.regex.Matcher;
 	import  java.util.regex.Pattern;
 /**
-	<P>A method or constructor signature, using only {@linkplain java.lang.Class#getSimpleName() simple} parameter-type names--this can be matched by a {@code SimpleParamSigSearchTerm}. This class is unrelated to {@link SimpleMethodSignature}.</P>
+	<p>A method or constructor signature, using only {@linkplain java.lang.Class#getSimpleName() simple} parameter-type names--this can be matched by a {@code SimpleParamSigSearchTerm}. This class is unrelated to {@link SimpleMethodSignature}.</p>
 
 	@see  SimpleParamSigSearchTerm
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public abstract class SimpleParamNameSignature implements Comparable<SimpleParamNameSignature>  {
 	private static final Matcher IDENTIFIER_MTCHR = Pattern.compile(JavaRegexes.IDENTIFIER).matcher("");
@@ -37,24 +37,24 @@ public abstract class SimpleParamNameSignature implements Comparable<SimpleParam
 	private final String noParens;
 	private final String withParens;
 	/**
-		<P>Create a new instance from a constructor or method, and its parameter class types.</P>
+		<p>Create a new instance from a constructor or method, and its parameter class types.</p>
 
-		<P>Equal to
-		<BR> &nbsp; &nbsp; <CODE>{@link #SimpleParamNameSignature(Member, List) this}(false, cnstr_method,
-		<BR> &nbsp; &nbsp; SimpleParamNameSignature.{@link #getSimpleNameListFromClasses(Class[]) getSimpleNameListFromClasses}(param_types))</CODE></P>
+		<p>Equal to
+		<br/> &nbsp; &nbsp; <code>{@link #SimpleParamNameSignature(Member, List) this}(false, cnstr_method,
+		<br/> &nbsp; &nbsp; SimpleParamNameSignature.{@link #getSimpleNameListFromClasses(Class[]) getSimpleNameListFromClasses}(param_types))</code></p>
 	 **/
 	public SimpleParamNameSignature(Member cnstr_method, Class<?>[] param_types)  {
 		this(false, cnstr_method,
 			SimpleParamNameSignature.getSimpleNameListFromClasses(param_types));
 	}
 	/**
-		<P>Create a new instance from a method or constructor, and an array of its parameter simple names.</P>
+		<p>Create a new instance from a method or constructor, and an array of its parameter simple names.</p>
 
-		<P>This sets<OL>
-			<LI>{@link #getParamNameList() getParamNameList}{@code ()} to an immutable string-list of all parameter type names.</LI>
-			<LI>{@link #getWithParens() getWithParens}{@code ()} to a comma-delimited string of the each type's {@linkplain java.lang.Class#getSimpleName() simple names}, in the same order as in {@code types}, surrounded by parentheses.</LI>
-			<LI>{@link #getNoParens() getNoParens}{@code ()} to the same comma-delimited list, with no paretheses.</LI>
-		</OL></P>
+		<p>This sets<ol>
+			<li>{@link #getParamNameList() getParamNameList}{@code ()} to an immutable string-list of all parameter type names.</li>
+			<li>{@link #getWithParens() getWithParens}{@code ()} to a comma-delimited string of the each type's {@linkplain java.lang.Class#getSimpleName() simple names}, in the same order as in {@code types}, surrounded by parentheses.</li>
+			<li>{@link #getNoParens() getNoParens}{@code ()} to the same comma-delimited list, with no paretheses.</li>
+		</ol></p>
 
 		@see  java.lang.Class#getSimpleName()
 	 **/
@@ -87,7 +87,7 @@ public abstract class SimpleParamNameSignature implements Comparable<SimpleParam
 			withParens = "(" + noParens + ")";
 		}
 	/**
-		<P>The method or constructor having these parameters.</P>
+		<p>The method or constructor having these parameters.</p>
 
 		@return  A non-{@code null} {@linkplain java.lang.reflect.Method method} or {@linkplain java.lang.reflect.Constructor constructor} object.
 	 **/
@@ -95,7 +95,7 @@ public abstract class SimpleParamNameSignature implements Comparable<SimpleParam
 		return  cnstrOrMthd;
 	}
 	/**
-		<P>List of all parameter-type simple names.</P>
+		<p>List of all parameter-type simple names.</p>
 
 		@return  An immutable list of all parameter-types, in the same order as they exist in the consructor or function. If no parameters, this is an empty list.
 		@see  #getWithParens()
@@ -106,7 +106,7 @@ public abstract class SimpleParamNameSignature implements Comparable<SimpleParam
 		return  typeList;
 	}
 	/**
-		<P>Comma-delimited string of all parameter-type simple names, excluding the surrounding parentheses.</P>
+		<p>Comma-delimited string of all parameter-type simple names, excluding the surrounding parentheses.</p>
 
 		@return  A non-{@code null}, comma-delimited string of all simple type names, in the same order as declared, with a single space between each comma.
 		@see  #getWithParens()
@@ -115,7 +115,7 @@ public abstract class SimpleParamNameSignature implements Comparable<SimpleParam
 		return  noParens;
 	}
 	/**
-		<P>Comma-delimited string of all parameter-type simple names, listed in the same order as declared, including the surrounding parentheses.</P>
+		<p>Comma-delimited string of all parameter-type simple names, listed in the same order as declared, including the surrounding parentheses.</p>
 
 		@return  A non-{@code null}, comma-delimited string of all simple type names, in the same order as declared, with a single space between each comma.
 		@see  #getParamNameList()
@@ -126,23 +126,23 @@ public abstract class SimpleParamNameSignature implements Comparable<SimpleParam
 		return  withParens;
 	}
 	/**
-		<P>If a method: its name, if a constructor: the empty string ({@code ""}).</P>
+		<p>If a method: its name, if a constructor: the empty string ({@code ""}).</p>
 	 **/
 	public abstract String getMethodName();
 	/**
-		@return   <CODE>{@link #getMethodName() getMethodName}() + {@link #getWithParens() getWithParens}()</CODE>
+		@return   <code>{@link #getMethodName() getMethodName}() + {@link #getWithParens() getWithParens}()</code>
 	 **/
 	public String toString()  {
 		return  getMethodName() + getWithParens();
 	}
 	/**
-		@return  <CODE>{@link #getWithParens() getWithParens}().compareTo(to_compareTo.getWithParens())</CODE> &nbsp; &nbsp; <I>(This does not need to be overriden to include the constructor/function name. This is only for sorting parameter-lists within each constructor/method.)</I>
+		@return  <code>{@link #getWithParens() getWithParens}().compareTo(to_compareTo.getWithParens())</code> &nbsp; &nbsp; <i>(This does not need to be overriden to include the constructor/function name. This is only for sorting parameter-lists within each constructor/method.)</i>
 	 **/
 	public int compareTo(SimpleParamNameSignature to_compareTo)  {
 		return  getWithParens().compareTo(to_compareTo.getWithParens());
 	}
 	/**
-		<P>Create a list of all simple names from a class array.</P>
+		<p>Create a list of all simple names from a class array.</p>
 
 		@param  types  May not be {@code null}.
 		@return  A non-null list having the same length as {@code types}.

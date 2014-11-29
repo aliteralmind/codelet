@@ -37,167 +37,167 @@ package  com.github.aliteralmind.codelet;
 	import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 	import  static com.github.xbn.lang.XbnConstants.*;
 /**
-   <P>The instructions returned by a Codelet Customizer, which is used by the taglet-processor to modify its output.</P>
+   <p>The instructions returned by a Codelet Customizer, which is used by the taglet-processor to modify its output.</p>
 
-	<A NAME="3_parts"></A><H4><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> Codelet: Customizer: <U>Three parts</U></H4>
+	<A NAME="3_parts"></a><h4><a href="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> Codelet: Customizer: <u>Three parts</u></h4>
 
-	<P>A {@code CustomizationInstructions} is the object returned by all <A HREF="#overview">Codelet Customizer</A>s. A {@code CustomizationInstructions} is composed of three items: A <A HREF="#3_parts_filter">line filter</A>, <A HREF="#3_parts_alterer">alterer</A>, and <A HREF="#3_parts_template">template</A>.</P>
+	<p>A {@code CustomizationInstructions} is the object returned by all <a href="#overview">Codelet Customizer</a>s. A {@code CustomizationInstructions} is composed of three items: A <a href="#3_parts_filter">line filter</a>, <a href="#3_parts_alterer">alterer</a>, and <a href="#3_parts_template">template</a>.</p>
 
-	<A NAME="3_parts_filter"></A><H4><A HREF="#3_parts"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> Codelet: Customizer: Three parts: <U>Part 1: Line filter</U></H4>
+	<A NAME="3_parts_filter"></a><h4><a href="#3_parts"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> Codelet: Customizer: Three parts: <u>Part 1: Line filter</u></h4>
 
-	<P>A line filter is used to keeping only wanted lines, such as a <A HREF="{@docRoot}/overview-summary.html#xmpl_snippet">code snippet</A>, or eliminating lines you define as unwanted. An example is to <A HREF="{@docRoot}/overview-summary.html#xmpl_hello">eliminate</A> the package declaration line and all JavaDoc multi-line comments.</P>
+	<p>A line filter is used to keeping only wanted lines, such as a <a href="{@docRoot}/overview-summary.html#xmpl_snippet">code snippet</a>, or eliminating lines you define as unwanted. An example is to <a href="{@docRoot}/overview-summary.html#xmpl_hello">eliminate</a> the package declaration line and all JavaDoc multi-line comments.</p>
 
-	<P><UL>
-		<LI>Raw object: {@code com.github.xbn.linefilter.}{@link com.github.xbn.linefilter.FilteredLineIterator} (set with {@link #filter(FilteredLineIterator) filter})</LI>
-		<LI>Convenience creators: {@link NewLineFilterFor}, {@link com.github.xbn.linefilter.NewFilteredLineIteratorFor}</LI>
-	</UL></P>
+	<p><ul>
+		<li>Raw object: {@code com.github.xbn.linefilter.}{@link com.github.xbn.linefilter.FilteredLineIterator} (set with {@link #filter(FilteredLineIterator) filter})</li>
+		<li>Convenience creators: {@link NewLineFilterFor}, {@link com.github.xbn.linefilter.NewFilteredLineIteratorFor}</li>
+	</ul></p>
 
-	<A NAME="3_parts_alterer"></A><H4><A HREF="#3_parts"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> Codelet: Customizer: Three parts: <U>2: Alterer</U></H4>
+	<A NAME="3_parts_alterer"></a><h4><a href="#3_parts"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> Codelet: Customizer: Three parts: <u>2: Alterer</u></h4>
 
-	<P>The all-line alterer modifies each line returned (kept) by the filter. A {@linkplain com.github.xbn.analyze.validate.ValidResultFilter filter} may be applied so it does not start until needed, and {@linkplain com.github.xbn.lang.Expirable expires} when complete.</P>
+	<p>The all-line alterer modifies each line returned (kept) by the filter. A {@linkplain com.github.xbn.analyze.validate.ValidResultFilter filter} may be applied so it does not start until needed, and {@linkplain com.github.xbn.lang.Expirable expires} when complete.</p>
 
-	<P><UL>
-		<LI>Raw objects: {@code com.github.xbn.linefilter.}{@link com.github.xbn.linefilter.AllTextLineAlterer} (set with {@link #alterer(AllTextLineAlterer) alterer}), which is an array of {@link com.github.xbn.linefilter.alter.TextLineAlterer}s (set with {@link #orderedAlterers(Appendable, NullElement, ExpirableElements, MultiAlterType, TextLineAlterer...) orderedAlterers})</LI>
-		<LI>Convenience creators: {@link com.github.aliteralmind.codelet.alter.NewLineAltererFor}, {@link com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum}, {@link com.github.xbn.linefilter.alter.NewTextLineAltererFor}</LI>
-	</UL></P>
+	<p><ul>
+		<li>Raw objects: {@code com.github.xbn.linefilter.}{@link com.github.xbn.linefilter.AllTextLineAlterer} (set with {@link #alterer(AllTextLineAlterer) alterer}), which is an array of {@link com.github.xbn.linefilter.alter.TextLineAlterer}s (set with {@link #orderedAlterers(Appendable, NullElement, ExpirableElements, MultiAlterType, TextLineAlterer...) orderedAlterers})</li>
+		<li>Convenience creators: {@link com.github.aliteralmind.codelet.alter.NewLineAltererFor}, {@link com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum}, {@link com.github.xbn.linefilter.alter.NewTextLineAltererFor}</li>
+	</ul></p>
 
-	<A NAME="3_parts_template"></A><H4><A HREF="#3_parts"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> Codelet: Customizer: Three parts: <U>3: Template</U></H4>
+	<A NAME="3_parts_template"></a><h4><a href="#3_parts"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> Codelet: Customizer: Three parts: <u>3: Template</u></h4>
 
-	<P>The context into which final output text is placed, and whose {@linkplain CodeletTemplateBase#getRendered(CodeletInstance) rendered} output is what actually replaces the taglet. Templates may be overridden for an individual taglet (by setting one into <!-- GENERIC PARAMETERS FAIL IN @link --><A HREF="#template(T)"><CODE>template</CODE></A>, in a <A HREF="#overview">custom customizer</A>), or for all taglets in a JavaDoc file or an entire package (with {@link TemplateOverrides}).</P>
+	<p>The context into which final output text is placed, and whose {@linkplain CodeletTemplateBase#getRendered(CodeletInstance) rendered} output is what actually replaces the taglet. Templates may be overridden for an individual taglet (by setting one into <!-- GENERIC PARAMETERS FAIL IN @link --><a href="#template(T)"><code>template</code></a>, in a <a href="#overview">custom customizer</a>), or for all taglets in a JavaDoc file or an entire package (with {@link TemplateOverrides}).</p>
 
-	<P><UL>
-		<LI>Raw objects: {@linkplain CodeletTemplateBase template} (set with <!-- GENERIC PARAMETERS FAIL IN @link --><A HREF="#template(T)"><CODE>template</CODE></A>) which, at its heart, is a {@code com.github.aliteralmind.templatefeather.FeatherTemplate}</LI>
-	</UL></P>
+	<p><ul>
+		<li>Raw objects: {@linkplain CodeletTemplateBase template} (set with <!-- GENERIC PARAMETERS FAIL IN @link --><a href="#template(T)"><code>template</code></a>) which, at its heart, is a {@code com.github.aliteralmind.templatefeather.FeatherTemplate}</li>
+	</ul></p>
 
-	<A NAME="overview"></A><H2><A HREF="{@docRoot}/overview-summary.html#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: <U>Overview</U></H2>
+	<A NAME="overview"></a><h2><a href="{@docRoot}/overview-summary.html#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: Customizer: <u>Overview</u></h2>
 
-	<P>A &quot;Codelet Customizer&quot; is a function that returns the <I><A HREF="#skip-navbar_top">instructions</A></I> for tailoring an example code's output. As stated in the <A HREF="{@docRoot}/overview-summary.html#overview_description">overview</A>, common customizations include<UL>
-		<LI>Displaying only a portion of an example's source code: A <A HREF="{@docRoot}/overview-summary.html#xmpl_snippet">code snippet</A>.</LI>
-		<LI><A HREF="{@docRoot}/overview-summary.html#xmpl_hello">Eliminating</A> unwanted lines, such as the package declaration line and all multi-line comments.</LI>
-		<LI>Making the first appearance of a class, function, or object names into a <A HREF="{@docRoot}/overview-summary.html#xmpl_links">clickable JavaDoc link</A>.</LI>
-	</UL></P>
+	<p>A &quot;Codelet Customizer&quot; is a function that returns the <i><a href="#skip-navbar_top">instructions</a></i> for tailoring an example code's output. As stated in the <a href="{@docRoot}/overview-summary.html#overview_description">overview</a>, common customizations include<ul>
+		<li>Displaying only a portion of an example's source code: A <a href="{@docRoot}/overview-summary.html#xmpl_snippet">code snippet</a>.</li>
+		<li><a href="{@docRoot}/overview-summary.html#xmpl_hello">Eliminating</a> unwanted lines, such as the package declaration line and all multi-line comments.</li>
+		<li>Making the first appearance of a class, function, or object names into a <a href="{@docRoot}/overview-summary.html#xmpl_links">clickable JavaDoc link</a>.</li>
+	</ul></p>
 
-	<P><B>Contents:</B><UL>
-		<LI><B>Taglet syntax:</B> A customizer function is &quot;called&quot; by one or more codelet-taglets. <B>Examples:</B><UL>
-			<LI><A HREF="#xmpl_defaults">Default function name and class location</A></LI>
-			<LI>Defaults with a <A HREF="#proc_custom_post">custom postfix</A></LI>
-			<LI><A HREF="#xmpl_sig">Specifying the class</A> in which the processor function exists</LI>
-			<LI>Specifying <A HREF="#xmpl_params">extra parameters</A> for the customizer function</LI>
-		</UL></P></LI>
-		<LI><B>The customizer function:</B><UL>
-			<LI>Examples: A customizer function that<UL>
-				<LI><A HREF="#func_does_nothing">Does nothing</A>.</LI>
-				<LI>Changes a function, constructor, class, or field name to a <A HREF="{@docRoot}/overview-summary.html#xmpl_links">clickable JavaDoc link</A>.</LI>
-			</UL></LI>
-			<LI><A HREF="#specifications">Specifications</A> and </LI>
-			<LI>Pre-made customizers: {@link BasicCustomizers}</LI>
-			<LI>{@link CustomizationInstructions}: The object returned by the customizer function. Made up of three parts: A <A HREF="#3_parts_filter">line filter</A>, <A HREF="#3_parts_alterer">alterer</A>, and <A HREF="#3_parts_template">template</A></LI>
-		</UL></LI>
-	</UL></P>
+	<p><b>Contents:</b><ul>
+		<li><b>Taglet syntax:</b> A customizer function is &quot;called&quot; by one or more codelet-taglets. <b>Examples:</b><ul>
+			<li><a href="#xmpl_defaults">Default function name and class location</a></li>
+			<li>Defaults with a <a href="#proc_custom_post">custom postfix</a></li>
+			<li><a href="#xmpl_sig">Specifying the class</a> in which the processor function exists</li>
+			<li>Specifying <a href="#xmpl_params">extra parameters</a> for the customizer function</li>
+		</ul></p></li>
+		<li><b>The customizer function:</b><ul>
+			<li>Examples: A customizer function that<ul>
+				<li><a href="#func_does_nothing">Does nothing</a>.</li>
+				<li>Changes a function, constructor, class, or field name to a <a href="{@docRoot}/overview-summary.html#xmpl_links">clickable JavaDoc link</a>.</li>
+			</ul></li>
+			<li><a href="#specifications">Specifications</a> and </li>
+			<li>Pre-made customizers: {@link BasicCustomizers}</li>
+			<li>{@link CustomizationInstructions}: The object returned by the customizer function. Made up of three parts: A <a href="#3_parts_filter">line filter</a>, <a href="#3_parts_alterer">alterer</a>, and <a href="#3_parts_template">template</a></li>
+		</ul></li>
+	</ul></p>
 
-	<A NAME="func_does_nothing"></A><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer function: <U>Example: A customizer that does nothing</U></H2>
+	<A NAME="func_does_nothing"></a><h2><a href="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: Customizer function: <u>Example: A customizer that does nothing</u></h2>
 
-	<P>A customizer function that makes (almost) no changes:</P>
+	<p>A customizer function that makes (almost) no changes:</p>
 
 {@.codelet com.github.aliteralmind.codelet.examples.DoNothingCustomizerCompact%lineRangeWithReplace(1, true, "(<SourceCodeTemplate> aCustomizerThatDoesNothing)", "$1", "FIRST", 1, true, "&#125; +//End snippet$", "&#125;", "FIRST", "^   ")}
 
-	<P>Here is the same function, with documentation on the available {@linkplain CodeletBaseConfig#GLOBAL_DEBUG_LEVEL debugging} parameters:</P>
+	<p>Here is the same function, with documentation on the available {@linkplain CodeletBaseConfig#GLOBAL_DEBUG_LEVEL debugging} parameters:</p>
 
 {@.codelet com.github.aliteralmind.codelet.examples.DoNothingCustomizer%lineRangeWithReplace(1, true, "(<SourceCodeTemplate> aCustomizerThatDoesNothing)", "$1", "FIRST", 1, true, "&#125; +//End snippet$", "&#125;", "FIRST", "^   ")}
 
-	<P>This do-nothing customizer uses all {@linkplain #defaults(Appendable, LengthInRange, Appendable, Appendable) defaults}. It<OL>
-		<LI>{@link #unfiltered(Appendable, LengthInRange) Filters no lines},</LI>
-		<LI>{@linkplain com.github.aliteralmind.codelet.alter.DefaultAlterGetter Default alterers} as {@linkplain CodeletBaseConfig#DEFAULT_ALTERERS_CLASS_NAME configured}.</LI>
-		<LI>Uses the {@link #defaultOrOverrideTemplate(Appendable) Default template},</LI>
-	</OL></P>
+	<p>This do-nothing customizer uses all {@linkplain #defaults(Appendable, LengthInRange, Appendable, Appendable) defaults}. It<ol>
+		<li>{@link #unfiltered(Appendable, LengthInRange) Filters no lines},</li>
+		<li>{@linkplain com.github.aliteralmind.codelet.alter.DefaultAlterGetter Default alterers} as {@linkplain CodeletBaseConfig#DEFAULT_ALTERERS_CLASS_NAME configured}.</li>
+		<li>Uses the {@link #defaultOrOverrideTemplate(Appendable) Default template},</li>
+	</ol></p>
 
-	<A NAME="specifications"></A><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: <U>Requirements</U></H2>
+	<A NAME="specifications"></a><h2><a href="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: Customizer: <u>Requirements</u></h2>
 
-	<P>The customizer function has the following requirements:<UL>
-		<LI>Its location (containing class) must be <A HREF="#xmpl_sig">explicitely specified</A> in the taglet, or must exist in one of the following <B><U>default classes</U></B>, which are searched in order:<OL>
-			<LI>{@link BasicCustomizers},</LI>
-			<LI>The {@linkplain CodeletInstance#getEnclosingClass() enclosing class}, if it is a class,</LI>
-			<LI>And a class named "{@link TagletOfTypeProcessor#DEFAULT_CUSTOMIZER_CLASS_NAME zCodeletCustomizers}", if one exists in the {@linkplain CodeletInstance#getEnclosingPackage() enclosing package}.</LI>
-		</OL></LI>
-		<LI>It must be {@code static} and</LI>
-		<LI>accessible (it is obtained with <CODE>{@link java.lang.Class Class}.{@link java.lang.Class#getDeclaredMethod(String, Class...) getDeclaredMethod}</CODE> and made accessible with <CODE>theLineProcMethod.{@link java.lang.reflect.AccessibleObject#setAccessible(boolean) setAccessible}(true)</CODE>).</LI>
-		<LI>Its first parameter must be a {@link CodeletInstance CodeletInstance} and second must be a {@link CodeletType}. Both of these parameters are ommitted from all taglets.</LI>
-		<LI>It may contain zero-or-more <A HREF="#xmpl_params">extra parameters</A>, whose types are either primitives or non-{@code null} strings ({@code null} is not possible), as specified by
-		<BR> &nbsp; &nbsp; <CODE>com.github.xbn.util.{@link com.github.xbn.util.SimpleStringSignature SimpleStringSignature}.{@link com.github.xbn.util.SimpleStringSignature#getObjectFromString(String) getObjectFromString} </CODE>
-		<BR>If there are any extra types in the customizer function signature, they must be provided in the {@linkplain TagletOfTypeProcessor#getCustomizerPortion() customizer portion} of every taglet using it. <I>The types, amount, and order of extra parameters, in both the taglet and the customizer function signature, must exactly match.</I></LI>
-	</UL></P>
+	<p>The customizer function has the following requirements:<ul>
+		<li>Its location (containing class) must be <a href="#xmpl_sig">explicitely specified</a> in the taglet, or must exist in one of the following <b><u>default classes</u></b>, which are searched in order:<ol>
+			<li>{@link BasicCustomizers},</li>
+			<li>The {@linkplain CodeletInstance#getEnclosingClass() enclosing class}, if it is a class,</li>
+			<li>And a class named "{@link TagletOfTypeProcessor#DEFAULT_CUSTOMIZER_CLASS_NAME zCodeletCustomizers}", if one exists in the {@linkplain CodeletInstance#getEnclosingPackage() enclosing package}.</li>
+		</ol></li>
+		<li>It must be {@code static} and</li>
+		<li>accessible (it is obtained with <code>{@link java.lang.Class Class}.{@link java.lang.Class#getDeclaredMethod(String, Class...) getDeclaredMethod}</code> and made accessible with <code>theLineProcMethod.{@link java.lang.reflect.AccessibleObject#setAccessible(boolean) setAccessible}(true)</code>).</li>
+		<li>Its first parameter must be a {@link CodeletInstance CodeletInstance} and second must be a {@link CodeletType}. Both of these parameters are ommitted from all taglets.</li>
+		<li>It may contain zero-or-more <a href="#xmpl_params">extra parameters</a>, whose types are either primitives or non-{@code null} strings ({@code null} is not possible), as specified by
+		<br/> &nbsp; &nbsp; <code>com.github.xbn.util.{@link com.github.xbn.util.SimpleStringSignature SimpleStringSignature}.{@link com.github.xbn.util.SimpleStringSignature#getObjectFromString(String) getObjectFromString} </code>
+		<br/>If there are any extra types in the customizer function signature, they must be provided in the {@linkplain TagletOfTypeProcessor#getCustomizerPortion() customizer portion} of every taglet using it. <i>The types, amount, and order of extra parameters, in both the taglet and the customizer function signature, must exactly match.</i></li>
+	</ul></p>
 
-	<P>When taglets are used in a class (as opposed to <A HREF="http://stackoverflow.com/questions/3644726/javadoc-package-html-or-package-info-java">{@code package-info.java}</A> or your project's <A HREF="http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html#sourcefiles">overview summary</A>), it is encouraged that its customizer functions be in the class, and that these functions are {@code private}. (In the Codelet and <A HREF="http://codelet.aliteralmind.com">XBN-Java</A> projects, this is not possible, as doing so would create <A HREF="http://en.wikipedia.org/wiki/Circular_dependency">circular-dependency</A> nightmare--this is the primary reason for the {@code zCodeletCustomizers} default class.)</P>
+	<p>When taglets are used in a class (as opposed to <a href="http://stackoverflow.com/questions/3644726/javadoc-package-html-or-package-info-java">{@code package-info.java}</a> or your project's <a href="http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html#sourcefiles">overview summary</a>), it is encouraged that its customizer functions be in the class, and that these functions are {@code private}. (In the Codelet and <a href="http://codelet.aliteralmind.com">XBN-Java</a> projects, this is not possible, as doing so would create <a href="http://en.wikipedia.org/wiki/Circular_dependency">circular-dependency</a> nightmare--this is the primary reason for the {@code zCodeletCustomizers} default class.)</p>
 
-	<A NAME="xmpl_defaults"></A><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet syntax: Example: <U>Default function name and class location</U></H2>
+	<A NAME="xmpl_defaults"></a><h2><a href="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: Customizer: Taglet syntax: Example: <u>Default function name and class location</u></h2>
 
-<BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName%()}}</BLOCKQUOTE>
+<blockquote>{@code {@.codelet fully.qualified.examples.ExampleClassName%()}}</blockquote>
 
-	<P>This {@code ":()"} shortcut indicates a customizer function with the standard name and class location should be used. In particular:<UL>
-		<LI>Its name is {@code "getSourceCode_ExampleClassName"},</LI>
-		<LI>It has no extra parameters, and it</LI>
-		<LI>Must exist in one of the <A HREF="#specifications">default classes</A></LI>
-	</UL></P>
+	<p>This {@code ":()"} shortcut indicates a customizer function with the standard name and class location should be used. In particular:<ul>
+		<li>Its name is {@code "getSourceCode_ExampleClassName"},</li>
+		<li>It has no extra parameters, and it</li>
+		<li>Must exist in one of the <a href="#specifications">default classes</a></li>
+	</ul></p>
 
-	<P>{@code {@.codelet fully.qualified.examples.ExampleClassName%()}}</P>
+	<p>{@code {@.codelet fully.qualified.examples.ExampleClassName%()}}</p>
 
-	<P>is equivalent to both</P>
+	<p>is equivalent to both</p>
 
-<BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName:getSourceCode_ExampleClassName()}}</BLOCKQUOTE>
+<blockquote>{@code {@.codelet fully.qualified.examples.ExampleClassName:getSourceCode_ExampleClassName()}}</blockquote>
 
-	<P>and</P>
+	<p>and</p>
 
-<BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName:package.of.EnclosingClass#getSourceCode_ExampleClassName()}}</BLOCKQUOTE>
+<blockquote>{@code {@.codelet fully.qualified.examples.ExampleClassName:package.of.EnclosingClass#getSourceCode_ExampleClassName()}}</blockquote>
 
-	<P>with one exception: When the processor's function name is explicitely specified, <I>but its class is not</I> (which is true in the first two of the three above), the customizer must exist in one of the default classes</P>
+	<p>with one exception: When the processor's function name is explicitely specified, <i>but its class is not</i> (which is true in the first two of the three above), the customizer must exist in one of the default classes</p>
 
-	<A NAME="proc_custom_post"></A><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet syntax: Example: <U>Defaults with custom postfix</U></H2>
+	<A NAME="proc_custom_post"></a><h2><a href="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: Customizer: Taglet syntax: Example: <u>Defaults with custom postfix</u></h2>
 
-<BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName%_ExtraStuff()}}</BLOCKQUOTE>
+<blockquote>{@code {@.codelet fully.qualified.examples.ExampleClassName%_ExtraStuff()}}</blockquote>
 
-	<P>Same as the <A HREF="#xmpl_defaults">default example</A>, except the underscore-first-character indicates that this is not the customizer's entire function name, rather its <I>postfix</I>.</P>
+	<p>Same as the <a href="#xmpl_defaults">default example</a>, except the underscore-first-character indicates that this is not the customizer's entire function name, rather its <i>postfix</i>.</p>
 
-	<P>This is useful when there are multiple codelets of the same {@linkplain CodeletType type}, for the same example class (or text file).</P>
+	<p>This is useful when there are multiple codelets of the same {@linkplain CodeletType type}, for the same example class (or text file).</p>
 
-	<A NAME="xmpl_sig"></A><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet syntax: Example: <U>Specifying the class in which the processor function exists</U></H2>
+	<A NAME="xmpl_sig"></a><h2><a href="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: Customizer: Taglet syntax: Example: <u>Specifying the class in which the processor function exists</u></h2>
 
-	<P>The customizer function can be in any class, which may explicitely specified:</P>
+	<p>The customizer function can be in any class, which may explicitely specified:</p>
 
-<BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName:fully.qualified.package.MyCodeletCustomizers#getSource_ExampleClass(true, "See line 12")}}</BLOCKQUOTE>
+<blockquote>{@code {@.codelet fully.qualified.examples.ExampleClassName:fully.qualified.package.MyCodeletCustomizers#getSource_ExampleClass(true, "See line 12")}}</blockquote>
 
-	<P>If using the <A HREF="#xmpl_defaults">default function name</A>, it may be omitted, although the hash ({@code '#'}) is required:</P>
+	<p>If using the <a href="#xmpl_defaults">default function name</a>, it may be omitted, although the hash ({@code '#'}) is required:</p>
 
-<BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName:fully.qualified.package.MyCodeletCustomizers#(true, "See line 12")}}</BLOCKQUOTE>
+<blockquote>{@code {@.codelet fully.qualified.examples.ExampleClassName:fully.qualified.package.MyCodeletCustomizers#(true, "See line 12")}}</blockquote>
 
-	<P>Signature formatting is as specified by
-	<BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature SimpleMethodSignature}.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature#newFromStringAndDefaults(Class, Object, String, Class[], Appendable) newFromStringAndDefaults}</CODE>
-	<BR>(Before being provided to {@code newFromStringAndDefaults}, the omitted function name is given its default value [{@code "getSource_ExampleClass"}], as described in this and the <A HREF="#proc_custom_post">previous example</A>. In all cases, {@code SimpleMethodSignature} requires a function name.)</P>
+	<p>Signature formatting is as specified by
+	<br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature SimpleMethodSignature}.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature#newFromStringAndDefaults(Class, Object, String, Class[], Appendable) newFromStringAndDefaults}</code>
+	<br/>(Before being provided to {@code newFromStringAndDefaults}, the omitted function name is given its default value [{@code "getSource_ExampleClass"}], as described in this and the <a href="#proc_custom_post">previous example</a>. In all cases, {@code SimpleMethodSignature} requires a function name.)</p>
 
-	<A NAME="xmpl_params"></A><H2><A HREF="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: Customizer: Taglet syntax: Example: <U>Specifying extra processor parameters</U></H2>
+	<A NAME="xmpl_params"></a><h2><a href="#overview"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: Customizer: Taglet syntax: Example: <u>Specifying extra processor parameters</u></h2>
 
-	<P>The default customizer has a single {@link CodeletInstance CodeletInstance} parameter. This is specified in the taglet with either empty parentheses, or no parens at all, as demonstrated in the <A HREF="#xmpl_defaults">default example</A>.</P>
+	<p>The default customizer has a single {@link CodeletInstance CodeletInstance} parameter. This is specified in the taglet with either empty parentheses, or no parens at all, as demonstrated in the <a href="#xmpl_defaults">default example</a>.</p>
 
-	<P>Extra parameters may be optionally specified, and must be provided <I>both</I> in the function and in any taglet that uses (calls) it. For example, this taglet</P>
+	<p>Extra parameters may be optionally specified, and must be provided <i>both</i> in the function and in any taglet that uses (calls) it. For example, this taglet</p>
 
-<BLOCKQUOTE>{@code {@.codelet fully.qualified.examples.ExampleClassName:(true, "See line 12")}}</BLOCKQUOTE>
+<blockquote>{@code {@.codelet fully.qualified.examples.ExampleClassName:(true, "See line 12")}}</blockquote>
 
-	<P>refers to this function:</P>
+	<p>refers to this function:</p>
 
-<BLOCKQUOTE>{@code getSourceCode_ExampleClassName(CodeletInstance taglet, CodeletType needed_defaultAlterType, boolean do_displayLineNums, String annotation)}</BLOCKQUOTE>
+<blockquote>{@code getSourceCode_ExampleClassName(CodeletInstance taglet, CodeletType needed_defaultAlterType, boolean do_displayLineNums, String annotation)}</blockquote>
 
-	<P>which, since there is no fully-qualified class specified after the {@linkplain CodeletInstance#CUSTOMIZER_PREFIX_CHAR percent sign}, must be in one of the <A HREF="#specifications">default class-locations</A>.</P>
+	<p>which, since there is no fully-qualified class specified after the {@linkplain CodeletInstance#CUSTOMIZER_PREFIX_CHAR percent sign}, must be in one of the <a href="#specifications">default class-locations</a>.</p>
 
-	<P>Parameter formatting is specified by
-	<BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature}.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature#newFromStringAndDefaults(Class, Object, String, Class[], Appendable) newFromStringAndDefaults}</CODE></P>
+	<p>Parameter formatting is specified by
+	<br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature}.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature#newFromStringAndDefaults(Class, Object, String, Class[], Appendable) newFromStringAndDefaults}</code></p>
 
-	<P>This is a "simple" signature. Only {@linkplain com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature#getObjectFromString(String) primitives and strings} are allowed. {@code null} is not possible.</P>
+	<p>This is a "simple" signature. Only {@linkplain com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature#getObjectFromString(String) primitives and strings} are allowed. {@code null} is not possible.</p>
 
-	<P>Extra parameters can also be specified with the <A HREF="#xmpl_defaults">{@code ":()"} shortcut</A>:
-	<BR> &nbsp; &nbsp; {@code {@.codelet fully.qualified.examples.ExampleClassName:((byte)3, false)}}</P>
+	<p>Extra parameters can also be specified with the <a href="#xmpl_defaults">{@code ":()"} shortcut</a>:
+	<br/> &nbsp; &nbsp; {@code {@.codelet fully.qualified.examples.ExampleClassName:((byte)3, false)}}</p>
 
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class CustomizationInstructions<T extends CodeletTemplateBase> extends AbstractOneWayLockable  {
 	private FilteredLineIterator     filter        ;
@@ -209,10 +209,10 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 	private final CodeletInstance instance   ;
 	private final CodeletType  defaultAltersType;
 	/*
-   	<P>Create a new instance for any taglet type except {@code {@.codelet.and.out}}.</P>
+   	<p>Create a new instance for any taglet type except {@code {@.codelet.and.out}}.</p>
 
-   	<P>Equal to
-   	<BR> &nbsp; &nbsp; <CODE>{@link #CustomizationInstructions(CodeletInstance, CodeletType) this}(instance, instance.getType())</CODE></P>
+   	<p>Equal to
+   	<br/> &nbsp; &nbsp; <code>{@link #CustomizationInstructions(CodeletInstance, CodeletType) this}(instance, instance.getType())</code></p>
 
    	@param  instance  May not be {@code null}.
 	public CustomizationInstructions(CodeletInstance instance)  {
@@ -227,13 +227,13 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 		}
 	 */
 	/**
-   	<P>Create a new instance.</P>
+   	<p>Create a new instance.</p>
 
-   	<P>Equal to
-   	<BR> &nbsp; &nbsp; <CODE>{@link #CustomizationInstructions(CodeletInstance, CodeletType) this}(instance, instance.getType())</CODE></P>
+   	<p>Equal to
+   	<br/> &nbsp; &nbsp; <code>{@link #CustomizationInstructions(CodeletInstance, CodeletType) this}(instance, instance.getType())</code></p>
 
    	@param  instance  May not be {@code null}.
-   	@param  needed_defaultAlterType  The type of {@linkplain com.github.aliteralmind.codelet.alter.DefaultAlterGetter default alterers} needed when using the {@linkplain #defaultOrOverrideTemplate(Appendable) default template}. May not be {@code null}. If <CODE>instance.{@link CodeletInstance#getType() getType}.{@link CodeletType#SOURCE_AND_OUT SOURCE_AND_OUT}</CODE>, then this must be either {@link CodeletType#SOURCE_CODE SOURCE_CODE} or {@link CodeletType#CONSOLE_OUT CONSOLE_OUT}. If <CODE>instance.{@link CodeletInstance#getType() getType}</CODE> is any other type, then {@code needed_defaultAlterType} must be equal to it.
+   	@param  needed_defaultAlterType  The type of {@linkplain com.github.aliteralmind.codelet.alter.DefaultAlterGetter default alterers} needed when using the {@linkplain #defaultOrOverrideTemplate(Appendable) default template}. May not be {@code null}. If <code>instance.{@link CodeletInstance#getType() getType}.{@link CodeletType#SOURCE_AND_OUT SOURCE_AND_OUT}</code>, then this must be either {@link CodeletType#SOURCE_CODE SOURCE_CODE} or {@link CodeletType#CONSOLE_OUT CONSOLE_OUT}. If <code>instance.{@link CodeletInstance#getType() getType}</code> is any other type, then {@code needed_defaultAlterType} must be equal to it.
 	 **/
 	public CustomizationInstructions(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
 		try  {
@@ -258,17 +258,17 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 		defaultAltersType = needed_defaultAlterType;
 	}
 	/**
-		<P>Make no customizations.</P>
+		<p>Make no customizations.</p>
 
-		<P>This calls<OL>
-			<LI>{@link #unfiltered(Appendable, LengthInRange) unfiltered}{@code (dbgDest_ifNonNull)}</LI>
-			<LI><CODE>{@link #orderedAlterers(Appendable, NullElement, ExpirableElements, MultiAlterType, TextLineAlterer...) orderedAlterers}(dbgAllAltr_ifNonNull, {@link com.github.xbn.array.NullElement NullElement}.{@link com.github.xbn.array.NullElement#BAD BAD}
-			<BR> &nbsp; &nbsp; {@link com.github.xbn.analyze.alter.ExpirableElements}.{@link com.github.xbn.analyze.alter.ExpirableElements#OPTIONAL OPTIONAL}, {@link com.github.xbn.analyze.alter.MultiAlterType}.{@link com.github.xbn.analyze.alter.MultiAlterType#CUMULATIVE CUMULATIVE}
-				<BR> &nbsp; &nbsp; {@link com.github.aliteralmind.codelet.alter.DefaultAlterGetterUtil}.{@link com.github.aliteralmind.codelet.alter.DefaultAlterGetterUtil#getDefaultAlterArray(CodeletType) getDefaultAlterArray}({@link #getNeededAlterArrayType() getNeededAlterArrayType}()))</CODE></LI>
-			<LI>{@link #defaultOrOverrideTemplate(Appendable) defaultOrOverrideTemplate}{@code (dbgTemplate_ifNonNull)}</LI>
-		</OL></P>
+		<p>This calls<ol>
+			<li>{@link #unfiltered(Appendable, LengthInRange) unfiltered}{@code (dbgDest_ifNonNull)}</li>
+			<li><code>{@link #orderedAlterers(Appendable, NullElement, ExpirableElements, MultiAlterType, TextLineAlterer...) orderedAlterers}(dbgAllAltr_ifNonNull, {@link com.github.xbn.array.NullElement NullElement}.{@link com.github.xbn.array.NullElement#BAD BAD}
+			<br/> &nbsp; &nbsp; {@link com.github.xbn.analyze.alter.ExpirableElements}.{@link com.github.xbn.analyze.alter.ExpirableElements#OPTIONAL OPTIONAL}, {@link com.github.xbn.analyze.alter.MultiAlterType}.{@link com.github.xbn.analyze.alter.MultiAlterType#CUMULATIVE CUMULATIVE}
+				<br/> &nbsp; &nbsp; {@link com.github.aliteralmind.codelet.alter.DefaultAlterGetterUtil}.{@link com.github.aliteralmind.codelet.alter.DefaultAlterGetterUtil#getDefaultAlterArray(CodeletType) getDefaultAlterArray}({@link #getNeededAlterArrayType() getNeededAlterArrayType}()))</code></li>
+			<li>{@link #defaultOrOverrideTemplate(Appendable) defaultOrOverrideTemplate}{@code (dbgTemplate_ifNonNull)}</li>
+		</ol></p>
 
-		@return  <I>{@code this}</I>
+		@return  <i>{@code this}</i>
 	 **/
 	public CustomizationInstructions<T> defaults(Appendable dbgEveryLine_ifNonNull, LengthInRange rangeForEveryLineDebug_ifNonNull, Appendable dbgAllAltr_ifNonNull, Appendable dbgTemplate_ifNonNull)  {
 		unfiltered(dbgEveryLine_ifNonNull, rangeForEveryLineDebug_ifNonNull);
@@ -278,7 +278,7 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 		return  defaultOrOverrideTemplate(dbgTemplate_ifNonNull);
 	}
 	/*
-		<P>The type of template needed, when using the default template. This is intended for {@link CodeletType#SOURCE_AND_OUT {@.codelet.and.out}} taglets only.</P>
+		<p>The type of template needed, when using the default template. This is intended for {@link CodeletType#SOURCE_AND_OUT {@.codelet.and.out}} taglets only.</p>
 
 		@return  A non-{@code null} type representing the kind of template needed.
 		@see  #CustomizationInstructions(CodeletInstance, CodeletType) constructor
@@ -288,7 +288,7 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 		return  defaultAltersType;
 	}
 	/**
-		<P>Get the line-filter.</P>
+		<p>Get the line-filter.</p>
 
 		@see  #filter(FilteredLineIterator)
 	 **/
@@ -296,7 +296,7 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 		return  filter;
 	}
 	/**
-		<P>Get the line-alterer.</P>
+		<p>Get the line-alterer.</p>
 
 		@see  #alterer(AllTextLineAlterer)
 	 **/
@@ -304,16 +304,16 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 		return  alterer;
 	}
 	/**
-		<P>Get the template.</P>
+		<p>Get the template.</p>
 
-		@return  <UL>
-			<LI>A non-{@code null} template: When <I>this taglet only</I> should use a non-default (and non-{@linkplain TemplateOverrides override}) template.</LI>
-			<LI>{@code null}: If {@link #wasTemplateSet() wasTemplateSet}{@code ()} is<UL>
-				<LI>{@code true}: No template was set.</LI>
-				<LI>{@code false}: The default (or override) template should be used.</LI>
-			</UL></LI>
-		</UL>
-		@see  <CODE><!-- GENERIC PARAMETERS FAIL IN @link --><A HREF="#template(T)">template</A>(T)</CODE>
+		@return  <ul>
+			<li>A non-{@code null} template: When <i>this taglet only</i> should use a non-default (and non-{@linkplain TemplateOverrides override}) template.</li>
+			<li>{@code null}: If {@link #wasTemplateSet() wasTemplateSet}{@code ()} is<ul>
+				<li>{@code true}: No template was set.</li>
+				<li>{@code false}: The default (or override) template should be used.</li>
+			</ul></li>
+		</ul>
+		@see  <code><!-- GENERIC PARAMETERS FAIL IN @link --><a href="#template(T)">template</a>(T)</code>
 		@see  #defaultOrOverrideTemplate(Appendable)
 	 **/
 	public T getTemplate()  {
@@ -323,20 +323,20 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 		return  instance;
 	}
 	/**
-		<P>Use the default (or override) template.</P>
+		<p>Use the default (or override) template.</p>
 
-		<P>This sets<OL>
-			<LI>{@link #getTemplate() getTemplate}{@code ()} to {@code null}</LI>
-			<LI>{@link #wasTemplateSet() wasTemplateSet}{@code ()} to {@code true}</LI>
-		</OL></P>
+		<p>This sets<ol>
+			<li>{@link #getTemplate() getTemplate}{@code ()} to {@code null}</li>
+			<li>{@link #wasTemplateSet() wasTemplateSet}{@code ()} to {@code true}</li>
+		</ol></p>
 
-		<P>This leaves the template object as {@code null} to avoid having to know about the {@link CodeletInstance}, which is required to determine if the default or {@linkplain TemplateOverrides override} template should be used. A {@code null} template value triggers the {@linkplain TagletOfTypeProcessor taglet processor} to get the appropriate template.</P>
+		<p>This leaves the template object as {@code null} to avoid having to know about the {@link CodeletInstance}, which is required to determine if the default or {@linkplain TemplateOverrides override} template should be used. A {@code null} template value triggers the {@linkplain TagletOfTypeProcessor taglet processor} to get the appropriate template.</p>
 
 		@param  dbgDest_ifNonNull  When non-{@code null}, this is the debugging destination for all gap-fills. Get with {@link #getDefaultTemplateDebug() getDefaultTemplateDebug}{@code ()}
-		@return  <I>{@code this}</I>
+		@return  <i>{@code this}</i>
 		@exception  LockException  If {@link #build() build}{@code ()} was already called.
 		@exception  IllegalStateException  If {@code wasTemplateSet()} is {@code true}.
-		@see  <CODE><!-- GENERIC PARAMETERS FAIL IN @link --><A HREF="#template(T)">template</A>(T)</CODE>
+		@see  <code><!-- GENERIC PARAMETERS FAIL IN @link --><a href="#template(T)">template</a>(T)</code>
 	 **/
 	public CustomizationInstructions<T> defaultOrOverrideTemplate(Appendable dbgDest_ifNonNull)  {
 		ciLockedOrTmplAlreadySet();
@@ -346,12 +346,12 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 		return  this;
 	}
 	/**
-		<P>Override the template for this codelet-taglet only.</P>
+		<p>Override the template for this codelet-taglet only.</p>
 
-		<P>This sets {@link #wasTemplateSet() wasTemplateSet}{@code ()} to {@code true}.</P>
+		<p>This sets {@link #wasTemplateSet() wasTemplateSet}{@code ()} to {@code true}.</p>
 
 		@param  template  May not be {@code null}. Get with {@link #getTemplate() getTemplate}{@code ()}. Note that JavaDoc is multi-threaded, and therefore this template-object must be a new object (not shared among multiple taglets). Use the {@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#FeatherTemplate(FeatherTemplate, Appendable) copy constructor} or {@link com.github.aliteralmind.templatefeather.FeatherTemplate#getObjectCopy() getObjectCopy}{@code ()} to duplicate it.
-		@return  <I>{@code this}</I>
+		@return  <i>{@code this}</i>
 		@exception  LockException  If {@link #build() build}{@code ()} was already called.
 		@exception  IllegalStateException  If {@code wasTemplateSet()} is {@code true}.
 		@see  #defaultOrOverrideTemplate(Appendable)
@@ -370,23 +370,23 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 			}
 		}
 	/**
-		<P>Display all lines.</P>
+		<p>Display all lines.</p>
 
-		@return  <CODE>{@link #filter(FilteredLineIterator) filter}({@link com.github.xbn.linefilter.NewFilteredLineIteratorFor NewFilteredLineIteratorFor}.{@link com.github.xbn.linefilter.NewFilteredLineIteratorFor#keepAllLinesUnchanged(Iterator, Appendable, LengthInRange) keepAllLinesUnchanged}(null, dbgEveryLine_ifNonNull, rangeForEveryLineDebug_ifNonNull))</CODE>
+		@return  <code>{@link #filter(FilteredLineIterator) filter}({@link com.github.xbn.linefilter.NewFilteredLineIteratorFor NewFilteredLineIteratorFor}.{@link com.github.xbn.linefilter.NewFilteredLineIteratorFor#keepAllLinesUnchanged(Iterator, Appendable, LengthInRange) keepAllLinesUnchanged}(null, dbgEveryLine_ifNonNull, rangeForEveryLineDebug_ifNonNull))</code>
 	 **/
 	public CustomizationInstructions<T> unfiltered(Appendable dbgEveryLine_ifNonNull, LengthInRange rangeForEveryLineDebug_ifNonNull)  {
 		return  filter(NewFilteredLineIteratorFor.keepAllLinesUnchanged(null, dbgEveryLine_ifNonNull, rangeForEveryLineDebug_ifNonNull));
 	}
 	/**
-		<P>Keep or eliminate lines that meet some conditions. Kept lines may be {@linkplain #orderedAlterers(Appendable, NullElement, ExpirableElements, MultiAlterType, TextLineAlterer...) altered}.</P>
+		<p>Keep or eliminate lines that meet some conditions. Kept lines may be {@linkplain #orderedAlterers(Appendable, NullElement, ExpirableElements, MultiAlterType, TextLineAlterer...) altered}.</p>
 
-		<P>Two examples of filtering lines:<UL>
-			<LI>Displaying only a range of lines--a <A HREF="{@docRoot}/overview-summary.html#xmpl_snippet">code snippet</A>.</LI>
-			<LI><A HREF="{@docRoot}/overview-summary.html#xmpl_hello">Eliminating</A> the package declaration line and all JavaDoc multi-line comments</LI>
-		</UL></P>
+		<p>Two examples of filtering lines:<ul>
+			<li>Displaying only a range of lines--a <a href="{@docRoot}/overview-summary.html#xmpl_snippet">code snippet</a>.</li>
+			<li><a href="{@docRoot}/overview-summary.html#xmpl_hello">Eliminating</a> the package declaration line and all JavaDoc multi-line comments</li>
+		</ul></p>
 
 		@param  filter  May not be {@code null}. Get with {@link #getFilter() getFilter}{@code ()}.
-		@return  <I>{@code this}</I>
+		@return  <i>{@code this}</i>
 		@see  #unfiltered(Appendable, LengthInRange)
 		@exception  LockException  If {@link #build() build}{@code ()} was already called.
 	 **/
@@ -399,10 +399,10 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 		return  this;
 	}
 	/**
-		<P>Set an ordered series of line-alterers.</P>
+		<p>Set an ordered series of line-alterers.</p>
 
-		@param  alterers  May not be {@code null} or empty and, if <CODE>null_element.{@link com.github.xbn.array.NullElement#isBad() isBad}()</CODE> is {@code true}, no elements may be {@code null}. Elements <I>should</I> not be duplicate.
-		@return  <CODE>{@link #alterer(AllTextLineAlterer) alterer}(new {@link com.github.xbn.linefilter.AllTextLineAlterer#AllTextLineAlterer(TextLineAlterer[], ExpirableElements, MultiAlterType, Appendable) AllTextLineAlterer}(alterers, xprbl_elements, multi_type, dbgDest_ifNonNull))</CODE>
+		@param  alterers  May not be {@code null} or empty and, if <code>null_element.{@link com.github.xbn.array.NullElement#isBad() isBad}()</code> is {@code true}, no elements may be {@code null}. Elements <i>should</i> not be duplicate.
+		@return  <code>{@link #alterer(AllTextLineAlterer) alterer}(new {@link com.github.xbn.linefilter.AllTextLineAlterer#AllTextLineAlterer(TextLineAlterer[], ExpirableElements, MultiAlterType, Appendable) AllTextLineAlterer}(alterers, xprbl_elements, multi_type, dbgDest_ifNonNull))</code>
 	 **/
 	public CustomizationInstructions<T> orderedAlterers(Appendable dbgDest_ifNonNull, NullElement null_element, ExpirableElements xprbl_elements, MultiAlterType multi_type, TextLineAlterer... alterers)  {
 		try  {
@@ -417,10 +417,10 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 		return  alterer(new AllTextLineAlterer(alterers, xprbl_elements, multi_type, dbgDest_ifNonNull));
 	}
 	/**
-		<P>Set the line-alterer.</P>
+		<p>Set the line-alterer.</p>
 
 		@param  all_lineAlterer  May not be {@code null}. Get with {@link #getAlterer() getAlterer}{@code ()}.
-		@return  <I>{@code this}</I>
+		@return  <i>{@code this}</i>
 		@exception  LockException  If {@link #build() build}{@code ()} was already called.
 		@see  #orderedAlterers(Appendable, NullElement, ExpirableElements, MultiAlterType, TextLineAlterer...)
 	 **/
@@ -431,18 +431,18 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 		return  this;
 	}
 	/**
-		<P>Wildcard search-term to restrict the classes or files that may utilize this customizer.</P>
+		<p>Wildcard search-term to restrict the classes or files that may utilize this customizer.</p>
 
-		@param  whitelist_searchTerm  Wildcard search term to match the fully-qualified class name of the example code, or path of the text file that is allowed to use this customizer. Class name examples:<UL>
-			<LI>{@code "com.github.mylibrary.examples.AGoodExample"}</LI>
-			<LI>{@code "com.github.mylibrary.examples.A*Example"}</LI>
-			<LI>{@code "*.examples.A*Example"}</LI>
-		</UL>Text file examples:<UL>
-			<LI>{@code "com/github/mylibrary/examples/doc-files/AGoodExample_input.txt"}</LI>
-			<LI>{@code "com/github/mylibrary/examples/doc-files/*_input.txt"}</LI>
-			<LI>{@code "*_input.txt"}</LI>
-		</UL>May not be {@code null} or empty, and <I>should</I> be a valid wildcard term. Get with {@link #getClassNameOrFilePathRestricter() getClassNameOrFilePathRestricter}{@code ()}.
-		@return  <I>{@code this}</I>
+		@param  whitelist_searchTerm  Wildcard search term to match the fully-qualified class name of the example code, or path of the text file that is allowed to use this customizer. Class name examples:<ul>
+			<li>{@code "com.github.mylibrary.examples.AGoodExample"}</li>
+			<li>{@code "com.github.mylibrary.examples.A*Example"}</li>
+			<li>{@code "*.examples.A*Example"}</li>
+		</ul>Text file examples:<ul>
+			<li>{@code "com/github/mylibrary/examples/doc-files/AGoodExample_input.txt"}</li>
+			<li>{@code "com/github/mylibrary/examples/doc-files/*_input.txt"}</li>
+			<li>{@code "*_input.txt"}</li>
+		</ul>May not be {@code null} or empty, and <i>should</i> be a valid wildcard term. Get with {@link #getClassNameOrFilePathRestricter() getClassNameOrFilePathRestricter}{@code ()}.
+		@return  <i>{@code this}</i>
 		@see  org.apache.commons.io.FilenameUtils#wildcardMatch(String, String) FilenameUtils#wildcardMatch
 		@see  TagletOfTypeProcessor#crashIfClassOrFileCannotUseCustomizer(CustomizationInstructions) TagletOfTypeProcessor#crashIfClassOrFileCannotUseCustomizer
 	 **/
@@ -452,7 +452,7 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 		return  this;
 	}
 	/**
-		<P>Wildcard search-term to restrict the classes that may utilize this customizer.</P>
+		<p>Wildcard search-term to restrict the classes that may utilize this customizer.</p>
 
 		@see  #classNameOrFilePathRestricter(String)
 	 **/
@@ -460,17 +460,17 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 		return  classNameOrFilePathRestricter;
 	}
 	/**
-		<P>Was the template set?.</P>
+		<p>Was the template set?.</p>
 
 		@see  #getTemplate()
-		@see  <CODE><!-- GENERIC PARAMETERS FAIL IN @link --><A HREF="#template(T)">template</A>(T)</CODE>
+		@see  <code><!-- GENERIC PARAMETERS FAIL IN @link --><a href="#template(T)">template</a>(T)</code>
 		@see  #defaultOrOverrideTemplate(Appendable)
 	 **/
 	public boolean wasTemplateSet()  {
 		return  wasTmplSet;
 	}
 	/**
-		<P>When using the default template only, this is its debug destination.</P>
+		<p>When using the default template only, this is its debug destination.</p>
 
 		@see  #getTemplate()
 		@see  #defaultOrOverrideTemplate(Appendable)
@@ -479,9 +479,9 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 		return  dfltTmplDbg;
 	}
 	/**
-		<P>Given all configured customization instructions, transform the raw output (source-code, console-output, or file-text) into its fully-processed form, ready for insertion into the template.</P>
+		<p>Given all configured customization instructions, transform the raw output (source-code, console-output, or file-text) into its fully-processed form, ready for insertion into the template.</p>
 
-		<P>This logs all alterers that do not make an alteration.</P>
+		<p>This logs all alterers that do not make an alteration.</p>
 
 		@exception  AlterationNotMadeException  If at least one alteration is not made, and it is {@linkplain CodeletBaseConfig#ALTERATION_NOT_MADE_CRASH configured} that a crash should occur (in addition to the warning).
 	 **/
@@ -503,9 +503,9 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 		return  body;
 	}
 	/**
-		<P>Declare that this object is ready for use and should be locked.</P>
+		<p>Declare that this object is ready for use and should be locked.</p>
 
-		@return  <I>{@code this}</I>
+		@return  <i>{@code this}</i>
 		@exception  IllegalStateException  If the {@linkplain #getFilter() filter} or {@linkplain #getAlterer() alterer} are {@code null}, or {@link #wasTemplateSet() wasTemplateSet}{@code ()} is {@code false}.
 	 **/
 	public CustomizationInstructions<T> build()  {

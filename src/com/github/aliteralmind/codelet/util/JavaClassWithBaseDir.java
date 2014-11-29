@@ -17,10 +17,10 @@ package  com.github.aliteralmind.codelet.util;
 	import  java.nio.file.NoSuchFileException;
 	import  java.nio.file.AccessDeniedException;
 /**
-   <P>An {@code FQClassNameWithBaseDir} where the fully-qualified class name must represent an actually-existing class, as determined by <CODE>{@link java.lang.Class Class}.{@link java.lang.Class#forName(String) forName}(s)</CODE>.</P>
+   <p>An {@code FQClassNameWithBaseDir} where the fully-qualified class name must represent an actually-existing class, as determined by <code>{@link java.lang.Class Class}.{@link java.lang.Class#forName(String) forName}(s)</code>.</p>
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class JavaClassWithBaseDir extends FQClassNameWithBaseDir  {
 	private final Class<?> javaCls;

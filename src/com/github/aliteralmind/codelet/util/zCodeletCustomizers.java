@@ -27,10 +27,10 @@ package  com.github.aliteralmind.codelet.util;
 	import  com.github.xbn.array.NullElement;
 	import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 /**
-	<P>Custom <A HREF="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#overview">customizers</A> used throughout {@code com.github.aliteralmind.codelet.util}.</P>
+	<p>Custom <a href="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#overview">customizers</a> used throughout {@code com.github.aliteralmind.codelet.util}.</p>
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class zCodeletCustomizers  {
 	private static final CustomizationInstructions<SourceCodeTemplate> getSourceConfig_FunctionConstructorJavaDocLink_JavaDocUtil(CodeletInstance instance, CodeletType needed_defaultAlterType)  {

@@ -27,19 +27,19 @@ package  com.github.aliteralmind.codelet.alter;
 	import  java.util.NoSuchElementException;
 	import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 /**
-	<P>Utilities related to default alterers.</P>
+	<p>Utilities related to default alterers.</p>
 
 	@see  com.github.aliteralmind.codelet.CodeletBaseConfig#DEFAULT_ALTERERS_CLASS_NAME
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class DefaultAlterGetterUtil  {
 	/**
-		<P>Get a default alterer from its name.</P>
+		<p>Get a default alterer from its name.</p>
 
 		@param  instance_forTypeOnly  May not be {@code null}.
 		@param  map_keyName  Must be an existing key in the map.
-		@return  <CODE>{@link #getMap(CodeletType) getMap}(instance_forTypeOnly.{@link CodeletInstance#getType() getType}()).{@link java.util.LinkedHashMap#get(Object) get}(map_keyName)</CODE>
+		@return  <code>{@link #getMap(CodeletType) getMap}(instance_forTypeOnly.{@link CodeletInstance#getType() getType}()).{@link java.util.LinkedHashMap#get(Object) get}(map_keyName)</code>
 		@exception  NoSuchElementException  If {@code map_keyName} is not a key in the map.
 	 **/
 	public static final TextLineAlterer get(CodeletInstance instance_forTypeOnly, String map_keyName, Appendable debugDest_ifNonNull)  {
@@ -61,14 +61,14 @@ public class DefaultAlterGetterUtil  {
 		return  alterer;
 	}
 	/**
-		<P>Get the map of default alterers.</P>
+		<p>Get the map of default alterers.</p>
 
 		@param  needed_defaultAlterType  May not be {@code null}.
-		@return  If {@code needed_defaultAlterType} is<UL>
-			<LI>{@link CodeletType#SOURCE_CODE SOURCE_CODE}: <CODE>{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getDefaultAlterGetter() getDefaultAlterGetter}()*.{@link DefaultAlterGetter#getForSourceCodelet() getForSourceCodelet}()</CODE></LI>
-			<LI>{@link CodeletType#CONSOLE_OUT CONSOLE_OUT}: <CODE>getDefaultAlterGetter().{@link DefaultAlterGetter#getForCodeletDotOut() getForCodeletDotOut}()</CODE></LI>
-			<LI>{@link CodeletType#FILE_TEXT FILE_TEXT}: <CODE>getDefaultAlterGetter().{@link DefaultAlterGetter#getForFileTextlet() getForFileTextlet}()</CODE></LI>
-		</UL>
+		@return  If {@code needed_defaultAlterType} is<ul>
+			<li>{@link CodeletType#SOURCE_CODE SOURCE_CODE}: <code>{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getDefaultAlterGetter() getDefaultAlterGetter}()*.{@link DefaultAlterGetter#getForSourceCodelet() getForSourceCodelet}()</code></li>
+			<li>{@link CodeletType#CONSOLE_OUT CONSOLE_OUT}: <code>getDefaultAlterGetter().{@link DefaultAlterGetter#getForCodeletDotOut() getForCodeletDotOut}()</code></li>
+			<li>{@link CodeletType#FILE_TEXT FILE_TEXT}: <code>getDefaultAlterGetter().{@link DefaultAlterGetter#getForFileTextlet() getForFileTextlet}()</code></li>
+		</ul>
 		@exception  IllegalArgumentException  If {@code needed_defaultAlterType} is {@link CodeletType#SOURCE_AND_OUT}. Use {@code SOURCE_CODE} or {@code CONSOLE_OUT} instead.
 		@exception  DefaultAlterGetterException  If anything goes wrong when attempting to retrieve the map.
 	 **/
@@ -94,12 +94,12 @@ public class DefaultAlterGetterUtil  {
 		}
 	}
 	/**
-		<P>Creates a new list with a initial capacity equal to the default-alterers map, plus a number.</P>
+		<p>Creates a new list with a initial capacity equal to the default-alterers map, plus a number.</p>
 
-		@param  numToAdd_toDefaultMapSize  <I>Should</I> be greater than zero.
-		@return  <CODE>(new {@link ArrayList#ArrayList(int) ArrayList}&lt;TextLineAlterer&gt;(
-			<BR> &nbsp; &nbsp;
-			numToAdd_toDefaultMapSize + {@link #getMap(CodeletType) getMap}(needed_defaultAlterType).size()))</CODE>
+		@param  numToAdd_toDefaultMapSize  <i>Should</i> be greater than zero.
+		@return  <code>(new {@link ArrayList#ArrayList(int) ArrayList}&lt;TextLineAlterer&gt;(
+			<br/> &nbsp; &nbsp;
+			numToAdd_toDefaultMapSize + {@link #getMap(CodeletType) getMap}(needed_defaultAlterType).size()))</code>
 		@exception  IllegalArgumentException  If {@code numToAdd_toDefaultMapSize} results in an initial capacity that is negative.
 		@exception  DefaultAlterGetterException  If anything goes wrong when attempting to retrieve the map or its size.
 	 **/
@@ -112,21 +112,21 @@ public class DefaultAlterGetterUtil  {
 		}
 	}
 	/**
-		<P>Creates a new line-alter array with all defaults.</P>
+		<p>Creates a new line-alter array with all defaults.</p>
 
-		@return  <CODE>{@link #getAlterArrayWithDefaultAlterersAdded(CodeletType, List) getAlterArrayWithDefaultAlterersAdded}(needed_defaultAlterType,
-		<BR> &nbsp; &nbsp; new {@link ArrayList#ArrayList(int) ArrayList}&lt;TextLineAlterer&gt;({@link #getMap(CodeletType) getMap}(needed_defaultAlterType).size()))</CODE>
+		@return  <code>{@link #getAlterArrayWithDefaultAlterersAdded(CodeletType, List) getAlterArrayWithDefaultAlterersAdded}(needed_defaultAlterType,
+		<br/> &nbsp; &nbsp; new {@link ArrayList#ArrayList(int) ArrayList}&lt;TextLineAlterer&gt;({@link #getMap(CodeletType) getMap}(needed_defaultAlterType).size()))</code>
 	 **/
 	public static final TextLineAlterer[] getDefaultAlterArray(CodeletType needed_defaultAlterType)  {
 		return  getAlterArrayWithDefaultAlterersAdded(needed_defaultAlterType,
 			new ArrayList<TextLineAlterer>(getMap(needed_defaultAlterType).size()));
 	}
 	/**
-		<P>Creates a new line-alter array with all default alterers placed after the provided alterer.</P>
+		<p>Creates a new line-alter array with all default alterers placed after the provided alterer.</p>
 
-		@return  <CODE>{@link #getAlterArrayWithDefaultAlterersAdded(CodeletType, List) getAlterArrayWithDefaultAlterersAdded}(needed_defaultAlterType,
-		<BR> &nbsp; &nbsp; new {@link ArrayList#ArrayList(Collection) ArrayList}&lt;TextLineAlterer&gt;(
-		<BR> &nbsp; &nbsp; &nbsp; &nbsp; {@link java.util.Arrays}.<!-- GENERIC PARAMETERS FAIL IN @link --><A HREF="http://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html#asList(T)">asList</A>(new TextLineAlterer[]{the_onlyAlterer})))</CODE>
+		@return  <code>{@link #getAlterArrayWithDefaultAlterersAdded(CodeletType, List) getAlterArrayWithDefaultAlterersAdded}(needed_defaultAlterType,
+		<br/> &nbsp; &nbsp; new {@link ArrayList#ArrayList(Collection) ArrayList}&lt;TextLineAlterer&gt;(
+		<br/> &nbsp; &nbsp; &nbsp; &nbsp; {@link java.util.Arrays}.<!-- GENERIC PARAMETERS FAIL IN @link --><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html#asList(T)">asList</a>(new TextLineAlterer[]{the_onlyAlterer})))</code>
 	 **/
 	public static final TextLineAlterer[] getAlterArrayWithDefaultAlterersAdded(CodeletType needed_defaultAlterType, TextLineAlterer the_onlyAlterer)  {
 		return  getAlterArrayWithDefaultAlterersAdded(needed_defaultAlterType,
@@ -134,7 +134,7 @@ public class DefaultAlterGetterUtil  {
 				Arrays.asList(new TextLineAlterer[]{the_onlyAlterer})));
 	}
 	/**
-		<P>Creates a new line-alter array with all default alterers placed after all provided alterers.</P>
+		<p>Creates a new line-alter array with all default alterers placed after all provided alterers.</p>
 
 		@param  needed_defaultAlterType  May not be {@code null}.
 		@param  alter_list  May not be {@code null}, but may be empty or contain {@code null} elements.

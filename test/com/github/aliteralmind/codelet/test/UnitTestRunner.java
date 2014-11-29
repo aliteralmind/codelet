@@ -3,9 +3,9 @@ package  com.github.aliteralmind.codelet.test;
 	import  org.junit.runner.Result;
 	import  org.junit.runner.notification.Failure;
 /**
-	<P>Run all unit tests in the project.</P>
+	<p>Run all unit tests in the project.</p>
 
-	<P>{@code java com.github.aliteralmind.codelet.test.UnitTestRunner}</P>
+	<p>{@code java com.github.aliteralmind.codelet.test.UnitTestRunner}</p>
  **/
 public class UnitTestRunner  {
     public static void main(String[] as_cmdLineArgs) {

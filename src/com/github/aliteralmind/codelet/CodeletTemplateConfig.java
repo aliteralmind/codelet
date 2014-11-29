@@ -33,10 +33,10 @@ package  com.github.aliteralmind.codelet;
 	import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 	import  static com.github.xbn.lang.XbnConstants.*;
 /**
-	<P>Loads and manages default templates and user-extra gaps. Loading is executed by {@link com.github.aliteralmind.codelet.CodeletBootstrap}.</P>
+	<p>Loads and manages default templates and user-extra gaps. Loading is executed by {@link com.github.aliteralmind.codelet.CodeletBootstrap}.</p>
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public enum CodeletTemplateConfig  {
 	INSTANCE;
@@ -47,15 +47,15 @@ public enum CodeletTemplateConfig  {
 	private static FileTextTemplate     defaultFileTextletTmpl;
 	private static UserExtraGapGetter   xtraGapGetter         ;
 	/**
-		<P>Load configuration and return theh instance. Call only once.</P>
+		<p>Load configuration and return theh instance. Call only once.</p>
 
 		@return  #INSTANCE
 		@exception  IllegalStateException  If
-		<BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.CodeletBaseConfig CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#wasLoaded() wasLoaded}</CODE>
-		<BR>is {@code false}, or {@link #wasLoaded() wasLoaded}{@code ()} is {@code true}.
+		<br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.CodeletBaseConfig CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#wasLoaded() wasLoaded}</code>
+		<br/>is {@code false}, or {@link #wasLoaded() wasLoaded}{@code ()} is {@code true}.
 		@exception  ClassNotFoundException  If
-		<BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.CodeletBaseConfig CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getUserExtraGapsClassName() getUserExtraGapsClassName}()</CODE>
-		<BR>is non-empty, but does not represent an existing class.
+		<br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.CodeletBaseConfig CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getUserExtraGapsClassName() getUserExtraGapsClassName}()</code>
+		<br/>is non-empty, but does not represent an existing class.
 		@exception  ClassCastException  If the class exists, but is not a {@link com.github.aliteralmind.codelet.UserExtraGapGetter}.
 		@see  com.github.xbn.util.PropertiesUtil
 	 **/
@@ -110,7 +110,7 @@ public enum CodeletTemplateConfig  {
 		return  INSTANCE;
 	}
 	/**
-		<P>Was configuration loaded?.</P>
+		<p>Was configuration loaded?.</p>
 
 		@return  {@code true} If all values loaded successfully.
 		@see  #loadConfigGetInstance()
@@ -119,7 +119,7 @@ public enum CodeletTemplateConfig  {
 		return  wasLoaded;
 	}
 	/**
-		<P>The path to the default template used for (source-code) {@code {@.codelet}} taglets.</P>
+		<p>The path to the default template used for (source-code) {@code {@.codelet}} taglets.</p>
 
 		@see  com.github.aliteralmind.codelet.CodeletBaseConfig#DEFAULT_SRC_CODE_TMPL_PATH
 	 **/
@@ -127,7 +127,7 @@ public enum CodeletTemplateConfig  {
 		return  defaultCodeletTmpl;
 	}
 	/**
-		<P>The path to the default template used for {@code {@.codelet.out}} taglets.</P>
+		<p>The path to the default template used for {@code {@.codelet.out}} taglets.</p>
 
 		@see  com.github.aliteralmind.codelet.CodeletBaseConfig#DEFAULT_DOT_OUT_TMPL_PATH
 	 **/
@@ -135,7 +135,7 @@ public enum CodeletTemplateConfig  {
 		return  defaultConsoleOutTmpl;
 	}
 	/**
-		<P>The path to the default template used for {@code {@.codelet.and.out}} taglets.</P>
+		<p>The path to the default template used for {@code {@.codelet.and.out}} taglets.</p>
 
 		@see  com.github.aliteralmind.codelet.CodeletBaseConfig#DEFAULT_AND_OUT_TMPL_PATH
 	 **/
@@ -143,7 +143,7 @@ public enum CodeletTemplateConfig  {
 		return  defaultSrcAndOutTmpl;
 	}
 	/**
-		<P>The path to the default template used for {@code {@.file.textlet}} taglets.</P>
+		<p>The path to the default template used for {@code {@.file.textlet}} taglets.</p>
 
 		@see  com.github.aliteralmind.codelet.CodeletBaseConfig#DEFAULT_FILE_TEXT_TMPL_PATH
 	 **/
@@ -151,7 +151,7 @@ public enum CodeletTemplateConfig  {
 		return  defaultFileTextletTmpl;
 	}
 	/**
-		<P>The class that defines extra gaps that can be placed in Codelet templates.</P>
+		<p>The class that defines extra gaps that can be placed in Codelet templates.</p>
 
 		@see  com.github.aliteralmind.codelet.CodeletBaseConfig#USER_EXTRA_GAPS_CLASS_NAME
 	 **/

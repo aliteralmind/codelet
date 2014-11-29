@@ -1,4 +1,4 @@
 /**
-	<P>Main package.</P>
+	<p>Main package.</p>
  **/
 package  com.github.aliteralmind.codelet;

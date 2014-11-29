@@ -29,10 +29,10 @@ package  com.github.aliteralmind.codelet.util;
 	import  java.nio.file.Paths;
 	import  java.util.Iterator;
 /**
-   <P>Given a base directory and fully-qualified class name, get a {@link java.nio.file.Path}, {@link org.apache.commons.io.LineIterator}, or {@link java.io.PrintWriter} to its source code, class file, or JavaDoc html file. The fully-qualified class name may or may not represent an actually-existing class (as determined by {@code Class.forName(s)}).</P>
+   <p>Given a base directory and fully-qualified class name, get a {@link java.nio.file.Path}, {@link org.apache.commons.io.LineIterator}, or {@link java.io.PrintWriter} to its source code, class file, or JavaDoc html file. The fully-qualified class name may or may not represent an actually-existing class (as determined by {@code Class.forName(s)}).</p>
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class FQClassNameWithBaseDir implements Copyable  {
 	private final String       baseDir   ;
@@ -56,18 +56,18 @@ public class FQClassNameWithBaseDir implements Copyable  {
 		javaPath = Paths.get(path);
 	}
 	/**
-		<P>Create a new instance as a duplicate of another.</P>
+		<p>Create a new instance as a duplicate of another.</p>
 
-		@param  to_copy  May not be <CODE>null</CODE>.
+		@param  to_copy  May not be <code>null</code>.
 		@see  #getObjectCopy()
 	 **/
 	public FQClassNameWithBaseDir(FQClassNameWithBaseDir to_copy)  {
 		this(to_copy, null, null, null);
 	}
 	/**
-		<P>Create a new instance as a duplicate of another.</P>
+		<p>Create a new instance as a duplicate of another.</p>
 
-		@param  to_copy  May not be <CODE>null</CODE>.
+		@param  to_copy  May not be <code>null</code>.
 		@see  #getObjectCopy()
 	 **/
 	public FQClassNameWithBaseDir(FQClassNameWithBaseDir to_copy, String baseDir_override, String fqClsName_override, String dotXtnsn_override)  {
@@ -127,9 +127,9 @@ public class FQClassNameWithBaseDir implements Copyable  {
 		return  "base=" + getBaseDirectory() + ", class=" + getClassName() + ", dot-extension=" + getDotPlusExtension() + ", absolute=" + getPath().toAbsolutePath();
 	}
 	/**
-		<P>Get a duplicate of this <CODE>FQClassNameWithBaseDir</CODE>.</P>
+		<p>Get a duplicate of this <code>FQClassNameWithBaseDir</code>.</p>
 
-		@return  <CODE>(new <A HREF="#FQClassNameWithBaseDir(FQClassNameWithBaseDir)">FQClassNameWithBaseDir</A>(this))</CODE>
+		@return  <code>(new <a href="#FQClassNameWithBaseDir(FQClassNameWithBaseDir)">FQClassNameWithBaseDir</a>(this))</code>
 	 **/
 	public FQClassNameWithBaseDir getObjectCopy()  {
 		return  (new FQClassNameWithBaseDir(this));

@@ -25,19 +25,19 @@ package  com.github.aliteralmind.codelet.type;
 	import  java.util.TreeMap;
 	import  static com.github.xbn.lang.XbnConstants.*;
 /**
-	<P>The text into which {@code {@.file.textlet}} output (the example-code's console output) is placed.</P>
+	<p>The text into which {@code {@.file.textlet}} output (the example-code's console output) is placed.</p>
 
-	<A NAME="gaps"></A><H2><A HREF="{@docRoot}/com/github/aliteralmind.codelet/CodeletTemplateBase.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: {@code {@.file.textlet}}: Template: <U>Gap names</U></H2>
+	<A NAME="gaps"></a><h2><a href="{@docRoot}/com/github/aliteralmind.codelet/CodeletTemplateBase.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: {@code {@.file.textlet}}: Template: <u>Gap names</u></h2>
 
-	<P>The only required gap is &quot;{@link com.github.aliteralmind.codelet.type.OnlyOneBodyGapTemplateBase#BODY_GAP_NAME body}&quot;, which is where the fully-processed source-code is placed.</P>
+	<p>The only required gap is &quot;{@link com.github.aliteralmind.codelet.type.OnlyOneBodyGapTemplateBase#BODY_GAP_NAME body}&quot;, which is where the fully-processed source-code is placed.</p>
 
-	<P>In addition to any {@linkplain com.github.aliteralmind.codelet.UserExtraGapGetter#getForFileTextlet() user-extra} gaps, the {@code {@.codelet}} template also provides for the following &quot;default&quot; optional gaps:</P>
+	<p>In addition to any {@linkplain com.github.aliteralmind.codelet.UserExtraGapGetter#getForFileTextlet() user-extra} gaps, the {@code {@.codelet}} template also provides for the following &quot;default&quot; optional gaps:</p>
 
-	<A NAME="gaps"></A><P><A HREF="SourceCodeTemplate.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; <B>Url-related:</B></P>
+	<A NAME="gaps"></a><p><a href="SourceCodeTemplate.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; <b>Url-related:</b></p>
 
-	<P><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
-		<TD><B><U>Name</U></B></TD>
-		<TD><B><U>Description</U></B></TD>
+	<p><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
+		<TD><b><u>Name</u></b></TD>
+		<TD><b><u>Description</u></b></TD>
 	</TR><TR>
 		<TD>{@link #GAP_REL_PATH_AS_URL rel_path_url}</TD>
 		<TD>The file's relative url-path, as it exists in the base url.</TD>
@@ -47,13 +47,13 @@ package  com.github.aliteralmind.codelet.type;
 	</TR><TR>
 		<TD>{@link #GAP_REL_DIR_AS_URL relative_dir_as_url}</TD>
 		<TD>The example code's relative_dir, with file-separators replaced by url-slashes ({@code '/'}).</TD>
-	</TR></TABLE></P>
+	</TR></TABLE></p>
 
-	<A NAME="gaps"></A><P><A HREF="SourceCodeTemplate.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; <B>Non-url related:</B></P>
+	<A NAME="gaps"></a><p><a href="SourceCodeTemplate.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; <b>Non-url related:</b></p>
 
-	<P><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
-		<TD><B><U>Name</U></B></TD>
-		<TD><B><U>Description</U></B></TD>
+	<p><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
+		<TD><b><u>Name</u></b></TD>
+		<TD><b><u>Description</u></b></TD>
 	</TR><TR>
 		<TD>{@link #GAP_PATH path}</TD>
 		<TD>The absolute on-disk path to the file.</TD>
@@ -72,50 +72,50 @@ package  com.github.aliteralmind.codelet.type;
 	</TR><TR>
 		<TD>{@link #GAP_RELATIVE_DIR relative_dir}</TD>
 		<TD>The example code's relative directory, as it exists in the absolute path.</TD>
-	</TR></TABLE></P>
+	</TR></TABLE></p>
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class FileTextTemplate extends OnlyOneBodyGapTemplateBase  {
 	/**
-		<P>The absolute on-disk path to the file--Gap name is {@code "path"}.</P>
+		<p>The absolute on-disk path to the file--Gap name is {@code "path"}.</p>
 
-		<P>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</P>
+		<p>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</p>
 
-		<P><CODE>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getFilePath(CodeletInstance) getFilePath}(<I>[the-instance]</I>)</CODE></P>
+		<p><code>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getFilePath(CodeletInstance) getFilePath}(<i>[the-instance]</i>)</code></p>
 
 		@see  #GAP_BASE_DIR
 		@see  #GAP_RELATIVE_PATH
 	 **/
 	public static final CodeletGap GAP_PATH = new FilePathGap();
 	/**
-		<P>The on-disk path that is prepended to the file's relative path--Gap name is {@code "base_dir"}.</P>
+		<p>The on-disk path that is prepended to the file's relative path--Gap name is {@code "base_dir"}.</p>
 
-		<P>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</P>
+		<p>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</p>
 
-		<P><CODE>{@link com.github.aliteralmind.codelet.CodeletBaseConfig CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#INSTANCE INSTANCE}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getExampleSourceBaseDir() getExampleSourceBaseDir}()</CODE></P>
+		<p><code>{@link com.github.aliteralmind.codelet.CodeletBaseConfig CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#INSTANCE INSTANCE}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getExampleSourceBaseDir() getExampleSourceBaseDir}()</code></p>
 
 		@see  #GAP_PATH
 	 **/
 	public static final CodeletGap GAP_BASE_DIR = new FileBaseDirGap();
 	/**
-		<P>The name of the file, without its dot-extension (such as {@code ".txt"})--Gap name is {@code "file_name_no_ext"}.</P>
+		<p>The name of the file, without its dot-extension (such as {@code ".txt"})--Gap name is {@code "file_name_no_ext"}.</p>
 
-		<P>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</P>
+		<p>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</p>
 
-		<P><CODE>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getFileNameWithoutExtension(CodeletInstance) getFileNameWithoutExtension}(<I>[the-instance]</I>)</CODE></P>
+		<p><code>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getFileNameWithoutExtension(CodeletInstance) getFileNameWithoutExtension}(<i>[the-instance]</i>)</code></p>
 
 		@see  #GAP_FILE_NAME_WITH_EXT
 		@see  #GAP_RELATIVE_PATH
 	 **/
 	public static final CodeletGap GAP_FILE_NAME_NO_EXT = new FileNameNoExtGap();
 	/**
-		<P>The name of the file, including its dot-extension (such as {@code ".txt"})--Gap name is {@code "file_name"}.</P>
+		<p>The name of the file, including its dot-extension (such as {@code ".txt"})--Gap name is {@code "file_name"}.</p>
 
-		<P>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</P>
+		<p>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</p>
 
-		<P><CODE>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getFileNameWithExtension(CodeletInstance) getFileNameWithExtension}(<I>[the-instance]</I>)</CODE></P>
+		<p><code>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getFileNameWithExtension(CodeletInstance) getFileNameWithExtension}(<i>[the-instance]</i>)</code></p>
 
 		@see  #GAP_RELATIVE_PATH
 		@see  #GAP_REL_PATH_AS_URL
@@ -123,37 +123,37 @@ public class FileTextTemplate extends OnlyOneBodyGapTemplateBase  {
 	 **/
 	public static final CodeletGap GAP_FILE_NAME_WITH_EXT = new FileNameWithExtGap();
 	/**
-		<P>The file's relative url-path, as it exists in the base url--Gap name is {@code "rel_path_url"}..</P>
+		<p>The file's relative url-path, as it exists in the base url--Gap name is {@code "rel_path_url"}..</p>
 
-		<P>Example input:<OL>
-			<LI>Example code's {@linkplain com.github.aliteralmind.codelet.TagletTextUtil#getExampleClassFQName(CodeletInstance) fully-qualified class name}: {@code "fully.qualified.examples.AnExample"}</LI>
-		</OL></P>
+		<p>Example input:<ol>
+			<li>Example code's {@linkplain com.github.aliteralmind.codelet.TagletTextUtil#getExampleClassFQName(CodeletInstance) fully-qualified class name}: {@code "fully.qualified.examples.AnExample"}</li>
+		</ol></p>
 
-		<P>{@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) Output}:</P>
+		<p>{@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) Output}:</p>
 
-		<P>{@code "fully/qualified/examples/AnExample"}</P>
+		<p>{@code "fully/qualified/examples/AnExample"}</p>
 
-		<P>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</P>
+		<p>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</p>
 
-		<P><CODE>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getExampleClassFQName(CodeletInstance) getExampleClassFQName}(<I>[the-instance]</I>).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, &quot;/&quot;)</CODE></P>
+		<p><code>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getExampleClassFQName(CodeletInstance) getExampleClassFQName}(<i>[the-instance]</i>).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, &quot;/&quot;)</code></p>
 
 		@see  #GAP_URL
 	 **/
 	public static final CodeletGap GAP_REL_PATH_AS_URL = new RelPathAsUrlGap();
 	/**
-		<P>The example's path as it exists in the base directory--Gap name is {@code "file_name_dir"}.</P>
+		<p>The example's path as it exists in the base directory--Gap name is {@code "file_name_dir"}.</p>
 
-		<P>Example input:<OL>
-			<LI>Example code's {@linkplain com.github.aliteralmind.codelet.TagletTextUtil#getExampleClassFQName(CodeletInstance) fully-qualified class name}: {@code "fully.qualified.examples.AnExample"}</LI>
-		</OL></P>
+		<p>Example input:<ol>
+			<li>Example code's {@linkplain com.github.aliteralmind.codelet.TagletTextUtil#getExampleClassFQName(CodeletInstance) fully-qualified class name}: {@code "fully.qualified.examples.AnExample"}</li>
+		</ol></p>
 
-		<P>{@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) Output} (assuming Microsoft Windows):</P>
+		<p>{@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) Output} (assuming Microsoft Windows):</p>
 
-		<P>{@code "fully\qualified\examples\AnExample"}</P>
+		<p>{@code "fully\qualified\examples\AnExample"}</p>
 
-		<P>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</P>
+		<p>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</p>
 
-		<P><CODE>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getExampleClassFQName(CodeletInstance) getExampleClassFQName}(<I>[the-instance]</I>).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, {@link com.github.xbn.lang.XbnConstants#FILE_SEP FILE_SEP}*)</CODE></P>
+		<p><code>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getExampleClassFQName(CodeletInstance) getExampleClassFQName}(<i>[the-instance]</i>).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, {@link com.github.xbn.lang.XbnConstants#FILE_SEP FILE_SEP}*)</code></p>
 
 		@see  #GAP_PATH
 		@see  #GAP_REL_PATH_AS_URL
@@ -161,41 +161,41 @@ public class FileTextTemplate extends OnlyOneBodyGapTemplateBase  {
 	 **/
 	public static final CodeletGap GAP_RELATIVE_PATH = new RelativeDirGap();
 	/**
-		<P>The absolute url to the example code's source file, as exists somewhere in the JavaDoc output directory ({@code {@docRoot}})--Gap name is {@code "javadoc_path_url"}.</P>
+		<p>The absolute url to the example code's source file, as exists somewhere in the JavaDoc output directory ({@code {@docRoot}})--Gap name is {@code "javadoc_path_url"}.</p>
 
-		<P>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</P>
+		<p>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</p>
 
-		<P><CODE>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getJavaDocSourceUrl(CodeletInstance) getJavaDocSourceUrl}(<I>[the-instance]</I>)</CODE></P>
+		<p><code>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getJavaDocSourceUrl(CodeletInstance) getJavaDocSourceUrl}(<i>[the-instance]</i>)</code></p>
 	 **/
 	public static final CodeletGap GAP_URL = new JavaDocFileUrlGap();
 	/**
-		<P>The example code's relative directory, as it exists in the absolute path--Gap name is {@code "relative_dir"}.</P>
+		<p>The example code's relative directory, as it exists in the absolute path--Gap name is {@code "relative_dir"}.</p>
 
-		<P>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</P>
+		<p>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</p>
 
-		<P><CODE>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getFilePath(CodeletInstance) getFilePath}(<I>[the-instance]</I>)</CODE></P>
+		<p><code>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getFilePath(CodeletInstance) getFilePath}(<i>[the-instance]</i>)</code></p>
 
 		@see  #GAP_PATH
 		@see  #GAP_REL_DIR_AS_URL
 	 **/
 	public static final CodeletGap GAP_RELATIVE_DIR = new RelDirGap();
 	/**
-		<P>The example code's relative_dir, with file-separators replaced by url-slashes ({@code '/'})--Gap name is {@code "relative_dir_as_url"}.</P>
+		<p>The example code's relative_dir, with file-separators replaced by url-slashes ({@code '/'})--Gap name is {@code "relative_dir_as_url"}.</p>
 
-		<P>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</P>
+		<p>Gap is {@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) filled} with</p>
 
-		<P><CODE>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getFilePath(CodeletInstance) getFilePath}(<I>[the-instance]</I>).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, &quot;/&quot;)</CODE></P>
+		<p><code>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getFilePath(CodeletInstance) getFilePath}(<i>[the-instance]</i>).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, &quot;/&quot;)</code></p>
 
 		@see  #GAP_RELATIVE_DIR
 	 **/
 	public static final CodeletGap GAP_REL_DIR_AS_URL = new RelDirAsUrlGap();
 
 	/**
-		<P>Create the first instance.</P>
+		<p>Create the first instance.</p>
 
-		<P>Equal to</P>
+		<p>Equal to</p>
 
-<BLOCKQUOTE><PRE>
+<blockquote><pre>
 {@link com.github.aliteralmind.codelet.type.OnlyOneBodyGapTemplateBase#OnlyOneBodyGapTemplateBase(CodeletType, FeatherTemplate, String, CodeletGap[], UserExtraGapGetter) super}({@link com.github.aliteralmind.codelet.CodeletType CodeletType}.{@link com.github.aliteralmind.codelet.CodeletType#FILE_TEXT FILE_TEXT}, template, tmpl_path,
    new CodeletGap[] {
       {@link #GAP_PATH},
@@ -208,7 +208,7 @@ public class FileTextTemplate extends OnlyOneBodyGapTemplateBase  {
       {@link #GAP_RELATIVE_DIR},
       {@link #GAP_REL_DIR_AS_URL}},
    userExtra_getter)
-</PRE></BLOCKQUOTE>
+</pre></blockquote>
 
 		@see  #FileTextTemplate(FileTextTemplate, FeatherTemplate, String)
 	 **/
@@ -227,11 +227,11 @@ public class FileTextTemplate extends OnlyOneBodyGapTemplateBase  {
 			userExtra_getter);
 	}
 	/**
-		<P>Create the second or subsequent instance.</P>
+		<p>Create the second or subsequent instance.</p>
 
-		<P>Equal to</P>
+		<p>Equal to</p>
 
-<BLOCKQUOTE><PRE>{@link com.github.aliteralmind.codelet.type.OnlyOneBodyGapTemplateBase#OnlyOneBodyGapTemplateBase(OnlyOneBodyGapTemplateBase, FeatherTemplate, String) super}(to_copy, template, tmpl_path)</PRE></BLOCKQUOTE>
+<blockquote><pre>{@link com.github.aliteralmind.codelet.type.OnlyOneBodyGapTemplateBase#OnlyOneBodyGapTemplateBase(OnlyOneBodyGapTemplateBase, FeatherTemplate, String) super}(to_copy, template, tmpl_path)</pre></blockquote>
 
 		@see  #FileTextTemplate(FeatherTemplate, String, UserExtraGapGetter)
 	 **/
@@ -246,9 +246,9 @@ public class FileTextTemplate extends OnlyOneBodyGapTemplateBase  {
 		return  this;
 	}
 	/**
-		<P>Duplicate this template.</P>
+		<p>Duplicate this template.</p>
 
-		@return  <CODE>(new {@link #FileTextTemplate(FileTextTemplate, Appendable) FileTextTemplate}(this, debugDest_ifNonNull))</CODE>
+		@return  <code>(new {@link #FileTextTemplate(FileTextTemplate, Appendable) FileTextTemplate}(this, debugDest_ifNonNull))</code>
 	 **/
 	public FileTextTemplate getObjectCopy(Appendable debugDest_ifNonNull)  {
 		return  (new FileTextTemplate(this, debugDest_ifNonNull));

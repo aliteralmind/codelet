@@ -34,16 +34,16 @@ package  com.github.aliteralmind.codelet;
 	import  java.util.TreeMap;
 	import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 /**
-   <P>What the fully-processed output (source-code, console output, or plain-file text) is put into--The rendered template is what actually replaces the codelet-taglet.</P>
+   <p>What the fully-processed output (source-code, console output, or plain-file text) is put into--The rendered template is what actually replaces the codelet-taglet.</p>
 
-	<H2><A HREF="{@docRoot}/overview-summary.html#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Codelet: <U>Templates: Overview</U></H2>
+	<h2><a href="{@docRoot}/overview-summary.html#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: <u>Templates: Overview</u></h2>
 
-	<P>Codelet templates have one or two required &quot;body&quot; gaps, where the fully-processed text (source-code, console output, or plain-file text) is placed. The {@code {@codelet.and.out}} template has two body gaps, the rest have one. Each template type defines &quot;<B>optional-default</B>&quot; gaps, which you may place in your templates at your discretion. &quot;<B>Extra user-created</B>&quot; gaps are permitted if {@linkplain CodeletBaseConfig#USER_EXTRA_GAPS_CLASS_NAME explicitely configured}.</P>
+	<p>Codelet templates have one or two required &quot;body&quot; gaps, where the fully-processed text (source-code, console output, or plain-file text) is placed. The {@code {@codelet.and.out}} template has two body gaps, the rest have one. Each template type defines &quot;<b>optional-default</b>&quot; gaps, which you may place in your templates at your discretion. &quot;<b>Extra user-created</b>&quot; gaps are permitted if {@linkplain CodeletBaseConfig#USER_EXTRA_GAPS_CLASS_NAME explicitely configured}.</p>
 
-	<P><I>All gaps, in all Codelet templates (including user-created), are automatically {@linkplain CodeletGap#getFillText(CodeletInstance) filled}.</I></P>
+	<p><i>All gaps, in all Codelet templates (including user-created), are automatically {@linkplain CodeletGap#getFillText(CodeletInstance) filled}.</i></p>
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public abstract class CodeletTemplateBase extends SimpleDebuggable  {
 	private final CodeletType            type            ;
@@ -51,19 +51,19 @@ public abstract class CodeletTemplateBase extends SimpleDebuggable  {
 	private final String                 tmplPath        ;
 	private final Map<String,CodeletGap> allNonBodyGapMap;
 	/**
-		<P>Create the first instance only. To avoid circular dependencies, this class cannot have any references to {@link com.github.aliteralmind.codelet.CodeletBaseConfig}.</P>
+		<p>Create the first instance only. To avoid circular dependencies, this class cannot have any references to {@link com.github.aliteralmind.codelet.CodeletBaseConfig}.</p>
 
 		@param  type  May not be {@code null}. Get with {@link #getType() getType}{@code ()}.
 		@param  template  May not be {@code null}, must be {@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#isResettable() resettable}, and must contain all body gaps, and no gaps that are not either optional-default or user-extra. This is duplicated (defensively copied). Get with {@link #getTemplate() getTemplate}{@code ()}.
 		@param  tmpl_path  The full path to the template file. May not be {@code null} or empty. Get with {@link #getPath() getPath}{@code ()}
 		@param  required_bodyGapNames  The one or two required body-gap names.
 		@param  optional_defaultGaps  The optional-default gaps for the codelet type. May not be {@code null} or contain {@code null} elements, and all gap {@linkplain com.github.xbn.keyed.Named#getName() names} must be unique.
-		@param  userExtra_gapGetter  Extra user-configured gaps. If {@code null}, there are no extra. Otherwise, the gaps its function (of type {@code type}) returns may not be {@code null} or contain {@code null} elements, and all gap names must be unique <I>and not equal to the body gaps or those in {@code optional_defaultGaps}</I>.
-		@exception  IncorrectGapsException  If<UL>
-			<LI>The length of {@code required_bodyGapNames} is invalid</LI>
-			<LI>The user-extra gaps contain a body or optional-default gap</LI>
-			<LI>The template is missing a body gap or contains any not in either the optional-defaults or user-extra</LI>
-		</UL></LI>
+		@param  userExtra_gapGetter  Extra user-configured gaps. If {@code null}, there are no extra. Otherwise, the gaps its function (of type {@code type}) returns may not be {@code null} or contain {@code null} elements, and all gap names must be unique <i>and not equal to the body gaps or those in {@code optional_defaultGaps}</i>.
+		@exception  IncorrectGapsException  If<ul>
+			<li>The length of {@code required_bodyGapNames} is invalid</li>
+			<li>The user-extra gaps contain a body or optional-default gap</li>
+			<li>The template is missing a body gap or contains any not in either the optional-defaults or user-extra</li>
+		</ul></li>
 		@exception  IllegalArgumentException  If the {@code userExtra_gapGetter} function of type {@code type} returns {@code null}.
 		@see  #CodeletTemplateBase(CodeletTemplateBase, FeatherTemplate, String)
 		@see  #CodeletTemplateBase(CodeletTemplateBase, Appendable)
@@ -137,11 +137,11 @@ public abstract class CodeletTemplateBase extends SimpleDebuggable  {
 		}
 	}
 	/**
-		<P>Create the second or subsequent instance.</P>
+		<p>Create the second or subsequent instance.</p>
 
-		<H4>Automated {@linkplain CodeletBootstrap#CODELET_RQD_NAMED_DBGRS_CONFIG_FILE named debuggers}</H4>
+		<h4>Automated {@linkplain CodeletBootstrap#CODELET_RQD_NAMED_DBGRS_CONFIG_FILE named debuggers}</h4>
 
-		<P>{@code zzCodeletTemplateBase.templateparseandfill}: <CODE>{@link com.github.aliteralmind.templatefeather.FeatherTemplate}.</CODE>{@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#FeatherTemplate(FeatherTemplate, Appendable) constructor}</P>
+		<p>{@code zzCodeletTemplateBase.templateparseandfill}: <code>{@link com.github.aliteralmind.templatefeather.FeatherTemplate}.</code>{@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#FeatherTemplate(FeatherTemplate, Appendable) constructor}</p>
 
 		@param  to_copy  May not be {@code null}.
 		@param  template  May not be {@code null}, must have all body gaps, and may not have any gaps that are not either optional-default or user-extra. This is duplicated (defensively copied). Get with {@link #getTemplate() getTemplate}{@code ()}.
@@ -169,12 +169,12 @@ public abstract class CodeletTemplateBase extends SimpleDebuggable  {
 		tmplPath = tmpl_path;
 	}
 	/**
-		<P>Create a new instance as a duplicate of another.</P>
+		<p>Create a new instance as a duplicate of another.</p>
 
-		<P>This calls<OL>
-			<LI>{@link #CodeletTemplateBase(CodeletTemplateBase, FeatherTemplate, String) this}(to_copy, to_copy.getTemplate(), to_copy.getPath())</LI>
-			<LI>{@link com.github.xbn.io.SimpleDebuggable#onIfNonNull(Appendable) onIfNonNull}{@code (debugDest_ifNonNull)}</LI>
-		</OL></P>
+		<p>This calls<ol>
+			<li>{@link #CodeletTemplateBase(CodeletTemplateBase, FeatherTemplate, String) this}(to_copy, to_copy.getTemplate(), to_copy.getPath())</li>
+			<li>{@link com.github.xbn.io.SimpleDebuggable#onIfNonNull(Appendable) onIfNonNull}{@code (debugDest_ifNonNull)}</li>
+		</ol></p>
 	 **/
 	public CodeletTemplateBase(CodeletTemplateBase to_copy, Appendable debugDest_ifNonNull)  {
 		this(to_copy,
@@ -184,7 +184,7 @@ public abstract class CodeletTemplateBase extends SimpleDebuggable  {
 	}
 
 	/**
-		<P>The type of this template.</P>
+		<p>The type of this template.</p>
 
 		@see  #CodeletTemplateBase(CodeletType, FeatherTemplate, String, String[], CodeletGap[], UserExtraGapGetter)
 	 **/
@@ -192,11 +192,11 @@ public abstract class CodeletTemplateBase extends SimpleDebuggable  {
 		return  type;
 	}
 	/**
-		<P>Fill a body gap.</P>
+		<p>Fill a body gap.</p>
 
-		<P>Equal to</P>
+		<p>Equal to</p>
 
-		<P><CODE>{@link #getTemplate() getTemplate}().{@link com.github.aliteralmind.templatefeather.FeatherTemplate#fill(String, Object) fill}(body_gapName, fill_with)</CODE></P>
+		<p><code>{@link #getTemplate() getTemplate}().{@link com.github.aliteralmind.templatefeather.FeatherTemplate#fill(String, Object) fill}(body_gapName, fill_with)</code></p>
 
 		@param  body_gapName  The body gap name. Must not have already been filled.
 		@param  body_text  May not be {@code null} or empty.
@@ -206,7 +206,7 @@ public abstract class CodeletTemplateBase extends SimpleDebuggable  {
 		getTemplate().fill(body_gapName, body_text);
 	}
 	/**
-		<P>ReplacedInEachInput all default-optional and user-extra gaps with their values, resets the template, and returns its fully-rendered text--This is what actually replaces the codelet-taglet.</P>
+		<p>ReplacedInEachInput all default-optional and user-extra gaps with their values, resets the template, and returns its fully-rendered text--This is what actually replaces the codelet-taglet.</p>
 
 		@param  instance  May not be {@code null}.
 		@exception  IllegalArgumentException  If any gaps are already filled, or if the com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) fill text is {@code null} or empty.
@@ -233,15 +233,15 @@ public abstract class CodeletTemplateBase extends SimpleDebuggable  {
 		return  getTemplate().getFilledAndReset();
 	}
 	/**
-		<P>The number of gaps actually in the template.</P>
+		<p>The number of gaps actually in the template.</p>
 
-		@return  <CODE>{@link #getTemplate() getTemplate}().{@link com.github.aliteralmind.templatefeather.FeatherTemplate#getGapMap() getGapMap}().size()</CODE>
+		@return  <code>{@link #getTemplate() getTemplate}().{@link com.github.aliteralmind.templatefeather.FeatherTemplate#getGapMap() getGapMap}().size()</code>
 	 **/
 	public int getGapCount()  {
 		return  getTemplate().getGapMap().size();
 	}
 	/**
-		<P>The template.</P>
+		<p>The template.</p>
 
 		@see  #getGapCount()
 		@see  #CodeletTemplateBase(CodeletType, FeatherTemplate, String, String[], CodeletGap[], UserExtraGapGetter) CodeletTemplateBase(ct,ft,s,s[],cg[],uxgg)
@@ -254,7 +254,7 @@ public abstract class CodeletTemplateBase extends SimpleDebuggable  {
 	}
 	public abstract CodeletTemplateBase getObjectCopy(Appendable debugDest_ifNonNull);
 	/**
-		<P>Create a new map of all gap objects.</P>
+		<p>Create a new map of all gap objects.</p>
 
 		@param  gap_array  May not be {@code null} or contain {@code null} elements, and all gap {@linkplain com.github.xbn.keyed.Named#getName() names} must be unique.
 		@exception  IllegalArgumentException  If a gap name is used more than once.
@@ -283,10 +283,10 @@ public abstract class CodeletTemplateBase extends SimpleDebuggable  {
 			return  optionalDefault_gapMap;
 		}
 	/**
-		<P>Add custom gaps to the template.</P>
+		<p>Add custom gaps to the template.</p>
 
 		@param  optionalDefault_gapMap  May not be {@code null}, and must contain only the ...default gaps....
-		@param  gap_array  May not be {@code null} or contain {@code null} elements, and all gap {@linkplain com.github.xbn.keyed.Named#getName() names} must be unique <I>and not contain any in {@code optionalDefault_gapMap}.</I>
+		@param  gap_array  May not be {@code null} or contain {@code null} elements, and all gap {@linkplain com.github.xbn.keyed.Named#getName() names} must be unique <i>and not contain any in {@code optionalDefault_gapMap}.</i>
 		@exception  IllegalArgumentException  If {@code gap_array} contains a duplicate or default gap name (or they've already been added to the template!).
 	 **/
 	public static final void addCustomGaps(Map<String,CodeletGap> optionalDefault_gapMap, CodeletGap[] gap_array)  {
@@ -300,14 +300,14 @@ public abstract class CodeletTemplateBase extends SimpleDebuggable  {
 		optionalDefault_gapMap.putAll(optionalDefault_gapMap);
 	}
 	/**
-		<P>Read in and parse a template given its path.</P>
+		<p>Read in and parse a template given its path.</p>
 
-		<H4>Automated {@linkplain CodeletBootstrap#CODELET_RQD_NAMED_DBGRS_CONFIG_FILE named debuggers}</H4>
+		<h4>Automated {@linkplain CodeletBootstrap#CODELET_RQD_NAMED_DBGRS_CONFIG_FILE named debuggers}</h4>
 
-		<P>{@code zzCodeletTemplateBase.newTemplateFromPath.}<UL>
-			<LI>{@code loading}: &quot;Loading template from <I>[path]</I>...&quot;</LI>
-			<LI>{@code templateparseandfill}: <CODE>{@link com.github.aliteralmind.templatefeather.FeatherTemplate}.</CODE>{@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#FeatherTemplate(String, GapCharConfig, Resettable, Appendable) constructor}</LI>
-		</UL></P>
+		<p>{@code zzCodeletTemplateBase.newTemplateFromPath.}<ul>
+			<li>{@code loading}: &quot;Loading template from <i>[path]</i>...&quot;</li>
+			<li>{@code templateparseandfill}: <code>{@link com.github.aliteralmind.templatefeather.FeatherTemplate}.</code>{@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#FeatherTemplate(String, GapCharConfig, Resettable, Appendable) constructor}</li>
+		</ul></p>
 
 		@see  com.github.aliteralmind.codelet.type.SourceCodeTemplate#newFromPathAndUserExtraGaps(String, String, UserExtraGapGetter) SourceCodeTemplate#newFromPathAndUserExtraGaps
 		@see  com.github.aliteralmind.codelet.type.SourceAndOutTemplate#newFromPathAndUserExtraGaps(String, String, UserExtraGapGetter) SourceAndOutTemplate#newFromPathAndUserExtraGaps

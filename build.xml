@@ -208,6 +208,7 @@ To do a full build of Codelet:  ant publish</echo>
 	 	<target name="cpj" description="FOR JEFF EPSTEIN'S USE ONLY. Shortcut for cleanpublish, copyjartoxbnandtmplfeather.">
 	 		<antcall target="cleanpublish"/>
 	 		<antcall target="copyjartoxbnandtmplfeather"/>
+	 		<antcall target="dupbuildtoalit"/>
 	    </target>
 	 	<target name="copyjartoxbnandtmplfeather" description="FOR JEFF EPSTEIN'S USE ONLY: Copies the Codelet 'core' jar to the TemplateFeather and XBN-Java sandbox directories. Old jars are deleted.">
 	 		<property name="xbnjava_jar_dependencies_dir" value="${sandbox.dir}/xbnjava/z_build/jar_dependencies/"/>
@@ -232,11 +233,6 @@ To do a full build of Codelet:  ant publish</echo>
 		<property name="alit_QcurrentQ_dir" value="${alit_dir}current\"/>
 		<property name="alit_curr_version_dir" value="${alit_dir}${project_name_with_version}\"/>
 
-		<target name="pocj"
-					description="FOR JEFF EPSTEIN'S USE ONLY. Shortcut for pubpostcodelet, dupbuildtoalit">
-			<antcall target="pubpostcodelet"/>
-			<antcall target="dupbuildtoalit"/>
-		</target>
 		<target name="dupbuildtoalit"
 					description="FOR JEFF EPSTEIN'S USE ONLY. Copy all files to local aliteralmind.com directory">
 			<echo>Copying current-version redirect</echo>

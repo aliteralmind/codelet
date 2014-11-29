@@ -43,43 +43,43 @@ package  com.github.aliteralmind.codelet;
 	import  java.util.regex.PatternSyntaxException;
 	import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 /**
-   <P>Convenience functions for creating line filters tailored for codelets.</P>
+   <p>Convenience functions for creating line filters tailored for codelets.</p>
 
    @see  com.github.xbn.linefilter.FilteredLineIterator
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class NewLineFilterFor  {
 	/**
-		<P>Eliminates all multi-line comments, including the license and JavaDoc blocks.</P>
+		<p>Eliminates all multi-line comments, including the license and JavaDoc blocks.</p>
 
-		@return  <CODE>{@link #eliminateAllCmtBlocksAndPackageLine(boolean, Appendable, Appendable, boolean, Appendable, Appendable) eliminateAllCmtBlocksAndPackageLine}(false, null, null, true, dbgJavaMlcs_ifNotNull, dbgAllLines_ifNonNull)</CODE>
+		@return  <code>{@link #eliminateAllCmtBlocksAndPackageLine(boolean, Appendable, Appendable, boolean, Appendable, Appendable) eliminateAllCmtBlocksAndPackageLine}(false, null, null, true, dbgJavaMlcs_ifNotNull, dbgAllLines_ifNonNull)</code>
 	 **/
 	public static final FilteredLineIterator eliminateAllMultiLineComments(Appendable dbgJavaMlcs_ifNotNull, Appendable dbgAllLines_ifNonNull)  {
 		return  eliminateAllCmtBlocksAndPackageLine(false, null, null, true, dbgJavaMlcs_ifNotNull, dbgAllLines_ifNonNull);
 	}
 	/**
-		<P>Eliminates the package declaration line.</P>
+		<p>Eliminates the package declaration line.</p>
 
-		@return  <CODE>{@link #eliminateAllCmtBlocksAndPackageLine(boolean, Appendable, Appendable, boolean, Appendable, Appendable) eliminateAllCmtBlocksAndPackageLine}(true, dbgPkgLnValidFilter_ifNonNull, dbgPkgLnVldtr_ifNonNull, false, null, dbgAllLines_ifNonNull)</CODE>
+		@return  <code>{@link #eliminateAllCmtBlocksAndPackageLine(boolean, Appendable, Appendable, boolean, Appendable, Appendable) eliminateAllCmtBlocksAndPackageLine}(true, dbgPkgLnValidFilter_ifNonNull, dbgPkgLnVldtr_ifNonNull, false, null, dbgAllLines_ifNonNull)</code>
 	 **/
 	public static final FilteredLineIterator eliminatePackageLine(Appendable dbgPkgLnValidFilter_ifNonNull, Appendable dbgPkgLnVldtr_ifNonNull, Appendable dbgAllLines_ifNonNull)  {
 		return  eliminateAllCmtBlocksAndPackageLine(true, dbgPkgLnValidFilter_ifNonNull, dbgPkgLnVldtr_ifNonNull, false, null, dbgAllLines_ifNonNull);
 	}
 
 	/**
-		<P>Eliminates the package declaration line and all multi-line comment blocks.</P>
+		<p>Eliminates the package declaration line and all multi-line comment blocks.</p>
 
 		@param  doDelete_pkgDecl  If {@code true}, the package declaration line is eliminated. If {@code false}, the alterer is not created ({@code line()} is not called, and both {@code dbgPkgLnValidFilter_ifNonNull} and {@code dbgPkgLnVldtr_ifNonNull} are ignored). At least one boolean parameter must be {@code true}.
-		@param  doElim_multiLineCmts  If {@code true}, all multi-line comments are deleted. If {@code false}, {@code allJavaMultiLineComments} is not called (and {@code dbgJavaMlcs_ifNotNull} is ignored). Warning: This eliminates <I>entire lines</I>, including any text that happens to be outside of the block:
-		<BR> &nbsp; &nbsp; <CODE>This text will also be eliminated  /&#42; The start of a comment...</CODE>)
+		@param  doElim_multiLineCmts  If {@code true}, all multi-line comments are deleted. If {@code false}, {@code allJavaMultiLineComments} is not called (and {@code dbgJavaMlcs_ifNotNull} is ignored). Warning: This eliminates <i>entire lines</i>, including any text that happens to be outside of the block:
+		<br/> &nbsp; &nbsp; <code>This text will also be eliminated  /&#42; The start of a comment...</code>)
 		@return
-<BLOCKQUOTE><PRE>new {@link com.github.xbn.linefilter.z.FilteredLineIterator_Cfg#FilteredLineIterator_Cfg() FilteredLineIterator_Cfg}().
+<blockquote><pre>new {@link com.github.xbn.linefilter.z.FilteredLineIterator_Cfg#FilteredLineIterator_Cfg() FilteredLineIterator_Cfg}().
    {@link com.github.xbn.linefilter.z.FilteredLineIterator_CfgForNeeder#allJavaMultiLineComments(Appendable) allJavaMultiLineComments}(dbgJavaMlcs_ifNotNull).{@link com.github.xbn.linefilter.z.FilteredLineIterator_CfgForNeeder#line(ValueAlterer) line}(alterer).
    {@link com.github.xbn.linefilter.z.FilteredLineIterator_CfgForNeeder#ifBlockOrLineOrNotActive(ActiveBlockLines, ActiveSingleLines, InactiveLines) ifBlockOrLineOrNotActive}({@link com.github.xbn.linefilter.z.ActiveBlockLines ActiveBlockLines}.{@link com.github.xbn.linefilter.z.ActiveBlockLines#DISCARD DISCARD}, {@link com.github.xbn.linefilter.z.ActiveSingleLines ActiveSingleLines}.{@link com.github.xbn.linefilter.z.ActiveSingleLines#DISCARD DISCARD}, {@link com.github.xbn.linefilter.z.InactiveLines InactiveLines}.{@link com.github.xbn.linefilter.z.InactiveLines#KEEP KEEP}).
-   {@link com.github.xbn.linefilter.z.FilteredLineIterator_CfgForNeeder#debugTo(Appendable) debugTo}(dbgAllLines_ifNonNull).{@link com.github.xbn.linefilter.z.FilteredLineIterator_CfgForNeeder#build() build}()</PRE></BLOCKQUOTE>
+   {@link com.github.xbn.linefilter.z.FilteredLineIterator_CfgForNeeder#debugTo(Appendable) debugTo}(dbgAllLines_ifNonNull).{@link com.github.xbn.linefilter.z.FilteredLineIterator_CfgForNeeder#build() build}()</pre></blockquote>
    Where {@code alterer} is a
-   <BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor NewLineAltererFor}.{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor#eliminatePackageLine(Appendable, Appendable) eliminatePackageLine}(dbgPkgLnValidFilter_ifNonNull, dbgPkgLnVldtr_ifNonNull)</CODE>
+   <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor NewLineAltererFor}.{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor#eliminatePackageLine(Appendable, Appendable) eliminatePackageLine}(dbgPkgLnValidFilter_ifNonNull, dbgPkgLnVldtr_ifNonNull)</code>
    	@see  #eliminateAllCmtBlocksAndPackageLine(CodeletInstance, String, boolean, boolean) eliminateAllCmtBlocksAndPackageLine(CodeletInstance, String, *)
    	@see  #eliminateAllMultiLineComments(Appendable, Appendable) eliminateAllMultiLineComments
    	@see  #eliminatePackageLine(Appendable, Appendable, Appendable) eliminatePackageLine
@@ -129,20 +129,20 @@ public class NewLineFilterFor  {
 			childList.toArray(new TextChildEntity[childList.size()]));
 	}
 	/**
-		<P>Create a new eliminate-comment-blocks-and-package-line filter with named debuggers.</P>
+		<p>Create a new eliminate-comment-blocks-and-package-line filter with named debuggers.</p>
 
-		<P>{@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#NAMED_DEBUGGERS_CONFIG_FILE Named debuggers} provided to the following {@link #eliminateAllCmtBlocksAndPackageLine(boolean, Appendable, Appendable, boolean, Appendable, Appendable) eliminateAllCmtBlocksAndPackageLine} parameters:<UL>
-			<LI><CODE><I>[named_debugPrefix]</I>.filter</CODE>: {@code dbgAllLines_ifNonNull}<UL>
-				<LI>{@code .packageline}: {@code dbgPkgLnValidFilter_ifNonNull}</LI>
-				<LI>{@code .packageline.validfilter}: {@code dbgPkgLnVldtr_ifNonNull}</LI>
-				<LI>{@code .javamlcs}: {@code dbgJavaMlcs_ifNotNull}</LI>
-			</UL></LI>
-		</UL>All of which must be added to the named-debug-level configuration file:</P>
+		<p>{@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#NAMED_DEBUGGERS_CONFIG_FILE Named debuggers} provided to the following {@link #eliminateAllCmtBlocksAndPackageLine(boolean, Appendable, Appendable, boolean, Appendable, Appendable) eliminateAllCmtBlocksAndPackageLine} parameters:<ul>
+			<li><code><i>[named_debugPrefix]</i>.filter</code>: {@code dbgAllLines_ifNonNull}<ul>
+				<li>{@code .packageline}: {@code dbgPkgLnValidFilter_ifNonNull}</li>
+				<li>{@code .packageline.validfilter}: {@code dbgPkgLnVldtr_ifNonNull}</li>
+				<li>{@code .javamlcs}: {@code dbgJavaMlcs_ifNotNull}</li>
+			</ul></li>
+		</ul>All of which must be added to the named-debug-level configuration file:</p>
 
-<BLOCKQUOTE><PRE>PREFIX.filter=-1
+<blockquote><pre>PREFIX.filter=-1
 PREFIX.filter.packageline=-1
 PREFIX.filter.packageline.validfilter=-1
-PREFIX.filter.javamlcs=-1</PRE></BLOCKQUOTE>
+PREFIX.filter.javamlcs=-1</pre></blockquote>
 
 		@param  instance  For determining the current {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#getDebugApblIfOn(CodeletInstance, String) debugging level}.
 		@param  named_debugPrefix  Prepended to all named debuggers. May not be {@code null} or empty.
@@ -166,29 +166,29 @@ PREFIX.filter.javamlcs=-1</PRE></BLOCKQUOTE>
 				dbgFilter);               //dbgAllLines_ifNonNull
 	}
 	/**
-		<P><I>A code snippet:</I> Keeps all lines in a specific range, based on the text existing in the first and last lines.</P>
+		<p><i>A code snippet:</i> Keeps all lines in a specific range, based on the text existing in the first and last lines.</p>
 
 		@param  startAppearance_num  If the start-line search term is found on multiple lines, this is the desired occurance (if two, the second line the term is found on).
 		@param  is_startLineRegex  If {@code true} {@code startLine_findWhat} is treated as a regular expression. If {@code false}, literal.
 		@param  startLine_findWhat  The start-line search term. This is the text or pattern that exists in the first line that should be kept. May not be {@code null} or empty.
-		@param  endAppearance_num  If the end-line search term is found on multiple lines, this is the desired occurance. This is the appearance of the term <I>in the entire document</I>, including any appearances before the start line.
+		@param  endAppearance_num  If the end-line search term is found on multiple lines, this is the desired occurance. This is the appearance of the term <i>in the entire document</i>, including any appearances before the start line.
 		@param  is_endLineRegex  If {@code true} {@code startLine_findWhat} is treated as a regular expression.
 		@param  endLine_findWhat  The start-line search term.
 		@return
-<BLOCKQUOTE><PRE>new {@link com.github.xbn.linefilter.FilteredLineIterator#FilteredLineIterator(Iterator, Returns, KeepUnmatched, Appendable, LengthInRange, TextChildEntity...) FilteredLineIterator}(
+<blockquote><pre>new {@link com.github.xbn.linefilter.FilteredLineIterator#FilteredLineIterator(Iterator, Returns, KeepUnmatched, Appendable, LengthInRange, TextChildEntity...) FilteredLineIterator}(
 	null, {@link com.github.xbn.linefilter.Returns}.{@link com.github.xbn.linefilter.Returns#KEPT KEPT}, {@link com.github.xbn.linefilter.KeepUnmatched}.{@link com.github.xbn.linefilter.KeepUnmatched#NO NO},
 	dbgAllLines_ifNonNull, rangeForEveryLineDebug_ifNonNull,
-	snippetBlock)</PRE></BLOCKQUOTE>
+	snippetBlock)</pre></blockquote>
 		Where {@code snippetBlock} is a
-<BLOCKQUOTE><PRE>
+<blockquote><pre>
 {@link com.github.xbn.linefilter.entity.NewBlockEntityFor}.{@link com.github.xbn.linefilter.entity.NewBlockEntityFor#lineRange(String, KeepMatched, EntityRequired, Pattern, ValidResultFilter, Appendable, Pattern, ValidResultFilter, Appendable, RawOnOffEntityFilter, Appendable) lineRange}(&quot;lineRange&quot;,
 	{@link com.github.xbn.linefilter.entity.KeepMatched}.{@link com.github.xbn.linefilter.entity.KeepMatched#YES YES},
 	startLinePattern, startAppearanceFilter, dbgStart_ifNonNull,
 	endLinePattern, endAppearanceFilter, dbgEnd_ifNonNull,
-	{@link com.github.xbn.linefilter.entity.EntityRequired}.{@link com.github.xbn.linefilter.entity.EntityRequired#YES YES}, null, dbgLineNums_ifNonNull)</PRE></BLOCKQUOTE>
+	{@link com.github.xbn.linefilter.entity.EntityRequired}.{@link com.github.xbn.linefilter.entity.EntityRequired#YES YES}, null, dbgLineNums_ifNonNull)</pre></blockquote>
 		and {@code startAppearanceFilter} is a
-<BLOCKQUOTE><PRE>{@link com.github.xbn.analyze.validate.NewValidResultFilterFor}.{@link com.github.xbn.analyze.validate.NewValidResultFilterFor#exactly(int, String, Appendable) exactly}(
-	startAppearance_num, ..., dbgStartFilter_ifNonNull)</PRE></BLOCKQUOTE>
+<blockquote><pre>{@link com.github.xbn.analyze.validate.NewValidResultFilterFor}.{@link com.github.xbn.analyze.validate.NewValidResultFilterFor#exactly(int, String, Appendable) exactly}(
+	startAppearance_num, ..., dbgStartFilter_ifNonNull)</pre></blockquote>
 		@see  #lineRange(CodeletInstance, String, int, boolean, String, int, boolean, String) lineRange(CodeletInstance, ...)
 		@see  #lineRangeWithReplace(int, boolean, String, String, ReplacedInEachInput, Appendable, Appendable, int, boolean, String, String, ReplacedInEachInput, Appendable, Appendable, Appendable, Appendable, LengthInRange) lineRangeWithReplace
 	 **/
@@ -215,25 +215,25 @@ PREFIX.filter.javamlcs=-1</PRE></BLOCKQUOTE>
 			snippetBlock);
 	}
 	/**
-		<P>Create a new line-range filter with named debuggers.</P>
+		<p>Create a new line-range filter with named debuggers.</p>
 
-		<P>{@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#NAMED_DEBUGGERS_CONFIG_FILE Named debuggers} provided to the following {@link #lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRange) lineRange} parameters:<UL>
-			<LI><CODE><I>[named_debugPrefix]</I>.filter</CODE><UL>
-				<LI>{@code .blockstart}: {@code dbgStart_ifNonNull}</LI>
-				<LI>{@code .blockstart.validfilter}: {@code dbgStartFilter_ifNonNull}</LI>
-				<LI>{@code .blockend}: {@code dbgEnd_ifNonNull}</LI>
-				<LI>{@code .blockend.validfilter}: {@code dbgEndFilter_ifNonNull}</LI>
-				<LI>{@code .linenums}: {@code dbgLineNums_ifNonNull}</LI>
-				<LI>{@code .alllines}: {@code dbgAllLines_ifNonNull}</LI>
-			</UL></LI>
-		</UL>All of which must be added to the named-debug-level configuration file:</P>
+		<p>{@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#NAMED_DEBUGGERS_CONFIG_FILE Named debuggers} provided to the following {@link #lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRange) lineRange} parameters:<ul>
+			<li><code><i>[named_debugPrefix]</i>.filter</code><ul>
+				<li>{@code .blockstart}: {@code dbgStart_ifNonNull}</li>
+				<li>{@code .blockstart.validfilter}: {@code dbgStartFilter_ifNonNull}</li>
+				<li>{@code .blockend}: {@code dbgEnd_ifNonNull}</li>
+				<li>{@code .blockend.validfilter}: {@code dbgEndFilter_ifNonNull}</li>
+				<li>{@code .linenums}: {@code dbgLineNums_ifNonNull}</li>
+				<li>{@code .alllines}: {@code dbgAllLines_ifNonNull}</li>
+			</ul></li>
+		</ul>All of which must be added to the named-debug-level configuration file:</p>
 
-<BLOCKQUOTE><PRE>PREFIX.filter.alllines=-1
+<blockquote><pre>PREFIX.filter.alllines=-1
 PREFIX.filter.blockend.validfilter=-1
 PREFIX.filter.blockend=-1
 PREFIX.filter.blockstart.validfilter=-1
 PREFIX.filter.blockstart=-1
-PREFIX.filter.linenums=-1</PRE></BLOCKQUOTE>
+PREFIX.filter.linenums=-1</pre></blockquote>
 
 		@param  instance  For determining the current {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#getDebugApblIfOn(CodeletInstance, String) debugging level}.
 		@param  named_debugPrefix  Prepended to all named debuggers. May not be {@code null} or empty.
@@ -261,23 +261,23 @@ PREFIX.filter.linenums=-1</PRE></BLOCKQUOTE>
 				dbgBlkEndValidFltr, dbgBlkEnd, dbgLineNums, dbgAllLines, null);
 	}
 	/**
-		<P>Keeps all lines in a specific range, based on the text existing in the first and last lines, making a replacement on the first and last lines only. This is useful when lines must be marked, but those marks should not be seen in the final output.</P>
+		<p>Keeps all lines in a specific range, based on the text existing in the first and last lines, making a replacement on the first and last lines only. This is useful when lines must be marked, but those marks should not be seen in the final output.</p>
 
-		<P>For documentation on all other parameters, see {@link #lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRange) lineRange}.</P>
+		<p>For documentation on all other parameters, see {@link #lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRange) lineRange}.</p>
 
 		@param  startLine_rplcWith  The replacement term for the start-line search term ({@code startLine_findWhat}). May not be {@code null} or empty.
-		@param  startRplcs_notMtchNum  In most cases, this should be set to {@code "FIRST"}. See <CODE>com.github.xbn.regexutil.{@link com.github.xbn.regexutil.ReplacedInEachInput}</CODE>.
+		@param  startRplcs_notMtchNum  In most cases, this should be set to {@code "FIRST"}. See <code>com.github.xbn.regexutil.{@link com.github.xbn.regexutil.ReplacedInEachInput}</code>.
 		@param  endLine_rplcWith  The replacement term for the end-line search term ({@code endLine_findWhat}).
 		@param  endRplcs_notMtchNum  In most cases, this should be set to {@code "FIRST"}.
 		@return  The same as {@link #lineRange(CodeletInstance, String, int, boolean, String, int, boolean, String) lineRange}, with this alternative block entity:
-<BLOCKQUOTE><PRE>{@link com.github.xbn.linefilter.entity.NewBlockEntityFor}.{@link com.github.xbn.linefilter.entity.NewBlockEntityFor#lineRangeWithReplace(String, KeepStartLine, KeepMidLines, KeepEndLine, EntityRequired, Pattern, String, ReplacedInEachInput, ValidResultFilter, Appendable, ValueAlterer, Pattern, String, ReplacedInEachInput, ValidResultFilter, Appendable, RawOnOffEntityFilter, Appendable) lineRangeWithReplace}(
+<blockquote><pre>{@link com.github.xbn.linefilter.entity.NewBlockEntityFor}.{@link com.github.xbn.linefilter.entity.NewBlockEntityFor#lineRangeWithReplace(String, KeepStartLine, KeepMidLines, KeepEndLine, EntityRequired, Pattern, String, ReplacedInEachInput, ValidResultFilter, Appendable, ValueAlterer, Pattern, String, ReplacedInEachInput, ValidResultFilter, Appendable, RawOnOffEntityFilter, Appendable) lineRangeWithReplace}(
 	&quot;lineRangeWithReplace&quot;, {@link com.github.xbn.linefilter.KeepMatched}.{@link com.github.xbn.linefilter.KeepMatched#YES YES},
 	startLinePattern, startLine_rplcWith, startRplcs_notMtchNum, startAppearanceFilter,
 		dbgStartRplcr_ifNonNull,
 	null,         //No mid alterer
 	endLinePattern, endLine_rplcWith, endRplcs_notMtchNum, endAppearanceFilter,
 		dbgEndRplcr_ifNonNull,
-	{@link com.github.xbn.linefilter.entity.EntityRequired}.{@link com.github.xbn.linefilter.entity.EntityRequired#YES YES}, null, dbgLineNums_ifNonNull)</PRE></BLOCKQUOTE>
+	{@link com.github.xbn.linefilter.entity.EntityRequired}.{@link com.github.xbn.linefilter.entity.EntityRequired#YES YES}, null, dbgLineNums_ifNonNull)</pre></blockquote>
 	 **/
 	public static final FilteredLineIterator lineRangeWithReplace(int startAppearance_num, boolean is_startLineRegex, String startLine_findWhat, String startLine_rplcWith, ReplacedInEachInput startRplcs_notMtchNum, Appendable dbgStartFilter_ifNonNull, Appendable dbgStartRplcr_ifNonNull, int endAppearance_num, boolean is_endLineRegex, String endLine_findWhat, String endLine_rplcWith, ReplacedInEachInput endRplcs_notMtchNum, Appendable dbgEndFilter_ifNonNull, Appendable dbgEndRplcr_ifNonNull, Appendable dbgLineNums_ifNonNull, Appendable dbgAllLines_ifNonNull, LengthInRange rangeForEveryLineDebug_ifNonNull) throws PatternSyntaxException  {
 		Pattern startLinePattern = NewPatternFor.regexIfTrueLiteralIfFalse(is_startLineRegex, startLine_findWhat, "startLine_findWhat");
@@ -306,25 +306,25 @@ PREFIX.filter.linenums=-1</PRE></BLOCKQUOTE>
 	}
 
 	/**
-		<P>Create a new line-range filter with named debuggers.</P>
+		<p>Create a new line-range filter with named debuggers.</p>
 
-		<P>{@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#NAMED_DEBUGGERS_CONFIG_FILE Named debuggers} provided to the following {@link #lineRangeWithReplace(int, boolean, String, String, ReplacedInEachInput, Appendable, Appendable, int, boolean, String, String, ReplacedInEachInput, Appendable, Appendable, Appendable, Appendable, LengthInRange) lineRangeWithReplace} parameters:<UL>
-			<LI><CODE><I>[named_debugPrefix]</I>.filter</CODE><UL>
-				<LI>{@code .blockstart}: {@code dbgStartRplcr_ifNonNull}</LI>
-				<LI>{@code .blockstart.validfilter}: {@code dbgStartFilter_ifNonNull}</LI>
-				<LI>{@code .blockend}: {@code dbgEndRplcr_ifNonNull}</LI>
-				<LI>{@code .blockend.validfilter}: {@code dbgEndFilter_ifNonNull}</LI>
-				<LI>{@code .linenums}: {@code dbgLineNums_ifNonNull}</LI>
-				<LI>{@code .alllines}: {@code dbgAllLines_ifNonNull}</LI>
-			</UL></LI>
-		</UL>All of which must be added to the named-debug-level configuration file:</P>
+		<p>{@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#NAMED_DEBUGGERS_CONFIG_FILE Named debuggers} provided to the following {@link #lineRangeWithReplace(int, boolean, String, String, ReplacedInEachInput, Appendable, Appendable, int, boolean, String, String, ReplacedInEachInput, Appendable, Appendable, Appendable, Appendable, LengthInRange) lineRangeWithReplace} parameters:<ul>
+			<li><code><i>[named_debugPrefix]</i>.filter</code><ul>
+				<li>{@code .blockstart}: {@code dbgStartRplcr_ifNonNull}</li>
+				<li>{@code .blockstart.validfilter}: {@code dbgStartFilter_ifNonNull}</li>
+				<li>{@code .blockend}: {@code dbgEndRplcr_ifNonNull}</li>
+				<li>{@code .blockend.validfilter}: {@code dbgEndFilter_ifNonNull}</li>
+				<li>{@code .linenums}: {@code dbgLineNums_ifNonNull}</li>
+				<li>{@code .alllines}: {@code dbgAllLines_ifNonNull}</li>
+			</ul></li>
+		</ul>All of which must be added to the named-debug-level configuration file:</p>
 
-<BLOCKQUOTE><PRE>PREFIX.filter.alllines=-1
-<BLOCKQUOTE><PRE>PREFIX.filter.linenums=-1
+<blockquote><pre>PREFIX.filter.alllines=-1
+<blockquote><pre>PREFIX.filter.linenums=-1
 PREFIX.filter.blockend.validfilter=-1
 PREFIX.filter.blockend=-1
 PREFIX.filter.blockstart.validfilter=-1
-PREFIX.filter.blockstart=-1</PRE></BLOCKQUOTE>
+PREFIX.filter.blockstart=-1</pre></blockquote>
 
 		@param  instance  For determining the current {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#getDebugApblIfOn(CodeletInstance, String) debugging level}.
 		@param  named_debugPrefix  Prepended to all named debuggers. May not be {@code null} or empty.

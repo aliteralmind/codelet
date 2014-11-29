@@ -21,35 +21,35 @@ package  com.github.aliteralmind.codelet;
 	import  java.nio.file.NoSuchFileException;
 	import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 /**
-	<P>Generates the output for a single Codelet of any type. This class--and this entire package--knows nothing of {@code com.sun}. This is the middleman between {@code com.sun} and {@link com.github.aliteralmind.codelet.TagletOfTypeProcessor}.</P>
+	<p>Generates the output for a single Codelet of any type. This class--and this entire package--knows nothing of {@code com.sun}. This is the middleman between {@code com.sun} and {@link com.github.aliteralmind.codelet.TagletOfTypeProcessor}.</p>
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class TagletProcessor  {
 //	private static final CodeletBootstrap BOOTSTRAP = CodeletBootstrap.INSTANCE;
 	private final String fullyProcessed;
 	/**
-		<P>Create a new instance. Once constructed, the taglet's output may be obtained with {@link #get() get}{@code ()}.</P>
+		<p>Create a new instance. Once constructed, the taglet's output may be obtained with {@link #get() get}{@code ()}.</p>
 
-		<P>This<OL>
-			<LI>If this is the first encountered codelet-taglet, this {@linkplain CodeletBootstrap loads all configuration}.</LI>
-			<LI>If the enclosing file is {@linkplain CodeletBaseConfig#BLACK_WHITE_LIST_TYPE black-listed}, {@link #get() get}{@code ()} is set to <CODE>instance.{@link com.github.aliteralmind.codelet.CodeletInstance#getFullOriginalTaglet() getFullOriginalTaglet}()</CODE>, and this <I><B>exits</B></I>.</LI>
-			<LI>Otherwise, this constructs a new {@linkplain TagletOfTypeProcessor processor}, based on the instance's {@linkplain CodeletInstance#getType() type}:<UL>
-				<LI>{@link com.github.aliteralmind.codelet.type.SourceCodeProcessor#SourceCodeProcessor(CodeletInstance) type.SourceCodeProcessor}</LI>
-				<LI>{@link com.github.aliteralmind.codelet.type.ConsoleOutProcessor#ConsoleOutProcessor(CodeletInstance) type.ConsoleOutProcessor}</LI>
-				<LI>{@link com.github.aliteralmind.codelet.type.FileTextProcessor#FileTextProcessor(CodeletInstance) FileTextProcessor}</LI>
-				<LI>{@link com.github.aliteralmind.codelet.type.SourceAndOutProcessor#SourceAndOutProcessor(CodeletInstance) SourceAndOutProcessor}</LI>
-			</UL>and sets {@code get()} to its {@linkplain TagletOfTypeProcessor#getFullyCustomizedOutput() fully-customized text}.</LI>
-		</OL></P>
+		<p>This<ol>
+			<li>If this is the first encountered codelet-taglet, this {@linkplain CodeletBootstrap loads all configuration}.</li>
+			<li>If the enclosing file is {@linkplain CodeletBaseConfig#BLACK_WHITE_LIST_TYPE black-listed}, {@link #get() get}{@code ()} is set to <code>instance.{@link com.github.aliteralmind.codelet.CodeletInstance#getFullOriginalTaglet() getFullOriginalTaglet}()</code>, and this <i><b>exits</b></i>.</li>
+			<li>Otherwise, this constructs a new {@linkplain TagletOfTypeProcessor processor}, based on the instance's {@linkplain CodeletInstance#getType() type}:<ul>
+				<li>{@link com.github.aliteralmind.codelet.type.SourceCodeProcessor#SourceCodeProcessor(CodeletInstance) type.SourceCodeProcessor}</li>
+				<li>{@link com.github.aliteralmind.codelet.type.ConsoleOutProcessor#ConsoleOutProcessor(CodeletInstance) type.ConsoleOutProcessor}</li>
+				<li>{@link com.github.aliteralmind.codelet.type.FileTextProcessor#FileTextProcessor(CodeletInstance) FileTextProcessor}</li>
+				<li>{@link com.github.aliteralmind.codelet.type.SourceAndOutProcessor#SourceAndOutProcessor(CodeletInstance) SourceAndOutProcessor}</li>
+			</ul>and sets {@code get()} to its {@linkplain TagletOfTypeProcessor#getFullyCustomizedOutput() fully-customized text}.</li>
+		</ol></p>
 
 		@param  instance  May not be {@code null}.
 		@exception  IllegalStateException  If {@code instance} is of an unknown type (this is protection against a new type being added).
-		@exception  ClassNotFoundException  Depending on the tag being used, and its format, if:<UL>
-			<LI>The example class specified in the taglet does not exist (according to <CODE>{@link java.lang.Class Class}.{@link java.lang.Class#forName(String) forName}</CODE>)</LI>
-			<LI>The <I>explicitly specified</I> customizer class does not exist.</LI>
-		</UL>
-		@exception  NoSuchMethodException  If the customizer function does not exist, either in the explicitly specified or <A HREF="CustomizationInstructions.html#specifications">default classes</A>, or does not meet its requirements.
+		@exception  ClassNotFoundException  Depending on the tag being used, and its format, if:<ul>
+			<li>The example class specified in the taglet does not exist (according to <code>{@link java.lang.Class Class}.{@link java.lang.Class#forName(String) forName}</code>)</li>
+			<li>The <i>explicitly specified</i> customizer class does not exist.</li>
+		</ul>
+		@exception  NoSuchMethodException  If the customizer function does not exist, either in the explicitly specified or <a href="CustomizationInstructions.html#specifications">default classes</a>, or does not meet its requirements.
 		@exception  NoSuchFileException  If the source-code or plain-text file does not exist.
 		@exception  AccessDeniedException  If the file exists, but cannot be read.
 	 **/
@@ -67,7 +67,7 @@ public class TagletProcessor  {
 			if(isDebugOn(instance, "zzTagletProcessor.codeletblacklisted"))  {
 				debugln("   Codelet blacklisted: " + instance);
 			}
-			fullyProcessed = "<I>[CODELET-BLACKLISTED]-</I>" + instance.getFullOriginalTaglet();
+			fullyProcessed = "<i>[CODELET-BLACKLISTED]-</i>" + instance.getFullOriginalTaglet();
 			return;
 		}
 
@@ -93,9 +93,9 @@ public class TagletProcessor  {
 		getDebugAptr().flushRtx();
 	}
 	/**
-		<P>Get the taglet's already-rendered output text.</P>
+		<p>Get the taglet's already-rendered output text.</p>
 
-		@return  <CODE><I>[the-{@link com.github.aliteralmind.codelet.TagletOfTypeProcessor processor}]</I>.{@link com.github.aliteralmind.codelet.TagletOfTypeProcessor#getFullyCustomizedOutput() getFullyCustomizedOutput}()</CODE>
+		@return  <code><i>[the-{@link com.github.aliteralmind.codelet.TagletOfTypeProcessor processor}]</i>.{@link com.github.aliteralmind.codelet.TagletOfTypeProcessor#getFullyCustomizedOutput() getFullyCustomizedOutput}()</code>
 		@see  #TagletProcessor(CodeletInstance)
 	 **/
 	public String get()  {
