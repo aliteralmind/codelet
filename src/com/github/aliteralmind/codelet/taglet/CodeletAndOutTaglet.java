@@ -13,31 +13,31 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.taglet;
-	import  com.github.aliteralmind.codelet.CodeletBootstrap;
-	import  com.github.aliteralmind.codelet.CodeletType;
-	import  com.sun.javadoc.Tag;
-	import  com.sun.tools.doclets.Taglet;
-	import  java.util.Map;
+   import  com.github.aliteralmind.codelet.CodeletBootstrap;
+   import  com.github.aliteralmind.codelet.CodeletType;
+   import  com.sun.javadoc.Tag;
+   import  com.sun.tools.doclets.Taglet;
+   import  java.util.Map;
 
 /**
-	<p>Inline JavaDoc taglet for displaying an the source code and console ({@code System.out}) output for a class (usually example code). This tag can be used in any kind of {@link com.sun.javadoc.Doc}.</p>
+   <p>Inline JavaDoc taglet for displaying an the source code and console ({@code System.out}) output for a class (usually example code). This tag can be used in any kind of {@link com.sun.javadoc.Doc}.</p>
 
-	<p>The only custom code in this class is the {@link #NAME} field and {@link #toString(Tag) toString} function.</p>
+   <p>The only custom code in this class is the {@link #NAME} field and {@link #toString(Tag) toString} function.</p>
 
-	<p>Jamie Ho's <a href="http://docs.oracle.com/javase/7/docs/technotes/guides/javadoc/taglet/overview.html#inlineexample">UnderlineTaglet</a> was the template used to create this file.</p>
+   <p>Jamie Ho's <a href="http://docs.oracle.com/javase/7/docs/technotes/guides/javadoc/taglet/overview.html#inlineexample">UnderlineTaglet</a> was the template used to create this file.</p>
 
-	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>.
+   @since  0.1.0
+   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>.
  **/
 public class CodeletAndOutTaglet implements Taglet {
-	/*
-		To avoid configuration from being loaded repeatedly.
-	 */
-	private static final CodeletBootstrap BOOTSTRAP = CodeletBootstrap.INSTANCE;
-	/**
-		<p>The name of this taglet, which appears immediately after the <code>&#123;&#64;</code>--Equal to
-		<br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.CodeletType CodeletType}.{@link com.github.aliteralmind.codelet.CodeletType#SOURCE_AND_OUT SOURCE_AND_OUT}.{@link com.github.aliteralmind.codelet.CodeletType#getName() getName}()</code></p>
-	 **/
+   /*
+      To avoid configuration from being loaded repeatedly.
+    */
+   private static final CodeletBootstrap BOOTSTRAP = CodeletBootstrap.INSTANCE;
+   /**
+      <p>The name of this taglet, which appears immediately after the <code>&#123;&#64;</code>--Equal to
+      <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.CodeletType CodeletType}.{@link com.github.aliteralmind.codelet.CodeletType#SOURCE_AND_OUT SOURCE_AND_OUT}.{@link com.github.aliteralmind.codelet.CodeletType#getName() getName}()</code></p>
+    **/
     public static final String NAME = CodeletType.SOURCE_AND_OUT.getName();
 
     /**
@@ -104,25 +104,25 @@ public class CodeletAndOutTaglet implements Taglet {
     public boolean isInlineTag() {
         return true;
     }
-	/**
-		<p>Register this Taglet.</p>
+   /**
+      <p>Register this Taglet.</p>
 
-		<p>Equal to
-		<br/> &nbsp; &nbsp; <code>{@link ComSunJavaDocUtil}.{@link ComSunJavaDocUtil#registerNewTagletInstance(Taglet, Map) registerNewTagletInstance}(new {@link #CodeletAndOutTaglet() CodeletAndOutTaglet}(), taglet_map)</code></p>
-	 */
-	@SuppressWarnings({"unchecked", "rawtypes"})
-	public static void register(Map taglet_map) {
-		ComSunJavaDocUtil.registerNewTagletInstance(new CodeletAndOutTaglet(), taglet_map);
-	}
+      <p>Equal to
+      <br/> &nbsp; &nbsp; <code>{@link ComSunJavaDocUtil}.{@link ComSunJavaDocUtil#registerNewTagletInstance(Taglet, Map) registerNewTagletInstance}(new {@link #CodeletAndOutTaglet() CodeletAndOutTaglet}(), taglet_map)</code></p>
+    */
+   @SuppressWarnings({"unchecked", "rawtypes"})
+   public static void register(Map taglet_map) {
+      ComSunJavaDocUtil.registerNewTagletInstance(new CodeletAndOutTaglet(), taglet_map);
+   }
     /**
      * Given the <code>Tag</code> representation of this custom
      * tag, return its string representation.
      * @param tag he <code>Tag</code> representation of this custom tag.
 
-		@return  <code>{@link com.github.aliteralmind.codelet.taglet.CodletComSunJavadocTagProcessor CodletComSunJavadocTagProcessor}.{@link com.github.aliteralmind.codelet.taglet.CodletComSunJavadocTagProcessor#get(Tag) get}(tag)</code>
+      @return  <code>{@link com.github.aliteralmind.codelet.taglet.CodletComSunJavadocTagProcessor CodletComSunJavadocTagProcessor}.{@link com.github.aliteralmind.codelet.taglet.CodletComSunJavadocTagProcessor#get(Tag) get}(tag)</code>
      */
     public String toString(Tag tag) {
-		 return  CodletComSunJavadocTagProcessor.get(tag);
+       return  CodletComSunJavadocTagProcessor.get(tag);
     }
 
     /**

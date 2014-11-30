@@ -14,38 +14,38 @@
 \*license*/
 package  com.github.aliteralmind.codelet.util;
 /**
-	<p>Indicates a badly formatted {@code NamedDebuggers} configuration file.</p>
+   <p>Indicates a badly formatted {@code NamedDebuggers} configuration file.</p>
 
-	@see  NamedDebuggers#newMapFromConfigFile(Map, Iterator, String, Appendable)
-	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+   @see  NamedDebuggers#newMapFromConfigFile(Map, Iterator, String, Appendable)
+   @since  0.1.0
+   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class NamedDebuggerFormatException extends IllegalArgumentException  {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 4617394249689798008L;
-	/**
-		<p>Create an NamedDebuggerFormatException with no error message.</p>
-	 **/
-	public NamedDebuggerFormatException()  {
-	}
-	/**
-		<p>Create an NamedDebuggerFormatException.</p>
-	 **/
-	public NamedDebuggerFormatException(String message)  {
-		super(message);
-	}
-	/**
-		<p>Create an NamedDebuggerFormatException with no error message.</p>
-	 **/
-	public NamedDebuggerFormatException(Throwable cause)  {
-		super(cause);
-	}
-	/**
-		<p>Create an NamedDebuggerFormatException.</p>
-	 **/
-	public NamedDebuggerFormatException(String message, Throwable cause)  {
-		super(message, cause);
-	}
+   /**
+    * 
+    */
+   private static final long serialVersionUID = 4617394249689798008L;
+   /**
+      <p>Create an NamedDebuggerFormatException with no error message.</p>
+    **/
+   public NamedDebuggerFormatException()  {
+   }
+   /**
+      <p>Create an NamedDebuggerFormatException.</p>
+    **/
+   public NamedDebuggerFormatException(String message)  {
+      super(message);
+   }
+   /**
+      <p>Create an NamedDebuggerFormatException with no error message.</p>
+    **/
+   public NamedDebuggerFormatException(Throwable cause)  {
+      super(cause);
+   }
+   /**
+      <p>Create an NamedDebuggerFormatException.</p>
+    **/
+   public NamedDebuggerFormatException(String message, Throwable cause)  {
+      super(message, cause);
+   }
 }

@@ -13,47 +13,47 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.examples.simplesig;
-	import  com.github.xbn.lang.reflect.InvokeMethodWithRtx;
-	import  java.lang.reflect.Method;
-	import  com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature;
+   import  com.github.xbn.lang.reflect.InvokeMethodWithRtx;
+   import  java.lang.reflect.Method;
+   import  com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature;
 /**
-	<p>Demonstration of <code>com.github.aliteralmind.codelet.simplesig.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature}</code>, with no class name (or package name) in the string signature--potential default classes are directly provided.</p>
+   <p>Demonstration of <code>com.github.aliteralmind.codelet.simplesig.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature}</code>, with no class name (or package name) in the string signature--potential default classes are directly provided.</p>
 
-	<p>{@code java com.github.aliteralmind.codelet.examples.simplesig.SimpleMethodSigWithClassDefaults}</p>
+   <p>{@code java com.github.aliteralmind.codelet.examples.simplesig.SimpleMethodSigWithClassDefaults}</p>
 
-	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://xbnjava.aliteralmind.com">{@code http://xbnjava.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/xbnjava">{@code https://github.com/aliteralmind/xbnjava}</a>
+   @since  0.1.0
+   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://xbnjava.aliteralmind.com">{@code http://xbnjava.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/xbnjava">{@code https://github.com/aliteralmind/xbnjava}</a>
  **/
 public class SimpleMethodSigWithClassDefaults  {
-	public static final void main(String[] ignored)  {
+   public static final void main(String[] ignored)  {
 
-		String strSig = "getStringForBoolInt(false, 3)";
+      String strSig = "getStringForBoolInt(false, 3)";
 
-		SimpleMethodSignature simpleSig = null;
-		try  {
-			simpleSig = SimpleMethodSignature.newFromStringAndDefaults(
-				String.class, strSig, null,
-				new Class[]{Object.class, SimpleMethodSigWithClassDefaults.class, SimpleMethodSignature.class},
-				null);         //debug (on=System.out, off=null)
-		}  catch(ClassNotFoundException cnfx)  {
-			throw  new RuntimeException(cnfx);
-		}
+      SimpleMethodSignature simpleSig = null;
+      try  {
+         simpleSig = SimpleMethodSignature.newFromStringAndDefaults(
+            String.class, strSig, null,
+            new Class[]{Object.class, SimpleMethodSigWithClassDefaults.class, SimpleMethodSignature.class},
+            null);         //debug (on=System.out, off=null)
+      }  catch(ClassNotFoundException cnfx)  {
+         throw  new RuntimeException(cnfx);
+      }
 
-		Method m = null;
-		try  {
-			m = simpleSig.getMethod();
-		}  catch(NoSuchMethodException nsmx)  {
-			throw  new RuntimeException(nsmx);
-		}
+      Method m = null;
+      try  {
+         m = simpleSig.getMethod();
+      }  catch(NoSuchMethodException nsmx)  {
+         throw  new RuntimeException(nsmx);
+      }
 
-		m.setAccessible(true);
+      m.setAccessible(true);
 
-		Object returnValue = new InvokeMethodWithRtx(m).sstatic().
-			parameters(simpleSig.getParamValueObjectList().toArray()).invokeGetReturnValue();
+      Object returnValue = new InvokeMethodWithRtx(m).sstatic().
+         parameters(simpleSig.getParamValueObjectList().toArray()).invokeGetReturnValue();
 
-		System.out.println(returnValue);
-	}
-	public static final String getStringForBoolInt(Boolean b, Integer i)  {
-		return  "b=" + b + ", i=" + i;
-	}
+      System.out.println(returnValue);
+   }
+   public static final String getStringForBoolInt(Boolean b, Integer i)  {
+      return  "b=" + b + ", i=" + i;
+   }
 }

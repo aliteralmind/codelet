@@ -13,83 +13,83 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.simplesig;
-	import  com.github.aliteralmind.codelet.CodeletInstance;
-	import  com.github.aliteralmind.codelet.CodeletType;
-	import  com.github.aliteralmind.codelet.CustomizationInstructions;
-	import  com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum;
-	import  com.github.aliteralmind.codelet.NewLineFilterFor;
-	import  com.github.xbn.linefilter.alter.NewTextLineAltererFor;
-	import  com.github.xbn.linefilter.alter.TextLineAlterer;
-	import  com.github.xbn.linefilter.FilteredLineIterator;
-	import  com.github.aliteralmind.codelet.type.SourceCodeTemplate;
-	import  com.github.xbn.analyze.alter.ExpirableElements;
-	import  com.github.xbn.analyze.alter.MultiAlterType;
-	import  com.github.xbn.array.NullElement;
-	import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
+   import  com.github.aliteralmind.codelet.CodeletInstance;
+   import  com.github.aliteralmind.codelet.CodeletType;
+   import  com.github.aliteralmind.codelet.CustomizationInstructions;
+   import  com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum;
+   import  com.github.aliteralmind.codelet.NewLineFilterFor;
+   import  com.github.xbn.linefilter.alter.NewTextLineAltererFor;
+   import  com.github.xbn.linefilter.alter.TextLineAlterer;
+   import  com.github.xbn.linefilter.FilteredLineIterator;
+   import  com.github.aliteralmind.codelet.type.SourceCodeTemplate;
+   import  com.github.xbn.analyze.alter.ExpirableElements;
+   import  com.github.xbn.analyze.alter.MultiAlterType;
+   import  com.github.xbn.array.NullElement;
+   import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 /**
-	<p>Custom <a href="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#overview">customizers</a> used throughout {@code com.github.xbn.linefilter}.</p>
+   <p>Custom <a href="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#overview">customizers</a> used throughout {@code com.github.xbn.linefilter}.</p>
 
-		@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+      @since  0.1.0
+   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class zCodeletCustomizers  {
-	private static final CustomizationInstructions<SourceCodeTemplate> getSourceConfig_ConstructorParamSearchTermXmpl(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
-		String debugPrefix = "ConstructorParamSearchTermXmpl";
+   private static final CustomizationInstructions<SourceCodeTemplate> getSourceConfig_ConstructorParamSearchTermXmpl(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
+      String debugPrefix = "ConstructorParamSearchTermXmpl";
 
-		FilteredLineIterator filter = NewLineFilterFor.
-			eliminateAllCmtBlocksAndPackageLine(instance, debugPrefix,
-				true, true);
+      FilteredLineIterator filter = NewLineFilterFor.
+         eliminateAllCmtBlocksAndPackageLine(instance, debugPrefix,
+            true, true);
 
-		TextLineAlterer[] alterers = {
-			NewTextLineAltererFor.escapeHtml(),
-			NewJDLinkForWordOccuranceNum.constructor(instance, debugPrefix, null,
-				1, ConstructorParamSearchTerm.class, "(*)"),
-			NewJDLinkForWordOccuranceNum.method(instance, debugPrefix, null,
-				1, ConstructorParamSearchTerm.class, "doesMatchAny(*)"),
-			NewJDLinkForWordOccuranceNum.method(instance, debugPrefix, null,
-				1, ConstructorParamSearchTerm.class, "getFirstMatch(*)"),
-			NewJDLinkForWordOccuranceNum.method(instance, debugPrefix, null,
-				1, ConstructorParamSearchTerm.class, "getAllMatches(*)")};
+      TextLineAlterer[] alterers = {
+         NewTextLineAltererFor.escapeHtml(),
+         NewJDLinkForWordOccuranceNum.constructor(instance, debugPrefix, null,
+            1, ConstructorParamSearchTerm.class, "(*)"),
+         NewJDLinkForWordOccuranceNum.method(instance, debugPrefix, null,
+            1, ConstructorParamSearchTerm.class, "doesMatchAny(*)"),
+         NewJDLinkForWordOccuranceNum.method(instance, debugPrefix, null,
+            1, ConstructorParamSearchTerm.class, "getFirstMatch(*)"),
+         NewJDLinkForWordOccuranceNum.method(instance, debugPrefix, null,
+            1, ConstructorParamSearchTerm.class, "getAllMatches(*)")};
 
-		return  new CustomizationInstructions<SourceCodeTemplate>(instance,
-				needed_defaultAlterType).
-			filter(filter).
-			orderedAlterers(getDebugApblIfOn(instance, debugPrefix + ".allalterer"),
-				NullElement.OK, ExpirableElements.OPTIONAL,
-				MultiAlterType.CUMULATIVE, alterers).
-			defaultOrOverrideTemplate(
-				getDebugApblIfOn(instance, debugPrefix + ".template")).
-			build();
-	}
-	private static final CustomizationInstructions<SourceCodeTemplate> getSourceConfig_MethodSigSearchTermXmpl(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
-		String debugPrefix = "MethodSigSearchTermXmpl";
+      return  new CustomizationInstructions<SourceCodeTemplate>(instance,
+            needed_defaultAlterType).
+         filter(filter).
+         orderedAlterers(getDebugApblIfOn(instance, debugPrefix + ".allalterer"),
+            NullElement.OK, ExpirableElements.OPTIONAL,
+            MultiAlterType.CUMULATIVE, alterers).
+         defaultOrOverrideTemplate(
+            getDebugApblIfOn(instance, debugPrefix + ".template")).
+         build();
+   }
+   private static final CustomizationInstructions<SourceCodeTemplate> getSourceConfig_MethodSigSearchTermXmpl(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
+      String debugPrefix = "MethodSigSearchTermXmpl";
 
-		FilteredLineIterator filter = NewLineFilterFor.
-			eliminateAllCmtBlocksAndPackageLine(instance, debugPrefix,
-				true, true);
+      FilteredLineIterator filter = NewLineFilterFor.
+         eliminateAllCmtBlocksAndPackageLine(instance, debugPrefix,
+            true, true);
 
-		TextLineAlterer[] alterers = {
-			NewTextLineAltererFor.escapeHtml(),
-			NewJDLinkForWordOccuranceNum.constructor(instance, debugPrefix, null,
-				1, MethodSigSearchTerm.class, "(*)"),
-			NewJDLinkForWordOccuranceNum.method(instance, debugPrefix, null,
-				1, MethodSigSearchTerm.class, "doesMatchAny(*)"),
-			NewJDLinkForWordOccuranceNum.method(instance, debugPrefix, null,
-				1, MethodSigSearchTerm.class, "getFirstMatch(*)"),
-			NewJDLinkForWordOccuranceNum.method(instance, debugPrefix, null,
-				1, MethodSigSearchTerm.class, "getAllMatches(*)")};
+      TextLineAlterer[] alterers = {
+         NewTextLineAltererFor.escapeHtml(),
+         NewJDLinkForWordOccuranceNum.constructor(instance, debugPrefix, null,
+            1, MethodSigSearchTerm.class, "(*)"),
+         NewJDLinkForWordOccuranceNum.method(instance, debugPrefix, null,
+            1, MethodSigSearchTerm.class, "doesMatchAny(*)"),
+         NewJDLinkForWordOccuranceNum.method(instance, debugPrefix, null,
+            1, MethodSigSearchTerm.class, "getFirstMatch(*)"),
+         NewJDLinkForWordOccuranceNum.method(instance, debugPrefix, null,
+            1, MethodSigSearchTerm.class, "getAllMatches(*)")};
 
-		return  new CustomizationInstructions<SourceCodeTemplate>(instance,
-				needed_defaultAlterType).
-			filter(filter).
-			orderedAlterers(getDebugApblIfOn(instance, debugPrefix + ".allalterer"),
-				NullElement.OK, ExpirableElements.OPTIONAL,
-				MultiAlterType.CUMULATIVE, alterers).
-			defaultOrOverrideTemplate(
-				getDebugApblIfOn(instance, debugPrefix + ".template")).
-			build();
-	}
-	private zCodeletCustomizers()  {
-		throw  new IllegalStateException("Do not instantiate.");
-	}
+      return  new CustomizationInstructions<SourceCodeTemplate>(instance,
+            needed_defaultAlterType).
+         filter(filter).
+         orderedAlterers(getDebugApblIfOn(instance, debugPrefix + ".allalterer"),
+            NullElement.OK, ExpirableElements.OPTIONAL,
+            MultiAlterType.CUMULATIVE, alterers).
+         defaultOrOverrideTemplate(
+            getDebugApblIfOn(instance, debugPrefix + ".template")).
+         build();
+   }
+   private zCodeletCustomizers()  {
+      throw  new IllegalStateException("Do not instantiate.");
+   }
 }

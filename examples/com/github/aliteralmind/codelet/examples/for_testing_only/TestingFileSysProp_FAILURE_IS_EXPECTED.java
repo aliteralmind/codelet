@@ -14,24 +14,24 @@
 \*license*/
 package  com.github.aliteralmind.codelet.examples.for_testing_only;
 /**
-	<p>For testing an <i>incorrect use</i> of a directory root environment variable ({@code $<root_dir>}) in a {@link com.github.aliteralmind.codelet.CodeletType#FILE_TEXT {@.file.textlet}}. This entire JavaDoc block will be suppressed, and a stack-trace will be in the JavaDoc output.</p>
+   <p>For testing an <i>incorrect use</i> of a directory root environment variable ({@code $<root_dir>}) in a {@link com.github.aliteralmind.codelet.CodeletType#FILE_TEXT {@.file.textlet}}. This entire JavaDoc block will be suppressed, and a stack-trace will be in the JavaDoc output.</p>
 
-	<h3><u>Taglet:</u></h3>
+   <h3><u>Taglet:</u></h3>
 
-	<P style="font-size: 125%;"><b>{@code {@.file.textlet $<non_existing_env_variable>file.txt}}</b></p>
+   <P style="font-size: 125%;"><b>{@code {@.file.textlet $<non_existing_env_variable>file.txt}}</b></p>
 
-	<h3><u>Replaced with:</u></h3>
+   <h3><u>Replaced with:</u></h3>
 
-	<p><i>(Output begins and ends between the horizontal lines.)</i></p>
+   <p><i>(Output begins and ends between the horizontal lines.)</i></p>
 
-	<HR/>
+   <HR/>
 
 {@.file.textlet $<non_existing_env_variable>file.txt}
 
-	<HR/>
+   <HR/>
 
-	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+   @since  0.1.0
+   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class TestingFileSysProp_FAILURE_IS_EXPECTED  {
 }

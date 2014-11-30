@@ -34,7 +34,7 @@
                   <include name="**/*.class"/>
                </fileset>
             </delete>
-		</target>
+      </target>
       <target name="delete_working"
             description="Delete the working directory">
          <delete dir="${dir_working}" quiet="true"/>
@@ -42,8 +42,8 @@
 
       <target name="cleansandbox"
             description="Deletes temporary files from the sandbox">
-			<delete file="${pom_xml_dest}"/><!-- Originates in task preppom. Needed by task clean -->
-			<delete file="${dir_sandbox}temp.txt"/>
+         <delete file="${pom_xml_dest}"/><!-- Originates in task preppom. Needed by task clean -->
+         <delete file="${dir_sandbox}temp.txt"/>
       </target>
 
       <target name="clean"
@@ -69,7 +69,7 @@
          description="Create all directories outside of the sandbox, necessary for building xbn">
       <mkdir dir="${dir_working}"/>
 
-		<!-- Never deleted! Created here just in case. -->
+      <!-- Never deleted! Created here just in case. -->
       <mkdir dir="${build.class.dir}/xbnjavabuild"/>
 
       <!-- The delete above is CLASSES/xbn, but mkdir here is only of CLASSES (parent) -->

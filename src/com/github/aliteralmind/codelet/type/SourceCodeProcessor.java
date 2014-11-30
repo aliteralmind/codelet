@@ -13,61 +13,61 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.type;
-	import  com.github.aliteralmind.codelet.CodeletFormatException;
-	import  com.github.aliteralmind.codelet.CodeletInstance;
-	import  com.github.aliteralmind.codelet.CodeletType;
-	import  com.github.aliteralmind.codelet.CustomizationInstructions;
-	import  com.github.aliteralmind.codelet.TagletOfTypeProcessor;
-	import  java.nio.file.AccessDeniedException;
-	import  java.nio.file.NoSuchFileException;
-	import  java.util.Iterator;
-	import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
+   import  com.github.aliteralmind.codelet.CodeletFormatException;
+   import  com.github.aliteralmind.codelet.CodeletInstance;
+   import  com.github.aliteralmind.codelet.CodeletType;
+   import  com.github.aliteralmind.codelet.CustomizationInstructions;
+   import  com.github.aliteralmind.codelet.TagletOfTypeProcessor;
+   import  java.nio.file.AccessDeniedException;
+   import  java.nio.file.NoSuchFileException;
+   import  java.util.Iterator;
+   import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 /**
    <p>Reads a (source-code) {@link com.github.aliteralmind.codelet.CodeletType#SOURCE_CODE {@.codelet}} taglet and outputs its replacement text.</p>
 
-	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+   @since  0.1.0
+   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class SourceCodeProcessor extends TagletOfTypeProcessor<SourceCodeTemplate>  {
-	/**
-		<p>Create a new instance from an {@code CodeletInstance}.</p>
+   /**
+      <p>Create a new instance from an {@code CodeletInstance}.</p>
 
-		<p>Equal to <code>{@link com.github.aliteralmind.codelet.TagletOfTypeProcessor#TagletOfTypeProcessor(CodeletType, CodeletInstance) super}(CodeletType.SOURCE_CODE, instance)</code>
-	 **/
-	public SourceCodeProcessor(CodeletInstance instance) throws ClassNotFoundException, NoSuchMethodException, NoSuchFileException, AccessDeniedException  {
-		super(CodeletType.SOURCE_CODE, instance);
+      <p>Equal to <code>{@link com.github.aliteralmind.codelet.TagletOfTypeProcessor#TagletOfTypeProcessor(CodeletType, CodeletInstance) super}(CodeletType.SOURCE_CODE, instance)</code>
+    **/
+   public SourceCodeProcessor(CodeletInstance instance) throws ClassNotFoundException, NoSuchMethodException, NoSuchFileException, AccessDeniedException  {
+      super(CodeletType.SOURCE_CODE, instance);
 
-		if(getClassOrFilePortion().contains("("))  {
-			throw  new CodeletFormatException(instance, "Source code taglets cannot contain command-line parameters");
-		}
+      if(getClassOrFilePortion().contains("("))  {
+         throw  new CodeletFormatException(instance, "Source code taglets cannot contain command-line parameters");
+      }
 
-		Iterator<String> srcLineItr = getSourceCodeLineIterator(instance);
+      Iterator<String> srcLineItr = getSourceCodeLineIterator(instance);
 
-		CustomizationInstructions<SourceCodeTemplate> instructions =
-			getCustomizationInstructions(CodeletType.SOURCE_CODE);
+      CustomizationInstructions<SourceCodeTemplate> instructions =
+         getCustomizationInstructions(CodeletType.SOURCE_CODE);
 
-		String customizedSourceCode = instructions.getCustomizedBody(
-			instance, srcLineItr);
+      String customizedSourceCode = instructions.getCustomizedBody(
+         instance, srcLineItr);
 
-		boolean doDebug = isDebugOn(instance, "zzSourceCodeProcessor.progress");
+      boolean doDebug = isDebugOn(instance, "zzSourceCodeProcessor.progress");
 
-		if(doDebug)  {
-			debugln("   Getting template.");
-		}
+      if(doDebug)  {
+         debugln("   Getting template.");
+      }
 
-		SourceCodeTemplate template = getTemplateFromInstructionsOverrideOrDefault(
-			instructions);
+      SourceCodeTemplate template = getTemplateFromInstructionsOverrideOrDefault(
+         instructions);
 
-		if(doDebug)  {
-			debugln("   Filling body text.");
-		}
+      if(doDebug)  {
+         debugln("   Filling body text.");
+      }
 
-		String finalOutput = template.fillBody(customizedSourceCode).getRendered(instance);
+      String finalOutput = template.fillBody(customizedSourceCode).getRendered(instance);
 
-		if(doDebug)  {
-			debugln("   Setting fully-processed output.");
-		}
+      if(doDebug)  {
+         debugln("   Setting fully-processed output.");
+      }
 
-		setFullyProcessedOutput(finalOutput);
-	}
+      setFullyProcessedOutput(finalOutput);
+   }
 }

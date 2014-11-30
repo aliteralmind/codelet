@@ -13,164 +13,164 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.util;
-	import  com.github.xbn.util.JavaUtil;
-	import  com.github.xbn.io.PathMustBe;
-	import  com.github.xbn.io.Existence;
-	import  com.github.xbn.io.NewPrintWriterToFile;
-	import  com.github.xbn.io.PlainTextFileUtil;
-	import  com.github.xbn.io.Readable;
-	import  com.github.xbn.io.Writable;
-	import  com.github.xbn.lang.Copyable;
-	import  com.github.xbn.lang.CrashIfObject;
-	import  java.io.PrintWriter;
-	import  java.nio.file.AccessDeniedException;
-	import  java.nio.file.NoSuchFileException;
-	import  java.nio.file.Path;
-	import  java.nio.file.Paths;
-	import  java.util.Iterator;
+   import  com.github.xbn.util.JavaUtil;
+   import  com.github.xbn.io.PathMustBe;
+   import  com.github.xbn.io.Existence;
+   import  com.github.xbn.io.NewPrintWriterToFile;
+   import  com.github.xbn.io.PlainTextFileUtil;
+   import  com.github.xbn.io.Readable;
+   import  com.github.xbn.io.Writable;
+   import  com.github.xbn.lang.Copyable;
+   import  com.github.xbn.lang.CrashIfObject;
+   import  java.io.PrintWriter;
+   import  java.nio.file.AccessDeniedException;
+   import  java.nio.file.NoSuchFileException;
+   import  java.nio.file.Path;
+   import  java.nio.file.Paths;
+   import  java.util.Iterator;
 /**
    <p>Given a base directory and fully-qualified class name, get a {@link java.nio.file.Path}, {@link org.apache.commons.io.LineIterator}, or {@link java.io.PrintWriter} to its source code, class file, or JavaDoc html file. The fully-qualified class name may or may not represent an actually-existing class (as determined by {@code Class.forName(s)}).</p>
 
-	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+   @since  0.1.0
+   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class FQClassNameWithBaseDir implements Copyable  {
-	private final String       baseDir   ;
-	private final String       fqClsNm   ;
-	private final Path         javaPath  ;
-	private final String       dotPlusXtn;
+   private final String       baseDir   ;
+   private final String       fqClsNm   ;
+   private final Path         javaPath  ;
+   private final String       dotPlusXtn;
    public FQClassNameWithBaseDir(String base_dir, String fq_className, String dot_plusExtension)   {
-		try  {
-			if(!dot_plusExtension.startsWith("."))  {
-				throw  new IllegalArgumentException("dot_plusExtension (" + dot_plusExtension + ") does not start with a dot.");
-			}
-		}  catch(RuntimeException rx)  {
-			throw  CrashIfObject.nullOrReturnCause(dot_plusExtension, "dot_plusExtension", null, rx);
-		}
-		String path = JavaUtil.getPathForJavaClass(base_dir, fq_className, dot_plusExtension);
+      try  {
+         if(!dot_plusExtension.startsWith("."))  {
+            throw  new IllegalArgumentException("dot_plusExtension (" + dot_plusExtension + ") does not start with a dot.");
+         }
+      }  catch(RuntimeException rx)  {
+         throw  CrashIfObject.nullOrReturnCause(dot_plusExtension, "dot_plusExtension", null, rx);
+      }
+      String path = JavaUtil.getPathForJavaClass(base_dir, fq_className, dot_plusExtension);
 
-		//Set parameters into fields here, so toString() can be used in error messages.
-		baseDir = base_dir;
-		fqClsNm = fq_className;
-		dotPlusXtn = dot_plusExtension;
-		javaPath = Paths.get(path);
-	}
-	/**
-		<p>Create a new instance as a duplicate of another.</p>
+      //Set parameters into fields here, so toString() can be used in error messages.
+      baseDir = base_dir;
+      fqClsNm = fq_className;
+      dotPlusXtn = dot_plusExtension;
+      javaPath = Paths.get(path);
+   }
+   /**
+      <p>Create a new instance as a duplicate of another.</p>
 
-		@param  to_copy  May not be <code>null</code>.
-		@see  #getObjectCopy()
-	 **/
-	public FQClassNameWithBaseDir(FQClassNameWithBaseDir to_copy)  {
-		this(to_copy, null, null, null);
-	}
-	/**
-		<p>Create a new instance as a duplicate of another.</p>
+      @param  to_copy  May not be <code>null</code>.
+      @see  #getObjectCopy()
+    **/
+   public FQClassNameWithBaseDir(FQClassNameWithBaseDir to_copy)  {
+      this(to_copy, null, null, null);
+   }
+   /**
+      <p>Create a new instance as a duplicate of another.</p>
 
-		@param  to_copy  May not be <code>null</code>.
-		@see  #getObjectCopy()
-	 **/
-	public FQClassNameWithBaseDir(FQClassNameWithBaseDir to_copy, String baseDir_override, String fqClsName_override, String dotXtnsn_override)  {
-		this(((baseDir_override == null) ? (new ToCopyHandler(to_copy)).getBaseDirectory() : baseDir_override),
-			((fqClsName_override == null) ? (new ToCopyHandler(to_copy)).getClassName() : fqClsName_override),
-			((dotXtnsn_override == null) ? (new ToCopyHandler(to_copy)).getDotPlusExtension() : dotXtnsn_override));
-	}
-	public FQClassNameWithBaseDir getThisOrCrashIfBad(Readable readable_is, Writable writable_is) throws NoSuchFileException, AccessDeniedException  {
-		getThisOrCrashIfBad(Existence.REQUIRED, readable_is, writable_is);
-		return  this;
-	}
-	public FQClassNameWithBaseDir getThisOrCrashIfBad(Existence existence_is, Readable readable_is, Writable writable_is) throws NoSuchFileException, AccessDeniedException  {
-		new PathMustBe().
-			existing(existence_is).readable(readable_is).writable(writable_is).
-			crashIfBad(getPath(), "getPath()");
-		return  this;
-	}
+      @param  to_copy  May not be <code>null</code>.
+      @see  #getObjectCopy()
+    **/
+   public FQClassNameWithBaseDir(FQClassNameWithBaseDir to_copy, String baseDir_override, String fqClsName_override, String dotXtnsn_override)  {
+      this(((baseDir_override == null) ? (new ToCopyHandler(to_copy)).getBaseDirectory() : baseDir_override),
+         ((fqClsName_override == null) ? (new ToCopyHandler(to_copy)).getClassName() : fqClsName_override),
+         ((dotXtnsn_override == null) ? (new ToCopyHandler(to_copy)).getDotPlusExtension() : dotXtnsn_override));
+   }
+   public FQClassNameWithBaseDir getThisOrCrashIfBad(Readable readable_is, Writable writable_is) throws NoSuchFileException, AccessDeniedException  {
+      getThisOrCrashIfBad(Existence.REQUIRED, readable_is, writable_is);
+      return  this;
+   }
+   public FQClassNameWithBaseDir getThisOrCrashIfBad(Existence existence_is, Readable readable_is, Writable writable_is) throws NoSuchFileException, AccessDeniedException  {
+      new PathMustBe().
+         existing(existence_is).readable(readable_is).writable(writable_is).
+         crashIfBad(getPath(), "getPath()");
+      return  this;
+   }
 
-	public Iterator<String> newLineIterator()  {
-		try  {
-			return  PlainTextFileUtil.getLineIterator(getPath().toFile(), "getPath().toFile()");
-		}  catch(RuntimeException rx)  {
-			throw  new RuntimeException("Attempting PlainTextFileUtil.getLineIterator(getPath().toFile(), ...), this=[" + this + "]", rx);
-		}
-	}
-	public String getFileText()  {
-		try  {
-			return  PlainTextFileUtil.getText(getPath().toFile(), "getPath().toFile()");
-		}  catch(RuntimeException rx)  {
-			throw  new RuntimeException("Attempting PlainTextFileUtil.getText(getPath().toFile(), ...), this=[" + this + "]", rx);
-		}
-	}
-	public StringBuilder appendText(StringBuilder to_appendTo)  {
-		try  {
-			return  PlainTextFileUtil.appendText(to_appendTo, getPath().toFile(), "getPath().toFile()");
-		}  catch(RuntimeException rx)  {
-			throw  new RuntimeException("Attempting PlainTextFileUtil.appendText(to_appendTo, getPath().toFile(), ...), this=[" + this + "]", rx);
-		}
-	}
-	public PrintWriter newFileWriter()  {
-		return  new NewPrintWriterToFile().overwrite().autoFlush().
-				build(getPath().toString());
-	}
-	public String getBaseDirectory()  {
-		return  baseDir;
-	}
-	public String getClassName()  {
-		return  fqClsNm;
-	}
-	public Path getPath()  {
-		return  javaPath;
-	}
-	public String getDotPlusExtension()  {
-		return  dotPlusXtn;
-	}
-	public String toString()  {
-		return  "base=" + getBaseDirectory() + ", class=" + getClassName() + ", dot-extension=" + getDotPlusExtension() + ", absolute=" + getPath().toAbsolutePath();
-	}
-	/**
-		<p>Get a duplicate of this <code>FQClassNameWithBaseDir</code>.</p>
+   public Iterator<String> newLineIterator()  {
+      try  {
+         return  PlainTextFileUtil.getLineIterator(getPath().toFile(), "getPath().toFile()");
+      }  catch(RuntimeException rx)  {
+         throw  new RuntimeException("Attempting PlainTextFileUtil.getLineIterator(getPath().toFile(), ...), this=[" + this + "]", rx);
+      }
+   }
+   public String getFileText()  {
+      try  {
+         return  PlainTextFileUtil.getText(getPath().toFile(), "getPath().toFile()");
+      }  catch(RuntimeException rx)  {
+         throw  new RuntimeException("Attempting PlainTextFileUtil.getText(getPath().toFile(), ...), this=[" + this + "]", rx);
+      }
+   }
+   public StringBuilder appendText(StringBuilder to_appendTo)  {
+      try  {
+         return  PlainTextFileUtil.appendText(to_appendTo, getPath().toFile(), "getPath().toFile()");
+      }  catch(RuntimeException rx)  {
+         throw  new RuntimeException("Attempting PlainTextFileUtil.appendText(to_appendTo, getPath().toFile(), ...), this=[" + this + "]", rx);
+      }
+   }
+   public PrintWriter newFileWriter()  {
+      return  new NewPrintWriterToFile().overwrite().autoFlush().
+            build(getPath().toString());
+   }
+   public String getBaseDirectory()  {
+      return  baseDir;
+   }
+   public String getClassName()  {
+      return  fqClsNm;
+   }
+   public Path getPath()  {
+      return  javaPath;
+   }
+   public String getDotPlusExtension()  {
+      return  dotPlusXtn;
+   }
+   public String toString()  {
+      return  "base=" + getBaseDirectory() + ", class=" + getClassName() + ", dot-extension=" + getDotPlusExtension() + ", absolute=" + getPath().toAbsolutePath();
+   }
+   /**
+      <p>Get a duplicate of this <code>FQClassNameWithBaseDir</code>.</p>
 
-		@return  <code>(new <a href="#FQClassNameWithBaseDir(FQClassNameWithBaseDir)">FQClassNameWithBaseDir</a>(this))</code>
-	 **/
-	public FQClassNameWithBaseDir getObjectCopy()  {
-		return  (new FQClassNameWithBaseDir(this));
-	}
-	public static final Iterator<String> newLineIteratorForExistingReadable(String base_dir, String fq_className, String dot_plusExtension) throws NoSuchFileException, AccessDeniedException  {
-		return  new FQClassNameWithBaseDir(
-				base_dir, fq_className, dot_plusExtension).
-			getThisOrCrashIfBad(Existence.REQUIRED, Readable.REQUIRED, Writable.OPTIONAL).
-			newLineIterator();
-	}
-	public static final PrintWriter newFileWriterForWriteable(String base_dir, String fq_className, String dot_plusExtension) throws NoSuchFileException, AccessDeniedException  {
-		return  new FQClassNameWithBaseDir(
-				base_dir, fq_className, dot_plusExtension).
-			getThisOrCrashIfBad(Readable.OPTIONAL, Writable.REQUIRED).
-			newFileWriter();
-	}
+      @return  <code>(new <a href="#FQClassNameWithBaseDir(FQClassNameWithBaseDir)">FQClassNameWithBaseDir</a>(this))</code>
+    **/
+   public FQClassNameWithBaseDir getObjectCopy()  {
+      return  (new FQClassNameWithBaseDir(this));
+   }
+   public static final Iterator<String> newLineIteratorForExistingReadable(String base_dir, String fq_className, String dot_plusExtension) throws NoSuchFileException, AccessDeniedException  {
+      return  new FQClassNameWithBaseDir(
+            base_dir, fq_className, dot_plusExtension).
+         getThisOrCrashIfBad(Existence.REQUIRED, Readable.REQUIRED, Writable.OPTIONAL).
+         newLineIterator();
+   }
+   public static final PrintWriter newFileWriterForWriteable(String base_dir, String fq_className, String dot_plusExtension) throws NoSuchFileException, AccessDeniedException  {
+      return  new FQClassNameWithBaseDir(
+            base_dir, fq_className, dot_plusExtension).
+         getThisOrCrashIfBad(Readable.OPTIONAL, Writable.REQUIRED).
+         newFileWriter();
+   }
 }
 class ToCopyHandler  {
-	private final FQClassNameWithBaseDir toCopy;
-	ToCopyHandler(FQClassNameWithBaseDir to_copy)  {
-		toCopy = to_copy;
-	}
-	public String getBaseDirectory()  {
-		try  {
-			return  toCopy.getBaseDirectory();
-		}  catch(RuntimeException rx)  {
-			throw  CrashIfObject.nullOrReturnCause(toCopy, "to_copy", null, rx);
-		}
-	}
-	public String getClassName()  {
-		try  {
-			return  toCopy.getClassName();
-		}  catch(RuntimeException rx)  {
-			throw  CrashIfObject.nullOrReturnCause(toCopy, "to_copy", null, rx);
-		}
-	}
-	public String getDotPlusExtension()  {
-		try  {
-			return  toCopy.getDotPlusExtension();
-		}  catch(RuntimeException rx)  {
-			throw  CrashIfObject.nullOrReturnCause(toCopy, "to_copy", null, rx);
-		}
-	}
+   private final FQClassNameWithBaseDir toCopy;
+   ToCopyHandler(FQClassNameWithBaseDir to_copy)  {
+      toCopy = to_copy;
+   }
+   public String getBaseDirectory()  {
+      try  {
+         return  toCopy.getBaseDirectory();
+      }  catch(RuntimeException rx)  {
+         throw  CrashIfObject.nullOrReturnCause(toCopy, "to_copy", null, rx);
+      }
+   }
+   public String getClassName()  {
+      try  {
+         return  toCopy.getClassName();
+      }  catch(RuntimeException rx)  {
+         throw  CrashIfObject.nullOrReturnCause(toCopy, "to_copy", null, rx);
+      }
+   }
+   public String getDotPlusExtension()  {
+      try  {
+         return  toCopy.getDotPlusExtension();
+      }  catch(RuntimeException rx)  {
+         throw  CrashIfObject.nullOrReturnCause(toCopy, "to_copy", null, rx);
+      }
+   }
 }

@@ -1,35 +1,35 @@
 <project name="compile_tests" basedir=".">
-	<property name="dir_src_test" value="${dir_sandbox_test}${cga_codelet_test}"/>
+   <property name="dir_src_test" value="${dir_sandbox_test}${cga_codelet_test}"/>
 
-	<target name="compiletests">
-		<antcall target="-compiletestsasawhole"/>
-		<antcall target="-compiletests1by1"/>
-	</target>
-	<target name="-compiletestsasawhole" if="compile.as.a.whole">
-		<antcall target="compiletestsasawhole"/>
-	</target>
-	<target name="-compiletests1by1" unless="compile.as.a.whole">
-		<antcall target="compiletests1by1"/>
-		<antcall target="compiletests1by1b"/>
-	</target>
-	<target name="compiletestsasawhole" description="Compiles all Codelet code unit tests in a single javac call.">
-		<javac srcdir="${dir_sandbox_test}" classpathref="project_classpath_id" listfiles="false" includeantruntime="true" createMissingPackageInfoClass="false"
-			destdir="${build.class.dir}"
-			includes="**/*.java"/>
-	</target>
+   <target name="compiletests">
+      <antcall target="-compiletestsasawhole"/>
+      <antcall target="-compiletests1by1"/>
+   </target>
+   <target name="-compiletestsasawhole" if="compile.as.a.whole">
+      <antcall target="compiletestsasawhole"/>
+   </target>
+   <target name="-compiletests1by1" unless="compile.as.a.whole">
+      <antcall target="compiletests1by1"/>
+      <antcall target="compiletests1by1b"/>
+   </target>
+   <target name="compiletestsasawhole" description="Compiles all Codelet code unit tests in a single javac call.">
+      <javac srcdir="${dir_sandbox_test}" classpathref="project_classpath_id" listfiles="false" includeantruntime="true" createMissingPackageInfoClass="false"
+         destdir="${build.class.dir}"
+         includes="**/*.java"/>
+   </target>
 
-	<target name="compiletests1by1">
-		<javac srcdir="${dir_src_test}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="simplesig/SimpleMethodSignature_Unit.java"/>
-		<javac srcdir="${dir_src_test}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="simplesig/SimpleParamSigSearchTerm_Unit.java"/>
-		<javac srcdir="${dir_src_test}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="util/FilenameBlackWhiteList_Unit.java"/>
-		<javac srcdir="${dir_src_test}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="util/FQClassNameWithBaseDir_Unit.java"/>
-		<javac srcdir="${dir_src_test}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="UnitTestRunner.java"/>
+   <target name="compiletests1by1">
+      <javac srcdir="${dir_src_test}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="simplesig/SimpleMethodSignature_Unit.java"/>
+      <javac srcdir="${dir_src_test}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="simplesig/SimpleParamSigSearchTerm_Unit.java"/>
+      <javac srcdir="${dir_src_test}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="util/FilenameBlackWhiteList_Unit.java"/>
+      <javac srcdir="${dir_src_test}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="util/FQClassNameWithBaseDir_Unit.java"/>
+      <javac srcdir="${dir_src_test}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="UnitTestRunner.java"/>
 </target>
 <target name="compiletests1by1b">
-	</target>
+   </target>
 </project>

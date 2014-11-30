@@ -14,20 +14,20 @@
 \*license*/
 package  com.github.aliteralmind.codelet.examples.adder;
 /**
-	<p>YYY</p>
+   <p>YYY</p>
 
-	<p>{@code java com.github.aliteralmind.codelet.examples.AdderDemoWithFullyQualified}</p>
+   <p>{@code java com.github.aliteralmind.codelet.examples.AdderDemoWithFullyQualified}</p>
 
-	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+   @since  0.1.0
+   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class AdderDemoWithFullyQualified  {
-	public static final void main(String[] ignored)  {
+   public static final void main(String[] ignored)  {
 
-		com.github.aliteralmind.codelet.examples.adder.Adder adder = new com.github.aliteralmind.codelet.examples.adder.Adder();
-		System.out.println(adder.getSum());
+      com.github.aliteralmind.codelet.examples.adder.Adder adder = new com.github.aliteralmind.codelet.examples.adder.Adder();
+      System.out.println(adder.getSum());
 
-		adder = new com.github.aliteralmind.codelet.examples.adder.Adder(5, -7, 20, 27);
-		System.out.println(adder.getSum());  //End snippet
-	}
+      adder = new com.github.aliteralmind.codelet.examples.adder.Adder(5, -7, 20, 27);
+      System.out.println(adder.getSum());  //End snippet
+   }
 }

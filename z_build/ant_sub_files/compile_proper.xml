@@ -1,167 +1,167 @@
 <project name="compile_proper" basedir=".">
 
-	<target name="compileproper">
-		<antcall target="-compileproperasawhole"/>
-		<antcall target="-compileproper1by1"/>
-	</target>
-	<target name="-compileproperasawhole" if="compile.as.a.whole">
-		<antcall target="compileproperasawhole"/>
-	</target>
-	<target name="-compileproper1by1" unless="compile.as.a.whole">
-		<antcall target="compileproper1by1"/>
-		<antcall target="compileproper1by1b"/>
-	</target>
-	<target name="compileproperasawhole" description="Compiles all core Codelet code (not examples or tests) in a single javac call.">
-		<javac srcdir="${dir_sandbox_src}" classpathref="project_classpath_id" listfiles="false" includeantruntime="true" createMissingPackageInfoClass="false"
-			destdir="${build.class.dir}"
-			includes="**/*.java"/>
-	</target>
+   <target name="compileproper">
+      <antcall target="-compileproperasawhole"/>
+      <antcall target="-compileproper1by1"/>
+   </target>
+   <target name="-compileproperasawhole" if="compile.as.a.whole">
+      <antcall target="compileproperasawhole"/>
+   </target>
+   <target name="-compileproper1by1" unless="compile.as.a.whole">
+      <antcall target="compileproper1by1"/>
+      <antcall target="compileproper1by1b"/>
+   </target>
+   <target name="compileproperasawhole" description="Compiles all core Codelet code (not examples or tests) in a single javac call.">
+      <javac srcdir="${dir_sandbox_src}" classpathref="project_classpath_id" listfiles="false" includeantruntime="true" createMissingPackageInfoClass="false"
+         destdir="${build.class.dir}"
+         includes="**/*.java"/>
+   </target>
 
-	<target name="compileproper1by1" description="Compile all core Codelet code (not examples or tests), sequentially, one class at a time. For ensuring no circular dependencies.">
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="util/NamedDebuggerFormatException.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="util/NamedDebuggers.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="simplesig/SimpleMethodSigFormatException.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="simplesig/SimpleMethodSignature.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="simplesig/CrashIfMoreThanOne.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="simplesig/CrashIfZero.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="simplesig/Sorted.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="simplesig/Immutable.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="simplesig/SimpleParamSigSearchTermFormatException.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="simplesig/SimpleParamNameSignature.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="simplesig/MethodSimpleParamSig.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="simplesig/ConstructorSimpleParamSig.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="simplesig/AllSimpleParamSignatures.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="simplesig/SimpleParamSigSearchTerm.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="simplesig/ConstructorParamSearchTerm.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="simplesig/MethodSigSearchTerm.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="util/BlackOrWhite.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="util/FilenameBlackWhiteList.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="util/FilenameBlacklist.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="util/FilenameWhitelist.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="util/VarArgs.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="util/JavaDocUtil.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="util/RefreshOffline.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="util/PackageListRetrievalFailedException.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="util/OnlineOfflineDocRoot.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="util/AllOnlineOfflineDocRoots.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="util/FQClassNameWithBaseDir.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="util/JavaClassWithBaseDir.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="CodeletType.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="CodeletInstance.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="CodeletGap.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="UserExtraGapGetter.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="alter/DefaultAlterGetter.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="alter/DefaultDefaultAlterGetter.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="CodeletBaseConfig.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="CodeletTemplateBase.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="CodeletFormatException.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="TagletTextUtil.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="type/OnlyOneBodyGapTemplateBase.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="type/SourceCodeTemplate.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="type/ConsoleOutTemplate.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="type/SourceAndOutTemplate.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="type/FileTextTemplate.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="CodeletTemplateConfig.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="TemplateOverridesConfigLineException.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="TemplateOverrides.java"/>
+   <target name="compileproper1by1" description="Compile all core Codelet code (not examples or tests), sequentially, one class at a time. For ensuring no circular dependencies.">
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="util/NamedDebuggerFormatException.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="util/NamedDebuggers.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="simplesig/SimpleMethodSigFormatException.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="simplesig/SimpleMethodSignature.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="simplesig/CrashIfMoreThanOne.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="simplesig/CrashIfZero.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="simplesig/Sorted.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="simplesig/Immutable.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="simplesig/SimpleParamSigSearchTermFormatException.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="simplesig/SimpleParamNameSignature.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="simplesig/MethodSimpleParamSig.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="simplesig/ConstructorSimpleParamSig.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="simplesig/AllSimpleParamSignatures.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="simplesig/SimpleParamSigSearchTerm.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="simplesig/ConstructorParamSearchTerm.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="simplesig/MethodSigSearchTerm.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="util/BlackOrWhite.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="util/FilenameBlackWhiteList.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="util/FilenameBlacklist.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="util/FilenameWhitelist.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="util/VarArgs.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="util/JavaDocUtil.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="util/RefreshOffline.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="util/PackageListRetrievalFailedException.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="util/OnlineOfflineDocRoot.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="util/AllOnlineOfflineDocRoots.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="util/FQClassNameWithBaseDir.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="util/JavaClassWithBaseDir.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="CodeletType.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="CodeletInstance.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="CodeletGap.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="UserExtraGapGetter.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="alter/DefaultAlterGetter.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="alter/DefaultDefaultAlterGetter.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="CodeletBaseConfig.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="CodeletTemplateBase.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="CodeletFormatException.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="TagletTextUtil.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="type/OnlyOneBodyGapTemplateBase.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="type/SourceCodeTemplate.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="type/ConsoleOutTemplate.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="type/SourceAndOutTemplate.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="type/FileTextTemplate.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="CodeletTemplateConfig.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="TemplateOverridesConfigLineException.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="TemplateOverrides.java"/>
 <!-- 5/8/2014: First class requiring com.google.common: -->
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="alter/NewLineAltererFor.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="alter/DefaultAlterGetterException.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="alter/DefaultAlterGetterUtil.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="CustomizationInstructions.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="NewLineFilterFor.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="BasicCustomizers.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="TagletOfTypeProcessor.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="type/SourceCodeProcessor.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="type/SourceAndOutProcessor.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="type/ConsoleOutProcessor.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="type/FileTextProcessor.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="CodeletBootstrap.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="TagletProcessor.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="taglet/IncludePostClassName.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="taglet/ComSunJavaDocUtil.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="taglet/CodletComSunJavadocTagProcessor.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="alter/NewJavaDocLinkReplacerFor.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="alter/NewJDLinkForWordOccuranceNum.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="taglet/FileTextletTaglet.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="taglet/CodeletAndOutTaglet.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="taglet/CodeletTaglet.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="taglet/CodeletDotOutTaglet.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="zCodeletCustomizers.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="simplesig/zCodeletCustomizers.java"/>
-		<javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
-			includes="util/zCodeletCustomizers.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="alter/NewLineAltererFor.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="alter/DefaultAlterGetterException.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="alter/DefaultAlterGetterUtil.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="CustomizationInstructions.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="NewLineFilterFor.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="BasicCustomizers.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="TagletOfTypeProcessor.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="type/SourceCodeProcessor.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="type/SourceAndOutProcessor.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="type/ConsoleOutProcessor.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="type/FileTextProcessor.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="CodeletBootstrap.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="TagletProcessor.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="taglet/IncludePostClassName.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="taglet/ComSunJavaDocUtil.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="taglet/CodletComSunJavadocTagProcessor.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="alter/NewJavaDocLinkReplacerFor.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="alter/NewJDLinkForWordOccuranceNum.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="taglet/FileTextletTaglet.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="taglet/CodeletAndOutTaglet.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="taglet/CodeletTaglet.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="taglet/CodeletDotOutTaglet.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="zCodeletCustomizers.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="simplesig/zCodeletCustomizers.java"/>
+      <javac srcdir="${dir_src_codelet}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+         includes="util/zCodeletCustomizers.java"/>
 </target>
 <target name="compileproper1by1b">
-	</target>
+   </target>
 </project>

@@ -1,42 +1,42 @@
 <!--
-	See http://stackoverflow.com/questions/11028141/ant-replace-task-not-expanding-properties-in-replacetoken-tag
+   See http://stackoverflow.com/questions/11028141/ant-replace-task-not-expanding-properties-in-replacetoken-tag
  -->
 <project name="javadoc_replace_headers_in_one_dir" default="help" basedir=".">
 
    <target name="-replace_all_javadoc_headers">
-		<antcall target="-javadoc_replace_headers_in_one_dir">
-			<param name="directory_to_replace" value="${dir_build_docs_javadoc}"/>
-			<param name="relative_url_to_doc_root" value=""/>
-		</antcall>
-		<antcall target="-javadoc_replace_headers_in_one_dir">
-			<param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}"/>
-			<param name="relative_url_to_doc_root" value="../../../../"/>
-		</antcall>
-		<antcall target="-javadoc_replace_headers_in_one_dir">
-			<param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}type/"/>
-			<param name="relative_url_to_doc_root" value="../../../../../"/>
-		</antcall>
-		<antcall target="-javadoc_replace_headers_in_one_dir">
-			<param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}taglet/"/>
-			<param name="relative_url_to_doc_root" value="../../../../../"/>
-		</antcall>
-		<antcall target="-javadoc_replace_headers_in_one_dir">
-			<param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}examples/"/>
-			<param name="relative_url_to_doc_root" value="../../../../../"/>
-		</antcall>
-		<antcall target="-javadoc_replace_headers_in_one_dir">
-			<param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}util/"/>
-			<param name="relative_url_to_doc_root" value="../../../../../"/>
-		</antcall>
-		<antcall target="-javadoc_replace_headers_in_one_dir">
-			<param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}simplesig/"/>
-			<param name="relative_url_to_doc_root" value="../../../../../"/>
-		</antcall>
-	</target>
+      <antcall target="-javadoc_replace_headers_in_one_dir">
+         <param name="directory_to_replace" value="${dir_build_docs_javadoc}"/>
+         <param name="relative_url_to_doc_root" value=""/>
+      </antcall>
+      <antcall target="-javadoc_replace_headers_in_one_dir">
+         <param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}"/>
+         <param name="relative_url_to_doc_root" value="../../../../"/>
+      </antcall>
+      <antcall target="-javadoc_replace_headers_in_one_dir">
+         <param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}type/"/>
+         <param name="relative_url_to_doc_root" value="../../../../../"/>
+      </antcall>
+      <antcall target="-javadoc_replace_headers_in_one_dir">
+         <param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}taglet/"/>
+         <param name="relative_url_to_doc_root" value="../../../../../"/>
+      </antcall>
+      <antcall target="-javadoc_replace_headers_in_one_dir">
+         <param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}examples/"/>
+         <param name="relative_url_to_doc_root" value="../../../../../"/>
+      </antcall>
+      <antcall target="-javadoc_replace_headers_in_one_dir">
+         <param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}util/"/>
+         <param name="relative_url_to_doc_root" value="../../../../../"/>
+      </antcall>
+      <antcall target="-javadoc_replace_headers_in_one_dir">
+         <param name="directory_to_replace" value="${dir_build_docs_javadoc}${cg_alit_codelet}simplesig/"/>
+         <param name="relative_url_to_doc_root" value="../../../../../"/>
+      </antcall>
+   </target>
 
-	<target name="-javadoc_replace_headers_in_one_dir">
-		<replace dir="${directory_to_replace}" token="@__relative_url_to_doc_root__@" value="${relative_url_to_doc_root}">
-			<include name="*.html"/>
-		</replace>
-	</target>
+   <target name="-javadoc_replace_headers_in_one_dir">
+      <replace dir="${directory_to_replace}" token="@__relative_url_to_doc_root__@" value="${relative_url_to_doc_root}">
+         <include name="*.html"/>
+      </replace>
+   </target>
 </project>

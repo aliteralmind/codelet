@@ -13,7 +13,7 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet;
-	import  com.github.xbn.keyed.SimpleNamed;
+   import  com.github.xbn.keyed.SimpleNamed;
 /**
    <p>A single gap in a Codelet template, including a function that fills it based on the Codelet instance and global configuration.</p>
 
@@ -22,8 +22,8 @@ package  com.github.aliteralmind.codelet;
    @see  com.github.aliteralmind.codelet.type.SourceAndOutTemplate type.SourceAndOutTemplate
    @see  com.github.aliteralmind.codelet.type.FileTextTemplate type.FileTextTemplate
    @see  com.github.aliteralmind.codelet.UserExtraGapGetter UserExtraGapGetter
-	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+   @since  0.1.0
+   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public abstract class CodeletGap extends SimpleNamed  {
    /**
@@ -34,13 +34,13 @@ public abstract class CodeletGap extends SimpleNamed  {
    	@param  name  May not be {@code null} or empty, and must contain only letters, digits, and underscores. Get with {@link com.github.xbn.keyed.Named#getName() getName}{@code ()}*.
     **/
    public CodeletGap(String name)  {
-		super(name);
-	}
-	/**
-		<p>The output string that replaces the gap.</p>
+      super(name);
+   }
+   /**
+      <p>The output string that replaces the gap.</p>
 
-		@param  instance  The codelet instance. May not be {@code null}. <i>When creating a ...custom gap... you do not need to check (or try-catch) for {@code null}-ness.</i>
-		@return  A non-{@code null} string.
-	 **/
-	public abstract String getFillText(CodeletInstance instance);
+      @param  instance  The codelet instance. May not be {@code null}. <i>When creating a ...custom gap... you do not need to check (or try-catch) for {@code null}-ness.</i>
+      @return  A non-{@code null} string.
+    **/
+   public abstract String getFillText(CodeletInstance instance);
 }

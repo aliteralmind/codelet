@@ -13,47 +13,47 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.simplesig;
-	import  com.github.xbn.lang.ObjectOrCrashIfNull;
-	import  java.lang.reflect.Method;
+   import  com.github.xbn.lang.ObjectOrCrashIfNull;
+   import  java.lang.reflect.Method;
 /**
-	<p>Simple-parameter-name signature for a function.</p>
+   <p>Simple-parameter-name signature for a function.</p>
 
-	@see  <a href="package-summary.html#xmpl_method">Example</a>
-	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+   @see  <a href="package-summary.html#xmpl_method">Example</a>
+   @since  0.1.0
+   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class MethodSimpleParamSig extends SimpleParamNameSignature  {
-	/**
-		<p>Create a new instance from a method.</p>
+   /**
+      <p>Create a new instance from a method.</p>
 
-		<p>Equal to
-		<br/> &nbsp; &nbsp; <code>{@link SimpleParamNameSignature#SimpleParamNameSignature(Member, Class[]) super}(method, method.{@link java.lang.reflect.Method#getParameterTypes() getParameterTypes}())</code></p>
+      <p>Equal to
+      <br/> &nbsp; &nbsp; <code>{@link SimpleParamNameSignature#SimpleParamNameSignature(Member, Class[]) super}(method, method.{@link java.lang.reflect.Method#getParameterTypes() getParameterTypes}())</code></p>
 
-		@param  method  May not be {@code null}.
-	 **/
-	public MethodSimpleParamSig(Method method)  {
-		super(method, ObjectOrCrashIfNull.<Method>get(method, "method").getParameterTypes());
-	}
-	/**
-		<p>The method object.</p>
+      @param  method  May not be {@code null}.
+    **/
+   public MethodSimpleParamSig(Method method)  {
+      super(method, ObjectOrCrashIfNull.<Method>get(method, "method").getParameterTypes());
+   }
+   /**
+      <p>The method object.</p>
 
-		@return  <code>(Method){@link SimpleParamNameSignature#getMember() getMember}()*</code>
+      @return  <code>(Method){@link SimpleParamNameSignature#getMember() getMember}()*</code>
 
-		@see  #MethodSimpleParamSig(Method)
-	 **/
-	public Method getMethod()  {
-		return  (Method)getMember();
-	}
-	/**
-		@return  <code>{@link #getMethodName() getMethodName}() + {@link SimpleParamNameSignature#getWithParens() getWithParens}()*</code>
-	 **/
-	public String toString()  {
-		return  getMethodName() + getWithParens();
-	}
-	/**
-		@return  <code>{@link #getMethod() getMethod}().{@link java.lang.reflect.Method#getName() getName}()</code>
-	 **/
-	public String getMethodName()  {
-		return  getMethod().getName();
-	}
+      @see  #MethodSimpleParamSig(Method)
+    **/
+   public Method getMethod()  {
+      return  (Method)getMember();
+   }
+   /**
+      @return  <code>{@link #getMethodName() getMethodName}() + {@link SimpleParamNameSignature#getWithParens() getWithParens}()*</code>
+    **/
+   public String toString()  {
+      return  getMethodName() + getWithParens();
+   }
+   /**
+      @return  <code>{@link #getMethod() getMethod}().{@link java.lang.reflect.Method#getName() getName}()</code>
+    **/
+   public String getMethodName()  {
+      return  getMethod().getName();
+   }
 }

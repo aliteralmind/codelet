@@ -1,20 +1,20 @@
 <project name="compile_main" basedir=".">
 
-	<target name="compilehelp" description="See XBN-Java project's 'compilehelp' ant task for important information.">
-		<echo>See XBN-Java project's 'compilehelp' ant task for important information.</echo>
-	</target>
+   <target name="compilehelp" description="See XBN-Java project's 'compilehelp' ant task for important information.">
+      <echo>See XBN-Java project's 'compilehelp' ant task for important information.</echo>
+   </target>
 
-	<target name="jar" description="Creates the Codelet 'all' and 'core' jars.">
-		<jar destfile="${dir_build_download_codelet_all_jar}"
-			basedir="${build.class.dir}"
-			includes="${com_github_alit}codelet/**/*.class,${com_github_alit}codelet/**/*.class,${com_github_alit}codelet/**/*.class"
-		/>
-		<jar destfile="${dir_build_download}${project_name_with_version}.jar"
-			basedir="${build.class.dir}"
-			includes="${cg_alit_codelet}**/*.class"
-			excludes="${cg_alit_codelet}examples/**/*.class,${cg_alit_codelet}test/**/*.class"
-		/>
+   <target name="jar" description="Creates the Codelet 'all' and 'core' jars.">
+      <jar destfile="${dir_build_download_codelet_all_jar}"
+         basedir="${build.class.dir}"
+         includes="${com_github_alit}codelet/**/*.class,${com_github_alit}codelet/**/*.class,${com_github_alit}codelet/**/*.class"
+      />
+      <jar destfile="${dir_build_download}${project_name_with_version}.jar"
+         basedir="${build.class.dir}"
+         includes="${cg_alit_codelet}**/*.class"
+         excludes="${cg_alit_codelet}examples/**/*.class,${cg_alit_codelet}test/**/*.class"
+      />
 <!--
  -->
-	</target>
+   </target>
 </project>

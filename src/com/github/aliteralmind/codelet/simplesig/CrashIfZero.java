@@ -14,52 +14,52 @@
 \*license*/
 package  com.github.aliteralmind.codelet.simplesig;
 /**
-	<p>If zero matches, crash?.</p>
+   <p>If zero matches, crash?.</p>
 
-	@see  SimpleParamSigSearchTerm#getFirstMatchProt(List, CrashIfZero, CrashIfMoreThanOne) SimpleParamSigSearchTerm#getFirstMatch
-	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+   @see  SimpleParamSigSearchTerm#getFirstMatchProt(List, CrashIfZero, CrashIfMoreThanOne) SimpleParamSigSearchTerm#getFirstMatch
+   @since  0.1.0
+   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public enum CrashIfZero  {
-	/**
-		<p>YYY.</p>
+   /**
+      <p>YYY.</p>
 
-		@see  #NO
-		@see  #isYes()
-	 **/
-	YES,
-	/**
-		<p>YYY.</p>
+      @see  #NO
+      @see  #isYes()
+    **/
+   YES,
+   /**
+      <p>YYY.</p>
 
-		@see  #YES
-		@see  #isNo()
-	 **/
-	NO;
-	/**
-		<p>Is this {@code CrashIfZero} equal to {@code YES}?.</p>
+      @see  #YES
+      @see  #isNo()
+    **/
+   NO;
+   /**
+      <p>Is this {@code CrashIfZero} equal to {@code YES}?.</p>
 
-		@return  <code>this == {@link #YES}</code>
+      @return  <code>this == {@link #YES}</code>
 
-		@see  #isNo()
-	 **/
-	public final boolean isYes()  {
-		return  this == YES;
-	}
-	/**
-		<p>Is this {@code CrashIfZero} equal to {@code NO}?.</p>
+      @see  #isNo()
+    **/
+   public final boolean isYes()  {
+      return  this == YES;
+   }
+   /**
+      <p>Is this {@code CrashIfZero} equal to {@code NO}?.</p>
 
-		@return  <code>this == {@link #NO}</code>
-		@see  #isYes()
-	 **/
-	public final boolean isNo()  {
-		return  this == NO;
-	}
-	/**
-		<p>Return {@code CrashIfZero.YES} if the flag is {@code true}, or {@code NO} if {@code false}.</p>
+      @return  <code>this == {@link #NO}</code>
+      @see  #isYes()
+    **/
+   public final boolean isNo()  {
+      return  this == NO;
+   }
+   /**
+      <p>Return {@code CrashIfZero.YES} if the flag is {@code true}, or {@code NO} if {@code false}.</p>
 
-		@return  <code>(flag ? {@link #YES} : {@link #NO})</code>
-	 **/
-	public static final CrashIfZero getForBoolean(boolean flag)  {
-		return  (flag ? YES : NO);
-	}
+      @return  <code>(flag ? {@link #YES} : {@link #NO})</code>
+    **/
+   public static final CrashIfZero getForBoolean(boolean flag)  {
+      return  (flag ? YES : NO);
+   }
 };

@@ -14,51 +14,51 @@
 \*license*/
 package  com.github.aliteralmind.codelet.simplesig;
 /**
-	<p>Should the constructor list be immutable?.</p>
+   <p>Should the constructor list be immutable?.</p>
 
-	@see  AllSimpleParamSignatures#newConstructorList(Class, Declared, Sorted) AllSimpleParamSignatures#newConstructorList
-	@author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <code><a href="http://codelet.jeffyepstein.com">http://codelet.jeffyepstein.com</a></code>, <code><a href="https://github.com/aliteramind/codelet">https://github.com/aliteramind/codelet</a></code>
+   @see  AllSimpleParamSignatures#newConstructorList(Class, Declared, Sorted) AllSimpleParamSignatures#newConstructorList
+   @author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <code><a href="http://codelet.jeffyepstein.com">http://codelet.jeffyepstein.com</a></code>, <code><a href="https://github.com/aliteramind/codelet">https://github.com/aliteramind/codelet</a></code>
  **/
 public enum Immutable  {
-	/**
-		<p>YYY.</p>
+   /**
+      <p>YYY.</p>
 
-		@see  #NO
-		@see  #isYes()
-	 **/
-	YES,
-	/**
-		<p>YYY.</p>
+      @see  #NO
+      @see  #isYes()
+    **/
+   YES,
+   /**
+      <p>YYY.</p>
 
-		@see  #YES
-		@see  #isNo()
-	 **/
-	NO;
-	/**
-		<p>Is this {@code Immutable} equal to {@code YES}?.</p>
+      @see  #YES
+      @see  #isNo()
+    **/
+   NO;
+   /**
+      <p>Is this {@code Immutable} equal to {@code YES}?.</p>
 
-		@return  <code>this == {@link #YES}</code>
+      @return  <code>this == {@link #YES}</code>
 
-		@see  #isNo()
-	 **/
-	public final boolean isYes()  {
-		return  this == YES;
-	}
-	/**
-		<p>Is this {@code Immutable} equal to {@code NO}?.</p>
+      @see  #isNo()
+    **/
+   public final boolean isYes()  {
+      return  this == YES;
+   }
+   /**
+      <p>Is this {@code Immutable} equal to {@code NO}?.</p>
 
-		@return  <code>this == {@link #NO}</code>
-		@see  #isYes()
-	 **/
-	public final boolean isNo()  {
-		return  this == NO;
-	}
-	/**
-		<p>Return {@code Immutable.YES} if the flag is {@code true}, or {@code NO} if {@code false}.</p>
+      @return  <code>this == {@link #NO}</code>
+      @see  #isYes()
+    **/
+   public final boolean isNo()  {
+      return  this == NO;
+   }
+   /**
+      <p>Return {@code Immutable.YES} if the flag is {@code true}, or {@code NO} if {@code false}.</p>
 
-		@return  <code>(flag ? {@link #YES} : {@link #NO})</code>
-	 **/
-	public static final Immutable getForBoolean(boolean flag)  {
-		return  (flag ? YES : NO);
-	}
+      @return  <code>(flag ? {@link #YES} : {@link #NO})</code>
+    **/
+   public static final Immutable getForBoolean(boolean flag)  {
+      return  (flag ? YES : NO);
+   }
 };

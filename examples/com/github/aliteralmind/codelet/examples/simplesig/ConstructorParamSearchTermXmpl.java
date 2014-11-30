@@ -13,58 +13,58 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.codelet.examples.simplesig;
-	import  com.github.aliteralmind.codelet.simplesig.AllSimpleParamSignatures;
-	import  com.github.aliteralmind.codelet.simplesig.ConstructorParamSearchTerm;
-	import  com.github.aliteralmind.codelet.simplesig.ConstructorSimpleParamSig;
-	import  com.github.aliteralmind.codelet.simplesig.CrashIfMoreThanOne;
-	import  com.github.aliteralmind.codelet.simplesig.CrashIfZero;
-	import  com.github.xbn.lang.reflect.Declared;
-	import  java.util.List;
+   import  com.github.aliteralmind.codelet.simplesig.AllSimpleParamSignatures;
+   import  com.github.aliteralmind.codelet.simplesig.ConstructorParamSearchTerm;
+   import  com.github.aliteralmind.codelet.simplesig.ConstructorSimpleParamSig;
+   import  com.github.aliteralmind.codelet.simplesig.CrashIfMoreThanOne;
+   import  com.github.aliteralmind.codelet.simplesig.CrashIfZero;
+   import  com.github.xbn.lang.reflect.Declared;
+   import  java.util.List;
 /**
-	<p>Demonstration of {@link com.github.aliteralmind.codelet.simplesig.ConstructorParamSearchTerm}.</p>
+   <p>Demonstration of {@link com.github.aliteralmind.codelet.simplesig.ConstructorParamSearchTerm}.</p>
 
-	<p>{@code java com.github.aliteralmind.codelet.examples.simplesig.ConstructorParamSearchTermXmpl}</p>
+   <p>{@code java com.github.aliteralmind.codelet.examples.simplesig.ConstructorParamSearchTermXmpl}</p>
 
-	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+   @since  0.1.0
+   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 
 public class ConstructorParamSearchTermXmpl  {
-	public static final String LINE_SEP = System.getProperty("line.separator", "\r\n");
-	public static final void main(String[] ignored)  {
+   public static final String LINE_SEP = System.getProperty("line.separator", "\r\n");
+   public static final void main(String[] ignored)  {
 
-		AllSimpleParamSignatures allInClass = new AllSimpleParamSignatures(
-			ConstructorParamSearchTermXmpl.class, Declared.NO);
+      AllSimpleParamSignatures allInClass = new AllSimpleParamSignatures(
+         ConstructorParamSearchTermXmpl.class, Declared.NO);
 
-		test(allInClass, "()");
-		test(allInClass, "(*)");
-		test(allInClass, "(boolean)");
-	}
-	private static void test(AllSimpleParamSignatures all_inClass, String param_searchTerm)  {
-		ConstructorParamSearchTerm searchTerm = new ConstructorParamSearchTerm(param_searchTerm, null, null);
+      test(allInClass, "()");
+      test(allInClass, "(*)");
+      test(allInClass, "(boolean)");
+   }
+   private static void test(AllSimpleParamSignatures all_inClass, String param_searchTerm)  {
+      ConstructorParamSearchTerm searchTerm = new ConstructorParamSearchTerm(param_searchTerm, null, null);
 
-		System.out.println("Searching for: \"" + param_searchTerm + "\"");
+      System.out.println("Searching for: \"" + param_searchTerm + "\"");
 
-		if(searchTerm.doesMatchAny(all_inClass.getConstructorList()))  {
+      if(searchTerm.doesMatchAny(all_inClass.getConstructorList()))  {
 
-			ConstructorSimpleParamSig first = searchTerm.getFirstMatch(
-				all_inClass.getConstructorList(), CrashIfZero.NO, CrashIfMoreThanOne.NO);
+         ConstructorSimpleParamSig first = searchTerm.getFirstMatch(
+            all_inClass.getConstructorList(), CrashIfZero.NO, CrashIfMoreThanOne.NO);
 
-			List<ConstructorSimpleParamSig> allMatches = searchTerm.getAllMatches(
-				all_inClass.getConstructorList(), CrashIfZero.NO);
+         List<ConstructorSimpleParamSig> allMatches = searchTerm.getAllMatches(
+            all_inClass.getConstructorList(), CrashIfZero.NO);
 
-			System.out.println("   - First match: " + first);
-			System.out.println("   - All matches:" + LINE_SEP +
-				AllSimpleParamSignatures.toStringForAllListsInList("      - ", allMatches, LINE_SEP));
+         System.out.println("   - First match: " + first);
+         System.out.println("   - All matches:" + LINE_SEP +
+            AllSimpleParamSignatures.toStringForAllListsInList("      - ", allMatches, LINE_SEP));
 
-		}  else  {
-			System.out.println("   Not found.");
-		}
+      }  else  {
+         System.out.println("   Not found.");
+      }
 
-		System.out.println();
-	}
-	public ConstructorParamSearchTermXmpl(int i)  {
-	}
-	public ConstructorParamSearchTermXmpl(boolean b)  {
-	}
+      System.out.println();
+   }
+   public ConstructorParamSearchTermXmpl(int i)  {
+   }
+   public ConstructorParamSearchTermXmpl(boolean b)  {
+   }
 }
