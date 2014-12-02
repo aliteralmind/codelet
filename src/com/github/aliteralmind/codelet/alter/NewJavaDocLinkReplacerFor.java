@@ -37,7 +37,7 @@ public class NewJavaDocLinkReplacerFor  {
     * @param  instance  May not be {@code null}.
     * @param  target  May not be {@code null}.
     * @return  <code>{@link #newReplaceWordOnlyWith(String, String, Appendable) newReplaceWordOnlyWith}(
-         <br/> &nbsp; &nbsp; target.{@link java.lang.reflect.Class#getName() getName}(), link, dbgDest_ifNonNull)</code>
+         <br/> &nbsp; &nbsp; target.{@link java.lang.Class#getName() getName}(), link, dbgDest_ifNonNull)</code>
       <br/>Where the {@code link}'s url is
       <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.util.JavaDocUtil JavaDocUtil}.{@link com.github.aliteralmind.codelet.util.JavaDocUtil#getUrlToClass(String, Class) getUrlToClass}(instance.{@link CodeletInstance#getRelativeUrlToDocRoot() getRelativeUrlToDocRoot}(), target)</code>
       <br/>and display is the class's {@linkplain java.lang.Class#getSimpleName() simple name}.
@@ -160,8 +160,8 @@ public class NewJavaDocLinkReplacerFor  {
       <p>Get the {@code {@docRoot}} url for a package, which may be internal or {@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#EXTERNAL_DOC_ROOT_URL_FILE external}.</p>
 
     * @param  instance  May not be {@code null}.
-    * @param  target  The class being linked to. May not be {@code null}, and must be in a package (<code>target.{@link java.lang.Class#getPackage() getPackage}().{@link java.lang.reflect.Package#getName() getName}()</code> must be non-empty).
-    * @return  If <code>{@link com.github.aliteralmind.codelet.CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getAllJavaDocRoots() getAllJavaDocRoots}().{@link com.github.aliteralmind.codelet.util.AllOnlineOfflineDocRoots#getPkgToUrlMap() getPkgToUrlMap}().{@link java.util.Map#get(Object) get}(target.{@link java.lang.Class#getPackage() getPackage}().{@link java.lang.reflect.Package#getName() getName}())</code> is<ul>
+    * @param  target  The class being linked to. May not be {@code null}, and must be in a package (<code>target.{@link java.lang.Class#getPackage() getPackage}().{@link java.lang.Package#getName() getName}()</code> must be non-empty).
+    * @return  If <code>{@link com.github.aliteralmind.codelet.CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getAllJavaDocRoots() getAllJavaDocRoots}().{@link com.github.aliteralmind.codelet.util.AllOnlineOfflineDocRoots#getPkgToUrlMap() getPkgToUrlMap}().{@link java.util.Map#get(Object) get}(target.{@link java.lang.Class#getPackage() getPackage}().{@link java.lang.Package#getName() getName}())</code> is<ul>
          <li>non-{@code null}: The value returned from the map.</li>
          <li>{@code null}: <code>instance.{@link CodeletInstance#getRelativeUrlToDocRoot() getRelativeUrlToDocRoot}()</code></li>
       </ul>

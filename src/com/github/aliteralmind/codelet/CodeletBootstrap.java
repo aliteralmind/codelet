@@ -144,9 +144,9 @@ public enum CodeletBootstrap  {
     */
    public static final String NAMED_DEBUGGERS_CONFIG_FILE = NAMED_DBG_LVL_PREFIX + ".txt";
    /**
-      <p>The name of the configuration file containing  Codelet-required named debuggers--Equal to {@code "named_debuggers_CODELET_RQD.txt"}.</p>
+      <p>The name of the configuration file containing  Codelet-required named debuggers--Equal to {@code "named_debuggers_config_CODELET_RQD.txt"}.</p>
 
-      <p><i>(View <a href="{@docRoot}/../${jd_project_codelet_config_dir}/named_debuggers_CODELET_RQD.txt">{@code {@docRoot}/../${jd_project_codelet_config_dir}/named_debuggers_CODELET_RQD.txt}</a>.)</i></p>
+      <p><i>(View <a href="{@docRoot}/../${jd_project_codelet_config_dir}/named_debuggers_CODELET_RQD.txt">{@code {@docRoot}/../${jd_project_codelet_config_dir}/named_debuggers_config_CODELET_RQD.txt}</a>.)</i></p>
 
       <p>This file contains a list of {@linkplain com.github.aliteralmind.codelet.util.NamedDebuggers#newMapFromConfigFile(Map, Iterator, String, Appendable) names}, each of which is associated to a specific debugging task and {@linkplain CodeletBaseConfig#GLOBAL_DEBUG_LEVEL level}. These are in addition to those in the {@linkplain #NAMED_DEBUGGERS_CONFIG_FILE user-created} configuration file.</p>
 

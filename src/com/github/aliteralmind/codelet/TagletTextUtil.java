@@ -28,7 +28,7 @@ public class TagletTextUtil  {
    /**
       <p>Get the example code's package name.</p>
 
-    * @return  <code>{@link java.lang.Class Class}.{@link java.lang.Class#forName(String) forName}({@link #getExampleClassFQName(CodeletInstance) getExampleClassFQName}(instance)).{@link java.lang.Class#getPackage() getPackage}().{@link java.lang.reflect.Package#getName() getName}()
+    * @return  <code>{@link java.lang.Class Class}.{@link java.lang.Class#forName(String) forName}({@link #getExampleClassFQName(CodeletInstance) getExampleClassFQName}(instance)).{@link java.lang.Class#getPackage() getPackage}().{@link java.lang.Package#getName() getName}()
       </code>
     */
    public static final String getExamplePackageName(CodeletInstance instance) throws CodeletFormatException  {

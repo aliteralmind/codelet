@@ -117,7 +117,7 @@ public class FilenameBlackWhiteList  {
       </ul>
     * @see  #isMatchedByProper(String) isMatchedByProper(s)
     * @see  #isMatchedByOverride(String) isMatchedByOverride(s)
-    * @see  org.apache.commons.io.FileNameUtils#wildcardMatchOnSystem(String, String)
+    * @see  org.apache.commons.io.FilenameUtils#wildcardMatchOnSystem(String, String)
     */
    public IOCase getCaseSensitivity()  {
       return  caseSensitivity;

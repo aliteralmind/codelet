@@ -38,8 +38,8 @@ public class ComSunJavaDocUtil  {
       <h3><i>(Why is the map parameter type-erased? What generics does it need?)</i></h3>
 
       <p>Steps<ol>
-         <li>If a taglet with the name equal to <code>taglet.{@link com.sun.javadoc.Taglet#getName() getName}()</code> already exists in the map, remove it.</li>
-         <li>{@code taglet} is <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map#put(K, V)">added</a> to the map, with its name as the key.</li>
+         <li>If a taglet with the name equal to <code>taglet.<!-- No package-list for Taglet --><a href="http://docs.oracle.com/javase/7/docs/jdk/api/javadoc/doclet/com/sun/javadoc/Taglet.html#getName()">getName</a>()</code> already exists in the map, remove it.</li>
+         <li>{@code taglet} is <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html#put(K, V)">added</a> to the map, with its name as the key.</li>
       </ol></p>
 
     * @param  taglet  The taglet to register. May not be {@code null}.

@@ -430,7 +430,7 @@ public class SimpleMethodSignature  {
     * @param  commaSep_varList  May not be {@code null}, each element must be separated by a <i>comma-space</i> ({@code ", "}), and each element must be formatted as required by {@link #getObjectFromString(String) getObjectFromString}{@code (s)}. Example value:
       <br/> &nbsp; &nbsp; &nbsp; &nbsp; <code>&quot;\&quot;parameter\&quot;, \&quot;list\&quot;, 1, (byte)-3, true&quot;</code>
     * @return  A list of objects, where each element is the object represented by the corresponding element in {@code commaSep_varList}, in the same order as the exist in the string.
-    * @see  <code><!-- GENERIC PARAMETERS FAIL IN @link --><a href="{@docRoot}/com/github/xbn/lang/reflect/ReflectRtxUtil.html#getClassArrayFromObjects(O[])">getClassArrayFromObjects</a></code>
+    * @see  <code><!-- GENERIC PARAMETERS FAIL IN @link --><a href="http://aliteralmind.com/docs/computer/programming/xbnjava/xbnjava-0.1.4.2/documentation/javadoc/com/github/xbn/lang/reflect/ReflectRtxUtil.html#getClassArrayFromObjects(O[])">getClassArrayFromObjects</a></code>
     * @see  #newFromStringAndDefaults(Class, Object, String, Class[], Appendable) newFromStringAndDefaults(cls,s,s,cls[])
     * @exception  IllegalArgumentException  If {@code commaSep_varList} is invalidly-formatted.
     */

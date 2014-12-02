@@ -66,14 +66,14 @@ WARNING: There is a single exception thrown in the about-to-be-run JavaDoc comma
          <group title="Codelet: Examples" packages="${codelet.jd_colon.packages.examples}"/>
 
          <!-- Package lists for external libraries -->
-         <link href="http://junit.sourceforge.net/javadoc/"/>
-         <link href="http://docs.oracle.com/javase/7/docs/jdk/api/javadoc/doclet/"/>
          <link href="http://aliteralmind.com/docs/computer/programming/templatefeather/templatefeather-${templatefeather_project_version}/documentation/javadoc/"/>
          <link href="http://aliteralmind.com/docs/computer/programming/xbnjava/xbnjava-${xbnjava_project_version}/documentation/javadoc/"/>
-         <link href="http://docs.oracle.com/javase/7/docs/api/"/>
          <link href="http://commons.apache.org/proper/commons-collections/javadocs/api-release/"/>
-         <link href="http://commons.apache.org/proper/commons-lang/javadocs/api-release"/>
          <link href="http://commons.apache.org/proper/commons-io/javadocs/api-2.4/"/>
+         <link href="http://commons.apache.org/proper/commons-lang/javadocs/api-release"/>
+         <link href="http://docs.oracle.com/javase/7/docs/jdk/api/javadoc/doclet/"/>
+         <link href="https://docs.oracle.com/javase/7/docs/api/"/>
+         <link href="http://junit.sourceforge.net/javadoc/"/>
 
          <DOCTITLE><![CDATA[Codelet<BR><font size=\"4\"><CODE><A HREF=\"https://github.com/aliteralmind/${project.name}\">https://github.com/aliteralmind/${project.name}</A></CODE></FONT>]]></DOCTITLE>
 
