@@ -123,7 +123,7 @@ package  com.github.aliteralmind.codelet;
       <li>accessible (it is obtained with <code>{@link java.lang.Class Class}.{@link java.lang.Class#getDeclaredMethod(String, Class...) getDeclaredMethod}</code> and made accessible with <code>theLineProcMethod.{@link java.lang.reflect.AccessibleObject#setAccessible(boolean) setAccessible}(true)</code>).</li>
       <li>Its first parameter must be a {@link CodeletInstance CodeletInstance} and second must be a {@link CodeletType}. Both of these parameters are ommitted from all taglets.</li>
       <li>It may contain zero-or-more <a href="#xmpl_params">extra parameters</a>, whose types are either primitives or non-{@code null} strings ({@code null} is not possible), as specified by
-      <br/> &nbsp; &nbsp; <code>com.github.xbn.util.{@link com.github.aliteralmind.codelet.simplesig.SimpleStringSignature SimpleStringSignature}.{@link com.github.aliteralmind.codelet.simplesig.SimpleStringSignature#getObjectFromString(String) getObjectFromString} </code>
+      <br/> &nbsp; &nbsp; <code>com.github.xbn.util.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature SimpleMethodSignature}.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature#getObjectFromString(String) getObjectFromString} </code>
       <br/>If there are any extra types in the customizer function signature, they must be provided in the {@linkplain TagletOfTypeProcessor#getCustomizerPortion() customizer portion} of every taglet using it. <i>The types, amount, and order of extra parameters, in both the taglet and the customizer function signature, must exactly match.</i></li>
    </ul></p>
 
