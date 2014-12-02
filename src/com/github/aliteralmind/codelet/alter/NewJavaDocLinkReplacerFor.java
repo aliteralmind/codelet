@@ -27,21 +27,21 @@ package  com.github.aliteralmind.codelet.alter;
    <p>Convenience functions for creating {@code com.github.xbn.regexutil.}{@link com.github.xbn.regexutil.RegexReplacer RegexReplacer}s that replace a class, constructor, function, or object name with a clickable JavaDoc link.</p>
 
    @see  com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum NewJDLinkForWordOccuranceNum
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class NewJavaDocLinkReplacerFor  {
    /**
       <p>Changes a class name to a JavaDoc link.</p>
 
-      @param  instance  May not be {@code null}.
-      @param  target  May not be {@code null}.
-      @return  <code>{@link #newReplaceWordOnlyWith(String, String, Appendable) newReplaceWordOnlyWith}(
+    * @param  instance  May not be {@code null}.
+    * @param  target  May not be {@code null}.
+    * @return  <code>{@link #newReplaceWordOnlyWith(String, String, Appendable) newReplaceWordOnlyWith}(
          <br/> &nbsp; &nbsp; target.{@link java.lang.reflect.Class#getName() getName}(), link, dbgDest_ifNonNull)</code>
       <br/>Where the {@code link}'s url is
       <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.util.JavaDocUtil JavaDocUtil}.{@link com.github.aliteralmind.codelet.util.JavaDocUtil#getUrlToClass(String, Class) getUrlToClass}(instance.{@link CodeletInstance#getRelativeUrlToDocRoot() getRelativeUrlToDocRoot}(), target)</code>
       <br/>and display is the class's {@linkplain java.lang.Class#getSimpleName() simple name}.
-    **/
+    */
    public static final RegexReplacer cclass(CodeletInstance instance, Class target, Appendable dbgDest_ifNonNull)  {
       String link = null;
       try  {
@@ -59,11 +59,11 @@ public class NewJavaDocLinkReplacerFor  {
    /**
       <p>A new replacer for replacing the first occurance of a whole word with a link.</p>
 
-      @return  <code>new {@link com.github.xbn.regexutil.z.RegexReplacer_Cfg#RegexReplacer_Cfg() RegexReplacer_Cfg}().
+    * @return  <code>new {@link com.github.xbn.regexutil.z.RegexReplacer_Cfg#RegexReplacer_Cfg() RegexReplacer_Cfg}().
       <br/> &nbsp; &nbsp; com.github.xbn.regexutil.z.RegexReplacer_CfgForNeeder#direct(String, Object)({@link java.util.regex.Pattern}.{@link java.util.regex.Pattern#compile(String) compile}(&quot;\\b&quot; + word_findWhat + &quot;\\b([ \\t]*\\()&quot;), link_rplcWith + &quot;$1&quot;).
       <br/> &nbsp; &nbsp; {@link com.github.xbn.regexutil.z.RegexReplacer_CfgForNeeder#debugTo(Appendable) debugTo}(dbgDest_ifNonNull).{@link com.github.xbn.regexutil.z.RegexReplacer_CfgForNeeder#first() first}().{@link com.github.xbn.regexutil.z.RegexReplacer_CfgForNeeder#build() build}()</code>
-      @see  #newReplaceWordOnlyWith(String, String, Appendable) newReplaceWordOnlyWith
-    **/
+    * @see  #newReplaceWordOnlyWith(String, String, Appendable) newReplaceWordOnlyWith
+    */
    public static final RegexReplacer newReplaceCnstrFuncNameOpenParenWith(String word_findWhat, String link_rplcWith, Appendable dbgDest_ifNonNull)  {
       return  new RegexReplacer_Cfg().
          direct(Pattern.compile("\\b" + word_findWhat + "\\b([ \\t]*\\()"), link_rplcWith + "$1").
@@ -72,11 +72,11 @@ public class NewJavaDocLinkReplacerFor  {
    /**
       <p>A new replacer for replacing the first occurance of a class or field name with a link.</p>
 
-      @return  <code>new {@link com.github.xbn.regexutil.z.RegexReplacer_Cfg#RegexReplacer_Cfg() RegexReplacer_Cfg}().
+    * @return  <code>new {@link com.github.xbn.regexutil.z.RegexReplacer_Cfg#RegexReplacer_Cfg() RegexReplacer_Cfg}().
       <br/> &nbsp; &nbsp; com.github.xbn.regexutil.z.RegexReplacer_CfgForNeeder#direct(String, Object)({@link java.util.regex.Pattern}.{@link java.util.regex.Pattern#compile(String) compile}(&quot;\\b&quot; + word_findWhat + &quot;\\b&quot;), link_rplcWith).
       <br/> &nbsp; &nbsp; {@link com.github.xbn.regexutil.z.RegexReplacer_CfgForNeeder#debugTo(Appendable) debugTo}(dbgDest_ifNonNull).{@link com.github.xbn.regexutil.z.RegexReplacer_CfgForNeeder#first() first}().{@link com.github.xbn.regexutil.z.RegexReplacer_CfgForNeeder#build() build}()</code>
-      @see  #newReplaceCnstrFuncNameOpenParenWith(String, String, Appendable) newReplaceCnstrFuncNameOpenParenWith
-    **/
+    * @see  #newReplaceCnstrFuncNameOpenParenWith(String, String, Appendable) newReplaceCnstrFuncNameOpenParenWith
+    */
    public static final RegexReplacer newReplaceWordOnlyWith(String word_findWhat, String link_rplcWith, Appendable dbgDest_ifNonNull)  {
       return  new RegexReplacer_Cfg().
          direct(Pattern.compile("\\b" + word_findWhat + "\\b"), link_rplcWith).
@@ -84,7 +84,7 @@ public class NewJavaDocLinkReplacerFor  {
    }
    /**
       <p>Changes a constructor name to a JavaDoc link.</p>
-    **/
+    */
    public static final RegexReplacer constructor(CodeletInstance instance, Constructor<?> target, Appendable dbgDest_ifNonNull)  {
       String className = null;
       String link = null;
@@ -105,14 +105,14 @@ public class NewJavaDocLinkReplacerFor  {
    /**
       <p>Changes a function name to a JavaDoc link.</p>
 
-      @param  instance  May not be {@code null}.
-      @param  target  May not be {@code null}.
-      @return  <code>{@link #newReplaceCnstrFuncNameOpenParenWith(String, String, Appendable) newReplaceCnstrFuncNameOpenParenWith}(
+    * @param  instance  May not be {@code null}.
+    * @param  target  May not be {@code null}.
+    * @return  <code>{@link #newReplaceCnstrFuncNameOpenParenWith(String, String, Appendable) newReplaceCnstrFuncNameOpenParenWith}(
          <br/> &nbsp; &nbsp; target.{@link java.lang.reflect.Method#getName() getName}(), link, dbgDest_ifNonNull)</code>
       <br/>Where the {@code link}'s url is
       <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.util.JavaDocUtil JavaDocUtil}.{@link com.github.aliteralmind.codelet.util.JavaDocUtil#getUrlToMethod(String, Method) getUrlToMethod}(instance.{@link CodeletInstance#getRelativeUrlToDocRoot() getRelativeUrlToDocRoot}(), target)</code>
       <br/>and display is the method's name.
-    **/
+    */
    public static final RegexReplacer method(CodeletInstance instance, Method target, Appendable dbgDest_ifNonNull)  {
       String link = null;
       try  {
@@ -131,13 +131,13 @@ public class NewJavaDocLinkReplacerFor  {
    /**
       <p>Changes a field name (an object existing in another class) to a JavaDoc link.</p>
 
-      @param  instance  May not be {@code null}.
-      @param  target  May not be {@code null}.
-      @return  <code>{@link #newReplaceWordOnlyWith(String, String, Appendable) newReplaceWordOnlyWith}(target.{@link java.lang.reflect.Field#getName() getName}(), link, dbgDest_ifNonNull)</code>
+    * @param  instance  May not be {@code null}.
+    * @param  target  May not be {@code null}.
+    * @return  <code>{@link #newReplaceWordOnlyWith(String, String, Appendable) newReplaceWordOnlyWith}(target.{@link java.lang.reflect.Field#getName() getName}(), link, dbgDest_ifNonNull)</code>
       <br/>Where the {@code link}'s url is
       <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.util.JavaDocUtil JavaDocUtil}.{@link com.github.aliteralmind.codelet.util.JavaDocUtil#getUrlToField(String, Field) getUrlToField}(instance.{@link CodeletInstance#getRelativeUrlToDocRoot() getRelativeUrlToDocRoot}(), target)</code>
       <br/>and display is the field's name.
-    **/
+    */
    public static final RegexReplacer field(CodeletInstance instance, Field target, Appendable dbgDest_ifNonNull)  {
       String link = null;
       try  {
@@ -159,13 +159,13 @@ public class NewJavaDocLinkReplacerFor  {
    /**
       <p>Get the {@code {@docRoot}} url for a package, which may be internal or {@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#EXTERNAL_DOC_ROOT_URL_FILE external}.</p>
 
-      @param  instance  May not be {@code null}.
-      @param  target  The class being linked to. May not be {@code null}, and must be in a package (<code>target.{@link java.lang.Class#getPackage() getPackage}().{@link java.lang.reflect.Package#getName() getName}()</code> must be non-empty).
-      @return  If <code>{@link com.github.aliteralmind.codelet.CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getAllJavaDocRoots() getAllJavaDocRoots}().{@link com.github.aliteralmind.codelet.util.AllOnlineOfflineDocRoots#getPkgToUrlMap() getPkgToUrlMap}().{@link java.util.Map#get(Object) get}(target.{@link java.lang.Class#getPackage() getPackage}().{@link java.lang.reflect.Package#getName() getName}())</code> is<ul>
+    * @param  instance  May not be {@code null}.
+    * @param  target  The class being linked to. May not be {@code null}, and must be in a package (<code>target.{@link java.lang.Class#getPackage() getPackage}().{@link java.lang.reflect.Package#getName() getName}()</code> must be non-empty).
+    * @return  If <code>{@link com.github.aliteralmind.codelet.CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getAllJavaDocRoots() getAllJavaDocRoots}().{@link com.github.aliteralmind.codelet.util.AllOnlineOfflineDocRoots#getPkgToUrlMap() getPkgToUrlMap}().{@link java.util.Map#get(Object) get}(target.{@link java.lang.Class#getPackage() getPackage}().{@link java.lang.reflect.Package#getName() getName}())</code> is<ul>
          <li>non-{@code null}: The value returned from the map.</li>
          <li>{@code null}: <code>instance.{@link CodeletInstance#getRelativeUrlToDocRoot() getRelativeUrlToDocRoot}()</code></li>
       </ul>
-    **/
+    */
    public static final String getDocRootUrlToTargetClass(CodeletInstance instance, Class<?> target)  {
       String pkgName = null;
       try  {

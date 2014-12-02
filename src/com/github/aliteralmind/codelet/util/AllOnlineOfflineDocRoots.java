@@ -28,8 +28,8 @@ package  com.github.aliteralmind.codelet.util;
 
    <p><i>While it may be possible to read in the values of {@code -link} and {@code -linkoffline}, as passed into {@code javadoc.exe}, doing so would make Codelet more dependant on {@code com.sun.javadoc}, which is against its goal of <a href="http://stackoverflow.com/questions/23138806/how-to-make-inline-taglets-which-require-com-sun-more-cross-platform-is-there">minimizing dependencies</a> on this non-standard package.</i></p>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class AllOnlineOfflineDocRoots  {
    private final Map<String,OnlineOfflineDocRoot> nameToRootMap;
@@ -38,38 +38,38 @@ public class AllOnlineOfflineDocRoots  {
    /**
       <p>An immutable map whose key is the doc-root's {@linkplain OnlineOfflineDocRoot#getName() name}, and value is its {@code OnlineOfflineDocRoot}.</p>
 
-      @see  #getPkgToUrlMap()
-    **/
+    * @see  #getPkgToUrlMap()
+    */
    public Map<String,OnlineOfflineDocRoot> getNameToRootMap()  {
       return  nameToRootMap;
    }
    /**
       <p>An immutable map whose key is the doc-root's {@linkplain OnlineOfflineDocRoot#getUrlDir() url}, and value is its {@code OnlineOfflineDocRoot}.</p>
 
-      @see  #getPkgToUrlMap()
-    **/
+    * @see  #getPkgToUrlMap()
+    */
    public Map<String,OnlineOfflineDocRoot> getUrlToRootMap()  {
       return  urlToRootMap;
    }
    /**
       <p>An immutable map whose key is a {@linkplain OnlineOfflineDocRoot#getPackageList() package}, and value is its document root url.</p>
 
-      @see  #getUrlToRootMap()
-      @see  #getNameToRootMap()
-    **/
+    * @see  #getUrlToRootMap()
+    * @see  #getNameToRootMap()
+    */
    public Map<String,String> getPkgToUrlMap()  {
       return  pkgToUrlMap;
    }
    /**
-      @return  <code>{@link #appendToString(StringBuilder) appendToString}(new StringBuilder()).toString()</code>
-    **/
+    * @return  <code>{@link #appendToString(StringBuilder) appendToString}(new StringBuilder()).toString()</code>
+    */
    public String toString()  {
       return  appendToString(new StringBuilder()).toString();
    }
    /**
-      @param  to_appendTo May not be {@code null}.
-      @see  #toString()
-    **/
+    * @param  to_appendTo May not be {@code null}.
+    * @see  #toString()
+    */
    public StringBuilder appendToString(StringBuilder to_appendTo)  {
       try  {
          to_appendTo.append("All doc-roots:").append(LINE_SEP);
@@ -119,12 +119,12 @@ public class AllOnlineOfflineDocRoots  {
          </ul></li>
       </ol></p>
 
-      @param  line_itr  May not be {@code null}, and <i>should</i> have at least one item. All offline paths must be unique, and all urls must be unique.
-      @param  offlineName_prefixPath  If non-{@code null}, this is the base directory appended to each offline name, as described above. Setting this to {@code null} is the same as the empty string ({@code ""}).
-      @param  offlineName_postfix  If non-{@code null}, this is the postfix appended to each offline name.
-      @param  refresh_offline  When {@code online_attemptCount} is greater than zero, should the offline {@code package-list} be refreshed from the online version? If {@code online_attemptCount} is zero, this parameter is ignored.
-      @see  com.github.aliteralmind.codelet.CodeletBootstrap#EXTERNAL_DOC_ROOT_URL_FILE
-    **/
+    * @param  line_itr  May not be {@code null}, and <i>should</i> have at least one item. All offline paths must be unique, and all urls must be unique.
+    * @param  offlineName_prefixPath  If non-{@code null}, this is the base directory appended to each offline name, as described above. Setting this to {@code null} is the same as the empty string ({@code ""}).
+    * @param  offlineName_postfix  If non-{@code null}, this is the postfix appended to each offline name.
+    * @param  refresh_offline  When {@code online_attemptCount} is greater than zero, should the offline {@code package-list} be refreshed from the online version? If {@code online_attemptCount} is zero, this parameter is ignored.
+    * @see  com.github.aliteralmind.codelet.CodeletBootstrap#EXTERNAL_DOC_ROOT_URL_FILE
+    */
    public static final AllOnlineOfflineDocRoots newFromConfigLineIterator(Iterator<String> line_itr, String offlineName_prefixPath, String offlineName_postfix, int online_attemptCount, long online_sleepMills, RefreshOffline refresh_offline, IfError if_error, Appendable debug_ifNonNull, Appendable dbgError_ifNonNull)  throws InterruptedException  {
 
       Map<String,OnlineOfflineDocRoot> nameToRootMap = new TreeMap<String,OnlineOfflineDocRoot>();

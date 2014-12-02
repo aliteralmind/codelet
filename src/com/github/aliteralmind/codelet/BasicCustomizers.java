@@ -31,8 +31,8 @@ package  com.github.aliteralmind.codelet;
 /**
    <p>Pre-made Codelet customizers.</p>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class BasicCustomizers  {
    /**
@@ -74,19 +74,19 @@ zzBasicCustomizers.lineRange.filter.startalterer
 zzBasicCustomizers.lineRange.filter.startvalidfilter
 zzBasicCustomizers.lineRange.template</pre></blockquote>
 
-      @param  instance  May not be {@code null}. <i>When calling this customizer from a taglet, exclude this parameter. All other parameters are required.</i>
-      @param  startAppearance_num  If the text to be found ({@code startLine_findWhat}) exists in multiple lines, this is the one to use. Must be greater than zero (although {@code -1}, meaning "ignore this setting", is equivalent to {@code 1}: the first appearance).
-      @param  is_startLineRegex  If {@code true} then {@code startLine_findWhat} is treated as a regular expression. Otherwise, {@code startLine_findWhat} is treated as a literal.
-      @param  startLine_findWhat  The search term that defines the line-range start line. If a regex, this may or may not include start or end-of-line anchors ({@code '^'} and {@code '$'}) (matching is done with <code>{@link java.util.regex.Matcher Matcher}.{@link java.util.regex.Matcher#find() find}()</code>).
-      @param  endAppearance_num  The appearance number of the end-line search term. If it happens to exist before the start-line search-term, then this parameter must be at least equal to two.
-      @param  is_endLineRegex  If {@code true} then {@code endLine_findWhat} is treated as a regular expression.
-      @param  endLine_findWhat  The search term that defines the line-range end line.
-      @param  indentRegexToElim_emptyStrIfNone  The regular expression representing the indentation that should be eliminated from the line-range. Since these lines exist in the middle of a file, they may be {@linkplain com.github.aliteralmind.codelet.alter.NewLineAltererFor#eliminateIndentationOrNull(String, Appendable) extra-indented}.
-      @return  <code>CustomizationInstructions.&lt;T&gt;newForMaybeElimIndent_tabToSpcEscHtml(instance, filter, indentRegexToElim_emptyStrIfNone)</code>
+    * @param  instance  May not be {@code null}. <i>When calling this customizer from a taglet, exclude this parameter. All other parameters are required.</i>
+    * @param  startAppearance_num  If the text to be found ({@code startLine_findWhat}) exists in multiple lines, this is the one to use. Must be greater than zero (although {@code -1}, meaning "ignore this setting", is equivalent to {@code 1}: the first appearance).
+    * @param  is_startLineRegex  If {@code true} then {@code startLine_findWhat} is treated as a regular expression. Otherwise, {@code startLine_findWhat} is treated as a literal.
+    * @param  startLine_findWhat  The search term that defines the line-range start line. If a regex, this may or may not include start or end-of-line anchors ({@code '^'} and {@code '$'}) (matching is done with <code>{@link java.util.regex.Matcher Matcher}.{@link java.util.regex.Matcher#find() find}()</code>).
+    * @param  endAppearance_num  The appearance number of the end-line search term. If it happens to exist before the start-line search-term, then this parameter must be at least equal to two.
+    * @param  is_endLineRegex  If {@code true} then {@code endLine_findWhat} is treated as a regular expression.
+    * @param  endLine_findWhat  The search term that defines the line-range end line.
+    * @param  indentRegexToElim_emptyStrIfNone  The regular expression representing the indentation that should be eliminated from the line-range. Since these lines exist in the middle of a file, they may be {@linkplain com.github.aliteralmind.codelet.alter.NewLineAltererFor#eliminateIndentationOrNull(String, Appendable) extra-indented}.
+    * @return  <code>CustomizationInstructions.&lt;T&gt;newForMaybeElimIndent_tabToSpcEscHtml(instance, filter, indentRegexToElim_emptyStrIfNone)</code>
       <br/>Where {@code filter} is created with
       <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.NewLineFilterFor NewLineFilterFor}.{@link com.github.aliteralmind.codelet.NewLineFilterFor#lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRange) lineRange}</code>
-      @see  #lineRangeWithReplace(CodeletInstance, CodeletType, Integer, Boolean, String, String, String, Integer, Boolean, String, String, String, String) lineRangeWithReplace
-    **/
+    * @see  #lineRangeWithReplace(CodeletInstance, CodeletType, Integer, Boolean, String, String, String, Integer, Boolean, String, String, String, String) lineRangeWithReplace
+    */
    public static final <T extends CodeletTemplateBase> CustomizationInstructions<T> lineRange(CodeletInstance instance, CodeletType needed_defaultAlterType, Integer startAppearance_num, Boolean is_startLineRegex, String startLine_findWhat, Integer endAppearance_num, Boolean is_endLineRegex, String endLine_findWhat, String indentRegexToElim_emptyStrIfNone) throws PatternSyntaxException  {
       //Named debuggers appendables
          String debugPrefix = "zzBasicCustomizers.lineRange";
@@ -149,7 +149,7 @@ zzBasicCustomizers.lineRangeWithReplace.filter.startalterer
 zzBasicCustomizers.lineRangeWithReplace.filter.startvalidfilter
 zzBasicCustomizers.lineRangeWithReplace.template</pre></blockquote>
 
-      @param  startLine_findWhat  The text or match that defines the line-range start line. To search for text only (make no replacement), either set<ul>
+    * @param  startLine_findWhat  The text or match that defines the line-range start line. To search for text only (make no replacement), either set<ul>
          <li>{@code is_startLineRegex} to {@code false}, and</li>
          <li>both {@code startLine_findWhat} ({@code "text to find"}) and {@code startLine_rplcWith} to the same text ({@code "text to find"})</li>
       </ul>or<ul>
@@ -157,8 +157,8 @@ zzBasicCustomizers.lineRangeWithReplace.template</pre></blockquote>
          <li>{@code startLine_findWhat} to the expected text surrounded by a <a href="http://stackoverflow.com/questions/21880127/have-trouble-understanding-capturing-groups-and-back-references">capture group</a> ({@code "(text to find)"}), and</li>
          <li>{@code startLine_rplcWith} to {@code "$1"}</li>
       </ul>
-      @param  startRplcWhat_notMatchNums  In most cases, this should be set to {@code "FIRST"}. See <code>com.github.xbn.regexutil.{@link com.github.xbn.regexutil.ReplacedInEachInput}</code>.
-    **/
+    * @param  startRplcWhat_notMatchNums  In most cases, this should be set to {@code "FIRST"}. See <code>com.github.xbn.regexutil.{@link com.github.xbn.regexutil.ReplacedInEachInput}</code>.
+    */
    public static final <T extends CodeletTemplateBase> CustomizationInstructions<T> lineRangeWithReplace(CodeletInstance instance, CodeletType needed_defaultAlterType, Integer startAppearance_num, Boolean is_startLineRegex, String startLine_findWhat, String startLine_rplcWith, String startRplcWhat_notMatchNums, Integer endAppearance_num, Boolean is_endLineRegex, String endLine_findWhat, String endLine_rplcWith, String endRplcWhat_notMatchNums, String indentRegexToElim_emptyStrIfNone) throws PatternSyntaxException  {
       String debugPrefix = "zzBasicCustomizers.lineRangeWithReplace";
 
@@ -190,8 +190,8 @@ zzBasicCustomizers.lineRangeWithReplace.template</pre></blockquote>
    /**
       <p>Eliminate all multi-line comments and the package declaration line.</p>
 
-      @return  <code>eliminateCmtBlocksPkgLineAndPkgReferences(instance, needed_defaultAlterType, {@link java.lang.Boolean}.{@link java.lang.Boolean#TRUE TRUE}, Boolean.TRUE, Boolean.{@link java.lang.Boolean#FALSE FALSE})</code>
-    **/
+    * @return  <code>eliminateCmtBlocksPkgLineAndPkgReferences(instance, needed_defaultAlterType, {@link java.lang.Boolean}.{@link java.lang.Boolean#TRUE TRUE}, Boolean.TRUE, Boolean.{@link java.lang.Boolean#FALSE FALSE})</code>
+    */
    public static final <T extends CodeletTemplateBase> CustomizationInstructions<T> eliminateCommentBlocksAndPackageDecl(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
       return  eliminateCmtBlocksPkgLineAndPkgReferences(instance, needed_defaultAlterType, Boolean.TRUE, Boolean.TRUE, Boolean.FALSE);
    }
@@ -235,15 +235,15 @@ zzBasicCustomizers.eliminateCmtBlocksPkgLineAndPkgReferences.pkglinevalidfilter
 zzBasicCustomizers.eliminateCmtBlocksPkgLineAndPkgReferences.template
 zzBasicCustomizers.eliminateCmtBlocksPkgLineAndPkgReferences.elimpkgrefsreplacer</pre></blockquote>
 
-      @return  A non-{@code null} instructions object, using the {@linkplain CustomizationInstructions#defaultOrOverrideTemplate(Appendable) default template}, where the filter is created by
+    * @return  A non-{@code null} instructions object, using the {@linkplain CustomizationInstructions#defaultOrOverrideTemplate(Appendable) default template}, where the filter is created by
       <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.NewLineFilterFor NewLineFilterFor}.{@link com.github.aliteralmind.codelet.NewLineFilterFor#eliminateAllCmtBlocksAndPackageLine(boolean, Appendable, Appendable, boolean, Appendable, Appendable) eliminateAllCmtBlocksAndPackageLine}</code>
       <br/>The {@code dbgLnFilter_ifNonNull} parameter is set to
       <br/> &nbsp; &nbsp; <code>{@link CodeletBaseConfig CodeletBaseConfig}.{@link CodeletBaseConfig#getDebugApblIfOn(CodeletInstance) getDebugApblIfOn}(instance)</code>
       <br/>All other debugging parameters are set to
       <br/> &nbsp; &nbsp; <code>{@link CodeletBaseConfig CodeletBaseConfig}.{@link CodeletBaseConfig#getDebugApblIfOn(3, CodeletInstance) getDebugApblIfTagletVerbose}(instance)</code>
-      @param  doElim_allPkgRefs  If {@code doElim_packageDecl} is {@code false}, this must also be {@code false}.
-      @see  #eliminateCommentBlocksAndPackageDecl(CodeletInstance, CodeletType) eliminateCommentBlocksAndPackageDecl
-    **/
+    * @param  doElim_allPkgRefs  If {@code doElim_packageDecl} is {@code false}, this must also be {@code false}.
+    * @see  #eliminateCommentBlocksAndPackageDecl(CodeletInstance, CodeletType) eliminateCommentBlocksAndPackageDecl
+    */
    public static final <T extends CodeletTemplateBase> CustomizationInstructions<T> eliminateCmtBlocksPkgLineAndPkgReferences(CodeletInstance instance, CodeletType needed_defaultAlterType, Boolean doElim_multiLineCmts, Boolean doElim_packageDecl, Boolean doElim_allPkgRefs)  {
       String debugPrefix = "zzBasicCustomizers.eliminateCmtBlocksPkgLineAndPkgReferences";
 

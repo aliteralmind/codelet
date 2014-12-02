@@ -57,7 +57,7 @@ package  com.github.aliteralmind.codelet;
    <p>The all-line alterer modifies each line returned (kept) by the filter. A {@linkplain com.github.xbn.analyze.validate.ValidResultFilter filter} may be applied so it does not start until needed, and {@linkplain com.github.xbn.lang.Expirable expires} when complete.</p>
 
    <p><ul>
-      <li>Raw objects: {@code com.github.xbn.linefilter.}{@link com.github.xbn.linefilter.AllTextLineAlterer} (set with {@link #alterer(AllTextLineAlterer) alterer}), which is an array of {@link com.github.xbn.linefilter.alter.TextLineAlterer}s (set with {@link #orderedAlterers(Appendable, NullElement, ExpirableElements, MultiAlterType, TextLineAlterer...) orderedAlterers})</li>
+      <li>Raw objects: {@code com.github.xbn.linefilter.}{@link com.github.xbn.linefilter.alter.AllTextLineAlterer} (set with {@link #alterer(AllTextLineAlterer) alterer}), which is an array of {@link com.github.xbn.linefilter.alter.TextLineAlterer}s (set with {@link #orderedAlterers(Appendable, NullElement, ExpirableElements, MultiAlterType, TextLineAlterer...) orderedAlterers})</li>
       <li>Convenience creators: {@link com.github.aliteralmind.codelet.alter.NewLineAltererFor}, {@link com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum}, {@link com.github.xbn.linefilter.alter.NewTextLineAltererFor}</li>
    </ul></p>
 
@@ -123,7 +123,7 @@ package  com.github.aliteralmind.codelet;
       <li>accessible (it is obtained with <code>{@link java.lang.Class Class}.{@link java.lang.Class#getDeclaredMethod(String, Class...) getDeclaredMethod}</code> and made accessible with <code>theLineProcMethod.{@link java.lang.reflect.AccessibleObject#setAccessible(boolean) setAccessible}(true)</code>).</li>
       <li>Its first parameter must be a {@link CodeletInstance CodeletInstance} and second must be a {@link CodeletType}. Both of these parameters are ommitted from all taglets.</li>
       <li>It may contain zero-or-more <a href="#xmpl_params">extra parameters</a>, whose types are either primitives or non-{@code null} strings ({@code null} is not possible), as specified by
-      <br/> &nbsp; &nbsp; <code>com.github.xbn.util.{@link com.github.xbn.util.SimpleStringSignature SimpleStringSignature}.{@link com.github.xbn.util.SimpleStringSignature#getObjectFromString(String) getObjectFromString} </code>
+      <br/> &nbsp; &nbsp; <code>com.github.xbn.util.{@link com.github.aliteralmind.codelet.simplesig.SimpleStringSignature SimpleStringSignature}.{@link com.github.aliteralmind.codelet.simplesig.SimpleStringSignature#getObjectFromString(String) getObjectFromString} </code>
       <br/>If there are any extra types in the customizer function signature, they must be provided in the {@linkplain TagletOfTypeProcessor#getCustomizerPortion() customizer portion} of every taglet using it. <i>The types, amount, and order of extra parameters, in both the taglet and the customizer function signature, must exactly match.</i></li>
    </ul></p>
 
@@ -196,8 +196,8 @@ package  com.github.aliteralmind.codelet;
    <br/> &nbsp; &nbsp; {@code {@.codelet fully.qualified.examples.ExampleClassName:((byte)3, false)}}</p>
 
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class CustomizationInstructions<T extends CodeletTemplateBase> extends AbstractOneWayLockable  {
    private FilteredLineIterator     filter        ;
@@ -234,7 +234,7 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 
    	@param  instance  May not be {@code null}.
    	@param  needed_defaultAlterType  The type of {@linkplain com.github.aliteralmind.codelet.alter.DefaultAlterGetter default alterers} needed when using the {@linkplain #defaultOrOverrideTemplate(Appendable) default template}. May not be {@code null}. If <code>instance.{@link CodeletInstance#getType() getType}.{@link CodeletType#SOURCE_AND_OUT SOURCE_AND_OUT}</code>, then this must be either {@link CodeletType#SOURCE_CODE SOURCE_CODE} or {@link CodeletType#CONSOLE_OUT CONSOLE_OUT}. If <code>instance.{@link CodeletInstance#getType() getType}</code> is any other type, then {@code needed_defaultAlterType} must be equal to it.
-    **/
+    */
    public CustomizationInstructions(CodeletInstance instance, CodeletType needed_defaultAlterType)  {
       try  {
          if(!instance.getType().isSourceAndOut())  {
@@ -268,8 +268,8 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
          <li>{@link #defaultOrOverrideTemplate(Appendable) defaultOrOverrideTemplate}{@code (dbgTemplate_ifNonNull)}</li>
       </ol></p>
 
-      @return  <i>{@code this}</i>
-    **/
+    * @return  <i>{@code this}</i>
+    */
    public CustomizationInstructions<T> defaults(Appendable dbgEveryLine_ifNonNull, LengthInRange rangeForEveryLineDebug_ifNonNull, Appendable dbgAllAltr_ifNonNull, Appendable dbgTemplate_ifNonNull)  {
       unfiltered(dbgEveryLine_ifNonNull, rangeForEveryLineDebug_ifNonNull);
       orderedAlterers(dbgAllAltr_ifNonNull, NullElement.BAD,
@@ -280,9 +280,9 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
    /*
       <p>The type of template needed, when using the default template. This is intended for {@link CodeletType#SOURCE_AND_OUT {@.codelet.and.out}} taglets only.</p>
 
-      @return  A non-{@code null} type representing the kind of template needed.
-      @see  #CustomizationInstructions(CodeletInstance, CodeletType) constructor
-      @see  #defaults(Appendable, LengthInRange, Appendable, Appendable) defaults
+    * @return  A non-{@code null} type representing the kind of template needed.
+    * @see  #CustomizationInstructions(CodeletInstance, CodeletType) constructor
+    * @see  #defaults(Appendable, LengthInRange, Appendable, Appendable) defaults
     */
    public CodeletType getNeededAlterArrayType()  {
       return  defaultAltersType;
@@ -290,32 +290,32 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
    /**
       <p>Get the line-filter.</p>
 
-      @see  #filter(FilteredLineIterator)
-    **/
+    * @see  #filter(FilteredLineIterator)
+    */
    public FilteredLineIterator getFilter()  {
       return  filter;
    }
    /**
       <p>Get the line-alterer.</p>
 
-      @see  #alterer(AllTextLineAlterer)
-    **/
+    * @see  #alterer(AllTextLineAlterer)
+    */
    public AllTextLineAlterer getAlterer()  {
       return  alterer;
    }
    /**
       <p>Get the template.</p>
 
-      @return  <ul>
+    * @return  <ul>
          <li>A non-{@code null} template: When <i>this taglet only</i> should use a non-default (and non-{@linkplain TemplateOverrides override}) template.</li>
          <li>{@code null}: If {@link #wasTemplateSet() wasTemplateSet}{@code ()} is<ul>
             <li>{@code true}: No template was set.</li>
             <li>{@code false}: The default (or override) template should be used.</li>
          </ul></li>
       </ul>
-      @see  <code><!-- GENERIC PARAMETERS FAIL IN @link --><a href="#template(T)">template</a>(T)</code>
-      @see  #defaultOrOverrideTemplate(Appendable)
-    **/
+    * @see  <code><!-- GENERIC PARAMETERS FAIL IN @link --><a href="#template(T)">template</a>(T)</code>
+    * @see  #defaultOrOverrideTemplate(Appendable)
+    */
    public T getTemplate()  {
       return  template;
    }
@@ -332,12 +332,12 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 
       <p>This leaves the template object as {@code null} to avoid having to know about the {@link CodeletInstance}, which is required to determine if the default or {@linkplain TemplateOverrides override} template should be used. A {@code null} template value triggers the {@linkplain TagletOfTypeProcessor taglet processor} to get the appropriate template.</p>
 
-      @param  dbgDest_ifNonNull  When non-{@code null}, this is the debugging destination for all gap-fills. Get with {@link #getDefaultTemplateDebug() getDefaultTemplateDebug}{@code ()}
-      @return  <i>{@code this}</i>
-      @exception  LockException  If {@link #build() build}{@code ()} was already called.
-      @exception  IllegalStateException  If {@code wasTemplateSet()} is {@code true}.
-      @see  <code><!-- GENERIC PARAMETERS FAIL IN @link --><a href="#template(T)">template</a>(T)</code>
-    **/
+    * @param  dbgDest_ifNonNull  When non-{@code null}, this is the debugging destination for all gap-fills. Get with {@link #getDefaultTemplateDebug() getDefaultTemplateDebug}{@code ()}
+    * @return  <i>{@code this}</i>
+    * @exception  LockException  If {@link #build() build}{@code ()} was already called.
+    * @exception  IllegalStateException  If {@code wasTemplateSet()} is {@code true}.
+    * @see  <code><!-- GENERIC PARAMETERS FAIL IN @link --><a href="#template(T)">template</a>(T)</code>
+    */
    public CustomizationInstructions<T> defaultOrOverrideTemplate(Appendable dbgDest_ifNonNull)  {
       ciLockedOrTmplAlreadySet();
       template = null;
@@ -350,12 +350,12 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 
       <p>This sets {@link #wasTemplateSet() wasTemplateSet}{@code ()} to {@code true}.</p>
 
-      @param  template  May not be {@code null}. Get with {@link #getTemplate() getTemplate}{@code ()}. Note that JavaDoc is multi-threaded, and therefore this template-object must be a new object (not shared among multiple taglets). Use the {@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#FeatherTemplate(FeatherTemplate, Appendable) copy constructor} or {@link com.github.aliteralmind.templatefeather.FeatherTemplate#getObjectCopy() getObjectCopy}{@code ()} to duplicate it.
-      @return  <i>{@code this}</i>
-      @exception  LockException  If {@link #build() build}{@code ()} was already called.
-      @exception  IllegalStateException  If {@code wasTemplateSet()} is {@code true}.
-      @see  #defaultOrOverrideTemplate(Appendable)
-    **/
+    * @param  template  May not be {@code null}. Get with {@link #getTemplate() getTemplate}{@code ()}. Note that JavaDoc is multi-threaded, and therefore this template-object must be a new object (not shared among multiple taglets). Use the {@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#FeatherTemplate(FeatherTemplate, Appendable) copy constructor} or {@link com.github.aliteralmind.templatefeather.FeatherTemplate#getObjectCopy() getObjectCopy}{@code ()} to duplicate it.
+    * @return  <i>{@code this}</i>
+    * @exception  LockException  If {@link #build() build}{@code ()} was already called.
+    * @exception  IllegalStateException  If {@code wasTemplateSet()} is {@code true}.
+    * @see  #defaultOrOverrideTemplate(Appendable)
+    */
    public CustomizationInstructions<T> template(T template)  {
       Objects.requireNonNull(template, "template");
       ciLockedOrTmplAlreadySet();
@@ -372,8 +372,8 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
    /**
       <p>Display all lines.</p>
 
-      @return  <code>{@link #filter(FilteredLineIterator) filter}({@link com.github.xbn.linefilter.NewFilteredLineIteratorFor NewFilteredLineIteratorFor}.{@link com.github.xbn.linefilter.NewFilteredLineIteratorFor#keepAllLinesUnchanged(Iterator, Appendable, LengthInRange) keepAllLinesUnchanged}(null, dbgEveryLine_ifNonNull, rangeForEveryLineDebug_ifNonNull))</code>
-    **/
+    * @return  <code>{@link #filter(FilteredLineIterator) filter}({@link com.github.xbn.linefilter.NewFilteredLineIteratorFor NewFilteredLineIteratorFor}.{@link com.github.xbn.linefilter.NewFilteredLineIteratorFor#keepAllLinesUnchanged(Iterator, Appendable, LengthInRange) keepAllLinesUnchanged}(null, dbgEveryLine_ifNonNull, rangeForEveryLineDebug_ifNonNull))</code>
+    */
    public CustomizationInstructions<T> unfiltered(Appendable dbgEveryLine_ifNonNull, LengthInRange rangeForEveryLineDebug_ifNonNull)  {
       return  filter(NewFilteredLineIteratorFor.keepAllLinesUnchanged(null, dbgEveryLine_ifNonNull, rangeForEveryLineDebug_ifNonNull));
    }
@@ -385,11 +385,11 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
          <li><a href="{@docRoot}/overview-summary.html#xmpl_hello">Eliminating</a> the package declaration line and all JavaDoc multi-line comments</li>
       </ul></p>
 
-      @param  filter  May not be {@code null}. Get with {@link #getFilter() getFilter}{@code ()}.
-      @return  <i>{@code this}</i>
-      @see  #unfiltered(Appendable, LengthInRange)
-      @exception  LockException  If {@link #build() build}{@code ()} was already called.
-    **/
+    * @param  filter  May not be {@code null}. Get with {@link #getFilter() getFilter}{@code ()}.
+    * @return  <i>{@code this}</i>
+    * @see  #unfiltered(Appendable, LengthInRange)
+    * @exception  LockException  If {@link #build() build}{@code ()} was already called.
+    */
    public CustomizationInstructions<T> filter(FilteredLineIterator filter)  {
       ciLocked();
       if(filter.wasAllIteratorSet())  {
@@ -401,9 +401,9 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
    /**
       <p>Set an ordered series of line-alterers.</p>
 
-      @param  alterers  May not be {@code null} or empty and, if <code>null_element.{@link com.github.xbn.array.NullElement#isBad() isBad}()</code> is {@code true}, no elements may be {@code null}. Elements <i>should</i> not be duplicate.
-      @return  <code>{@link #alterer(AllTextLineAlterer) alterer}(new {@link com.github.xbn.linefilter.AllTextLineAlterer#AllTextLineAlterer(TextLineAlterer[], ExpirableElements, MultiAlterType, Appendable) AllTextLineAlterer}(alterers, xprbl_elements, multi_type, dbgDest_ifNonNull))</code>
-    **/
+    * @param  alterers  May not be {@code null} or empty and, if <code>null_element.{@link com.github.xbn.array.NullElement#isBad() isBad}()</code> is {@code true}, no elements may be {@code null}. Elements <i>should</i> not be duplicate.
+    * @return  <code>{@link #alterer(AllTextLineAlterer) alterer}(new {@link com.github.xbn.linefilter.alter.AllTextLineAlterer#AllTextLineAlterer(TextLineAlterer[], ExpirableElements, MultiAlterType, Appendable) AllTextLineAlterer}(alterers, xprbl_elements, multi_type, dbgDest_ifNonNull))</code>
+    */
    public CustomizationInstructions<T> orderedAlterers(Appendable dbgDest_ifNonNull, NullElement null_element, ExpirableElements xprbl_elements, MultiAlterType multi_type, TextLineAlterer... alterers)  {
       try  {
          if(null_element.isOk())  {
@@ -419,11 +419,11 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
    /**
       <p>Set the line-alterer.</p>
 
-      @param  all_lineAlterer  May not be {@code null}. Get with {@link #getAlterer() getAlterer}{@code ()}.
-      @return  <i>{@code this}</i>
-      @exception  LockException  If {@link #build() build}{@code ()} was already called.
-      @see  #orderedAlterers(Appendable, NullElement, ExpirableElements, MultiAlterType, TextLineAlterer...)
-    **/
+    * @param  all_lineAlterer  May not be {@code null}. Get with {@link #getAlterer() getAlterer}{@code ()}.
+    * @return  <i>{@code this}</i>
+    * @exception  LockException  If {@link #build() build}{@code ()} was already called.
+    * @see  #orderedAlterers(Appendable, NullElement, ExpirableElements, MultiAlterType, TextLineAlterer...)
+    */
    public CustomizationInstructions<T> alterer(AllTextLineAlterer all_lineAlterer)  {
       ciLocked();
       Objects.requireNonNull(all_lineAlterer, "all_lineAlterer");
@@ -433,7 +433,7 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
    /**
       <p>Wildcard search-term to restrict the classes or files that may utilize this customizer.</p>
 
-      @param  whitelist_searchTerm  Wildcard search term to match the fully-qualified class name of the example code, or path of the text file that is allowed to use this customizer. Class name examples:<ul>
+    * @param  whitelist_searchTerm  Wildcard search term to match the fully-qualified class name of the example code, or path of the text file that is allowed to use this customizer. Class name examples:<ul>
          <li>{@code "com.github.mylibrary.examples.AGoodExample"}</li>
          <li>{@code "com.github.mylibrary.examples.A*Example"}</li>
          <li>{@code "*.examples.A*Example"}</li>
@@ -442,10 +442,10 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
          <li>{@code "com/github/mylibrary/examples/doc-files/*_input.txt"}</li>
          <li>{@code "*_input.txt"}</li>
       </ul>May not be {@code null} or empty, and <i>should</i> be a valid wildcard term. Get with {@link #getClassNameOrFilePathRestricter() getClassNameOrFilePathRestricter}{@code ()}.
-      @return  <i>{@code this}</i>
-      @see  org.apache.commons.io.FilenameUtils#wildcardMatch(String, String) FilenameUtils#wildcardMatch
-      @see  TagletOfTypeProcessor#crashIfClassOrFileCannotUseCustomizer(CustomizationInstructions) TagletOfTypeProcessor#crashIfClassOrFileCannotUseCustomizer
-    **/
+    * @return  <i>{@code this}</i>
+    * @see  org.apache.commons.io.FilenameUtils#wildcardMatch(String, String) FilenameUtils#wildcardMatch
+    * @see  TagletOfTypeProcessor#crashIfClassOrFileCannotUseCustomizer(CustomizationInstructions) TagletOfTypeProcessor#crashIfClassOrFileCannotUseCustomizer
+    */
    public CustomizationInstructions<T> classNameOrFilePathRestricter(String whitelist_searchTerm)  {
       CrashIfString.nullEmpty(whitelist_searchTerm, "whitelist_searchTerm", null);
       classNameOrFilePathRestricter = whitelist_searchTerm;
@@ -454,27 +454,27 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
    /**
       <p>Wildcard search-term to restrict the classes that may utilize this customizer.</p>
 
-      @see  #classNameOrFilePathRestricter(String)
-    **/
+    * @see  #classNameOrFilePathRestricter(String)
+    */
    public String getClassNameOrFilePathRestricter()  {
       return  classNameOrFilePathRestricter;
    }
    /**
       <p>Was the template set?.</p>
 
-      @see  #getTemplate()
-      @see  <code><!-- GENERIC PARAMETERS FAIL IN @link --><a href="#template(T)">template</a>(T)</code>
-      @see  #defaultOrOverrideTemplate(Appendable)
-    **/
+    * @see  #getTemplate()
+    * @see  <code><!-- GENERIC PARAMETERS FAIL IN @link --><a href="#template(T)">template</a>(T)</code>
+    * @see  #defaultOrOverrideTemplate(Appendable)
+    */
    public boolean wasTemplateSet()  {
       return  wasTmplSet;
    }
    /**
       <p>When using the default template only, this is its debug destination.</p>
 
-      @see  #getTemplate()
-      @see  #defaultOrOverrideTemplate(Appendable)
-    **/
+    * @see  #getTemplate()
+    * @see  #defaultOrOverrideTemplate(Appendable)
+    */
    public Appendable getDefaultTemplateDebug()  {
       return  dfltTmplDbg;
    }
@@ -483,8 +483,8 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
 
       <p>This logs all alterers that do not make an alteration.</p>
 
-      @exception  AlterationNotMadeException  If at least one alteration is not made, and it is {@linkplain CodeletBaseConfig#ALTERATION_NOT_MADE_CRASH configured} that a crash should occur (in addition to the warning).
-    **/
+    * @exception  AlterationNotMadeException  If at least one alteration is not made, and it is {@linkplain CodeletBaseConfig#ALTERATION_NOT_MADE_CRASH configured} that a crash should occur (in addition to the warning).
+    */
    public String getCustomizedBody(CodeletInstance instance, Iterator<String> raw_lineItr)  {
       getFilter().setAllIterator(raw_lineItr);
       String body = getAlterer().getAlteredFromLineObjects(1, getFilter(), LINE_SEP);
@@ -505,9 +505,9 @@ public class CustomizationInstructions<T extends CodeletTemplateBase> extends Ab
    /**
       <p>Declare that this object is ready for use and should be locked.</p>
 
-      @return  <i>{@code this}</i>
-      @exception  IllegalStateException  If the {@linkplain #getFilter() filter} or {@linkplain #getAlterer() alterer} are {@code null}, or {@link #wasTemplateSet() wasTemplateSet}{@code ()} is {@code false}.
-    **/
+    * @return  <i>{@code this}</i>
+    * @exception  IllegalStateException  If the {@linkplain #getFilter() filter} or {@linkplain #getAlterer() alterer} are {@code null}, or {@link #wasTemplateSet() wasTemplateSet}{@code ()} is {@code false}.
+    */
    public CustomizationInstructions<T> build()  {
       crashIfNotReady();
       super.lock();

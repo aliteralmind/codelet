@@ -50,8 +50,8 @@ package  com.github.aliteralmind.codelet.type;
       <TD>The example code's package name.</TD>
    </TR></TABLE></p>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class ConsoleOutTemplate extends OnlyOneBodyGapTemplateBase  {
    /**
@@ -62,13 +62,13 @@ public class ConsoleOutTemplate extends OnlyOneBodyGapTemplateBase  {
 
 <blockquote><pre>................</pre></blockquote>
 
-      @see  <a href="#gaps"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
-    **/
+    * @see  <a href="#gaps"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
+    */
    public static final CodeletGap GAP_COMMAND_LINE_PARAMS = new CmdLineParamsGap();
    /**
       <p>Create the first instance.</p>
 
-      <p>Equal to</p>
+    * <p>Equal to</p>
 
 <blockquote><pre>{@link com.github.aliteralmind.codelet.type.OnlyOneBodyGapTemplateBase#OnlyOneBodyGapTemplateBase(CodeletType, FeatherTemplate, String, CodeletGap[], UserExtraGapGetter) super}({@link com.github.aliteralmind.codelet.CodeletType CodeletType}.{@link com.github.aliteralmind.codelet.CodeletType#SOURCE_CODE SOURCE_CODE}, template, tmpl_path,
    new CodeletGap[] {
@@ -77,8 +77,8 @@ public class ConsoleOutTemplate extends OnlyOneBodyGapTemplateBase  {
       SourceCodeTemplate.{@link com.github.aliteralmind.codelet.type.SourceCodeTemplate#GAP_FQ_CLASS_NAME GAP_FQ_CLASS_NAME},
       {@link #GAP_COMMAND_LINE_PARAMS}},
    userExtra_getter)</pre></blockquote>
-      @see  #ConsoleOutTemplate(ConsoleOutTemplate, FeatherTemplate, String)
-    **/
+    * @see  #ConsoleOutTemplate(ConsoleOutTemplate, FeatherTemplate, String)
+    */
    public ConsoleOutTemplate(FeatherTemplate template, String tmpl_path, UserExtraGapGetter userExtra_getter)  {
       super(CodeletType.SOURCE_CODE, template, tmpl_path,
          new CodeletGap[] {
@@ -91,12 +91,12 @@ public class ConsoleOutTemplate extends OnlyOneBodyGapTemplateBase  {
    /**
       <p>Create the second or subsequent instance.</p>
 
-      <p>Equal to</p>
+    * <p>Equal to</p>
 
 <blockquote><pre>{@link com.github.aliteralmind.codelet.type.OnlyOneBodyGapTemplateBase#OnlyOneBodyGapTemplateBase(OnlyOneBodyGapTemplateBase, FeatherTemplate, String) super}(to_copy, template, tmpl_path)</pre></blockquote>
 
-      @see  #ConsoleOutTemplate(FeatherTemplate, String, UserExtraGapGetter)
-    **/
+    * @see  #ConsoleOutTemplate(FeatherTemplate, String, UserExtraGapGetter)
+    */
    public ConsoleOutTemplate(ConsoleOutTemplate to_copy, FeatherTemplate template, String tmpl_path)  {
       super(to_copy, template, tmpl_path);
    }
@@ -110,8 +110,8 @@ public class ConsoleOutTemplate extends OnlyOneBodyGapTemplateBase  {
    /**
       <p>Duplicate this template.</p>
 
-      @return  <code>(new {@link #ConsoleOutTemplate(ConsoleOutTemplate, Appendable) ConsoleOutTemplate}(this, debugDest_ifNonNull))</code>
-    **/
+    * @return  <code>(new {@link #ConsoleOutTemplate(ConsoleOutTemplate, Appendable) ConsoleOutTemplate}(this, debugDest_ifNonNull))</code>
+    */
    public ConsoleOutTemplate getObjectCopy(Appendable debugDest_ifNonNull)  {
       return  (new ConsoleOutTemplate(this, debugDest_ifNonNull));
    }

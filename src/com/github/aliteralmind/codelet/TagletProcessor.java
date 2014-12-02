@@ -23,8 +23,8 @@ package  com.github.aliteralmind.codelet;
 /**
    <p>Generates the output for a single Codelet of any type. This class--and this entire package--knows nothing of {@code com.sun}. This is the middleman between {@code com.sun} and {@link com.github.aliteralmind.codelet.TagletOfTypeProcessor}.</p>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class TagletProcessor  {
 //	private static final CodeletBootstrap BOOTSTRAP = CodeletBootstrap.INSTANCE;
@@ -43,16 +43,16 @@ public class TagletProcessor  {
          </ul>and sets {@code get()} to its {@linkplain TagletOfTypeProcessor#getFullyCustomizedOutput() fully-customized text}.</li>
       </ol></p>
 
-      @param  instance  May not be {@code null}.
-      @exception  IllegalStateException  If {@code instance} is of an unknown type (this is protection against a new type being added).
-      @exception  ClassNotFoundException  Depending on the tag being used, and its format, if:<ul>
+    * @param  instance  May not be {@code null}.
+    * @exception  IllegalStateException  If {@code instance} is of an unknown type (this is protection against a new type being added).
+    * @exception  ClassNotFoundException  Depending on the tag being used, and its format, if:<ul>
          <li>The example class specified in the taglet does not exist (according to <code>{@link java.lang.Class Class}.{@link java.lang.Class#forName(String) forName}</code>)</li>
          <li>The <i>explicitly specified</i> customizer class does not exist.</li>
       </ul>
-      @exception  NoSuchMethodException  If the customizer function does not exist, either in the explicitly specified or <a href="CustomizationInstructions.html#specifications">default classes</a>, or does not meet its requirements.
-      @exception  NoSuchFileException  If the source-code or plain-text file does not exist.
-      @exception  AccessDeniedException  If the file exists, but cannot be read.
-    **/
+    * @exception  NoSuchMethodException  If the customizer function does not exist, either in the explicitly specified or <a href="CustomizationInstructions.html#specifications">default classes</a>, or does not meet its requirements.
+    * @exception  NoSuchFileException  If the source-code or plain-text file does not exist.
+    * @exception  AccessDeniedException  If the file exists, but cannot be read.
+    */
    public TagletProcessor(CodeletInstance instance) throws ClassNotFoundException, NoSuchMethodException, NoSuchFileException, AccessDeniedException, InterruptedException  {
 
       if(!CodeletBootstrap.wasLoaded())  {
@@ -95,9 +95,9 @@ public class TagletProcessor  {
    /**
       <p>Get the taglet's already-rendered output text.</p>
 
-      @return  <code><i>[the-{@link com.github.aliteralmind.codelet.TagletOfTypeProcessor processor}]</i>.{@link com.github.aliteralmind.codelet.TagletOfTypeProcessor#getFullyCustomizedOutput() getFullyCustomizedOutput}()</code>
-      @see  #TagletProcessor(CodeletInstance)
-    **/
+    * @return  <code><i>[the-{@link com.github.aliteralmind.codelet.TagletOfTypeProcessor processor}]</i>.{@link com.github.aliteralmind.codelet.TagletOfTypeProcessor#getFullyCustomizedOutput() getFullyCustomizedOutput}()</code>
+    * @see  #TagletProcessor(CodeletInstance)
+    */
    public String get()  {
       return  fullyProcessed;
    }

@@ -31,7 +31,7 @@ package  com.github.aliteralmind.codelet;
 /**
    <p>For optional overriding of default templates, for a single JavaDoc page or an entire package. For overriding a template in a single taglet, a customizer must be used.</p>
 
-   <p>Configuration is in a text file named {@linkplain CodeletBootstrap#TMPL_OVERRIDES_CONFIG_FILE_NAME template_overrides_config.txt}, which is located in the same directory as {@link com.github.aliteralmind.codelet.CodeletBaseConfig codelet.properties} (view <a href="{@docRoot}/${jd_project_codelet_config_dir}/template_overrides_config.txt">{@code {@docRoot}/${jd_project_codelet_config_dir}/template_overrides_config.txt}</a>). Loading is executed by {@link com.github.aliteralmind.codelet.CodeletBootstrap}.</p>
+   <p>Configuration is in a text file named {@linkplain CodeletBootstrap#TMPL_OVERRIDES_CONFIG_FILE_NAME template_overrides_config.txt}, which is located in the same directory as {@link com.github.aliteralmind.codelet.CodeletBaseConfig codelet.properties} (view <a href="{@docRoot}/../${jd_project_codelet_config_dir}/template_overrides_config.txt">{@code {@docRoot}/../${jd_project_codelet_config_dir}/template_overrides_config.txt}</a>). Loading is executed by {@link com.github.aliteralmind.codelet.CodeletBootstrap}.</p>
 
    <p>If {@code template_overrides_config.txt} is empty (or contains only comments), then default templates are always used.</p>
 
@@ -82,8 +82,8 @@ com.github.smith.sub.package.AClass.java  FILE_TEXT      sub_packages\com_github
 
    <p>If both a file and its package are overridden, the individual file's override always takes precedence.</p>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public enum TemplateOverrides  {
    INSTANCE;
@@ -92,12 +92,12 @@ public enum TemplateOverrides  {
    private static Map<String,TemplateMapForItem> fileMap             ;
    /**
       <p>The pattern to split each line on (after it's trimmed)--Equal to <code>{@link java.util.regex.Pattern Pattern}.{@link java.util.regex.Pattern#compile(String) compile}(&quot;(?:\\t|[ \\t]{2,})&quot;)</code></p>
-    **/
+    */
    public static final Pattern SPLIT_PATTERN = Pattern.compile("(?:\\t|[ \\t]{2,})");
    /**
    	<p>YYY</p>
 
-      @exception  IllegalStateException  If
+    * @exception  IllegalStateException  If
       <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.CodeletTemplateConfig CodeletTemplateConfig}.{@link com.github.aliteralmind.codelet.CodeletTemplateConfig#wasLoaded() wasLoaded}</code>
       <br/>is {@code false}, or {@link #wasLoaded() wasLoaded}{@code ()} is {@code true}.
     **/
@@ -137,8 +137,8 @@ public enum TemplateOverrides  {
    /**
       <p>Was configuration loaded?.</p>
 
-      @return  {@code true} If all values loaded successfully.
-    **/
+    * @return  {@code true} If all values loaded successfully.
+    */
    public static final boolean wasLoaded()  {
       return  wasLoaded;
    }
@@ -195,12 +195,12 @@ public enum TemplateOverrides  {
    /**
       <p>Get the template.</p>
 
-      @return   If this taglet's<ol>
+    * @return   If this taglet's<ol>
          <li>{@linkplain CodeletInstance#getEnclosingFile() enclosing file} has a template-override: The template as {@linkplain TemplateOverrides configured}</li>
          <li>{@linkplain CodeletInstance#getEnclosingPackage() enclosing package} has a template-override: The template as configured.</li>
       </ol>Otherwise, the default template for the taglet's {@linkplain CodeletType type}. <i>In all cases, because JavaDoc is multi-threaded, the returned template object is duplicated.</i>
-      @exception  IllegalArgumentStateException  If the enclosing file's path does not start with the enclosing class {@linkplain CodeletBaseConfig#ENCLOSING_CLASS_SRC_BASE_DIRS base directory}.
-    **/
+    * @exception  IllegalArgumentStateException  If the enclosing file's path does not start with the enclosing class {@linkplain CodeletBaseConfig#ENCLOSING_CLASS_SRC_BASE_DIRS base directory}.
+    */
    public static final <T extends CodeletTemplateBase> T get(CodeletInstance instance, Appendable debugDest_ifNonNull)  {
       String itemName = null;
 

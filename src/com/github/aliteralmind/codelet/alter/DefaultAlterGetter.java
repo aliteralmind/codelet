@@ -27,8 +27,8 @@ package  com.github.aliteralmind.codelet.alter;
 
    <p>It is strongly recommended that at least the {@linkplain com.github.xbn.linefilter.alter.NewTextLineAltererFor#escapeHtml() escape html alterer} be returned by all {@code getFor} functions. This is in fact the only alterer returned by all functions in {@link DefaultDefaultAlterGetter}.</p>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public interface DefaultAlterGetter  {
    /**
@@ -36,7 +36,7 @@ public interface DefaultAlterGetter  {
 
    	<p>This is also used by {@code {@.codelet.and.out}} taglets.</p>
 
-      @return  A non-{@code null} map, where no key is {@code null} or empty, and no value is {@code null}. Each value <i>should</i> be unique.
+    * @return  A non-{@code null} map, where no key is {@code null} or empty, and no value is {@code null}. Each value <i>should</i> be unique.
    	@see  #getForCodeletDotOut()
    	@see  #getForFileTextlet()
     **/
@@ -46,22 +46,22 @@ public interface DefaultAlterGetter  {
 
    	<p>This is also used by {@code {@.codelet.and.out}} taglets.</p>
 
-      @return  A non-{@code null} map, where no key is {@code null} or empty, and no value is {@code null}. Each value <i>should</i> be unique.
-      @see  #getForSourceCodelet()
-    **/
+    * @return  A non-{@code null} map, where no key is {@code null} or empty, and no value is {@code null}. Each value <i>should</i> be unique.
+    * @see  #getForSourceCodelet()
+    */
    LinkedHashMap<String,TextLineAlterer> getForCodeletDotOut();
    /*
       <p>Default alterers for {@link com.github.aliteralmind.codelet.CodeletType#SOURCE_AND_OUT {@.codelet.and.out}} taglets, when {@linkplain DefaultAlterGetter configured}.</p>
 
-      @return  A non-{@code null} map, where no key is {@code null} or empty, and no value is {@code null}. Each value <i>should</i> be unique.
-      @see  #getForSourceCodelet()
+    * @return  A non-{@code null} map, where no key is {@code null} or empty, and no value is {@code null}. Each value <i>should</i> be unique.
+    * @see  #getForSourceCodelet()
    LinkedHashMap<String,TextLineAlterer> getForCodeletAndOut();
     */
    /**
       <p>Default alterers for {@link com.github.aliteralmind.codelet.CodeletType#FILE_TEXT {@.file.textlet}} taglets, when {@linkplain DefaultAlterGetter configured}.</p>
 
-      @return  A non-{@code null} map, where no key is {@code null} or empty, and no value is {@code null}. Each value <i>should</i> be unique.
-      @see  #getForSourceCodelet()
-    **/
+    * @return  A non-{@code null} map, where no key is {@code null} or empty, and no value is {@code null}. Each value <i>should</i> be unique.
+    * @see  #getForSourceCodelet()
+    */
    LinkedHashMap<String,TextLineAlterer> getForFileTextlet();
 }

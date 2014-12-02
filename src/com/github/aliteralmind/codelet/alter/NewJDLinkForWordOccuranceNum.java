@@ -42,15 +42,15 @@ package  com.github.aliteralmind.codelet.alter;
    <p>While it is verified that the link's target exists, it is not known whether the target is made viewable by JavaDoc. For example, if you link to a protected class, but configure JavaDoc to only display <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#public">public classes</a>, the link will be created, but clicking on it will result in going to the class itself (assuming the class is also viewable).</p>
 
    @see  com.github.xbn.linefilter.alter.NewTextLineAltererFor
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class NewJDLinkForWordOccuranceNum  {
    /**
       <p>Replaces a single occurance of a constructor name with a JavaDoc link.</p>
 
-      @param  lineOccurance_num  Which &quot;line&quot; occurance should be linked? This is the <i>n-th line</i> in which the function name is found in the source code. If it exists in three lines (regardless how many occurances exist within those lines), and you want the second to have the link, set this to two. When there are multiple occurances of a constructor call in a line, the first is always the one linked. Must be one or greater.
-      @return  <code>{@link com.github.xbn.linefilter.AdaptRegexReplacerTo AdaptRegexReplacerTo}.{@link com.github.xbn.linefilter.AdaptRegexReplacerTo#lineReplacer(AlterationRequired, RegexReplacer, ValidResultFilter) lineReplacer}({@link com.github.xbn.analyze.alter.AlterationRequired}.{@link com.github.xbn.analyze.alter.AlterationRequired#YES YES}, rr, filterAllBut)</code>
+    * @param  lineOccurance_num  Which &quot;line&quot; occurance should be linked? This is the <i>n-th line</i> in which the function name is found in the source code. If it exists in three lines (regardless how many occurances exist within those lines), and you want the second to have the link, set this to two. When there are multiple occurances of a constructor call in a line, the first is always the one linked. Must be one or greater.
+    * @return  <code>{@link com.github.xbn.linefilter.AdaptRegexReplacerTo AdaptRegexReplacerTo}.{@link com.github.xbn.linefilter.AdaptRegexReplacerTo#lineReplacer(AlterationRequired, RegexReplacer, ValidResultFilter) lineReplacer}({@link com.github.xbn.analyze.alter.AlterationRequired}.{@link com.github.xbn.analyze.alter.AlterationRequired#YES YES}, rr, filterAllBut)</code>
       <br/>Where<ul>
          <li>{@code rr} is a
          <br/> &nbsp; &nbsp; <code>{@link NewJavaDocLinkReplacerFor NewJavaDocLinkReplacerFor}.{@link NewJavaDocLinkReplacerFor#constructor(CodeletInstance, Constructor, Appendable) constructor}(instance, target, dbgRplcr_ifNonNull)</code></li>
@@ -61,7 +61,7 @@ public class NewJDLinkForWordOccuranceNum  {
          <br/> &nbsp; &nbsp;  &nbsp; &nbsp; param_shortcut, dbgSearchTerm_ifNonNull, dbgSearchTermDoesMatch_ifNonNull)</code></li>
          <li>{@code filterAllBut} is a &quot;{@linkplain com.github.xbn.analyze.validate.ValidResultFilter result filter}&quot; that only accepts a {@linkplain com.github.xbn.analyze.validate.NewValidResultFilterFor#exactly(int, String, Appendable) single occurance}.</li>
       </ul>
-    **/
+    */
    public static final TextLineAlterAdapter<StringReplacer> constructor(CodeletInstance instance, int lineOccurance_num, Class<?> target_class, String param_shortcut, Appendable dbgRplcr_ifNonNull, Appendable dbgResultFilter_ifNonNull, Appendable dbgSearchTerm_ifNonNull, Appendable dbgSearchTermDoesMatch_ifNonNull)  {
       Constructor<?> target = ConstructorParamSearchTerm.
          getConstructorFromAllSigsAndSearchTerm(
@@ -87,10 +87,10 @@ PREFIX.link.DBGPRECNSTRNM_IFNONNULL.validfilter=-1
 PREFIX.link.DBGPRECNSTRNM_IFNONNULL.searchterm=-1
 PREFIX.link.DBGPRECNSTRNM_IFNONNULL.searchterm.doesMatch=-1</pre></blockquote>
 
-      @param  instance  For determining the current {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#getDebugApblIfOn(CodeletInstance, String) debugging level}.
-      @param  debug_prefix  Prepended to all named debuggers. May not be {@code null} or empty.
-      @param  dbgPreCnstrNm_ifNonNull  If non-{@code null}, this is the name of the class used in the debug-level name. If {@code null}, {@code "constructor"} is used.
-    **/
+    * @param  instance  For determining the current {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#getDebugApblIfOn(CodeletInstance, String) debugging level}.
+    * @param  debug_prefix  Prepended to all named debuggers. May not be {@code null} or empty.
+    * @param  dbgPreCnstrNm_ifNonNull  If non-{@code null}, this is the name of the class used in the debug-level name. If {@code null}, {@code "constructor"} is used.
+    */
    public static final TextLineAlterAdapter<StringReplacer> constructor(CodeletInstance instance, String debug_prefix, String dbgPreCnstrNm_ifNonNull, int lineOccurance_num, Class<?> target_class, String param_shortcut)  {
       CrashIfString.nullEmpty(debug_prefix, "debug_prefix", null);
       debug_prefix += ".link." + ((dbgPreCnstrNm_ifNonNull != null)
@@ -123,8 +123,8 @@ PREFIX.link.DBGPRECNSTRNM_IFNONNULL.searchterm.doesMatch=-1</pre></blockquote>
    /**
       <p>Replaces a single occurance of a function name with a JavaDoc link.</p>
 
-      @param  line_occuranceNum  Which occurance should be linked? This is the <i>n-th <b>line</b></i> in which the function name is found in the source code. If it exists in three lines (regardless how many occurances exist within those lines), and you want the second to have the link, set this to two. When there are multiple occurances of a function call in that line, the first is always the one linked. Must be one or greater.
-      @return  <code>{@link com.github.xbn.linefilter.AdaptRegexReplacerTo AdaptRegexReplacerTo}.{@link com.github.xbn.linefilter.AdaptRegexReplacerTo#lineReplacer(AlterationRequired, RegexReplacer, ValidResultFilter) lineReplacer}({@link com.github.xbn.analyze.alter.AlterationRequired}.{@link com.github.xbn.analyze.alter.AlterationRequired#YES YES}, rr, filterAllBut)</code>
+    * @param  line_occuranceNum  Which occurance should be linked? This is the <i>n-th <b>line</b></i> in which the function name is found in the source code. If it exists in three lines (regardless how many occurances exist within those lines), and you want the second to have the link, set this to two. When there are multiple occurances of a function call in that line, the first is always the one linked. Must be one or greater.
+    * @return  <code>{@link com.github.xbn.linefilter.AdaptRegexReplacerTo AdaptRegexReplacerTo}.{@link com.github.xbn.linefilter.AdaptRegexReplacerTo#lineReplacer(AlterationRequired, RegexReplacer, ValidResultFilter) lineReplacer}({@link com.github.xbn.analyze.alter.AlterationRequired}.{@link com.github.xbn.analyze.alter.AlterationRequired#YES YES}, rr, filterAllBut)</code>
       <br/>Where<ul>
          <li>{@code rr} is a
          <br/> &nbsp; &nbsp; <code>{@link NewJavaDocLinkReplacerFor NewJavaDocLinkReplacerFor}.{@link NewJavaDocLinkReplacerFor#method(CodeletInstance, Method, Appendable) method}(instance, target, dbgRplcr_ifNonNull)</code></li>
@@ -135,7 +135,7 @@ PREFIX.link.DBGPRECNSTRNM_IFNONNULL.searchterm.doesMatch=-1</pre></blockquote>
          <br/> &nbsp; &nbsp;  &nbsp; &nbsp; name_paramShortcut, dbgSearchTerm_ifNonNull, dbgSearchTermDoesMatch_ifNonNull)</code></li>
          <li>{@code filterAllBut} is a &quot;{@linkplain com.github.xbn.analyze.validate.ValidResultFilter result filter}&quot; that only accepts a {@linkplain com.github.xbn.analyze.validate.NewValidResultFilterFor#exactly(int, String, Appendable) single occurance}.</li>
       </ul>
-    **/
+    */
    public static final TextLineAlterAdapter<StringReplacer> method(CodeletInstance instance, int line_occuranceNum, Class<?> target_class, String name_paramShortcut, Appendable dbgRplcr_ifNonNull, Appendable dbgResultFilter_ifNonNull, Appendable dbgSearchTerm_ifNonNull, Appendable dbgSearchTermDoesMatch_ifNonNull)  {
       Method target = MethodSigSearchTerm.getMethodFromAllSigsAndSearchTerm(
          getAllParamSigsForLinkTarget(target_class), name_paramShortcut, dbgSearchTerm_ifNonNull, dbgSearchTermDoesMatch_ifNonNull);
@@ -162,10 +162,10 @@ PREFIX.link.DBGPREMETHODNM_IFNONNULL.validfilter=-1
 PREFIX.link.DBGPREMETHODNM_IFNONNULL.searchterm=-1
 PREFIX.link.DBGPREMETHODNM_IFNONNULL.searchterm.doesMatch=-1</pre></blockquote>
 
-      @param  instance  For determining the current {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#getDebugApblIfOn(CodeletInstance, String) debugging level}.
-      @param  debug_prefix  Prepended to all named debuggers. May not be {@code null} or empty.
-      @param  dbgPreMethodNm_ifNonNull  If non-{@code null}, this is the name of the method (with potentially a class-dot prefix) used in the debug-level name. If {@code null}, the method's name is used.
-    **/
+    * @param  instance  For determining the current {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#getDebugApblIfOn(CodeletInstance, String) debugging level}.
+    * @param  debug_prefix  Prepended to all named debuggers. May not be {@code null} or empty.
+    * @param  dbgPreMethodNm_ifNonNull  If non-{@code null}, this is the name of the method (with potentially a class-dot prefix) used in the debug-level name. If {@code null}, the method's name is used.
+    */
    public static final TextLineAlterAdapter<StringReplacer> method(CodeletInstance instance, String debug_prefix, String dbgPreMethodNm_ifNonNull, int line_occuranceNum, Class<?> target_class, String name_paramShortcut)  {
       CrashIfString.nullEmpty(debug_prefix, "debug_prefix", null);
       debug_prefix += ".link.";
@@ -199,12 +199,12 @@ PREFIX.link.DBGPREMETHODNM_IFNONNULL.searchterm.doesMatch=-1</pre></blockquote>
    /**
       <p>Replaces a single occurance of a field name (an object contained in another object) with a JavaDoc link.</p>
 
-      @param  line_occuranceNum  Which occurance should be linked?  This is the <i>n-th <b>line</b></i> in which the obect name is found in the source code. If it exists in three lines (regardless how many occurances exist within those lines), and you want the second to have the link, set this to two. When there are multiple occurances of a field name in a line, the first is always the one linked. Must be one or greater.
-      @return  <code>{@link com.github.xbn.linefilter.AdaptRegexReplacerTo AdaptRegexReplacerTo}.{@link com.github.xbn.linefilter.AdaptRegexReplacerTo#lineReplacer(AlterationRequired, RegexReplacer, ValidResultFilter) lineReplacer}({@link com.github.xbn.analyze.alter.AlterationRequired}.{@link com.github.xbn.analyze.alter.AlterationRequired#YES YES}, rr, filterAllBut)</code>
+    * @param  line_occuranceNum  Which occurance should be linked?  This is the <i>n-th <b>line</b></i> in which the obect name is found in the source code. If it exists in three lines (regardless how many occurances exist within those lines), and you want the second to have the link, set this to two. When there are multiple occurances of a field name in a line, the first is always the one linked. Must be one or greater.
+    * @return  <code>{@link com.github.xbn.linefilter.AdaptRegexReplacerTo AdaptRegexReplacerTo}.{@link com.github.xbn.linefilter.AdaptRegexReplacerTo#lineReplacer(AlterationRequired, RegexReplacer, ValidResultFilter) lineReplacer}({@link com.github.xbn.analyze.alter.AlterationRequired}.{@link com.github.xbn.analyze.alter.AlterationRequired#YES YES}, rr, filterAllBut)</code>
       <br/>Where {@code rr} is a
       <br/> &nbsp; &nbsp; <code>{@link NewJavaDocLinkReplacerFor NewJavaDocLinkReplacerFor}.{@link NewJavaDocLinkReplacerFor#field(CodeletInstance, Field, Appendable) field}(instance, target, dbgRplcr_ifNonNull)</code>
       <br/>and {@code filterAllBut} is a &quot;{@linkplain com.github.xbn.analyze.validate.ValidResultFilter result filter}&quot; that only accepts a {@linkplain com.github.xbn.analyze.validate.NewValidResultFilterFor#exactly(int, String, Appendable) single occurance}.
-    **/
+    */
    public static final TextLineAlterAdapter<StringReplacer> field(CodeletInstance instance, int line_occuranceNum, Class<?> containing_class, String field_name, Appendable dbgRplcr_ifNonNull, Appendable dbgResultFilter_ifNonNull)  {
       Field target = ReflectRtxUtil.getField(containing_class, field_name, Declared.YES, null);
       return  field(instance, line_occuranceNum, target, dbgRplcr_ifNonNull, dbgResultFilter_ifNonNull);
@@ -228,10 +228,10 @@ PREFIX.link.DBGPREMETHODNM_IFNONNULL.searchterm.doesMatch=-1</pre></blockquote>
 <blockquote><pre>PREFIX.link.DBGPREFIELDNM_IFNONNULL.=-1
 PREFIX.link.DBGPREFIELDNM_IFNONNULL.validfilter=-1</pre></blockquote>
 
-      @param  instance  For determining the current {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#getDebugApblIfOn(CodeletInstance, String) debugging level}.
-      @param  debug_prefix  Prepended to all named debuggers. May not be {@code null} or empty.
-      @param  dbgPreFieldNm_ifNonNull  If non-{@code null}, this is the name of the field (with potentially a class-dot prefix) used in the debug-level name. If {@code null}, the field's name is used.
-    **/
+    * @param  instance  For determining the current {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#getDebugApblIfOn(CodeletInstance, String) debugging level}.
+    * @param  debug_prefix  Prepended to all named debuggers. May not be {@code null} or empty.
+    * @param  dbgPreFieldNm_ifNonNull  If non-{@code null}, this is the name of the field (with potentially a class-dot prefix) used in the debug-level name. If {@code null}, the field's name is used.
+    */
    public static final TextLineAlterAdapter<StringReplacer> field(CodeletInstance instance, String debug_prefix, String dbgPreFieldNm_ifNonNull, int line_occuranceNum, Class<?> containing_class, String field_name)  {
       CrashIfString.nullEmpty(debug_prefix, "debug_prefix", null);
       debug_prefix += ".link.";
@@ -254,12 +254,12 @@ PREFIX.link.DBGPREFIELDNM_IFNONNULL.validfilter=-1</pre></blockquote>
    /**
       <p>Replaces a single occurance of a class name with a JavaDoc link.</p>
 
-      @param  line_occuranceNum  Which occurance should be linked?  This is the <i>n-th <b>line</b></i> in which the class name is found in the source code. If it exists in three lines (regardless how many occurances exist within those lines), and you want the second to have the link, set this to two. When there are multiple occurances of a class name in a line, the first is always the one linked. Must be one or greater.
-      @return  <code>{@link com.github.xbn.linefilter.AdaptRegexReplacerTo AdaptRegexReplacerTo}.{@link com.github.xbn.linefilter.AdaptRegexReplacerTo#lineReplacer(AlterationRequired, RegexReplacer, ValidResultFilter) lineReplacer}({@link com.github.xbn.analyze.alter.AlterationRequired}.{@link com.github.xbn.analyze.alter.AlterationRequired#YES YES}, rr, filterAllBut)</code>
+    * @param  line_occuranceNum  Which occurance should be linked?  This is the <i>n-th <b>line</b></i> in which the class name is found in the source code. If it exists in three lines (regardless how many occurances exist within those lines), and you want the second to have the link, set this to two. When there are multiple occurances of a class name in a line, the first is always the one linked. Must be one or greater.
+    * @return  <code>{@link com.github.xbn.linefilter.AdaptRegexReplacerTo AdaptRegexReplacerTo}.{@link com.github.xbn.linefilter.AdaptRegexReplacerTo#lineReplacer(AlterationRequired, RegexReplacer, ValidResultFilter) lineReplacer}({@link com.github.xbn.analyze.alter.AlterationRequired}.{@link com.github.xbn.analyze.alter.AlterationRequired#YES YES}, rr, filterAllBut)</code>
       <br/>Where {@code rr} is a
       <br/> &nbsp; &nbsp; <code>{@link NewJavaDocLinkReplacerFor}.{@link NewJavaDocLinkReplacerFor#cclass(CodeletInstance, Class, Appendable) cclass}(urlToExampleClassPkgWSlash_fromTagletFile, class_name, dbgRplcr_ifNonNull)</code>
       <br/>and {@code filterAllBut} is a &quot;{@linkplain com.github.xbn.analyze.validate.ValidResultFilter result filter}&quot; that only accepts a {@linkplain com.github.xbn.analyze.validate.NewValidResultFilterFor#exactly(int, String, Appendable) single occurance}.
-    **/
+    */
    public static final TextLineAlterAdapter<StringReplacer> cclass(CodeletInstance instance, int line_occuranceNum, Class<?> target, Appendable dbgRplcr_ifNonNull, Appendable dbgResultFilter_ifNonNull)  {
       RegexReplacer rr = NewJavaDocLinkReplacerFor.cclass(instance, target, dbgRplcr_ifNonNull);
       return  newReplacerAlterer(rr, line_occuranceNum, "line_occuranceNum", dbgResultFilter_ifNonNull, target, null);
@@ -276,10 +276,10 @@ PREFIX.link.DBGPREFIELDNM_IFNONNULL.validfilter=-1</pre></blockquote>
 <blockquote><pre>PREFIX.link.DBGPRECLASSNM_IFNONNULL.=-1
 PREFIX.link.DBGPRECLASSNM_IFNONNULL.validfilter=-1</pre></blockquote>
 
-      @param  instance  For determining the current {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#getDebugApblIfOn(CodeletInstance, String) debugging level}.
-      @param  debug_prefix  Prepended to all named debuggers. May not be {@code null} or empty.
-      @param  dbgPreClassNm_ifNonNull  If non-{@code null}, this is the name of the class used in the debug-level name. If {@code null}, <code>target.{@link java.lang.Class#getSimpleName() getSimpleName}()</code> is used.
-    **/
+    * @param  instance  For determining the current {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#getDebugApblIfOn(CodeletInstance, String) debugging level}.
+    * @param  debug_prefix  Prepended to all named debuggers. May not be {@code null} or empty.
+    * @param  dbgPreClassNm_ifNonNull  If non-{@code null}, this is the name of the class used in the debug-level name. If {@code null}, <code>target.{@link java.lang.Class#getSimpleName() getSimpleName}()</code> is used.
+    */
    public static final TextLineAlterAdapter<StringReplacer> cclass(CodeletInstance instance, String debug_prefix, String dbgPreClassNm_ifNonNull, int line_occuranceNum, Class<?> target)  {
       CrashIfString.nullEmpty(debug_prefix, "debug_prefix", null);
       debug_prefix += ".link.";
@@ -307,8 +307,8 @@ PREFIX.link.DBGPRECLASSNM_IFNONNULL.validfilter=-1</pre></blockquote>
 
       <p>The map holding these class objects is given an initial capacity as in the configuration variable &quot;{@link com.github.aliteralmind.codelet.CodeletBaseConfig#UNIQUE_JD_CLASS_TARGET_INIT_CAPACITY unique_jd_class_target_init_capacity}&quot;.</p>
 
-      @param  target  May not be {@code null}.
-    **/
+    * @param  target  May not be {@code null}.
+    */
    public static final AllSimpleParamSignatures getAllParamSigsForLinkTarget(Class<?> target)  {
       if(!classAllSigsMap.containsKey(target))  {
          synchronized(classAllSigsMap)  {

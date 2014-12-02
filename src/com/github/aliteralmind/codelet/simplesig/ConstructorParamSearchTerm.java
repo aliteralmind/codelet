@@ -24,8 +24,8 @@ package  com.github.aliteralmind.codelet.simplesig;
 
 {@.codelet.and.out com.github.aliteralmind.codelet.examples.simplesig.ConstructorParamSearchTermXmpl%()}
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class ConstructorParamSearchTerm extends SimpleParamSigSearchTerm  {
    /**
@@ -52,8 +52,8 @@ public class ConstructorParamSearchTerm extends SimpleParamSigSearchTerm  {
       <p>This first calls
       <br/> &nbsp; &nbsp; <code>{@link SimpleParamSigSearchTerm#SimpleParamSigSearchTerm(String, Appendable, Appendable) super}(param_searchTerm)</code></p>
 
-      @param  param_searchTerm  There may not be any text before the open parenthesis ({@code '('}).
-    **/
+    * @param  param_searchTerm  There may not be any text before the open parenthesis ({@code '('}).
+    */
    public ConstructorParamSearchTerm(String param_searchTerm, Appendable debugBasics_ifNonNull, Appendable dbgDoesMatch_ifNonNull)  {
       super(param_searchTerm, debugBasics_ifNonNull, dbgDoesMatch_ifNonNull);
       if(getMethodName().length() != 0)  {
@@ -63,18 +63,18 @@ public class ConstructorParamSearchTerm extends SimpleParamSigSearchTerm  {
    /**
       <p>Does any constructor match?.</p>
 
-      @return  {@link com.github.aliteralmind.codelet.simplesig.SimpleParamSigSearchTerm#doesMatchAnyProt(List) doesMatchAnyProt}{@code (to_searchList)}*
-      @see  #getFirstMatch(List, CrashIfZero, CrashIfMoreThanOne)
-    **/
+    * @return  {@link com.github.aliteralmind.codelet.simplesig.SimpleParamSigSearchTerm#doesMatchAnyProt(List) doesMatchAnyProt}{@code (to_searchList)}*
+    * @see  #getFirstMatch(List, CrashIfZero, CrashIfMoreThanOne)
+    */
    public boolean doesMatchAny(List<ConstructorSimpleParamSig> to_searchList)  {
       return  doesMatchAnyProt(to_searchList);
    }
    /**
       <p>Get a new list of all matches.</p>
 
-      @return  {@link com.github.aliteralmind.codelet.simplesig.SimpleParamSigSearchTerm#getAllMatchesProt(List, CrashIfZero) getAllMatchesProt}{@code (to_searchList, crashIf_zero)}*
-      @see  #getFirstMatch(List, CrashIfZero, CrashIfMoreThanOne)
-    **/
+    * @return  {@link com.github.aliteralmind.codelet.simplesig.SimpleParamSigSearchTerm#getAllMatchesProt(List, CrashIfZero) getAllMatchesProt}{@code (to_searchList, crashIf_zero)}*
+    * @see  #getFirstMatch(List, CrashIfZero, CrashIfMoreThanOne)
+    */
    public List<ConstructorSimpleParamSig> getAllMatches(List<ConstructorSimpleParamSig> to_searchList, CrashIfZero crashIf_zero)  {
       @SuppressWarnings("unchecked")
       List<ConstructorSimpleParamSig> matches = (List<ConstructorSimpleParamSig>)getAllMatchesProt(to_searchList, crashIf_zero);
@@ -83,22 +83,22 @@ public class ConstructorParamSearchTerm extends SimpleParamSigSearchTerm  {
    /**
       <p>Get the first and only match.</p>
 
-      @return  <code>(ConstructorSimpleParamSig){@link SimpleParamSigSearchTerm#getOnlyMatchProt(List) getOnlyMatchProt}(to_searchList)</code>
-      @see  SimpleParamSigSearchTerm#doesMatchOnlyOneProt(List) doesMatchOnlyOneProt*
-      @see  #getFirstMatch(List, CrashIfZero, CrashIfMoreThanOne) getFirstMatch
-      @see  #getAllMatches(List, CrashIfZero) getAllMatches
-    **/
+    * @return  <code>(ConstructorSimpleParamSig){@link SimpleParamSigSearchTerm#getOnlyMatchProt(List) getOnlyMatchProt}(to_searchList)</code>
+    * @see  SimpleParamSigSearchTerm#doesMatchOnlyOneProt(List) doesMatchOnlyOneProt*
+    * @see  #getFirstMatch(List, CrashIfZero, CrashIfMoreThanOne) getFirstMatch
+    * @see  #getAllMatches(List, CrashIfZero) getAllMatches
+    */
    public ConstructorSimpleParamSig getOnlyMatch(List<ConstructorSimpleParamSig> to_searchList)  {
       return  (ConstructorSimpleParamSig)getOnlyMatchProt(to_searchList);
    }
    /**
       <p>Get the first match.</p>
 
-      @return  <code>(ConstructorSimpleParamSig){@link SimpleParamSigSearchTerm#getFirstMatchProt(List, CrashIfZero, CrashIfMoreThanOne) getFirstMatchProt}(to_searchList, crashIf_zero, crashIf_moreThanOne)</code>
-      @see  #doesMatchAny(List)
-      @see  #getAllMatches(List, CrashIfZero)
-      @see  #getFirstMatch(List, CrashIfZero, CrashIfMoreThanOne)
-    **/
+    * @return  <code>(ConstructorSimpleParamSig){@link SimpleParamSigSearchTerm#getFirstMatchProt(List, CrashIfZero, CrashIfMoreThanOne) getFirstMatchProt}(to_searchList, crashIf_zero, crashIf_moreThanOne)</code>
+    * @see  #doesMatchAny(List)
+    * @see  #getAllMatches(List, CrashIfZero)
+    * @see  #getFirstMatch(List, CrashIfZero, CrashIfMoreThanOne)
+    */
    public ConstructorSimpleParamSig getFirstMatch(List<ConstructorSimpleParamSig> to_searchList, CrashIfZero crashIf_zero, CrashIfMoreThanOne crashIf_moreThanOne)  {
       return  (ConstructorSimpleParamSig)getFirstMatchProt(to_searchList, crashIf_zero, crashIf_moreThanOne);
    }
@@ -107,9 +107,9 @@ public class ConstructorParamSearchTerm extends SimpleParamSigSearchTerm  {
    /**
       <p>Get the single matching constructor from an all-signature object.</p>
 
-      @return  <code>(new {@link ConstructorParamSearchTerm#ConstructorParamSearchTerm(String, Appendable, Appendable) ConstructorParamSearchTerm}(param_searchTerm, debugBasics_ifNonNull, dbgDoesMatch_ifNonNull)).
+    * @return  <code>(new {@link ConstructorParamSearchTerm#ConstructorParamSearchTerm(String, Appendable, Appendable) ConstructorParamSearchTerm}(param_searchTerm, debugBasics_ifNonNull, dbgDoesMatch_ifNonNull)).
       <br/> &nbsp; &nbsp; {@link ConstructorParamSearchTerm#getOnlyMatch(List) getOnlyMatch}(all_sigs.{@link AllSimpleParamSignatures#getConstructorList() getConstructorList}).{@link ConstructorSimpleParamSig#getConstructor() getConstructor}()</code>
-    **/
+    */
    public static final Constructor<?> getConstructorFromAllSigsAndSearchTerm(AllSimpleParamSignatures all_sigs, String param_searchTerm, Appendable debugBasics_ifNonNull, Appendable dbgDoesMatch_ifNonNull)  {
       try  {
          return  (new ConstructorParamSearchTerm(param_searchTerm, debugBasics_ifNonNull, dbgDoesMatch_ifNonNull)).

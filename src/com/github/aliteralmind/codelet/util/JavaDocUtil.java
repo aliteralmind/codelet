@@ -24,29 +24,29 @@ package  com.github.aliteralmind.codelet.util;
 /**
    <p>Get urls to function, class, and object targets.</p>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class JavaDocUtil  {
    /**
       <p>Get the url to a class.</p>
 
-      @return  <code>{@link #appendUrlToClass(StringBuilder, String, Class) appendUrlToClass}((new StringBuilder()), url_toDocRoot, target).toString()</code>
-    **/
+    * @return  <code>{@link #appendUrlToClass(StringBuilder, String, Class) appendUrlToClass}((new StringBuilder()), url_toDocRoot, target).toString()</code>
+    */
    public static final String getUrlToClass(String url_toDocRoot, Class<?> target)  {
       return  appendUrlToClass((new StringBuilder()), url_toDocRoot, target).toString();
    }
    /**
       <p>Append the url to a class.</p>
 
-      @param  to_appendTo  May not be {@code null}.
-      @param  url_toDocRoot  The url to {@code {@docRoot}} for the link target-file. Which must end with a slash {@code "/"}, and <i>should</i> not be {@code null}.. This is also the directory in which the {@code package-list} files exists. For local files, this is a relative directory (such as {@code "../../"}) otherwise this is the full url to the external doc-root directory.
+    * @param  to_appendTo  May not be {@code null}.
+    * @param  url_toDocRoot  The url to {@code {@docRoot}} for the link target-file. Which must end with a slash {@code "/"}, and <i>should</i> not be {@code null}.. This is also the directory in which the {@code package-list} files exists. For local files, this is a relative directory (such as {@code "../../"}) otherwise this is the full url to the external doc-root directory.
 
-      @param  target  May not be {@code null}.
-      @return  <code>to_appendTo.append(url_toDocRoot).
+    * @param  target  May not be {@code null}.
+    * @return  <code>to_appendTo.append(url_toDocRoot).
       <br/> &nbsp; &nbsp; append(target.{@link java.lang.Class#getName() getName}.replace(".", "/")).append(".html")</code>
-      @see  #getUrlToClass(String, Class)
-    **/
+    * @see  #getUrlToClass(String, Class)
+    */
    public static final StringBuilder appendUrlToClass(StringBuilder to_appendTo, String url_toDocRoot, Class<?> target)  {
       try  {
          return  to_appendTo.append(url_toDocRoot).
@@ -58,23 +58,23 @@ public class JavaDocUtil  {
    /**
       <p>Get the url to a constructor.</p>
 
-      @return  <code>{@link #appendUrlToConstructor(StringBuilder, String, Constructor) appendUrlToConstructor}((new StringBuilder()), url_toDocRoot, target).toString()</code>
-    **/
+    * @return  <code>{@link #appendUrlToConstructor(StringBuilder, String, Constructor) appendUrlToConstructor}((new StringBuilder()), url_toDocRoot, target).toString()</code>
+    */
    public static final String getUrlToConstructor(String url_toDocRoot, Constructor target)  {
       return  appendUrlToConstructor((new StringBuilder()), url_toDocRoot, target).toString();
    }
    /**
       <p>Append the url to a constructor.</p>
 
-      @param  to_appendTo  May not be {@code null}.
-      @param  url_toDocRoot  The url to {@code {@docRoot}} for the link target-file. Which must end with a slash {@code "/"}, and <i>should</i> not be {@code null}.. This is also the directory in which the {@code package-list} files exists. For local files, this is a relative directory (such as {@code "../../"}) otherwise this is the full url to the external doc-root directory.
-      @param  target  May not be {@code null}.
-      @return  {@code to_appendTo}
-      @see  #getUrlToConstructor(String, Constructor) getUrlToConstructor
-      @see  #appendUrlToMethod(StringBuilder, String, Method) appendUrlToMethod
-      @see  #appendUrlToClass(StringBuilder, String, Class) appendUrlToClass
-      @see  #appendClassNameForParams(StringBuilder, Class[], VarArgs) appendClassNameForParams
-    **/
+    * @param  to_appendTo  May not be {@code null}.
+    * @param  url_toDocRoot  The url to {@code {@docRoot}} for the link target-file. Which must end with a slash {@code "/"}, and <i>should</i> not be {@code null}.. This is also the directory in which the {@code package-list} files exists. For local files, this is a relative directory (such as {@code "../../"}) otherwise this is the full url to the external doc-root directory.
+    * @param  target  May not be {@code null}.
+    * @return  {@code to_appendTo}
+    * @see  #getUrlToConstructor(String, Constructor) getUrlToConstructor
+    * @see  #appendUrlToMethod(StringBuilder, String, Method) appendUrlToMethod
+    * @see  #appendUrlToClass(StringBuilder, String, Class) appendUrlToClass
+    * @see  #appendClassNameForParams(StringBuilder, Class[], VarArgs) appendClassNameForParams
+    */
    public static final StringBuilder appendUrlToConstructor(StringBuilder to_appendTo, String url_toDocRoot, Constructor<?> target)  {
       try  {
          appendUrlToClass(to_appendTo, url_toDocRoot, target.getDeclaringClass());
@@ -88,8 +88,8 @@ public class JavaDocUtil  {
    /**
       <p>Get the url to a function.</p>
 
-      @return  <code>{@link #appendUrlToConstructor(StringBuilder, String, Constructor) appendUrlToConstructor}((new StringBuilder()), url_toDocRoot, target).toString()</code>
-    **/
+    * @return  <code>{@link #appendUrlToConstructor(StringBuilder, String, Constructor) appendUrlToConstructor}((new StringBuilder()), url_toDocRoot, target).toString()</code>
+    */
    public static final String getUrlToMethod(String url_toDocRoot, Method target)  {
       return  appendUrlToMethod((new StringBuilder()), url_toDocRoot, target).toString();
    }
@@ -101,15 +101,15 @@ public class JavaDocUtil  {
 {@.codelet.and.out com.github.aliteralmind.codelet.examples.util.FunctionConstructorJavaDocLink%_JavaDocUtil()}
 
 
-      @param  to_appendTo  May not be {@code null}.
-      @param  url_toDocRoot  The url to {@code {@docRoot}} for the link target-file. Which must end with a slash {@code "/"}, and <i>should</i> not be {@code null}.. This is also the directory in which the {@code package-list} files exists. For local files, this is a relative directory (such as {@code "../../"}) otherwise this is the full url to the external doc-root directory.
-      @param  target  May not be {@code null}.
-      @return  {@code to_appendTo}
-      @see  #getUrlToMethod(String, Method) getUrlToMethod
-      @see  #appendUrlToConstructor(StringBuilder, String, Constructor) appendUrlToMethod
-      @see  #appendUrlToClass(StringBuilder, String, Class) appendUrlToClass
-      @see  #appendClassNameForParams(StringBuilder, Class[], VarArgs) appendClassNameForParams
-    **/
+    * @param  to_appendTo  May not be {@code null}.
+    * @param  url_toDocRoot  The url to {@code {@docRoot}} for the link target-file. Which must end with a slash {@code "/"}, and <i>should</i> not be {@code null}.. This is also the directory in which the {@code package-list} files exists. For local files, this is a relative directory (such as {@code "../../"}) otherwise this is the full url to the external doc-root directory.
+    * @param  target  May not be {@code null}.
+    * @return  {@code to_appendTo}
+    * @see  #getUrlToMethod(String, Method) getUrlToMethod
+    * @see  #appendUrlToConstructor(StringBuilder, String, Constructor) appendUrlToMethod
+    * @see  #appendUrlToClass(StringBuilder, String, Class) appendUrlToClass
+    * @see  #appendClassNameForParams(StringBuilder, Class[], VarArgs) appendClassNameForParams
+    */
    public static final StringBuilder appendUrlToMethod(StringBuilder to_appendTo, String url_toDocRoot, Method target)  {
       try  {
          appendUrlToClass(to_appendTo, url_toDocRoot, target.getDeclaringClass());
@@ -123,18 +123,18 @@ public class JavaDocUtil  {
    /**
       <p>Get the url to a field.</p>
 
-      @return  <code>{@link #appendUrlToField(StringBuilder, String, Field) appendUrlToField}((new StringBuilder()), url_toDocRoot, target).toString()</code>
-    **/
+    * @return  <code>{@link #appendUrlToField(StringBuilder, String, Field) appendUrlToField}((new StringBuilder()), url_toDocRoot, target).toString()</code>
+    */
    public static final String getUrlToField(String url_toDocRoot, Field target)  {
       return  appendUrlToField((new StringBuilder()), url_toDocRoot, target).toString();
    }
    /**
       <p>Append the url to a field.</p>
 
-      @return  <code>{@link #appendUrlToClass(StringBuilder, String, Class) appendUrlToClass}(to_appendTo, url_toDocRoot, target.{@link java.lang.reflect.Field#getDeclaringClass() getDeclaringClass}()).
+    * @return  <code>{@link #appendUrlToClass(StringBuilder, String, Class) appendUrlToClass}(to_appendTo, url_toDocRoot, target.{@link java.lang.reflect.Field#getDeclaringClass() getDeclaringClass}()).
       <br/> &nbsp; &nbsp; append(&quot;#&quot;).append(target.{@link java.lang.reflect.Field#getName() Field#getName}())</code>
-      @see  #getUrlToField(String, Field)
-    **/
+    * @see  #getUrlToField(String, Field)
+    */
    public static final StringBuilder appendUrlToField(StringBuilder to_appendTo, String url_toDocRoot, Field target)  {
       return  appendUrlToClass(to_appendTo, url_toDocRoot, target.getDeclaringClass()).
          append("#").append(target.getName());
@@ -142,10 +142,10 @@ public class JavaDocUtil  {
    /**
       <p>Get the url from a link-source file's package to doc-root.</p>
 
-      @return  <code>packageElementMtchr.reset(package_containingLink).{@link java.util.regex.Matcher#replaceAll(String) replaceAll}(&quot;../&quot;)</code>
+    * @return  <code>packageElementMtchr.reset(package_containingLink).{@link java.util.regex.Matcher#replaceAll(String) replaceAll}(&quot;../&quot;)</code>
       <br/>Where {@code packageElementMtchr} is initalized to
       <br/> &nbsp; &nbsp; <code>{@link java.util.regex.Pattern Pattern}.{@link java.util.regex.Pattern#compile(String) compile}(JavaRegexes.IDENTIFIER + &quot;\\.?&quot;).{@link java.util.regex.Pattern#matcher(CharSequence) matcher}(&quot;&quot;)</code>
-    **/
+    */
    public static final String getRelativeUrlToDocRoot(String package_containingLink)  {
       return  packageElementMtchr.reset(package_containingLink).replaceAll("../");
    }
@@ -154,12 +154,12 @@ public class JavaDocUtil  {
    /**
       <p>Get the url from a link-source to the target class file. This always goes entirely down to {@code {@docRoot}}, and then back to the target file.</p>
 
-      @param  url_toDocRoot  The url to {@code {@docRoot}} for the link target-file. Which must end with a slash {@code "/"}, and <i>should</i> not be {@code null}.. This is also the directory in which the {@code package-list} files exists. For local files, this is a relative directory (such as {@code "../../"}) otherwise this is the full url to the external doc-root directory.
-      @param  target  May not be {@code null}.
-      @return  <code>packageElementMtchr.reset(target.{@link java.lang.Class#getName() getName}()).{@link java.util.regex.Matcher#replaceAll(String) replaceAll}(&quot;../&quot;)</code>
+    * @param  url_toDocRoot  The url to {@code {@docRoot}} for the link target-file. Which must end with a slash {@code "/"}, and <i>should</i> not be {@code null}.. This is also the directory in which the {@code package-list} files exists. For local files, this is a relative directory (such as {@code "../../"}) otherwise this is the full url to the external doc-root directory.
+    * @param  target  May not be {@code null}.
+    * @return  <code>packageElementMtchr.reset(target.{@link java.lang.Class#getName() getName}()).{@link java.util.regex.Matcher#replaceAll(String) replaceAll}(&quot;../&quot;)</code>
       <br/>Where {@code packageElementMtchr} is initalized to
       <br/> &nbsp; &nbsp; <code>{@link java.util.regex.Pattern Pattern}.{@link java.util.regex.Pattern#compile(String, int) compile}(&quot;.&quot;, Pattern.{@link java.util.regex.Pattern#LITERAL LITERAL}).{@link java.util.regex.Pattern#matcher(CharSequence) matcher}(&quot;&quot;)</code>
-    **/
+    */
    public static final String getUrlToClassViaDocRoot(String url_toDocRoot, Class<?> target)  {
       try  {
          return  url_toDocRoot + dotMtchr.reset(target.getName()).replaceAll("/") + ".html";
@@ -175,13 +175,13 @@ public class JavaDocUtil  {
 
 {@.codelet.and.out com.github.aliteralmind.codelet.examples.util.JavaDocUtilGetEllipsisArrayLastParamXmpl%()}
 
-      @param  cls  May not be {@code null}.
-      @return  The {@linkplain java.lang.Class#getCanonicalName() canonical class name}, where the final array indicator ({@code "[]"}) is replaced with an ellipsis ({@code "..."}).
-      @exception  IllegalArgumentException  If {@code cls} is not {@linkplain java.lang.Class#isArray() an array}.
-      @see  #appendClassNameForParams(StringBuilder, Class[], VarArgs)
-      @see  java.lang.Class#getCanonicalName() Class#getCanonicalName()
-      @see  java.lang.Class#getCanonicalName()
-    **/
+    * @param  cls  May not be {@code null}.
+    * @return  The {@linkplain java.lang.Class#getCanonicalName() canonical class name}, where the final array indicator ({@code "[]"}) is replaced with an ellipsis ({@code "..."}).
+    * @exception  IllegalArgumentException  If {@code cls} is not {@linkplain java.lang.Class#isArray() an array}.
+    * @see  #appendClassNameForParams(StringBuilder, Class[], VarArgs)
+    * @see  java.lang.Class#getCanonicalName() Class#getCanonicalName()
+    * @see  java.lang.Class#getCanonicalName()
+    */
    public static final String getEllipsisArrayLastParam(Class<?> cls)  {
       try  {
          if(!cls.isArray())  {
@@ -200,8 +200,8 @@ public class JavaDocUtil  {
    /**
       <p>Append the comma-separated list of JavaDoc parameters for a method or constructor.</p>
 
-      @return  <code>{@link #appendClassNameForParams(StringBuilder, Class[], VarArgs) appendClassNameForParams}((new StringBuilder()), classes, is_varArgs).toString()</code>
-    **/
+    * @return  <code>{@link #appendClassNameForParams(StringBuilder, Class[], VarArgs) appendClassNameForParams}((new StringBuilder()), classes, is_varArgs).toString()</code>
+    */
    public static final String getClassNameForParams(Class<?>[] classes, VarArgs var_args)  {
       return  appendClassNameForParams((new StringBuilder()), classes, var_args).toString();
    }
@@ -210,15 +210,15 @@ public class JavaDocUtil  {
 
       <p>This appends the {@linkplain java.lang.Class#getCanonicalName() canonical name} of each class. If {@code is_varArgs} is {@code true}, the final parameter is output with {@link #getEllipsisArrayLastParam(Class) getEllipsisArrayLastParam}.</p>
 
-      @param  to_appendTo  May not be {@code null}.
-      @param  classes  May not be {@code null}, and {@code is_varArgs} is {@code true}, the final element must be an array (and {@code classes.length} <i>should</i> be non-empty).
-      @param  var_args  If {@link VarArgs#YES YES}, this is a {@link java.lang.reflect.Method#isVarArgs() variable-argument} method or {@link java.lang.reflect.Constructor#isVarArgs() constructor}, meaning the final parameter is an ellipsis array: {@code "..."}. This parameter value may not be {@code null}.
-      @return  {@code to_appendTo}
-      @see  #getClassNameForParams(Class[], VarArgs)
-      @see  #appendUrlToConstructor(StringBuilder, String, Constructor) appendUrlToConstructor
-      @see  #appendUrlToMethod(StringBuilder, String, Method) appendUrlToMethod
-      @see  com.github.xbn.lang.reflect.ReflectRtxUtil#appendClassNames(StringBuilder, String, Class[], String, String) lang.reflect.ReflectRtxUtil#appendClassNames
-    **/
+    * @param  to_appendTo  May not be {@code null}.
+    * @param  classes  May not be {@code null}, and {@code is_varArgs} is {@code true}, the final element must be an array (and {@code classes.length} <i>should</i> be non-empty).
+    * @param  var_args  If {@link VarArgs#YES YES}, this is a {@link java.lang.reflect.Method#isVarArgs() variable-argument} method or {@link java.lang.reflect.Constructor#isVarArgs() constructor}, meaning the final parameter is an ellipsis array: {@code "..."}. This parameter value may not be {@code null}.
+    * @return  {@code to_appendTo}
+    * @see  #getClassNameForParams(Class[], VarArgs)
+    * @see  #appendUrlToConstructor(StringBuilder, String, Constructor) appendUrlToConstructor
+    * @see  #appendUrlToMethod(StringBuilder, String, Method) appendUrlToMethod
+    * @see  com.github.xbn.lang.reflect.ReflectRtxUtil#appendClassNames(StringBuilder, String, Class[], String, String) lang.reflect.ReflectRtxUtil#appendClassNames
+    */
    public static final StringBuilder appendClassNameForParams(StringBuilder to_appendTo, Class<?>[] classes, VarArgs var_args)  {
       int lenMinus1;
       try  {
@@ -253,8 +253,8 @@ public class JavaDocUtil  {
       <p>For each url-item in the iterator, this calls
       <br/> &nbsp; &nbsp; <code>{@link #addPackageListToMapFromDocRootUrl(Map, String, Appendable, Appendable) addPackageListToMapFromDocRootUrl}(<i>[the-map]</i>, <i>[the-url]</i>, debugUrls_ifNonNull, debugPkgs_ifNonNull)</code></p>
 
-      @param  url_toDocRoot  The url to {@code {@docRoot}} for the link target-file. Which must end with a slash {@code "/"}, and <i>should</i> not be {@code null}.. This is also the directory in which the {@code package-list} files exists. For local files, this is a relative directory (such as {@code "../../"}) otherwise this is the full url to the external doc-root directory.
-      @return  A new tree-map where each entry's key is a package, and each value is its doc-root url.
+    * @param  url_toDocRoot  The url to {@code {@docRoot}} for the link target-file. Which must end with a slash {@code "/"}, and <i>should</i> not be {@code null}.. This is also the directory in which the {@code package-list} files exists. For local files, this is a relative directory (such as {@code "../../"}) otherwise this is the full url to the external doc-root directory.
+    * @return  A new tree-map where each entry's key is a package, and each value is its doc-root url.
    public static final TreeMap<String,String> getPackageListMapFromDocRootUrlIterator(Iterator<String> url_toDocRootItr, Appendable debugUrls_ifNonNull, Appendable debugPkgs_ifNonNull) throws MalformedURLException, IOException  {
       TreeMap<String,String> map = new TreeMap<String,String>();
       try  {
@@ -270,7 +270,7 @@ public class JavaDocUtil  {
    /*
       <p>Retrieve's the package-list from a url, and adds each package to a map.</p>
 
-      @return  <code>{@link #addPackageListToMap(Map, Iterator, String, Appendable, Appendable) addPackageListToMap}(package_docRootUrlMap,
+    * @return  <code>{@link #addPackageListToMap(Map, Iterator, String, Appendable, Appendable) addPackageListToMap}(package_docRootUrlMap,
       <br/> &nbsp; &nbsp; {@link com.github.xbn.text.StringUtil}.{@link com.github.xbn.text.StringUtil#getLineIterator(Object) getLineIterator}(text), url_toDocRoot + &quot;package-list&quot;,
       <br/> &nbsp; &nbsp; debugUrls_ifNonNull, debugPkgs_ifNonNull)</code>
       <br/>Where {@code text} is
@@ -297,13 +297,13 @@ public class JavaDocUtil  {
    /*
       <p>Add all items from a url's package-list to the package-list/doc-root-url map. The key is the package name, the value is the url.</p>
 
-      @param  package_docRootUrlMap  May not be {@code null}.
-      @param  packageList_lineItr  May not be {@code null} or contain any already-existing key in the map.
-      @param  url_toDocRoot  The url to {@code {@docRoot}} for the link target-file. Which must end with a slash {@code "/"}, and <i>should</i> not be {@code null}.. This is also the directory in which the {@code package-list} files exists. For local files, this is a relative directory (such as {@code "../../"}) otherwise this is the full url to the external doc-root directory.
-      @param  debugUrls_ifNonNull  If non-{@code null}, this outputs the url only.
-      @param  debugPkgs_ifNonNull  If non-{@code null}, this outputs the size of the map before any package is added to it, and each package before adding it.
-      @see  #addPackageListToMapFromDocRootUrl(Map, String, Appendable, Appendable)
-      @see  #getPackageListMapFromDocRootUrlIterator(Iterator, Appendable, Appendable)
+    * @param  package_docRootUrlMap  May not be {@code null}.
+    * @param  packageList_lineItr  May not be {@code null} or contain any already-existing key in the map.
+    * @param  url_toDocRoot  The url to {@code {@docRoot}} for the link target-file. Which must end with a slash {@code "/"}, and <i>should</i> not be {@code null}.. This is also the directory in which the {@code package-list} files exists. For local files, this is a relative directory (such as {@code "../../"}) otherwise this is the full url to the external doc-root directory.
+    * @param  debugUrls_ifNonNull  If non-{@code null}, this outputs the url only.
+    * @param  debugPkgs_ifNonNull  If non-{@code null}, this outputs the size of the map before any package is added to it, and each package before adding it.
+    * @see  #addPackageListToMapFromDocRootUrl(Map, String, Appendable, Appendable)
+    * @see  #getPackageListMapFromDocRootUrlIterator(Iterator, Appendable, Appendable)
    public static final void addPackageListToMap(Map<String,String> package_docRootUrlMap, Iterator<String> packageList_lineItr, String url_toDocRoot, Appendable debugUrls_ifNonNull, Appendable debugPkgs_ifNonNull)  {
       try  {
          if(url_toDocRoot.length() < 2  ||  !url_toDocRoot.endsWith("/"))  {

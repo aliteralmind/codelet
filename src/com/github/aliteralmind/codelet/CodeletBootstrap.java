@@ -55,8 +55,8 @@ zzconfiguration.progress
 zzconfiguration.templateoverrides.allentriespostloaded
 zzconfiguration.templateoverrides.eachentryasloaded</pre></blockquote>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public enum CodeletBootstrap  {
    INSTANCE;
@@ -78,21 +78,21 @@ public enum CodeletBootstrap  {
 
       <p>{@link #BASE_CONFIG_FILE_NAME codelet.properties}, {@link #TMPL_OVERRIDES_CONFIG_FILE_NAME template_overrides_config.txt}, and &quot;{@link #EXTERNAL_DOC_ROOT_URL_FILE external_doc_root_urls.txt}&quot; must all be in this directory.</p>
 
-      @see  CodeletBootstrap
-      @see  #getCodeletConfigDir()
-    **/
+    * @see  CodeletBootstrap
+    * @see  #getCodeletConfigDir()
+    */
    public static final String CODELET_CONFIG_DIR_SYS_PROP_NAME = "codelet_config_dir";
    /**
       <p>The name of the &quot;base&quot; configuration file--Equal to {@code "codelet.properties"}.</p>
 
-      @see  #TMPL_OVERRIDES_CONFIG_FILE_NAME
-      @see  com.github.aliteralmind.codelet.CodeletBaseConfig
-    **/
+    * @see  #TMPL_OVERRIDES_CONFIG_FILE_NAME
+    * @see  com.github.aliteralmind.codelet.CodeletBaseConfig
+    */
    public static final String BASE_CONFIG_FILE_NAME = "codelet.properties";
    /**
       <p>The name of the configuration file containing user-created named-debugging-levels--Equal to {@code "named_debuggers_config.txt"}.</p>
 
-      <p><i>(View <a href="{@docRoot}/${jd_project_codelet_config_dir}/named_debuggers_config.txt">{@code {@docRoot}/${jd_project_codelet_config_dir}/named_debuggers_config.txt}</a>.)</i></p>
+      <p><i>(View <a href="{@docRoot}/../${jd_project_codelet_config_dir}/named_debuggers_config.txt">{@code {@docRoot}/../${jd_project_codelet_config_dir}/named_debuggers_config.txt}</a>.)</i></p>
 
       <p>This file contains a list of zero or more {@linkplain com.github.aliteralmind.codelet.util.NamedDebuggers#newMapFromConfigFile(Map, Iterator, String, Appendable) names}, each of which is associated to a specific debugging task and {@linkplain CodeletBaseConfig#GLOBAL_DEBUG_LEVEL level}. These are in addition to those in the {@linkplain #CODELET_RQD_NAMED_DBGRS_CONFIG_FILE Codelet-required} configuration file.</p>
 
@@ -136,17 +136,17 @@ public enum CodeletBootstrap  {
 
       <p><i>(Unless otherwise noted, all below &quot;See&quot; links are located in {@link CodeletBaseConfig}.)</i></p>
 
-      @see  com.github.aliteralmind.codelet.util.NamedDebuggers#newMapFromConfigFile(Map, Iterator, String, Appendable) NamedDebuggers#newMapFromConfigFile
-      @see  CodeletBaseConfig#GLOBAL_DEBUG_LEVEL GLOBAL_DEBUG_LEVEL
-      @see  CodeletBaseConfig#isDebugOn(CodeletInstance, String) isDebugOn(s,ci)
-      @see  CodeletBaseConfig#getDebugApblIfOn(CodeletInstance, String) getDebugApblIfOn(ci,s)
-      @see  CodeletBaseConfig#getDebugAptrIfOn(CodeletInstance, String) getDebugAptrIfOn(ci,s)
-    **/
+    * @see  com.github.aliteralmind.codelet.util.NamedDebuggers#newMapFromConfigFile(Map, Iterator, String, Appendable) NamedDebuggers#newMapFromConfigFile
+    * @see  CodeletBaseConfig#GLOBAL_DEBUG_LEVEL GLOBAL_DEBUG_LEVEL
+    * @see  CodeletBaseConfig#isDebugOn(CodeletInstance, String) isDebugOn(s,ci)
+    * @see  CodeletBaseConfig#getDebugApblIfOn(CodeletInstance, String) getDebugApblIfOn(ci,s)
+    * @see  CodeletBaseConfig#getDebugAptrIfOn(CodeletInstance, String) getDebugAptrIfOn(ci,s)
+    */
    public static final String NAMED_DEBUGGERS_CONFIG_FILE = NAMED_DBG_LVL_PREFIX + ".txt";
    /**
       <p>The name of the configuration file containing  Codelet-required named debuggers--Equal to {@code "named_debuggers_CODELET_RQD.txt"}.</p>
 
-      <p><i>(View <a href="{@docRoot}/${jd_project_codelet_config_dir}/named_debuggers_CODELET_RQD.txt">{@code {@docRoot}/${jd_project_codelet_config_dir}/named_debuggers_CODELET_RQD.txt}</a>.)</i></p>
+      <p><i>(View <a href="{@docRoot}/../${jd_project_codelet_config_dir}/named_debuggers_CODELET_RQD.txt">{@code {@docRoot}/../${jd_project_codelet_config_dir}/named_debuggers_CODELET_RQD.txt}</a>.)</i></p>
 
       <p>This file contains a list of {@linkplain com.github.aliteralmind.codelet.util.NamedDebuggers#newMapFromConfigFile(Map, Iterator, String, Appendable) names}, each of which is associated to a specific debugging task and {@linkplain CodeletBaseConfig#GLOBAL_DEBUG_LEVEL level}. These are in addition to those in the {@linkplain #NAMED_DEBUGGERS_CONFIG_FILE user-created} configuration file.</p>
 
@@ -155,9 +155,9 @@ public enum CodeletBootstrap  {
       <p>An example of a function taking advantage of named debuggers is
       <br/> &nbsp; &nbsp; <code>{@link BasicCustomizers}.{@link BasicCustomizers#lineRange(CodeletInstance, CodeletType, Integer, Boolean, String, Integer, Boolean, String, String) lineRange}</code>.</p>
 
-      @see  #NAMED_DEBUGGERS_CONFIG_FILE
-      @see  com.github.aliteralmind.codelet.util.NamedDebuggers#newMapFromConfigFile(Map, Iterator, String, Appendable) NamedDebuggers#newMapFromConfigFile
-    **/
+    * @see  #NAMED_DEBUGGERS_CONFIG_FILE
+    * @see  com.github.aliteralmind.codelet.util.NamedDebuggers#newMapFromConfigFile(Map, Iterator, String, Appendable) NamedDebuggers#newMapFromConfigFile
+    */
    public static final String CODELET_RQD_NAMED_DBGRS_CONFIG_FILE = NAMED_DBG_LVL_PREFIX + "_CODELET_RQD.txt";
    /**
       <p>The name of the file in which all <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#externalreferencedclasses">external {@code {@docRoot}} urls</a> are listed--Equal to {@code "external_doc_root_urls.txt"}.</p>
@@ -192,7 +192,7 @@ junit               http://junit.sourceforge.net/javadoc/</pre></blockquote>
       <br/> &nbsp; &nbsp; <code>C:\java_code\my_package\codelet_config\offline_package_lists\commons_io.txt</code>
       <br/>The {@code ".txt"} postfix is {@linkplain CodeletBaseConfig#PKGLIST_OFFLINE_NAME_POSTFIX customizable}.</p>
 
-      <p><i>(View <a href="{@docRoot}/${jd_project_codelet_config_dir}/external_doc_root_urls.txt">{@code {@docRoot}/${jd_project_codelet_config_dir}/external_doc_root_urls.txt}</a>.)</i></p>
+      <p><i>(View <a href="{@docRoot}/../${jd_project_codelet_config_dir}/external_doc_root_urls.txt">{@code {@docRoot}/../${jd_project_codelet_config_dir}/external_doc_root_urls.txt}</a>.)</i></p>
 
       <p>This configuration file is loaded by <code>{@link com.github.aliteralmind.codelet.util.AllOnlineOfflineDocRoots}.{@link com.github.aliteralmind.codelet.util.AllOnlineOfflineDocRoots#newFromConfigLineIterator(Iterator, String, String, int, long, RefreshOffline, IfError, Appendable, Appendable) newFromConfigLineIterator}</code></p>
 
@@ -204,16 +204,16 @@ junit               http://junit.sourceforge.net/javadoc/</pre></blockquote>
          <li>{@link CodeletBaseConfig#OFFLINE_PACKAGE_LIST_DIR_NAME}: The name of the sub-directory, existing in the main Codelet configuration directory, in which offline package lists are stored.</li>
       </ul></p>
 
-      @see  com.github.aliteralmind.codelet.alter.NewJavaDocLinkReplacerFor#getDocRootUrlToTargetClass(CodeletInstance, Class) NewJavaDocLinkReplacerFor#getDocRootUrlToTargetClass
-      @see  com.github.aliteralmind.codelet.util.AllOnlineOfflineDocRoots#newFromConfigLineIterator(Iterator, String, String, int, long, RefreshOffline, IfError, Appendable, Appendable) util.AllOnlineOfflineDocRoots#newFromConfigLineIterator
-    **/
+    * @see  com.github.aliteralmind.codelet.alter.NewJavaDocLinkReplacerFor#getDocRootUrlToTargetClass(CodeletInstance, Class) NewJavaDocLinkReplacerFor#getDocRootUrlToTargetClass
+    * @see  com.github.aliteralmind.codelet.util.AllOnlineOfflineDocRoots#newFromConfigLineIterator(Iterator, String, String, int, long, RefreshOffline, IfError, Appendable, Appendable) util.AllOnlineOfflineDocRoots#newFromConfigLineIterator
+    */
    public static final String EXTERNAL_DOC_ROOT_URL_FILE = "external_doc_root_urls.txt";
    /**
       <p>The name of the {@linkplain TemplateOverrides template-overrides} configuration file--Equal to {@code "template_overrides_config.txt"}.</p>
 
-      @see  #BASE_CONFIG_FILE_NAME
-      @see  com.github.aliteralmind.codelet.TemplateOverrides
-    **/
+    * @see  #BASE_CONFIG_FILE_NAME
+    * @see  com.github.aliteralmind.codelet.TemplateOverrides
+    */
    public static final String TMPL_OVERRIDES_CONFIG_FILE_NAME = "template_overrides_config.txt";
 //	static final CodeletBootstrap loadConfigGetInstance() throws ClassNotFoundException, NoSuchFileException, AccessDeniedException, MalformedURLException, IOException, InterruptedException  {
    private static final void loadConfiguration() throws ClassNotFoundException, NoSuchFileException, AccessDeniedException, MalformedURLException, IOException, InterruptedException  {
@@ -254,16 +254,16 @@ junit               http://junit.sourceforge.net/javadoc/</pre></blockquote>
    /**
       <p>Was all Codelet configuration properly loaded?.</p>
 
-      @return  <code>{@link TemplateOverrides}.{@link TemplateOverrides#wasLoaded() wasLoaded}()</code>
-    **/
+    * @return  <code>{@link TemplateOverrides}.{@link TemplateOverrides#wasLoaded() wasLoaded}()</code>
+    */
    public static final boolean wasLoaded()  {
       return  TemplateOverrides.wasLoaded();
    }
    /**
       <p>The directory in which all Codelet configuration files exist, as passed in via the {@code javadoc.exe} system property named {@code "codelet_config_dir"}.</p>
 
-      @see  #CODELET_CONFIG_DIR_SYS_PROP_NAME
-    **/
+    * @see  #CODELET_CONFIG_DIR_SYS_PROP_NAME
+    */
    public static final String getCodeletConfigDir()  {
       return  configDir;
    }

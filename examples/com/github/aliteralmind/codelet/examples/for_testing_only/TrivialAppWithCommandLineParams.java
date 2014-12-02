@@ -24,7 +24,7 @@ package  com.github.aliteralmind.codelet.examples.for_testing_only;
 {@.codelet com.github.aliteralmind.codelet.examples.for_testing_only.TrivialAppWithCommandLineParams%eliminateCommentBlocksAndPackageDecl()}
 {@.codelet.out com.github.aliteralmind.codelet.examples.for_testing_only.TrivialAppWithCommandLineParams("string one", "string two")}
 
-   @author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <code><a href="http://xbnjava.aliteralmind.com">http://xbnjava.aliteralmind.com</a></code>, <code><a href="https://github.com/aliteralmind/xbnjava">https://github.com/aliteralmind/xbnjava</a></code>
+ * @author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <code><a href="http://xbnjava.aliteralmind.com">http://xbnjava.aliteralmind.com</a></code>, <code><a href="https://github.com/aliteralmind/xbnjava">https://github.com/aliteralmind/xbnjava</a></code>
  **/
 public class TrivialAppWithCommandLineParams  {
    public static final void main(String[] command_lineParameters)  {

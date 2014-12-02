@@ -34,9 +34,9 @@
       </antcall>
    </target>
 
-   <target name="-javadoc_replace_headers_in_one_dir">
+   <!-- <target name="-javadoc_replace_headers_in_one_dir">
       <replace dir="${directory_to_replace}" token="@__relative_url_to_doc_root__@" value="${relative_url_to_doc_root}">
          <include name="*.html"/>
       </replace>
-   </target>
+   </target> -->
 </project>

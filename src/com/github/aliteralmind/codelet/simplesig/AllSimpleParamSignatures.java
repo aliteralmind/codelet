@@ -30,8 +30,8 @@ package  com.github.aliteralmind.codelet.simplesig;
 /**
    <p>All constructors and methods in a class.</p>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class AllSimpleParamSignatures  {
    private final Class<?> containing;
@@ -47,8 +47,8 @@ public class AllSimpleParamSignatures  {
          <br/> &nbsp; &nbsp; <code>AllSimpleParamSignatures.{@link #newMethodMap(Class, Declared, SortListValues, ImmutableValues) newMethodMap}(containing_cls, declared, {@link com.github.xbn.list.SortListValues}.{@link com.github.xbn.list.SortListValues#ORIGINAL ORIGINAL}, {@link com.github.xbn.list.ImmutableValues ImmutableValues}.{@link com.github.xbn.list.ImmutableValues#YES YES})</code></li>
       </ol></p>
 
-      @param  containing_cls  The class containing the methods. May not be {@code null} and <i>should</i> be the class whose methods are in {@code map}. Get with {@link #getContainingClass() getContainingClass}{@code ()}. Get with {@link #getMethodMap() getMethodMap}{@code ()}.
-    **/
+    * @param  containing_cls  The class containing the methods. May not be {@code null} and <i>should</i> be the class whose methods are in {@code map}. Get with {@link #getContainingClass() getContainingClass}{@code ()}. Get with {@link #getMethodMap() getMethodMap}{@code ()}.
+    */
    public AllSimpleParamSignatures(Class<?> containing_cls, Declared declared)  {
       containing = containing_cls;
 
@@ -64,30 +64,30 @@ public class AllSimpleParamSignatures  {
    /**
       <p>All constructors.</p>
 
-      @return  A non-{@code null}, immutable list of all constructors in the {@link #getContainingClass() class}.
-      @see  #getMethodMap()
-      @see  #AllSimpleParamSignatures(Class, Declared)
-    **/
+    * @return  A non-{@code null}, immutable list of all constructors in the {@link #getContainingClass() class}.
+    * @see  #getMethodMap()
+    * @see  #AllSimpleParamSignatures(Class, Declared)
+    */
    public List<ConstructorSimpleParamSig> getConstructorList()  {
       return  cnstrList;
    }
    /**
       <p>All methods.</p>
 
-      @return  A non-{@code null}, immutable map of all methods in the {@link #getContainingClass() class}.
-      @see  #getConstructorList()
-      @see  #AllSimpleParamSignatures(Class, Declared)
-      @see  #getMethodListForNameCrashIfNone(String)
-    **/
+    * @return  A non-{@code null}, immutable map of all methods in the {@link #getContainingClass() class}.
+    * @see  #getConstructorList()
+    * @see  #AllSimpleParamSignatures(Class, Declared)
+    * @see  #getMethodListForNameCrashIfNone(String)
+    */
    public Map<String,List<MethodSimpleParamSig>> getMethodMap()  {
       return  methodMap;
    }
    /**
       <p>Get the methods with a name, or crash if no methods have that name.</p>
 
-      @return  <code>{@link #getMethodMap() getMethodMap}().{@link java.util.Map#get(Object) get}(name)</code>
-      @exception  RTNoSuchMethodException  If no methods have the name {@code name}.
-    **/
+    * @return  <code>{@link #getMethodMap() getMethodMap}().{@link java.util.Map#get(Object) get}(name)</code>
+    * @exception  RTNoSuchMethodException  If no methods have the name {@code name}.
+    */
    public List<MethodSimpleParamSig> getMethodListForNameCrashIfNone(String name)  {
       List<MethodSimpleParamSig> match = getMethodMap().get(name);
       if(match == null)  {
@@ -98,23 +98,23 @@ public class AllSimpleParamSignatures  {
    /**
       <p>The class containing the constructors and methods.</p>
 
-      @see  #AllSimpleParamSignatures(Class, Declared)
-    **/
+    * @see  #AllSimpleParamSignatures(Class, Declared)
+    */
    public Class<?> getContainingClass()  {
       return  containing;
    }
    /**
-      @return  <code>{@link #appendToString(StringBuilder) appendToString}(new StringBuilder()).toString()</code>
-    **/
+    * @return  <code>{@link #appendToString(StringBuilder) appendToString}(new StringBuilder()).toString()</code>
+    */
    public String toString()  {
       return  appendToString(new StringBuilder()).toString();
    }
    /**
       <p>A summary of all constructors and functions.</p>
 
-      @param  to_appendTo May not be {@code null}.
-      @see  #toString()
-    **/
+    * @param  to_appendTo May not be {@code null}.
+    * @see  #toString()
+    */
    public StringBuilder appendToString(StringBuilder to_appendTo)  {
       try  {
          to_appendTo.append(getContainingClass().getName()).append(": ").append("constructors=" + getConstructorList().size()).append(", ");
@@ -134,17 +134,17 @@ public class AllSimpleParamSignatures  {
       return  to_appendTo;
    }
    /**
-      @return  <code>{@link #appendFullToString(StringBuilder) appendFullToString}(new StringBuilder()).toString()</code>
-    **/
+    * @return  <code>{@link #appendFullToString(StringBuilder) appendFullToString}(new StringBuilder()).toString()</code>
+    */
    public String fullToString()  {
       return  appendFullToString(new StringBuilder()).toString();
    }
    /**
       <p>A full listing of all constructors and functions.</p>
 
-      @param  to_appendTo May not be {@code null}.
-      @see  #fullToString()
-    **/
+    * @param  to_appendTo May not be {@code null}.
+    * @see  #fullToString()
+    */
    public StringBuilder appendFullToString(StringBuilder to_appendTo)  {
       try  {
          to_appendTo.append(getContainingClass().getName()).append(":").append(LINE_SEP).append("Constructors (").append(getConstructorList().size()).append("):").append(LINE_SEP);
@@ -175,16 +175,16 @@ public class AllSimpleParamSignatures  {
    /**
       <p>For displaying all parameter-lists in a list.</p>
 
-      @return  <code>{@link #appendToStringForAllListsInList(StringBuilder, String, List, String) appendToStringForAllListsInArray}((new StringBuilder()), prefix, param_listList, between).toString()</code>
-    **/
+    * @return  <code>{@link #appendToStringForAllListsInList(StringBuilder, String, List, String) appendToStringForAllListsInArray}((new StringBuilder()), prefix, param_listList, between).toString()</code>
+    */
    public static final String toStringForAllListsInList(String prefix, List<? extends SimpleParamNameSignature> param_listList, String between)  {
       return  appendToStringForAllListsInList((new StringBuilder()), prefix, param_listList, between).toString();
    }
    /**
       <p>For displaying all parameter-lists in a list.</p>
 
-      @return  <code>{@link #appendToStringForAllListsInArray(StringBuilder, String, SimpleParamNameSignature[], String) appendToStringForAllListsInArray}(new StringBuilder(), prefix, methods, between).toString()</code>
-    **/
+    * @return  <code>{@link #appendToStringForAllListsInArray(StringBuilder, String, SimpleParamNameSignature[], String) appendToStringForAllListsInArray}(new StringBuilder(), prefix, methods, between).toString()</code>
+    */
    public static final StringBuilder appendToStringForAllListsInList(StringBuilder to_appendTo, String prefix, List<? extends SimpleParamNameSignature> param_listList, String between)  {
       try  {
          return  appendToStringForAllListsInArray(to_appendTo, prefix,
@@ -197,19 +197,19 @@ public class AllSimpleParamSignatures  {
    /**
       <p>For displaying all parameter-lists in an array.</p>
 
-      @return  <code>{@link #appendToStringForAllListsInArray(StringBuilder, String, SimpleParamNameSignature[], String) appendToStringForAllListsInArray}(new StringBuilder(), prefix, methods, between).toString()</code>
-    **/
+    * @return  <code>{@link #appendToStringForAllListsInArray(StringBuilder, String, SimpleParamNameSignature[], String) appendToStringForAllListsInArray}(new StringBuilder(), prefix, methods, between).toString()</code>
+    */
    public static final String toStringForAllListsInArray(String prefix, SimpleParamNameSignature[] param_lists, String between)  {
       return  appendToStringForAllListsInArray(new StringBuilder(), prefix, param_lists, between).toString();
    }
    /**
       <p>For displaying all parameter-lists in an array.</p>
 
-      @param  to_appendTo  May not be {@code null}.
-      @param  prefix  What to print before each method. Setting this to {@code null} is the same as setting it to the empty-string ({@code ""}).
-      @param  param_lists  May not be {@code null}, and no element may be {@code null}.
-      @param  between  What to print between each method. <i>Should</i> not be {@code null} or empty.
-    **/
+    * @param  to_appendTo  May not be {@code null}.
+    * @param  prefix  What to print before each method. Setting this to {@code null} is the same as setting it to the empty-string ({@code ""}).
+    * @param  param_lists  May not be {@code null}, and no element may be {@code null}.
+    * @param  between  What to print between each method. <i>Should</i> not be {@code null} or empty.
+    */
    public static final StringBuilder appendToStringForAllListsInArray(StringBuilder to_appendTo, String prefix, SimpleParamNameSignature[] param_lists, String between)  {
       int sizeMinus1 = -1;
       try  {
@@ -242,10 +242,10 @@ public class AllSimpleParamSignatures  {
    /**
       <p>Create a new list of all constructors in a class.</p>
 
-      @param  containing_cls  May not be {@code null}.
-      @param  declared  If {@link com.github.xbn.lang.reflect.Declared Declared}.{@link com.github.xbn.lang.reflect.Declared#YES YES}, then {@linkplain java.lang.Class#getDeclaredMethods() declared} methods are retrieved. If {@link com.github.xbn.lang.reflect.Declared#NO NO}, {@linkplain java.lang.Class#getMethods() non-declared}.
-      @param  sort  If {@link com.github.xbn.list.SortListValues#ORIGINAL ORIGINAL} or {@link com.github.xbn.list.SortListValues#DUPLICATE DUPLICATE}, then the returned list is sorted.
-    **/
+    * @param  containing_cls  May not be {@code null}.
+    * @param  declared  If {@link com.github.xbn.lang.reflect.Declared Declared}.{@link com.github.xbn.lang.reflect.Declared#YES YES}, then {@linkplain java.lang.Class#getDeclaredMethods() declared} methods are retrieved. If {@link com.github.xbn.lang.reflect.Declared#NO NO}, {@linkplain java.lang.Class#getMethods() non-declared}.
+    * @param  sort  If {@link com.github.xbn.list.SortListValues#ORIGINAL ORIGINAL} or {@link com.github.xbn.list.SortListValues#DUPLICATE DUPLICATE}, then the returned list is sorted.
+    */
    public static final List<ConstructorSimpleParamSig> newConstructorList(Class<?> containing_cls, Declared declared, Sorted sort)  {
       Constructor<?>[] cnstrs = null;
       try  {
@@ -273,11 +273,11 @@ public class AllSimpleParamSignatures  {
    /**
       <p>Create a new map of all methods in a class.</p>
 
-      @param  containing_cls  May not be {@code null}.
-      @param  declared  If {@link com.github.xbn.lang.reflect.Declared Declared}.{@link com.github.xbn.lang.reflect.Declared#YES YES}, then {@linkplain java.lang.Class#getDeclaredMethods() declared} methods are retrieved. If {@link com.github.xbn.lang.reflect.Declared#NO NO}, {@linkplain java.lang.Class#getMethods() non-declared}.
-      @return  A non-null map containing all methods. This ends by returning
+    * @param  containing_cls  May not be {@code null}.
+    * @param  declared  If {@link com.github.xbn.lang.reflect.Declared Declared}.{@link com.github.xbn.lang.reflect.Declared#YES YES}, then {@linkplain java.lang.Class#getDeclaredMethods() declared} methods are retrieved. If {@link com.github.xbn.lang.reflect.Declared#NO NO}, {@linkplain java.lang.Class#getMethods() non-declared}.
+    * @return  A non-null map containing all methods. This ends by returning
       <br/> &nbsp; &nbsp; <code>{@link com.github.xbn.list.MapUtil MapUtil}.&lt;MethodSimpleParamSig,String&gt;{@link com.github.xbn.list.MapUtil#getWithModifiedListValues(Map, SortListValues, ImmutableValues) getWithModifiedListValues}(<i>[the-map]</i>, sort_lists, immutable_lists)</code>
-    **/
+    */
    public static final Map<String,List<MethodSimpleParamSig>> newMethodMap(Class<?> containing_cls, Declared declared, SortListValues sort_lists, ImmutableValues immutable_lists)  {
       Method[] methods = null;
       try  {

@@ -60,8 +60,8 @@ package  com.github.aliteralmind.codelet.simplesig;
 
 {@.codelet.and.out com.github.aliteralmind.codelet.examples.simplesig.SimpleMethodSigWithClassDefaults%eliminateCommentBlocksAndPackageDecl()}
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class SimpleMethodSignature  {
    /**
@@ -75,9 +75,9 @@ public class SimpleMethodSignature  {
          <li><b><code>params</code>:</b> Always non-null, but may be the empty-string.</li>
       </ul></p>
 
-      @see  com.github.xbn.util.JavaRegexes#IDENTIFIER JavaRegexes#IDENTIFIER
-      @see  com.github.xbn.util.JavaRegexes#PACKAGE_NAME JavaRegexes#PACKAGE_NAME
-    **/
+    * @see  com.github.xbn.util.JavaRegexes#IDENTIFIER JavaRegexes#IDENTIFIER
+    * @see  com.github.xbn.util.JavaRegexes#PACKAGE_NAME JavaRegexes#PACKAGE_NAME
+    */
    public static final String STRING_SIGNATURE_REGEX = "^" +      //Line start
          "(?:(?:" +                                               //CrashIfZero or one of the following:
             "(?<package>" + JavaRegexes.PACKAGE_NAME + "\\.)" +   //  package-name followed by
@@ -141,8 +141,8 @@ public class SimpleMethodSignature  {
    /**
       <p>Execute the classes {@code main} function. This requires the {@code main} function to exist in {@link #getMayContainFuncClass(int) getMayContainFuncClass}{@code (0)}.</p>
 
-      @see  #invokeGetMainOutputNoExtraParams(String)
-    **/
+    * @see  #invokeGetMainOutputNoExtraParams(String)
+    */
    public void invokeMainNoExtraParams() throws NoSuchMethodException  {
       List<Object> paramValueList = getParamValueObjectList();
       Class<?>[] paramTypes = ReflectRtxUtil.getClassArrayFromObjects(paramValueList.toArray());
@@ -155,8 +155,8 @@ public class SimpleMethodSignature  {
    /**
       <p>Execute the classes <a href="http://docs.oracle.com/javase/tutorial/getStarted/application/index.html#MAIN">{@code main} function</a> and get its console output. This requires the {@code main} function to exist in {@link #getMayContainFuncClass(int) getMayContainFuncClass}{@code (0)}.</p>
 
-      @see  #invokeMainNoExtraParams()
-    **/
+    * @see  #invokeMainNoExtraParams()
+    */
    public String invokeGetMainOutputNoExtraParams(String app_descriptionNotClassName)  {
       List<Object> paramValueList = getParamValueObjectList();
 //		Class<?>[] paramTypes = ReflectRtxUtil.getClassArrayFromObjects(paramValueList.toArray());
@@ -179,9 +179,9 @@ public class SimpleMethodSignature  {
    /**
       <p>Get the method as specified in the {@code SimpleMethodSignature}, which must exist in one of the may-contain classes.</p>
 
-      @see  #getMayContainFuncClass(int)
-      @see  <code><a href="http://stackoverflow.com/questions/22876120/how-to-test-if-a-private-static-function-exists-in-a-class-without-having-to-ca">http://stackoverflow.com/questions/22876120/how-to-test-if-a-private-static-function-exists-in-a-class-without-having-to-ca</a></code>
-    **/
+    * @see  #getMayContainFuncClass(int)
+    * @see  <code><a href="http://stackoverflow.com/questions/22876120/how-to-test-if-a-private-static-function-exists-in-a-class-without-having-to-ca">http://stackoverflow.com/questions/22876120/how-to-test-if-a-private-static-function-exists-in-a-class-without-having-to-ca</a></code>
+    */
    public Method getMethodFromParamTypes(Class<?>[] paramClasses_nullForSigDefault) throws NoSuchMethodException  {
 /*
       List<Class<?>> paramClassList = null;
@@ -301,8 +301,8 @@ public class SimpleMethodSignature  {
    /**
       <p>Splits a string-signature into its parts, for the classes <a href="http://docs.oracle.com/javase/tutorial/getStarted/application/index.html#MAIN">{@code main}</a> function (or any non-returning {@code void} function), and where the fully-qualified class is explicitely specified in the string (no defaults are used).</p>
 
-      @return  <code>{@link #newFromStringAndDefaults(Class, Object, String, Class[], Appendable) newFromStringAndDefaults}(Void.class, class_funcParamStringSignature, null, null, debugDest_ifNonNull)</code>
-    **/
+    * @return  <code>{@link #newFromStringAndDefaults(Class, Object, String, Class[], Appendable) newFromStringAndDefaults}(Void.class, class_funcParamStringSignature, null, null, debugDest_ifNonNull)</code>
+    */
 
    public static final SimpleMethodSignature getForMainFromStringSig(Object class_funcParamStringSignature, Appendable debugDest_ifNonNull) throws ClassNotFoundException, SimpleMethodSigFormatException  {
       return  newFromStringAndDefaults(Void.class, class_funcParamStringSignature, null, null, debugDest_ifNonNull);
@@ -329,18 +329,18 @@ public class SimpleMethodSignature  {
 
       <p>A function that exists in a specific class, with a particular set of {@linkplain #getParamValueObjectList() parameters}.</p>
 
-      @param  class_funcParamStringSignature  The string-signature. May not be null or empty, and must be formatted as specified above. Specifically, it must be matched by {@link #STRING_SIGNATURE_REGEX}.
-      @param  default_package  The default package to use when the string-signature <i>specifies a class-name but does not specify a package</i>. When the string-signature does not contain a package, and no default class is specified, this must be non-{@code null} and non-empty, must end with a dot ({@code '.'}), and must be the package in which the specified class <i>as specified in the string-signature</i> exists ({@code default_classesInOrder} must be {@code null}). <i>The class must exist in a package</i>.
-      @param  default_classesInOrder  The ordered set of classes to use when no class is specified in the string-signature. The function must exist in one of these classes. The search order is left-to-right (starting with element zero). When the class is specified in the string-signature, {@code default_classesInOrder} must be {@code null}. Otherwise, must be non-{@code null}, non-empty, and elements may not be {@code null}, and <i>should</i>  be unique. When non-{@code null}, {@code default_package} must be {@code null}.
-      @return  A non-{@code null} {@code SimpleMethodSigFormatException}.
-      @exception  ClassNotFoundException  If the class name, but not its package, is in the string-signature, and the class does not exist in the default package.
-      @exception  SimpleMethodSigFormatException  If {@code class_funcParamStringSignature} is invalidly-formatted.
-      @exception  IllegalArgumentStateException  If either<ul>
+    * @param  class_funcParamStringSignature  The string-signature. May not be null or empty, and must be formatted as specified above. Specifically, it must be matched by {@link #STRING_SIGNATURE_REGEX}.
+    * @param  default_package  The default package to use when the string-signature <i>specifies a class-name but does not specify a package</i>. When the string-signature does not contain a package, and no default class is specified, this must be non-{@code null} and non-empty, must end with a dot ({@code '.'}), and must be the package in which the specified class <i>as specified in the string-signature</i> exists ({@code default_classesInOrder} must be {@code null}). <i>The class must exist in a package</i>.
+    * @param  default_classesInOrder  The ordered set of classes to use when no class is specified in the string-signature. The function must exist in one of these classes. The search order is left-to-right (starting with element zero). When the class is specified in the string-signature, {@code default_classesInOrder} must be {@code null}. Otherwise, must be non-{@code null}, non-empty, and elements may not be {@code null}, and <i>should</i>  be unique. When non-{@code null}, {@code default_package} must be {@code null}.
+    * @return  A non-{@code null} {@code SimpleMethodSigFormatException}.
+    * @exception  ClassNotFoundException  If the class name, but not its package, is in the string-signature, and the class does not exist in the default package.
+    * @exception  SimpleMethodSigFormatException  If {@code class_funcParamStringSignature} is invalidly-formatted.
+    * @exception  IllegalArgumentStateException  If either<ul>
          <li>There is no package specified in the string-signature and {@code default_package} is {@code null}.</li>
          <li>There is no class name specified in the string-signature and {@code default_classesInOrder} is {@code null}.</li>
       </ul>
-      @see  #getForMainFromStringSig(Object, Appendable)
-    **/
+    * @see  #getForMainFromStringSig(Object, Appendable)
+    */
    public static final SimpleMethodSignature newFromStringAndDefaults(Class<?> return_typeCls, Object class_funcParamStringSignature, String default_package, Class<?>[] default_classesInOrder, Appendable debugDest_ifNonNull) throws ClassNotFoundException  {
       TextAppenter dbgAptr = NewTextAppenterFor.appendableSuppressIfNull(debugDest_ifNonNull);
       if(dbgAptr != null)  {
@@ -427,13 +427,13 @@ public class SimpleMethodSignature  {
    /**
       <p>Get the objects from the string-representation of a function's parameter list.</p>
 
-      @param  commaSep_varList  May not be {@code null}, each element must be separated by a <i>comma-space</i> ({@code ", "}), and each element must be formatted as required by {@link #getObjectFromString(String) getObjectFromString}{@code (s)}. Example value:
+    * @param  commaSep_varList  May not be {@code null}, each element must be separated by a <i>comma-space</i> ({@code ", "}), and each element must be formatted as required by {@link #getObjectFromString(String) getObjectFromString}{@code (s)}. Example value:
       <br/> &nbsp; &nbsp; &nbsp; &nbsp; <code>&quot;\&quot;parameter\&quot;, \&quot;list\&quot;, 1, (byte)-3, true&quot;</code>
-      @return  A list of objects, where each element is the object represented by the corresponding element in {@code commaSep_varList}, in the same order as the exist in the string.
-      @see  <code><!-- GENERIC PARAMETERS FAIL IN @link --><a href="{@docRoot}/com/github/xbn/util/ReflectRtxUtil.html#getClassArrayFromObjects(O[])">getClassArrayFromObjects</a></code>
-      @see  #newFromStringAndDefaults(Class, Object, String, Class[], Appendable) newFromStringAndDefaults(cls,s,s,cls[])
-      @exception  IllegalArgumentException  If {@code commaSep_varList} is invalidly-formatted.
-    **/
+    * @return  A list of objects, where each element is the object represented by the corresponding element in {@code commaSep_varList}, in the same order as the exist in the string.
+    * @see  <code><!-- GENERIC PARAMETERS FAIL IN @link --><a href="{@docRoot}/com/github/xbn/lang/reflect/ReflectRtxUtil.html#getClassArrayFromObjects(O[])">getClassArrayFromObjects</a></code>
+    * @see  #newFromStringAndDefaults(Class, Object, String, Class[], Appendable) newFromStringAndDefaults(cls,s,s,cls[])
+    * @exception  IllegalArgumentException  If {@code commaSep_varList} is invalidly-formatted.
+    */
    public static final List<Object> getObjectListFromCommaSepParamString(String commaSep_varList)  {
       if(commaSep_varList.length() == 0)  {
          //This used to be a static final EMPTY_ARRAY_LIST.
@@ -461,11 +461,11 @@ public class SimpleMethodSignature  {
    /**
       <p>Get a list of {@code Class}es, for each object in a list, as required when obtaining a method.</p>
 
-      @return  <code>{@link com.github.xbn.lang.reflect.ReflectRtxUtil ReflectRtxUtil}.{@link com.github.xbn.lang.reflect.ReflectRtxUtil#getClassListFromObjects(List) getClassListFromObjects}(objectList)</code>
+    * @return  <code>{@link com.github.xbn.lang.reflect.ReflectRtxUtil ReflectRtxUtil}.{@link com.github.xbn.lang.reflect.ReflectRtxUtil#getClassListFromObjects(List) getClassListFromObjects}(objectList)</code>
    public static final List<Class<?>> getClassListFromObjects(List<?> objectList)  {
       return  ReflectRtxUtil.getClassListFromObjects(objectList);
    }
-    **/
+    */
    /**
    	<p>Get the object represented by a single string-representation of a single parameter. The only available types are the <a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html">eight primitives</a> and non-{@code null} strings ({@code null} is not possible).</p>
 

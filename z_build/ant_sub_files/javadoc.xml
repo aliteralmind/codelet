@@ -1,16 +1,4 @@
 <project name="codelet_javadoc" default="help" basedir=".">
-   <target name="doccl" description="Check (non @link/@see) links">
-<echo>TODO: Need to set os="Windows..." into exec call</echo>
-<echo>TODO: Need to set os="Windows..." into exec call</echo>
-<echo>TODO: Need to set os="Windows..." into exec call</echo>
-
-         <exec executable="linkchecker" output="${dir_sandbox}broken_link_report.txt">
-           <arg value="${dir_build_docs_javadoc}${com_github_alit}codelet/package-summary.html"/>
-           <arg value="--no-follow-url=http"/>
-           <arg value="--ignore-url=http"/>
-         </exec>
-   </target>
-
    <target name="doc" description="Generates javadoc documentation.">
       <copy file="${dir_sandbox}release_notes.html" todir="${dir_build_docs_javadoc}"/>
 
@@ -26,8 +14,8 @@
       <propertywithdynamicallynamedvalue propname="dir_main_or_gitonly_sandbox"
          valuepropname="dir_${main_or_gitonly}_sandbox"/>
 
-      <copy todir="${dir_build_docs_javadoc}">
-         <fileset dir="${dir_sandbox}${codelet.config.dir}"/>
+      <copy todir="${dir_bld_docs}">
+         <fileset dir="${dir_sandbox}" includes="${codelet.config.dir}/**/*"/>
       </copy>
       <copy todir="${dir_build_docs_javadoc}resources">
          <fileset dir="${dir_sandbox_needed_by_javadoc}" excludes="javadoc_stylesheet.css"/>

@@ -18,7 +18,7 @@ package  com.github.aliteralmind.codelet;
 /**
    <p>The type of a single JavaDoc codelet instance.</p>
 
-   @author  Copyright (C) 2014, Jeff Epstein, released under the LPGL 2.1. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @author  Copyright (C) 2014, Jeff Epstein, released under the LPGL 2.1. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public enum CodeletType  {
    /**
@@ -47,14 +47,14 @@ public enum CodeletType  {
 
       <p>Same as above, but only displays a <a href="{@docRoot}/overview-summary.html#xmpl_snippet">portion</a> of the lines, starting and ending with lines that contain specific text (inclusive).</p>
 
-      @see  #CONSOLE_OUT
-      @see  #SOURCE_AND_OUT
-      @see  #FILE_TEXT
-      @see  #isSourceCode()
-      @see  com.github.aliteralmind.codelet.type.SourceCodeProcessor
-      @see  com.github.aliteralmind.codelet.type.SourceCodeTemplate
-      @see  com.github.aliteralmind.codelet.CodeletBaseConfig#DEFAULT_SRC_CODE_TMPL_PATH CodeletBaseConfig#DEFAULT_SRC_CODE_TMPL_PATH
-    **/
+    * @see  #CONSOLE_OUT
+    * @see  #SOURCE_AND_OUT
+    * @see  #FILE_TEXT
+    * @see  #isSourceCode()
+    * @see  com.github.aliteralmind.codelet.type.SourceCodeProcessor
+    * @see  com.github.aliteralmind.codelet.type.SourceCodeTemplate
+    * @see  com.github.aliteralmind.codelet.CodeletBaseConfig#DEFAULT_SRC_CODE_TMPL_PATH CodeletBaseConfig#DEFAULT_SRC_CODE_TMPL_PATH
+    */
    SOURCE_CODE(".codelet", "getSourceConfig_"),
             //The value of the second parameter ("getSourceConfig_") must be the
             //same for both SOURCE_CODE and SOURCE_AND_OUT
@@ -86,12 +86,12 @@ public enum CodeletType  {
 
       <p>Same as above, but passes a five-element string array to the main function.</p>
 
-      @see  #SOURCE_CODE
-      @see  #isConsoleOut()
-      @see  com.github.aliteralmind.codelet.type.ConsoleOutProcessor
-      @see  com.github.aliteralmind.codelet.type.ConsoleOutTemplate
-      @see  com.github.aliteralmind.codelet.CodeletBaseConfig#DEFAULT_SRC_CODE_TMPL_PATH CodeletBaseConfig#DEFAULT_SRC_CODE_TMPL_PATH
-    **/
+    * @see  #SOURCE_CODE
+    * @see  #isConsoleOut()
+    * @see  com.github.aliteralmind.codelet.type.ConsoleOutProcessor
+    * @see  com.github.aliteralmind.codelet.type.ConsoleOutTemplate
+    * @see  com.github.aliteralmind.codelet.CodeletBaseConfig#DEFAULT_SRC_CODE_TMPL_PATH CodeletBaseConfig#DEFAULT_SRC_CODE_TMPL_PATH
+    */
    CONSOLE_OUT(".codelet.out", "getConsoleOutConfig_"),
    /**
       <p>{@code {@.codelet.and.out}}: A taglet that displays the example code's source code and console output.</p>
@@ -118,12 +118,12 @@ public enum CodeletType  {
    <P style="font-size: 125%;"><b><code>{&#64;.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo%customizerForSourceCode()}
    <br/>{&#64;.codelet.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%customizerForOutput()}</code></b></p>
 
-      @see  #SOURCE_CODE
-      @see  #isSourceAndOut()
-      @see  com.github.aliteralmind.codelet.type.SourceAndOutProcessor
-      @see  com.github.aliteralmind.codelet.type.SourceAndOutTemplate
-      @see  com.github.aliteralmind.codelet.CodeletBaseConfig#DEFAULT_AND_OUT_TMPL_PATH CodeletBaseConfig#DEFAULT_SRC_CODE_TMPL_PATH
-    **/
+    * @see  #SOURCE_CODE
+    * @see  #isSourceAndOut()
+    * @see  com.github.aliteralmind.codelet.type.SourceAndOutProcessor
+    * @see  com.github.aliteralmind.codelet.type.SourceAndOutTemplate
+    * @see  com.github.aliteralmind.codelet.CodeletBaseConfig#DEFAULT_AND_OUT_TMPL_PATH CodeletBaseConfig#DEFAULT_SRC_CODE_TMPL_PATH
+    */
    SOURCE_AND_OUT(".codelet.and.out", "getSourceConfig_"),
             //The value of the second parameter ("getSourceConfig_") must be the
             //same for both SOURCE_CODE and SOURCE_AND_OUT
@@ -165,12 +165,12 @@ or
 
       <p>must be a non-null, non-empty value, and be either a system property or environment variable--not both. <i>(New for version {@code 0.1.3}, the idea from Stack Overflow user <a href="http://stackoverflow.com/users/3622940/unihedron">Unihedron</a>.)</i></p>
 
-      @see  #SOURCE_CODE
-      @see  #isFileText()
-      @see  com.github.aliteralmind.codelet.type.FileTextProcessor
-      @see  com.github.aliteralmind.codelet.type.FileTextTemplate
-      @see  com.github.aliteralmind.codelet.CodeletBaseConfig#DEFAULT_FILE_TEXT_TMPL_PATH CodeletBaseConfig#DEFAULT_FILE_TEXT_TMPL_PATH
-    **/
+    * @see  #SOURCE_CODE
+    * @see  #isFileText()
+    * @see  com.github.aliteralmind.codelet.type.FileTextProcessor
+    * @see  com.github.aliteralmind.codelet.type.FileTextTemplate
+    * @see  com.github.aliteralmind.codelet.CodeletBaseConfig#DEFAULT_FILE_TEXT_TMPL_PATH CodeletBaseConfig#DEFAULT_FILE_TEXT_TMPL_PATH
+    */
    FILE_TEXT(".file.textlet", "getFileTextConfig_");
 
    private final String tagName;
@@ -178,10 +178,10 @@ or
    /**
       <p>Construct an {@code CodeletType}.</p>
 
-      @param  tag_name  The name of the codelet. <i>Should</i> not be {@code null} or empty. Get with {@link #getName() getName}{@code ()}
-      @param  default_lineProcNamePrefix  The default prefix for Customizers of this type. <i>Should</i> not be {@code null} or empty, and should end with an underscore ({@code '_'}). Get with {@link #getDefaultLineProcNamePrefix() getDefaultLineProcNamePrefix}{@code ()}.
-      @see  #SOURCE_CODE
-    **/
+    * @param  tag_name  The name of the codelet. <i>Should</i> not be {@code null} or empty. Get with {@link #getName() getName}{@code ()}
+    * @param  default_lineProcNamePrefix  The default prefix for Customizers of this type. <i>Should</i> not be {@code null} or empty, and should end with an underscore ({@code '_'}). Get with {@link #getDefaultLineProcNamePrefix() getDefaultLineProcNamePrefix}{@code ()}.
+    * @see  #SOURCE_CODE
+    */
    CodeletType(String tag_name, String default_lineProcNamePrefix)  {
       tagName = tag_name;
       defaultLineProcNamePrefix = default_lineProcNamePrefix;
@@ -189,12 +189,11 @@ or
    /**
       <p>The {@linkplain com.sun.javadoc.Tag#name() name} of this taglet, as used in JavaDoc.</p>
 
-      @return  For example, if the taglet is
+    * @return  For example, if the taglet is
       <br/> &nbsp; &nbsp; {@code {@.codelet.out my.package.examples.AnExample}}
       <br/>this returns {@code ".codelet.out"}</p>
-      @see  #CodeletType(String, String) CodeletType(s,s)
-      @see  #newTypeForTagletName(String, String) newTypeForTagletName(s,s)
-    **/
+    * @see  #newTypeForTagletName(String, String) newTypeForTagletName(s,s)
+    */
    public String getName()  {
       return  tagName;
    }
@@ -202,47 +201,46 @@ or
       <p>The default prefix for Customizers of this type.</p>
 
       <p>This is intended to be followed by either the example classes {@linkplain java.lang.Class#getSimpleName() simple name}, or the <i>explicitely-provided</i> function-name-postfix for the plain-text file being displayed.</p>
-      @see  #CodeletType(String, String)
-    **/
+    */
    public String getDefaultLineProcNamePrefix()  {
       return  defaultLineProcNamePrefix;
    }
    /**
       <p>Is this {@code CodeletType} equal to {@code SOURCE_CODE}?.</p>
 
-      @return  <code>this == {@link #SOURCE_CODE}</code>
+    * @return  <code>this == {@link #SOURCE_CODE}</code>
 
-      @see  #isConsoleOut()
-      @see  #isFileText()
-      @see  #isSourceAndOut()
-    **/
+    * @see  #isConsoleOut()
+    * @see  #isFileText()
+    * @see  #isSourceAndOut()
+    */
    public final boolean isSourceCode()  {
       return  this == SOURCE_CODE;
    }
    /**
       <p>Is this {@code CodeletType} equal to {@code CONSOLE_OUT}?.</p>
 
-      @return  <code>this == {@link #CONSOLE_OUT}</code>
-      @see  #isSourceCode()
-    **/
+    * @return  <code>this == {@link #CONSOLE_OUT}</code>
+    * @see  #isSourceCode()
+    */
    public final boolean isConsoleOut()  {
       return  this == CONSOLE_OUT;
    }
    /**
       <p>Is this {@code CodeletType} equal to {@code FILE_TEXT}?.</p>
 
-      @return  <code>this == {@link #FILE_TEXT}</code>
-      @see  #isSourceCode()
-    **/
+    * @return  <code>this == {@link #FILE_TEXT}</code>
+    * @see  #isSourceCode()
+    */
    public final boolean isFileText()  {
       return  this == FILE_TEXT;
    }
    /**
       <p>Is this {@code CodeletType} equal to {@code SOURCE_AND_OUT}?.</p>
 
-      @return  <code>this == {@link #SOURCE_AND_OUT}</code>
-      @see  #isSourceCode()
-    **/
+    * @return  <code>this == {@link #SOURCE_AND_OUT}</code>
+    * @see  #isSourceCode()
+    */
    public final boolean isSourceAndOut()  {
       return  this == SOURCE_AND_OUT;
    }
@@ -250,29 +248,29 @@ or
    /**
       <p>If an <code>CodeletType</code> is not a required value, crash.</p>
 
-      <p>Equal to
+    * <p>Equal to
       <br/> &nbsp; &nbsp; <code>{@link com.github.xbn.util.EnumUtil EnumUtil}.{@link com.github.xbn.util.EnumUtil#crashIfNotRequiredValue(Enum, Enum, String, Object) crashIfNotRequiredValue}(this, e_rqd, s_thisEnumsVarNm, o_xtraInfo)</code></p>
-      @see  #crashIfForbiddenValue(CodeletType, String, Object) crashIfForbiddenValue(ert,s,o)
-    **/
+    * @see  #crashIfForbiddenValue(CodeletType, String, Object) crashIfForbiddenValue(ert,s,o)
+    */
    public void crashIfNotRequiredValue(CodeletType e_rqd, String s_thisEnumsVarNm, Object o_xtraInfo)  {
       EnumUtil.crashIfNotRequiredValue(this, e_rqd, s_thisEnumsVarNm, o_xtraInfo);
    }
    /**
       <p>If an <code>CodeletType</code> is a forbidden value, crash.</p>
 
-      <p>Equal to
+    * <p>Equal to
       <br/> &nbsp; &nbsp; <code>{@link com.github.xbn.util.EnumUtil EnumUtil}.{@link com.github.xbn.util.EnumUtil#crashIfForbiddenValue(Enum, Enum, String, Object) crashIfForbiddenValue}(this, e_rqd, s_thisEnumsVarNm, o_xtraInfo)</code></p>
-      @see  #crashIfNotRequiredValue(CodeletType, String, Object) crashIfNotRequiredValue(ert,s,o)
-    **/
+    * @see  #crashIfNotRequiredValue(CodeletType, String, Object) crashIfNotRequiredValue(ert,s,o)
+    */
    public void crashIfForbiddenValue(CodeletType e_rqd, String s_thisEnumsVarNm, Object o_xtraInfo)  {
       EnumUtil.crashIfForbiddenValue(this, e_rqd, s_thisEnumsVarNm, o_xtraInfo);
    }
    /**
       <p>Is a string equal to <i>this</i> taglet type's name?.</p>
 
-      @param  name  May not be {@code null}.
-      @return  <code>name.equals({@link #getName() getName}())</code>
-    **/
+    * @param  name  May not be {@code null}.
+    * @return  <code>name.equals({@link #getName() getName}())</code>
+    */
    public boolean isNameEqualTo(String name)  {
       return  isNameEqualTo(name, "name");
    }
@@ -286,10 +284,10 @@ or
    /**
       <p>Get a new {@code CodeletType} whose name is equal to a string value.</p>
 
-      @param  name  The name, which must be non-{@code null}, and equal to a type's {@link #getName() getName}{@code ()}.
-      @param  name_varName  Descriptive name of the {@code name} parameter, for the potential error message. <i>Should</i> not be {@code null} or empty.
-      @exception  IllegalArgumentException  If {@code name} is not equal to a known codelet type.
-    **/
+    * @param  name  The name, which must be non-{@code null}, and equal to a type's {@link #getName() getName}{@code ()}.
+    * @param  name_varName  Descriptive name of the {@code name} parameter, for the potential error message. <i>Should</i> not be {@code null} or empty.
+    * @exception  IllegalArgumentException  If {@code name} is not equal to a known codelet type.
+    */
    public static final CodeletType newTypeForTagletName(String name, String name_varName)  {
       if(CodeletType.SOURCE_CODE.isNameEqualTo(name, name_varName))  {
          return  CodeletType.SOURCE_CODE;

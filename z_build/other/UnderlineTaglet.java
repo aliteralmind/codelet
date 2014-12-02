@@ -96,7 +96,7 @@ public class UnderlineTaglet implements Taglet {
      * Given the <code>Tag</code> representation of this custom
      * tag, return its string representation.
      * @param tag he <code>Tag</code> representation of this custom tag.
-      @return  <code>{@link com.github.aliteralmind.codelet.taglet.CodletComSunJavadocTagProcessor CodletComSunJavadocTagProcessor}.{@link com.github.aliteralmind.codelet.taglet.CodletComSunJavadocTagProcessor#get(Tag) get}(tag)</code>
+    * @return  <code>{@link com.github.aliteralmind.codelet.taglet.CodletComSunJavadocTagProcessor CodletComSunJavadocTagProcessor}.{@link com.github.aliteralmind.codelet.taglet.CodletComSunJavadocTagProcessor#get(Tag) get}(tag)</code>
      */
     public String toString(Tag tag) {
        return  "x=" + System.getProperty("x", ":(");

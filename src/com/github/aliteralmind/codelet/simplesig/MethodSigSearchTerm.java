@@ -23,8 +23,8 @@ package  com.github.aliteralmind.codelet.simplesig;
 
 {@.codelet.and.out com.github.aliteralmind.codelet.examples.simplesig.MethodSigSearchTermXmpl%()}
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class MethodSigSearchTerm extends SimpleParamSigSearchTerm  {
    /**
@@ -51,8 +51,8 @@ public class MethodSigSearchTerm extends SimpleParamSigSearchTerm  {
       <p>This first calls
       <br/> &nbsp; &nbsp; <code>{@link SimpleParamSigSearchTerm#SimpleParamSigSearchTerm(String, Appendable, Appendable) super}(search_termSig)</code></p>
 
-      @param  search_termSig  The function name may not be empty.
-    **/
+    * @param  search_termSig  The function name may not be empty.
+    */
    public MethodSigSearchTerm(String search_termSig, Appendable debugBasics_ifNonNull, Appendable dbgDoesMatch_ifNonNull)  {
       super(search_termSig, debugBasics_ifNonNull, dbgDoesMatch_ifNonNull);
       if(getMethodName().length() == 0)  {
@@ -62,12 +62,12 @@ public class MethodSigSearchTerm extends SimpleParamSigSearchTerm  {
    /**
       <p>Does any match?.</p>
 
-      @param  all_methods  May not be {@code null}.
-      @return  If
+    * @param  all_methods  May not be {@code null}.
+    * @return  If
       <br/> &nbsp; &nbsp; <code>all_methods.{@link AllSimpleParamSignatures#getMethodMap() getMethodMap}().get({@link SimpleParamSigSearchTerm#getMethodName() getMethodName}())</code>
       <br/>returns a non-null list, this returns <code>{@link SimpleParamSigSearchTerm#doesMatchAnyProt(List) doesMatchAnyProt}(<i>[the-list]</i>)*</code>
-      @see  #doesMatchOnlyOne(AllSimpleParamSignatures) doesMatchOnlyOne
-    **/
+    * @see  #doesMatchOnlyOne(AllSimpleParamSignatures) doesMatchOnlyOne
+    */
    public boolean doesMatchAny(AllSimpleParamSignatures all_methods)  {
       List<MethodSimpleParamSig> methodsWithNameList = null;
       try  {
@@ -83,12 +83,12 @@ public class MethodSigSearchTerm extends SimpleParamSigSearchTerm  {
    /**
       <p>Does exactly one match?.</p>
 
-      @param  all_methods  May not be {@code null}.
-      @return  If
+    * @param  all_methods  May not be {@code null}.
+    * @return  If
       <br/> &nbsp; &nbsp; <code>all_methods.{@link AllSimpleParamSignatures#getMethodMap() getMethodMap}().get({@link SimpleParamSigSearchTerm#getMethodName() getMethodName}())</code>
       <br/>returns a non-null list, this returns <code>{@link SimpleParamSigSearchTerm#doesMatchOnlyOneProt(List) doesMatchOnlyOneProt}(<i>[the-list]</i>)*</code>
-      @see  #doesMatchAny(AllSimpleParamSignatures) doesMatchAny
-    **/
+    * @see  #doesMatchAny(AllSimpleParamSignatures) doesMatchAny
+    */
    public boolean doesMatchOnlyOne(AllSimpleParamSignatures all_methods)  {
       List<MethodSimpleParamSig> methodsWithNameList = null;
       try  {
@@ -104,11 +104,11 @@ public class MethodSigSearchTerm extends SimpleParamSigSearchTerm  {
    /**
       <p>Get a new list of all matches.</p>
 
-      @param  all_methods  May not be {@code null}.
-      @param  crashIf_zero  If {@code com.github.xbn.lang.reflect.CrashIfZero#YES YES}, then zero matches is unacceptable. May not be {@code null}.
-      @return  {@linkplain SimpleParamSigSearchTerm#getAllMatchesProt(List, CrashIfZero) all matches}, or {@code null} if {@linkplain #doesMatchAny(AllSimpleParamSignatures) no matches}
-      @exception  RTNoSuchMethodException  If zero matches and {@code crashIf_zero} is {@code YES}.
-    **/
+    * @param  all_methods  May not be {@code null}.
+    * @param  crashIf_zero  If {@code com.github.xbn.lang.reflect.CrashIfZero#YES YES}, then zero matches is unacceptable. May not be {@code null}.
+    * @return  {@linkplain SimpleParamSigSearchTerm#getAllMatchesProt(List, CrashIfZero) all matches}, or {@code null} if {@linkplain #doesMatchAny(AllSimpleParamSignatures) no matches}
+    * @exception  RTNoSuchMethodException  If zero matches and {@code crashIf_zero} is {@code YES}.
+    */
    public List<MethodSimpleParamSig> getAllMatches(AllSimpleParamSignatures all_methods, CrashIfZero crashIf_zero)  {
       List<MethodSimpleParamSig> methodsWithNameList = null;
       try  {
@@ -131,23 +131,23 @@ public class MethodSigSearchTerm extends SimpleParamSigSearchTerm  {
    /**
       <p>Get the first and only match.</p>
 
-      @return  <code>{@link #getFirstMatch(AllSimpleParamSignatures, CrashIfZero, CrashIfMoreThanOne) getFirstMatch}(all_methods, {@link CrashIfZero}.{@link CrashIfZero#YES YES}, {@link CrashIfMoreThanOne CrashIfMoreThanOne}.{@link CrashIfMoreThanOne#YES YES})</code>
-      @see  #doesMatchOnlyOne(AllSimpleParamSignatures) doesMatchOnlyOne
-      @see  #getFirstMatch(AllSimpleParamSignatures, CrashIfZero, CrashIfMoreThanOne) getFirstMatch
-      @see  #getAllMatches(AllSimpleParamSignatures, CrashIfZero) getOnlyMatch
-    **/
+    * @return  <code>{@link #getFirstMatch(AllSimpleParamSignatures, CrashIfZero, CrashIfMoreThanOne) getFirstMatch}(all_methods, {@link CrashIfZero}.{@link CrashIfZero#YES YES}, {@link CrashIfMoreThanOne CrashIfMoreThanOne}.{@link CrashIfMoreThanOne#YES YES})</code>
+    * @see  #doesMatchOnlyOne(AllSimpleParamSignatures) doesMatchOnlyOne
+    * @see  #getFirstMatch(AllSimpleParamSignatures, CrashIfZero, CrashIfMoreThanOne) getFirstMatch
+    * @see  #getAllMatches(AllSimpleParamSignatures, CrashIfZero) getOnlyMatch
+    */
    public MethodSimpleParamSig getOnlyMatch(AllSimpleParamSignatures all_methods)  {
       return  getFirstMatch(all_methods, CrashIfZero.YES, CrashIfMoreThanOne.YES);
    }
    /**
       <p>Get the first match.</p>
 
-      @param  all_methods  May not be {@code null}.
-      @param  crashIf_zero  If {@code com.github.xbn.lang.reflect.CrashIfZero#YES YES}, then zero matches is unacceptable. May not be {@code null}.
-      @return  The {@linkplain SimpleParamSigSearchTerm#getFirstMatchProt(List, CrashIfZero, CrashIfMoreThanOne) first match}, or {@code null} if no matches.
-      @exception  RTNoSuchMethodException  If zero matches and {@code crashIf_zero} is {@code YES}.
-      @see  #getOnlyMatch(AllSimpleParamSignatures) getOnlyMatch
-    **/
+    * @param  all_methods  May not be {@code null}.
+    * @param  crashIf_zero  If {@code com.github.xbn.lang.reflect.CrashIfZero#YES YES}, then zero matches is unacceptable. May not be {@code null}.
+    * @return  The {@linkplain SimpleParamSigSearchTerm#getFirstMatchProt(List, CrashIfZero, CrashIfMoreThanOne) first match}, or {@code null} if no matches.
+    * @exception  RTNoSuchMethodException  If zero matches and {@code crashIf_zero} is {@code YES}.
+    * @see  #getOnlyMatch(AllSimpleParamSignatures) getOnlyMatch
+    */
    public MethodSimpleParamSig getFirstMatch(AllSimpleParamSignatures all_methods, CrashIfZero crashIf_zero, CrashIfMoreThanOne crashIf_moreThanOne)  {
       List<MethodSimpleParamSig> methodsWithNameList = null;
       try  {
@@ -167,9 +167,9 @@ public class MethodSigSearchTerm extends SimpleParamSigSearchTerm  {
    /**
       <p>Get the single matching method from an all-signature object.</p>
 
-      @return  <code>(new {@link #MethodSigSearchTerm(String, Appendable, Appendable) MethodSigSearchTerm}(sig_searchTerm, debugBasics_ifNonNull, dbgDoesMatch_ifNonNull)).
+    * @return  <code>(new {@link #MethodSigSearchTerm(String, Appendable, Appendable) MethodSigSearchTerm}(sig_searchTerm, debugBasics_ifNonNull, dbgDoesMatch_ifNonNull)).
       <br/> &nbsp; &nbsp; {@link MethodSigSearchTerm#getOnlyMatch(AllSimpleParamSignatures) getOnlyMatch}(all_sigs).{@link MethodSimpleParamSig#getMethod() getMethod}()</code>
-    **/
+    */
    public static final Method getMethodFromAllSigsAndSearchTerm(AllSimpleParamSignatures all_sigs, String sig_searchTerm, Appendable debugBasics_ifNonNull, Appendable dbgDoesMatch_ifNonNull)  {
       try  {
          return  (new MethodSigSearchTerm(sig_searchTerm, debugBasics_ifNonNull, dbgDoesMatch_ifNonNull)).

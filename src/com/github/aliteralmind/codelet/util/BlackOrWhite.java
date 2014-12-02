@@ -16,49 +16,49 @@ package  com.github.aliteralmind.codelet.util;
 /**
    <p>Is it a blacklist or whitelist?.</p>
 
-   @see  com.github.aliteralmind.codelet.util.FilenameBlackWhiteList
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @see  com.github.aliteralmind.codelet.util.FilenameBlackWhiteList
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public enum BlackOrWhite  {
    /**
       <p>YYY.</p>
 
-      @see  #WHITE
-      @see  #isBlack()
-    **/
+    * @see  #WHITE
+    * @see  #isBlack()
+    */
    BLACK,
    /**
       <p>YYY.</p>
 
-      @see  #BLACK
-      @see  #isWhite()
-    **/
+    * @see  #BLACK
+    * @see  #isWhite()
+    */
    WHITE;
    /**
       <p>Is this {@code BlackOrWhite} equal to {@code BLACK}?.</p>
 
-      @return  <code>this == {@link #BLACK}</code>
+    * @return  <code>this == {@link #BLACK}</code>
 
-      @see  #isWhite()
-    **/
+    * @see  #isWhite()
+    */
    public final boolean isBlack()  {
       return  this == BLACK;
    }
    /**
       <p>Is this {@code BlackOrWhite} equal to {@code WHITE}?.</p>
 
-      @return  <code>this == {@link #WHITE}</code>
-      @see  #isBlack()
-    **/
+    * @return  <code>this == {@link #WHITE}</code>
+    * @see  #isBlack()
+    */
    public final boolean isWhite()  {
       return  this == WHITE;
    }
    /**
       <p>Return {@code BlackOrWhite.BLACK} if the flag is {@code true}, or {@code WHITE} if {@code false}.</p>
 
-      @return  <code>(flag ? {@link #BLACK} : {@link #WHITE})</code>
-    **/
+    * @return  <code>(flag ? {@link #BLACK} : {@link #WHITE})</code>
+    */
    public static final BlackOrWhite getBlackIfTrue(boolean flag)  {
       return  (flag ? BLACK : WHITE);
    }

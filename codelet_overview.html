@@ -2,7 +2,7 @@
    <p><b><u>Codelet</u></b>: Automated insertion of <i>already unit-tested</i> example code (its source code, console output, and input text-files) into JavaDoc, using inline taglets--Codelet makes it possible to have <i>always accurate documentation</i>. As with all <a href="http://docs.oracle.com/javase/7/docs/technotes/guides/javadoc/taglet/overview.html#inlineexample">inline taglets</a>, codelets are automatically processed when generating your <a href="http://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html">JavaDoc</a>. Customizations include:<ol>
       <li>Displaying only a portion of an example's source code (code snippets).</li>
       <li>Making the <i>first appearance</i> of a function, constructor, class, or field name into a clickable JavaDoc link.</li>
-      <li>Syntax highlighting with the <a href="http://alexgorbatchev.com/SyntaxHighlighter">SyntaxHighlighter</a> JavaScript library (<i>TO-DO</i>).</li>
+      <li>Syntax highlighting with the <a href="http://alexgorbatchev.com/SyntaxHighlighter/">SyntaxHighlighter</a> JavaScript library (<i>TO-DO</i>).</li>
    </ol>Codelet is built in the spirit of Python's <a href="https://docs.python.org/2/library/doctest.html">{@code doctest}</a> module (along with <a href="http://docutils.sourceforge.net/rst.html">reStructuredText</a> and <a href="http://sphinx-doc.org/">Sphinx</a>), </p>
 
    <p><TABLE ALIGN="center" WIDTH="100%" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
@@ -40,7 +40,7 @@
          <li><a href="#xmpl_links">Custom customizer</a>: Making function/constructor/class/field names into clickable JavaDoc links</li>
       </ol></li>
       <li>Customizer function: The <a href="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#overview">function itself</a>, <a href="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#xmpl_defaults">calling it from a taglet</a>, and the object it returns: A {@link com.github.aliteralmind.codelet.CustomizationInstructions} object (<a href="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#3_parts_filter">line filter</a>, <a href="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#3_parts_alterer">alterer</a>, <a href="{@docRoot}/com/github/aliteralmind/codelet/CustomizationInstructions.html#3_parts_template">template</a>)</li>
-      <li>{@linkplain com.github.aliteralmind.codelet.CodeletTemplateBase Templates}: Configuring <a href="{@docRoot}/com/github/aliteralmind.codelet/CodeletBaseConfig.html#tmpl_defaults">default</a> templates, {@linkplain com.github.aliteralmind.codelet.UserExtraGapGetter custom gaps}, and {@linkplain com.github.aliteralmind.codelet.TemplateOverrides overrides}</li>
+      <li>{@linkplain com.github.aliteralmind.codelet.CodeletTemplateBase Templates}: Configuring <a href="{@docRoot}/com/github/aliteralmind/codelet/CodeletBaseConfig.html#tmpl_defaults">default</a> templates, {@linkplain com.github.aliteralmind.codelet.UserExtraGapGetter custom gaps}, and {@linkplain com.github.aliteralmind.codelet.TemplateOverrides overrides}</li>
       <li>Debugging Codelet:<ol>
          <li>Configuring {@linkplain com.github.aliteralmind.codelet.CodeletBaseConfig#GLOBAL_DEBUG_LEVEL global} and {@linkplain com.github.aliteralmind.codelet.CodeletInstance#DEBUG_LEVEL_PREFIX_PREFIX taglet} debugging levels</li>
          <li>{@linkplain com.github.aliteralmind.codelet.CodeletBootstrap#NAMED_DEBUGGERS_CONFIG_FILE Named debuggers}: Extensive and specific control of debugging information, without the need for recompiling code.</li>
@@ -49,16 +49,13 @@
    </ol></p>
 
    <p>Other:<ol>
-      <li>Codelet is hosted by GitHub: <a href="http://github.com/aliteralmind/codelet">Project page</a>, <a href="https://github.com/aliteralmind/codelet/issues">issue tracker</a>, <a href="https://github.com/aliteralmind/codelet/wiki">Wiki</a></li>
-      <li>Generation reports: <a href="../../build_log.txt">Full build</a>, <a href="../../javadoc_log.txt">JavaDoc only</a></li>
-      <li>Other downloads: <a href="http://aliteralmind.com/docs/computer/programming/codelet/codelet-${project_version_for_jd}/download/codelet-${project_version_for_jd}_documentation.zip">JavaDoc</a>, <a href="http://aliteralmind.com/docs/computer/programming/codelet/codelet-${project_version_for_jd}/download/codelet-${project_version_for_jd}_source_code.zip">source code</a> (including build-files)</li>
       <li>I use <code>com.github.xbn.testdev.{@link com.github.xbn.testdev.VerifyApplicationOutput}</code> to unit test applications.</li>
       <li><b>Thanks</b> go to <a href="http://stackoverflow.com/users/1093528/fge">fge</a> and <a href="http://stackoverflow.com/users/13379/michael">Michael</a> for the technical comments and suggestions (fge came with <i>lowercase</i> &quot;codelet&quot;), to Gregg Stebben for the support, and especially to Sherrie.</li>
    </ol></p>
 
    <p>Known issues, and major to-dos<ol>
       <li>Test and confirm {@linkplain com.github.aliteralmind.codelet.TemplateOverrides template overrides}</li>
-      <li>Test and confirm auto-gaps (such as <a href="{@docRoot}/com.github.aliteralmind.codelet.type.SourceCodeTemplate"><code>SourceCodeTemplate</code></a>). </li>
+      <li>Test and confirm auto-gaps (such as {@link com.github.aliteralmind.codelet.type.SourceCodeTemplate SourceCodeTemplate}). </li>
       <li>Figure out how to implement syntax highlighting with the <a href="http://alexgorbatchev.com/SyntaxHighlighter">SyntaxHighlighter</a> JavaScript library.</li>
       <li><a href="http://stackoverflow.com/questions/23914909/how-to-prevent-configuration-file-from-repeatedly-reloading-holding-it-statical">Configuration is loaded repeatedly</a> in each run of {@code javadoc.exe}, although this does not affect reliability. It is likely an issue that won't go away.</li>
    </ol></p>
@@ -186,7 +183,7 @@ Codelet: Example: <u>Displaying a &quot;code snippet&quot;</u></h2>
    <p>All customizer functions return a {@link com.github.aliteralmind.codelet.CustomizationInstructions} object, which is made up of:<ol>
       <li>A {@linkplain com.github.aliteralmind.codelet.CustomizationInstructions#filter(FilteredLineIterator) filter}: Which lines should be kept?</li>
       <li>An {@linkplain com.github.aliteralmind.codelet.CustomizationInstructions#alterer(AllTextLineAlterer) alterer}: What alterations should be made to the kept lines?</li>
-      <li>And a <!-- GENERIC PARAMETERS FAIL IN @link --><a href="com/github/aliteralmind/codelet/CustomizationInstructions/html#template(T)">template</a>: The context into which the fully-customized text is placed, and whose rendered output actually replaces the taglet.</li>
+      <li>And a <!-- GENERIC PARAMETERS FAIL IN @link --><a href="com/github/aliteralmind/codelet/CustomizationInstructions.html#template(T)">template</a>: The context into which the fully-customized text is placed, and whose rendered output actually replaces the taglet.</li>
    </ol></p>
 
    <p>The same filter and template as in the original example (as used by its customizer function: <code>{@link com.github.aliteralmind.codelet.BasicCustomizers}.{@link com.github.aliteralmind.codelet.BasicCustomizers#lineRange(CodeletInstance, CodeletType, Integer, Boolean, String, Integer, Boolean, String, String) lineRange}</code>) can also be used here:<ol>
@@ -290,15 +287,16 @@ LineRangeWithLinksAndNamedDebugs.adderDemo_lineSnippetWithLinks.template=-1</pre
 
    <h2><a href="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: <u>Installation</u></h2>
 
-   <p>This version is <b><code>${project_version_for_jd}</code></b>. <ul>
+   <p>This version is <b><code>${project_version_for_jd}</code></b> <ul>
       <li><a href="release_notes.html">Release notes</a></li>
-      <li><a href="http://codelet.aliteralmind.com/do">Current version</a> at <code>aliteralmind.com</code></li>
-      <li>Hosted by GitHub: <a href="https://github.com/aliteralmind/codelet">Project page</a>, <a href="https://github.com/aliteralmind/codelet/issues">issue tracker</a></li>
+      <li><a href="http://codelet.aliteralmind.com">Current version</a> at <code>aliteralmind.com</code></li>
+      <li>Hosted by GitHub: <a href="https://github.com/aliteralmind/codelet">Project page</a>, <a href="https://github.com/aliteralmind/codelet/issues">issue tracker</a>, <a href="https://github.com/aliteralmind/codelet/wiki">Wiki</a></li>
+      <li>Other downloads: <a href="http://aliteralmind.com/docs/computer/programming/codelet/codelet-${project_version_for_jd}/download/codelet-${project_version_for_jd}-javadoc.jar">JavaDoc</a>, <a href="http://aliteralmind.com/docs/computer/programming/codelet/codelet-${project_version_for_jd}/download/codelet-${project_version_for_jd}-sources.jar">source code</a> (including build-files)</li>
    </ol></p>
 
    <p>Codelet requires the <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">1.7</a> version of the <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html">{@code javadoc.exe}</a> tool. The code whose JavaDoc has codelet-taglets <i>in it</i> has no version restrictions.</p>
 
-   <p>(For <b>building</b>, see XBN-Java's <a href="http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/overview-summary.html#install">installation instructions</a>. The Codelet build process is derived from XBN-Java's.)</p>
+   <p>(For <b>building</b>, see <a href="http://xbnjava.aliteralmind.com">XBN-Java</a>'s installation instructions. The Codelet build process is derived from XBN-Java's.)</p>
 
    <h3>Apache Maven</h3>
 
@@ -349,7 +347,7 @@ INSTALLATION_DIR\codelet-${project_version_for_jd}-all.jar</pre></blockquote>
 
    <p>Executing Codelet with <a href="http://ant.apache.org/">Apache Ant</a>:</p>
 
-<blockquote><pre>&lt;<a href="file:///C:/applications/programming/apache-ant-1.9.2/manual/Tasks/javadoc.html">javadoc</a> packagenames="my.package" sourcepath="C:\java_code\" destdir="${dir_build_docs_javadoc}"
+<blockquote><pre>&lt;<a href="https://ant.apache.org/manual/Tasks/javadoc.html">javadoc</a> packagenames="my.package" sourcepath="C:\java_code\" destdir="${dir_build_docs_javadoc}"
    additionalparam="-J-Dcodelet_config_dir=C:\java_code\codelet_${project_version_for_jd}\${jd_project_codelet_config_dir}\"&gt;
       &lt;taglet name=&quot;com.github.aliteralmind.codelet.taglet.SourceCodeTaglet&quot;&gt;
       &lt;taglet name=&quot;com.github.aliteralmind.codelet.taglet.SourceAndOutTaglet&quot;&gt;
@@ -358,7 +356,6 @@ INSTALLATION_DIR\codelet-${project_version_for_jd}-all.jar</pre></blockquote>
    &lt;/javadoc&gt;</pre></blockquote>
 
    <p>This assumes that Codelet is on your Ant-classpath.</p>
-
 
    <A NAME="install_configure"></a><h2><a href="#install"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: Installation: <u>Configuring Codelet itself</u></h2>
 

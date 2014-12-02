@@ -32,9 +32,9 @@ package  com.github.aliteralmind.codelet.simplesig;
 /**
    <p>For matching a simple-parameter-name signatures with wildcards ({@code '*'}), indicating one or more of any parameter type.</p>
 
-   @see  <a href="http://aliteralmind.com/docs/computer/programming/codelet/documentation/javadoc/overview-summary.html#xmpl_links">Real world use in Codelet</a>
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @see  <a href="{@docRoot}/overview-summary.html#xmpl_links">Real world use in Codelet</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public abstract class SimpleParamSigSearchTerm  {
    private static final Matcher IDENTIFIER_MTCHR = Pattern.compile(JavaRegexes.IDENTIFIER + "(?:\\[\\]|\\.\\.\\.)?").matcher("");
@@ -50,11 +50,11 @@ public abstract class SimpleParamSigSearchTerm  {
    /**
       <p>Create a search term.</p>
 
-      @param  search_termSig  May not be {@code null}, must contain parentheses with zero or more parameters, and may contain a function name before the open paren ({@code '('}). When provided, the function name must be a valid {@linkplain com.github.xbn.util.JavaRegexes#IDENTIFIER Java identifier}. Multiple {@linkplain #getTermList() parameters} are separated by commas, and each is either<ul>
+    * @param  search_termSig  May not be {@code null}, must contain parentheses with zero or more parameters, and may contain a function name before the open paren ({@code '('}). When provided, the function name must be a valid {@linkplain com.github.xbn.util.JavaRegexes#IDENTIFIER Java identifier}. Multiple {@linkplain #getTermList() parameters} are separated by commas, and each is either<ul>
          <li>The {@linkplain java.lang.Class#getSimpleName() simple name} of the parameter's Java type, with optional array indicators ({@code "[]"}) or, in the last parameter only, ellipses ({@code "..."}) (examples: {@code "int"}, {@code "String"}, {@code "AClass"}), {@code "boolean[]"}, {@code "String..."}), or</li>
          <li>An {@linkplain #hasAStar() asterisk} ({@code '*'}), indicating one or more of any type. Two asterisks in a row are not permissible.</li>
          </ul>The final character must be the close paren ({@code ')'}). Get with {@link #appendToString(StringBuilder) appendToString}.
-    **/
+    */
    public SimpleParamSigSearchTerm(String search_termSig, Appendable debugBasics_ifNonNull, Appendable dbgDoesMatch_ifNonNull)  {
       int openParenIdx = -1;
       try  {
@@ -163,69 +163,69 @@ public abstract class SimpleParamSigSearchTerm  {
    }
    /**
       <p>The function name, or the empty string if a constructor.</p>
-    **/
+    */
    public String getMethodName()  {
       return  funcName;
    }
    /**
       <p>Immutable list of parameter types (their simple names), where asterisks are replaced with {@code null}.</p>
 
-      @see  #SimpleParamSigSearchTerm(String, Appendable, Appendable)
-    **/
+    * @see  #SimpleParamSigSearchTerm(String, Appendable, Appendable)
+    */
    public List<String> getTermList()  {
       return  termList;
    }
    /**
       <p>The original search-term parameter list.</p>
 
-      @return  The original search-term list, surrounded by parentheses, with one space following each comma.
-      @see  #getNoParams()
-    **/
+    * @return  The original search-term list, surrounded by parentheses, with one space following each comma.
+    * @see  #getNoParams()
+    */
    public String getWithParams()  {
       return  withParams;
    }
    /**
       <p>The original search-term parameter list, excluding the parentheses.</p>
 
-      @see  #getWithParams()
-    **/
+    * @see  #getWithParams()
+    */
    public String getNoParams()  {
       return  noParams;
    }
    /**
       <p>Is there an asterisk anywhere in the parameter list?.</p>
 
-      @see  #getTermList()
-      @see  #SimpleParamSigSearchTerm(String, Appendable, Appendable)
-    **/
+    * @see  #getTermList()
+    * @see  #SimpleParamSigSearchTerm(String, Appendable, Appendable)
+    */
    public boolean hasAStar()  {
       return  hasAStar;
    }
    /**
       <p>Does this search-term match an actually-existing constructor/method?.</p>
 
-      @return  <code>({@link #getFirstMatchProt(List, CrashIfZero, CrashIfMoreThanOne) getFirstMatchProt}(to_searchList, crashIf_zero, crashIf_moreThanOne) != null)</code>
+    * @return  <code>({@link #getFirstMatchProt(List, CrashIfZero, CrashIfMoreThanOne) getFirstMatchProt}(to_searchList, crashIf_zero, crashIf_moreThanOne) != null)</code>
    public boolean doesMatchAnyProt(List<? extends SimpleParamNameSignature> to_searchList, CrashIfZero crashIf_zero, CrashIfMoreThanOne crashIf_moreThanOne)  {
       return  (getFirstMatchProt(to_searchList, crashIf_zero, crashIf_moreThanOne) != null);
    }
-    **/
+    */
    /**
       <p>Does any constructor/method match?.</p>
 
-      @return  <code>({@link #getFirstMatchProt(List, CrashIfZero, CrashIfMoreThanOne) getFirstMatchProt}(to_searchList, crashIf_zero, crashIf_moreThanOne) != null)</code>
-      @see  #getAllMatchesProt(List, CrashIfZero)
-    **/
+    * @return  <code>({@link #getFirstMatchProt(List, CrashIfZero, CrashIfMoreThanOne) getFirstMatchProt}(to_searchList, crashIf_zero, crashIf_moreThanOne) != null)</code>
+    * @see  #getAllMatchesProt(List, CrashIfZero)
+    */
    protected boolean doesMatchAnyProt(List<? extends SimpleParamNameSignature> to_searchList)  {
       return  (getFirstMatchProt(to_searchList, CrashIfZero.NO, CrashIfMoreThanOne.NO) != null);
    }
    /**
       <p>Does exactly one constructor/method match?.</p>
 
-      @return  <code>(matchList != null  &&  matchList.size() == 1)</code>
+    * @return  <code>(matchList != null  &&  matchList.size() == 1)</code>
       <br/>Where {@code matchList} is
       <br/> &nbsp; &nbsp; <code>{@link #getAllMatchesProt(List, CrashIfZero) getAllMatchesProt}(to_searchList, {@link CrashIfZero}.{@link CrashIfZero#NO NO})</code>
-      @see  #getOnlyMatchProt(List)
-    **/
+    * @see  #getOnlyMatchProt(List)
+    */
    protected boolean doesMatchOnlyOneProt(List<? extends SimpleParamNameSignature> to_searchList)  {
       List<? extends SimpleParamNameSignature> matchList = getAllMatchesProt(
          to_searchList, CrashIfZero.NO);
@@ -234,12 +234,12 @@ public abstract class SimpleParamSigSearchTerm  {
    /**
       <p>Get a new list of all matching constructors/methods.</p>
 
-      @param  to_searchList  The actually-existing constructors/methods to search. May not be {@code null}.
-      @param  crashIf_zero  If {@code com.github.xbn.lang.reflect.CrashIfZero#YES YES}, then zero matches is unacceptable. May not be {@code null}.
-      @return  A new and mutable list containing all matching constructors/methods, or {@code null} if no messages match.
-      @exception  RTNoSuchMethodException  If zero matches and {@code crashIf_zero} is {@code YES}.
-      @see  #getFirstMatchProt(List, CrashIfZero, CrashIfMoreThanOne)
-    **/
+    * @param  to_searchList  The actually-existing constructors/methods to search. May not be {@code null}.
+    * @param  crashIf_zero  If {@code com.github.xbn.lang.reflect.CrashIfZero#YES YES}, then zero matches is unacceptable. May not be {@code null}.
+    * @return  A new and mutable list containing all matching constructors/methods, or {@code null} if no messages match.
+    * @exception  RTNoSuchMethodException  If zero matches and {@code crashIf_zero} is {@code YES}.
+    * @see  #getFirstMatchProt(List, CrashIfZero, CrashIfMoreThanOne)
+    */
    protected List<? extends SimpleParamNameSignature> getAllMatchesProt(List<? extends SimpleParamNameSignature> to_searchList, CrashIfZero crashIf_zero)  {
       List<SimpleParamNameSignature> matches = null;
       try  {                                                        //Divided by two
@@ -264,22 +264,22 @@ public abstract class SimpleParamSigSearchTerm  {
    /**
       <p>Get the first and only match.</p>
 
-      @return  <code>{@link #getFirstMatchProt(List, CrashIfZero, CrashIfMoreThanOne) getFirstMatchProt}(to_searchList, {@link CrashIfZero}.{@link CrashIfZero#YES YES}, {@link CrashIfMoreThanOne}.{@link CrashIfMoreThanOne#YES YES})</code>
-      @see  #getAllMatchesProt(List, CrashIfZero) getAllMatchesProt
-    **/
+    * @return  <code>{@link #getFirstMatchProt(List, CrashIfZero, CrashIfMoreThanOne) getFirstMatchProt}(to_searchList, {@link CrashIfZero}.{@link CrashIfZero#YES YES}, {@link CrashIfMoreThanOne}.{@link CrashIfMoreThanOne#YES YES})</code>
+    * @see  #getAllMatchesProt(List, CrashIfZero) getAllMatchesProt
+    */
    protected SimpleParamNameSignature getOnlyMatchProt(List<? extends SimpleParamNameSignature> to_searchList)  {
       return  getFirstMatchProt(to_searchList, CrashIfZero.YES, CrashIfMoreThanOne.YES);
    }
    /**
       <p>Get the first matching constructor/method.</p>
 
-      @param  to_searchList  The actually-existing constructor/methods to search. May not be {@code null}.
-      @param  crashIf_zero  If {@code com.github.xbn.lang.reflect.CrashIfZero#YES YES}, then zero matches is unacceptable. May not be {@code null}.
-      @param  crashIf_moreThanOne  If {@code com.github.xbn.lang.reflect.CrashIfMoreThanOne#YES YES}, then more than one match is unacceptable. May not be {@code null}.
-      @return  The first matching param-list, or {@code null} if none match.
-      @exception  RTNoSuchMethodException  If zero matches and {@code crashIf_zero} is {@code YES}, or more than one constructor/method matches and {@code crashIf_moreThanOne} is {@code YES}
-      @see  #doesMatchAnyProt(List) doesMatchAnyProt
-    **/
+    * @param  to_searchList  The actually-existing constructor/methods to search. May not be {@code null}.
+    * @param  crashIf_zero  If {@code com.github.xbn.lang.reflect.CrashIfZero#YES YES}, then zero matches is unacceptable. May not be {@code null}.
+    * @param  crashIf_moreThanOne  If {@code com.github.xbn.lang.reflect.CrashIfMoreThanOne#YES YES}, then more than one match is unacceptable. May not be {@code null}.
+    * @return  The first matching param-list, or {@code null} if none match.
+    * @exception  RTNoSuchMethodException  If zero matches and {@code crashIf_zero} is {@code YES}, or more than one constructor/method matches and {@code crashIf_moreThanOne} is {@code YES}
+    * @see  #doesMatchAnyProt(List) doesMatchAnyProt
+    */
    protected SimpleParamNameSignature getFirstMatchProt(List<? extends SimpleParamNameSignature> to_searchList, CrashIfZero crashIf_zero, CrashIfMoreThanOne crashIf_moreThanOne)  {
       SimpleParamNameSignature firstMatch = null;
       try  {
@@ -324,8 +324,8 @@ public abstract class SimpleParamSigSearchTerm  {
 
       <p><i>This function was a <b>beast</b>.</i></p>
 
-      @param  actual_cnstrMthd  May not be {@code null}.
-    **/
+    * @param  actual_cnstrMthd  May not be {@code null}.
+    */
    public boolean doesMatch(SimpleParamNameSignature actual_cnstrMthd)  {
 
       List<String> requiredParams = getTermList();
@@ -481,8 +481,8 @@ public abstract class SimpleParamSigSearchTerm  {
          }
       }
    /**
-      @return  <code>{@link #appendToString(StringBuilder) appendToString}(new StringBuilder()).toString()</code>
-    **/
+    * @return  <code>{@link #appendToString(StringBuilder) appendToString}(new StringBuilder()).toString()</code>
+    */
    public String toString()  {
       return  appendToString(new StringBuilder()).toString();
    }
@@ -491,9 +491,9 @@ public abstract class SimpleParamSigSearchTerm  {
 
       <p>This appends <code>{@link #getMethodName() getMethodName}() + {@link #getWithParams() getWithParams}()</code>.</p>
 
-      @see  #toString()
-      @see  #SimpleParamSigSearchTerm(String, Appendable, Appendable)
-    **/
+    * @see  #toString()
+    * @see  #SimpleParamSigSearchTerm(String, Appendable, Appendable)
+    */
    public StringBuilder appendToString(StringBuilder to_appendTo)  {
       try  {
          return  to_appendTo.append(getMethodName()).append(getWithParams());

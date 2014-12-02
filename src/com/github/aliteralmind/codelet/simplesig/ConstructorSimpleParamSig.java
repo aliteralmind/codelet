@@ -18,34 +18,34 @@ package  com.github.aliteralmind.codelet.simplesig;
 /**
    <p>Simple-parameter-name signature for a constructor.</p>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class ConstructorSimpleParamSig extends SimpleParamNameSignature  {
    /**
       <p>Create a new instance from a constructor.</p>
 
-      <p>Equal to
+    * <p>Equal to
       <br/> &nbsp; &nbsp; <code>{@link SimpleParamNameSignature#SimpleParamNameSignature(Member, Class[]) super}(cnstr, cnstr.{@link java.lang.reflect.Method#getParameterTypes() getParameterTypes}())</code></p>
 
-      @param  cnstr  May not be {@code null}.
-    **/
+    * @param  cnstr  May not be {@code null}.
+    */
    public ConstructorSimpleParamSig(Constructor<?> cnstr)  {
       super(cnstr, ObjectOrCrashIfNull.<Constructor>get(cnstr, "cnstr").getParameterTypes());
    }
    /**
       <p>The constructor object.</p>
 
-      @return  <code>(Constructor){@link SimpleParamNameSignature#getMember() getMember}()*</code>
+    * @return  <code>(Constructor){@link SimpleParamNameSignature#getMember() getMember}()*</code>
 
-      @see  #ConstructorSimpleParamSig(Constructor)
-    **/
+    * @see  #ConstructorSimpleParamSig(Constructor)
+    */
    public Constructor<?> getConstructor()  {
       return  (Constructor<?>)getMember();
    }
    /**
-      @return  {@code ""}
-    **/
+    * @return  {@code ""}
+    */
    public String getMethodName()  {
       return  "";
    }

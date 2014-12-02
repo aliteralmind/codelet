@@ -32,15 +32,15 @@ package  com.github.aliteralmind.codelet.type;
 /**
    <p>Reads a {@link com.github.aliteralmind.codelet.CodeletType#FILE_TEXT {@.file.textlet}} taglet and outputs its replacement text.</p>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class FileTextProcessor extends TagletOfTypeProcessor<FileTextTemplate>  {
    /**
       <p>Create a new instance from an {@code CodeletInstance}.</p>
 
-      <p>Equal to <code>{@link com.github.aliteralmind.codelet.TagletOfTypeProcessor#TagletOfTypeProcessor(CodeletType, CodeletInstance) super}(CodeletType.FILE_TEXT, instance)</code>
-    **/
+    * <p>Equal to <code>{@link com.github.aliteralmind.codelet.TagletOfTypeProcessor#TagletOfTypeProcessor(CodeletType, CodeletInstance) super}(CodeletType.FILE_TEXT, instance)</code>
+    */
    public FileTextProcessor(CodeletInstance instance) throws ClassNotFoundException, NoSuchMethodException, NoSuchFileException, AccessDeniedException  {
       super(CodeletType.FILE_TEXT, instance);
 
@@ -204,8 +204,8 @@ public class FileTextProcessor extends TagletOfTypeProcessor<FileTextTemplate>  
          <li>The {@linkplain com.github.aliteralmind.codelet.CodeletType#getDefaultLineProcNamePrefix() default function name prefix} is {@code "getFileTextConfig_"}</li>
       </ul></p>
 
-      @exception  CodeletFormatException  If no function name or underscore-postfix is provided.
-    **/
+    * @exception  CodeletFormatException  If no function name or underscore-postfix is provided.
+    */
    public String getStringSigForFileText()  {
       String sig = getCustomizerPortion();
 

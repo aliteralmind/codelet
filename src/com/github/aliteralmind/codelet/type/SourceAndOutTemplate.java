@@ -21,36 +21,36 @@ package  com.github.aliteralmind.codelet.type;
 /**
    <p>The text into which {@code {@.codelet.and.out}} output (the example-code's console output) is placed.</p>
 
-   <A NAME="gaps"></a><h2><a href="{@docRoot}/com/github/aliteralmind.codelet/CodeletTemplateBase.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: {@code {@.codelet.and.out}}: Template: <u>Gap names</u></h2>
+   <A NAME="gaps"></a><h2><a href="{@docRoot}/com/github/aliteralmind/codelet/CodeletTemplateBase.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: {@code {@.codelet.and.out}}: Template: <u>Gap names</u></h2>
 
    <p>The only required gaps are &quot;{@link #GAP_BODY_SOURCE_CODE body_source_code}&quot; and &quot;{@link #GAP_BODY_CONSOLE_OUTPUT body_console_output}&quot;, which are where the fully-processed source and output are placed.</p>
 
    <p>In addition to any {@linkplain com.github.aliteralmind.codelet.UserExtraGapGetter#getForCodeletAndOut() user-extra} gaps {@code {@.codelet.and.out}} template provides for the same &quot;default&quot; optional gaps as made available in <i>both</i> {@link com.github.aliteralmind.codelet.type.SourceCodeTemplate} and {@link com.github.aliteralmind.codelet.type.SourceAndOutTemplate}.</p>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class SourceAndOutTemplate extends CodeletTemplateBase  {
    /**
       <p>The gap name for the fully processed source-code, which is one of two gaps required to exist in the template--equal to {@code "body_source_code"}.</p>
 
-      @see  <a href="#gaps"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
-      @see  #GAP_BODY_CONSOLE_OUTPUT
-      @see  #fillBodyGap(String, String)
-    **/
+    * @see  <a href="#gaps"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
+    * @see  #GAP_BODY_CONSOLE_OUTPUT
+    * @see  #fillBodyGap(String, String)
+    */
    public static final String GAP_BODY_SOURCE_CODE = "body_source_code";
    /**
       <p>The gap name for the fully processed console output, which is one of two gaps required to exist in the template--equal to {@code "body_console_output"}.</p>
 
-      @see  <a href="#gaps"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
-      @see  #GAP_BODY_SOURCE_CODE
-      @see  #fillBodyGap(String, String)
-    **/
+    * @see  <a href="#gaps"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
+    * @see  #GAP_BODY_SOURCE_CODE
+    * @see  #fillBodyGap(String, String)
+    */
    public static final String GAP_BODY_CONSOLE_OUTPUT = "body_console_output";
    /**
       <p>Create the first instance.</p>
 
-      <p>Equal to</p>
+    * <p>Equal to</p>
 
 <blockquote><pre>
 {@link com.github.aliteralmind.codelet.CodeletTemplateBase#CodeletTemplateBase(CodeletType, FeatherTemplate, String, String[], CodeletGap[], UserExtraGapGetter) super}({@link com.github.aliteralmind.codelet.CodeletType CodeletType}.{@link com.github.aliteralmind.codelet.CodeletType#SOURCE_AND_OUT SOURCE_AND_OUT}, template, tmpl_path
@@ -71,8 +71,8 @@ public class SourceAndOutTemplate extends CodeletTemplateBase  {
    userExtra_getter)
 </pre></blockquote>
 
-      @see  #SourceAndOutTemplate(SourceAndOutTemplate, FeatherTemplate, String)
-    **/
+    * @see  #SourceAndOutTemplate(SourceAndOutTemplate, FeatherTemplate, String)
+    */
    public SourceAndOutTemplate(FeatherTemplate template, String tmpl_path, UserExtraGapGetter userExtra_getter)  {
       super(CodeletType.SOURCE_AND_OUT, template, tmpl_path,
          new String[]{GAP_BODY_SOURCE_CODE, GAP_BODY_CONSOLE_OUTPUT},
@@ -94,12 +94,12 @@ public class SourceAndOutTemplate extends CodeletTemplateBase  {
    /**
       <p>Create the second or subsequent instance.</p>
 
-      <p>Equal to</p>
+    * <p>Equal to</p>
 
 <blockquote><pre>{@link com.github.aliteralmind.codelet.CodeletTemplateBase#CodeletTemplateBase(CodeletTemplateBase, FeatherTemplate, String) super}(to_copy, template, tmpl_path)</pre></blockquote>
 
-      @see  #SourceAndOutTemplate(FeatherTemplate, String, UserExtraGapGetter)
-    **/
+    * @see  #SourceAndOutTemplate(FeatherTemplate, String, UserExtraGapGetter)
+    */
    public SourceAndOutTemplate(SourceAndOutTemplate to_copy, FeatherTemplate template, String tmpl_path)  {
       super(to_copy, template, tmpl_path);
    }
@@ -109,12 +109,12 @@ public class SourceAndOutTemplate extends CodeletTemplateBase  {
    /**
       <p>Fill the fully-processed source-code body gap.</p>
 
-      <p>Equal to</p>
+    * <p>Equal to</p>
 
 <blockquote><pre>{@link com.github.aliteralmind.codelet.CodeletTemplateBase#fillBodyGap(String, String) fillBodyGap}({@link #GAP_BODY_SOURCE_CODE}, body_text)*</pre></blockquote>
 
-      @see  #fillConsoleOutputBody(String)
-    **/
+    * @see  #fillConsoleOutputBody(String)
+    */
    public final SourceAndOutTemplate fillSourceCodeBody(String body_text)  {
       fillBodyGap(GAP_BODY_SOURCE_CODE, body_text);
       return  this;
@@ -122,12 +122,12 @@ public class SourceAndOutTemplate extends CodeletTemplateBase  {
    /**
       <p>Fill the fully-processed console-output body gap.</p>
 
-      <p>Equal to</p>
+    * <p>Equal to</p>
 
 <blockquote><pre>{@link com.github.aliteralmind.codelet.CodeletTemplateBase#fillBodyGap(String, String) fillBodyGap}*({@link #GAP_BODY_CONSOLE_OUTPUT}, body_text)</pre></blockquote>
 
-      @see  #fillSourceCodeBody(String)
-    **/
+    * @see  #fillSourceCodeBody(String)
+    */
    public final SourceAndOutTemplate fillConsoleOutputBody(String body_text)  {
       fillBodyGap(GAP_BODY_CONSOLE_OUTPUT, body_text);
       return  this;
@@ -135,8 +135,8 @@ public class SourceAndOutTemplate extends CodeletTemplateBase  {
    /**
       <p>Duplicate this template.</p>
 
-      @return  <code>(new {@link #SourceAndOutTemplate(SourceAndOutTemplate, Appendable) SourceAndOutTemplate}(this, debugDest_ifNonNull))</code>
-    **/
+    * @return  <code>(new {@link #SourceAndOutTemplate(SourceAndOutTemplate, Appendable) SourceAndOutTemplate}(this, debugDest_ifNonNull))</code>
+    */
    public SourceAndOutTemplate getObjectCopy(Appendable debugDest_ifNonNull)  {
       return  (new SourceAndOutTemplate(this, debugDest_ifNonNull));
    }

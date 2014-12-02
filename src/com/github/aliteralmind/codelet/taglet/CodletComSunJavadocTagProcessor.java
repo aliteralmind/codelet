@@ -24,8 +24,8 @@ package  com.github.aliteralmind.codelet.taglet;
 /**
    <p>The interface between Java {@code com.sun.javadoc.*} and {@code com.github.aliteralmind.codelet.*}. The only dependencies on {@code com.sun.javadoc.*} are in this {@code com.github.aliteralmind.codelet.taglet} package. This is done in the interest of <a href="http://stackoverflow.com/questions/23138806/how-to-make-inline-taglets-which-require-com-sun-more-cross-platform-is-there">minimizing the dependency</a> on {@code com.sun.javadoc}, which is not as cross-platform as Java itself.</p>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public enum CodletComSunJavadocTagProcessor  {
    INSTANCE;
@@ -51,7 +51,7 @@ public enum CodletComSunJavadocTagProcessor  {
 
      	@param  tag  May not be {@code null}.
      	@exception  RuntimeException  If the taglet is not successfully processed, for any reason. Get the causing exception with {@link java.lang.RuntimeException#getCause() getCause}{@code ()}.
-    **/
+    */
    public static final String get(Tag tag)  {
       Doc holder = tag.holder();
       SourcePosition pos = holder.position();

@@ -201,6 +201,21 @@ To do a full build of Codelet:  ant publish</echo>
       </sequential>
    </macrodef>
 
+   <target name="linkchecker"
+            description="Find and log all broken links in the generated JavaDoc. For manual calling only. Tested only on Windows, but the application is cross-platform.">
+      <property name="output_file" value="${dir_build_grandparent}${project_name_with_version}-brokenlinks.txt"/>
+
+      <echo>Writing output to ${output_file}...</echo>
+      <exec executable="${link.checker.install.dir}linkchecker.exe"
+         output="${output_file}">
+      <arg value="--config=${dir_sandbox_bldfiles_other}linkchecker_config.txt"/>
+      <arg value="${dir_build_docs_javadoc}overview-summary.html"/>
+      </exec>
+
+      <echo>Duplicating log to ${dir_build_logs}</echo>
+      <copy file="${output_file}" todir="${dir_build_logs}"/>
+   </target>
+
    <!-- FOR JEFF EPSTEIN'S USE ONLY...start -->
       <import file="${dir_sandbox_ant_subxml}for_jeff_epstein_only.xml"
          optional="true"/>

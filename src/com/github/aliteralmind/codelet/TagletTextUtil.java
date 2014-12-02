@@ -20,17 +20,17 @@ package  com.github.aliteralmind.codelet;
 /**
    <p>Extract and transform elements from the taglet text.</p>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class TagletTextUtil  {
 //	private static final CodeletBaseConfig CONFIG = CodeletBaseConfig.INSTANCE;
    /**
       <p>Get the example code's package name.</p>
 
-      @return  <code>{@link java.lang.Class Class}.{@link java.lang.Class#forName(String) forName}({@link #getExampleClassFQName(CodeletInstance) getExampleClassFQName}(instance)).{@link java.lang.Class#getPackage() getPackage}().{@link java.lang.reflect.Package#getName() getName}()
+    * @return  <code>{@link java.lang.Class Class}.{@link java.lang.Class#forName(String) forName}({@link #getExampleClassFQName(CodeletInstance) getExampleClassFQName}(instance)).{@link java.lang.Class#getPackage() getPackage}().{@link java.lang.reflect.Package#getName() getName}()
       </code>
-    **/
+    */
    public static final String getExamplePackageName(CodeletInstance instance) throws CodeletFormatException  {
       return  ReflectRtxUtil.getClassForName(getExampleClassFQName(instance), "getExampleClassFQName(instance)").
          getPackage().getName();
@@ -38,8 +38,8 @@ public class TagletTextUtil  {
    /**
       <p>Get the example code's non-fully-qualified class name.</p>
 
-      @return  <code>{@link java.lang.Class Class}.{@link java.lang.Class#forName(String) forName}({@link #getExampleClassFQName(CodeletInstance) getExampleClassFQName}(instance)).{@link java.lang.Class#getSimpleName() getSimpleName}()</code>
-    **/
+    * @return  <code>{@link java.lang.Class Class}.{@link java.lang.Class#forName(String) forName}({@link #getExampleClassFQName(CodeletInstance) getExampleClassFQName}(instance)).{@link java.lang.Class#getSimpleName() getSimpleName}()</code>
+    */
    public static final String getExampleSimpleClassName(CodeletInstance instance) throws CodeletFormatException  {
       return  ReflectRtxUtil.getClassForName(getExampleClassFQName(instance), "getExampleClassFQName(instance)").
          getSimpleName();
@@ -47,7 +47,7 @@ public class TagletTextUtil  {
    /**
       <p>The example code's fully-qualified class name.</p>
 
-      @return  If this is a<ol>
+    * @return  If this is a<ol>
          <li>{@link com.github.aliteralmind.codelet.CodeletType#CONSOLE_OUT {@.codelet.out}} or {@link com.github.aliteralmind.codelet.CodeletType#SOURCE_AND_OUT {@.codelet.and.out}} taglet, and command-line parameters<ol>
             <li>are specified: The {@linkplain #getExampleClassOrFilePortionFromTagletText(CodeletInstance) class-portion} of the {@linkplain CodeletInstance#getText() taglet text} before the open parenthesis ({@code '('}). Example:<ol>
                <li>Class-portion: {@code fully.qualified.examples.AnExample("param1", true, 3)}</li>
@@ -57,8 +57,8 @@ public class TagletTextUtil  {
          </ol></li>
          <li>{@link com.github.aliteralmind.codelet.CodeletType#SOURCE_CODE {@.codelet}} or {@link com.github.aliteralmind.codelet.CodeletType#FILE_TEXT {@.codelet.out}} taglet: The entire class-portion</li>
       </ol>
-      @see  #getExampleCommandLineParams(CodeletInstance)
-    **/
+    * @see  #getExampleCommandLineParams(CodeletInstance)
+    */
    public static final String getExampleClassFQName(CodeletInstance instance) throws CodeletFormatException  {
       String clsTxt = getExampleClassOrFilePortionFromTagletText(instance);
       int openParenIdx = clsTxt.indexOf("(");
@@ -69,15 +69,15 @@ public class TagletTextUtil  {
    /**
       <p>The example code's command-line parameters, as used by {@link com.github.aliteralmind.codelet.CodeletType#CONSOLE_OUT {@.codelet.out}} and {@link com.github.aliteralmind.codelet.CodeletType#SOURCE_AND_OUT {@.codelet.and.out}} taglets.</p>
 
-      @return  If this is a {@link com.github.aliteralmind.codelet.CodeletType#CONSOLE_OUT {@.codelet.out}} or {@link com.github.aliteralmind.codelet.CodeletType#SOURCE_AND_OUT {@.codelet.and.out}} taglet, and command-line parameters<ol>
+    * @return  If this is a {@link com.github.aliteralmind.codelet.CodeletType#CONSOLE_OUT {@.codelet.out}} or {@link com.github.aliteralmind.codelet.CodeletType#SOURCE_AND_OUT {@.codelet.and.out}} taglet, and command-line parameters<ol>
          <li>are specified: The {@linkplain #getExampleClassOrFilePortionFromTagletText(CodeletInstance) class-portion} of the {@linkplain CodeletInstance#getText() taglet text} inside--but not including--the parentheses ({@code '('} and {@code ')'}). Example:<ol>
                <li>Class-portion: {@code fully.qualified.examples.AnExample("param1", true, 3)}</li>
                <li>Output: {@code "param1", true, 3}</li>
             </ol></li>
          <li>are not specified: {@code ""}.</li>
       </ol>
-      @see  #getExampleClassFQName(CodeletInstance)
-    **/
+    * @see  #getExampleClassFQName(CodeletInstance)
+    */
    public static final String getExampleCommandLineParams(CodeletInstance instance) throws CodeletFormatException  {
       String clsTxt = getExampleClassOrFilePortionFromTagletText(instance);
       int openParenIdx = clsTxt.indexOf("(");
@@ -89,18 +89,18 @@ public class TagletTextUtil  {
    /**
       <p>The full path to the plain-text file.</p>
 
-      @return  <code>{@link #getExampleClassOrFilePortionFromTagletText(CodeletInstance instance) getExampleClassOrFilePortionFromTagletText}(instance)</code>
-      @see  #getFileNameWithExtension(CodeletInstance)
-      @see  #getFileNameWithoutExtension(CodeletInstance)
-    **/
+    * @return  <code>{@link #getExampleClassOrFilePortionFromTagletText(CodeletInstance instance) getExampleClassOrFilePortionFromTagletText}(instance)</code>
+    * @see  #getFileNameWithExtension(CodeletInstance)
+    * @see  #getFileNameWithoutExtension(CodeletInstance)
+    */
    public static final String getFilePath(CodeletInstance instance)  {
       return  getExampleClassOrFilePortionFromTagletText(instance);
    }
    /**
       <p>The plain-text file name, including its dot-extension (such as {@code ".txt"}), if any.</p>
 
-      @see  #getFileNameWithoutExtension(CodeletInstance)
-    **/
+    * @see  #getFileNameWithoutExtension(CodeletInstance)
+    */
    public static final String getFileNameWithExtension(CodeletInstance instance)  {
       String filePortion = getExampleClassOrFilePortionFromTagletText(instance);
       int idxFileSep = filePortion.indexOf(FILE_SEP);
@@ -110,8 +110,8 @@ public class TagletTextUtil  {
    /**
       <p>The plain-text file name, excluding its dot-extension (such as {@code ".txt"}).</p>
 
-      @see  #getFileNameWithExtension(CodeletInstance)
-    **/
+    * @see  #getFileNameWithExtension(CodeletInstance)
+    */
    public static final String getFileNameWithoutExtension(CodeletInstance instance)  {
       String fileWExt = getFileNameWithExtension(instance);
       int idxDot = fileWExt.indexOf(FILE_SEP);
@@ -130,10 +130,10 @@ public class TagletTextUtil  {
 
       <p>{@code "C:\java_code\fully\qualified\examples\AnExample.java"}</p>
 
-      @return  <code>{@link com.github.aliteralmind.codelet.CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getExampleSourceBaseDir() getExampleSourceBaseDir}() +
+    * @return  <code>{@link com.github.aliteralmind.codelet.CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getExampleSourceBaseDir() getExampleSourceBaseDir}() +
       <br/> &nbsp; &nbsp; {@link #getExampleClassFQName(CodeletInstance) getExampleClassFQName}(instance).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, {@link com.github.xbn.lang.XbnConstants#FILE_SEP FILE_SEP}*) +
       <br/> &nbsp; &nbsp; &quot;.java&quot;</code>
-    **/
+    */
    public static final String getJavaSourceFilePath(CodeletInstance instance)  {
       return  getExampleSourceBaseDir() +
          getExampleClassFQName(instance).replace(".", FILE_SEP) +
@@ -154,11 +154,11 @@ public class TagletTextUtil  {
 
       <p><code>{@link #getJavaDocSourceUrl(CodeletInstance) getJavaDocSourceUrl}(<i>[the-instance]</i>)</code></p>
 
-      @return  <code>&quot;{@docRoot}/src-html/&quot; +
+    * @return  <code>&quot;{@docRoot}/src-html/&quot; +
       <br/> &nbsp; &nbsp; {@link #getExampleClassFQName(CodeletInstance) getExampleClassFQName}(instance).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, &quot;/&quot;) +
       <br/> &nbsp; &nbsp; &quot;.html&quot;</code>
-      @see  #getJavaDocExampleUrl(CodeletInstance)
-    **/
+    * @see  #getJavaDocExampleUrl(CodeletInstance)
+    */
    public static final String getJavaDocSourceUrl(CodeletInstance instance)  {
       return  "{@docRoot}/src-html/" +
          getExampleClassFQName(instance).replace(".", "/") +
@@ -184,11 +184,11 @@ public class TagletTextUtil  {
 
       <p><code>{@link #getJavaDocSourceUrl(CodeletInstance) getJavaDocSourceUrl}(<i>[the-instance]</i>)</code></p>
 
-      @return  <code>&quot;{@docRoot}&quot; +
+    * @return  <code>&quot;{@docRoot}&quot; +
       <br/> &nbsp; &nbsp; {@link #getExampleClassFQName(CodeletInstance) getExampleClassFQName}(instance).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, &quot;/&quot;) +
       <br/> &nbsp; &nbsp; &quot;.html&quot;</code>
-      @see  #getJavaDocSourceUrl(CodeletInstance)
-    **/
+    * @see  #getJavaDocSourceUrl(CodeletInstance)
+    */
    public static final String getJavaDocExampleUrl(CodeletInstance instance)  {
       return  "{@docRoot}" +
          getExampleClassFQName(instance).replace(".", "/") +
@@ -197,24 +197,24 @@ public class TagletTextUtil  {
    /**
       <p>The example-class or plain-text-file portion of the taglet text.</p>
 
-      @return  <code>{@link #getTagletTextSplitOnLineProcDelim(CodeletInstance) getTagletTextSplitOnLineProcDelim}(instance)[0]</code>
-    **/
+    * @return  <code>{@link #getTagletTextSplitOnLineProcDelim(CodeletInstance) getTagletTextSplitOnLineProcDelim}(instance)[0]</code>
+    */
    public static final String getExampleClassOrFilePortionFromTagletText(CodeletInstance instance) throws CodeletFormatException  {
       return  getTagletTextSplitOnLineProcDelim(instance)[0];
    }
    /**
       <p>The class-or-plain-text-file portion of the taglet text, split on the customizer delimiter character.</p>
 
-      @param  instance  May not be {@code null}
-      @return  If there is no line-proc (no delimiter char): A one element string array containing the class/file portion. Otherwise a two-element array, where element index one is the customizer portion.
-      @exception  CodeletFormatException  If<ol>
+    * @param  instance  May not be {@code null}
+    * @return  If there is no line-proc (no delimiter char): A one element string array containing the class/file portion. Otherwise a two-element array, where element index one is the customizer portion.
+    * @exception  CodeletFormatException  If<ol>
          <li>More than one customizer character is found. For including literal delimiters in string parameters, use <code>{@link com.github.aliteralmind.codelet.CodeletInstance CodeletInstance}.{@link com.github.aliteralmind.codelet.CodeletInstance CodeletInstance#ESCAPED_CUSTOMIZER_PREFIX_CHAR ESCAPED_CUSTOMIZER_PREFIX_CHAR}</code>.</li>
          <li>Either portion (class/file or line-proc) contains no characters.</li>
       </ol>
-      @see  com.github.aliteralmind.codelet.CodeletInstance#getText()
-      @see  #getExampleClassOrFilePortionFromTagletText(CodeletInstance)
-      @see  com.github.aliteralmind.codelet.CodeletInstance#CUSTOMIZER_PREFIX_CHAR CodeletInstance#CUSTOMIZER_PREFIX_CHAR
-    **/
+    * @see  com.github.aliteralmind.codelet.CodeletInstance#getText()
+    * @see  #getExampleClassOrFilePortionFromTagletText(CodeletInstance)
+    * @see  com.github.aliteralmind.codelet.CodeletInstance#CUSTOMIZER_PREFIX_CHAR CodeletInstance#CUSTOMIZER_PREFIX_CHAR
+    */
    public static final String[] getTagletTextSplitOnLineProcDelim(CodeletInstance instance) throws CodeletFormatException  {
       String[] rawObjectProcStrs = null;
       try  {

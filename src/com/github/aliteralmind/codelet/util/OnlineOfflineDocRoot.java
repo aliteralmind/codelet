@@ -39,8 +39,8 @@ package  com.github.aliteralmind.codelet.util;
 /**
    <p>Represents the <a href="http://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html#linkpackagelist">{@code package-list}</a> for a single external Java library, including a duplicate offline file that is automatically updated from it.</p>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class OnlineOfflineDocRoot extends SimpleNamed  {
    private final String urlDir;
@@ -49,20 +49,20 @@ public class OnlineOfflineDocRoot extends SimpleNamed  {
    /**
       <p>Create a new instance from a url, offline path, and package list.</p>
 
-      @param  name  Descriptive name of the external library. May not be {@code null} or empty, and must contain only letters, digits, and underscores. Get with {@link com.github.xbn.keyed.SimpleNamed#getName() getName}{@code ()}*
-      @param  url_toDocRoot  The url directory in which the <a href="http://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html#linkpackagelist">{@code package-list}</a> file exists. <i>Should</i> be a valid url and end with a slash ({@code '/'}). Get with {@link #getUrlDir() getUrlDir}{@code ()}.
-      @param  offline_path  The full path of the offline duplicate of the {@code package-list} file. <i>Should</i> be a valid represent a text file that is both readable and writable. Get with {@link #getPath() getPath}{@code ()}
-      @param  package_list  The list of packages in the external library, as found in {@code package-list}. May not be {@code null}, empty, and its elements may not be {@code null}, empty, or duplicate. Get (a duplicate of this list) with {@link #getPackageList() getPackageList}{@code ()}.
-      @see  #newFromOnline(String, String, String, int, long, IfError, RefreshOffline, Appendable, Appendable) newFromOnline
-      @see  #newFromOffline(String, String, String, Appendable, Appendable) newFromOffline
-    **/
+    * @param  name  Descriptive name of the external library. May not be {@code null} or empty, and must contain only letters, digits, and underscores. Get with {@link com.github.xbn.keyed.SimpleNamed#getName() getName}{@code ()}*
+    * @param  url_toDocRoot  The url directory in which the <a href="http://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html#linkpackagelist">{@code package-list}</a> file exists. <i>Should</i> be a valid url and end with a slash ({@code '/'}). Get with {@link #getUrlDir() getUrlDir}{@code ()}.
+    * @param  offline_path  The full path of the offline duplicate of the {@code package-list} file. <i>Should</i> be a valid represent a text file that is both readable and writable. Get with {@link #getPath() getPath}{@code ()}
+    * @param  package_list  The list of packages in the external library, as found in {@code package-list}. May not be {@code null}, empty, and its elements may not be {@code null}, empty, or duplicate. Get (a duplicate of this list) with {@link #getPackageList() getPackageList}{@code ()}.
+    * @see  #newFromOnline(String, String, String, int, long, IfError, RefreshOffline, Appendable, Appendable) newFromOnline
+    * @see  #newFromOffline(String, String, String, Appendable, Appendable) newFromOffline
+    */
    public OnlineOfflineDocRoot(String name, String url_toDocRoot, String offline_path, List<String> package_list)  {
       this(false, name, url_toDocRoot, offline_path, package_list);
       CrashIfList.bad(package_list, "package_list", NullContainer.BAD, 1, null, NullElement.BAD, 1, null, Duplicates.BAD);
    }
       /**
          <p>Avoids calling CrashIfList.bad when this OnlineOfflineDocRoot is internally created.</p>
-       **/
+       */
       private OnlineOfflineDocRoot(boolean ignored, String name, String url_toDocRoot, String offline_path, List<String> package_list)  {
          super(name);
          CrashIfString.nullEmpty(url_toDocRoot, "url_toDocRoot", null);
@@ -78,24 +78,24 @@ public class OnlineOfflineDocRoot extends SimpleNamed  {
    /**
       <p>Url of the directory in which the {@code package-list} file exists.</p>
 
-      @return  A non-{@code null} url, ending with a slash ({@code '/'}).
-      @see  #getPath()
-    **/
+    * @return  A non-{@code null} url, ending with a slash ({@code '/'}).
+    * @see  #getPath()
+    */
    public String getUrlDir()  {
       return  urlDir;
    }
    /**
       <p>Full path to the offline duplicate of the {@code package-list} file.</p>
 
-      @return  A non-{@code null} path, including the file-name.
-      @see  #getUrlDir()
-    **/
+    * @return  A non-{@code null} path, including the file-name.
+    * @see  #getUrlDir()
+    */
    public String getPath()  {
       return  path;
    }
    /**
       <p>An immutable list of all package names.</p>
-    **/
+    */
    public List<String> getPackageList()  {
       return  pkgList;
    }
@@ -104,14 +104,14 @@ public class OnlineOfflineDocRoot extends SimpleNamed  {
 
       <p>This overwrites the current {@linkplain #getPath() offline file} with the contents of the {@linkplain #getPackageList() package list}.</p>
 
-      @param  debug_ifNonNull  If non-{@code null}, the destination for progress debugging.
-      @param  dbgError_ifNonNull  If non-{@code null}, the destination for the error debugging. If {@code if_error.WARN}, this parameter may not be {@code null}.
-      @exception  RTFileNotFoundException  If a {@link java.io.FileNotFoundException FileNotFoundException} is thrown when trying to open the file. The original exception (for this and all exceptions thrown by this function) is accessible with {@link java.lang.Throwable#getCause() getCause}{@code ()}.
-      @exception  RTIOException  If an {@link java.io.IOException IOException} is thrown when trying to open the file.
-      @exception  SecurityException  If the file is not writable.
-      @exception  RuntimeException  If the file is successfully opened, but cannot be written to.
-      @see  #getPackageList()
-    **/
+    * @param  debug_ifNonNull  If non-{@code null}, the destination for progress debugging.
+    * @param  dbgError_ifNonNull  If non-{@code null}, the destination for the error debugging. If {@code if_error.WARN}, this parameter may not be {@code null}.
+    * @exception  RTFileNotFoundException  If a {@link java.io.FileNotFoundException FileNotFoundException} is thrown when trying to open the file. The original exception (for this and all exceptions thrown by this function) is accessible with {@link java.lang.Throwable#getCause() getCause}{@code ()}.
+    * @exception  RTIOException  If an {@link java.io.IOException IOException} is thrown when trying to open the file.
+    * @exception  SecurityException  If the file is not writable.
+    * @exception  RuntimeException  If the file is successfully opened, but cannot be written to.
+    * @see  #getPackageList()
+    */
    public void refreshOffline(Appendable debug_ifNonNull, Appendable dbgError_ifNonNull)  {
       PrintWriter pw = null;
 
@@ -131,15 +131,15 @@ public class OnlineOfflineDocRoot extends SimpleNamed  {
       }
    }
    /**
-      @return  <code>{@link #appendToString(StringBuilder) appendToString}(new StringBuilder()).toString()</code>
-    **/
+    * @return  <code>{@link #appendToString(StringBuilder) appendToString}(new StringBuilder()).toString()</code>
+    */
    public String toString()  {
       return  appendToString(new StringBuilder()).toString();
    }
    /**
-      @param  to_appendTo May not be {@code null}.
-      @see  #toString()
-    **/
+    * @param  to_appendTo May not be {@code null}.
+    * @see  #toString()
+    */
    public StringBuilder appendToString(StringBuilder to_appendTo)  {
       try  {
          to_appendTo.append(getName()).append("(").
@@ -157,16 +157,16 @@ public class OnlineOfflineDocRoot extends SimpleNamed  {
    /**
       <p>Create a new instance from an online {@code package-list}.</p>
 
-      @param  refresh_offline  If {@link com.github.aliteralmind.codelet.util.RefreshOffline#YES YES}, then this ends by calling
+    * @param  refresh_offline  If {@link com.github.aliteralmind.codelet.util.RefreshOffline#YES YES}, then this ends by calling
       <br/> &nbsp; &nbsp; <code><i>[the-new-OnlineOfflineDocRoot]</i>.{@link #refreshOffline(Appendable, Appendable) refreshOffline}(debug_ifNonNull, dbgError_ifNonNull)</code>
       <br/>This parameter may not be {@code null}.
-      @return  <code>new {@link #OnlineOfflineDocRoot(String, String, String, List) OnlineOfflineDocRoot}(url_toDocRoot, offline_path,
+    * @return  <code>new {@link #OnlineOfflineDocRoot(String, String, String, List) OnlineOfflineDocRoot}(url_toDocRoot, offline_path,
       <br/> &nbsp; &nbsp; {@link #newPackageListFromOnline(String, int, long, IfError, Appendable, Appendable) newPackageListFromOnline}(offline_path,
       <br/> &nbsp; &nbsp; &nbsp; &nbsp; error_attemptCount, error_sleepMills, if_error, debug_ifNonNull, dbgError_ifNonNull))</code>
       <br/>If the package list cannot be retrieved, and {@code if_error.}{@code com.github.xbn.util.IfError#WARN WARN}, this returns {@code null}.
       <br/> &nbsp; &nbsp;
-      @see  #newFromOffline(String, String, String, Appendable, Appendable) newFromOffline
-    **/
+    * @see  #newFromOffline(String, String, String, Appendable, Appendable) newFromOffline
+    */
    public static final OnlineOfflineDocRoot newFromOnline(String name, String url_toDocRoot, String offline_path, int error_attemptCount, long error_sleepMills, IfError if_error, RefreshOffline refresh_offline, Appendable debug_ifNonNull, Appendable dbgError_ifNonNull)  throws InterruptedException  {
       List<String> pkgList = newPackageListFromOnline(url_toDocRoot,
          error_attemptCount, error_sleepMills, if_error, debug_ifNonNull, dbgError_ifNonNull);
@@ -187,10 +187,10 @@ public class OnlineOfflineDocRoot extends SimpleNamed  {
    /**
       <p>Create a new instance from an offline {@code package-list}.</p>
 
-      @return  <code>new {@link #OnlineOfflineDocRoot(String, String, String, List) OnlineOfflineDocRoot}(url_toDocRoot, offline_path,
+    * @return  <code>new {@link #OnlineOfflineDocRoot(String, String, String, List) OnlineOfflineDocRoot}(url_toDocRoot, offline_path,
       <br/> &nbsp; &nbsp; {@link #newPackageListFromOffline(String, Appendable, Appendable) newPackageListFromOnline}(offline_path, if_error, debug_ifNonNull, dbgError_ifNonNull))</code>
-      @see  #newFromOnline(String, String, String, int, long, IfError, RefreshOffline, Appendable, Appendable) newFromOnline
-    **/
+    * @see  #newFromOnline(String, String, String, int, long, IfError, RefreshOffline, Appendable, Appendable) newFromOnline
+    */
    public static final OnlineOfflineDocRoot newFromOffline(String name, String url_toDocRoot, String offline_path, Appendable debug_ifNonNull, Appendable dbgError_ifNonNull)  {
       return  new OnlineOfflineDocRoot(false, name, url_toDocRoot, offline_path,
          newPackageListFromOffline(offline_path, debug_ifNonNull, dbgError_ifNonNull));
@@ -198,13 +198,13 @@ public class OnlineOfflineDocRoot extends SimpleNamed  {
    /**
       <p>Create a package list from an offline {@code package-list} file.</p>
 
-      @param  pkgList_path  The full path to the local package-list file. Must represent a file that is  readable and writable (writability is not verified until the offline file is {@link #refreshOffline(Appendable, Appendable) refreshed}), and a valid <a href="http://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html#linkpackagelist">{@code package-list}</a>.
-      @param  debug_ifNonNull  If non-{@code null}, the destination for progress debugging.
-      @param  dbgError_ifNonNull  If non-{@code null}, the destination for the error debugging.
-      @exception  RuntimeException  If opening or reading the file fails. The original exception is accessible with {@link java.lang.Throwable#getCause() getCause}{@code ()}.
-      @see  #newFromOffline(String, String, String, Appendable, Appendable) newFromOffline
-      @see  #newPackageListFromOnline(String, int, long, IfError, Appendable, Appendable) newPackageListFromOnline
-    **/
+    * @param  pkgList_path  The full path to the local package-list file. Must represent a file that is  readable and writable (writability is not verified until the offline file is {@link #refreshOffline(Appendable, Appendable) refreshed}), and a valid <a href="http://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html#linkpackagelist">{@code package-list}</a>.
+    * @param  debug_ifNonNull  If non-{@code null}, the destination for progress debugging.
+    * @param  dbgError_ifNonNull  If non-{@code null}, the destination for the error debugging.
+    * @exception  RuntimeException  If opening or reading the file fails. The original exception is accessible with {@link java.lang.Throwable#getCause() getCause}{@code ()}.
+    * @see  #newFromOffline(String, String, String, Appendable, Appendable) newFromOffline
+    * @see  #newPackageListFromOnline(String, int, long, IfError, Appendable, Appendable) newPackageListFromOnline
+    */
    public static final List<String> newPackageListFromOffline(String pkgList_path, Appendable debug_ifNonNull, Appendable dbgError_ifNonNull)  {
       if(debug_ifNonNull != null)  {
          NewTextAppenterFor.appendable(debug_ifNonNull).
@@ -232,20 +232,20 @@ public class OnlineOfflineDocRoot extends SimpleNamed  {
    /**
       <p>Create a package list from an online {@code package-list}.</p>
 
-      @param  url_toDocRoot  The url directory in which a valid <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/solaris/javadoc.html#package-list">{@code package-list}</a> file exists. Must end with a slash ({@code '/'}).
-      @param  error_attemptCount  The number of attempts to make when retrieving the {@code package-list} fails. May not be less than one.
-      @param  error_sleepMills  The number of milliseconds to {@linkplain java.lang.Thread#sleep(long) sleep} between each attempt. May not be less than zero.
-      @param  if_error  If {@link com.github.xbn.util.IfError#WARN WARN} then, after all attempts fail, the error is logged to {@code dbgError_ifNonNull}. If {@link com.github.xbn.util.IfError#CRASH CRASH} a {@code RuntimeException} is also thrown. This parameter may not be {@code null}.
-      @param  dbgError_ifNonNull  The destination for the error-warning message. If {@code if_error.WARN}, may not be {@code null}.
-      @return  If the {@code package-list}<ul>
+    * @param  url_toDocRoot  The url directory in which a valid <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/solaris/javadoc.html#package-list">{@code package-list}</a> file exists. Must end with a slash ({@code '/'}).
+    * @param  error_attemptCount  The number of attempts to make when retrieving the {@code package-list} fails. May not be less than one.
+    * @param  error_sleepMills  The number of milliseconds to {@linkplain java.lang.Thread#sleep(long) sleep} between each attempt. May not be less than zero.
+    * @param  if_error  If {@link com.github.xbn.util.IfError#WARN WARN} then, after all attempts fail, the error is logged to {@code dbgError_ifNonNull}. If {@link com.github.xbn.util.IfError#CRASH CRASH} a {@code RuntimeException} is also thrown. This parameter may not be {@code null}.
+    * @param  dbgError_ifNonNull  The destination for the error-warning message. If {@code if_error.WARN}, may not be {@code null}.
+    * @return  If the {@code package-list}<ul>
          <li>Was successfully retrieved: A non-{@code null} list containing all its packages.</li>
          <li>Could not be retrieved and {@code if_error.WARN}: {@code null}</li>
       </ul>
-      @exception  RuntimeException  If any error occurs when retrieving the {@code package-list}. The causing error is accessible with {@link java.lang.Throwable#getCause() getCause}{@code ()}.
-      @exception  RTIOException  If using {@code dbgError_ifNonNull} fails.
-      @see  #newFromOnline(String, String, String, int, long, IfError, RefreshOffline, Appendable, Appendable) newFromOnline
-      @see  #newPackageListFromOffline(String, Appendable, Appendable) newPackageListFromOffline
-    **/
+    * @exception  RuntimeException  If any error occurs when retrieving the {@code package-list}. The causing error is accessible with {@link java.lang.Throwable#getCause() getCause}{@code ()}.
+    * @exception  RTIOException  If using {@code dbgError_ifNonNull} fails.
+    * @see  #newFromOnline(String, String, String, int, long, IfError, RefreshOffline, Appendable, Appendable) newFromOnline
+    * @see  #newPackageListFromOffline(String, Appendable, Appendable) newPackageListFromOffline
+    */
    public static final List<String> newPackageListFromOnline(String url_toDocRoot, int error_attemptCount, long error_sleepMills, IfError if_error, Appendable debug_ifNonNull, Appendable dbgError_ifNonNull)  throws InterruptedException  {
       TextAppenter dbgAptr = NewTextAppenterFor.appendableUnusableIfNull(debug_ifNonNull);
       TextAppenter dbgErrAptr = null;

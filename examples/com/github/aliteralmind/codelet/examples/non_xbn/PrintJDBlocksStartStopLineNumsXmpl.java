@@ -27,16 +27,16 @@ package  com.github.aliteralmind.codelet.examples.non_xbn;
    <p><code>java com.github.codelet.examples.non_xbn.PrintJDBlocksStartStopLineNumsXmpl xbnjava\xbn\examples\<!--escape-u is illegal-->util\PrintJDBlocksStartStopLineNumsXmpl.java</code></p>
 
    <p>Self-answered question on stackoverflow.com
-   <br/> &nbsp; &nbsp; <code><a href="http://stackoverflow.com/questions/21312336/how-to-detect-each-javadoc-block-start-and-end-line-in-a-source-code-file-self">http://stackoverflow.com/questions/21312336/how-to-detect-each-javadoc-block-start-and-end-line-in-a-source-code-file-self</a></code></p>
+   <br/> &nbsp; &nbsp; <code><a href="http://stackoverflow.com/questions/21312336/how-to-detect-each-javadoc-block-start-and-end-line-in-a-source-code-file">http://stackoverflow.com/questions/21312336/how-to-detect-each-javadoc-block-start-and-end-line-in-a-source-code-file</a></code></p>
 
-   @see  com.github.xbn.examples.text.line.FindJavaDocBlocksAndSLCmtsXmpl
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
+ * @see  com.github.xbn.examples.text.line.FindJavaDocBlocksAndSLCmtsXmpl
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
  **/
 public class PrintJDBlocksStartStopLineNumsXmpl  {
    /**
       <p>The main function.</p>
-    **/
+    */
    public static final void main(String[] as_1RqdJavaSourcePath)  {
 
       //Read command-line parameter
@@ -79,7 +79,7 @@ public class PrintJDBlocksStartStopLineNumsXmpl  {
    }
    /**
       <p>Another one</p>
-    **/
+    */
    private static final void oneMoreForGoodMeasure()  {
    }
 }
