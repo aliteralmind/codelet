@@ -17,7 +17,7 @@ package  com.github.aliteralmind.codelet.simplesig;
    <p>Should the constructor list be immutable?.</p>
 
  * @see  AllSimpleParamSignatures#newConstructorList(Class, Declared, Sorted) AllSimpleParamSignatures#newConstructorList
- * @author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <code><a href="http://codelet.aliteralmind.com">http://codelet.aliteralmind.com</a></code>, <code><a href="https://github.com/aliteramind/codelet">https://github.com/aliteramind/codelet</a></code>
+ * @author  Copyright (C) 2014, Jeff Epstein, dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <code><a href="http://codelet.aliteralmind.com">http://codelet.aliteralmind.com</a></code>, <code><a href="https://github.com/aliteralmind/codelet">https://github.com/aliteralmind/codelet</a></code>
  **/
 public enum Immutable  {
    /**

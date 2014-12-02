@@ -85,18 +85,18 @@ WARNING: There is a single exception thrown in the about-to-be-run JavaDoc comma
       <replace dir="${dir_build_docs_javadoc}" summary="yes"
          token="${jd_project_codelet_config_dir}" value="${codelet.config.dir}"/>
 
-      <replace dir="${dir_build_docs_javadoc}">
+<!-- 		<replace dir="${dir_build_docs_javadoc}">
         <include name="**/*.html"/>
         <replacetoken><![CDATA[</head>]]></replacetoken>
         <replacevalue><![CDATA[<meta name="viewport" content="width=device-width"/>
-<!-- Required for syntax highlighting (1/2)...START -->
+<!- - Required for syntax highlighting (1/2)...START - ->
    <script type="text/javascript" src="@__relative_url_to_doc_root__@resources/shCore.js"></script>
    <link href="@__relative_url_to_doc_root__@resources/shCore.css" rel="stylesheet" type="text/css"/>
    <link href="@__relative_url_to_doc_root__@resources/shThemeDefault.css" rel="stylesheet" type="text/css"/>
    <script type="text/javascript" src="@__relative_url_to_doc_root__@resources/shBrushJava.js"></script>
-<!-- Required for syntax highlighting (1/2)...END -->
+<!- - Required for syntax highlighting (1/2)...END - ->
 </HEAD>]]></replacevalue>
-      </replace>
+      </replace> -->
 
 </target>
 <target name="doc2" description="Generates javadoc documentation.">
@@ -108,19 +108,19 @@ WARNING: There is a single exception thrown in the about-to-be-run JavaDoc comma
          <arg value="debugminimal"/>
       </java>
 
-      <antcall target="-replace_all_javadoc_headers"/>
+      <!-- <antcall target="-replace_all_javadoc_headers"/> -->
 
-      <replace dir="${dir_build_docs_javadoc}" summary="yes">
+<!-- 		<replace dir="${dir_build_docs_javadoc}" summary="yes">
          <include name="**/*.html"/>
          <replacetoken><![CDATA[</body>]]></replacetoken>
-         <replacevalue><![CDATA[<!-- Required for syntax highlighting (2/2)...START -->
+         <replacevalue><![CDATA[<!- - Required for syntax highlighting (2/2)...START - ->
 <script type="text/javascript">
      SyntaxHighlighter.all();
 </script>
-<!-- Required for syntax highlighting (2/2)...END -->
+<!- - Required for syntax highlighting (2/2)...END - ->
 </body>]]></replacevalue>
       </replace>
-   </target>
+ -->	</target>
 </project>
 
 

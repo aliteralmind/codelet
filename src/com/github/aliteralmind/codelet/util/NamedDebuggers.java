@@ -104,7 +104,7 @@ public class NamedDebuggers  {
          <li>{@code null}: {@code false}</li>
          <li><code>{@link com.github.xbn.io.DebugLevel#OFF OFF}</code>: {@code true}</li>
       </ul>Otherwise:
-      <br/> &nbsp; &nbsp; <code>(getMap}().get(name).<!-- GENERIC PARAMETERS FAIL IN @link --><a href="http://docs.oracle.com/javase/7/docs/apijava/lang/Comparable.html#compareTo(T)">compareTo</a>(actualLevel) &lt;= 0)</code>
+      <br/> &nbsp; &nbsp; <code>(getMap}().get(name).<!-- GENERIC PARAMETERS FAIL IN @link --><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html#compareTo(T)">compareTo</a>(actualLevel) &lt;= 0)</code>
       <br/>Where {@code actualLevel} is equal to
       <br/> &nbsp; &nbsp; <code>actual_level1.{@link com.github.xbn.io.DebugLevel#getHighestLevel(DebugLevel...) getHighestLevel}(actualLevels_2AndUp)</code>
     * @exception  NoSuchElementException  If <code>{@link #getMap() getMap}().{@link java.util.Map#containsKey(Object)}(name)</code> is {@code false}.

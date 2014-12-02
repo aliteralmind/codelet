@@ -103,7 +103,7 @@ To do a full build of Codelet:  ant publish</echo>
    <import file="${dir_sandbox_ant_subxml}compile_proper.xml"/>
    <import file="${dir_sandbox_ant_subxml}compile_tests.xml"/>
    <import file="${dir_sandbox_ant_subxml}javadoc.xml"/>
-   <import file="${dir_sandbox_ant_subxml}javadoc_replace_headers_in_one_dir.xml"/>
+   <!-- <import file="${dir_sandbox_ant_subxml}javadoc_replace_headers_in_one_dir.xml"/> -->
    <import file="${dir_sandbox_ant_subxml}refresh.xml"/>
    <import file="${dir_sandbox_ant_subxml}zip.xml"/>
 
