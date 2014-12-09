@@ -2,7 +2,7 @@
 ### Documentation: CodeletBootstrap#EXTERNAL_DOC_ROOT_URL_FILE
 ###
 templatefeather     http://aliteralmind.com/docs/computer/programming/templatefeather/templatefeather-0.1.1.2/documentation/javadoc/
-xbnjava             http://aliteralmind.com/docs/computer/programming/xbnjava/xbnjava-0.1.4.2/documentation/javadoc/
+xbnjava             http://aliteralmind.com/docs/computer/programming/xbnjava/xbnjava-0.1.5/documentation/javadoc/
 commons_collections http://commons.apache.org/proper/commons-collections/javadocs/api-release/
 commons_io          http://commons.apache.org/proper/commons-io/javadocs/api-2.4/
 commons_lang        http://commons.apache.org/proper/commons-lang/javadocs/api-release/
