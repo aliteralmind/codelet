@@ -30,6 +30,7 @@ com.github.xbn.examples.text
 com.github.xbn.examples.text.padchop
 com.github.xbn.examples.util
 com.github.xbn.examples.util.itr
+com.github.xbn.examples.util.matrix
 com.github.xbn.examples.util.non_xbn
 com.github.xbn.examples.util.tuple
 com.github.xbn.experimental
@@ -67,4 +68,5 @@ com.github.xbn.util
 com.github.xbn.util.copyval
 com.github.xbn.util.itr
 com.github.xbn.util.lock
+com.github.xbn.util.matrix
 com.github.xbn.util.tuple

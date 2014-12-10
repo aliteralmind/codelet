@@ -1,0 +1,163 @@
+<!--
+   The original version of this file is z_build/pom_source_file.xml. It is unusable in z_build. It contains the following variables, which are transformed to the proper values by "ant pubpostcodelet" (shortcut "poc") (which also copies this file to the sandbox root directory and names it "pom.xml").
+
+   project_version_number
+   project_build_dir
+   templatefeather_project_version
+
+   This can be manually done at any time with "ant preppoms" (shortcut "ant pp").
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>com.github.aliteralmind</groupId>
+   <artifactId>codelet</artifactId>
+   <packaging>pom</packaging>
+   <version>0.1.4.1</version>
+   <name>Codelet</name>
+   <url>https://github.com/aliteralmind/codelet</url>
+   <inceptionYear>2014</inceptionYear>
+   <organization>
+      <name>Jeff Epstein</name>
+   </organization>
+   <description>**Codelet**: Automated insertion of *already unit-tested* example code (its source code, console output, and input text-files) into JavaDoc using inline taglets--Codelet makes it possible to have *always accurate documentation*.</description>
+
+   <licenses>
+      <license>
+         <name>Lesser General Public License (LGPL) version 3.0</name>
+         <url>https://www.gnu.org/licenses/lgpl-3.0.txt</url>
+      </license>
+      <license>
+         <name>Apache Software License (ASL) version 2.0</name>
+         <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      </license>
+   </licenses>
+
+   <developers>
+      <developer>
+         <name>Jeff Epstein</name>
+         <email>aliteralmind-github@yahoo.com</email>
+         <roles>
+            <role>Lead Developer</role>
+         </roles>
+      </developer>
+   </developers>
+
+   <issueManagement>
+      <system>GitHub Issue Tracker</system>
+      <url>https://github.com/aliteralmind/codelet/issues</url>
+   </issueManagement>
+
+   <distributionManagement>
+     <snapshotRepository>
+       <id>ossrh</id>
+       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+     </snapshotRepository>
+     <repository>
+       <id>ossrh</id>
+       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+     </repository>
+   </distributionManagement>
+
+   <scm>
+      <connection>scm:git:git@github.com:aliteralmind/codelet.git</connection>
+      <url>scm:git:git@github.com:aliteralmind/codelet.git</url>
+      <developerConnection>scm:git:git@github.com:aliteralmind/codelet.git</developerConnection>
+   </scm>
+
+   <properties>
+      <java.version>1.7</java.version>
+      <jarprefix>C:/data_jeffy/code/java/xbn/build/codelet-0.1.4.1/${project.artifactId}-${project.version}/download/${project.artifactId}-${project.version}</jarprefix>
+   </properties>
+
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.codehaus.mojo</groupId>
+                  <artifactId>build-helper-maven-plugin</artifactId>
+                  <version>1.8</version>
+                  <executions>
+                     <execution>
+                        <id>attach-artifacts</id>
+                        <phase>package</phase>
+                        <goals>
+                           <goal>attach-artifact</goal>
+                        </goals>
+                        <configuration>
+                           <artifacts>
+                              <artifact>
+                                 <file>${jarprefix}.jar</file>
+                                 <type>jar</type>
+                              </artifact>
+                              <artifact>
+                                 <file>${jarprefix}-javadoc.jar</file>
+                                 <type>jar</type>
+                                 <classifier>javadoc</classifier>
+                              </artifact>
+                              <artifact>
+                                 <file>${jarprefix}-sources.jar</file>
+                                 <type>jar</type>
+                                 <classifier>sources</classifier>
+                              </artifact>
+                           </artifacts>
+                        </configuration>
+                     </execution>
+                  </executions>
+               </plugin>
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-gpg-plugin</artifactId>
+                  <version>1.5</version>
+                  <executions>
+                     <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                           <goal>sign</goal>
+                        </goals>
+                     </execution>
+                  </executions>
+               </plugin>
+            </plugins>
+         </build>
+
+   <profiles>
+      <!--
+      This profile will sign the JAR file, sources file, and javadocs file using the GPG key on the local machine.
+      See: https://docs.sonatype.org/display/Repository/How+To+Generate+PGP+Signatures+With+Maven
+      <profile>
+         <id>release-sign-artifacts</id>
+         <activation>
+            <property>
+               <name>release</name>
+               <value>true</value>
+            </property>
+         </activation>
+      </profile>
+      -->
+      <profile>
+         <id>default-tools.jar</id>
+         <activation>
+            <property>
+               <name>java.vendor</name>
+               <value>Sun Microsystems Inc.</value>
+            </property>
+         </activation>
+         <dependencies>
+            <dependency>
+               <groupId>com.sun</groupId>
+               <artifactId>tools</artifactId>
+               <version>1.4.2</version>
+               <systemPath>${java.home}/../lib/tools.jar</systemPath>
+            </dependency>
+         </dependencies>
+      </profile>
+   </profiles>
+
+   <dependencies>
+      <dependency>
+         <groupId>com.github.aliteralmind</groupId>
+         <artifactId>templatefeather</artifactId>
+         <version>0.1.1.2</version>
+      </dependency>
+   </dependencies>
+</project>
