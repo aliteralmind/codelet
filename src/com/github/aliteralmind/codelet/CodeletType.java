@@ -27,7 +27,7 @@ public enum CodeletType  {
       <p>This sets<ol>
          <li>{@link #getName() getName}{@code ()} to {@code ".codelet"}</li>
          <li>{@link #getDefaultLineProcNamePrefix() getDefaultLineProcNamePrefix}{@code ()} to {@code "getSourceConfig_"}</li>
-      </ol></p>
+      </ol>
 
       <h3>{@code {@.codelet}}: Format</h3>
 
@@ -40,8 +40,8 @@ public enum CodeletType  {
 <blockquote>{@code {@.codelet fully.qualified.examples.ExampleClassName}}</blockquote>
 
       <p>Prints out all lines in (assuming Windows)
-      <br/> &nbsp; &nbsp; {@code fully\qualified\examples\ExampleClassName.java}
-      <br/>Where {@code "fully"} is in the {@linkplain CodeletBaseConfig#EXAMPLE_CLASS_SRC_BASE_DIR example-code base directory} as configured.</p>
+      <br> &nbsp; &nbsp; {@code fully\qualified\examples\ExampleClassName.java}
+      <br>Where {@code "fully"} is in the {@linkplain CodeletBaseConfig#EXAMPLE_CLASS_SRC_BASE_DIR example-code base directory} as configured.</p>
 
 <blockquote><code>{&#64;.codelet fully.qualified.examples.ExampleClassName:{@link com.github.aliteralmind.codelet.BasicCustomizers#lineRange(CodeletInstance, CodeletType, Integer, Boolean, String, Integer, Boolean, String, String) lineRange}(1, false, "text in start line", 1, false, "text in end line")}</code></blockquote>
 
@@ -64,7 +64,7 @@ public enum CodeletType  {
       <p>This sets<ol>
          <li>{@link #getName() getName}{@code ()} to {@code ".codelet.out"}</li>
          <li>{@link #getDefaultLineProcNamePrefix() getDefaultLineProcNamePrefix}{@code ()} to {@code "getConsoleOutConfig_"}</li>
-      </ol></p>
+      </ol>
 
       <h3>{@code {@.codelet.out}}: Format</h3>
 
@@ -72,9 +72,9 @@ public enum CodeletType  {
 
       <p><ul>
          <li>The command-line parameters are optional. When not provided, an empty string array is passed to the example-code's <a href="http://docs.oracle.com/javase/tutorial/getStarted/application/index.html#MAIN">{@code main} function</a>. When provided, it must be formatted as specified by
-         <br/> &nbsp; &nbsp; <code>com.github.xbn.util.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature SimpleMethodSignature}.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature#newFromStringAndDefaults(Class, Object, String, Class[], Appendable) newFromStringAndDefaults}</code>
+         <br> &nbsp; &nbsp; <code>com.github.xbn.util.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature SimpleMethodSignature}.{@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature#newFromStringAndDefaults(Class, Object, String, Class[], Appendable) newFromStringAndDefaults}</code>
          <li>The customizer portion is optional.</li>
-      </ul></p>
+      </ul>
 
       <p><b>Examples:</b></p>
 
@@ -99,7 +99,7 @@ public enum CodeletType  {
       <p>This sets<ol>
          <li>{@link #getName() getName}{@code ()} to {@code ".codelet.and.out"}</li>
          <li>{@link #getDefaultLineProcNamePrefix() getDefaultLineProcNamePrefix}{@code ()} to {@code "getSourceConfig_"}</li>
-      </ol></p>
+      </ol>
 
       <h3>{@code {@.codelet.and.out}}: Format</h3>
 
@@ -116,7 +116,7 @@ public enum CodeletType  {
       <p>A customizer in a {@code {@.codelet.and.out}} taglet is only applied to the source code. To also customize the output, use</p>
 
    <P style="font-size: 125%;"><b><code>{&#64;.codelet com.github.aliteralmind.codelet.examples.adder.AdderDemo%customizerForSourceCode()}
-   <br/>{&#64;.codelet.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%customizerForOutput()}</code></b></p>
+   <br>{&#64;.codelet.out com.github.aliteralmind.codelet.examples.adder.AdderDemo%customizerForOutput()}</code></b></p>
 
     * @see  #SOURCE_CODE
     * @see  #isSourceAndOut()
@@ -133,7 +133,7 @@ public enum CodeletType  {
       <p>This sets<ol>
          <li>{@link #getName() getName}{@code ()} to {@code ".file.textlet"}</li>
          <li>{@link #getDefaultLineProcNamePrefix() getDefaultLineProcNamePrefix}{@code ()} to {@code "getFileTextConfig_"}</li>
-      </ol></p>
+      </ol>
 
       <h3>{@code {@.file.textlet}}: Format</h3>
 
@@ -190,8 +190,8 @@ or
       <p>The {@linkplain com.sun.javadoc.Tag#name() name} of this taglet, as used in JavaDoc.</p>
 
     * @return  For example, if the taglet is
-      <br/> &nbsp; &nbsp; {@code {@.codelet.out my.package.examples.AnExample}}
-      <br/>this returns {@code ".codelet.out"}</p>
+      <br> &nbsp; &nbsp; {@code {@.codelet.out my.package.examples.AnExample}}
+      <br>this returns {@code ".codelet.out"}</p>
     * @see  #newTypeForTagletName(String, String) newTypeForTagletName(s,s)
     */
    public String getName()  {
@@ -249,7 +249,7 @@ or
       <p>If an <code>CodeletType</code> is not a required value, crash.</p>
 
     * <p>Equal to
-      <br/> &nbsp; &nbsp; <code>{@link com.github.xbn.util.EnumUtil EnumUtil}.{@link com.github.xbn.util.EnumUtil#crashIfNotRequiredValue(Enum, Enum, String, Object) crashIfNotRequiredValue}(this, e_rqd, s_thisEnumsVarNm, o_xtraInfo)</code></p>
+      <br> &nbsp; &nbsp; <code>{@link com.github.xbn.util.EnumUtil EnumUtil}.{@link com.github.xbn.util.EnumUtil#crashIfNotRequiredValue(Enum, Enum, String, Object) crashIfNotRequiredValue}(this, e_rqd, s_thisEnumsVarNm, o_xtraInfo)</code></p>
     * @see  #crashIfForbiddenValue(CodeletType, String, Object) crashIfForbiddenValue(ert,s,o)
     */
    public void crashIfNotRequiredValue(CodeletType e_rqd, String s_thisEnumsVarNm, Object o_xtraInfo)  {
@@ -259,7 +259,7 @@ or
       <p>If an <code>CodeletType</code> is a forbidden value, crash.</p>
 
     * <p>Equal to
-      <br/> &nbsp; &nbsp; <code>{@link com.github.xbn.util.EnumUtil EnumUtil}.{@link com.github.xbn.util.EnumUtil#crashIfForbiddenValue(Enum, Enum, String, Object) crashIfForbiddenValue}(this, e_rqd, s_thisEnumsVarNm, o_xtraInfo)</code></p>
+      <br> &nbsp; &nbsp; <code>{@link com.github.xbn.util.EnumUtil EnumUtil}.{@link com.github.xbn.util.EnumUtil#crashIfForbiddenValue(Enum, Enum, String, Object) crashIfForbiddenValue}(this, e_rqd, s_thisEnumsVarNm, o_xtraInfo)</code></p>
     * @see  #crashIfNotRequiredValue(CodeletType, String, Object) crashIfNotRequiredValue(ert,s,o)
     */
    public void crashIfForbiddenValue(CodeletType e_rqd, String s_thisEnumsVarNm, Object o_xtraInfo)  {

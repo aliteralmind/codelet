@@ -41,7 +41,7 @@ public class ConsoleOutProcessor extends TagletOfTypeProcessor<ConsoleOutTemplat
          <li>Gets the {@linkplain com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature#getForMainFromStringSig(Object, Appendable) simple signature} from that</li>
          <li>{@linkplain com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature#invokeGetMainOutputNoExtraParams(String) Invokes and captures} the output from its <a href="http://docs.oracle.com/javase/tutorial/getStarted/application/index.html#MAIN">{@code main} function</a></li>
          <li>Returns a {@linkplain com.github.xbn.text.StringUtil#getLineIterator(Object) line iterator} for it.</li>
-      </ol></p>
+      </ol>
 
     */
    public ConsoleOutProcessor(CodeletInstance instance) throws ClassNotFoundException, NoSuchMethodException, NoSuchFileException, AccessDeniedException  {

@@ -27,7 +27,7 @@ public class MethodSimpleParamSig extends SimpleParamNameSignature  {
       <p>Create a new instance from a method.</p>
 
     * <p>Equal to
-      <br/> &nbsp; &nbsp; <code>{@link SimpleParamNameSignature#SimpleParamNameSignature(Member, Class[]) super}(method, method.{@link java.lang.reflect.Method#getParameterTypes() getParameterTypes}())</code></p>
+      <br> &nbsp; &nbsp; <code>{@link SimpleParamNameSignature#SimpleParamNameSignature(Member, Class[]) super}(method, method.{@link java.lang.reflect.Method#getParameterTypes() getParameterTypes}())</code></p>
 
     * @param  method  May not be {@code null}.
     */

@@ -36,7 +36,7 @@ public class CodeletAndOutTaglet implements Taglet {
    private static final CodeletBootstrap BOOTSTRAP = CodeletBootstrap.INSTANCE;
    /**
       <p>The name of this taglet, which appears immediately after the <code>&#123;&#64;</code>--Equal to
-      <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.CodeletType CodeletType}.{@link com.github.aliteralmind.codelet.CodeletType#SOURCE_AND_OUT SOURCE_AND_OUT}.{@link com.github.aliteralmind.codelet.CodeletType#getName() getName}()</code></p>
+      <br> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.CodeletType CodeletType}.{@link com.github.aliteralmind.codelet.CodeletType#SOURCE_AND_OUT SOURCE_AND_OUT}.{@link com.github.aliteralmind.codelet.CodeletType#getName() getName}()</code></p>
     */
     public static final String NAME = CodeletType.SOURCE_AND_OUT.getName();
 
@@ -108,7 +108,7 @@ public class CodeletAndOutTaglet implements Taglet {
       <p>Register this Taglet.</p>
 
     * <p>Equal to
-      <br/> &nbsp; &nbsp; <code>{@link ComSunJavaDocUtil}.{@link ComSunJavaDocUtil#registerNewTagletInstance(Taglet, Map) registerNewTagletInstance}(new {@link #CodeletAndOutTaglet() CodeletAndOutTaglet}(), taglet_map)</code></p>
+      <br> &nbsp; &nbsp; <code>{@link ComSunJavaDocUtil}.{@link ComSunJavaDocUtil#registerNewTagletInstance(Taglet, Map) registerNewTagletInstance}(new {@link #CodeletAndOutTaglet() CodeletAndOutTaglet}(), taglet_map)</code></p>
     */
    @SuppressWarnings({"unchecked", "rawtypes"})
    public static void register(Map taglet_map) {

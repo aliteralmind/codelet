@@ -51,11 +51,11 @@ public enum CodeletTemplateConfig  {
 
     * @return  #INSTANCE
     * @exception  IllegalStateException  If
-      <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.CodeletBaseConfig CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#wasLoaded() wasLoaded}</code>
-      <br/>is {@code false}, or {@link #wasLoaded() wasLoaded}{@code ()} is {@code true}.
+      <br> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.CodeletBaseConfig CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#wasLoaded() wasLoaded}</code>
+      <br>is {@code false}, or {@link #wasLoaded() wasLoaded}{@code ()} is {@code true}.
     * @exception  ClassNotFoundException  If
-      <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.CodeletBaseConfig CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getUserExtraGapsClassName() getUserExtraGapsClassName}()</code>
-      <br/>is non-empty, but does not represent an existing class.
+      <br> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.CodeletBaseConfig CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getUserExtraGapsClassName() getUserExtraGapsClassName}()</code>
+      <br>is non-empty, but does not represent an existing class.
     * @exception  ClassCastException  If the class exists, but is not a {@link com.github.aliteralmind.codelet.UserExtraGapGetter}.
     * @see  com.github.xbn.util.PropertiesUtil
     */

@@ -26,7 +26,7 @@ public class ConstructorSimpleParamSig extends SimpleParamNameSignature  {
       <p>Create a new instance from a constructor.</p>
 
     * <p>Equal to
-      <br/> &nbsp; &nbsp; <code>{@link SimpleParamNameSignature#SimpleParamNameSignature(Member, Class[]) super}(cnstr, cnstr.{@link java.lang.reflect.Method#getParameterTypes() getParameterTypes}())</code></p>
+      <br> &nbsp; &nbsp; <code>{@link SimpleParamNameSignature#SimpleParamNameSignature(Member, Class[]) super}(cnstr, cnstr.{@link java.lang.reflect.Method#getParameterTypes() getParameterTypes}())</code></p>
 
     * @param  cnstr  May not be {@code null}.
     */

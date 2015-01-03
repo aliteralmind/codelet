@@ -19,7 +19,7 @@ package  com.github.aliteralmind.codelet.examples.for_testing_only;
    <p>For testing {@code {@.codelet.out}}</p>
 
    <P style="font-size: 125%;"><b>{@code {@.codelet com.github.aliteralmind.codelet.examples.TrivialAppWithCommandLineParams%eliminateCommentBlocksAndPackageDecl()}}
-   <br/>{@code {@.codelet.out com.github.aliteralmind.codelet.examples.for_testing_only.TrivialAppWithCommandLineParams("string one", "string two")}}</b></p>
+   <br>{@code {@.codelet.out com.github.aliteralmind.codelet.examples.for_testing_only.TrivialAppWithCommandLineParams("string one", "string two")}}</b></p>
 
 {@.codelet com.github.aliteralmind.codelet.examples.for_testing_only.TrivialAppWithCommandLineParams%eliminateCommentBlocksAndPackageDecl()}
 {@.codelet.out com.github.aliteralmind.codelet.examples.for_testing_only.TrivialAppWithCommandLineParams("string one", "string two")}

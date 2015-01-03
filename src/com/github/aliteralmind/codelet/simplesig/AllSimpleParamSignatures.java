@@ -42,10 +42,10 @@ public class AllSimpleParamSignatures  {
 
       <p>Sets<ol>
          <li>{@link #getConstructorList() getConstructorList}{@code ()} to an {@linkplain java.util.Collections#unmodifiableList(List) immutable} version of
-         <br/> &nbsp; &nbsp; <code>AllSimpleParamSignatures.{@link AllSimpleParamSignatures#newConstructorList(Class, Declared, Sorted) newConstructorList}(containing_cls, declared, {@link Sorted Sorted}.{@link Sorted#YES YES})</code></li>
+         <br> &nbsp; &nbsp; <code>AllSimpleParamSignatures.{@link AllSimpleParamSignatures#newConstructorList(Class, Declared, Sorted) newConstructorList}(containing_cls, declared, {@link Sorted Sorted}.{@link Sorted#YES YES})</code></li>
          <li>{@link #getMethodMap() getMethodMap}{@code ()} to an {@linkplain java.util.Collections#unmodifiableMap(Map) immutable} version of
-         <br/> &nbsp; &nbsp; <code>AllSimpleParamSignatures.{@link #newMethodMap(Class, Declared, SortListValues, ImmutableValues) newMethodMap}(containing_cls, declared, {@link com.github.xbn.list.SortListValues}.{@link com.github.xbn.list.SortListValues#ORIGINAL ORIGINAL}, {@link com.github.xbn.list.ImmutableValues ImmutableValues}.{@link com.github.xbn.list.ImmutableValues#YES YES})</code></li>
-      </ol></p>
+         <br> &nbsp; &nbsp; <code>AllSimpleParamSignatures.{@link #newMethodMap(Class, Declared, SortListValues, ImmutableValues) newMethodMap}(containing_cls, declared, {@link com.github.xbn.list.SortListValues}.{@link com.github.xbn.list.SortListValues#ORIGINAL ORIGINAL}, {@link com.github.xbn.list.ImmutableValues ImmutableValues}.{@link com.github.xbn.list.ImmutableValues#YES YES})</code></li>
+      </ol>
 
     * @param  containing_cls  The class containing the methods. May not be {@code null} and <i>should</i> be the class whose methods are in {@code map}. Get with {@link #getContainingClass() getContainingClass}{@code ()}. Get with {@link #getMethodMap() getMethodMap}{@code ()}.
     */
@@ -276,7 +276,7 @@ public class AllSimpleParamSignatures  {
     * @param  containing_cls  May not be {@code null}.
     * @param  declared  If {@link com.github.xbn.lang.reflect.Declared Declared}.{@link com.github.xbn.lang.reflect.Declared#YES YES}, then {@linkplain java.lang.Class#getDeclaredMethods() declared} methods are retrieved. If {@link com.github.xbn.lang.reflect.Declared#NO NO}, {@linkplain java.lang.Class#getMethods() non-declared}.
     * @return  A non-null map containing all methods. This ends by returning
-      <br/> &nbsp; &nbsp; <code>{@link com.github.xbn.list.MapUtil MapUtil}.&lt;MethodSimpleParamSig,String&gt;{@link com.github.xbn.list.MapUtil#getWithModifiedListValues(Map, SortListValues, ImmutableValues) getWithModifiedListValues}(<i>[the-map]</i>, sort_lists, immutable_lists)</code>
+      <br> &nbsp; &nbsp; <code>{@link com.github.xbn.list.MapUtil MapUtil}.&lt;MethodSimpleParamSig,String&gt;{@link com.github.xbn.list.MapUtil#getWithModifiedListValues(Map, SortListValues, ImmutableValues) getWithModifiedListValues}(<i>[the-map]</i>, sort_lists, immutable_lists)</code>
     */
    public static final Map<String,List<MethodSimpleParamSig>> newMethodMap(Class<?> containing_cls, Declared declared, SortListValues sort_lists, ImmutableValues immutable_lists)  {
       Method[] methods = null;

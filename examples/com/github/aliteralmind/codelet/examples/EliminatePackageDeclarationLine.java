@@ -14,7 +14,7 @@
 \*license*/
 package  com.github.aliteralmind.codelet.examples;
 /**
-   <P style="font-size: 150%;"><b><a href="{@docRoot}/com/github/aliteralmind/codelet/BasicCustomizers.html#eliminateCmtBlocksPkgLineAndPkgReferences(com.github.aliteralmind.codelet.CodeletInstance, boolean, boolean, boolean)"><FONT SIZE="+1"><code><IMG SRC="{@docRoot}/resources/left_arrow.gif"/> GO BACK</code></FONT></a> &nbsp; &nbsp; Codelet: Example: <u>Using a pre-made customizer: Eliminating the package declaration line</u></b></p>
+   <P style="font-size: 150%;"><b><a href="{@docRoot}/com/github/aliteralmind/codelet/BasicCustomizers.html#eliminateCmtBlocksPkgLineAndPkgReferences(com.github.aliteralmind.codelet.CodeletInstance, boolean, boolean, boolean)"><FONT SIZE="+1"><code><img src="{@docRoot}/resources/left_arrow.gif"> GO BACK</code></FONT></a> &nbsp; &nbsp; Codelet: Example: <u>Using a pre-made customizer: Eliminating the package declaration line</u></b></p>
 
    <h3><u>Taglet:</u></h3>
 

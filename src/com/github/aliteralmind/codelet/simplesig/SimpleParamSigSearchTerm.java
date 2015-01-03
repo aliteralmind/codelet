@@ -222,8 +222,8 @@ public abstract class SimpleParamSigSearchTerm  {
       <p>Does exactly one constructor/method match?.</p>
 
     * @return  <code>(matchList != null  &&  matchList.size() == 1)</code>
-      <br/>Where {@code matchList} is
-      <br/> &nbsp; &nbsp; <code>{@link #getAllMatchesProt(List, CrashIfZero) getAllMatchesProt}(to_searchList, {@link CrashIfZero}.{@link CrashIfZero#NO NO})</code>
+      <br>Where {@code matchList} is
+      <br> &nbsp; &nbsp; <code>{@link #getAllMatchesProt(List, CrashIfZero) getAllMatchesProt}(to_searchList, {@link CrashIfZero}.{@link CrashIfZero#NO NO})</code>
     * @see  #getOnlyMatchProt(List)
     */
    protected boolean doesMatchOnlyOneProt(List<? extends SimpleParamNameSignature> to_searchList)  {

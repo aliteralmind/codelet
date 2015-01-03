@@ -98,7 +98,7 @@ public class DefaultAlterGetterUtil  {
 
     * @param  numToAdd_toDefaultMapSize  <i>Should</i> be greater than zero.
     * @return  <code>(new {@link ArrayList#ArrayList(int) ArrayList}&lt;TextLineAlterer&gt;(
-         <br/> &nbsp; &nbsp;
+         <br> &nbsp; &nbsp;
          numToAdd_toDefaultMapSize + {@link #getMap(CodeletType) getMap}(needed_defaultAlterType).size()))</code>
     * @exception  IllegalArgumentException  If {@code numToAdd_toDefaultMapSize} results in an initial capacity that is negative.
     * @exception  DefaultAlterGetterException  If anything goes wrong when attempting to retrieve the map or its size.
@@ -115,7 +115,7 @@ public class DefaultAlterGetterUtil  {
       <p>Creates a new line-alter array with all defaults.</p>
 
     * @return  <code>{@link #getAlterArrayWithDefaultAlterersAdded(CodeletType, List) getAlterArrayWithDefaultAlterersAdded}(needed_defaultAlterType,
-      <br/> &nbsp; &nbsp; new {@link ArrayList#ArrayList(int) ArrayList}&lt;TextLineAlterer&gt;({@link #getMap(CodeletType) getMap}(needed_defaultAlterType).size()))</code>
+      <br> &nbsp; &nbsp; new {@link ArrayList#ArrayList(int) ArrayList}&lt;TextLineAlterer&gt;({@link #getMap(CodeletType) getMap}(needed_defaultAlterType).size()))</code>
     */
    public static final TextLineAlterer[] getDefaultAlterArray(CodeletType needed_defaultAlterType)  {
       return  getAlterArrayWithDefaultAlterersAdded(needed_defaultAlterType,
@@ -125,8 +125,8 @@ public class DefaultAlterGetterUtil  {
       <p>Creates a new line-alter array with all default alterers placed after the provided alterer.</p>
 
     * @return  <code>{@link #getAlterArrayWithDefaultAlterersAdded(CodeletType, List) getAlterArrayWithDefaultAlterersAdded}(needed_defaultAlterType,
-      <br/> &nbsp; &nbsp; new {@link ArrayList#ArrayList(Collection) ArrayList}&lt;TextLineAlterer&gt;(
-      <br/> &nbsp; &nbsp; &nbsp; &nbsp; {@link java.util.Arrays}.<!-- GENERIC PARAMETERS FAIL IN @link --><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html#asList(T)">asList</a>(new TextLineAlterer[]{the_onlyAlterer})))</code>
+      <br> &nbsp; &nbsp; new {@link ArrayList#ArrayList(Collection) ArrayList}&lt;TextLineAlterer&gt;(
+      <br> &nbsp; &nbsp; &nbsp; &nbsp; {@link java.util.Arrays}.<!-- GENERIC PARAMETERS FAIL IN @link --><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html#asList(T)">asList</a>(new TextLineAlterer[]{the_onlyAlterer})))</code>
     */
    public static final TextLineAlterer[] getAlterArrayWithDefaultAlterersAdded(CodeletType needed_defaultAlterType, TextLineAlterer the_onlyAlterer)  {
       return  getAlterArrayWithDefaultAlterersAdded(needed_defaultAlterType,

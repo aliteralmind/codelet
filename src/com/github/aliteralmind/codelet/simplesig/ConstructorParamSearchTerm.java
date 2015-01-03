@@ -50,7 +50,7 @@ public class ConstructorParamSearchTerm extends SimpleParamSigSearchTerm  {
       <p>A {@code java.lang.String} and {@code int} array, with one or more parameters of any type between.</p>
 
       <p>This first calls
-      <br/> &nbsp; &nbsp; <code>{@link SimpleParamSigSearchTerm#SimpleParamSigSearchTerm(String, Appendable, Appendable) super}(param_searchTerm)</code></p>
+      <br> &nbsp; &nbsp; <code>{@link SimpleParamSigSearchTerm#SimpleParamSigSearchTerm(String, Appendable, Appendable) super}(param_searchTerm)</code></p>
 
     * @param  param_searchTerm  There may not be any text before the open parenthesis ({@code '('}).
     */
@@ -108,7 +108,7 @@ public class ConstructorParamSearchTerm extends SimpleParamSigSearchTerm  {
       <p>Get the single matching constructor from an all-signature object.</p>
 
     * @return  <code>(new {@link ConstructorParamSearchTerm#ConstructorParamSearchTerm(String, Appendable, Appendable) ConstructorParamSearchTerm}(param_searchTerm, debugBasics_ifNonNull, dbgDoesMatch_ifNonNull)).
-      <br/> &nbsp; &nbsp; {@link ConstructorParamSearchTerm#getOnlyMatch(List) getOnlyMatch}(all_sigs.{@link AllSimpleParamSignatures#getConstructorList() getConstructorList}).{@link ConstructorSimpleParamSig#getConstructor() getConstructor}()</code>
+      <br> &nbsp; &nbsp; {@link ConstructorParamSearchTerm#getOnlyMatch(List) getOnlyMatch}(all_sigs.{@link AllSimpleParamSignatures#getConstructorList() getConstructorList}).{@link ConstructorSimpleParamSig#getConstructor() getConstructor}()</code>
     */
    public static final Constructor<?> getConstructorFromAllSigsAndSearchTerm(AllSimpleParamSignatures all_sigs, String param_searchTerm, Appendable debugBasics_ifNonNull, Appendable dbgDoesMatch_ifNonNull)  {
       try  {

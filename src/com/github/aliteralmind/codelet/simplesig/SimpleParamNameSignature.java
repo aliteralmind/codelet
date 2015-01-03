@@ -40,8 +40,8 @@ public abstract class SimpleParamNameSignature implements Comparable<SimpleParam
       <p>Create a new instance from a constructor or method, and its parameter class types.</p>
 
     * <p>Equal to
-      <br/> &nbsp; &nbsp; <code>{@link #SimpleParamNameSignature(Member, List) this}(false, cnstr_method,
-      <br/> &nbsp; &nbsp; SimpleParamNameSignature.{@link #getSimpleNameListFromClasses(Class[]) getSimpleNameListFromClasses}(param_types))</code></p>
+      <br> &nbsp; &nbsp; <code>{@link #SimpleParamNameSignature(Member, List) this}(false, cnstr_method,
+      <br> &nbsp; &nbsp; SimpleParamNameSignature.{@link #getSimpleNameListFromClasses(Class[]) getSimpleNameListFromClasses}(param_types))</code></p>
     */
    public SimpleParamNameSignature(Member cnstr_method, Class<?>[] param_types)  {
       this(false, cnstr_method,
@@ -54,7 +54,7 @@ public abstract class SimpleParamNameSignature implements Comparable<SimpleParam
          <li>{@link #getParamNameList() getParamNameList}{@code ()} to an immutable string-list of all parameter type names.</li>
          <li>{@link #getWithParens() getWithParens}{@code ()} to a comma-delimited string of the each type's {@linkplain java.lang.Class#getSimpleName() simple names}, in the same order as in {@code types}, surrounded by parentheses.</li>
          <li>{@link #getNoParens() getNoParens}{@code ()} to the same comma-delimited list, with no paretheses.</li>
-      </ol></p>
+      </ol>
 
     * @see  java.lang.Class#getSimpleName()
     */

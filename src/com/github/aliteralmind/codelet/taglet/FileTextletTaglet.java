@@ -35,7 +35,7 @@ public class FileTextletTaglet implements Taglet {
    private static final CodeletBootstrap BOOTSTRAP = CodeletBootstrap.INSTANCE;
    /**
       <p>The name of this taglet, which appears immediately after the <code>&#123;&#64;</code>--Equal to
-      <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.CodeletType CodeletType}.{@link com.github.aliteralmind.codelet.CodeletType#FILE_TEXT FILE_TEXT}.{@link com.github.aliteralmind.codelet.CodeletType#getName() getName}()</code></p>
+      <br> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.CodeletType CodeletType}.{@link com.github.aliteralmind.codelet.CodeletType#FILE_TEXT FILE_TEXT}.{@link com.github.aliteralmind.codelet.CodeletType#getName() getName}()</code></p>
     */
     public static final String NAME = CodeletType.FILE_TEXT.getName();
 
@@ -107,7 +107,7 @@ public class FileTextletTaglet implements Taglet {
       <p>Register this Taglet.</p>
 
     * <p>Equal to
-      <br/> &nbsp; &nbsp; <code>{@link ComSunJavaDocUtil}.{@link ComSunJavaDocUtil#registerNewTagletInstance(Taglet, Map) registerNewTagletInstance}(new {@link #FileTextletTaglet() FileTextletTaglet}(), taglet_map)</code></p>
+      <br> &nbsp; &nbsp; <code>{@link ComSunJavaDocUtil}.{@link ComSunJavaDocUtil#registerNewTagletInstance(Taglet, Map) registerNewTagletInstance}(new {@link #FileTextletTaglet() FileTextletTaglet}(), taglet_map)</code></p>
     */
    @SuppressWarnings({"unchecked", "rawtypes"})
    public static void register(Map taglet_map) {

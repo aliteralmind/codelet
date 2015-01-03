@@ -29,7 +29,7 @@ package  com.github.aliteralmind.codelet.examples;
    import  com.github.xbn.array.NullElement;
    import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;
 /**
-   <P style="font-size: 150%;"><b><a href="{@docRoot}/overview-summary.html#xmpl_links"><FONT SIZE="+1"><code><IMG SRC="{@docRoot}/resources/left_arrow.gif"/> GO BACK</code></FONT></a> &nbsp; &nbsp; Codelet: Example: Advanced customization: Making relevant functions into clickable JavaDoc links</b></p>
+   <P style="font-size: 150%;"><b><a href="{@docRoot}/overview-summary.html#xmpl_links"><FONT SIZE="+1"><code><img src="{@docRoot}/resources/left_arrow.gif"> GO BACK</code></FONT></a> &nbsp; &nbsp; Codelet: Example: Advanced customization: Making relevant functions into clickable JavaDoc links</b></p>
 
    <h3><u>Taglet:</u></h3>
 

@@ -59,9 +59,9 @@ public class NewLineAltererFor  {
 <blockquote><pre>{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor NewTextLineAltererFor}.{@link com.github.xbn.linefilter.alter.NewTextLineAltererFor#text(Pattern, ValidResultFilter, Appendable) text}(packageLinePtrn, firstOccuranceFilter,
    dbgPkgLnVldtr_ifNonNull)</pre></blockquote>
    	Where {@code packageLinePtrn} is
-   	<br/> &nbsp; &nbsp; <code>{@link java.util.regex.Pattern Pattern}.{@link java.util.regex.Pattern#compile(String) compile}({@link com.github.xbn.util.JavaRegexes JavaRegexes}.{@link com.github.xbn.util.JavaRegexes#PACKAGE_DECL_ONE_LINE_NO_CMTS PACKAGE_DECL_ONE_LINE_NO_CMTS})</code>
-   	<br/>and {@code firstOccuranceFilter} is a
-   	<br/> &nbsp; &nbsp; <code>{@link com.github.xbn.analyze.validate.NewValidResultFilterFor NewValidResultFilterFor}.{@link com.github.xbn.analyze.validate.NewValidResultFilterFor#inUnchangedOutFalse(int, int, String, String, Appendable) inUnchangedOutFalse}(1, 1, null, null, dbgEveryLine_ifNonNull);</code>
+   	<br> &nbsp; &nbsp; <code>{@link java.util.regex.Pattern Pattern}.{@link java.util.regex.Pattern#compile(String) compile}({@link com.github.xbn.util.JavaRegexes JavaRegexes}.{@link com.github.xbn.util.JavaRegexes#PACKAGE_DECL_ONE_LINE_NO_CMTS PACKAGE_DECL_ONE_LINE_NO_CMTS})</code>
+   	<br>and {@code firstOccuranceFilter} is a
+   	<br> &nbsp; &nbsp; <code>{@link com.github.xbn.analyze.validate.NewValidResultFilterFor NewValidResultFilterFor}.{@link com.github.xbn.analyze.validate.NewValidResultFilterFor#inUnchangedOutFalse(int, int, String, String, Appendable) inUnchangedOutFalse}(1, 1, null, null, dbgEveryLine_ifNonNull);</code>
     * @see  #elimPackageReferences(CodeletInstance, Appendable) elimPackageReferences
     */
    public static final TextLineAlterer eliminatePackageLine(Appendable dbgEveryLine_ifNonNull, Appendable dbgPkgLnVldtr_ifNonNull)  {

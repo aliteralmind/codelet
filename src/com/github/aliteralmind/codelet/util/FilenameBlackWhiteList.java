@@ -322,8 +322,8 @@ public class FilenameBlackWhiteList  {
 
     * @param  props  May not be {@code null}, and must contain properties named as in the {@code "*Name"} parameters.
     * @return  <code>{@link #newFromConfigStringVars(String, String, String, String, String, Appendable, Appendable) newFromConfigStringVars}(black_white_off, ignore_require_system, separator, separated_propers, separated_overrides, dbgLoading_ifNonNull, dbgAccept_ifNonNull)</code>
-      <br/>Where all variables (except {@code separator}) are the values of the properties with an empty-string default. Such as
-      <br/> &nbsp; &nbsp; <code>String ignore_require_system = props.getProperty(ignore_require_systemName, &quot;&quot;)</code>
+      <br>Where all variables (except {@code separator}) are the values of the properties with an empty-string default. Such as
+      <br> &nbsp; &nbsp; <code>String ignore_require_system = props.getProperty(ignore_require_systemName, &quot;&quot;)</code>
     */
    public static final FilenameBlackWhiteList newFromProperties(Properties props, String separator, String black_white_offName, String ignore_require_systemName, String separated_propersName, String separated_overridesName, Appendable dbgLoading_ifNonNull, Appendable dbgAccept_ifNonNull)  {
       TextAppenter dbgAptr = NewTextAppenterFor.appendableUnusableIfNull(dbgLoading_ifNonNull);

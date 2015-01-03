@@ -45,7 +45,7 @@ public class TagletOfTypeProcessor<T extends CodeletTemplateBase>  {
          <li>Not in {@link com.github.aliteralmind.codelet.BasicCustomizers BasicCustomizers},</li>
          <li>Not in the taglet's {@linkplain CodeletInstance#getEnclosingPackage() enclosing class}, and</li>
          <li>Not explicitely specified in the taglet's text (after the customizer {@linkplain CodeletInstance#CUSTOMIZER_PREFIX_CHAR prefix character}).</li>
-      </ul></p>
+      </ul>
     */
    public static final String DEFAULT_CUSTOMIZER_CLASS_NAME = "zCodeletCustomizers";
    /**
@@ -62,7 +62,7 @@ public class TagletOfTypeProcessor<T extends CodeletTemplateBase>  {
                <li>{@link #getCustomizerPortion() getCustomizerPortion}{@code ()} to {@code null}.</li>
             </ol></li>
          </ul></li>
-      </ol></p>
+      </ol>
       <p></p>
 
     * @param  sub_classType  The taglet type of the sub-class. May not be {@code null}. Discarded after construction.
@@ -112,8 +112,8 @@ public class TagletOfTypeProcessor<T extends CodeletTemplateBase>  {
       <p>If the class or file is not allowed to use the customizer, crash. Otherwise, do nothing.</p>
 
     * @exception  IllegalStateException  If
-      <br/> &nbsp; &nbsp; <code>{@link org.apache.commons.io.FilenameUtils}.{@link org.apache.commons.io.FilenameUtils#wildcardMatch(String, String) wildcardMatch}({@link #getClassOrFilePortion() getClassOrFilePortion}(), instructions.{@link CustomizationInstructions#getClassNameOrFilePathRestricter() getClassNameOrFilePathRestricter})</code>
-      <br/>is {@code false}.
+      <br> &nbsp; &nbsp; <code>{@link org.apache.commons.io.FilenameUtils}.{@link org.apache.commons.io.FilenameUtils#wildcardMatch(String, String) wildcardMatch}({@link #getClassOrFilePortion() getClassOrFilePortion}(), instructions.{@link CustomizationInstructions#getClassNameOrFilePathRestricter() getClassNameOrFilePathRestricter})</code>
+      <br>is {@code false}.
     */
    protected void crashIfClassOrFileCannotUseCustomizer(CustomizationInstructions<T> instructions)  {
       if(isDebugOn(instance, "zzSourceCodeProcessor.progress"))  {
@@ -168,10 +168,10 @@ public class TagletOfTypeProcessor<T extends CodeletTemplateBase>  {
       <p>Get the string-signature for executing the example code.</p>
 
     * @return  {@code clsNm + "#main(" + params + ")"}
-      <br/>Where {@code clsNm} is
-      <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getExampleClassFQName(CodeletInstance) getExampleClassFQName}(instance)</code>
-      <br/>and {@code params} is
-      <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getExampleCommandLineParams(CodeletInstance) getExampleCommandLineParams}(instance)</code>
+      <br>Where {@code clsNm} is
+      <br> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getExampleClassFQName(CodeletInstance) getExampleClassFQName}(instance)</code>
+      <br>and {@code params} is
+      <br> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getExampleCommandLineParams(CodeletInstance) getExampleCommandLineParams}(instance)</code>
     */
    public String getExampleCodeStringSig()  {
       String clsNm = TagletTextUtil.getExampleClassFQName(getInstance());
@@ -198,9 +198,9 @@ public class TagletOfTypeProcessor<T extends CodeletTemplateBase>  {
 
     * @param  customizer_sig  May not be {@code null}, and the function in represents must conform to the requirements.
     * @exception  IllegalArgumentException  If
-      <br/> &nbsp; &nbsp; <code><i>[the-instructions-returned-by-the-customizer]</i>.{@link CustomizationInstructions#getNeededAlterArrayType() getNeededAlterArrayType}()</code>
-      <br/>is different than <code>needed_defaultAlterType</code>. See
-      <br/> &nbsp; &nbsp; <code>{@link CustomizationInstructions#CustomizationInstructions(CodeletInstance, CodeletType)}</code>
+      <br> &nbsp; &nbsp; <code><i>[the-instructions-returned-by-the-customizer]</i>.{@link CustomizationInstructions#getNeededAlterArrayType() getNeededAlterArrayType}()</code>
+      <br>is different than <code>needed_defaultAlterType</code>. See
+      <br> &nbsp; &nbsp; <code>{@link CustomizationInstructions#CustomizationInstructions(CodeletInstance, CodeletType)}</code>
     */
    public CustomizationInstructions<T> getInstructionsFromSig(SimpleMethodSignature customizer_sig, CodeletType needed_defaultAlterType) throws ClassNotFoundException, NoSuchMethodException, SecurityException  {
 
@@ -282,7 +282,7 @@ public class TagletOfTypeProcessor<T extends CodeletTemplateBase>  {
             <li>And <i>if it exists:</i> The {@linkplain CodeletInstance#getEnclosingPackage() enclosing package}'s {@linkplain #DEFAULT_CUSTOMIZER_CLASS_NAME default processor class}.</li>
          </ol></li>
          <li><i><b>Returns</b></i> a new {@link com.github.aliteralmind.codelet.simplesig.SimpleMethodSignature#newFromStringAndDefaults(Class, Object, String, Class[], Appendable) simple signature}</li>
-      </ol></p>
+      </ol>
 
     * @param  customizer_strSig  The expanded string-signature. If {@code null}, no customizer is specified.
     * @exception  ClassNotFoundException  If the class name, but not its package, is in the string-signature, and the class does not exist in the enclosing package.
@@ -403,7 +403,7 @@ public class TagletOfTypeProcessor<T extends CodeletTemplateBase>  {
             <li>{@code "()"}</li>
          </ol>Example: {@code "getSourceConfigAGreatExample()"}</li>
          <li>If the line-proc starts with an underscore ({@code '_'}), it is the function name's postfix, which is appended after the classes simple name. This <i><b>returns</b></i> (for example)
-         <br/> &nbsp; &nbsp; {@code "getSourceConfigAGreatExample_DoSpecialStuff()"}</li>
+         <br> &nbsp; &nbsp; {@code "getSourceConfigAGreatExample_DoSpecialStuff()"}</li>
          <li>This <i><b>returns</b></i> the line-proc portion of the taglet's text unchanged.</li>
       </ol><i>In all cases, if there are no paremeters specified, empty parentheses are appended to the signature: {@code "()"}</i></p>
     */

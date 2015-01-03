@@ -28,7 +28,7 @@ public abstract class OnlyOneBodyGapTemplateBase extends CodeletTemplateBase  {
    /**
       <p>The gap name for the fully processed source-code, which is the <i>only</i> gap required to exist in the template--equal to {@code "body"}.</p>
 
-    * @see  <a href="SourceCodeTemplate.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
+    * @see  <a href="SourceCodeTemplate.html"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a>
     * @see  #fillBodyGap(String, String)
     */
    public static final String BODY_GAP_NAME = "body";

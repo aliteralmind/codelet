@@ -25,7 +25,7 @@ public class FilenameBlacklist extends FilenameBlackWhiteList  {
       <p>Create a new instance.</p>
 
     * <p>Equal to
-      <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.util.FilenameBlackWhiteList#FilenameBlackWhiteList(BlackOrWhite, IOCase, String[], String[], Appendable) super}({@link com.github.aliteralmind.codelet.util.BlackOrWhite BlackOrWhite}.{@link com.github.aliteralmind.codelet.util.BlackOrWhite#BLACK BLACK}, case_sensitivity, proper_items, override_items, dbgAccept_ifNonNull)</code></p>
+      <br> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.util.FilenameBlackWhiteList#FilenameBlackWhiteList(BlackOrWhite, IOCase, String[], String[], Appendable) super}({@link com.github.aliteralmind.codelet.util.BlackOrWhite BlackOrWhite}.{@link com.github.aliteralmind.codelet.util.BlackOrWhite#BLACK BLACK}, case_sensitivity, proper_items, override_items, dbgAccept_ifNonNull)</code></p>
 
     * @see  #FilenameBlacklist(FilenameBlackWhiteList, IOCase, Appendable)
     */
@@ -36,7 +36,7 @@ public class FilenameBlacklist extends FilenameBlackWhiteList  {
       <p>Create a new instance from an existing black or white-list.</p>
 
     * <p>Equal to
-      <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.util.FilenameBlackWhiteList#FilenameBlackWhiteList(FilenameBlackWhiteList, BlackOrWhite, IOCase, Appendable) super}(to_copyListsFrom, {@link com.github.aliteralmind.codelet.util.BlackOrWhite BlackOrWhite}.{@link com.github.aliteralmind.codelet.util.BlackOrWhite#BLACK BLACK}, case_sensitivity, dbgAccept_ifNonNull)</code></p>
+      <br> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.util.FilenameBlackWhiteList#FilenameBlackWhiteList(FilenameBlackWhiteList, BlackOrWhite, IOCase, Appendable) super}(to_copyListsFrom, {@link com.github.aliteralmind.codelet.util.BlackOrWhite BlackOrWhite}.{@link com.github.aliteralmind.codelet.util.BlackOrWhite#BLACK BLACK}, case_sensitivity, dbgAccept_ifNonNull)</code></p>
 
     * @see  #FilenameBlacklist(IOCase, String[], String[], Appendable)
     */

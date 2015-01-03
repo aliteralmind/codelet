@@ -63,15 +63,15 @@ public class CodeletInstance  {
 
     * @param  taglet_name  The {@linkplain CodeletType#getName() name} of the taglet, which implies its type. Get with {@link #getType() getType}{@code ()}.
     * @param  enclosing_package  The fully-qualified class name of the codelet's enclosing class--the class whose source-code contains a JavaDoc block, in which this taglet exists. This must be an actually-existing class, as determined by
-      <br/> &nbsp; &nbsp; <code>{@link java.lang.Class Class}.{@link java.lang.Class#forName(String) forName}(enclosing_package)</code>. Get with {@link #getEnclosingPackage() getEnclosingPackage}{@code ()}.
+      <br> &nbsp; &nbsp; <code>{@link java.lang.Class Class}.{@link java.lang.Class#forName(String) forName}(enclosing_package)</code>. Get with {@link #getEnclosingPackage() getEnclosingPackage}{@code ()}.
     * @param  enclosing_simpleName  The name of the enclosing file, without any path (or {@linkplain com.github.aliteralmind.codelet.taglet.ComSunJavaDocUtil#getEnclosingSimpleName(Tag, IncludePostClassName) generics or function signature}). If the containing file is the overview summary, this must equal {@code "OVERVIEW_SUMMARY"}. If a package summary, this must be {@code "PACKAGE_SUMMARY"}.
     * @param  enclosing_file  The enclosing file's {@code File} object, which contains the full path to its source code.
     * @param  line_num  The line number in the enclosing classes source code, at which this taglet exists. May not be less than one. Get with {@link #getLineNumber() getLineNumber}{@code ()}.
     * @param  tag_text  The original text following the taglet's name. For example, if the taglet is
-      <br/> &nbsp; &nbsp; {@code {@.codelet.out my.package.examples.AnExample((byte)-30, true, "Ribsy")%()}}
-      <br/>this parameter must equal
-      <br/> &nbsp; &nbsp; <code>my.package.examples.AnExample((byte)-30, true, "Ribsy"):()</code>
-      <br/>Get with {@link #getText() getText}{@code ()}. Any literal curly braces ({@code '&#123;}' or '{@code '&#125;}') found in string parameters are replaced with actual braces: {@code '&#123;'} and {@code '&#125;'}. Escaping curlys is required in order to prevent {@code javadoc.exe} from incorrectly parsing taglets.
+      <br> &nbsp; &nbsp; {@code {@.codelet.out my.package.examples.AnExample((byte)-30, true, "Ribsy")%()}}
+      <br>this parameter must equal
+      <br> &nbsp; &nbsp; <code>my.package.examples.AnExample((byte)-30, true, "Ribsy"):()</code>
+      <br>Get with {@link #getText() getText}{@code ()}. Any literal curly braces ({@code '&#123;}' or '{@code '&#125;}') found in string parameters are replaced with actual braces: {@code '&#123;'} and {@code '&#125;'}. Escaping curlys is required in order to prevent {@code javadoc.exe} from incorrectly parsing taglets.
     * @param  relUrl_toDocRoot  The relative directory from the containing JavaDoc file to the JavaDoc root directory (the value of {@code {@docRoot}}). Get with {@link #getRelativeUrlToDocRoot() getRelativeUrlToDocRoot}{@code ()}.
     */
    public CodeletInstance(String taglet_name, String enclosing_package, String enclosing_simpleName, File enclosing_file, int line_num, String tag_text, String relUrl_toDocRoot)  {
@@ -133,10 +133,10 @@ public class CodeletInstance  {
       <p>Get the taglet's enclosing class object, if it is a class.</p>
 
     * @return  If the enclosing JavaDoc file represents a class  according to
-      <br/> &nbsp; &nbsp; <code>{@link java.lang.Class Class}.{@link java.lang.Class#forName(String) forName}({@link #getEnclosingFullyQualifiedName() getEnclosingFullyQualifiedName}())</code>
-      <br/>This returns
-      <br/> &nbsp; &nbsp; <code>{@link com.github.xbn.lang.reflect.ReflectRtxUtil#getClassIfExistsOrNull(String) getClassIfExistsOrNull}(getEnclosingFullyQualifiedName())</code>
-      <br/>Otherwise, this returns {@code null}.
+      <br> &nbsp; &nbsp; <code>{@link java.lang.Class Class}.{@link java.lang.Class#forName(String) forName}({@link #getEnclosingFullyQualifiedName() getEnclosingFullyQualifiedName}())</code>
+      <br>This returns
+      <br> &nbsp; &nbsp; <code>{@link com.github.xbn.lang.reflect.ReflectRtxUtil#getClassIfExistsOrNull(String) getClassIfExistsOrNull}(getEnclosingFullyQualifiedName())</code>
+      <br>Otherwise, this returns {@code null}.
     */
    public Class<?> getEnclosingClass()  {
       return  ReflectRtxUtil.getClassIfExistsOrNull(getEnclosingFullyQualifiedName());
@@ -146,7 +146,7 @@ public class CodeletInstance  {
 
     * @return  If {@link #getEnclosingPackage() getEnclosingPackage}{@code ()} has<ul>
          <li>zero characters:
-      <br/> &nbsp; &nbsp; <code>getEnclosingPackage() + getEnclosingSimpleName()</code></li>
+      <br> &nbsp; &nbsp; <code>getEnclosingPackage() + getEnclosingSimpleName()</code></li>
          <li>One-or-more characters: <code>getEnclosingPackage() + &quot;.&quot; + getEnclosingSimpleName()</code></li>
       </ul>
     * @see  #getEnclosingClass()

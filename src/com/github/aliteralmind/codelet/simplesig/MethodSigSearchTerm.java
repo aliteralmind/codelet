@@ -49,7 +49,7 @@ public class MethodSigSearchTerm extends SimpleParamSigSearchTerm  {
       <p>A {@code java.lang.String} and {@code int}-ellipsis, with one or more parameters of any type between.</p>
 
       <p>This first calls
-      <br/> &nbsp; &nbsp; <code>{@link SimpleParamSigSearchTerm#SimpleParamSigSearchTerm(String, Appendable, Appendable) super}(search_termSig)</code></p>
+      <br> &nbsp; &nbsp; <code>{@link SimpleParamSigSearchTerm#SimpleParamSigSearchTerm(String, Appendable, Appendable) super}(search_termSig)</code></p>
 
     * @param  search_termSig  The function name may not be empty.
     */
@@ -64,8 +64,8 @@ public class MethodSigSearchTerm extends SimpleParamSigSearchTerm  {
 
     * @param  all_methods  May not be {@code null}.
     * @return  If
-      <br/> &nbsp; &nbsp; <code>all_methods.{@link AllSimpleParamSignatures#getMethodMap() getMethodMap}().get({@link SimpleParamSigSearchTerm#getMethodName() getMethodName}())</code>
-      <br/>returns a non-null list, this returns <code>{@link SimpleParamSigSearchTerm#doesMatchAnyProt(List) doesMatchAnyProt}(<i>[the-list]</i>)*</code>
+      <br> &nbsp; &nbsp; <code>all_methods.{@link AllSimpleParamSignatures#getMethodMap() getMethodMap}().get({@link SimpleParamSigSearchTerm#getMethodName() getMethodName}())</code>
+      <br>returns a non-null list, this returns <code>{@link SimpleParamSigSearchTerm#doesMatchAnyProt(List) doesMatchAnyProt}(<i>[the-list]</i>)*</code>
     * @see  #doesMatchOnlyOne(AllSimpleParamSignatures) doesMatchOnlyOne
     */
    public boolean doesMatchAny(AllSimpleParamSignatures all_methods)  {
@@ -85,8 +85,8 @@ public class MethodSigSearchTerm extends SimpleParamSigSearchTerm  {
 
     * @param  all_methods  May not be {@code null}.
     * @return  If
-      <br/> &nbsp; &nbsp; <code>all_methods.{@link AllSimpleParamSignatures#getMethodMap() getMethodMap}().get({@link SimpleParamSigSearchTerm#getMethodName() getMethodName}())</code>
-      <br/>returns a non-null list, this returns <code>{@link SimpleParamSigSearchTerm#doesMatchOnlyOneProt(List) doesMatchOnlyOneProt}(<i>[the-list]</i>)*</code>
+      <br> &nbsp; &nbsp; <code>all_methods.{@link AllSimpleParamSignatures#getMethodMap() getMethodMap}().get({@link SimpleParamSigSearchTerm#getMethodName() getMethodName}())</code>
+      <br>returns a non-null list, this returns <code>{@link SimpleParamSigSearchTerm#doesMatchOnlyOneProt(List) doesMatchOnlyOneProt}(<i>[the-list]</i>)*</code>
     * @see  #doesMatchAny(AllSimpleParamSignatures) doesMatchAny
     */
    public boolean doesMatchOnlyOne(AllSimpleParamSignatures all_methods)  {
@@ -168,7 +168,7 @@ public class MethodSigSearchTerm extends SimpleParamSigSearchTerm  {
       <p>Get the single matching method from an all-signature object.</p>
 
     * @return  <code>(new {@link #MethodSigSearchTerm(String, Appendable, Appendable) MethodSigSearchTerm}(sig_searchTerm, debugBasics_ifNonNull, dbgDoesMatch_ifNonNull)).
-      <br/> &nbsp; &nbsp; {@link MethodSigSearchTerm#getOnlyMatch(AllSimpleParamSignatures) getOnlyMatch}(all_sigs).{@link MethodSimpleParamSig#getMethod() getMethod}()</code>
+      <br> &nbsp; &nbsp; {@link MethodSigSearchTerm#getOnlyMatch(AllSimpleParamSignatures) getOnlyMatch}(all_sigs).{@link MethodSimpleParamSig#getMethod() getMethod}()</code>
     */
    public static final Method getMethodFromAllSigsAndSearchTerm(AllSimpleParamSignatures all_sigs, String sig_searchTerm, Appendable debugBasics_ifNonNull, Appendable dbgDoesMatch_ifNonNull)  {
       try  {

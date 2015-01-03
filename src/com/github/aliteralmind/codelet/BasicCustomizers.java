@@ -60,7 +60,7 @@ public class BasicCustomizers  {
             <li>{@code .startvalidfilter}: <code>NewLineFilterFor.lineRange.dbgStartFilter_ifNonNull</code></li>
          </ul></li>
          <li>{@code template}: The {@linkplain TagletOfTypeProcessor#getTemplateFromInstructionsOverrideOrDefault(CustomizationInstructions) template}</li>
-      </ul></p>
+      </ul>
 
       <p><b>Full names:</b></p>
 
@@ -83,8 +83,8 @@ zzBasicCustomizers.lineRange.template</pre></blockquote>
     * @param  endLine_findWhat  The search term that defines the line-range end line.
     * @param  indentRegexToElim_emptyStrIfNone  The regular expression representing the indentation that should be eliminated from the line-range. Since these lines exist in the middle of a file, they may be {@linkplain com.github.aliteralmind.codelet.alter.NewLineAltererFor#eliminateIndentationOrNull(String, Appendable) extra-indented}.
     * @return  <code>CustomizationInstructions.&lt;T&gt;newForMaybeElimIndent_tabToSpcEscHtml(instance, filter, indentRegexToElim_emptyStrIfNone)</code>
-      <br/>Where {@code filter} is created with
-      <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.NewLineFilterFor NewLineFilterFor}.{@link com.github.aliteralmind.codelet.NewLineFilterFor#lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRange) lineRange}</code>
+      <br>Where {@code filter} is created with
+      <br> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.NewLineFilterFor NewLineFilterFor}.{@link com.github.aliteralmind.codelet.NewLineFilterFor#lineRange(int, boolean, String, Appendable, Appendable, int, boolean, String, Appendable, Appendable, Appendable, Appendable, LengthInRange) lineRange}</code>
     * @see  #lineRangeWithReplace(CodeletInstance, CodeletType, Integer, Boolean, String, String, String, Integer, Boolean, String, String, String, String) lineRangeWithReplace
     */
    public static final <T extends CodeletTemplateBase> CustomizationInstructions<T> lineRange(CodeletInstance instance, CodeletType needed_defaultAlterType, Integer startAppearance_num, Boolean is_startLineRegex, String startLine_findWhat, Integer endAppearance_num, Boolean is_endLineRegex, String endLine_findWhat, String indentRegexToElim_emptyStrIfNone) throws PatternSyntaxException  {
@@ -136,7 +136,7 @@ zzBasicCustomizers.lineRange.template</pre></blockquote>
             <li>{@code .startvalidfilter}: <code>NewLineFilterFor.lineRange.dbgStartFilter_ifNonNull</code></li>
          </ul></li>
          <li>{@code template}: The {@linkplain TagletOfTypeProcessor#getTemplateFromInstructionsOverrideOrDefault(CustomizationInstructions) template}</li>
-      </ul></p>
+      </ul>
 
       <p><b>Full names:</b></p>
 
@@ -223,7 +223,7 @@ zzBasicCustomizers.lineRangeWithReplace.template</pre></blockquote>
          <li>{@code pkglinevalidfilter}: {@code NewLineFilterFor.eliminateAllCmtBlocksAndPackageLine.dbgValidResultFilter_ifNonNull}</li>
          <li>{@code template}: {@code NewLineFilterFor.eliminateAllCmtBlocksAndPackageLine.dbgPkgLnVldtr_ifNonNull}</li>
          <li>{@code elimpkgrefsreplacer}: <code>{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor}.{@link com.github.aliteralmind.codelet.alter.NewLineAltererFor#elimPackageReferences(CodeletInstance, Appendable) elimPackageReferences}</code></li>
-      </ul></p>
+      </ul>
 
       <p><b>Full names:</b></p>
 
@@ -236,11 +236,11 @@ zzBasicCustomizers.eliminateCmtBlocksPkgLineAndPkgReferences.template
 zzBasicCustomizers.eliminateCmtBlocksPkgLineAndPkgReferences.elimpkgrefsreplacer</pre></blockquote>
 
     * @return  A non-{@code null} instructions object, using the {@linkplain CustomizationInstructions#defaultOrOverrideTemplate(Appendable) default template}, where the filter is created by
-      <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.NewLineFilterFor NewLineFilterFor}.{@link com.github.aliteralmind.codelet.NewLineFilterFor#eliminateAllCmtBlocksAndPackageLine(boolean, Appendable, Appendable, boolean, Appendable, Appendable) eliminateAllCmtBlocksAndPackageLine}</code>
-      <br/>The {@code dbgLnFilter_ifNonNull} parameter is set to
-      <br/> &nbsp; &nbsp; <code>{@link CodeletBaseConfig CodeletBaseConfig}.{@link CodeletBaseConfig#getDebugApblIfOn(CodeletInstance) getDebugApblIfOn}(instance)</code>
-      <br/>All other debugging parameters are set to
-      <br/> &nbsp; &nbsp; <code>{@link CodeletBaseConfig CodeletBaseConfig}.{@link CodeletBaseConfig#getDebugApblIfOn(3, CodeletInstance) getDebugApblIfTagletVerbose}(instance)</code>
+      <br> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.NewLineFilterFor NewLineFilterFor}.{@link com.github.aliteralmind.codelet.NewLineFilterFor#eliminateAllCmtBlocksAndPackageLine(boolean, Appendable, Appendable, boolean, Appendable, Appendable) eliminateAllCmtBlocksAndPackageLine}</code>
+      <br>The {@code dbgLnFilter_ifNonNull} parameter is set to
+      <br> &nbsp; &nbsp; <code>{@link CodeletBaseConfig CodeletBaseConfig}.{@link CodeletBaseConfig#getDebugApblIfOn(CodeletInstance) getDebugApblIfOn}(instance)</code>
+      <br>All other debugging parameters are set to
+      <br> &nbsp; &nbsp; <code>{@link CodeletBaseConfig CodeletBaseConfig}.{@link CodeletBaseConfig#getDebugApblIfOn(3, CodeletInstance) getDebugApblIfTagletVerbose}(instance)</code>
     * @param  doElim_allPkgRefs  If {@code doElim_packageDecl} is {@code false}, this must also be {@code false}.
     * @see  #eliminateCommentBlocksAndPackageDecl(CodeletInstance, CodeletType) eliminateCommentBlocksAndPackageDecl
     */

@@ -18,7 +18,7 @@ package  com.github.aliteralmind.codelet.examples;
    import  com.github.aliteralmind.codelet.type.SourceCodeTemplate;
    import  com.github.aliteralmind.codelet.CustomizationInstructions;
 /**
-   <P style="font-size: 150%;"><b><a href="{@docRoot}/overview-summary.html#xmpl_hello"><FONT SIZE="+1"><code><IMG SRC="{@docRoot}/resources/left_arrow.gif"/> GO BACK</code></FONT></a> &nbsp; &nbsp; Codelet: Example: A specialized customizer that <i>does nothing</i></b></p>
+   <P style="font-size: 150%;"><b><a href="{@docRoot}/overview-summary.html#xmpl_hello"><FONT SIZE="+1"><code><img src="{@docRoot}/resources/left_arrow.gif"> GO BACK</code></FONT></a> &nbsp; &nbsp; Codelet: Example: A specialized customizer that <i>does nothing</i></b></p>
 
    <h3><u>Taglet:</u></h3>
 

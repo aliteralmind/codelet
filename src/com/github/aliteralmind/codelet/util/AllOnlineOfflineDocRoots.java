@@ -113,11 +113,11 @@ public class AllOnlineOfflineDocRoots  {
       <p>Steps for each line in {@code line_itr}:<ol>
          <li>If {@code online_attemptCount} is<ul>
             <li>Greater than zero: This creates the {@code OnlineOfflineDocRoot} with
-            <br/> &nbsp; &nbsp; <code>{@link OnlineOfflineDocRoot}.{@link OnlineOfflineDocRoot#newFromOnline(String, String, String, int, long, IfError, RefreshOffline, Appendable, Appendable) newFromOnline}(name, url, path, online_attemptCount, online_sleepMills, if_error, refresh_offline, debug_ifNonNull, dbgError_ifNonNull)</code></li>
+            <br> &nbsp; &nbsp; <code>{@link OnlineOfflineDocRoot}.{@link OnlineOfflineDocRoot#newFromOnline(String, String, String, int, long, IfError, RefreshOffline, Appendable, Appendable) newFromOnline}(name, url, path, online_attemptCount, online_sleepMills, if_error, refresh_offline, debug_ifNonNull, dbgError_ifNonNull)</code></li>
             <li>Equal to zero (<i>or if retrieving from online fails, and {@code if_error.}{@link com.github.xbn.util.IfError#WARN WARN}</i>): This creates the {@code OnlineOfflineDocRoot} with
-            <br/> &nbsp; &nbsp; <code>OnlineOfflineDocRoot.{@link OnlineOfflineDocRoot#newFromOffline(String, String, String, Appendable, Appendable) newFromOffline}(name, url, path, debug_ifNonNull, dbgError_ifNonNull)</code></li>
+            <br> &nbsp; &nbsp; <code>OnlineOfflineDocRoot.{@link OnlineOfflineDocRoot#newFromOffline(String, String, String, Appendable, Appendable) newFromOffline}(name, url, path, debug_ifNonNull, dbgError_ifNonNull)</code></li>
          </ul></li>
-      </ol></p>
+      </ol>
 
     * @param  line_itr  May not be {@code null}, and <i>should</i> have at least one item. All offline paths must be unique, and all urls must be unique.
     * @param  offlineName_prefixPath  If non-{@code null}, this is the base directory appended to each offline name, as described above. Setting this to {@code null} is the same as the empty string ({@code ""}).

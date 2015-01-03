@@ -44,7 +44,7 @@ package  com.github.aliteralmind.codelet;
          <li>{@code allentriespostloaded}: List all entries organized by JavaDoc file.</li>
          <li>{@code eachentryasloaded}: List all entries as they are loaded.</li>
       </ul></li>
-   </ul></p>
+   </ul>
 
    <p><b>Full names:</b></p>
 
@@ -120,7 +120,7 @@ public enum CodeletBootstrap  {
       com.github.aliteralmind.codelet.CodeletBootstrap
    ...END
    -->
-      </ul></p>
+      </ul>
 
       <h4>Example</h4>
 
@@ -153,7 +153,7 @@ public enum CodeletBootstrap  {
       <p>Changing the level numbers in this file allows you to print or suppress very specific aspects of debugging information that is <i>already built into Codelet</i>. <b>Warning:</b> Changing the <i>names</i> of any level in this file will result in an error. All Codelet-required levels are prefixed with {@code "zz"}.</p>
 
       <p>An example of a function taking advantage of named debuggers is
-      <br/> &nbsp; &nbsp; <code>{@link BasicCustomizers}.{@link BasicCustomizers#lineRange(CodeletInstance, CodeletType, Integer, Boolean, String, Integer, Boolean, String, String) lineRange}</code>.</p>
+      <br> &nbsp; &nbsp; <code>{@link BasicCustomizers}.{@link BasicCustomizers#lineRange(CodeletInstance, CodeletType, Integer, Boolean, String, Integer, Boolean, String, String) lineRange}</code>.</p>
 
     * @see  #NAMED_DEBUGGERS_CONFIG_FILE
     * @see  com.github.aliteralmind.codelet.util.NamedDebuggers#newMapFromConfigFile(Map, Iterator, String, Appendable) NamedDebuggers#newMapFromConfigFile
@@ -187,10 +187,10 @@ javadoc             http://docs.oracle.com/javase/7/docs/jdk/api/javadoc/doclet/
 junit               http://junit.sourceforge.net/javadoc/</pre></blockquote>
 
       <p>If the path of {@code "external_doc_root_urls.txt"} is
-      <br/> &nbsp; &nbsp; <code>C:\java_code\my_package\codelet_config\external_doc_root_urls.txt</code>
-      <br/>then the path to the {@code "commons_io"} offline package-list is
-      <br/> &nbsp; &nbsp; <code>C:\java_code\my_package\codelet_config\offline_package_lists\commons_io.txt</code>
-      <br/>The {@code ".txt"} postfix is {@linkplain CodeletBaseConfig#PKGLIST_OFFLINE_NAME_POSTFIX customizable}.</p>
+      <br> &nbsp; &nbsp; <code>C:\java_code\my_package\codelet_config\external_doc_root_urls.txt</code>
+      <br>then the path to the {@code "commons_io"} offline package-list is
+      <br> &nbsp; &nbsp; <code>C:\java_code\my_package\codelet_config\offline_package_lists\commons_io.txt</code>
+      <br>The {@code ".txt"} postfix is {@linkplain CodeletBaseConfig#PKGLIST_OFFLINE_NAME_POSTFIX customizable}.</p>
 
       <p><i>(View <a href="{@docRoot}/../${jd_project_codelet_config_dir}/external_doc_root_urls.txt">{@code {@docRoot}/../${jd_project_codelet_config_dir}/external_doc_root_urls.txt}</a>.)</i></p>
 
@@ -202,7 +202,7 @@ junit               http://junit.sourceforge.net/javadoc/</pre></blockquote>
          <li>{@link CodeletBaseConfig#AUTO_UPDATE_OFFLINE_PACKAGE_LISTS pkglist_auto_refresh_offline__yes_no}: After successfully retrieved, should the packages in its offline counterpart be {@linkplain com.github.aliteralmind.codelet.util.OnlineOfflineDocRoot#refreshOffline(Appendable, Appendable) refreshed}?</li>
          <li>{@link CodeletBaseConfig#PKGLIST_OFFLINE_NAME_POSTFIX pkglist_offline_name_postfix}: The postfix added to each offline-name in the {@linkplain CodeletBootstrap#EXTERNAL_DOC_ROOT_URL_FILE configuration file}.</li>
          <li>{@link CodeletBaseConfig#OFFLINE_PACKAGE_LIST_DIR_NAME}: The name of the sub-directory, existing in the main Codelet configuration directory, in which offline package lists are stored.</li>
-      </ul></p>
+      </ul>
 
     * @see  com.github.aliteralmind.codelet.alter.NewJavaDocLinkReplacerFor#getDocRootUrlToTargetClass(CodeletInstance, Class) NewJavaDocLinkReplacerFor#getDocRootUrlToTargetClass
     * @see  com.github.aliteralmind.codelet.util.AllOnlineOfflineDocRoots#newFromConfigLineIterator(Iterator, String, String, int, long, RefreshOffline, IfError, Appendable, Appendable) util.AllOnlineOfflineDocRoots#newFromConfigLineIterator
@@ -224,7 +224,8 @@ junit               http://junit.sourceforge.net/javadoc/</pre></blockquote>
       configDir = System.getProperty(CODELET_CONFIG_DIR_SYS_PROP_NAME, null);
 
       //0.1.4
-      CrashIfString.nullEmpty(configDir, "[System property \"" + CODELET_CONFIG_DIR_SYS_PROP_NAME + "\", which is required to be passed into javadoc.exe, via \"-J-Dcodelet_config_dir\"]", null);
+      //0.1.4.2: Added example value
+      CrashIfString.nullEmpty(configDir, "[System property \"" + CODELET_CONFIG_DIR_SYS_PROP_NAME + "\", which is required to be passed into javadoc.exe (\"-J-Dcodelet_config_dir=PATH_TO_CODELET_CONFIG_DIR_INCL_END_SLASH\")]", null);
 
       String configDirEquals = CODELET_CONFIG_DIR_SYS_PROP_NAME + "=" + configDir;
       Properties props = PropertiesUtil.

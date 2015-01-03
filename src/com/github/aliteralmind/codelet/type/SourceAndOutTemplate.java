@@ -21,7 +21,7 @@ package  com.github.aliteralmind.codelet.type;
 /**
    <p>The text into which {@code {@.codelet.and.out}} output (the example-code's console output) is placed.</p>
 
-   <A NAME="gaps"></a><h2><a href="{@docRoot}/com/github/aliteralmind/codelet/CodeletTemplateBase.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: {@code {@.codelet.and.out}}: Template: <u>Gap names</u></h2>
+   <A NAME="gaps"></a><h2><a href="{@docRoot}/com/github/aliteralmind/codelet/CodeletTemplateBase.html"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a> &nbsp; Codelet: {@code {@.codelet.and.out}}: Template: <u>Gap names</u></h2>
 
    <p>The only required gaps are &quot;{@link #GAP_BODY_SOURCE_CODE body_source_code}&quot; and &quot;{@link #GAP_BODY_CONSOLE_OUTPUT body_console_output}&quot;, which are where the fully-processed source and output are placed.</p>
 
@@ -34,7 +34,7 @@ public class SourceAndOutTemplate extends CodeletTemplateBase  {
    /**
       <p>The gap name for the fully processed source-code, which is one of two gaps required to exist in the template--equal to {@code "body_source_code"}.</p>
 
-    * @see  <a href="#gaps"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
+    * @see  <a href="#gaps"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a>
     * @see  #GAP_BODY_CONSOLE_OUTPUT
     * @see  #fillBodyGap(String, String)
     */
@@ -42,7 +42,7 @@ public class SourceAndOutTemplate extends CodeletTemplateBase  {
    /**
       <p>The gap name for the fully processed console output, which is one of two gaps required to exist in the template--equal to {@code "body_console_output"}.</p>
 
-    * @see  <a href="#gaps"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
+    * @see  <a href="#gaps"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a>
     * @see  #GAP_BODY_SOURCE_CODE
     * @see  #fillBodyGap(String, String)
     */

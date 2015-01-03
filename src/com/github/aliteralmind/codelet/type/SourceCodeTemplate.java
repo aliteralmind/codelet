@@ -27,15 +27,15 @@ package  com.github.aliteralmind.codelet.type;
 /**
    <p>The text into which {@code {@.codelet}} output (the example-code's source) is placed.</p>
 
-   <A NAME="gaps"></a><h2><a href="{@docRoot}/overview-summary.html#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: {@code {@.codelet}}: Template: <u>Gap names</u></h2>
+   <A NAME="gaps"></a><h2><a href="{@docRoot}/overview-summary.html#overview_description"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a> &nbsp; Codelet: {@code {@.codelet}}: Template: <u>Gap names</u></h2>
 
    <p>The only required gap is &quot;{@link com.github.aliteralmind.codelet.type.OnlyOneBodyGapTemplateBase#BODY_GAP_NAME body}&quot;, which is where the fully-processed source-code is placed.</p>
 
    <p>In addition to any {@linkplain com.github.aliteralmind.codelet.UserExtraGapGetter#getForSourceCodelet() user-extra} gaps, the {@code {@.codelet}} template also provides for the following &quot;default&quot; optional gaps:</p>
 
-   <A NAME="codelet_tmpl_gaps_url"></a><p><a href="SourceCodeTemplate.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; <b>Url-related:</b></p>
+   <A NAME="codelet_tmpl_gaps_url"></a><p><a href="SourceCodeTemplate.html"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a> &nbsp; <b>Url-related:</b></p>
 
-   <p><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
+   <TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
       <TD><b><u>Name</u></b></TD>
       <TD><b><u>Description</u></b></TD>
    </TR><TR>
@@ -50,11 +50,11 @@ package  com.github.aliteralmind.codelet.type;
    </TR><TR>
       <TD>{@link #GAP_PACKAGE_URL package_url}</TD>
       <TD>The example code's package, with dots ({@code '.'}) replaced by url-slashes ({@code '/'}).</TD>
-   </TR></TABLE></p>
+   </TR></TABLE>
 
-   <A NAME="codelet_tmpl_gaps_dir"></a><p><a href="SourceCodeTemplate.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; <b>Non-url related:</b></p>
+   <A NAME="codelet_tmpl_gaps_dir"></a><p><a href="SourceCodeTemplate.html"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a> &nbsp; <b>Non-url related:</b></p>
 
-   <p><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
+   <TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
       <TD><b><u>Name</u></b></TD>
       <TD><b><u>Description</u></b></TD>
    </TR><TR>
@@ -78,7 +78,7 @@ package  com.github.aliteralmind.codelet.type;
    </TR><TR>
       <TD>{@link #GAP_PACKAGE_DIR package_dir}</TD>
       <TD>The example's package name, with dots {@code '.'} replaced by file-separators.</TD>
-   </TR></TABLE></p>
+   </TR></TABLE>
 
  * @since  0.1.0
  * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
@@ -91,7 +91,7 @@ public class SourceCodeTemplate extends OnlyOneBodyGapTemplateBase  {
 
       <p><code>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getJavaSourceFilePath(CodeletInstance) getJavaSourceFilePath}(<i>[the-instance]</i>)</code></p>
 
-    * @see  <a href="#codelet_tmpl_gaps_dir"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
+    * @see  <a href="#codelet_tmpl_gaps_dir"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a>
     * @see  #GAP_SRC_BASE_DIR
     */
    public static final CodeletGap GAP_SRC_PATH = new SourcePathGap();
@@ -102,7 +102,7 @@ public class SourceCodeTemplate extends OnlyOneBodyGapTemplateBase  {
 
 <blockquote><pre>{@link com.github.aliteralmind.codelet.CodeletBaseConfig CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#INSTANCE INSTANCE}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getExampleSourceBaseDir() getExampleClassFQName}()</pre></blockquote>
 
-    * @see  <a href="#codelet_tmpl_gaps_dir"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
+    * @see  <a href="#codelet_tmpl_gaps_dir"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a>
     * @see  #GAP_SRC_PATH
     */
    public static final CodeletGap GAP_SRC_BASE_DIR = new SourceBaseDirGap();
@@ -113,7 +113,7 @@ public class SourceCodeTemplate extends OnlyOneBodyGapTemplateBase  {
 
 <blockquote><pre>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getExampleSimpleClassName(CodeletInstance) getExampleSimpleClassName}(<i>[the-instance]</i>)</pre></blockquote>
 
-    * @see  <a href="#codelet_tmpl_gaps_dir"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
+    * @see  <a href="#codelet_tmpl_gaps_dir"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a>
     * @see  #GAP_FQ_CLASS_NAME
     * @see  #GAP_PACKAGE
     */
@@ -125,7 +125,7 @@ public class SourceCodeTemplate extends OnlyOneBodyGapTemplateBase  {
 
 <blockquote><pre>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getExampleClassFQName(CodeletInstance) getExampleClassFQName}(<i>[the-instance]</i>)</pre></blockquote>
 
-    * @see  <a href="#codelet_tmpl_gaps_dir"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
+    * @see  <a href="#codelet_tmpl_gaps_dir"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a>
     * @see  #GAP_FQ_CLASS_NAME_DIR
     * @see  #GAP_FQ_CLASS_NAME_URL
     * @see  #GAP_PACKAGE
@@ -137,7 +137,7 @@ public class SourceCodeTemplate extends OnlyOneBodyGapTemplateBase  {
 
       <p>Example input:<ol>
          <li>Example code's {@linkplain com.github.aliteralmind.codelet.TagletTextUtil#getExampleClassFQName(CodeletInstance) fully-qualified class name}: {@code "fully.qualified.examples.AnExample"}</li>
-      </ol></p>
+      </ol>
 
       <p>{@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) Output}:</p>
 
@@ -147,7 +147,7 @@ public class SourceCodeTemplate extends OnlyOneBodyGapTemplateBase  {
 
 <blockquote><pre>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getExampleClassFQName(CodeletInstance) getExampleClassFQName}(<i>[the-instance]</i>).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, &quot;/&quot;)</pre></blockquote>
 
-    * @see  <a href="#codelet_tmpl_gaps_url"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
+    * @see  <a href="#codelet_tmpl_gaps_url"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a>
     * @see  #GAP_FQ_CLASS_NAME
     */
    public static final CodeletGap GAP_FQ_CLASS_NAME_URL = new FQClassNameUrlGap();
@@ -156,7 +156,7 @@ public class SourceCodeTemplate extends OnlyOneBodyGapTemplateBase  {
 
       <p>Example input:<ol>
          <li>Example code's {@linkplain com.github.aliteralmind.codelet.TagletTextUtil#getExampleClassFQName(CodeletInstance) fully-qualified class name}: {@code "fully.qualified.examples.AnExample"}</li>
-      </ol></p>
+      </ol>
 
       <p>{@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) Output} (assuming Microsoft Windows):</p>
 
@@ -166,7 +166,7 @@ public class SourceCodeTemplate extends OnlyOneBodyGapTemplateBase  {
 
 <blockquote><pre>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getExampleClassFQName(CodeletInstance) getExampleClassFQName}(<i>[the-instance]</i>).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, {@link com.github.xbn.lang.XbnConstants#FILE_SEP FILE_SEP}*)</pre></blockquote>
 
-    * @see  <a href="#codelet_tmpl_gaps_dir"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
+    * @see  <a href="#codelet_tmpl_gaps_dir"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a>
     * @see  #GAP_FQ_CLASS_NAME
     */
    public static final CodeletGap GAP_FQ_CLASS_NAME_DIR = new FQClassNameDirGap();
@@ -177,7 +177,7 @@ public class SourceCodeTemplate extends OnlyOneBodyGapTemplateBase  {
 
 <blockquote><pre>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getJavaDocSourceUrl(CodeletInstance) getJavaDocSourceUrl}(<i>[the-instance]</i>)</pre></blockquote>
 
-    * @see  <a href="#codelet_tmpl_gaps_url"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
+    * @see  <a href="#codelet_tmpl_gaps_url"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a>
     * @see  #GAP_JAVADOC_URL
     */
    public static final CodeletGap GAP_SOURCE_URL = new SourceUrlGap();
@@ -188,7 +188,7 @@ public class SourceCodeTemplate extends OnlyOneBodyGapTemplateBase  {
 
 <blockquote><pre>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getJavaDocSourceUrl(CodeletInstance) getJavaDocSourceUrl}(<i>[the-instance]</i>)</pre></blockquote>
 
-    * @see  <a href="#codelet_tmpl_gaps_url"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
+    * @see  <a href="#codelet_tmpl_gaps_url"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a>
     * @see  #GAP_SOURCE_URL
     */
    public static final CodeletGap GAP_JAVADOC_URL = new JavadocUrlGap();
@@ -199,7 +199,7 @@ public class SourceCodeTemplate extends OnlyOneBodyGapTemplateBase  {
 
 <blockquote><pre>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getExamplePackageName(CodeletInstance) getExamplePackageName}(<i>[the-instance]</i>)</pre></blockquote>
 
-    * @see  <a href="#codelet_tmpl_gaps_dir"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
+    * @see  <a href="#codelet_tmpl_gaps_dir"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a>
     * @see  #GAP_PACKAGE_DIR
     * @see  #GAP_PACKAGE_URL
     * @see  #GAP_FQ_CLASS_NAME
@@ -211,7 +211,7 @@ public class SourceCodeTemplate extends OnlyOneBodyGapTemplateBase  {
 
       <p>Example input:<ol>
          <li>The example code's {@linkplain com.github.aliteralmind.codelet.TagletTextUtil#getExampleClassFQName(CodeletInstance) fully-qualified class name}: {@code "fully.qualified.examples.AnExample"}</li>
-      </ol></p>
+      </ol>
 
       <p>{@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) Output}:</p>
 
@@ -221,7 +221,7 @@ public class SourceCodeTemplate extends OnlyOneBodyGapTemplateBase  {
 
 <blockquote><pre>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getExamplePackageName(CodeletInstance) getExamplePackageName}(<i>[the-instance]</i>).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, &quot;/&quot;)</pre></blockquote>
 
-    * @see  <a href="#codelet_tmpl_gaps_url"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
+    * @see  <a href="#codelet_tmpl_gaps_url"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a>
     * @see  #GAP_PACKAGE
     */
    public static final CodeletGap GAP_PACKAGE_URL = new PackageUrlGap();
@@ -230,7 +230,7 @@ public class SourceCodeTemplate extends OnlyOneBodyGapTemplateBase  {
 
       <p>Example input:<ol>
          <li>The example code's {@linkplain com.github.aliteralmind.codelet.TagletTextUtil#getExampleClassFQName(CodeletInstance) fully-qualified class name}: {@code "fully.qualified.examples.AnExample"}</li>
-      </ol></p>
+      </ol>
 
       <p>{@linkplain com.github.aliteralmind.codelet.CodeletGap#getFillText(CodeletInstance) Output} (assuming Microsoft Windows):</p>
 
@@ -240,7 +240,7 @@ public class SourceCodeTemplate extends OnlyOneBodyGapTemplateBase  {
 
 <blockquote><pre>{@link com.github.aliteralmind.codelet.TagletTextUtil TagletTextUtil}.{@link com.github.aliteralmind.codelet.TagletTextUtil#getExamplePackageName(CodeletInstance) getExamplePackageName}(<i>[the-instance]</i>).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, {@link com.github.xbn.lang.XbnConstants#FILE_SEP FILE_SEP}*)</pre></blockquote>
 
-    * @see  <a href="#codelet_tmpl_gaps_dir"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
+    * @see  <a href="#codelet_tmpl_gaps_dir"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a>
     * @see  #GAP_PACKAGE
     */
    public static final CodeletGap GAP_PACKAGE_DIR = new PackageDirGap();

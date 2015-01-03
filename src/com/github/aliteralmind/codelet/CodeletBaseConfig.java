@@ -50,7 +50,7 @@ package  com.github.aliteralmind.codelet;
 
    <p><i>View <a href="{@docRoot}/../${jd_project_codelet_config_dir}/codelet.properties">{@code {@docRoot}/../${jd_project_codelet_config_dir}/codelet.properties}</a>.)</i></p>
 
-   <A NAME="base_dirs_other"></a><h2><a href="{@docRoot}/overview-summary.html#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; <u>Codelet: Configuration</u></h2>
+   <A NAME="base_dirs_other"></a><h2><a href="{@docRoot}/overview-summary.html#overview_description"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a> &nbsp; <u>Codelet: Configuration</u></h2>
 
    <p><i>See <a href="{@docRoot}/overview-summary.html#install_configure">getting started</a> in the Codelet installation instructions.</i></p>
 
@@ -59,11 +59,11 @@ package  com.github.aliteralmind.codelet;
       <li><a href="#tmpl_defaults">Default templates</a></li>
       <li><a href="#tmpl_gaps">Template gaps</a></li>
       <li><a href="#debugging">Debugging and diagnostics</a></li>
-   </ul></p>
+   </ul>
 
-   <A NAME="base_dirs_other"></a><h2><a href="CodeletBaseConfig.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: Configuration: <u>Base directories and urls, and other</u></h2>
+   <A NAME="base_dirs_other"></a><h2><a href="CodeletBaseConfig.html"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a> &nbsp; Codelet: Configuration: <u>Base directories and urls, and other</u></h2>
 
-   <p><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
+   <TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
       <TD>&nbsp;</TD>
       <TD><b><u>Name</u></b></TD>
       <TD><b><u>Description</u></b></TD>
@@ -83,11 +83,11 @@ package  com.github.aliteralmind.codelet;
       <TD>{@linkplain #getDefaultAlterGetter() func}</TD>
       <TD>{@link #DEFAULT_ALTERERS_CLASS_NAME default_alterers_class_name}</TD>
       <TD>Fully-qualified name of the class that defines alterers used by all pre-built customizers, and are accessible in custom customizers.</TD>
-   </TR></TABLE></p>
+   </TR></TABLE>
 
-   <A NAME="tmpl_javadoc"></a><h2><a href="CodeletBaseConfig.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: Configuration: <u>JavaDoc related</u></h2>
+   <A NAME="tmpl_javadoc"></a><h2><a href="CodeletBaseConfig.html"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a> &nbsp; Codelet: Configuration: <u>JavaDoc related</u></h2>
 
-   <p><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
+   <TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
       <TD><b><u>Func</u></b></TD>
       <TD><b><u>Name</u></b></TD>
       <TD><b><u>Description</u></b></TD>
@@ -115,11 +115,11 @@ package  com.github.aliteralmind.codelet;
       <TD>{@link #getOfflinePackageListPostfix() func}</TD>
       <TD>{@link #PKGLIST_OFFLINE_NAME_POSTFIX pkglist_offline_name_postfix}</TD>
       <TD>Filename postfix, plus optional dot-extension that follows each offline name.</TD>
-   </TR></TABLE></p>
+   </TR></TABLE>
 
-   <A NAME="tmpl_defaults"></a><h2><a href="CodeletBaseConfig.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: Configuration: <u>Default template files</u></h2>
+   <A NAME="tmpl_defaults"></a><h2><a href="CodeletBaseConfig.html"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a> &nbsp; Codelet: Configuration: <u>Default template files</u></h2>
 
-   <p><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
+   <TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
       <TD><b><u>Func</u></b></TD>
       <TD><b><u>Name</u></b></TD>
       <TD><b><u>Description</u></b></TD>
@@ -147,11 +147,11 @@ package  com.github.aliteralmind.codelet;
       <TD>{@linkplain #getCustomTemplateDir() func}</TD>
       <TD>{@link #USER_TEMPLATE_BASE_DIR user_template_base_dir}</TD>
       <TD>Directory in which any custom (user-created) templates are stored.</TD>
-   </TR></TABLE></p>
+   </TR></TABLE>
 
-   <A NAME="tmpl_gaps"></a><h2><a href="CodeletBaseConfig.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: Configuration: <u>Template gaps</u></h2>
+   <A NAME="tmpl_gaps"></a><h2><a href="CodeletBaseConfig.html"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a> &nbsp; Codelet: Configuration: <u>Template gaps</u></h2>
 
-   <p><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
+   <TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
       <TD><b><u>Func</u></b></TD>
       <TD><b><u>Name</u></b></TD>
       <TD><b><u>Description</u></b></TD>
@@ -175,13 +175,13 @@ package  com.github.aliteralmind.codelet;
       <TD>{@linkplain #getUserExtraGapsClassName() func}</TD>
       <TD>{@link #USER_EXTRA_GAPS_CLASS_NAME user_extra_gaps_class}</TD>
       <TD>Fully-qualified name of the class that defines extra gaps that can be placed in Codelet templates.</TD>
-   </TR></TABLE></p>
+   </TR></TABLE>
 
 
 
-   <A NAME="debugging"></a><h2><a href="CodeletBaseConfig.html"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: Configuration: <u>Debugging and diagnostics</u></h2>
+   <A NAME="debugging"></a><h2><a href="CodeletBaseConfig.html"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a> &nbsp; Codelet: Configuration: <u>Debugging and diagnostics</u></h2>
 
-   <p><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
+   <TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
       <TD><b><u>Func</u></b></TD>
       <TD><b><u>Name</u></b></TD>
       <TD><b><u>Description</u></b></TD>
@@ -213,7 +213,7 @@ package  com.github.aliteralmind.codelet;
       <TD>{@link #doCrashIfAlterationNotMade() func}</TD>
       <TD>{@link #ALTERATION_NOT_MADE_CRASH if_alteration_not_made_crash__yes_no}</TD>
       <TD>If a customizer attempts to make an alteration, but cannot (such as when the find-what text is not found in the example code), should a crash occur, in addition to the warning?</TD>
-   </TR></TABLE></p>
+   </TR></TABLE>
 
  * @since  0.1.0
  * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
@@ -270,7 +270,7 @@ public enum CodeletBaseConfig  {
       <p>Must be one of two values:<ul>
          <li>{@code "yes"}: Every execution of {@code javadoc.exe} updates the offline files to equal the most recent content of their online counterparts.</li>
          <li>{@code "no"}: Offline files must be manually (created and) updated. If they do not exist, an error occurs.</li>
-      </ul></p>
+      </ul>
 
     * @see  #doAutoUpdateOfflinePackageLists()
    public static final String AUTO_UPDATE_OFFLINE_PACKAGE_LISTS = "pkglist_auto_refresh_offline__yes_no";
@@ -293,7 +293,7 @@ public enum CodeletBaseConfig  {
 
       <p>The ending file-separator is requried. This may or may not be equal to {@link #ENCLOSING_CLASS_SRC_BASE_DIRS}. And its value may include the &quot;{@link #BASE_DIR_BASE_DIR base_dir_base_dir}&quot;.</p>
 
-    * @see  <code><a href="#base_dirs_other"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></a></code>
+    * @see  <code><a href="#base_dirs_other"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #getExampleSourceBaseDir()
     */
    public static final String EXAMPLE_CLASS_SRC_BASE_DIR = "example_class_src_base_dir";
@@ -331,12 +331,12 @@ comma_delimited_override_list=*.FileToProcess</pre></blockquote></li>
             <li>To process codelets only in a single package: {@code "github.com.myname.text.*"}</li>
             <li>To process codelets in one package, plus a subset of files in another: {@code "github.com.myname.text.*,github.com.myname.io.Get*ForPath"}</li>
          </ul>Asterisks ({@code '*'}) indicate one-or-more of any character, and question marks ({@code '?'}) mean exactly one of any character. So, if {@code FileToProcess} is a unique filename across all project directories {@code comma_delimited_proper_list} could alternatively be
-      <br/> &nbsp; &nbsp; {@code *.FileToProcess}
-      <br/>If it is not unique:
-      <br/> &nbsp; &nbsp; {@code *.name.of.FileToProcess}</li>
+      <br> &nbsp; &nbsp; {@code *.FileToProcess}
+      <br>If it is not unique:
+      <br> &nbsp; &nbsp; {@code *.name.of.FileToProcess}</li>
       </ul>These values are processed by <code>{@link com.github.aliteralmind.codelet.util.FilenameBlackWhiteList FilenameBlackWhiteList}.{@link com.github.aliteralmind.codelet.util.FilenameBlackWhiteList#newFromConfigStringVars(String, String, String, String, String, Appendable, Appendable) newFromConfigStringVars}</code></p>
 
-    * @see  <code><a href="#debugging"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></a></code>
+    * @see  <code><a href="#debugging"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  com.github.aliteralmind.codelet.util.FilenameBlackWhiteList
     * @see  #getBlackWhiteList()
     * @see  #BLACK_WHITE_LIST_CASE
@@ -350,7 +350,7 @@ comma_delimited_override_list=*.FileToProcess</pre></blockquote></li>
       <p>Must be one of two values:<ul>
          <li>{@code "no"}: Only warnings will be logged.</li>
          <li>{@code "yes"}: In addition to the warning, and exception is thrown.</li>
-      </ul></p>
+      </ul>
 
     * @see  #doCrashIfAlterationNotMade()
     * @see  com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum
@@ -361,7 +361,7 @@ comma_delimited_override_list=*.FileToProcess</pre></blockquote></li>
    /**
       <p>Initial capacity of the map holding the JavaDoc target-class shortcut translators--Name is {@code "unique_jd_class_target_init_capacity"}. When not provided (set to the empty-string: {@code ""}), this defaults to {@link #DEFAULT_JD_TARGET_CLASS_MAP_INIT_CAPACITY}.</p>
 
-    * @see  <code><a href="#tmpl_javadoc"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></a></code>
+    * @see  <code><a href="#tmpl_javadoc"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  com.github.aliteralmind.codelet.alter.NewJDLinkForWordOccuranceNum#getAllParamSigsForLinkTarget(Class)
     * @see  #getTargetClassMapInitCapacity()
     */
@@ -369,21 +369,21 @@ comma_delimited_override_list=*.FileToProcess</pre></blockquote></li>
    /**
       <p>When comparing class names against the black/white list, how should case be considered?--Name is {@code "list_case__ignore_require_system"}.</p>
 
-    * @see  <code><a href="#debugging"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></a></code>
+    * @see  <code><a href="#debugging"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #BLACK_WHITE_LIST_TYPE
     */
    public static final String BLACK_WHITE_LIST_CASE = "list_case__ignore_require_system";
    /**
       <p>List of wildcard matches that determine which files or packages should be recognized--Name is {@code "comma_delimited_proper_list"}.</p>
 
-    * @see  <code><a href="#debugging"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></a></code>
+    * @see  <code><a href="#debugging"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #BLACK_WHITE_LIST_TYPE
     */
    public static final String BLACK_WHITE_PROPER_LIST = "comma_delimited_proper_list";
    /**
       <p>List of wildcard matches that trump those in the &quot;proper&quot;-list--Name is {@code "comma_delimited_proper_list"}.</p>
 
-    * @see  <code><a href="#debugging"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></a></code>
+    * @see  <code><a href="#debugging"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #BLACK_WHITE_LIST_TYPE
     */
    public static final String BLACK_WHITE_OVERRIDE_LIST = "comma_delimited_override_list";
@@ -407,19 +407,19 @@ C:\java_code\src\com\github\xbn\examples\lang\Demo_AClass.java
 C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockquote>
 
       <p>Then use
-      <br/> &nbsp; &nbsp; {@code C:\java_code\src\,C:\java_code\supplemental_files\}
-      <br/>or set &quot;{@link #BASE_DIR_BASE_DIR base_dir_base_dir}&quot; to {@code "C:\java_code\"}, and use
-      <br/> &nbsp; &nbsp; {@code ${BASE}src\,${BASE}supplemental_files\}</p>
+      <br> &nbsp; &nbsp; {@code C:\java_code\src\,C:\java_code\supplemental_files\}
+      <br>or set &quot;{@link #BASE_DIR_BASE_DIR base_dir_base_dir}&quot; to {@code "C:\java_code\"}, and use
+      <br> &nbsp; &nbsp; {@code ${BASE}src\,${BASE}supplemental_files\}</p>
 
       <p><b>At least one directory-value is required.</b></p>
 
       <p>The project-overview file, as <a href="http://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html#overview">configured</a> into JavaDoc, must exist in one of these directories. If its path is
-      <br/> &nbsp; &nbsp; {@code C:\java_code\src\project_overview.html}
-      <br/>and {@code C:\java_code\src\} is its enclosing class base-directory, then its fully-qualified name as required by the {@linkplain #BLACK_WHITE_LIST_TYPE blacklist} is {@code "project_overview"}. And in the hand {@linkplain TemplateOverrides template-overrides} configuration file, it is {@code "project_overview.html"}.</p>
+      <br> &nbsp; &nbsp; {@code C:\java_code\src\project_overview.html}
+      <br>and {@code C:\java_code\src\} is its enclosing class base-directory, then its fully-qualified name as required by the {@linkplain #BLACK_WHITE_LIST_TYPE blacklist} is {@code "project_overview"}. And in the hand {@linkplain TemplateOverrides template-overrides} configuration file, it is {@code "project_overview.html"}.</p>
 
       <p>This value may be equal to (or contain) {@link #EXAMPLE_CLASS_SRC_BASE_DIR}.</p>
 
-    * @see  <code><a href="#base_dirs_other"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></a></code>
+    * @see  <code><a href="#base_dirs_other"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #BASE_DIR_BASE_DIR
     * @see  #getEnclosingBaseDirList()
     */
@@ -428,13 +428,13 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
       <p>For use in all other &quot;base_dir&quot; config vars, with &quot;${BASE}&quot;--Name is {@code "base_dir_base_dir"}.</p>
 
       <p>Only the first use is recognized. If this variable equals
-      <br/> &nbsp; &nbsp; <code>C:\java_code\</code>
-      <br/>then
-      <br/> &nbsp; &nbsp; <code>${BASE}hello${BASE}</code>
-      <br/>is translated to
-      <br/> &nbsp; &nbsp; <code>C:\java_code\hello${BASE}</code></p>
+      <br> &nbsp; &nbsp; <code>C:\java_code\</code>
+      <br>then
+      <br> &nbsp; &nbsp; <code>${BASE}hello${BASE}</code>
+      <br>is translated to
+      <br> &nbsp; &nbsp; <code>C:\java_code\hello${BASE}</code></p>
 
-    * @see  <code><a href="#base_dirs_other"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></a></code>
+    * @see  <code><a href="#base_dirs_other"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #ENCLOSING_CLASS_SRC_BASE_DIRS
     */
    public static final String BASE_DIR_BASE_DIR = "base_dir_base_dir";
@@ -443,7 +443,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
 
       <p>This is located in the Codelet {@linkplain CodeletBootstrap#getCodeletConfigDir() configuration directory}.</p>
 
-    * @see  <code><a href="#tmpl_javadoc"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></a></code>
+    * @see  <code><a href="#tmpl_javadoc"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  CodeletBootstrap#EXTERNAL_DOC_ROOT_URL_FILE
     * @see  #PKGLIST_ONLINE_ATTEMPT_COUNT
     */
@@ -453,7 +453,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
 
       <p>Must be an integer zero or greater. If not provided (equal to the empty-string: {@code ""}), this defaults to {@link #DEFAULT_ONLINE_PKGLST_ATTEMPTS}.</p>
 
-    * @see  <code><a href="#tmpl_javadoc"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></a></code>
+    * @see  <code><a href="#tmpl_javadoc"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #getAllJavaDocRoots()
     * @see  #getOnlinePackageListAttemptCount()
     */
@@ -463,7 +463,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
 
       <p>Must be an integer zero or greater. If not provided (equal to the empty-string: {@code ""}), thi defaults to {@link #DEFAULT_ONLINE_PKGLST_SLEEP_MILLS}.</p>
 
-    * @see  <code><a href="#tmpl_javadoc"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></a></code>
+    * @see  <code><a href="#tmpl_javadoc"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #getOnlinePackageListAttemptSleepMills()
     * @see  #PKGLIST_ONLINE_ATTEMPT_COUNT
     */
@@ -471,7 +471,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
    /**
       <p>If all online-retrieval attempts fail, should only a warning be logged, or should Codelet stop execution? (Offline package-lists are always retrieved)--Name is {@code "pkglist_if_online_retrieval_fails__warn_crash"}.</p>
 
-    * @see  <code><a href="#tmpl_javadoc"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></a></code>
+    * @see  <code><a href="#tmpl_javadoc"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #doCrashIfOnlinePackageListFailure()
     * @see  #PKGLIST_ONLINE_ATTEMPT_COUNT
     */
@@ -479,7 +479,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
    /**
       <p>When online package-lists are retrieved, should offline package lists be refreshed (or created)?--Name is {@code "pkglist_auto_refresh_offline__yes_no"}.</p>
 
-    * @see  <code><a href="#tmpl_javadoc"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></a></code>
+    * @see  <code><a href="#tmpl_javadoc"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #doAutoUpdateOfflinePackageLists()
     * @see  #PKGLIST_ONLINE_ATTEMPT_COUNT
     */
@@ -487,7 +487,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
    /**
       <p>Filename postfix, plus optional dot-extension that follows each offline name.--Name is {@code "pkglist_offline_name_postfix"}.</p>
 
-    * @see  <code><a href="#tmpl_javadoc"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></a></code>
+    * @see  <code><a href="#tmpl_javadoc"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #getOfflinePackageListPostfix()
     * @see  #PKGLIST_ONLINE_ATTEMPT_COUNT
     */
@@ -498,7 +498,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
       <p>This {@linkplain com.github.xbn.io.DebugLevel#getFromStringOff12345(String, String) must be equal to}<ul>
          <li>{@code "off"}: No automated debugging.</li>
          <li>A digit between one and five: An arbitrary number representing the amount of debugging information that will be output.</li>
-      </ul></p>
+      </ul>
 
       <p>This is the {@linkplain #getGlobalDebugLevel() global debugging level} used by all taglets. An individual taglet may override this by prepending "{@link CodeletInstance#DEBUG_LEVEL_PREFIX_PREFIX [DEBUG_LEVEL_#]}" to its text. If the {@linkplain CodeletInstance#getDebugLevel() taglet's level} is lower than or equal to the global level, it is ignored.</p>
 
@@ -507,7 +507,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
       <h4>What is logged</h4>
 
       <p>The examples in this section assumes that {@code CodeletBaseConfig} is <a href="http://docs.oracle.com/javase/8/docs/technotes/guides/language/static-import.html">statically imported</a> &quot;en masse&quot;:
-      <br/> &nbsp; &nbsp; <code>import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;</code></p>
+      <br> &nbsp; &nbsp; <code>import  static com.github.aliteralmind.codelet.CodeletBaseConfig.*;</code></p>
 
       <p>To output something even if the debugging level is {@code "off"}:</p>
 
@@ -531,7 +531,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
    debugln(&quot;Important information&quot;)
 }</code></blockquote>
 
-    * @see  <code><a href="#debugging"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></a></code>
+    * @see  <code><a href="#debugging"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #DEBUG_DESTINATION
     * @see  #getGlobalDebugLevel()
     * @see  <a href="{@docRoot}/overview-summary.html#xmpl_links_debug">Overview JavaDoc link example</a>
@@ -543,10 +543,10 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
       <p>This must be one of two values:<ul>
          <li>{@code "console"}: Sets {@link #getDebugAptr() getDebugAptr}{@code ()} to <code>{@link com.github.xbn.io.TextAppenter TextAppenter}.{@link com.github.xbn.io.TextAppenter#CONSOLE CONSOLE}</code></li>
          <li>The path to a writable file: Sets {@code getDebugAptr()} to
-         <br/> &nbsp; &nbsp; <code>{@link com.github.xbn.io.NewTextAppenterFor NewTextAppenterFor}.{@link com.github.xbn.io.NewTextAppenterFor#file(String, AppendOrOverwrite) file}(dbgAptrStr, {@link com.github.xbn.io.AppendOrOverwrite AppendOrOverwrite}.{@link com.github.xbn.io.AppendOrOverwrite#APPEND APPEND})</code></li>
+         <br> &nbsp; &nbsp; <code>{@link com.github.xbn.io.NewTextAppenterFor NewTextAppenterFor}.{@link com.github.xbn.io.NewTextAppenterFor#file(String, AppendOrOverwrite) file}(dbgAptrStr, {@link com.github.xbn.io.AppendOrOverwrite AppendOrOverwrite}.{@link com.github.xbn.io.AppendOrOverwrite#APPEND APPEND})</code></li>
       </ul>In order to allow debugging at any time, even when the {@linkplain #GLOBAL_DEBUG_LEVEL debugging level} is set to off, this value is required.</p>
 
-    * @see  <code><a href="#debugging"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></a></code>
+    * @see  <code><a href="#debugging"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #getDebugAptr()
     */
    public static final String DEBUG_DESTINATION = "debug_to__console_path";
@@ -568,7 +568,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
          <li><a href="{@docRoot}/../${jd_project_codelet_config_dir}/default_templates/file_text.txt">{@code {@.file.textlet}}</a></li>
       </ul>These links assume the default template directory is &quot;{@code {@docRoot}/../${jd_project_codelet_config_dir}/default_templates/}&quot;</p>
 
-    * @see  <code><a href="#tmpl_defaults"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></code>
+    * @see  <code><a href="#tmpl_defaults"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #DEFAULT_SRC_CODE_TMPL_PATH
     * @see  #DEFAULT_DOT_OUT_TMPL_PATH
     * @see  #DEFAULT_FILE_TEXT_TMPL_PATH
@@ -580,7 +580,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
    /**
       <p>Path to the default {@linkplain type.SourceCodeTemplate template} used for (source-code) {@link CodeletType#SOURCE_CODE {@.codelet}} taglets--Name is {@code "default_source_codelet_template_path"}.</p>
 
-    * @see  <code><a href="#tmpl_defaults"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></code>
+    * @see  <code><a href="#tmpl_defaults"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #DEFAULT_TPML_DIR_PREFIX
     * @see  #getDefaultSourceCodeTemplatePath()
     */
@@ -588,7 +588,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
    /**
       <p>Path to the default {@linkplain type.ConsoleOutTemplate template} used for {@link CodeletType#CONSOLE_OUT {@.codelet.out}} taglets--Name is {@code "default_dot_out_template_path"}.</p>
 
-    * @see  <code><a href="#tmpl_defaults"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></code>
+    * @see  <code><a href="#tmpl_defaults"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #DEFAULT_TPML_DIR_PREFIX
     * @see  #getDefaultConsoleOutTemplatePath()
     */
@@ -596,7 +596,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
    /**
       <p>Path to the default {@linkplain type.SourceAndOutTemplate template} used for {@link CodeletType#SOURCE_AND_OUT {@.codelet.and.out}} taglets--Name is {@code "default_and_out_template_path"}.</p>
 
-    * @see  <code><a href="#tmpl_defaults"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></code>
+    * @see  <code><a href="#tmpl_defaults"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #DEFAULT_TPML_DIR_PREFIX
     * @see  #getDefaultSourceAndOutTemplatePath()
     */
@@ -604,7 +604,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
    /**
       <p>Path to the default {@linkplain type.FileTextTemplate template} used for {@link CodeletType#FILE_TEXT {@.file.textlet}} taglets--Name is {@code "default_file_textlet_template_path"}.</p>
 
-    * @see  <code><a href="#tmpl_defaults"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></code>
+    * @see  <code><a href="#tmpl_defaults"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #DEFAULT_TPML_DIR_PREFIX
     * @see  #getDefaultFileTextTemplatePath()
     */
@@ -614,7 +614,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
 
       <p>When provided, the class it represents must {@linkplain java.lang.Class#forName(String) exist}, implement {@link com.github.aliteralmind.codelet.alter.DefaultAlterGetter}, and have a no-parameter constructor. When not provided (equal to the empty-string {@code ""}), {@link DefaultDefaultAlterGetter} is used.</p>
 
-    * @see  <code><a href="#base_dirs_other"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></a></code>
+    * @see  <code><a href="#base_dirs_other"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #getDefaultAlterGetter()
     */
    public static final String DEFAULT_ALTERERS_CLASS_NAME = "default_alterers_class_name";
@@ -624,7 +624,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
 
       <p>If not provided, defaults to <code>{@link com.github.aliteralmind.templatefeather.GapCharConfig GapCharConfig}.{@link com.github.aliteralmind.templatefeather.GapCharConfig#DEFAULT_PREFIX_CHAR DEFAULT_PREFIX_CHAR}</code></p>
 
-    * @see  <code><a href="#tmpl_gaps"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></code>
+    * @see  <code><a href="#tmpl_gaps"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #GAP_NAME_POSTFIX_CHAR
     * @see  #GAP_NAME_LITERAL_PREFIX
     * @see  #getGapCharConfig()
@@ -635,7 +635,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
 
       <p>If not provided, defaults to <code>{@link com.github.aliteralmind.templatefeather.GapCharConfig GapCharConfig}.{@link com.github.aliteralmind.templatefeather.GapCharConfig#DEFAULT_POSTFIX_CHAR DEFAULT_PREFIX_CHAR}</code></p>
 
-    * @see  <code><a href="#tmpl_gaps"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></code>
+    * @see  <code><a href="#tmpl_gaps"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #GAP_NAME_PREFIX_CHAR
     * @see  #GAP_NAME_LITERAL_POSTFIX
     * @see  #getGapCharConfig()
@@ -646,7 +646,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
 
       <p>If not provided, defaults to <code>{@link com.github.aliteralmind.templatefeather.GapCharConfig GapCharConfig}.{@link com.github.aliteralmind.templatefeather.GapCharConfig#DEFAULT_LITERAL_PREFIX DEFAULT_LITERAL_PREFIX}</code></p>
 
-    * @see  <code><a href="#tmpl_gaps"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></code>
+    * @see  <code><a href="#tmpl_gaps"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #GAP_NAME_PREFIX_CHAR
     * @see  #GAP_NAME_LITERAL_POSTFIX
     * @see  #getGapCharConfig()
@@ -657,7 +657,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
 
       <p>If not provided, defaults to <code>{@link com.github.aliteralmind.templatefeather.GapCharConfig GapCharConfig}.{@link com.github.aliteralmind.templatefeather.GapCharConfig#DEFAULT_LITERAL_PREFIX DEFAULT_LITERAL_PREFIX}</code></p>
 
-    * @see  <code><a href="#tmpl_gaps"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></code>
+    * @see  <code><a href="#tmpl_gaps"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #GAP_NAME_POSTFIX_CHAR
     * @see  #GAP_NAME_LITERAL_PREFIX
     * @see  #getGapCharConfig()
@@ -668,7 +668,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
 
       <p>If there are no extra gaps, set this to the empty-string. Otherwise, the class it represents must {@linkplain java.lang.Class#forName(String) exist}, implement {@link UserExtraGapGetter}, and have a no-parameter constructor.</p>
 
-    * @see  <code><a href="#tmpl_gaps"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></code>
+    * @see  <code><a href="#tmpl_gaps"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #DEFAULT_TPML_DIR_PREFIX
     * @see  #getUserExtraGapsClassName()
     */
@@ -678,7 +678,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
 
       <p>This is optional and not validated in any way. Its value may include the &quot;{@link #BASE_DIR_BASE_DIR base_dir_base_dir}&quot;.</p>
 
-    * @see  <code><a href="#tmpl_gaps"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a></code>
+    * @see  <code><a href="#tmpl_gaps"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a></code>
     * @see  #getCustomTemplateDir()
     */
    public static final String USER_TEMPLATE_BASE_DIR = "user_template_base_dir";
@@ -718,7 +718,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
          debugln("      Loading debug level config file...");
       }
 
-      //Named debuggers cannet be used until the named-level map is created!
+      //Named debuggers cannot be used until the named-level map is created!
 
       int namedDebugLevelsRqd = 0;
       Map<String,DebugLevel> rqdDbgLevelNameMap = NamedDebuggers.
@@ -727,10 +727,12 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
          null);    //debug
       namedDebugLevelsRqd = rqdDbgLevelNameMap.size();
 
+debugln("1");
       namedDebugLevels = new NamedDebuggers(rqdDbgLevelNameMap,
          debugLevels_configLineItr,
          "rqdDbgLevelNameMap",
          null);    //debug
+      debugln("2");
 
       //NOW named debuggers can be used.
 
@@ -738,19 +740,25 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
          debugln("All named debuggers:" + MapUtil.toString(namedDebugLevels.getMap(), null));
       }
 
+      debugln("3");
       namedDebugLevels.setAllQueriesDebug(
          getDebugApblIfOn(null, "zzconfiguration.nameddebuglevels.eachquery"));
 
+      debugln("4");
       String baseDirBaseRplcmntQuoted = Matcher.quoteReplacement(props.getProperty(BASE_DIR_BASE_DIR, ""));
 
+      debugln("5");
       xmplSrcBaseDir = get1stDollarBASERplcd(
          props.getProperty(EXAMPLE_CLASS_SRC_BASE_DIR, ""),
          baseDirBaseRplcmntQuoted);
+      debugln("6");
       String enclosingBaseDirPropVal = props.getProperty(ENCLOSING_CLASS_SRC_BASE_DIRS, "");
       enclosingBaseDirs = null;
+      debugln("7");
       if(enclosingBaseDirPropVal.length() == 0)  {
          throw  new IllegalArgumentException("No values for " + ENCLOSING_CLASS_SRC_BASE_DIRS + ". At least one required.");
       }  else  {
+         debugln("8");
          enclosingBaseDirs = enclosingBaseDirPropVal.split(",");
          for(int i = 0; i < enclosingBaseDirs.length; i++)  {
             enclosingBaseDirs[i] = get1stDollarBASERplcd(
@@ -760,9 +768,11 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
                "Element " + i + " in " + ENCLOSING_CLASS_SRC_BASE_DIRS);
          }
       }
+      debugln("9");
       enclosingBaseDirList = Collections.unmodifiableList(Arrays.asList(enclosingBaseDirs));
 
       char gapNamePreChar = PropertiesUtil.getWithEmptyDefault(props, GAP_NAME_PREFIX_CHAR, Empty.OK, GapCharConfig.DEFAULT_PREFIX_CHAR);
+      debugln("10");
       char gapNamePostChar = PropertiesUtil.getWithEmptyDefault(props, GAP_NAME_POSTFIX_CHAR, Empty.OK, GapCharConfig.DEFAULT_POSTFIX_CHAR);
       String gapLiteralPre = props.getProperty(GAP_NAME_LITERAL_PREFIX, GapCharConfig.DEFAULT_LITERAL_PREFIX);
       String gapLiteralPost = props.getProperty(GAP_NAME_LITERAL_POSTFIX, GapCharConfig.DEFAULT_LITERAL_POSTFIX);
@@ -923,8 +933,8 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
       <p>This<ol>
          <li>Calls <code>System.out.println(message);</code></li>
          <li>If debugging is both {@linkplain #isDebugOn(CodeletInstance) on} and <i>not</i> {@linkplain #doDebugToConsole() to the console}, this also calls
-         <br/> &nbsp; &nbsp; {@link #debugln(Object) debugln}{@code (message)}</li>
-      </ol></p>
+         <br> &nbsp; &nbsp; {@link #debugln(Object) debugln}{@code (message)}</li>
+      </ol>
 
     * @param  message  <i>Should</i> not be {@code null} or empty.
     * @see  #debugAndToConsole(CodeletInstance, Object)
@@ -941,8 +951,8 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
       <p>This<ol>
          <li>Calls <code>System.out.print(message);</code></li>
          <li>If debugging is both {@linkplain #isDebugOn(CodeletInstance) on} and <i>not</i> {@linkplain #doDebugToConsole() to the console}, this also calls
-         <br/> &nbsp; &nbsp; {@link #debug(Object) debug}{@code (message)}</li>
-      </ol></p>
+         <br> &nbsp; &nbsp; {@link #debug(Object) debug}{@code (message)}</li>
+      </ol>
 
     * @param  message  <i>Should</i> not be {@code null} or empty.
     * @see  #debuglnAndToConsole(CodeletInstance, Object)
@@ -957,7 +967,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
       <p>Write a message to the debugging output.</p>
 
     * <p>Equal to
-      <br/> &nbsp; &nbsp; <code>{@link #getDebugAptr() getDebugAptr}().{@link com.github.xbn.io.TextAppenter#appent(Object) appent}(message)</code></p>
+      <br> &nbsp; &nbsp; <code>{@link #getDebugAptr() getDebugAptr}().{@link com.github.xbn.io.TextAppenter#appent(Object) appent}(message)</code></p>
 
     * @see  #debugln(Object)
     */
@@ -968,7 +978,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
       <p>Write a message to the debugging output.</p>
 
     * <p>Equal to
-      <br/> &nbsp; &nbsp; <code>{@link #getDebugAptr() getDebugAptr}().{@link com.github.xbn.io.TextAppenter#appentln(Object) appentln}(message)</code></p>
+      <br> &nbsp; &nbsp; <code>{@link #getDebugAptr() getDebugAptr}().{@link com.github.xbn.io.TextAppenter#appentln(Object) appentln}(message)</code></p>
 
     * @see  #debug(Object)
     */
@@ -1099,7 +1109,7 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
 
     * @param  instance  May be {@code null}.
     * @return  <code>{@link #getNamedDebuggers() getNamedDebuggers}().{@link com.github.aliteralmind.codelet.util.NamedDebuggers#isActive(String, DebugLevel, DebugLevel...) isActive}(name,
-      <br/> &nbsp; &nbsp; {@link #getGlobalDebugLevel() getGlobalDebugLevel}(), instance.{@link CodeletInstance#getDebugLevel() getDebugLevel}()</code>
+      <br> &nbsp; &nbsp; {@link #getGlobalDebugLevel() getGlobalDebugLevel}(), instance.{@link CodeletInstance#getDebugLevel() getDebugLevel}()</code>
     * @see  #getDebugApblIfOn(CodeletInstance, String)
     * @see  #getDebugAptrIfOn(CodeletInstance, String)
     */
@@ -1112,8 +1122,8 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
 
     * @param  instance  May be {@code null}.
     * @return  <code>{@link #getNamedDebuggers() getNamedDebuggers}().{@link com.github.aliteralmind.codelet.util.NamedDebuggers#getAppendableIfActive(String, TextAppenter, DebugLevel, DebugLevel...) getAppendableIfActive}(name,
-      <br/> &nbsp; &nbsp; {@link #getDebugAptr() getDebugAptr}(), {@link #getGlobalDebugLevel() getGlobalDebugLevel}(),
-      <br/> &nbsp; &nbsp; instance.{@link CodeletInstance#getDebugLevel() getDebugLevel}()</code>
+      <br> &nbsp; &nbsp; {@link #getDebugAptr() getDebugAptr}(), {@link #getGlobalDebugLevel() getGlobalDebugLevel}(),
+      <br> &nbsp; &nbsp; instance.{@link CodeletInstance#getDebugLevel() getDebugLevel}()</code>
     * @see  #getDebugAptrIfOn(CodeletInstance, String)
     */
    public static final Appendable getDebugApblIfOn(CodeletInstance instance, String name)  {
@@ -1126,8 +1136,8 @@ C:\java_code\src\com\github\xbn\examples\test\UnitTest_AClass.java</pre></blockq
 
     * @param  instance  May be {@code null}.
     * @return  <code>{@link #getNamedDebuggers() getNamedDebuggers}().{@link com.github.aliteralmind.codelet.util.NamedDebuggers#getAppenterIfActive(String, TextAppenter, DebugLevel, DebugLevel...) getAppenterIfActive}(name,
-      <br/> &nbsp; &nbsp; {@link #getDebugAptr() getDebugAptr}(),
-      <br/> &nbsp; &nbsp; {@link #getGlobalDebugLevel() getGlobalDebugLevel}(), instance.{@link CodeletInstance#getDebugLevel() getDebugLevel}()</code>
+      <br> &nbsp; &nbsp; {@link #getDebugAptr() getDebugAptr}(),
+      <br> &nbsp; &nbsp; {@link #getGlobalDebugLevel() getGlobalDebugLevel}(), instance.{@link CodeletInstance#getDebugLevel() getDebugLevel}()</code>
     * @see  #getDebugAptrIfOn(CodeletInstance, String)
     */
    public static final TextAppenter getDebugAptrIfOn(CodeletInstance instance, String name)  {

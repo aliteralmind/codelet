@@ -27,13 +27,13 @@ package  com.github.aliteralmind.codelet.type;
 /**
    <p>The text into which {@code {@.codelet}} output (the example-code's source) is placed.</p>
 
-   <A NAME="gaps"></a><h2><a href="{@docRoot}/overview-summary.html#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: {@code {@.codelet}}: Template: <u>Gap names</u></h2>
+   <A NAME="gaps"></a><h2><a href="{@docRoot}/overview-summary.html#overview_description"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a> &nbsp; Codelet: {@code {@.codelet}}: Template: <u>Gap names</u></h2>
 
    <p>The only required gap is &quot;{@link #BODY_GAP_NAME body}&quot;, which is where the fully-processed source-code is placed.</p>
 
    <p>In addition to any {@linkplain com.github.aliteralmind.codelet.UserExtraGapGetter#getForCodeletDotOut() user-extra} gaps, the {@code {@.codelet}} template also provides for the following &quot;default&quot; optional gaps:</p>
 
-   <p><TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
+   <TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
       <TD><b><u>Name</u></b></TD>
       <TD><b><u>Description</u></b></TD>
    </TR><TR>
@@ -48,7 +48,7 @@ package  com.github.aliteralmind.codelet.type;
    </TR><TR>
       <TD>{@link com.github.aliteralmind.codelet.type.SourceCodeTemplate#GAP_PACKAGE package}*</TD>
       <TD>The example code's package name.</TD>
-   </TR></TABLE></p>
+   </TR></TABLE>
 
  * @since  0.1.0
  * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://codelet.aliteralmind.com">{@code http://codelet.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/codelet">{@code https://github.com/aliteralmind/codelet}</a>
@@ -62,7 +62,7 @@ public class ConsoleOutTemplate extends OnlyOneBodyGapTemplateBase  {
 
 <blockquote><pre>................</pre></blockquote>
 
-    * @see  <a href="#gaps"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a>
+    * @see  <a href="#gaps"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a>
     */
    public static final CodeletGap GAP_COMMAND_LINE_PARAMS = new CmdLineParamsGap();
    /**

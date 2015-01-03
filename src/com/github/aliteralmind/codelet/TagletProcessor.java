@@ -41,7 +41,7 @@ public class TagletProcessor  {
             <li>{@link com.github.aliteralmind.codelet.type.FileTextProcessor#FileTextProcessor(CodeletInstance) FileTextProcessor}</li>
             <li>{@link com.github.aliteralmind.codelet.type.SourceAndOutProcessor#SourceAndOutProcessor(CodeletInstance) SourceAndOutProcessor}</li>
          </ul>and sets {@code get()} to its {@linkplain TagletOfTypeProcessor#getFullyCustomizedOutput() fully-customized text}.</li>
-      </ol></p>
+      </ol>
 
     * @param  instance  May not be {@code null}.
     * @exception  IllegalStateException  If {@code instance} is of an unknown type (this is protection against a new type being added).

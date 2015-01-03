@@ -14,7 +14,7 @@
 \*license*/
 package  com.github.aliteralmind.codelet.examples;
 /**
-   <P style="font-size: 150%;"><b><a href="{@docRoot}/overview-summary.html#xmpl_hello"><FONT SIZE="+1"><code><IMG SRC="{@docRoot}/resources/left_arrow.gif"/> GO BACK</code></FONT></a> &nbsp; &nbsp; Codelet: Example: <u>Hello Codelet!</u> A basic use</b></p>
+   <P style="font-size: 150%;"><b><a href="{@docRoot}/overview-summary.html#xmpl_hello"><FONT SIZE="+1"><code><img src="{@docRoot}/resources/left_arrow.gif"> GO BACK</code></FONT></a> &nbsp; &nbsp; Codelet: Example: <u>Hello Codelet!</u> A basic use</b></p>
 
    <h3><u>Taglet:</u></h3>
 

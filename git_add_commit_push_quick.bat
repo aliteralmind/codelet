@@ -1,1 +1,1 @@
-call git_add_commit_push.bat %1 "Quick save (no message)"
+call git_add_commit_push_master.bat "Quick save (no message): %DATE:/=-%__%TIME::=_%\""

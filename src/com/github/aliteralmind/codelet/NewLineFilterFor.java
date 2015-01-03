@@ -72,7 +72,7 @@ public class NewLineFilterFor  {
 
     * @param  doDelete_pkgDecl  If {@code true}, the package declaration line is eliminated. If {@code false}, the alterer is not created ({@code line()} is not called, and both {@code dbgPkgLnValidFilter_ifNonNull} and {@code dbgPkgLnVldtr_ifNonNull} are ignored). At least one boolean parameter must be {@code true}.
     * @param  doElim_multiLineCmts  If {@code true}, all multi-line comments are deleted. If {@code false}, {@code allJavaMultiLineComments} is not called (and {@code dbgJavaMlcs_ifNotNull} is ignored). Warning: This eliminates <i>entire lines</i>, including any text that happens to be outside of the block:
-      <br/> &nbsp; &nbsp; <code>This text will also be eliminated  /&#42; The start of a comment...</code>)
+      <br> &nbsp; &nbsp; <code>This text will also be eliminated  /&#42; The start of a comment...</code>)
     * @see  #eliminateAllCmtBlocksAndPackageLine(CodeletInstance, String, boolean, boolean) eliminateAllCmtBlocksAndPackageLine(CodeletInstance, String, *)
     * @see  #eliminateAllMultiLineComments(Appendable, Appendable) eliminateAllMultiLineComments
     * @see  #eliminatePackageLine(Appendable, Appendable, Appendable) eliminatePackageLine

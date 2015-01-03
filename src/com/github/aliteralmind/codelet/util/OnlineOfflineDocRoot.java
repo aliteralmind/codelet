@@ -158,13 +158,13 @@ public class OnlineOfflineDocRoot extends SimpleNamed  {
       <p>Create a new instance from an online {@code package-list}.</p>
 
     * @param  refresh_offline  If {@link com.github.aliteralmind.codelet.util.RefreshOffline#YES YES}, then this ends by calling
-      <br/> &nbsp; &nbsp; <code><i>[the-new-OnlineOfflineDocRoot]</i>.{@link #refreshOffline(Appendable, Appendable) refreshOffline}(debug_ifNonNull, dbgError_ifNonNull)</code>
-      <br/>This parameter may not be {@code null}.
+      <br> &nbsp; &nbsp; <code><i>[the-new-OnlineOfflineDocRoot]</i>.{@link #refreshOffline(Appendable, Appendable) refreshOffline}(debug_ifNonNull, dbgError_ifNonNull)</code>
+      <br>This parameter may not be {@code null}.
     * @return  <code>new {@link #OnlineOfflineDocRoot(String, String, String, List) OnlineOfflineDocRoot}(url_toDocRoot, offline_path,
-      <br/> &nbsp; &nbsp; {@link #newPackageListFromOnline(String, int, long, IfError, Appendable, Appendable) newPackageListFromOnline}(offline_path,
-      <br/> &nbsp; &nbsp; &nbsp; &nbsp; error_attemptCount, error_sleepMills, if_error, debug_ifNonNull, dbgError_ifNonNull))</code>
-      <br/>If the package list cannot be retrieved, and {@code if_error.}{@code com.github.xbn.util.IfError#WARN WARN}, this returns {@code null}.
-      <br/> &nbsp; &nbsp;
+      <br> &nbsp; &nbsp; {@link #newPackageListFromOnline(String, int, long, IfError, Appendable, Appendable) newPackageListFromOnline}(offline_path,
+      <br> &nbsp; &nbsp; &nbsp; &nbsp; error_attemptCount, error_sleepMills, if_error, debug_ifNonNull, dbgError_ifNonNull))</code>
+      <br>If the package list cannot be retrieved, and {@code if_error.}{@code com.github.xbn.util.IfError#WARN WARN}, this returns {@code null}.
+      <br> &nbsp; &nbsp;
     * @see  #newFromOffline(String, String, String, Appendable, Appendable) newFromOffline
     */
    public static final OnlineOfflineDocRoot newFromOnline(String name, String url_toDocRoot, String offline_path, int error_attemptCount, long error_sleepMills, IfError if_error, RefreshOffline refresh_offline, Appendable debug_ifNonNull, Appendable dbgError_ifNonNull)  throws InterruptedException  {
@@ -188,7 +188,7 @@ public class OnlineOfflineDocRoot extends SimpleNamed  {
       <p>Create a new instance from an offline {@code package-list}.</p>
 
     * @return  <code>new {@link #OnlineOfflineDocRoot(String, String, String, List) OnlineOfflineDocRoot}(url_toDocRoot, offline_path,
-      <br/> &nbsp; &nbsp; {@link #newPackageListFromOffline(String, Appendable, Appendable) newPackageListFromOnline}(offline_path, if_error, debug_ifNonNull, dbgError_ifNonNull))</code>
+      <br> &nbsp; &nbsp; {@link #newPackageListFromOffline(String, Appendable, Appendable) newPackageListFromOnline}(offline_path, if_error, debug_ifNonNull, dbgError_ifNonNull))</code>
     * @see  #newFromOnline(String, String, String, int, long, IfError, RefreshOffline, Appendable, Appendable) newFromOnline
     */
    public static final OnlineOfflineDocRoot newFromOffline(String name, String url_toDocRoot, String offline_path, Appendable debug_ifNonNull, Appendable dbgError_ifNonNull)  {

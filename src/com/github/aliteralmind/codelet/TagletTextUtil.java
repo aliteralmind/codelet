@@ -124,15 +124,15 @@ public class TagletTextUtil  {
       <p>Example input<ol>
          <li>{@linkplain #getExampleClassFQName(CodeletInstance) fully-qualified class name}: {@code "fully.qualified.examples.AnExample"}</li>
          <li>{@linkplain CodeletBaseConfig#getExampleSourceBaseDir() Base-directory}: {@code "C:\java_code\"}</li>
-      </ol></p>
+      </ol>
 
       <p>Output</p>
 
       <p>{@code "C:\java_code\fully\qualified\examples\AnExample.java"}</p>
 
     * @return  <code>{@link com.github.aliteralmind.codelet.CodeletBaseConfig}.{@link com.github.aliteralmind.codelet.CodeletBaseConfig#getExampleSourceBaseDir() getExampleSourceBaseDir}() +
-      <br/> &nbsp; &nbsp; {@link #getExampleClassFQName(CodeletInstance) getExampleClassFQName}(instance).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, {@link com.github.xbn.lang.XbnConstants#FILE_SEP FILE_SEP}*) +
-      <br/> &nbsp; &nbsp; &quot;.java&quot;</code>
+      <br> &nbsp; &nbsp; {@link #getExampleClassFQName(CodeletInstance) getExampleClassFQName}(instance).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, {@link com.github.xbn.lang.XbnConstants#FILE_SEP FILE_SEP}*) +
+      <br> &nbsp; &nbsp; &quot;.java&quot;</code>
     */
    public static final String getJavaSourceFilePath(CodeletInstance instance)  {
       return  getExampleSourceBaseDir() +
@@ -144,7 +144,7 @@ public class TagletTextUtil  {
 
       <p>Example input:<ol>
          <li>Example code's {@linkplain #getExampleClassFQName(CodeletInstance) fully-qualified class name}: {@code "fully.qualified.examples.AnExample"}</li>
-      </ol></p>
+      </ol>
 
       <p>Output:</p>
 
@@ -155,8 +155,8 @@ public class TagletTextUtil  {
       <p><code>{@link #getJavaDocSourceUrl(CodeletInstance) getJavaDocSourceUrl}(<i>[the-instance]</i>)</code></p>
 
     * @return  <code>&quot;{@docRoot}/src-html/&quot; +
-      <br/> &nbsp; &nbsp; {@link #getExampleClassFQName(CodeletInstance) getExampleClassFQName}(instance).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, &quot;/&quot;) +
-      <br/> &nbsp; &nbsp; &quot;.html&quot;</code>
+      <br> &nbsp; &nbsp; {@link #getExampleClassFQName(CodeletInstance) getExampleClassFQName}(instance).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, &quot;/&quot;) +
+      <br> &nbsp; &nbsp; &quot;.html&quot;</code>
     * @see  #getJavaDocExampleUrl(CodeletInstance)
     */
    public static final String getJavaDocSourceUrl(CodeletInstance instance)  {
@@ -174,7 +174,7 @@ public class TagletTextUtil  {
 
       <p>Example input:<ol>
          <li>Example code's {@linkplain #getExampleClassFQName(CodeletInstance) fully-qualified class name}: {@code "fully.qualified.examples.AnExample"}</li>
-      </ol></p>
+      </ol>
 
       <p>Output:</p>
 
@@ -185,8 +185,8 @@ public class TagletTextUtil  {
       <p><code>{@link #getJavaDocSourceUrl(CodeletInstance) getJavaDocSourceUrl}(<i>[the-instance]</i>)</code></p>
 
     * @return  <code>&quot;{@docRoot}&quot; +
-      <br/> &nbsp; &nbsp; {@link #getExampleClassFQName(CodeletInstance) getExampleClassFQName}(instance).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, &quot;/&quot;) +
-      <br/> &nbsp; &nbsp; &quot;.html&quot;</code>
+      <br> &nbsp; &nbsp; {@link #getExampleClassFQName(CodeletInstance) getExampleClassFQName}(instance).{@link java.lang.String#replace(CharSequence, CharSequence) replace}(&quot;.&quot;, &quot;/&quot;) +
+      <br> &nbsp; &nbsp; &quot;.html&quot;</code>
     * @see  #getJavaDocSourceUrl(CodeletInstance)
     */
    public static final String getJavaDocExampleUrl(CodeletInstance instance)  {

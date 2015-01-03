@@ -202,7 +202,7 @@ public class FileTextProcessor extends TagletOfTypeProcessor<FileTextTemplate>  
       <p>This follows the same steps as {@link com.github.aliteralmind.codelet.TagletOfTypeProcessor#getStringSignature() getStringSignature}, except<ul>
          <li>The customizer portion of the taglet, when provided, must contain either an underscore ({@code '_'}) postfix or the processor's full function name.</li>
          <li>The {@linkplain com.github.aliteralmind.codelet.CodeletType#getDefaultLineProcNamePrefix() default function name prefix} is {@code "getFileTextConfig_"}</li>
-      </ul></p>
+      </ul>
 
     * @exception  CodeletFormatException  If no function name or underscore-postfix is provided.
     */

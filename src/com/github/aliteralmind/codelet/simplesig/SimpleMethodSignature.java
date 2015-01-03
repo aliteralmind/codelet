@@ -73,7 +73,7 @@ public class SimpleMethodSignature  {
          <li><b><code>className2</code>:</b> The class name existing in package <code>default_package</code> (parameter in {@code newFromStringAndDefaults}). <i>When non-{@code null}, <code>default_package</code> must be {@code null}. When both this and <code>className1</code> are {@code null}</i>, <code>default_classesInOrder</code> must be non-{@code null}.</li>
          <li><b><code>funcName</code>:</b> Always non-null.</li>
          <li><b><code>params</code>:</b> Always non-null, but may be the empty-string.</li>
-      </ul></p>
+      </ul>
 
     * @see  com.github.xbn.util.JavaRegexes#IDENTIFIER JavaRegexes#IDENTIFIER
     * @see  com.github.xbn.util.JavaRegexes#PACKAGE_NAME JavaRegexes#PACKAGE_NAME
@@ -309,7 +309,7 @@ public class SimpleMethodSignature  {
    }
    /**
       <p>Splits a string-signature into its parts. An example string-signature is
-      <br/> &nbsp; &nbsp; {@code "ClassName#functionName(\"parameter\", \"list\", 1, (byte)-3, true)"}</p>
+      <br> &nbsp; &nbsp; {@code "ClassName#functionName(\"parameter\", \"list\", 1, (byte)-3, true)"}</p>
 
       <h3>Format requirements</h3>
 
@@ -428,7 +428,7 @@ public class SimpleMethodSignature  {
       <p>Get the objects from the string-representation of a function's parameter list.</p>
 
     * @param  commaSep_varList  May not be {@code null}, each element must be separated by a <i>comma-space</i> ({@code ", "}), and each element must be formatted as required by {@link #getObjectFromString(String) getObjectFromString}{@code (s)}. Example value:
-      <br/> &nbsp; &nbsp; &nbsp; &nbsp; <code>&quot;\&quot;parameter\&quot;, \&quot;list\&quot;, 1, (byte)-3, true&quot;</code>
+      <br> &nbsp; &nbsp; &nbsp; &nbsp; <code>&quot;\&quot;parameter\&quot;, \&quot;list\&quot;, 1, (byte)-3, true&quot;</code>
     * @return  A list of objects, where each element is the object represented by the corresponding element in {@code commaSep_varList}, in the same order as the exist in the string.
     * @see  <code><!-- GENERIC PARAMETERS FAIL IN @link --><a href="http://aliteralmind.com/docs/computer/programming/xbnjava/xbnjava-0.1.5/documentation/javadoc/com/github/xbn/lang/reflect/ReflectRtxUtil.html#getClassArrayFromObjects(O[])">getClassArrayFromObjects</a></code>
     * @see  #newFromStringAndDefaults(Class, Object, String, Class[], Appendable) newFromStringAndDefaults(cls,s,s,cls[])
@@ -471,7 +471,7 @@ public class SimpleMethodSignature  {
 
    	@param  var_asString  May not be {@code null} or empty, and must conform to the following:
 
-   	<p><TABLE ALIGN="center" WIDTH="100%" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
+   	<TABLE ALIGN="center" WIDTH="100%" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
    		<TD><b><u>Type</u></b></TD>
    		<TD><b><u>Examples</u></b></TD>
    		<TD><b><u>Notes</u></b></TD>
@@ -511,7 +511,7 @@ public class SimpleMethodSignature  {
    		<TD><b>{@link java.lang.String String}</b></TD>
    		<TD>{@code "Hello there!"}</TD>
    		<TD>Must be non-{@code null}, surrounded by double-quotes, and may not contain a comma ({@code ','}), double-quote ({@code '"'}), or ampersand ({@code '&amp;'}). When these characters are needed, use their respective html entity codes: {@code "&amp;#44;"}, {@code "&amp;quot"}, and {@code "&amp;amp;"}.</TD>
-   	</TR></TABLE></p>
+   	</TR></TABLE>
     **/
    public static final Object getObjectFromString(String var_asString)  {
       //Remaining possibilites: BOOLEAN, CHAR, BYTE, SHORT, INT, LONG, FLOAT, DOUBLE, STRING

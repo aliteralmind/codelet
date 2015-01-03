@@ -27,7 +27,7 @@ package  com.github.aliteralmind.codelet.examples.non_xbn;
    <p><code>java com.github.codelet.examples.non_xbn.PrintJDBlocksStartStopLineNumsXmpl xbnjava\xbn\examples\<!--escape-u is illegal-->util\PrintJDBlocksStartStopLineNumsXmpl.java</code></p>
 
    <p>Self-answered question on stackoverflow.com
-   <br/> &nbsp; &nbsp; <code><a href="http://stackoverflow.com/questions/21312336/how-to-detect-each-javadoc-block-start-and-end-line-in-a-source-code-file">http://stackoverflow.com/questions/21312336/how-to-detect-each-javadoc-block-start-and-end-line-in-a-source-code-file</a></code></p>
+   <br> &nbsp; &nbsp; <code><a href="http://stackoverflow.com/questions/21312336/how-to-detect-each-javadoc-block-start-and-end-line-in-a-source-code-file">http://stackoverflow.com/questions/21312336/how-to-detect-each-javadoc-block-start-and-end-line-in-a-source-code-file</a></code></p>
 
  * @see  com.github.xbn.examples.text.line.FindJavaDocBlocksAndSLCmtsXmpl
  * @since  0.1.0

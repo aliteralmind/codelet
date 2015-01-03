@@ -40,7 +40,7 @@ public class ComSunJavaDocUtil  {
       <p>Steps<ol>
          <li>If a taglet with the name equal to <code>taglet.<!-- No package-list for Taglet --><a href="http://docs.oracle.com/javase/7/docs/jdk/api/javadoc/taglet/com/sun/tools/doclets/Taglet.html#getName()">getName</a>()</code> already exists in the map, remove it.</li>
          <li>{@code taglet} is <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html#put(K, V)">added</a> to the map, with its name as the key.</li>
-      </ol></p>
+      </ol>
 
     * @param  taglet  The taglet to register. May not be {@code null}.
     * @param map  The map to register this tag to. May not be {@code null}.
@@ -82,8 +82,8 @@ public class ComSunJavaDocUtil  {
       <p>Get the relative url whose value is equivalent to {@code {@docRoot}}. This is a generic (self-contained) version of {@link #getRelativeUrlToDocRoot(Tag) getRelativeUrlToDocRoot}--they both do the same thing.</p>
 
     * @return  <code>packageElementMtchr.reset({@link #getEnclosingPackageName(Tag) getEnclosingPackageName}(tag)).{@link java.util.regex.Matcher#replaceAll(String) replaceAll}(&quot;../&quot;)</code>
-      <br/>Where {@code packageElementMtchr} is initialized to
-      <br/> &nbsp; &nbsp; <code>Pattern.{@link java.util.regex.Pattern#compile(String) compile}(&quot;[\\p{L}_\\p{Sc}][\\p{L}\\p{N}_\\p{Sc}]*\\.?&quot;).{@link java.util.regex.Pattern#matcher(CharSequence) matcher}(&quot;&quot;)</code>
+      <br>Where {@code packageElementMtchr} is initialized to
+      <br> &nbsp; &nbsp; <code>Pattern.{@link java.util.regex.Pattern#compile(String) compile}(&quot;[\\p{L}_\\p{Sc}][\\p{L}\\p{N}_\\p{Sc}]*\\.?&quot;).{@link java.util.regex.Pattern#matcher(CharSequence) matcher}(&quot;&quot;)</code>
     * @see  <code><a href="http://stackoverflow.com/questions/4079268/custom-taglet-with-reference-to-docroot">http://stackoverflow.com/questions/4079268/custom-taglet-with-reference-to-docroot</a></code>
    public static final String getRelativeUrlToDocRootGeneric(Tag tag)  {
       return  packageElementMtchr.reset(getEnclosingPackageName(tag)).replaceAll("../");

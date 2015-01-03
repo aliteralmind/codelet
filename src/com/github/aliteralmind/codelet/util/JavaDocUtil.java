@@ -44,7 +44,7 @@ public class JavaDocUtil  {
 
     * @param  target  May not be {@code null}.
     * @return  <code>to_appendTo.append(url_toDocRoot).
-      <br/> &nbsp; &nbsp; append(target.{@link java.lang.Class#getName() getName}.replace(".", "/")).append(".html")</code>
+      <br> &nbsp; &nbsp; append(target.{@link java.lang.Class#getName() getName}.replace(".", "/")).append(".html")</code>
     * @see  #getUrlToClass(String, Class)
     */
    public static final StringBuilder appendUrlToClass(StringBuilder to_appendTo, String url_toDocRoot, Class<?> target)  {
@@ -132,7 +132,7 @@ public class JavaDocUtil  {
       <p>Append the url to a field.</p>
 
     * @return  <code>{@link #appendUrlToClass(StringBuilder, String, Class) appendUrlToClass}(to_appendTo, url_toDocRoot, target.{@link java.lang.reflect.Field#getDeclaringClass() getDeclaringClass}()).
-      <br/> &nbsp; &nbsp; append(&quot;#&quot;).append(target.{@link java.lang.reflect.Field#getName() Field#getName}())</code>
+      <br> &nbsp; &nbsp; append(&quot;#&quot;).append(target.{@link java.lang.reflect.Field#getName() Field#getName}())</code>
     * @see  #getUrlToField(String, Field)
     */
    public static final StringBuilder appendUrlToField(StringBuilder to_appendTo, String url_toDocRoot, Field target)  {
@@ -143,8 +143,8 @@ public class JavaDocUtil  {
       <p>Get the url from a link-source file's package to doc-root.</p>
 
     * @return  <code>packageElementMtchr.reset(package_containingLink).{@link java.util.regex.Matcher#replaceAll(String) replaceAll}(&quot;../&quot;)</code>
-      <br/>Where {@code packageElementMtchr} is initalized to
-      <br/> &nbsp; &nbsp; <code>{@link java.util.regex.Pattern Pattern}.{@link java.util.regex.Pattern#compile(String) compile}(JavaRegexes.IDENTIFIER + &quot;\\.?&quot;).{@link java.util.regex.Pattern#matcher(CharSequence) matcher}(&quot;&quot;)</code>
+      <br>Where {@code packageElementMtchr} is initalized to
+      <br> &nbsp; &nbsp; <code>{@link java.util.regex.Pattern Pattern}.{@link java.util.regex.Pattern#compile(String) compile}(JavaRegexes.IDENTIFIER + &quot;\\.?&quot;).{@link java.util.regex.Pattern#matcher(CharSequence) matcher}(&quot;&quot;)</code>
     */
    public static final String getRelativeUrlToDocRoot(String package_containingLink)  {
       return  packageElementMtchr.reset(package_containingLink).replaceAll("../");
@@ -157,8 +157,8 @@ public class JavaDocUtil  {
     * @param  url_toDocRoot  The url to {@code {@docRoot}} for the link target-file. Which must end with a slash {@code "/"}, and <i>should</i> not be {@code null}.. This is also the directory in which the {@code package-list} files exists. For local files, this is a relative directory (such as {@code "../../"}) otherwise this is the full url to the external doc-root directory.
     * @param  target  May not be {@code null}.
     * @return  <code>packageElementMtchr.reset(target.{@link java.lang.Class#getName() getName}()).{@link java.util.regex.Matcher#replaceAll(String) replaceAll}(&quot;../&quot;)</code>
-      <br/>Where {@code packageElementMtchr} is initalized to
-      <br/> &nbsp; &nbsp; <code>{@link java.util.regex.Pattern Pattern}.{@link java.util.regex.Pattern#compile(String, int) compile}(&quot;.&quot;, Pattern.{@link java.util.regex.Pattern#LITERAL LITERAL}).{@link java.util.regex.Pattern#matcher(CharSequence) matcher}(&quot;&quot;)</code>
+      <br>Where {@code packageElementMtchr} is initalized to
+      <br> &nbsp; &nbsp; <code>{@link java.util.regex.Pattern Pattern}.{@link java.util.regex.Pattern#compile(String, int) compile}(&quot;.&quot;, Pattern.{@link java.util.regex.Pattern#LITERAL LITERAL}).{@link java.util.regex.Pattern#matcher(CharSequence) matcher}(&quot;&quot;)</code>
     */
    public static final String getUrlToClassViaDocRoot(String url_toDocRoot, Class<?> target)  {
       try  {
@@ -251,7 +251,7 @@ public class JavaDocUtil  {
       urls in a string iterator.</p>
 
       <p>For each url-item in the iterator, this calls
-      <br/> &nbsp; &nbsp; <code>{@link #addPackageListToMapFromDocRootUrl(Map, String, Appendable, Appendable) addPackageListToMapFromDocRootUrl}(<i>[the-map]</i>, <i>[the-url]</i>, debugUrls_ifNonNull, debugPkgs_ifNonNull)</code></p>
+      <br> &nbsp; &nbsp; <code>{@link #addPackageListToMapFromDocRootUrl(Map, String, Appendable, Appendable) addPackageListToMapFromDocRootUrl}(<i>[the-map]</i>, <i>[the-url]</i>, debugUrls_ifNonNull, debugPkgs_ifNonNull)</code></p>
 
     * @param  url_toDocRoot  The url to {@code {@docRoot}} for the link target-file. Which must end with a slash {@code "/"}, and <i>should</i> not be {@code null}.. This is also the directory in which the {@code package-list} files exists. For local files, this is a relative directory (such as {@code "../../"}) otherwise this is the full url to the external doc-root directory.
     * @return  A new tree-map where each entry's key is a package, and each value is its doc-root url.
@@ -271,10 +271,10 @@ public class JavaDocUtil  {
       <p>Retrieve's the package-list from a url, and adds each package to a map.</p>
 
     * @return  <code>{@link #addPackageListToMap(Map, Iterator, String, Appendable, Appendable) addPackageListToMap}(package_docRootUrlMap,
-      <br/> &nbsp; &nbsp; {@link com.github.xbn.text.StringUtil}.{@link com.github.xbn.text.StringUtil#getLineIterator(Object) getLineIterator}(text), url_toDocRoot + &quot;package-list&quot;,
-      <br/> &nbsp; &nbsp; debugUrls_ifNonNull, debugPkgs_ifNonNull)</code>
-      <br/>Where {@code text} is
-      <br/> &nbsp; &nbsp; <code>{@link com.github.xbn.io.IOUtil}.{@link com.github.xbn.io.IOUtil#getWebPageSourceX(String, String) getWebPageSourceX}(url_toDocRoot, null)</code>
+      <br> &nbsp; &nbsp; {@link com.github.xbn.text.StringUtil}.{@link com.github.xbn.text.StringUtil#getLineIterator(Object) getLineIterator}(text), url_toDocRoot + &quot;package-list&quot;,
+      <br> &nbsp; &nbsp; debugUrls_ifNonNull, debugPkgs_ifNonNull)</code>
+      <br>Where {@code text} is
+      <br> &nbsp; &nbsp; <code>{@link com.github.xbn.io.IOUtil}.{@link com.github.xbn.io.IOUtil#getWebPageSourceX(String, String) getWebPageSourceX}(url_toDocRoot, null)</code>
    public static final void addPackageListToMapFromDocRootUrl(Map<String,String> package_docRootUrlMap, String url_toDocRoot, IfUrlInaccessible if_inaccessible, Appendable debugUrls_ifNonNull, Appendable debugPkgs_ifNonNull) throws MalformedURLException, IOException  {
       String text = null;
       try  {

@@ -51,13 +51,13 @@ com.github.smith.sub.package.AClass.java  FILE_TEXT      sub_packages\com_github
       <li><b>{@code [fully-qualified-JavaDoc-file-name]}:</b> The file or package to override.</li>
       <li><b>{@code [codelet-type]}:</b> The {@linkplain CodeletType type} of codelet to override. Must equal &quot;{@link com.github.aliteralmind.codelet.CodeletType#SOURCE_CODE SOURCE_CODE}&quot;, &quot;{@link com.github.aliteralmind.codelet.CodeletType#CONSOLE_OUT CONSOLE_OUT}&quot;, &quot;{@link com.github.aliteralmind.codelet.CodeletType#SOURCE_AND_OUT SOURCE_AND_OUT}&quot;, or &quot;{@link com.github.aliteralmind.codelet.CodeletType#FILE_TEXT FILE_TEXT}&quot;.</li>
       <li><b>{@code [relative-path-of-template-file]}:</b> The relative directory to the template file, as it exists in the user-template {@linkplain CodeletBaseConfig#USER_TEMPLATE_BASE_DIR base directory}.</li>
-   </ol></p>
+   </ol>
 
    <p>Lines may be indented, and any lines starting with a hash ({@code '#'}) are ignored. Empty lines are also ignored.</p>
 
    <p><b>Column one:</b> <u><i>{@code [fully-qualified-JavaDoc-file-name]}</i></u></p>
 
-   <p><TABLE ALIGN="center" WIDTH="100%" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
+   <TABLE ALIGN="center" WIDTH="100%" BORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#EEEEEE"><TR ALIGN="center" VALIGN="middle">
       <TD><u><b>Item type</b></u></TD>
       <TD><b><u>Example</u></b></TD>
       <TD><b><u>Description</u></b></TD>
@@ -68,7 +68,7 @@ com.github.smith.sub.package.AClass.java  FILE_TEXT      sub_packages\com_github
    </TR><TR>
       <TD>The package summary page</TD>
       <TD>{@code fully.qualified.package-info.java}
-      <br/>{@code fully.qualified.package-summary.html}</TD>
+      <br>{@code fully.qualified.package-summary.html}</TD>
       <TD>It's fully-qualified name, including postfix, as it is <i>read by</i> the {@code javadoc} application (use the name of its <i>source</i>-file).</TD>
    </TR><TR>
       <TD>The overview summary page</TD>
@@ -78,7 +78,7 @@ com.github.smith.sub.package.AClass.java  FILE_TEXT      sub_packages\com_github
       <TD>An entire package</TD>
       <TD>{@code fully.qualified}</TD>
       <TD>The fully qualified package name. This only overrides classes directly in this package. No sub-packages are affected.</TD>
-   </TR></TABLE></p>
+   </TR></TABLE>
 
    <p>If both a file and its package are overridden, the individual file's override always takes precedence.</p>
 
@@ -98,8 +98,8 @@ public enum TemplateOverrides  {
    	<p>YYY</p>
 
     * @exception  IllegalStateException  If
-      <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.CodeletTemplateConfig CodeletTemplateConfig}.{@link com.github.aliteralmind.codelet.CodeletTemplateConfig#wasLoaded() wasLoaded}</code>
-      <br/>is {@code false}, or {@link #wasLoaded() wasLoaded}{@code ()} is {@code true}.
+      <br> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.codelet.CodeletTemplateConfig CodeletTemplateConfig}.{@link com.github.aliteralmind.codelet.CodeletTemplateConfig#wasLoaded() wasLoaded}</code>
+      <br>is {@code false}, or {@link #wasLoaded() wasLoaded}{@code ()} is {@code true}.
     **/
    static final TemplateOverrides loadConfigGetInstance(Iterator<String> configFile_lineItr)  {
       if(!CodeletTemplateConfig.wasLoaded())  {

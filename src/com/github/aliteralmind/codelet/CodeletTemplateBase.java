@@ -36,7 +36,7 @@ package  com.github.aliteralmind.codelet;
 /**
    <p>What the fully-processed output (source-code, console output, or plain-file text) is put into--The rendered template is what actually replaces the codelet-taglet.</p>
 
-   <h2><a href="{@docRoot}/overview-summary.html#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Codelet: <u>Templates: Overview</u></h2>
+   <h2><a href="{@docRoot}/overview-summary.html#overview_description"><img src="{@docRoot}/resources/up_arrow.gif" alt="Up arrow"></a> &nbsp; Codelet: <u>Templates: Overview</u></h2>
 
    <p>Codelet templates have one or two required &quot;body&quot; gaps, where the fully-processed text (source-code, console output, or plain-file text) is placed. The {@code {@codelet.and.out}} template has two body gaps, the rest have one. Each template type defines &quot;<b>optional-default</b>&quot; gaps, which you may place in your templates at your discretion. &quot;<b>Extra user-created</b>&quot; gaps are permitted if {@linkplain CodeletBaseConfig#USER_EXTRA_GAPS_CLASS_NAME explicitely configured}.</p>
 
@@ -174,7 +174,7 @@ public abstract class CodeletTemplateBase extends SimpleDebuggable  {
       <p>This calls<ol>
          <li>{@link #CodeletTemplateBase(CodeletTemplateBase, FeatherTemplate, String) this}(to_copy, to_copy.getTemplate(), to_copy.getPath())</li>
          <li>{@link com.github.xbn.io.SimpleDebuggable#onIfNonNull(Appendable) onIfNonNull}{@code (debugDest_ifNonNull)}</li>
-      </ol></p>
+      </ol>
     */
    public CodeletTemplateBase(CodeletTemplateBase to_copy, Appendable debugDest_ifNonNull)  {
       this(to_copy,
@@ -307,7 +307,7 @@ public abstract class CodeletTemplateBase extends SimpleDebuggable  {
       <p>{@code zzCodeletTemplateBase.newTemplateFromPath.}<ul>
          <li>{@code loading}: &quot;Loading template from <i>[path]</i>...&quot;</li>
          <li>{@code templateparseandfill}: <code>{@link com.github.aliteralmind.templatefeather.FeatherTemplate}.</code>{@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#FeatherTemplate(String, GapCharConfig, Resettable, Appendable) constructor}</li>
-      </ul></p>
+      </ul>
 
     * @see  com.github.aliteralmind.codelet.type.SourceCodeTemplate#newFromPathAndUserExtraGaps(String, String, UserExtraGapGetter) SourceCodeTemplate#newFromPathAndUserExtraGaps
     * @see  com.github.aliteralmind.codelet.type.SourceAndOutTemplate#newFromPathAndUserExtraGaps(String, String, UserExtraGapGetter) SourceAndOutTemplate#newFromPathAndUserExtraGaps
